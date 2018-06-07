@@ -133,8 +133,8 @@ class Class16
 			}
 		}
 		anInt171++;
-		this.aClass27_Sub1_Sub1_1.anInt608 = anInt182 + 2;
-		this.aClass27_Sub1_Sub1_1.method388(-31566, i);
+		this.aClass27_Sub1_Sub1_1.position = anInt182 + 2;
+		this.aClass27_Sub1_Sub1_1.put(-31566, i);
 		if (i_6_ < 54)
 		{
 			method118(91, 92);
@@ -185,7 +185,7 @@ class Class16
 		if (this.aBool7)
 		{
 			this.aBool7 = false;
-			this.aClass27_Sub1_Sub1_1.anInt608 = 3;
+			this.aClass27_Sub1_Sub1_1.position = 3;
 			anInt182 = 0;
 			throw new IOException(this.aString9);
 		}
@@ -195,18 +195,18 @@ class Class16
 			if (anInt182 > 0)
 			{
 				anInt181 = 0;
-				method117(-121, 0, this.aClass27_Sub1_Sub1_1.aByteArray24, anInt182);
+				method117(-121, 0, this.aClass27_Sub1_Sub1_1.buffer, anInt182);
 			}
 			anInt182 = 0;
-			this.aClass27_Sub1_Sub1_1.anInt608 = 3;
+			this.aClass27_Sub1_Sub1_1.position = 3;
 		}
 	}
 
 	int method125(final int i, final Class27_Sub1_Sub1 class27_sub1_sub1)
 	{
 		anInt189++;
-		class27_sub1_sub1.anInt608 = i;
-		return method114(class27_sub1_sub1.aByteArray24, 124);
+		class27_sub1_sub1.position = i;
+		return method114(class27_sub1_sub1.buffer, 124);
 	}
 
 	void method126(final int i)
@@ -214,29 +214,29 @@ class Class16
 		anInt180++;
 		if (aClass7_2 != null)
 		{
-			final int i_9_ = ((this.aClass27_Sub1_Sub1_1.aByteArray24[anInt182 - -2]) & 0xff);
-			this.aClass27_Sub1_Sub1_1.aByteArray24[anInt182 + 2] = (byte) (aClass7_2.method47((byte) -106) + i_9_);
+			final int i_9_ = ((this.aClass27_Sub1_Sub1_1.buffer[anInt182 - -2]) & 0xff);
+			this.aClass27_Sub1_Sub1_1.buffer[anInt182 + 2] = (byte) (aClass7_2.method47((byte) -106) + i_9_);
 		}
-		final int i_10_ = ((this.aClass27_Sub1_Sub1_1.anInt608) - anInt182 - i);
+		final int i_10_ = ((this.aClass27_Sub1_Sub1_1.position) - anInt182 - i);
 		if (160 > i_10_)
 		{
-			this.aClass27_Sub1_Sub1_1.aByteArray24[anInt182] = (byte) i_10_;
-			this.aClass27_Sub1_Sub1_1.anInt608--;
-			this.aClass27_Sub1_Sub1_1.aByteArray24[anInt182
-			        + 1] = (this.aClass27_Sub1_Sub1_1.aByteArray24[this.aClass27_Sub1_Sub1_1.anInt608]);
+			this.aClass27_Sub1_Sub1_1.buffer[anInt182] = (byte) i_10_;
+			this.aClass27_Sub1_Sub1_1.position--;
+			this.aClass27_Sub1_Sub1_1.buffer[anInt182
+			        + 1] = (this.aClass27_Sub1_Sub1_1.buffer[this.aClass27_Sub1_Sub1_1.position]);
 		}
 		else
 		{
-			this.aClass27_Sub1_Sub1_1.aByteArray24[anInt182] = (byte) ((i_10_ / 256) + 160);
-			this.aClass27_Sub1_Sub1_1.aByteArray24[anInt182 - -1] = (byte) Class52.method378(i_10_, 255);
+			this.aClass27_Sub1_Sub1_1.buffer[anInt182] = (byte) ((i_10_ / 256) + 160);
+			this.aClass27_Sub1_Sub1_1.buffer[anInt182 - -1] = (byte) Class52.method378(i_10_, 255);
 		}
 		if (anInt177 <= 10000)
 		{
-			final int i_11_ = ((this.aClass27_Sub1_Sub1_1.aByteArray24[anInt182 - -2]) & 0xff);
+			final int i_11_ = ((this.aClass27_Sub1_Sub1_1.buffer[anInt182 - -2]) & 0xff);
 			Class22.anIntArray48[i_11_]++;
-			Class10.anIntArray25[i_11_] += (this.aClass27_Sub1_Sub1_1.anInt608) - anInt182;
+			Class10.anIntArray25[i_11_] += (this.aClass27_Sub1_Sub1_1.position) - anInt182;
 		}
-		anInt182 = (this.aClass27_Sub1_Sub1_1.anInt608);
+		anInt182 = (this.aClass27_Sub1_Sub1_1.position);
 	}
 
 	void method127(final int i, final int i_12_, final byte[] is, final int i_13_) throws IOException
@@ -274,7 +274,7 @@ class Class16
 		anInt182 = 0;
 		this.anInt192 = 0;
 		this.aClass27_Sub1_Sub1_1 = new Class27_Sub1_Sub1(anInt177);
-		this.aClass27_Sub1_Sub1_1.anInt608 = 3;
+		this.aClass27_Sub1_Sub1_1.position = 3;
 	}
 
 	static

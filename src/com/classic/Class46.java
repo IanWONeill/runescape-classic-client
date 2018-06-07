@@ -2925,15 +2925,15 @@ class Class46 implements ImageProducer, ImageObserver
 							i_728_ = 32;
 						}
 						final int i_729_ = anIntArray127[i_728_];
-						if (this.aBool27 && !Class27_Sub1.aBoolArray10[i_722_] && (i_725_ != 0))
+						if (this.aBool27 && !ByteBuffer.aBoolArray10[i_722_] && (i_725_ != 0))
 						{
-							method326(i_729_, 0, Class27_Sub1.aBoolArray10[i_722_], i_724_ - -1, (byte) 63, is, i_723_);
+							method326(i_729_, 0, ByteBuffer.aBoolArray10[i_722_], i_724_ - -1, (byte) 63, is, i_723_);
 						}
-						if (this.aBool27 && !Class27_Sub1.aBoolArray10[i_722_] && (i_725_ != 0))
+						if (this.aBool27 && !ByteBuffer.aBoolArray10[i_722_] && (i_725_ != 0))
 						{
-							method326(i_729_, 0, Class27_Sub1.aBoolArray10[i_722_], i_724_, (byte) 100, is, i_723_ + 1);
+							method326(i_729_, 0, ByteBuffer.aBoolArray10[i_722_], i_724_, (byte) 100, is, i_723_ + 1);
 						}
-						method326(i_729_, i_725_, Class27_Sub1.aBoolArray10[i_722_], i_724_, (byte) 85, is, i_723_);
+						method326(i_729_, i_725_, ByteBuffer.aBoolArray10[i_722_], i_724_, (byte) 85, is, i_723_);
 						i_724_ = is[i_729_ + 7] + i_724_;
 					}
 					else

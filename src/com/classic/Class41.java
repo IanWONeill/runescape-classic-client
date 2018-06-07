@@ -2481,7 +2481,7 @@ final class Class41
 		}
 		if (0 <= i)
 		{
-			aLongArray2[i] = Class27_Sub1.aLong15++;
+			aLongArray2[i] = ByteBuffer.aLong15++;
 			if (anIntArrayArray16[i] == null)
 			{
 				if (anIntArray92[i] != 0)
@@ -2945,7 +2945,7 @@ final class Class41
 		anInt416++;
 		anIntArrayArray13 = new int[i][];
 		anIntArrayArray16 = new int[i_529_][];
-		Class27_Sub1.aLong15 = 0L;
+		ByteBuffer.aLong15 = 0L;
 	}
 
 	void method294(final Class23 class23, final int i)
