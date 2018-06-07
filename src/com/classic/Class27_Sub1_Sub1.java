@@ -1,0 +1,140 @@
+package com.classic;
+
+import java.io.DataInputStream;
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.InputStream;
+
+final class Class27_Sub1_Sub1 extends Class27_Sub1
+{
+	static int[] anIntArray146;
+	static int[] anIntArray147;
+	static int anInt664;
+	private int anInt665;
+	static int anInt666;
+	static int anInt667;
+	static String[] aStringArray39 = { "Enter number of items to stake and press enter" };
+	static int anInt668;
+	static int anInt669;
+	static int anInt670;
+	static int[] anIntArray148;
+	private static byte[] aByteArray27;
+	static Class39 aClass39_5;
+
+	void method454(final int i)
+	{
+		if (i != -1192)
+		{
+			aByteArray27 = null;
+		}
+		anInt665 = this.anInt608 * 8;
+		anInt670++;
+	}
+
+	Class27_Sub1_Sub1(final int i)
+	{
+		super(i);
+	}
+
+	static void method455(final String string, final byte[] is, final byte i, final int i_0_) throws IOException
+	{
+		anInt666++;
+		final InputStream inputstream = Class51.method376(string, (byte) 93);
+		final DataInputStream datainputstream = new DataInputStream(inputstream);
+		try
+		{
+			datainputstream.readFully(is, 0, i_0_);
+		}
+		catch (final EOFException eofexception)
+		{
+			/* empty */
+		}
+		datainputstream.close();
+	}
+
+	int method456(final int i, int i_1_)
+	{
+		anInt667++;
+		int i_2_ = anInt665 >> 3;
+		int i_3_ = -(anInt665 & 0x7) + 8;
+		int i_4_ = 0;
+		anInt665 += i_1_;
+		for (/**/; i_3_ < i_1_; i_3_ = 8)
+		{
+			i_4_ += ((Class4.anIntArray4[i_3_] & this.aByteArray24[i_2_++]) << (-i_3_ + i_1_));
+			i_1_ -= i_3_;
+		}
+		if (i_3_ == i_1_)
+		{
+			i_4_ += (this.aByteArray24[i_2_] & Class4.anIntArray4[i_3_]);
+		}
+		else
+		{
+			i_4_ += (this.aByteArray24[i_2_] >> (-i_1_ + i_3_)) & Class4.anIntArray4[i_1_];
+		}
+		return i_4_;
+	}
+
+	int method457(final int i)
+	{
+		if (i != 32253)
+		{
+			method458((byte) -34);
+		}
+		anInt669++;
+		return anInt665;
+	}
+
+	void method458(final byte i)
+	{
+		anInt668++;
+		this.anInt608 = (anInt665 + 7) / 8;
+	}
+
+	static
+	{
+		anIntArray146 = new int[256];
+		anIntArray147 = new int[2048];
+		anIntArray148 = new int[512];
+		aByteArray27 = new byte[64];
+		for (int i = 0; i < 256; i++)
+		{
+			anIntArray148[i] = (int) (32768.0 * Math.sin(0.02454369 * i));
+			anIntArray148[i + 256] = (int) (32768.0 * Math.cos(0.02454369 * i));
+		}
+		for (int i = 0; i < 1024; i++)
+		{
+			anIntArray147[i] = (int) (Math.sin(i * 0.00613592315) * 32768.0);
+			anIntArray147[i + 1024] = (int) (Math.cos(i * 0.00613592315) * 32768.0);
+		}
+		for (int i = 0; i < 10; i++)
+		{
+			aByteArray27[i] = (byte) (i + 48);
+		}
+		for (int i = 0; 26 > i; i++)
+		{
+			aByteArray27[i - -10] = (byte) (i + 65);
+		}
+		for (int i = 0; 26 > i; i++)
+		{
+			aByteArray27[i + 36] = (byte) (i + 97);
+		}
+		aByteArray27[63] = (byte) 36;
+		aByteArray27[62] = (byte) -93;
+		for (int i = 0; 10 > i; i++)
+		{
+			anIntArray146[i + 48] = i;
+		}
+		for (int i = 0; i < 26; i++)
+		{
+			anIntArray146[65 - -i] = i + 10;
+		}
+		for (int i = 0; i < 26; i++)
+		{
+			anIntArray146[i + 97] = i + 36;
+		}
+		anIntArray146[163] = 62;
+		anIntArray146[36] = 63;
+		aClass39_5 = null;
+	}
+}
