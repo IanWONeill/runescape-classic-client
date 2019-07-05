@@ -13,14 +13,14 @@ final class Class2
 	static String aString1;
 	static int anInt6;
 
-	static void method3(final int i, final Class27_Sub1 class27_sub1, final boolean bool)
+	static void method3(final int i, final ByteBuffer class27_sub1, final boolean bool)
 	{
 		if (Class27_Sub1_Sub1.aClass39_5 != null)
 		{
 			try
 			{
 				Class27_Sub1_Sub1.aClass39_5.method247(0L, -112);
-				Class27_Sub1_Sub1.aClass39_5.method248((class27_sub1.aByteArray24), 24, -114, i);
+				Class27_Sub1_Sub1.aClass39_5.method248((class27_sub1.buffer), 24, -114, i);
 			}
 			catch (final Exception exception)
 			{

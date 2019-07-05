@@ -54,7 +54,7 @@ final class Class36 implements ImageProducer, ImageObserver
 		        new StringBuilder().append("contentcrcs").append(Long.toHexString(Class52.method377(0))).toString());
 		Class3.aString2 = "Checking for new content";
 		final byte[] is = Class3.method7(url_4_, true, (byte) 48);
-		final Class27_Sub1 class27_sub1 = new Class27_Sub1(is);
+		final ByteBuffer class27_sub1 = new ByteBuffer(is);
 		for (int i_5_ = 0; 12 > i_5_; i_5_++)
 		{
 			Class21.anIntArray47[i_5_] = class27_sub1.method404((byte) -104);

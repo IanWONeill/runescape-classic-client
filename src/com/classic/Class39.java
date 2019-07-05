@@ -139,7 +139,7 @@ final class Class39
 		anInt404++;
 	}
 
-	static void method251(final Class27_Sub1 class27_sub1, final int i)
+	static void method251(final ByteBuffer class27_sub1, final int i)
 	{
 		anInt405++;
 		final byte[] is = new byte[24];
@@ -361,19 +361,19 @@ final class Class39
 		}
 	}
 
-	static int method255(final Class27_Sub1 class27_sub1, final boolean bool, final String string)
+	static int method255(final ByteBuffer class27_sub1, final boolean bool, final String string)
 	{
 		anInt411++;
-		final int i = class27_sub1.anInt608;
+		final int i = class27_sub1.position;
 		if (bool)
 		{
 			return 46;
 		}
 		final byte[] is = Class46_Sub1.method409(string, bool);
 		class27_sub1.method400(-14859, is.length);
-		class27_sub1.anInt608 += Class41.aClass44_2.method303((class27_sub1.aByteArray24), (byte) 69, is.length, is,
-		        (class27_sub1.anInt608), 0);
-		return -i + class27_sub1.anInt608;
+		class27_sub1.position += Class41.aClass44_2.method303((class27_sub1.buffer), (byte) 69, is.length, is,
+		        (class27_sub1.position), 0);
+		return -i + class27_sub1.position;
 	}
 
 	Class39(final Class28 class28, final int i, final int i_24_) throws IOException

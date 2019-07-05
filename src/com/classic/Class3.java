@@ -37,7 +37,7 @@ final class Class3
 		{
 			Class7.method51(49, 50L);
 		}
-		final Class27_Sub1 class27_sub1 = class25.method171(-4);
+		final ByteBuffer class27_sub1 = class25.method171(-4);
 		if (class27_sub1 == null)
 		{
 			throw new IOException("Couldn't download file");

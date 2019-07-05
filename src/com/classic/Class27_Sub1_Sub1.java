@@ -5,7 +5,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 
-final class Class27_Sub1_Sub1 extends Class27_Sub1
+final class Class27_Sub1_Sub1 extends ByteBuffer
 {
 	static int[] anIntArray146;
 	static int[] anIntArray147;
@@ -27,7 +27,7 @@ final class Class27_Sub1_Sub1 extends Class27_Sub1
 		{
 			aByteArray27 = null;
 		}
-		anInt665 = this.anInt608 * 8;
+		anInt665 = this.position * 8;
 		anInt670++;
 	}
 
@@ -61,16 +61,16 @@ final class Class27_Sub1_Sub1 extends Class27_Sub1
 		anInt665 += i_1_;
 		for (/**/; i_3_ < i_1_; i_3_ = 8)
 		{
-			i_4_ += ((Class4.anIntArray4[i_3_] & this.aByteArray24[i_2_++]) << (-i_3_ + i_1_));
+			i_4_ += ((Class4.anIntArray4[i_3_] & this.buffer[i_2_++]) << (-i_3_ + i_1_));
 			i_1_ -= i_3_;
 		}
 		if (i_3_ == i_1_)
 		{
-			i_4_ += (this.aByteArray24[i_2_] & Class4.anIntArray4[i_3_]);
+			i_4_ += (this.buffer[i_2_] & Class4.anIntArray4[i_3_]);
 		}
 		else
 		{
-			i_4_ += (this.aByteArray24[i_2_] >> (-i_1_ + i_3_)) & Class4.anIntArray4[i_1_];
+			i_4_ += (this.buffer[i_2_] >> (-i_1_ + i_3_)) & Class4.anIntArray4[i_1_];
 		}
 		return i_4_;
 	}
@@ -88,7 +88,7 @@ final class Class27_Sub1_Sub1 extends Class27_Sub1
 	void method458(final byte i)
 	{
 		anInt668++;
-		this.anInt608 = (anInt665 + 7) / 8;
+		this.position = (anInt665 + 7) / 8;
 	}
 
 	static

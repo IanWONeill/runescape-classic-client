@@ -15,7 +15,7 @@ final class Class4
 	static int anInt15;
 	static int[] anIntArray6;
 
-	static String method8(final Class27_Sub1 class27_sub1, final int i)
+	static String method8(final ByteBuffer class27_sub1, final int i)
 	{
 		if (i != -46)
 		{

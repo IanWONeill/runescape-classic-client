@@ -155,7 +155,7 @@ final class Class52
 				final int i_26_ = is[i_25_ + (i_24_ * i_3_)] & 0xff;
 				if ((i_26_ > 30) && (230 > i_26_))
 				{
-					Class27_Sub1.aBoolArray10[i_1_] = true;
+					ByteBuffer.aBoolArray10[i_1_] = true;
 				}
 				Class22.aByteArray11[Class10.anInt90++] = (byte) i_26_;
 			}

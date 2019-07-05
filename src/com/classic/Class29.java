@@ -319,7 +319,7 @@ final class Class29
 		return aClass9Array1[i].aString4;
 	}
 
-	static String method206(final int i, final Class27_Sub1 class27_sub1, final int i_60_)
+	static String method206(final int i, final ByteBuffer class27_sub1, final int i_60_)
 	{
 		anInt337++;
 		String string;
@@ -331,8 +331,8 @@ final class Class29
 				i_61_ = i_60_;
 			}
 			final byte[] is = new byte[i_61_];
-			class27_sub1.anInt608 += Class41.aClass44_2.method301(is, (byte) -11, (class27_sub1.aByteArray24), 0,
-			        (class27_sub1.anInt608), i_61_);
+			class27_sub1.position += Class41.aClass44_2.method301(is, (byte) -11, (class27_sub1.buffer), 0,
+			        (class27_sub1.position), i_61_);
 			final String string_62_ = Class9.method62(i_61_, (byte) 87, 0, is);
 			string = string_62_;
 		}

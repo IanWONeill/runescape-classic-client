@@ -841,10 +841,10 @@ public final class Client extends Applet_Sub1
 			{
 				if (i == 189)
 				{
-					aClass27_Sub1_Sub1_2.anInt608 += 28;
+					aClass27_Sub1_Sub1_2.position += 28;
 					if (aClass27_Sub1_Sub1_2.method393(0))
 					{
-						Class2.method3(aClass27_Sub1_Sub1_2.anInt608 + -28, aClass27_Sub1_Sub1_2, true);
+						Class2.method3(aClass27_Sub1_Sub1_2.position + -28, aClass27_Sub1_Sub1_2, true);
 					}
 				}
 				else if (i != 165)
@@ -1536,11 +1536,11 @@ public final class Client extends Applet_Sub1
 			if (bool)
 			{
 				aClass16_Sub1_1.method118(46, i_70_ + 77);
-				aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(i_70_ ^ ~0x7b4f, anInt1049);
+				aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(i_70_ ^ ~0x7b4f, anInt1049);
 				for (int i_77_ = 0; i_77_ < anInt1049; i_77_++)
 				{
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(anIntArray180[i_77_], (byte) 71);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(anIntArray164[i_77_], true);
+					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(anIntArray180[i_77_], (byte) 71);
+					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(anIntArray164[i_77_], true);
 				}
 				aClass16_Sub1_1.method126(i_70_ + 0);
 				aBool68 = false;
@@ -2234,7 +2234,7 @@ public final class Client extends Applet_Sub1
 		}
 		for (int i_173_ = 99; i_173_ > 0; i_173_--)
 		{
-			Class27_Sub1.anIntArray142[i_173_] = Class27_Sub1.anIntArray142[i_173_ + -1];
+			ByteBuffer.anIntArray142[i_173_] = ByteBuffer.anIntArray142[i_173_ + -1];
 			Class29.anIntArray83[i_173_] = Class29.anIntArray83[i_173_ + -1];
 			Class46.anIntArray126[i_173_] = Class46.anIntArray126[i_173_ + -1];
 			Class13.aStringArray13[i_173_] = Class13.aStringArray13[i_173_ + -1];
@@ -2242,7 +2242,7 @@ public final class Client extends Applet_Sub1
 			Class2.aStringArray3[i_173_] = Class2.aStringArray3[i_173_ + -1];
 			Class26.aStringArray21[i_173_] = Class26.aStringArray21[i_173_ + -1];
 		}
-		Class27_Sub1.anIntArray142[0] = i_165_;
+		ByteBuffer.anIntArray142[0] = i_165_;
 		Class29.anIntArray83[0] = 300;
 		Class46.anIntArray126[0] = i;
 		Class13.aStringArray13[0] = string_166_;
@@ -2314,13 +2314,13 @@ public final class Client extends Applet_Sub1
 		{
 			for (int i_180_ = 0; 100 > i_180_; i_180_++)
 			{
-				if ((Class29.anIntArray83[i_180_] > 0) && ((Class27_Sub1.anIntArray142[i_180_] == 4)
-				        || (Class27_Sub1.anIntArray142[i_180_] == 1) || (Class27_Sub1.anIntArray142[i_180_] == 5)
-				        || (Class27_Sub1.anIntArray142[i_180_] == 6)))
+				if ((Class29.anIntArray83[i_180_] > 0) && ((ByteBuffer.anIntArray142[i_180_] == 4)
+				        || (ByteBuffer.anIntArray142[i_180_] == 1) || (ByteBuffer.anIntArray142[i_180_] == 5)
+				        || (ByteBuffer.anIntArray142[i_180_] == 6)))
 				{
 					final String string = new StringBuilder().append(Class26.aStringArray21[i_180_])
 					        .append(Class13.method110(Class2.aStringArray3[i_180_], (Class13.aStringArray13[i_180_]),
-					                (Class27_Sub1.anIntArray142[i_180_]), i ^ ~0x3f3a))
+					                (ByteBuffer.anIntArray142[i_180_]), i ^ ~0x3f3a))
 					        .toString();
 					if ((this.anInt739 > 7) && (this.anInt739 < (aClass46_Sub1_2.method328(string, -126, 1) + 7))
 					        && (this.anInt736 > (-(i_180_ * 12) + anInt879 + -30))
@@ -2946,8 +2946,8 @@ public final class Client extends Applet_Sub1
 				{
 					aBool86 = !aBool86;
 					aClass16_Sub1_1.method118(111, 92);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, 0);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, !aBool86 ? 0 : 1);
+					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, 0);
+					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, !aBool86 ? 0 : 1);
 					aClass16_Sub1_1.method126(2);
 				}
 				i_225_ += 15;
@@ -2956,8 +2956,8 @@ public final class Client extends Applet_Sub1
 				{
 					aBool83 = !aBool83;
 					aClass16_Sub1_1.method118(111, 98);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, 2);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, aBool83 ? 1 : 0);
+					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, 2);
+					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, aBool83 ? 1 : 0);
 					aClass16_Sub1_1.method126(2);
 				}
 				i_225_ += 15;
@@ -2966,8 +2966,8 @@ public final class Client extends Applet_Sub1
 				{
 					aBool58 = !aBool58;
 					aClass16_Sub1_1.method118(111, 123);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, 3);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, !aBool58 ? 0 : 1);
+					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, 3);
+					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, !aBool58 ? 0 : 1);
 					aClass16_Sub1_1.method126(2);
 				}
 				i_225_ += 15;
@@ -3103,52 +3103,52 @@ public final class Client extends Applet_Sub1
 							aClass16_Sub1_1.method118(0, 67);
 							if (!bool)
 							{
-								aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, 0);
+								aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, 0);
 							}
 							else
 							{
-								aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, 1);
+								aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, 1);
 							}
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(Class51.anInt583, true);
-							final Class27_Sub1 class27_sub1 = new Class27_Sub1(500);
-							class27_sub1.method388(-31566, 10);
-							class27_sub1.method395(is[0], true);
-							class27_sub1.method395(is[1], true);
-							class27_sub1.method395(is[2], true);
-							class27_sub1.method395(is[3], true);
-							class27_sub1.method402(false, string_232_);
+							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(Class51.anInt583, true);
+							final ByteBuffer buffer = new ByteBuffer(500);
+							buffer.put(-31566, 10);
+							buffer.putInt(is[0], true);
+							buffer.putInt(is[1], true);
+							buffer.putInt(is[2], true);
+							buffer.putInt(is[3], true);
+							buffer.putString(false, string_232_);
 							for (int i_236_ = 0; i_236_ < 5; i_236_++)
 							{
-								class27_sub1.method395((int) (9.9999999E7 * Math.random()), true);
+								buffer.putInt((int) (9.9999999E7 * Math.random()), true);
 							}
-							class27_sub1.method386(0, (int) (Math.random() * 9.9999999E7));
-							class27_sub1.method399((byte) 93, (RuntimeException_Sub1.aBigInteger2),
+							buffer.putTribyte(0, (int) (Math.random() * 9.9999999E7));
+							buffer.method399((byte) 93, (RuntimeException_Sub1.aBigInteger2),
 							        AClass1.aBigInteger1);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method394(class27_sub1.anInt608,
-							        class27_sub1.aByteArray24, (byte) -107, 0);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(0, (byte) 64);
-							final int i_237_ = ((aClass16_Sub1_1.aClass27_Sub1_Sub1_1).anInt608);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, i_234_);
+							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method394(buffer.position,
+							        buffer.buffer, (byte) -107, 0);
+							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(0, (byte) 64);
+							final int i_237_ = ((aClass16_Sub1_1.aClass27_Sub1_Sub1_1).position);
+							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, i_234_);
 							Class39.method251((aClass16_Sub1_1.aClass27_Sub1_Sub1_1), -1);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method402(false, aString34);
+							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putString(false, aString34);
 							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method408(-85, i_237_, is,
-							        (aClass16_Sub1_1.aClass27_Sub1_Sub1_1).anInt608);
+							        (aClass16_Sub1_1.aClass27_Sub1_Sub1_1).position);
 							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method401(97,
-							        (aClass16_Sub1_1.aClass27_Sub1_Sub1_1).anInt608 + -i_237_);
+							        (aClass16_Sub1_1.aClass27_Sub1_Sub1_1).position + -i_237_);
 							aClass16_Sub1_1.method120(97);
 							aClass16_Sub1_1.method116(is, (byte) 45);
-							final int i_238_ = aClass16_Sub1_1.method129(-76);
-							System.out.println(new StringBuilder().append("login response:").append(i_238_).toString());
-							if ((i_238_ & 0x40) != 0)
+							final int responseCode = aClass16_Sub1_1.method129(-76);
+							System.out.println(new StringBuilder().append("login response:").append(responseCode).toString());
+							if ((responseCode & 0x40) != 0)
 							{
 								anInt850 = 0;
-								anInt905 = (i_238_ >> 2) & 0xf;
-								anInt858 = 0x3 & i_238_;
+								anInt905 = (responseCode >> 2) & 0xf;
+								anInt858 = 0x3 & responseCode;
 								method581((byte) -123);
 							}
 							else
 							{
-								if (i_238_ == 1)
+								if (responseCode == 1)
 								{
 									anInt850 = 0;
 									method549(127);
@@ -3157,94 +3157,94 @@ public final class Client extends Applet_Sub1
 								{
 									if (!bool)
 									{
-										if (i_238_ == -1)
+										if (responseCode == -1)
 										{
 											method533("Error unable to login.", "Server timed out", false);
 										}
-										else if (i_238_ == 3)
+										else if (responseCode == 3)
 										{
 											method533("Invalid username or password.",
 											        "Try again, or create a new account", false);
 										}
-										else if (i_238_ != 4)
+										else if (responseCode != 4)
 										{
-											if (i_238_ == 5)
+											if (responseCode == 5)
 											{
 												method533("The client has been updated.", "Please reload this page",
 												        false);
 											}
-											else if (i_238_ == 6)
+											else if (responseCode == 6)
 											{
 												method533("You may only use 1 character at once.",
 												        "Your ip-address is already in use", false);
 											}
-											else if (i_238_ == 7)
+											else if (responseCode == 7)
 											{
 												method533("Login attempts exceeded!", "Please try again in 5 minutes",
 												        false);
 											}
-											else if (i_238_ == 8)
+											else if (responseCode == 8)
 											{
 												method533("Error unable to login.", "Server rejected session", false);
 											}
-											else if (i_238_ == 9)
+											else if (responseCode == 9)
 											{
 												method533("Error unable to login.",
 												        "Under 13 accounts cannot access RuneScape Classic", false);
 											}
-											else if (i_238_ == 10)
+											else if (responseCode == 10)
 											{
 												method533("That username is already in use.",
 												        "Wait 60 seconds then retry", false);
 											}
-											else if (i_238_ == 11)
+											else if (responseCode == 11)
 											{
 												method533("Account temporarily disabled.",
 												        "Check your message inbox for details", false);
 											}
-											else if (i_238_ == 12)
+											else if (responseCode == 12)
 											{
 												method533("Account permanently disabled.",
 												        "Check your message inbox for details", false);
 											}
-											else if (i_238_ == 14)
+											else if (responseCode == 14)
 											{
 												method533("Sorry! This world is currently full.",
 												        "Please try a different world", false);
 												anInt902 = 1500;
 											}
-											else if (i_238_ == 15)
+											else if (responseCode == 15)
 											{
 												method533("You need a members account", "to login to this world",
 												        false);
 											}
-											else if (i_238_ != 16)
+											else if (responseCode != 16)
 											{
-												if (i_238_ != 17)
+												if (responseCode != 17)
 												{
-													if (i_238_ != 18)
+													if (responseCode != 18)
 													{
-														if (i_238_ == 20)
+														if (responseCode == 20)
 														{
 															method533("Error - loginserver mismatch",
 															        "Please try a different world", false);
 														}
-														else if (i_238_ == 21)
+														else if (responseCode == 21)
 														{
 															method533("That is not a veteran RS-Classic account.",
 															        "Please try a non-veterans world.", false);
 														}
-														else if (i_238_ != 22)
+														else if (responseCode != 22)
 														{
-															if (i_238_ == 23)
+															if (responseCode == 23)
 															{
 																method533("You need to set your display name.",
 																        "Please go to the Account Management page to do this.",
 																        false);
 															}
-															else if (i_238_ != 24)
+															else if (responseCode != 24)
 															{
-																if (i_238_ != 25)
+																if (responseCode != 25)
 																{
 																	method533("Error unable to login.",
 																	        "Unrecognised response code", false);
@@ -3414,14 +3414,14 @@ public final class Client extends Applet_Sub1
 		if (aClass10_1.method81(true, anInt1029))
 		{
 			aClass16_Sub1_1.method118(235, 81);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, anInt1028);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, anInt1047);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, anInt962);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, anInt948);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, anInt999);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, anInt1057);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, anInt965);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, anInt961);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anInt1028);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anInt1047);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anInt962);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anInt948);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anInt999);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anInt1057);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anInt965);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anInt961);
 			aClass16_Sub1_1.method126(2);
 			aClass46_Sub1_2.method331(-1964300920);
 			aBool64 = false;
@@ -3640,7 +3640,7 @@ public final class Client extends Applet_Sub1
 			}
 		}
 		aClass16_Sub1_1.method118(46, 110);
-		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, anInt1049);
+		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anInt1049);
 		int i_251_ = 0;
 		if (i_244_ != 348)
 		{
@@ -3648,8 +3648,8 @@ public final class Client extends Applet_Sub1
 		}
 		for (/**/; anInt1049 > i_251_; i_251_++)
 		{
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(anIntArray180[i_251_], (byte) 119);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(anIntArray164[i_251_], true);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(anIntArray180[i_251_], (byte) 119);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(anIntArray164[i_251_], true);
 		}
 		aClass16_Sub1_1.method126(i_244_ ^ 0x15e);
 		aBool67 = false;
@@ -3738,11 +3738,11 @@ public final class Client extends Applet_Sub1
 		if (bool)
 		{
 			aClass16_Sub1_1.method118(33, 123);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(i + -31566, anInt1061);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(i + -31566, anInt1061);
 			for (int i_260_ = 0; i_260_ < anInt1061; i_260_++)
 			{
-				aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(anIntArray182[i_260_], (byte) 58);
-				aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(anIntArray198[i_260_], true);
+				aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(anIntArray182[i_260_], (byte) 58);
+				aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(anIntArray198[i_260_], true);
 			}
 			aClass16_Sub1_1.method126(2);
 			aBool75 = false;
@@ -4855,10 +4855,10 @@ public final class Client extends Applet_Sub1
 									{
 										final int i_374_ = Integer.parseInt(string);
 										aClass16_Sub1_1.method118(236, 101);
-										aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_373_, (byte) 66);
-										aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(anIntArray219[anInt972],
+										aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_373_, (byte) 66);
+										aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(anIntArray219[anInt972],
 										        (byte) 92);
-										aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_374_, (byte) 81);
+										aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_374_, (byte) 81);
 										aClass16_Sub1_1.method126(2);
 									}
 									break;
@@ -4911,11 +4911,11 @@ public final class Client extends Applet_Sub1
 									{
 										final int i_376_ = Integer.parseInt(string);
 										aClass16_Sub1_1.method118(221, 108);
-										aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(anIntArray179[anInt972],
+										aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(anIntArray179[anInt972],
 										        (byte) 123);
-										aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(anIntArray219[anInt972],
+										aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(anIntArray219[anInt972],
 										        (byte) 79);
-										aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_376_, (byte) 88);
+										aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_376_, (byte) 88);
 										aClass16_Sub1_1.method126(2);
 									}
 								}
@@ -4940,9 +4940,9 @@ public final class Client extends Applet_Sub1
 								}
 								final int i_378_ = Integer.parseInt(string);
 								aClass16_Sub1_1.method118(23, 107);
-								aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_377_, (byte) 63);
-								aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(i_378_, true);
-								aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(-2023406815, true);
+								aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_377_, (byte) 63);
+								aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(i_378_, true);
+								aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(-2023406815, true);
 								aClass16_Sub1_1.method126(2);
 							}
 							catch (final NumberFormatException numberformatexception)
@@ -4966,9 +4966,9 @@ public final class Client extends Applet_Sub1
 							}
 							final int i_380_ = Integer.parseInt(string);
 							aClass16_Sub1_1.method118(22, 87);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_379_, (byte) 123);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(i_380_, true);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(305419896, true);
+							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_379_, (byte) 123);
+							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(i_380_, true);
+							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(305419896, true);
 							aClass16_Sub1_1.method126(2);
 						}
 						catch (final NumberFormatException numberformatexception)
@@ -5142,11 +5142,11 @@ public final class Client extends Applet_Sub1
 			}
 		}
 		aClass16_Sub1_1.method118(33, 66);
-		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, anInt1061);
+		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anInt1061);
 		for (int i_398_ = 0; anInt1061 > i_398_; i_398_++)
 		{
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(anIntArray182[i_398_], (byte) 118);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(anIntArray198[i_398_], true);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(anIntArray182[i_398_], (byte) 118);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(anIntArray198[i_398_], true);
 		}
 		aClass16_Sub1_1.method126(2);
 		aBool75 = false;
@@ -5429,9 +5429,9 @@ public final class Client extends Applet_Sub1
 						if (i_429_ > 0)
 						{
 							aClass16_Sub1_1.method118(236, 120);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(anIntArray179[anInt972], (byte) 97);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_428_, (byte) 70);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_429_, (byte) 71);
+							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(anIntArray179[anInt972], (byte) 97);
+							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_428_, (byte) 70);
+							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_429_, (byte) 71);
 							aClass16_Sub1_1.method126(2);
 						}
 					}
@@ -5462,9 +5462,9 @@ public final class Client extends Applet_Sub1
 						if (0 < i_431_)
 						{
 							aClass16_Sub1_1.method118(221, 77);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(anIntArray179[anInt972], (byte) 112);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_428_, (byte) 121);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_431_, (byte) 63);
+							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(anIntArray179[anInt972], (byte) 112);
+							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_428_, (byte) 121);
+							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_431_, (byte) 63);
 							aClass16_Sub1_1.method126(2);
 						}
 					}
@@ -5745,11 +5745,11 @@ public final class Client extends Applet_Sub1
 		}
 		else if (i_447_ == 99)
 		{
-			while (aClass27_Sub1_Sub1_2.anInt608 < i_448_)
+			while (aClass27_Sub1_Sub1_2.position < i_448_)
 			{
 				if (aClass27_Sub1_Sub1_2.method403(false) != 255)
 				{
-					aClass27_Sub1_Sub1_2.anInt608--;
+					aClass27_Sub1_Sub1_2.position--;
 					int i_465_ = aClass27_Sub1_Sub1_2.method392(false);
 					final int i_466_ = anInt1030 - -aClass27_Sub1_Sub1_2.method406(-1);
 					final int i_467_ = (anInt1001 - -aClass27_Sub1_Sub1_2.method406(i ^ 0x21));
@@ -5822,7 +5822,7 @@ public final class Client extends Applet_Sub1
 		}
 		else if (i_447_ == 48)
 		{
-			while (i_448_ > aClass27_Sub1_Sub1_2.anInt608)
+			while (i_448_ > aClass27_Sub1_Sub1_2.position)
 			{
 				if (255 == aClass27_Sub1_Sub1_2.method403(false))
 				{
@@ -5857,7 +5857,7 @@ public final class Client extends Applet_Sub1
 				}
 				else
 				{
-					aClass27_Sub1_Sub1_2.anInt608--;
+					aClass27_Sub1_Sub1_2.position--;
 					final int i_483_ = aClass27_Sub1_Sub1_2.method392(false);
 					final int i_484_ = anInt1030 + aClass27_Sub1_Sub1_2.method406(-1);
 					final int i_485_ = anInt1001 + aClass27_Sub1_Sub1_2.method406(-1);
@@ -6047,7 +6047,7 @@ public final class Client extends Applet_Sub1
 						aClass27_Sub1_Sub1_2.method398(i ^ 0x21);
 						aClass27_Sub1_Sub1_2.method398(-1);
 						final int i_510_ = aClass27_Sub1_Sub1_2.method403(false);
-						aClass27_Sub1_Sub1_2.anInt608 += 6 + i_510_;
+						aClass27_Sub1_Sub1_2.position += 6 + i_510_;
 					}
 					else
 					{
@@ -6084,11 +6084,11 @@ public final class Client extends Applet_Sub1
 		}
 		else if (i_447_ == 91)
 		{
-			while (i_448_ > aClass27_Sub1_Sub1_2.anInt608)
+			while (i_448_ > aClass27_Sub1_Sub1_2.position)
 			{
 				if (aClass27_Sub1_Sub1_2.method403(false) != 255)
 				{
-					aClass27_Sub1_Sub1_2.anInt608--;
+					aClass27_Sub1_Sub1_2.position--;
 					final int i_515_ = aClass27_Sub1_Sub1_2.method392(false);
 					final int i_516_ = anInt1030 + aClass27_Sub1_Sub1_2.method406(-1);
 					final int i_517_ = anInt1001 + aClass27_Sub1_Sub1_2.method406(-1);
@@ -6835,7 +6835,7 @@ public final class Client extends Applet_Sub1
 				this.aString26 = "";
 				aBool69 = true;
 				this.aString27 = "";
-				aClass46_Sub1_2.method360((byte) -47, aClass27_Sub1_Sub1_2.aByteArray24, anInt925 + 1);
+				aClass46_Sub1_2.method360((byte) -47, aClass27_Sub1_Sub1_2.buffer, anInt925 + 1);
 				aString35 = null;
 			}
 			else if (i_447_ == 244)
@@ -7106,16 +7106,16 @@ public final class Client extends Applet_Sub1
 			aClass16_Sub1_1.method118(187, 64);
 		}
 		i_642_--;
-		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_639_ + anInt867, (byte) 86);
-		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_636_ - -anInt927, (byte) 126);
+		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_639_ + anInt867, (byte) 86);
+		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_636_ - -anInt927, (byte) 126);
 		if (bool && (i_642_ == -1) && (((i_639_ + anInt867) % 5) == 0))
 		{
 			i_642_ = 0;
 		}
 		for (int i_643_ = i_642_; (i_643_ >= 0) && (i_643_ > (i_642_ + -25)); i_643_--)
 		{
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, anIntArray157[i_643_] + -i_639_);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, -i_636_ + anIntArray155[i_643_]);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anIntArray157[i_643_] + -i_639_);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, -i_636_ + anIntArray155[i_643_]);
 		}
 		if (bool_640_ != true)
 		{
@@ -7246,10 +7246,10 @@ public final class Client extends Applet_Sub1
 						if (bool)
 						{
 							aClass16_Sub1_1.method118(8, 84);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, aBool85 ? 1 : 0);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, !aBool65 ? 0 : 1);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, !aBool71 ? 0 : 1);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, !aBool79 ? 0 : 1);
+							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, aBool85 ? 1 : 0);
+							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, !aBool65 ? 0 : 1);
+							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, !aBool71 ? 0 : 1);
+							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, !aBool79 ? 0 : 1);
 							aClass16_Sub1_1.method126(2);
 							aBool59 = false;
 							aBool75 = false;
@@ -7807,16 +7807,16 @@ public final class Client extends Applet_Sub1
 			aClass16_Sub1_1.method118(16, 83);
 		}
 		i_710_--;
-		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_707_ + anInt867, (byte) 95);
-		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(anInt927 + i, (byte) 112);
+		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_707_ + anInt867, (byte) 95);
+		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(anInt927 + i, (byte) 112);
 		if (bool && (i_710_ == -1) && (((i_707_ + anInt867) % 5) == 0))
 		{
 			i_710_ = 0;
 		}
 		for (int i_711_ = i_710_; (0 <= i_711_) && ((i_710_ + -25) < i_711_); i_711_--)
 		{
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, anIntArray157[i_711_] + -i_707_);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, -i + anIntArray155[i_711_]);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anIntArray157[i_711_] + -i_707_);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, -i + anIntArray155[i_711_]);
 		}
 		aClass16_Sub1_1.method126(2);
 		anInt928 = -24;
@@ -7912,7 +7912,7 @@ public final class Client extends Applet_Sub1
 				        && (this.anInt736 > (i_722_ * 12)) && ((12 - -(i_722_ * 12)) > this.anInt736))
 				{
 					aClass16_Sub1_1.method118(116, i ^ 0x80507d);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(i + -8440654, i_722_);
+					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(i + -8440654, i_722_);
 					aClass16_Sub1_1.method126(2);
 					break;
 				}
@@ -8056,36 +8056,36 @@ public final class Client extends Applet_Sub1
 					        && (this.anInt739 < (i_733_ + 250)) && (this.anInt736 <= (i_734_ + 249)))
 					{
 						aClass16_Sub1_1.method118(22, 67);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_740_, (byte) 86);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(1, true);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(305419896, true);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 86);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(1, true);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(305419896, true);
 						aClass16_Sub1_1.method126(i ^ 0x3);
 					}
 					if ((i_735_ >= 5) && ((i_733_ + 250) <= this.anInt739) && (this.anInt736 >= (i_734_ + 238))
 					        && ((i_733_ + 280) > this.anInt739) && ((i_734_ - -249) >= this.anInt736))
 					{
 						aClass16_Sub1_1.method118(22, 127);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_740_, (byte) 72);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(5, true);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(305419896, true);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 72);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(5, true);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(305419896, true);
 						aClass16_Sub1_1.method126(2);
 					}
 					if ((10 <= i_735_) && (this.anInt739 >= (i_733_ + 280)) && ((i_734_ + 238) <= this.anInt736)
 					        && (this.anInt739 < (i_733_ + 305)) && ((i_734_ + 249) >= this.anInt736))
 					{
 						aClass16_Sub1_1.method118(22, 66);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_740_, (byte) 62);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(10, true);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(305419896, true);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 62);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(10, true);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(305419896, true);
 						aClass16_Sub1_1.method126(2);
 					}
 					if ((i_735_ >= 50) && (this.anInt739 >= (i_733_ + 305)) && ((i_734_ + 238) <= this.anInt736)
 					        && ((i_733_ + 335) > this.anInt739) && (this.anInt736 <= (i_734_ - -249)))
 					{
 						aClass16_Sub1_1.method118(22, 102);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_740_, (byte) 118);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(50, true);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(305419896, true);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 118);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(50, true);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(305419896, true);
 						aClass16_Sub1_1.method126(2);
 					}
 					if ((this.anInt739 >= (i_733_ + 335)) && (this.anInt736 >= (i_734_ - -238))
@@ -8097,9 +8097,9 @@ public final class Client extends Applet_Sub1
 					        && ((i_733_ + 400) > this.anInt739) && (this.anInt736 <= (i_734_ + 249)))
 					{
 						aClass16_Sub1_1.method118(22, 83);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_740_, (byte) 96);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(i_735_, true);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(305419896, true);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 96);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(i_735_, true);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(305419896, true);
 						aClass16_Sub1_1.method126(2);
 					}
 					if ((1 <= method584(i_740_, false)) && ((i_733_ - -220) <= this.anInt739)
@@ -8107,9 +8107,9 @@ public final class Client extends Applet_Sub1
 					        && ((i_734_ + 274) >= this.anInt736))
 					{
 						aClass16_Sub1_1.method118(23, 76);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_740_, (byte) 58);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(1, true);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(-2023406815, true);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 58);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(1, true);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(-2023406815, true);
 						aClass16_Sub1_1.method126(2);
 					}
 					if ((5 <= method584(i_740_, false)) && ((i_733_ + 250) <= this.anInt739)
@@ -8117,9 +8117,9 @@ public final class Client extends Applet_Sub1
 					        && ((i_734_ + 274) >= this.anInt736))
 					{
 						aClass16_Sub1_1.method118(23, 125);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_740_, (byte) 57);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(5, true);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(-2023406815, true);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 57);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(5, true);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(-2023406815, true);
 						aClass16_Sub1_1.method126(2);
 					}
 					if ((10 <= method584(i_740_, false)) && (this.anInt739 >= (i_733_ + 280))
@@ -8127,9 +8127,9 @@ public final class Client extends Applet_Sub1
 					        && ((i_734_ + 274) >= this.anInt736))
 					{
 						aClass16_Sub1_1.method118(23, 124);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_740_, (byte) 105);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(10, true);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(-2023406815, true);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 105);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(10, true);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(-2023406815, true);
 						aClass16_Sub1_1.method126(i + 1);
 					}
 					if ((50 <= method584(i_740_, false)) && ((i_733_ + 305) <= this.anInt739)
@@ -8137,9 +8137,9 @@ public final class Client extends Applet_Sub1
 					        && (this.anInt736 <= (i_734_ + 274)))
 					{
 						aClass16_Sub1_1.method118(23, i ^ 0x75);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_740_, (byte) 103);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(50, true);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(-2023406815, true);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 103);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(50, true);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(-2023406815, true);
 						aClass16_Sub1_1.method126(i + 1);
 					}
 					if (((i_733_ + 335) <= this.anInt739) && ((i_734_ - -263) <= this.anInt736)
@@ -8151,9 +8151,9 @@ public final class Client extends Applet_Sub1
 					        && ((i_733_ + 400) > this.anInt739) && (this.anInt736 <= (i_734_ + 274)))
 					{
 						aClass16_Sub1_1.method118(23, i ^ 0x4a);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_740_, (byte) 70);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(method584(i_740_, false), true);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method395(-2023406815, true);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 70);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(method584(i_740_, false), true);
+						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(-2023406815, true);
 						aClass16_Sub1_1.method126(2);
 					}
 				}
@@ -8468,10 +8468,10 @@ public final class Client extends Applet_Sub1
 		{
 			method545(anInt1001, anInt1030, i_759_, i_758_, true, (byte) -110);
 			aClass16_Sub1_1.method118(249, 116);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_ + anInt867, (byte) 90);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_759_ + anInt927, (byte) 125);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_760_, (byte) 57);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_761_, (byte) 80);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 90);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 125);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_760_, (byte) 57);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_761_, (byte) 80);
 			aClass16_Sub1_1.method126(2);
 			anInt940 = -1;
 		}
@@ -8479,10 +8479,10 @@ public final class Client extends Applet_Sub1
 		{
 			method545(anInt1001, anInt1030, i_759_, i_758_, true, (byte) -110);
 			aClass16_Sub1_1.method118(53, 125);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_ - -anInt867, (byte) 59);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_759_ + anInt927, (byte) 101);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_760_, (byte) 55);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_761_, (byte) 54);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_ - -anInt867, (byte) 59);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 101);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_760_, (byte) 55);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_761_, (byte) 54);
 			aClass16_Sub1_1.method126(2);
 			anInt989 = -1;
 		}
@@ -8490,9 +8490,9 @@ public final class Client extends Applet_Sub1
 		{
 			method545(anInt1001, anInt1030, i_759_, i_758_, true, (byte) -110);
 			aClass16_Sub1_1.method118(247, i_756_ ^ 0x254);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_ + anInt867, (byte) 72);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_759_ + anInt927, (byte) 58);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_760_, (byte) 109);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 72);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 58);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_760_, (byte) 109);
 			aClass16_Sub1_1.method126(i_756_ + -615);
 		}
 		if ((i_757_ == 3600) || (i_757_ == 3200))
@@ -8503,10 +8503,10 @@ public final class Client extends Applet_Sub1
 		{
 			method558(i_760_, i_759_, 47, i_758_);
 			aClass16_Sub1_1.method118(180, 75);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_ + anInt867, (byte) 72);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_759_ + anInt927, (byte) 102);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(i_756_ + -32183, i_760_);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_761_, (byte) 104);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 72);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 102);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(i_756_ + -32183, i_760_);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_761_, (byte) 104);
 			aClass16_Sub1_1.method126(2);
 			anInt940 = -1;
 		}
@@ -8514,10 +8514,10 @@ public final class Client extends Applet_Sub1
 		{
 			method558(i_760_, i_759_, 49, i_758_);
 			aClass16_Sub1_1.method118(161, 92);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_ - -anInt867, (byte) 54);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_759_ + anInt927, (byte) 58);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(i_756_ ^ ~0x7924, i_760_);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_761_, (byte) 122);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_ - -anInt867, (byte) 54);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 58);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(i_756_ ^ ~0x7924, i_760_);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_761_, (byte) 122);
 			aClass16_Sub1_1.method126(2);
 			anInt989 = -1;
 		}
@@ -8525,18 +8525,18 @@ public final class Client extends Applet_Sub1
 		{
 			method558(i_760_, i_759_, 84, i_758_);
 			aClass16_Sub1_1.method118(14, 124);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_ + anInt867, (byte) 112);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_759_ - -anInt927, (byte) 85);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(i_756_ + -32183, i_760_);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 112);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_ - -anInt927, (byte) 85);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(i_756_ + -32183, i_760_);
 			aClass16_Sub1_1.method126(i_756_ ^ 0x26b);
 		}
 		if (i_757_ == 2300)
 		{
 			method558(i_760_, i_759_, i_756_ + -500, i_758_);
 			aClass16_Sub1_1.method118(127, 100);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_ + anInt867, (byte) 96);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_759_ + anInt927, (byte) 118);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, i_760_);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 96);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 118);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, i_760_);
 			aClass16_Sub1_1.method126(i_756_ + -615);
 		}
 		if (i_757_ == 3300)
@@ -8547,9 +8547,9 @@ public final class Client extends Applet_Sub1
 		{
 			method576((byte) 119, i_760_, i_758_, i_759_, i_761_);
 			aClass16_Sub1_1.method118(99, 77);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_ + anInt867, (byte) 63);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_759_ + anInt927, (byte) 59);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_762_, (byte) 71);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 63);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 59);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_762_, (byte) 71);
 			aClass16_Sub1_1.method126(2);
 			anInt940 = -1;
 		}
@@ -8557,9 +8557,9 @@ public final class Client extends Applet_Sub1
 		{
 			method576((byte) 119, i_760_, i_758_, i_759_, i_761_);
 			aClass16_Sub1_1.method118(115, 101);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_ - -anInt867, (byte) 80);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_759_ + anInt927, (byte) 98);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_762_, (byte) 127);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_ - -anInt867, (byte) 80);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 98);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_762_, (byte) 127);
 			aClass16_Sub1_1.method126(2);
 			anInt989 = -1;
 		}
@@ -8567,16 +8567,16 @@ public final class Client extends Applet_Sub1
 		{
 			method576((byte) 103, i_760_, i_758_, i_759_, i_761_);
 			aClass16_Sub1_1.method118(136, i_756_ ^ 0x257);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_ + anInt867, (byte) 123);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_759_ - -anInt927, (byte) 124);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 123);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_ - -anInt927, (byte) 124);
 			aClass16_Sub1_1.method126(i_756_ + -615);
 		}
 		if (i_757_ == 2400)
 		{
 			method576((byte) 123, i_760_, i_758_, i_759_, i_761_);
 			aClass16_Sub1_1.method118(79, 81);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_ + anInt867, (byte) 114);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_759_ + anInt927, (byte) 113);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 114);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 113);
 			aClass16_Sub1_1.method126(i_756_ ^ 0x26b);
 		}
 		if (i_757_ == 3400)
@@ -8586,35 +8586,35 @@ public final class Client extends Applet_Sub1
 		if (i_757_ == 600)
 		{
 			aClass16_Sub1_1.method118(4, 80);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_, (byte) 101);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_759_, (byte) 125);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 101);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_, (byte) 125);
 			aClass16_Sub1_1.method126(2);
 			anInt940 = -1;
 		}
 		if (i_757_ == 610)
 		{
 			aClass16_Sub1_1.method118(91, 107);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_, (byte) 106);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_759_, (byte) 106);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 106);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_, (byte) 106);
 			aClass16_Sub1_1.method126(2);
 			anInt989 = -1;
 		}
 		if (i_757_ == 620)
 		{
 			aClass16_Sub1_1.method118(170, 107);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_, (byte) 75);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 75);
 			aClass16_Sub1_1.method126(2);
 		}
 		if (i_757_ == 630)
 		{
 			aClass16_Sub1_1.method118(169, i_756_ + -520);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_, (byte) 100);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 100);
 			aClass16_Sub1_1.method126(2);
 		}
 		if (i_757_ == 640)
 		{
 			aClass16_Sub1_1.method118(90, 60);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_, (byte) 75);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 75);
 			aClass16_Sub1_1.method126(2);
 		}
 		if (i_757_ == 650)
@@ -8626,7 +8626,7 @@ public final class Client extends Applet_Sub1
 		if (i_757_ == 660)
 		{
 			aClass16_Sub1_1.method118(246, 99);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_, (byte) 56);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 56);
 			aClass16_Sub1_1.method126(2);
 			anInt939 = 0;
 			anInt989 = -1;
@@ -8640,8 +8640,8 @@ public final class Client extends Applet_Sub1
 			final int i_764_ = (class15.anInt159 + -64) / anInt856;
 			method560(true, anInt1001, true, i_764_, anInt1030, i_763_);
 			aClass16_Sub1_1.method118(50, 110);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_, (byte) 76);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_759_, (byte) 79);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 76);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_, (byte) 79);
 			aClass16_Sub1_1.method126(2);
 			anInt940 = -1;
 		}
@@ -8652,8 +8652,8 @@ public final class Client extends Applet_Sub1
 			final int i_766_ = (class15.anInt159 + -64) / anInt856;
 			method560(true, anInt1001, true, i_766_, anInt1030, i_765_);
 			aClass16_Sub1_1.method118(135, 104);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_, (byte) 122);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_759_, (byte) 58);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 122);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_, (byte) 58);
 			aClass16_Sub1_1.method126(2);
 			anInt989 = -1;
 		}
@@ -8664,7 +8664,7 @@ public final class Client extends Applet_Sub1
 			final int i_768_ = (class15.anInt159 + -64) / anInt856;
 			method560(true, anInt1001, true, i_768_, anInt1030, i_767_);
 			aClass16_Sub1_1.method118(153, 89);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_, (byte) 103);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 103);
 			aClass16_Sub1_1.method126(2);
 		}
 		if (i_757_ == 725)
@@ -8674,7 +8674,7 @@ public final class Client extends Applet_Sub1
 			final int i_770_ = (class15.anInt159 - 64) / anInt856;
 			method560(true, anInt1001, true, i_770_, anInt1030, i_769_);
 			aClass16_Sub1_1.method118(202, 109);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_, (byte) 106);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 106);
 			aClass16_Sub1_1.method126(i_756_ ^ 0x26b);
 		}
 		if ((i_757_ == 2715) || (i_757_ == 715))
@@ -8684,7 +8684,7 @@ public final class Client extends Applet_Sub1
 			final int i_772_ = (class15.anInt159 + -64) / anInt856;
 			method560(true, anInt1001, true, i_772_, anInt1030, i_771_);
 			aClass16_Sub1_1.method118(190, i_756_ + -541);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_, (byte) 76);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 76);
 			aClass16_Sub1_1.method126(i_756_ + -615);
 		}
 		if (i_757_ == 3700)
@@ -8698,8 +8698,8 @@ public final class Client extends Applet_Sub1
 			final int i_774_ = (class15.anInt159 + -64) / anInt856;
 			method560(true, anInt1001, true, i_774_, anInt1030, i_773_);
 			aClass16_Sub1_1.method118(229, 123);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_, (byte) 119);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_759_, (byte) 126);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 119);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_, (byte) 126);
 			aClass16_Sub1_1.method126(2);
 			anInt940 = -1;
 		}
@@ -8710,8 +8710,8 @@ public final class Client extends Applet_Sub1
 			final int i_776_ = (class15.anInt159 + -64) / anInt856;
 			method560(true, anInt1001, true, i_776_, anInt1030, i_775_);
 			aClass16_Sub1_1.method118(113, 106);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_, (byte) 117);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_759_, (byte) 86);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 117);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_, (byte) 86);
 			aClass16_Sub1_1.method126(i_756_ ^ 0x26b);
 			anInt989 = -1;
 		}
@@ -8722,25 +8722,25 @@ public final class Client extends Applet_Sub1
 			final int i_778_ = (class15.anInt159 + -64) / anInt856;
 			method560(true, anInt1001, true, i_778_, anInt1030, i_777_);
 			aClass16_Sub1_1.method118(171, i_756_ ^ 0x20d);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_, (byte) 80);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 80);
 			aClass16_Sub1_1.method126(i_756_ ^ 0x26b);
 		}
 		if (i_757_ == 2806)
 		{
 			aClass16_Sub1_1.method118(103, 93);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_, (byte) 113);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 113);
 			aClass16_Sub1_1.method126(2);
 		}
 		if (i_757_ == 2810)
 		{
 			aClass16_Sub1_1.method118(142, 115);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_, (byte) 99);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 99);
 			aClass16_Sub1_1.method126(2);
 		}
 		if (i_757_ == 2820)
 		{
 			aClass16_Sub1_1.method118(165, i_756_ ^ 0x216);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_, (byte) 92);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 92);
 			aClass16_Sub1_1.method126(2);
 		}
 		if (i_757_ == 2833)
@@ -8768,9 +8768,9 @@ public final class Client extends Applet_Sub1
 		{
 			method560(true, anInt1001, true, i_759_, anInt1030, i_758_);
 			aClass16_Sub1_1.method118(158, 76);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_ + anInt867, (byte) 127);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_759_ - -anInt927, (byte) 65);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_760_, (byte) 94);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 127);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_ - -anInt927, (byte) 65);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_760_, (byte) 94);
 			aClass16_Sub1_1.method126(2);
 			anInt940 = -1;
 		}
@@ -8785,7 +8785,7 @@ public final class Client extends Applet_Sub1
 		if (i_757_ == 1000)
 		{
 			aClass16_Sub1_1.method118(137, i_756_ ^ 0x228);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(i_758_, (byte) 112);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 112);
 			aClass16_Sub1_1.method126(2);
 			anInt940 = -1;
 		}
@@ -9252,7 +9252,7 @@ public final class Client extends Applet_Sub1
 					{
 						final String string = new StringBuilder().append(Class26.aStringArray21[i_833_])
 						        .append(Class13.method110(Class2.aStringArray3[i_833_], Class13.aStringArray13[i_833_],
-						                Class27_Sub1.anIntArray142[i_833_], -6187))
+						                ByteBuffer.anIntArray142[i_833_], -6187))
 						        .toString();
 						aClass46_Sub1_2.method361(-107, string, Class46.anIntArray126[i_833_], 1,
 						        -(i_833_ * 12) + anInt879 + -18, 7, 16776960);
@@ -9902,7 +9902,7 @@ public final class Client extends Applet_Sub1
 			Class46.anIntArray126[i_905_] = 0;
 			Class27.aStringArray23[i_905_] = null;
 			Class26.aStringArray21[i_905_] = null;
-			Class27_Sub1.anIntArray142[i_905_] = 0;
+			ByteBuffer.anIntArray142[i_905_] = 0;
 		}
 		aClass10_2.method75(0, anInt1052);
 		aClass10_2.method75(0, anInt987);
@@ -10311,8 +10311,8 @@ public final class Client extends Applet_Sub1
 		{
 			aClass16_Sub1_1.method118(206, i + 62);
 			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method389(0, aString33);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, anInt1048);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(i + -31581, aBool76 ? 1 : 0);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anInt1048);
+			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(i + -31581, aBool76 ? 1 : 0);
 			aClass16_Sub1_1.method126(2);
 			anInt994 = 0;
 			anInt887 = 0;
@@ -10775,8 +10775,8 @@ public final class Client extends Applet_Sub1
 				else
 				{
 					aClass16_Sub1_1.method118(59, 124);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(anInt1032, (byte) 79);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method397(anInt958, (byte) 87);
+					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(anInt1032, (byte) 79);
+					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(anInt958, (byte) 87);
 					aClass16_Sub1_1.method126(2);
 				}
 				anInt887 = 0;
@@ -11200,12 +11200,12 @@ public final class Client extends Applet_Sub1
 							aClass16_Sub1_1.method118(45, i ^ 0x75);
 							if (!aBool73)
 							{
-								aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, 0);
+								aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, 0);
 								aBool73 = true;
 							}
 							else
 							{
-								aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, 1);
+								aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, 1);
 							}
 							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method389(0, this.aString26);
 							aClass16_Sub1_1.method126(2);
@@ -11224,11 +11224,11 @@ public final class Client extends Applet_Sub1
 						aClass16_Sub1_1.method118(45, 101);
 						if (aBool73)
 						{
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, 1);
+							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, 1);
 						}
 						else
 						{
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, 0);
+							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, 0);
 							aBool73 = true;
 						}
 						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method389(0, "-null-");
@@ -11491,10 +11491,10 @@ public final class Client extends Applet_Sub1
 	{
 		anInt883++;
 		aClass16_Sub1_1.method118(64, 77);
-		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, i);
-		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, i_963_);
-		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, i_964_);
-		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, i_962_);
+		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, i);
+		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, i_963_);
+		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, i_964_);
+		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, i_962_);
 		aClass16_Sub1_1.method126(2);
 	}
 
@@ -11742,7 +11742,7 @@ public final class Client extends Applet_Sub1
 								if (!aBoolArray11[i_989_])
 								{
 									aClass16_Sub1_1.method118(60, 62);
-									aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, i_989_);
+									aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, i_989_);
 									aClass16_Sub1_1.method126(2);
 									aBoolArray11[i_989_] = true;
 									method564((byte) -56, "prayeron");
@@ -11750,7 +11750,7 @@ public final class Client extends Applet_Sub1
 								else
 								{
 									aClass16_Sub1_1.method118(254, 96);
-									aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, i_989_);
+									aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, i_989_);
 									aClass16_Sub1_1.method126(i + 0);
 									aBoolArray11[i_989_] = false;
 									method564((byte) -75, "prayeroff");
@@ -11794,7 +11794,7 @@ public final class Client extends Applet_Sub1
 		}
 		else
 		{
-			Class27_Sub1.method391(i + 1993319904, Class34.aClass44_1);
+			ByteBuffer.method391(i + 1993319904, Class34.aClass44_1);
 			if (i != -6464)
 			{
 				anInt1037 = 76;
@@ -11962,7 +11962,7 @@ public final class Client extends Applet_Sub1
 					anInt887 = 0;
 					anInt1054 = i_1001_ - 1;
 					aClass16_Sub1_1.method118(29, i ^ ~0x7a);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method388(-31566, anInt1054);
+					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anInt1054);
 					aClass16_Sub1_1.method126(2);
 					break;
 				}
