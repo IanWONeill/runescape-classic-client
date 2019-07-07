@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
-final class Class16_Sub1 extends PacketConstruction implements Runnable
+final class StreamClass extends PacketConstruction implements Runnable
 {
 	static int anInt594;
 	private final Socket aSocket1;
@@ -169,7 +169,7 @@ final class Class16_Sub1 extends PacketConstruction implements Runnable
 	}
 
 	@Override
-	int method129(final int i) throws IOException
+	int method129(final int unused) throws IOException
 	{
 		anInt600++;
 		if (aBool30 != false)
@@ -331,7 +331,7 @@ final class Class16_Sub1 extends PacketConstruction implements Runnable
 		}
 	}
 
-	Class16_Sub1(final Socket socket, final GameWindow applet_sub1) throws IOException
+	StreamClass(final Socket socket, final GameWindow applet_sub1) throws IOException
 	{
 		aBool30 = false;
 		aByteArray22 = new byte[1];

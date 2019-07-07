@@ -258,7 +258,7 @@ final class Class25 implements Runnable
 		}
 	}
 
-	static boolean isAlphaNumeric(final byte unused, final char c)
+	static boolean isAlphaNumeric(final char c)
 	{
 		anInt298++;
 		return ((('0' <= c) && (c <= '9')) || ((c >= 'A') && (c <= 'Z')) || (('a' <= c) && (c <= 'z')));

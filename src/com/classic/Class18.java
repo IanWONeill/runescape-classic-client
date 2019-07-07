@@ -6,14 +6,11 @@ final class Class18
 	static String[] aStringArray15;
 	static int anInt195;
 
-	static String method131(final int i, final String string, final int i_0_)
+	static String method131(final int i, final String string)
 	{
 		anInt195++;
 		String string_1_ = "";
-		if (i_0_ != 97)
-		{
-			method131(-44, null, -34);
-		}
+
 		for (int i_2_ = 0; i > i_2_; i_2_++)
 		{
 			if (i_2_ < string.length())

@@ -106,7 +106,7 @@ class PacketConstruction
 		        .append((i >> 8) & 0xff).append(".").append(0xff & i).toString();
 	}
 
-	void method116(final int[] is, final byte i)
+	void method116(final int[] is, final byte unused)
 	{
 		aClass7_1 = new Class7(is);
 		anInt179++;
@@ -150,7 +150,7 @@ class PacketConstruction
 		anInt170++;
 	}
 
-	void method120(final int i) throws IOException
+	void method120(final int unused) throws IOException
 	{
 		finishPacket(2);
 		anInt188++;

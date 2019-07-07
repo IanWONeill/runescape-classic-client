@@ -51,7 +51,7 @@ final class Class43
 		for (int i_4_ = i_0_; i_1_ > i_4_; i_4_++)
 		{
 			final char c = charsequence.charAt(i_4_);
-			if (Class51.method374(c, (byte) -96))
+			if (Class51.method374(c))
 			{
 				final char c_5_ = Class4.method9(16777215, c);
 				if (c_5_ != '\0')
@@ -86,12 +86,12 @@ final class Class43
 		this.aClass27_3.aClass27_2 = this.aClass27_3;
 	}
 
-	void method300(final byte unused, final Class27 class27)
+	void method300(final Class27 class27)
 	{
 		anInt488++;
 		if (class27.aClass27_1 != null)
 		{
-			class27.method178(126);
+			class27.method178();
 		}
 		class27.aClass27_1 = this.aClass27_3;
 		class27.aClass27_2 = this.aClass27_3.aClass27_2;

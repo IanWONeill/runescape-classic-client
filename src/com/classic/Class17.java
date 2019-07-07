@@ -8,7 +8,7 @@ final class Class17
 
 	static void method130(final byte[] is, final boolean bool, final int i)
 	{
-		Class16_Sub1.aByteArray23 = Class41.method292(is, 0, "string.dat", 293484812);
+		StreamClass.aByteArray23 = Class41.method292(is, 0, "string.dat", 293484812);
 		anInt194++;
 		Class19.anInt208 = 0;
 		Class52.aByteArray20 = Class41.method292(is, 0, "integer.dat", i ^ 0x117e390c);
@@ -95,7 +95,7 @@ final class Class17
 		Class24.aStringArray18 = new String[Class35.anInt376];
 		Class7.anIntArray19 = new int[Class35.anInt376];
 		RuntimeException_Sub1.anIntArray150 = new int[Class35.anInt376];
-		Class16_Sub1.anIntArray141 = new int[Class35.anInt376];
+		StreamClass.anIntArray141 = new int[Class35.anInt376];
 		Class38.anIntArray89 = new int[Class35.anInt376];
 		Class3.anIntArray3 = new int[Class35.anInt376];
 		Class38.anIntArrayArray12 = new int[Class35.anInt376][12];
@@ -131,7 +131,7 @@ final class Class17
 		}
 		for (int i_18_ = 0; i_18_ < Class35.anInt376; i_18_++)
 		{
-			Class16_Sub1.anIntArray141[i_18_] = Class4.method10(255);
+			StreamClass.anIntArray141[i_18_] = Class4.method10(255);
 		}
 		for (int i_19_ = 0; Class35.anInt376 > i_19_; i_19_++)
 		{
@@ -274,7 +274,7 @@ final class Class17
 		}
 		IOException_Sub1.anInt675 = Class12.method108((byte) 96);
 		Class25.anIntArray79 = new int[IOException_Sub1.anInt675];
-		Class16_Sub1.anIntArray140 = new int[IOException_Sub1.anInt675];
+		StreamClass.anIntArray140 = new int[IOException_Sub1.anInt675];
 		Class18.aStringArray15 = new String[IOException_Sub1.anInt675];
 		Class18.anIntArray41 = new int[IOException_Sub1.anInt675];
 		GameWindow.aStringArray44 = new String[IOException_Sub1.anInt675];
@@ -300,7 +300,7 @@ final class Class17
 		}
 		for (int i_52_ = 0; IOException_Sub1.anInt675 > i_52_; i_52_++)
 		{
-			Class16_Sub1.anIntArray140[i_52_] = Class12.method108((byte) 96);
+			StreamClass.anIntArray140[i_52_] = Class12.method108((byte) 96);
 		}
 		for (int i_53_ = 0; i_53_ < IOException_Sub1.anInt675; i_53_++)
 		{
@@ -352,7 +352,7 @@ final class Class17
 		Class48.anIntArray138 = new int[Class43.anInt486];
 		Class42.anIntArrayArray18 = new int[Class43.anInt486][];
 		Class46_Sub1.aStringArray36 = new String[Class43.anInt486];
-		Class16_Sub1.anIntArray139 = new int[Class43.anInt486];
+		StreamClass.anIntArray139 = new int[Class43.anInt486];
 		GameFrame.anIntArray153 = new int[Class43.anInt486];
 		for (int i_62_ = 0; Class43.anInt486 > i_62_; i_62_++)
 		{
@@ -364,7 +364,7 @@ final class Class17
 		}
 		for (int i_64_ = 0; i_64_ < Class43.anInt486; i_64_++)
 		{
-			Class16_Sub1.anIntArray139[i_64_] = Class4.method10(255);
+			StreamClass.anIntArray139[i_64_] = Class4.method10(255);
 		}
 		for (int i_65_ = 0; i_65_ < Class43.anInt486; i_65_++)
 		{
@@ -395,11 +395,11 @@ final class Class17
 		AClass1_Sub1.anInt639 = Class12.method108((byte) 96);
 		RuntimeException_Sub1.aStringArray42 = new String[AClass1_Sub1.anInt639];
 		AClass1_Sub1.anIntArray145 = new int[AClass1_Sub1.anInt639];
-		Class16_Sub1.aStringArray35 = new String[AClass1_Sub1.anInt639];
+		StreamClass.aStringArray35 = new String[AClass1_Sub1.anInt639];
 		Class28.anIntArray82 = new int[AClass1_Sub1.anInt639];
 		for (int i_73_ = 0; i_73_ < AClass1_Sub1.anInt639; i_73_++)
 		{
-			Class16_Sub1.aStringArray35[i_73_] = Class29.method212(8854);
+			StreamClass.aStringArray35[i_73_] = Class29.method212(8854);
 		}
 		for (int i_74_ = 0; AClass1_Sub1.anInt639 > i_74_; i_74_++)
 		{
@@ -413,7 +413,7 @@ final class Class17
 		{
 			Class28.anIntArray82[i_76_] = Class4.method10(Class47.method369(i, 255));
 		}
-		Class16_Sub1.aByteArray23 = null;
+		StreamClass.aByteArray23 = null;
 		Class52.aByteArray20 = null;
 	}
 }

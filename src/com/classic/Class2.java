@@ -41,26 +41,25 @@ final class Class2
 		}
 	}
 
-	static byte[] method5(final int i, final int i_1_, final String string, final int i_2_) throws IOException
+	static byte[] method5(final int index, final int i_1_, final String fileTitle) throws IOException
 	{
 		anInt4++;
-		if (Class19.aByteArrayArray11[i] != null)
+		if (Class19.aByteArrayArray11[index] != null)
 		{
-			return Class19.aByteArrayArray11[i];
+			return Class19.aByteArrayArray11[index];
 		}
-		Class3.aString2 = string;
+		Class3.aString2 = fileTitle;
 		Class3.anInt8 = i_1_;
 		if (AClass1_Sub1.aClass47_1 != null)
 		{
-			final byte[] is = AClass1_Sub1.aClass47_1.method368((byte) 29, i);
-			if ((is != null) && (Class44.method302(true, is.length, is) == Class21.anIntArray47[i]))
+			final byte[] is = AClass1_Sub1.aClass47_1.method368(index);
+			if ((is != null) && (Class44.method302(is.length, is) == Class21.anIntArray47[index]))
 			{
-				Class19.aByteArrayArray11[i] = Class24.method169(true, is, (byte) -94);
-				return Class19.aByteArrayArray11[i];
+				Class19.aByteArrayArray11[index] = Class24.method169(is);
+				return Class19.aByteArrayArray11[index];
 			}
 		}
-		final URL url = new URL(Class5.baseUrl, new StringBuilder().append("content").append(i).append("_")
-		        .append(Long.toHexString(Class21.anIntArray47[i])).toString());
+		final URL url = new URL(Class5.baseUrl, "content" + index + "_" + Long.toHexString(Class21.anIntArray47[index]));
 		byte[] is = null;
 		for (int i_3_ = 0; i_3_ < 3; i_3_++)
 		{
@@ -68,16 +67,16 @@ final class Class2
 			try
 			{
 				is = Class3.method7(url, true);
-				if (Class44.method302(true, is.length, is) != Class21.anIntArray47[i])
+				if (Class44.method302(is.length, is) != Class21.anIntArray47[index])
 				{
 					continue;
 				}
 				if (AClass1_Sub1.aClass47_1 != null)
 				{
-					AClass1_Sub1.aClass47_1.method366(is, is.length, (byte) -90, i);
+					AClass1_Sub1.aClass47_1.method366(is, is.length, index);
 				}
-				Class19.aByteArrayArray11[i] = Class24.method169(true, is, (byte) 111);
-				is_4_ = Class19.aByteArrayArray11[i];
+				Class19.aByteArrayArray11[index] = Class24.method169(is);
+				is_4_ = Class19.aByteArrayArray11[index];
 			}
 			catch (final IOException ioexception)
 			{
@@ -91,11 +90,11 @@ final class Class2
 		}
 		if (is == null)
 		{
-			throw new IOException(new StringBuilder().append("Couldn't download file #").append(i).append(": crc=")
-			        .append(Class21.anIntArray47[i]).toString());
+			throw new IOException(new StringBuilder().append("Couldn't download file #").append(index).append(": crc=")
+			        .append(Class21.anIntArray47[index]).toString());
 		}
 		final StringBuilder stringbuilder = new StringBuilder(new StringBuilder().append("Couldn't download file #")
-		        .append(i).append(": crc=").append(Class21.anIntArray47[i]).toString());
+		        .append(index).append(": crc=").append(Class21.anIntArray47[index]).toString());
 		stringbuilder.append(new StringBuilder().append(" len=").append(is.length).toString());
 		for (int i_5_ = 0; (i_5_ < is.length) && (i_5_ < 5); i_5_++)
 		{

@@ -2,19 +2,15 @@ package com.classic;
 
 final class Class44
 {
-	static int anInt490;
 	private byte[] aByteArray17;
 	private final int[] anIntArray111;
-	static int anInt491;
 	static String[] aStringArray30 = { "Type the number of items to buy and press enter" };
 	static int[] anIntArray112;
 	private int[] anIntArray113;
 	static int[] anIntArray114 = new int[256];
-	static int anInt492;
 
 	int method301(final byte[] is, final byte i, final byte[] is_0_, int i_1_, final int i_2_, int i_3_)
 	{
-		anInt492++;
 		if (i_3_ == 0)
 		{
 			return 0;
@@ -171,15 +167,13 @@ final class Class44
 		return i_5_ + -i_2_ + 1;
 	}
 
-	static int method302(final boolean bool, final int i, final byte[] is)
+	static int method302(final int i, final byte[] is)
 	{
-		anInt491++;
 		return Class1.method1(-1, i, is, 0);
 	}
 
 	int method303(final byte[] is, final byte i, int i_8_, final byte[] is_9_, final int i_10_, int i_11_)
 	{
-		anInt490++;
 		int i_12_ = 0;
 		i_8_ += i_11_;
 		int i_13_ = i_10_ << 3;

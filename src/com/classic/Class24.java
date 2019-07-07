@@ -18,7 +18,7 @@ final class Class24
 		throw new IllegalStateException();
 	}
 
-	static byte[] method169(final boolean bool, final byte[] is, final byte i)
+	static byte[] method169(final byte[] is)
 	{
 		anInt292++;
 		final int i_0_ = ((((is[0] << 16) & 0xff0000) + ((is[1] & 0xff) << 8)) - -(0xff & is[2]));

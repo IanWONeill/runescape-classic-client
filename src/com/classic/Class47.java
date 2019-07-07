@@ -194,7 +194,7 @@ final class Class47
 		}
 	}
 
-	boolean method366(final byte[] is, final int i, final byte i_18_, final int i_19_)
+	boolean method366(final byte[] is, final int i, final int i_19_)
 	{
 		anInt571++;
 		synchronized (aClass39_3)
@@ -416,7 +416,7 @@ final class Class47
 		}
 	}
 
-	byte[] method368(final byte i, final int i_42_)
+	byte[] method368(final int i_42_)
 	{
 		anInt573++;
 		synchronized (aClass39_3)

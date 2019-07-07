@@ -44,7 +44,7 @@ class ByteBuffer extends Class27
 		}
 	}
 
-	void putTribyte(final int dummy, final int value)
+	void putTribyte(final int value)
 	{
 		this.buffer[this.position++] = (byte) (value >> 16);
 		anInt614++;
@@ -136,7 +136,7 @@ class ByteBuffer extends Class27
 		}
 	}
 
-	void putInt(final int value, final boolean dummy)
+	void putInt(final int value)
 	{
 		this.buffer[this.position++] = (byte) (value >> 24);
 		anInt613++;
@@ -153,7 +153,7 @@ class ByteBuffer extends Class27
 		return l_13_ + (l << 32);
 	}
 
-	void putShort(final int value, final byte dummy)
+	void putShort(final int value)
 	{
 		this.buffer[this.position++] = (byte) (value >> 8);
 		anInt606++;
@@ -181,7 +181,7 @@ class ByteBuffer extends Class27
 		return Class9.method62(i_17_, (byte) 121, i_16_, this.buffer);
 	}
 
-	void method399(final byte i, final BigInteger biginteger, final BigInteger biginteger_18_)
+	void method399(final BigInteger biginteger, final BigInteger biginteger_18_)
 	{
 		anInt622++;
 		final int i_19_ = this.position;
@@ -192,7 +192,7 @@ class ByteBuffer extends Class27
 		final BigInteger biginteger_21_ = biginteger_20_.modPow(biginteger_18_, biginteger);
 		final byte[] is_22_ = biginteger_21_.toByteArray();
 		this.position = 0;
-		putShort(is_22_.length, (byte) 104);
+		putShort(is_22_.length);
 		method394(is_22_.length, is_22_, (byte) -112, 0);
 	}
 
@@ -205,7 +205,7 @@ class ByteBuffer extends Class27
 		}
 		else if ((0 <= i_23_) && (32768 > i_23_))
 		{
-			putShort(i_23_ + 32768, (byte) 113);
+			putShort(i_23_ + 32768);
 		}
 		else
 		{
@@ -220,12 +220,8 @@ class ByteBuffer extends Class27
 		this.buffer[(this.position - i_24_ - 1)] = (byte) i_24_;
 	}
 
-	void putString(final boolean dummy, final String value)
+	void putString(final String value)
 	{
-		if (dummy)
-		{
-			putString(true, null);
-		}
 		anInt620++;
 		final int i = value.indexOf('\0');
 		if (i >= 0)
@@ -320,8 +316,8 @@ class ByteBuffer extends Class27
 				i_35_ += ((i_34_ + ((i_34_ >>> 5) ^ (i_34_ << 4))) ^ (i_36_ + is[(0x1e46 & i_36_) >>> 11]));
 			}
 			this.position -= 8;
-			putInt(i_34_, true);
-			putInt(i_35_, true);
+			putInt(i_34_);
+			putInt(i_35_);
 		}
 		this.position = i_31_;
 	}

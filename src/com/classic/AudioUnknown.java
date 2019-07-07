@@ -2,12 +2,12 @@ package com.classic;
 
 import java.awt.Component;
 
-class Class37
+class AudioUnknown
 {
 	private long aLong5;
 	private static Class12 aClass12_1;
-	static boolean aBool21;
-	static int anInt386;
+	static boolean maybe_isMono;
+	static int sampleRate;
 	private boolean aBool22 = false;
 	int[] anIntArray87;
 	private final int anInt387 = 32;
@@ -26,14 +26,14 @@ class Class37
 	private final AClass4[] anAClass4Array2;
 	private boolean aBool23;
 
-	static void method231(final int i, final boolean bool, final int i_0_)
+	static void method231(final int inSampleRate, final boolean maybe_inIsMono, final int i_0_)
 	{
-		if ((i < 8000) || (i > 48000))
+		if ((inSampleRate < 8000) || (inSampleRate > 48000))
 		{
 			throw new IllegalArgumentException();
 		}
-		anInt386 = i;
-		aBool21 = bool;
+		sampleRate = inSampleRate;
+		maybe_isMono = maybe_inIsMono;
 		anInt389 = i_0_;
 	}
 
@@ -61,7 +61,7 @@ class Class37
 				for (/**/; l > (aLong5 + 5000L); l = Class52.method377())
 				{
 					method238(256);
-					aLong5 += 256000 / anInt386;
+					aLong5 += 256000 / sampleRate;
 				}
 			}
 			catch (final Exception exception)
@@ -148,7 +148,7 @@ class Class37
 	private void method235(final int[] is, final int i)
 	{
 		int i_2_ = i;
-		if (aBool21)
+		if (maybe_isMono)
 		{
 			i_2_ <<= 1;
 		}
@@ -156,7 +156,7 @@ class Class37
 		anInt392 -= i;
 		if ((anAClass4_1 != null) && (anInt392 <= 0))
 		{
-			anInt392 += anInt386 >> 4;
+			anInt392 += sampleRate >> 4;
 			method239(anAClass4_1);
 			method237(anAClass4_1, anAClass4_1.method412());
 			int i_3_ = 0;
@@ -320,34 +320,34 @@ class Class37
 		/* empty */
 	}
 
-	static Class37 method242(final Class32 class32, final Component component, final int i, int i_19_)
+	static AudioUnknown method242(final Class32 class32, final Component component, final int i, int inSampleRate)
 	{
 		if ((i < 0) || (i >= 2))
 		{
 			throw new IllegalArgumentException();
 		}
-		if (i_19_ < 256)
+		if (inSampleRate < 256)
 		{
-			i_19_ = 256;
+			inSampleRate = 256;
 		}
 		Class37_Sub1 class37_sub1;
 		try
 		{
 			final Class37_Sub1 class37_sub1_20_ = new Class37_Sub1();
-			((Class37) class37_sub1_20_).anIntArray87 = new int[256 * (aBool21 ? 2 : 1)];
-			((Class37) class37_sub1_20_).anInt390 = i_19_;
+			((AudioUnknown) class37_sub1_20_).anIntArray87 = new int[256 * (maybe_isMono ? 2 : 1)];
+			((AudioUnknown) class37_sub1_20_).anInt390 = inSampleRate;
 			class37_sub1_20_.method236(component);
-			((Class37) class37_sub1_20_).anInt395 = (i_19_ & ~0x3ff) + 1024;
-			if (((Class37) class37_sub1_20_).anInt395 > 16384)
+			((AudioUnknown) class37_sub1_20_).anInt395 = (inSampleRate & ~0x3ff) + 1024;
+			if (((AudioUnknown) class37_sub1_20_).anInt395 > 16384)
 			{
-				((Class37) class37_sub1_20_).anInt395 = 16384;
+				((AudioUnknown) class37_sub1_20_).anInt395 = 16384;
 			}
-			class37_sub1_20_.method244(((Class37) class37_sub1_20_).anInt395);
+			class37_sub1_20_.method244(((AudioUnknown) class37_sub1_20_).anInt395);
 			if ((anInt389 > 0) && (aClass12_1 == null))
 			{
 				aClass12_1 = new Class12();
 				aClass12_1.aClass32_1 = class32;
-				class32.method218(anInt389, 0, aClass12_1);
+				class32.method218(0, aClass12_1);
 			}
 			if (aClass12_1 != null)
 			{
@@ -361,7 +361,7 @@ class Class37
 		}
 		catch (final Throwable throwable)
 		{
-			return new Class37();
+			return new AudioUnknown();
 		}
 		return class37_sub1;
 	}
@@ -402,7 +402,7 @@ class Class37
 		/* empty */
 	}
 
-	Class37()
+	AudioUnknown()
 	{
 		aLong5 = Class52.method377();
 		anInt391 = 0;

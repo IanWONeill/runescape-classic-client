@@ -57,7 +57,7 @@ final class AClass4_Sub2 extends AClass4 {
 	}
 
 	private void method449(final AClass2 aclass2) {
-		aclass2.method178(121);
+		aclass2.method178();
 		aclass2.method384();
 		final Class27 class27 = aClass43_2.aClass27_3.aClass27_2;
 		if (class27 == aClass43_2.aClass27_3) {
@@ -86,7 +86,7 @@ final class AClass4_Sub2 extends AClass4 {
 	}
 
 	private synchronized void method452(final AClass4 aclass4) {
-		aClass43_1.method300((byte) 102, aclass4);
+		aClass43_1.method300(aclass4);
 	}
 
 	@Override

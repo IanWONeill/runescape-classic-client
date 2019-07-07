@@ -12,8 +12,8 @@ final class Class13
 		anInt141++;
 		if ((i_0_ == 100) && (Class6.anInt47 > 0))
 		{
-			final byte[] is = Class16_Sub1.aByteArrayArray15[--Class6.anInt47];
-			Class16_Sub1.aByteArrayArray15[Class6.anInt47] = null;
+			final byte[] is = StreamClass.aByteArrayArray15[--Class6.anInt47];
+			StreamClass.aByteArrayArray15[Class6.anInt47] = null;
 			return is;
 		}
 		if (i != 23310)

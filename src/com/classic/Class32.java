@@ -46,7 +46,7 @@ final class Class32 implements Runnable
 	{
 		if (bool)
 		{
-			method220(false, 77, 19, null);
+			method220(77, 19, null);
 		}
 		return method217(!bool, 4, 0, url, 0);
 	}
@@ -78,7 +78,7 @@ final class Class32 implements Runnable
 		return class20;
 	}
 
-	Class20 method218(final int i, final int unused, final Runnable runnable)
+	Class20 method218(final int i, final Runnable runnable)
 	{
 		return method217(true, 2, 0, runnable, i);
 	}
@@ -125,7 +125,7 @@ final class Class32 implements Runnable
 		return null;
 	}
 
-	private Class20 method220(final boolean unused, final int i, final int maybe_port, final String string)
+	private Class20 method220(final int i, final int maybe_port, final String string)
 	{
 		if (i != -13127)
 		{
@@ -140,7 +140,7 @@ final class Class32 implements Runnable
 		{
 			return null;
 		}
-		return method220(false, i ^ ~0x3346, maybe_port, string);
+		return method220(i ^ ~0x3346, maybe_port, string);
 	}
 
 	@Override

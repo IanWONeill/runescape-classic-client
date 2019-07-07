@@ -491,21 +491,20 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		return super.getDocumentBase();
 	}
 
-	byte[] method468(final String string, final int i, final int i_14_, final int i_15_)
+	byte[] unpackData(final String fileTitle, final int percentage, final int i_14_)
 	{
 		anInt715++;
-		byte[] is;
+		byte[] data;
 		try
 		{
-			is = Class2.method5(i_14_, i, string, 5000);
+			data = Class2.method5(i_14_, percentage, fileTitle);
 		}
 		catch (final IOException ioexception)
 		{
-			Class9.method61(ioexception, 118,
-			        new StringBuilder().append("Unable to load content pack ").append(i_14_).toString());
+			Class9.method61(ioexception, 118, "Unable to load content pack " + i_14_);
 			return null;
 		}
-		return is;
+		return data;
 	}
 
 	@Override
@@ -657,7 +656,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	private boolean loadFonts(final boolean unused)
 	{
 		anInt688++;
-		final byte[] is = method468("Jagex library", 0, 3, -21865);
+		final byte[] is = unpackData("Jagex library", 0, 3);
 		if (is == null)
 		{
 			return false;

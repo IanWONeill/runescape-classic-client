@@ -209,7 +209,7 @@ final class Class29
 	{
 		anInt334++;
 		return (new Class38[] { Class22.aClass38_3, Class47.aClass38_6, Class27.aClass38_4, IOException_Sub1.aClass38_8,
-		        Class16_Sub1.aClass38_7, Class12.aClass38_2, Class10.aClass38_1 });
+		        StreamClass.aClass38_7, Class12.aClass38_2, Class10.aClass38_1 });
 	}
 
 	void method195(final String string, final int i, final String string_37_, final int i_38_, final int i_39_,
@@ -399,9 +399,9 @@ final class Class29
 	{
 		anInt339++;
 		String string = "";
-		while (Class16_Sub1.aByteArray23[Class19.anInt208] != 0)
+		while (StreamClass.aByteArray23[Class19.anInt208] != 0)
 		{
-			string = new StringBuilder().append(string).append((char) Class16_Sub1.aByteArray23[Class19.anInt208++])
+			string = new StringBuilder().append(string).append((char) StreamClass.aByteArray23[Class19.anInt208++])
 			        .toString();
 		}
 		if (i != 8854)

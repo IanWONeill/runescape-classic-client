@@ -26,7 +26,7 @@ abstract class AClass1 {
 
 	static int method176(final byte i) {
 		anInt323++;
-		int i_0_ = Class16_Sub1.method381(Class25.anInt302, Class52.aByteArray20, (byte) 120);
+		int i_0_ = StreamClass.method381(Class25.anInt302, Class52.aByteArray20, (byte) 120);
 		if (i_0_ > 99999999) {
 			i_0_ = 99999999 - i_0_;
 		}

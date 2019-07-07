@@ -298,7 +298,7 @@ final class Class6
 	        final int i_41_)
 	{
 		anInt51++;
-		final int i_42_ = Class16_Sub1.anIntArray140[i_38_];
+		final int i_42_ = StreamClass.anIntArray140[i_38_];
 		if (80000 > anIntArrayArray5[i][i_40_])
 		{
 			anIntArrayArray5[i][i_40_] += 80000 - -i_42_;
@@ -1901,7 +1901,7 @@ final class Class6
 		method23(i_273_, i_272_, (byte) 78, 40);
 		anInt28++;
 		method23(i_269_, i_271_, (byte) -118, 40);
-		final int i_274_ = Class16_Sub1.anIntArray140[i_270_];
+		final int i_274_ = StreamClass.anIntArray140[i_270_];
 		final int i_275_ = Class25.anIntArray79[i_270_];
 		final int i_276_ = Class3.anIntArray2[i_270_];
 		final int i_277_ = i_272_ * 128;

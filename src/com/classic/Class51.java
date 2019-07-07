@@ -10,7 +10,7 @@ final class Class51
 {
 	int anInt581;
 	static int anInt582;
-	static int anInt583 = 235;
+	static int clientVersion = 235;
 	static int anInt584 = 176;
 	int anInt585;
 	static int anInt586;
@@ -18,14 +18,14 @@ final class Class51
 	int anInt588;
 	int anInt589;
 
-	static boolean method374(final char c, final byte i)
+	static boolean method374(final char c)
 	{
 		anInt587++;
 		if (Character.isISOControl(c))
 		{
 			return false;
 		}
-		if (Class25.isAlphaNumeric((byte) -52, c))
+		if (Class25.isAlphaNumeric(c))
 		{
 			return true;
 		}

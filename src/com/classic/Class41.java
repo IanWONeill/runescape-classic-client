@@ -285,7 +285,7 @@ final class Class41
 									i_39_ = anInt463;
 									i_40_ = -i + i_39_;
 								}
-								Class16_Sub1.method382(i_41_, anIntArray91, i_18_ - -(i_25_ * i),
+								StreamClass.method382(i_41_, anIntArray91, i_18_ - -(i_25_ * i),
 								        anIntArrayArray16[i_2_], i_16_, i_21_ - -(i_26_ * i), 0, i_19_, 0,
 								        (i_24_ * i) + i_15_, i_40_, i_29_ + i, i_22_, i_42_, -3552);
 								i_21_ += i_23_;
