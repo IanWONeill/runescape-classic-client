@@ -14,7 +14,7 @@ final class Class17
 		Class52.aByteArray20 = Class41.method292(is, 0, "integer.dat", i ^ 0x117e390c);
 		Class25.anInt302 = 0;
 		Class25.anInt300 = Class12.method108((byte) 96);
-		Class15.anIntArray40 = new int[Class25.anInt300];
+		Mob.anIntArray40 = new int[Class25.anInt300];
 		Class46.anIntArray133 = new int[Class25.anInt300];
 		Class28.aStringArray25 = new String[Class25.anInt300];
 		Class1.anIntArray1 = new int[Class25.anInt300];
@@ -47,7 +47,7 @@ final class Class17
 		}
 		for (int i_4_ = 0; i_4_ < Class25.anInt300; i_4_++)
 		{
-			Class15.anIntArray40[i_4_] = AClass1.method176((byte) -123);
+			Mob.anIntArray40[i_4_] = AClass1.method176((byte) -123);
 		}
 		for (int i_5_ = 0; Class25.anInt300 > i_5_; i_5_++)
 		{
@@ -79,7 +79,7 @@ final class Class17
 			{
 				Class26.aStringArray19[i_11_] = "Members object";
 				Class28.aStringArray25[i_11_] = "You need to be a member to use this object";
-				Class15.anIntArray40[i_11_] = 0;
+				Mob.anIntArray40[i_11_] = 0;
 				Class38.aStringArray27[i_11_] = "";
 				Class44.anIntArray112[0] = 0;
 				Class6.anIntArray8[i_11_] = 0;
@@ -331,7 +331,7 @@ final class Class17
 		}
 		GameFrame.anInt745 = Class12.method108((byte) 96);
 		Class23.anIntArray54 = new int[GameFrame.anInt745];
-		Class15.anIntArray37 = new int[GameFrame.anInt745];
+		Mob.anIntArray37 = new int[GameFrame.anInt745];
 		Class9.anIntArray22 = new int[GameFrame.anInt745];
 		for (int i_59_ = 0; GameFrame.anInt745 > i_59_; i_59_++)
 		{
@@ -343,7 +343,7 @@ final class Class17
 		}
 		for (int i_61_ = 0; GameFrame.anInt745 > i_61_; i_61_++)
 		{
-			Class15.anIntArray37[i_61_] = Class4.method10(Class47.method369(i, 255));
+			Mob.anIntArray37[i_61_] = Class4.method10(Class47.method369(i, 255));
 		}
 		Class45.anInt494 = Class12.method108((byte) 96);
 		Class43.anInt486 = Class12.method108((byte) 96);

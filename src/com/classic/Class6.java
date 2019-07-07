@@ -896,7 +896,7 @@ final class Class6
 								i_126_ = 0;
 							}
 						}
-						if (Class15.anIntArray37[i_127_ + -1] != 0)
+						if (Mob.anIntArray37[i_127_ + -1] != 0)
 						{
 							this.anIntArrayArray4[i_120_][i_121_] = GameWindow
 							        .method485((this.anIntArrayArray4[i_120_][i_121_]), 64);
