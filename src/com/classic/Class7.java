@@ -252,7 +252,7 @@ final class Class7
 		}
 	}
 
-	static void method51(final int i, final long l)
+	static void unknownSleep(final int i, final long l)
 	{
 		if (i < 36)
 		{
@@ -263,12 +263,12 @@ final class Class7
 		{
 			if (0L != (l % 10L))
 			{
-				Class9.method63((byte) 119, l);
+				Class9.sleep(l);
 			}
 			else
 			{
-				Class9.method63((byte) -97, l - 1L);
-				Class9.method63((byte) -21, 1L);
+				Class9.sleep(l - 1L);
+				Class9.sleep(1L);
 			}
 		}
 	}

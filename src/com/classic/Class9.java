@@ -14,7 +14,6 @@ final class Class9
 	static int anInt69;
 	String aString4 = null;
 	String aString5;
-	static int anInt70;
 	static int anInt71;
 	int anInt72;
 	static int[] anIntArray20;
@@ -83,11 +82,11 @@ final class Class9
 				                false));
 				while (class20.anInt216 == 0)
 				{
-					Class7.method51(117, 1L);
+					Class7.unknownSleep(117, 1L);
 				}
 				if (class20.anInt216 == 1)
 				{
-					final DataInputStream datainputstream = (DataInputStream) class20.anObject2;
+					final DataInputStream datainputstream = (DataInputStream) class20.socket;
 					datainputstream.read();
 					datainputstream.close();
 				}
@@ -124,16 +123,12 @@ final class Class9
 		return new String(cs, 0, i_13_);
 	}
 
-	static void method63(final byte unused, final long millis)
+	static void sleep(final long millis)
 	{
 		try
 		{
 			Thread.sleep(millis);
 		}
-		catch (final InterruptedException interruptedexception)
-		{
-			/* empty */
-		}
-		anInt70++;
+		catch (InterruptedException e) {}
 	}
 }

@@ -61,19 +61,15 @@ class ByteBuffer extends Class27
 		}
 		if (this.buffer[this.position] < 0)
 		{
-			return 0x7fffffff & method404((byte) 109);
+			return 0x7fffffff & readInt();
 		}
 		return method392(false);
 	}
 
-	void put(final int dummy, final int value)
+	void put(final int value)
 	{
 		this.buffer[this.position++] = (byte) value;
 		anInt617++;
-		if (dummy != -31566)
-		{
-			this.position = 107;
-		}
 	}
 
 	void method389(final int i, final String string)
@@ -95,7 +91,7 @@ class ByteBuffer extends Class27
 		final int i_6_ = ((this.buffer[this.position]) & 0xff);
 		if (128 > i_6_)
 		{
-			return method403(false);
+			return readByte();
 		}
 		return method392(false) - 32768;
 	}
@@ -123,7 +119,7 @@ class ByteBuffer extends Class27
 		this.position -= 4;
 		anInt612++;
 		final int i_7_ = Class1.method1(-1, this.position, this.buffer, i);
-		final int i_8_ = method404((byte) -99);
+		final int i_8_ = readInt();
 		if (i_8_ == i_7_)
 		{
 			return true;
@@ -152,8 +148,8 @@ class ByteBuffer extends Class27
 	long method396(final byte i)
 	{
 		anInt626++;
-		final long l = 0xffffffffL & method404((byte) -77);
-		final long l_13_ = 0xffffffffL & method404((byte) -30);
+		final long l = 0xffffffffL & readInt();
+		final long l_13_ = 0xffffffffL & readInt();
 		return l_13_ + (l << 32);
 	}
 
@@ -205,7 +201,7 @@ class ByteBuffer extends Class27
 		anInt619++;
 		if ((0 <= i_23_) && (128 > i_23_))
 		{
-			put(-31566, i_23_);
+			put(i_23_);
 		}
 		else if ((0 <= i_23_) && (32768 > i_23_))
 		{
@@ -245,19 +241,19 @@ class ByteBuffer extends Class27
 		this.buffer = Class13.method109(23310, i);
 	}
 
-	int method403(final boolean bool)
+	int readByte()
 	{
 		anInt623++;
-		return 0xff & (this.buffer[this.position++]);
+		return this.buffer[this.position++] & 0xFF;
 	}
 
-	int method404(final byte i)
+	int readInt()
 	{
 		this.position += 4;
 		anInt618++;
 		return ((0xff00 & ((this.buffer[this.position - 2]) << 8))
-		        + ((((this.buffer[this.position + -4]) << 24) & ~0xffffff)
-		                - -(((this.buffer[this.position + -3]) & 0xff) << 16))
+		        + ((((this.buffer[this.position - 4]) << 24) & ~0xffffff)
+		                - -(((this.buffer[this.position - 3]) & 0xff) << 16))
 		        + ((this.buffer[this.position - 1]) & 0xff));
 	}
 
@@ -266,7 +262,7 @@ class ByteBuffer extends Class27
 		this.buffer = is;
 	}
 
-	byte[] method405(final byte i)
+	byte[] toByteArray()
 	{
 		anInt627++;
 		final byte[] is = new byte[this.position];
@@ -312,8 +308,8 @@ class ByteBuffer extends Class27
 		final int i_32_ = (-i_29_ + i_30_) / 8;
 		for (int i_33_ = 0; i_33_ < i_32_; i_33_++)
 		{
-			int i_34_ = method404((byte) -98);
-			int i_35_ = method404((byte) -41);
+			int i_34_ = readInt();
+			int i_35_ = readInt();
 			int i_36_ = 0;
 			final int i_37_ = -1640531527;
 			int i_38_ = 32;

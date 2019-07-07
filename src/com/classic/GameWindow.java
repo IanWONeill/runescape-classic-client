@@ -14,6 +14,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
@@ -112,7 +113,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	boolean aBool43;
 	String aString27;
 	boolean aBool44;
-	int maybe_threadSleepTime;
+	int threadSleepTime;
 
 	private void method463(final int i, final String string)
 	{
@@ -240,7 +241,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 							return;
 						}
 					}
-					Class7.method51(95, threadSleepModifier);
+					Class7.unknownSleep(95, threadSleepModifier);
 				}
 				if (0 > exitTimeout)
 				{
@@ -287,9 +288,9 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 			int i_5_ = 0;
 			for (int i_6_ = 0; 10 > i_6_; i_6_++)
 			{
-				this.currentTimeArray[i_6_] = Class52.method377(0);
+				this.currentTimeArray[i_6_] = Class52.method377();
 			}
-			long l = Class52.method377(0);
+			long l = Class52.method377();
 			while (exitTimeout >= 0)
 			{
 				if (exitTimeout > 0)
@@ -306,7 +307,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 				final int i_8_ = i_4_;
 				i_3_ = 300;
 				i_4_ = 1;
-				l = Class52.method377(0);
+				l = Class52.method377();
 				if (0L == this.currentTimeArray[i])
 				{
 					i_4_ = i_8_;
@@ -324,12 +325,12 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 				{
 					i_4_ = (int) (-((l + -this.currentTimeArray[i]) / 10L) + threadSleepModifier);
 					i_3_ = 256;
-					if (i_4_ < this.maybe_threadSleepTime)
+					if (i_4_ < this.threadSleepTime)
 					{
-						i_4_ = this.maybe_threadSleepTime;
+						i_4_ = this.threadSleepTime;
 					}
 				}
-				Class7.method51(70, i_4_);
+				Class7.unknownSleep(70, i_4_);
 				this.currentTimeArray[i] = l;
 				i = (i + 1) % 10;
 				if (i_4_ > 1)
@@ -640,7 +641,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	{
 		exitTimeout = -1;
 		anInt725++;
-		Class7.method51(91, 5000L);
+		Class7.unknownSleep(91, 5000L);
 		if (exitTimeout == -1)
 		{
 			System.out.println("5 seconds expired, forcing kill");
@@ -785,7 +786,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 			}
 			try
 			{
-				Class36.method230(getCodeBase(), this, (byte) 121);
+				Class36.method230(getCodeBase(), this);
 			}
 			catch (final IOException ioexception)
 			{
@@ -915,7 +916,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		exitTimeout = -2;
 		System.out.println("Closing program");
 		method471(-89);
-		Class7.method51(53, 1000L);
+		Class7.unknownSleep(53, 1000L);
 		if (Class38.gameFrame != null)
 		{
 			Class38.gameFrame.dispose();
@@ -1028,17 +1029,15 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 			Class48.aClass32_3 = GameFrame.aClass32_4 = new Class32(i_42_, string_43_, 0, true);
 			try
 			{
-				Class36.method230(new URL("http", "127.0.0.1", port, ""), this, (byte) 118);
+				// NOTE: Original code: Class36.method230(new URL("http", "127.0.0.1", port, ""), this);
+				Class36.method230(new File("resources\\cache\\").toURI().toURL(), this);
 			}
 			catch (final IOException ioexception)
 			{
 				ioexception.printStackTrace(); // modification
 				Class9.method61(ioexception, i + -5, null);
 			}
-			if (i != 113)
-			{
-				return;
-			}
+
 			this.gameWindowThread = new Thread(this);
 			this.gameWindowThread.start();
 			this.gameWindowThread.setPriority(1);
@@ -1101,7 +1100,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		this.aBool43 = false;
 		this.aBool44 = false;
 		this.aString27 = "";
-		this.maybe_threadSleepTime = 1;
+		this.threadSleepTime = 1;
 		this.mouseX = 0;
 	}
 

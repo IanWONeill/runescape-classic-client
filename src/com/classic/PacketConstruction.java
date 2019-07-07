@@ -134,7 +134,7 @@ class PacketConstruction
 		}
 		anInt171++;
 		this.aClass27_Sub1_Sub1_1.position = packetStart + 2;
-		this.aClass27_Sub1_Sub1_1.put(-31566, i);
+		this.aClass27_Sub1_Sub1_1.put(i);
 		if (i_6_ < 54)
 		{
 			createPacket(91, 92);

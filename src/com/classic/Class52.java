@@ -16,7 +16,7 @@ final class Class52
 	static int anInt593;
 	static byte[] aByteArray20;
 
-	static synchronized long method377(final int arg1)
+	static synchronized long method377()
 	{
 		anInt592++;
 		final long now = System.currentTimeMillis();

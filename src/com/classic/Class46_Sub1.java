@@ -62,12 +62,8 @@ final class Class46_Sub1 extends Class46
 		super(i, i_7_, i_8_, component);
 	}
 
-	static byte[] method409(final CharSequence charsequence, final boolean bool)
+	static byte[] method409(final CharSequence charsequence)
 	{
-		if (bool)
-		{
-			method409(null, false);
-		}
 		anInt634++;
 		final int i = charsequence.length();
 		final byte[] is = new byte[i];

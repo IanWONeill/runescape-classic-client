@@ -81,7 +81,7 @@ final class Class10
 	static int anInt124;
 	static int anInt125;
 	static int anInt126;
-	static GameWindow anApplet_Sub1_1;
+	static GameWindow gameWindow;
 	private final int anInt127;
 	static int anInt128;
 	private final int[] anIntArray34;

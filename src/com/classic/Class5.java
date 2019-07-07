@@ -4,6 +4,6 @@ import java.net.URL;
 
 final class Class5
 {
-	static URL anURL1;
+	static URL baseUrl;
 	static int[] anIntArray7;
 }

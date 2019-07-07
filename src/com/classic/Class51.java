@@ -25,7 +25,7 @@ final class Class51
 		{
 			return false;
 		}
-		if (Class25.method173((byte) -52, c))
+		if (Class25.isAlphaNumeric((byte) -52, c))
 		{
 			return true;
 		}

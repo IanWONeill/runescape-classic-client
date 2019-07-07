@@ -45,21 +45,23 @@ final class Class36 implements ImageProducer, ImageObserver
 		anInt378++;
 	}
 
-	static void method230(final URL url, final GameWindow applet_sub1, final byte unused) throws IOException
+	static void method230(final URL url, final GameWindow gameWindow) throws IOException
 	{
 		anInt385++;
-		Class5.anURL1 = url;
-		Class10.anApplet_Sub1_1 = applet_sub1;
-		final URL url_4_ = new URL(Class5.anURL1,
-		        new StringBuilder().append("contentcrcs").append(Long.toHexString(Class52.method377(0))).toString());
+		Class5.baseUrl = url;
+		Class10.gameWindow = gameWindow;
+		
+		//final URL url_contentcrcs = new URL(Class5.anURL1, "contentcrcs" + Long.toHexString(Class52.method377()));
+		final URL url_contentcrcs = new URL(Class5.baseUrl, "contentcrcs");
+		
 		Class3.aString2 = "Checking for new content";
-		final byte[] is = Class3.method7(url_4_, true, (byte) 48);
-		final ByteBuffer class27_sub1 = new ByteBuffer(is);
-		for (int i_5_ = 0; 12 > i_5_; i_5_++)
+		final byte[] data = Class3.method7(url_contentcrcs, true);
+		final ByteBuffer class27_sub1 = new ByteBuffer(data);
+		for (int index = 0; index < Class21.anIntArray47.length; index++)
 		{
-			Class21.anIntArray47[i_5_] = class27_sub1.method404((byte) -104);
+			Class21.anIntArray47[index] = class27_sub1.readInt();
 		}
-		class27_sub1.method404((byte) -47);
+		class27_sub1.readInt();
 		if (!class27_sub1.method393(0))
 		{
 			throw new IOException("Invalid CRC in CRC check file");

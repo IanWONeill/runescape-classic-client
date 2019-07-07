@@ -51,14 +51,14 @@ class Class37
 	{
 		if (!aBool22)
 		{
-			long l = Class52.method377(0);
+			long l = Class52.method377();
 			try
 			{
 				if (l > (aLong5 + 6000L))
 				{
 					aLong5 = l - 6000L;
 				}
-				for (/**/; l > (aLong5 + 5000L); l = Class52.method377(0))
+				for (/**/; l > (aLong5 + 5000L); l = Class52.method377())
 				{
 					method238(256);
 					aLong5 += 256000 / anInt386;
@@ -260,7 +260,7 @@ class Class37
 		{
 			anAClass4_1.method413(is, 0, i);
 		}
-		aLong5 = Class52.method377(0);
+		aLong5 = Class52.method377();
 	}
 
 	void method236(final Component component) throws Exception
@@ -387,7 +387,7 @@ class Class37
 				aClass12_1.aBool5 = true;
 				while (aClass12_1.aBool6)
 				{
-					Class7.method51(68, 50L);
+					Class7.unknownSleep(68, 50L);
 				}
 				aClass12_1 = null;
 			}
@@ -404,7 +404,7 @@ class Class37
 
 	Class37()
 	{
-		aLong5 = Class52.method377(0);
+		aLong5 = Class52.method377();
 		anInt391 = 0;
 		aLong7 = 0L;
 		anInt394 = 0;

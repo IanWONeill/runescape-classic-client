@@ -29,7 +29,7 @@ final class Class24
 			Class14.method112(is, 6, is_3_, 0, is_3_.length);
 			return is_3_;
 		}
-		Class48.method370(0, 10140, "Unpacking ");
+		Class48.drawLoadingBar(0, "Unpacking ");
 		final byte[] is_4_ = new byte[i_0_];
 		Class8.method58(is_4_, i_0_, is, i_2_, 6);
 		return is_4_;

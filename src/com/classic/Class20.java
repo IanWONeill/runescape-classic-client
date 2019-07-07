@@ -8,7 +8,7 @@ public class Class20
 	public int anInt215;
 	public int anInt216 = 0;
 	Class20 aClass20_1;
-	public Object anObject2;
+	public Object socket;
 
 	Class20()
 	{

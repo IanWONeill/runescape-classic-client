@@ -59,7 +59,7 @@ final class Class2
 				return Class19.aByteArrayArray11[i];
 			}
 		}
-		final URL url = new URL(Class5.anURL1, new StringBuilder().append("content").append(i).append("_")
+		final URL url = new URL(Class5.baseUrl, new StringBuilder().append("content").append(i).append("_")
 		        .append(Long.toHexString(Class21.anIntArray47[i])).toString());
 		byte[] is = null;
 		for (int i_3_ = 0; i_3_ < 3; i_3_++)
@@ -67,7 +67,7 @@ final class Class2
 			byte[] is_4_;
 			try
 			{
-				is = Class3.method7(url, true, (byte) 48);
+				is = Class3.method7(url, true);
 				if (Class44.method302(true, is.length, is) != Class21.anIntArray47[i])
 				{
 					continue;

@@ -51,7 +51,7 @@ final class Class32 implements Runnable
 		return method217(!bool, 4, 0, url, 0);
 	}
 
-	private Class20 method217(final boolean bool, final int i, final int i_0_, final Object object, final int i_1_)
+	private Class20 method217(final boolean bool, final int i, final int i_0_, final Object object, final int maybe_port)
 	{
 		if (bool != true)
 		{
@@ -61,7 +61,7 @@ final class Class32 implements Runnable
 		class20.anInt213 = i;
 		class20.anObject1 = object;
 		class20.anInt214 = i_0_;
-		class20.anInt215 = i_1_;
+		class20.anInt215 = maybe_port;
 		synchronized (this)
 		{
 			if (aClass20_6 != null)
@@ -78,7 +78,7 @@ final class Class32 implements Runnable
 		return class20;
 	}
 
-	Class20 method218(final int i, final int i_2_, final Runnable runnable)
+	Class20 method218(final int i, final int unused, final Runnable runnable)
 	{
 		return method217(true, 2, 0, runnable, i);
 	}
@@ -125,22 +125,22 @@ final class Class32 implements Runnable
 		return null;
 	}
 
-	private Class20 method220(final boolean bool, final int i, final int i_10_, final String string)
+	private Class20 method220(final boolean unused, final int i, final int maybe_port, final String string)
 	{
 		if (i != -13127)
 		{
 			aBool18 = true;
 		}
-		return method217(true, 1, 0, string, i_10_);
+		return method217(true, 1, 0, string, maybe_port);
 	}
 
-	Class20 method221(final String string, final int i, final int i_11_)
+	Class20 method221(final String string, final int i, final int maybe_port)
 	{
 		if (i != 0)
 		{
 			return null;
 		}
-		return method220(false, i ^ ~0x3346, i_11_, string);
+		return method220(false, i ^ ~0x3346, maybe_port, string);
 	}
 
 	@Override
@@ -182,11 +182,11 @@ final class Class32 implements Runnable
 				final int i = class20.anInt213;
 				if (i == 1)
 				{
-					if (aLong3 > Class52.method377(0))
+					if (aLong3 > Class52.method377())
 					{
 						throw new IOException();
 					}
-					class20.anObject2 = new Socket(InetAddress.getByName((String) (class20.anObject1)),
+					class20.socket = new Socket(InetAddress.getByName((String) (class20.anObject1)),
 					        class20.anInt215);
 				}
 				else if (i != 22)
@@ -197,15 +197,15 @@ final class Class32 implements Runnable
 						thread.setDaemon(true);
 						thread.start();
 						thread.setPriority(class20.anInt215);
-						class20.anObject2 = thread;
+						class20.socket = thread;
 					}
 					else if (i == 4)
 					{
-						if (Class52.method377(0) < aLong3)
+						if (Class52.method377() < aLong3)
 						{
 							throw new IOException();
 						}
-						class20.anObject2 = new DataInputStream(((URL) (class20.anObject1)).openStream());
+						class20.socket = new DataInputStream(((URL) (class20.anObject1)).openStream());
 					}
 					else if (i != 8)
 					{
@@ -229,22 +229,22 @@ final class Class32 implements Runnable
 									{
 										if (i == 21)
 										{
-											if (aLong3 > Class52.method377(0))
+											if (aLong3 > Class52.method377())
 											{
 												throw new IOException();
 											}
-											class20.anObject2 = InetAddress.getByName((String) (class20.anObject1))
+											class20.socket = InetAddress.getByName((String) (class20.anObject1))
 											        .getAddress();
 										}
 										else if (i == 5)
 										{
 											if (!aBool18)
 											{
-												class20.anObject2 = ((Class31)anObject3).listmodes();
+												class20.socket = ((Class31)anObject3).listmodes();
 											}
 											else
 											{
-												class20.anObject2 = (aClass40_1.method258(-2147483648));
+												class20.socket = (aClass40_1.method258(-2147483648));
 											}
 										}
 										else if (i != 6)
@@ -266,7 +266,7 @@ final class Class32 implements Runnable
 												{
 													final Class28 class28 = (method219("", anInt367,
 													        ((String) (class20.anObject1)), (byte) 125));
-													class20.anObject2 = class28;
+													class20.socket = class28;
 												}
 												else if (!aBool20 || (i != 14))
 												{
@@ -303,11 +303,11 @@ final class Class32 implements Runnable
 																Runtime.getRuntime().exec(new StringBuilder()
 																        .append("cmd /c start \"j\" \"").append(string)
 																        .append("\"").toString());
-																class20.anObject2 = null;
+																class20.socket = null;
 															}
 															catch (final Exception exception)
 															{
-																class20.anObject2 = exception;
+																class20.socket = exception;
 																throw exception;
 															}
 														}
@@ -349,13 +349,13 @@ final class Class32 implements Runnable
 											{
 												final Class28 class28 = method219(aString14, anInt367,
 												        ((String) (class20.anObject1)), (byte) 119);
-												class20.anObject2 = class28;
+												class20.socket = class28;
 											}
 										}
 										else
 										{
 											final Frame frame = (new Frame("Jagex Full Screen"));
-											class20.anObject2 = frame;
+											class20.socket = frame;
 											frame.setResizable(false);
 											if (aBool18)
 											{
@@ -371,7 +371,7 @@ final class Class32 implements Runnable
 									}
 									else
 									{
-										if (Class52.method377(0) < aLong3)
+										if (Class52.method377() < aLong3)
 										{
 											throw new IOException();
 										}
@@ -380,14 +380,14 @@ final class Class32 implements Runnable
 										        .append((class20.anInt215 & 0xff3f01) >> 16).append(".")
 										        .append(0xff & (class20.anInt215 >> 8)).append(".")
 										        .append(0xff & class20.anInt215).toString();
-										class20.anObject2 = InetAddress.getByName(string).getHostName();
+										class20.socket = InetAddress.getByName(string).getHostName();
 									}
 								}
 							}
 							else
 							{
 								final Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-								class20.anObject2 = clipboard.getContents(null);
+								class20.socket = clipboard.getContents(null);
 							}
 						}
 						else
@@ -403,7 +403,7 @@ final class Class32 implements Runnable
 							System.out.println("getDeclaredField: " + objects[1]);
 							System.exit(1);
 							
-							class20.anObject2 = ((Class) objects[0]).getDeclaredField((String) objects[1]);
+							class20.socket = ((Class) objects[0]).getDeclaredField((String) objects[1]);
 						}
 					}
 					else
@@ -413,24 +413,24 @@ final class Class32 implements Runnable
 						{
 							throw new SecurityException();
 						}
-						class20.anObject2 = (((Class) objects[0]).getDeclaredMethod((String) objects[1],
+						class20.socket = (((Class) objects[0]).getDeclaredMethod((String) objects[1],
 						        (Class[]) objects[2]));
 					}
 				}
 				else
 				{
-					if (Class52.method377(0) < aLong3)
+					if (Class52.method377() < aLong3)
 					{
 						throw new IOException();
 					}
 					try
 					{
-						class20.anObject2 = Class22.method135((String) class20.anObject1, class20.anInt215, 123)
+						class20.socket = Class22.method135((String) class20.anObject1, class20.anInt215, 123)
 						        .method174(false);
 					}
 					catch (final IOException_Sub1 ioexception_sub1)
 					{
-						class20.anObject2 = ioexception_sub1.getMessage();
+						class20.socket = ioexception_sub1.getMessage();
 						throw ioexception_sub1;
 					}
 				}

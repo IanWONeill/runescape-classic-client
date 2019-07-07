@@ -25,27 +25,28 @@ final class Class3
 		return PacketConstruction.aCalendar1.get(1);
 	}
 
-	static byte[] method7(final URL url, final boolean bool, final byte i) throws IOException
+	static byte[] method7(final URL url, final boolean updateLoadingBar) throws IOException
 	{
 		anInt9++;
 		final Class25 class25 = new Class25(GameFrame.aClass32_4, url, 2000000);
-		if (bool)
+		if (updateLoadingBar)
 		{
-			Class48.method370(0, 10140, "");
+			Class48.drawLoadingBar(0, "");
 		}
 		while (!class25.method172())
 		{
-			Class7.method51(49, 50L);
+			Class7.unknownSleep(49, 50L);
 		}
-		final ByteBuffer class27_sub1 = class25.method171(-4);
-		if (class27_sub1 == null)
+		final ByteBuffer buffer = class25.getBuffer(-4);
+		if (buffer == null)
 		{
 			throw new IOException("Couldn't download file");
 		}
-		if (bool)
+		if (updateLoadingBar)
 		{
-			Class48.method370(100, 10140, "");
+			Class48.drawLoadingBar(100, "");
 		}
-		return class27_sub1.method405((byte) -19);
+		
+		return buffer.toByteArray();
 	}
 }
