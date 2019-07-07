@@ -41,11 +41,11 @@ final class Class36 implements ImageProducer, ImageObserver
 		{
 			method229(29L, 88);
 		}
-		Class16.aCalendar1.setTime(new Date(l));
+		PacketConstruction.aCalendar1.setTime(new Date(l));
 		anInt378++;
 	}
 
-	static void method230(final URL url, final Applet_Sub1 applet_sub1, final byte i) throws IOException
+	static void method230(final URL url, final GameWindow applet_sub1, final byte unused) throws IOException
 	{
 		anInt385++;
 		Class5.anURL1 = url;
@@ -66,13 +66,13 @@ final class Class36 implements ImageProducer, ImageObserver
 		}
 		try
 		{
-			if (Frame_Sub1.aClass32_4.aClass28_2 != null)
+			if (GameFrame.aClass32_4.aClass28_2 != null)
 			{
-				Class24.aClass39_2 = new Class39(Frame_Sub1.aClass32_4.aClass28_2, 5200, 0);
-				Class1.aClass39_1 = new Class39(Frame_Sub1.aClass32_4.aClass28_3, 6000, 0);
+				Class24.aClass39_2 = new Class39(GameFrame.aClass32_4.aClass28_2, 5200, 0);
+				Class1.aClass39_1 = new Class39(GameFrame.aClass32_4.aClass28_3, 6000, 0);
 				AClass1_Sub1.aClass47_1 = new Class47(0, Class24.aClass39_2, Class1.aClass39_1, 1000000);
-				Frame_Sub1.aClass32_4.aClass28_3 = null;
-				Frame_Sub1.aClass32_4.aClass28_2 = null;
+				GameFrame.aClass32_4.aClass28_3 = null;
+				GameFrame.aClass32_4.aClass28_2 = null;
 			}
 		}
 		catch (final IOException ioexception)

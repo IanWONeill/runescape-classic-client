@@ -9,7 +9,7 @@ final class Class38
 	static int anInt397;
 	static int anInt398 = 0;
 	int anInt399;
-	static Frame_Sub1 aFrame_Sub1_1 = null;
+	static GameFrame gameFrame = null;
 	static int anInt400;
 	static String[] aStringArray27;
 	static int[] anIntArray89;

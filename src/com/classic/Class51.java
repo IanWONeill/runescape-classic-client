@@ -38,7 +38,7 @@ final class Class51
 				return true;
 			}
 		}
-		cs = Client.aCharArray4;
+		cs = mudclient.aCharArray4;
 		for (int i_2_ = 0; cs.length > i_2_; i_2_++)
 		{
 			final char c_3_ = cs[i_2_];

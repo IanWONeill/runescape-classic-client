@@ -588,7 +588,7 @@ final class Class41
 								i_92_ = anInt463;
 								i_93_ = i_92_ - i;
 							}
-							Frame_Sub1.method489(i_82_ + i, -i_93_, i_94_, anIntArray93, -19, anIntArray91, i_95_, 0);
+							GameFrame.method489(i_82_ + i, -i_93_, i_94_, anIntArray93, -19, anIntArray91, i_95_, 0);
 							i_82_ += i_81_;
 						}
 					}
@@ -1407,24 +1407,24 @@ final class Class41
 		int i_236_ = i_231_;
 		if (i_229_ != 0)
 		{
-			final int i_237_ = Applet_Sub1.anIntArray151[i_229_];
-			final int i_238_ = Applet_Sub1.anIntArray151[i_229_ + 1024];
+			final int i_237_ = GameWindow.anIntArray151[i_229_];
+			final int i_238_ = GameWindow.anIntArray151[i_229_ + 1024];
 			final int i_239_ = ((i_235_ * i_238_) - (i_236_ * i_237_)) >> 15;
 			i_236_ = ((i_238_ * i_236_) + (i_237_ * i_235_)) >> 15;
 			i_235_ = i_239_;
 		}
 		if (i_228_ != 0)
 		{
-			final int i_240_ = Applet_Sub1.anIntArray151[i_228_ - -1024];
-			final int i_241_ = Applet_Sub1.anIntArray151[i_228_];
+			final int i_240_ = GameWindow.anIntArray151[i_228_ - -1024];
+			final int i_241_ = GameWindow.anIntArray151[i_228_];
 			final int i_242_ = ((i_234_ * i_240_) + (i_241_ * i_236_)) >> 15;
 			i_236_ = ((i_240_ * i_236_) + -(i_234_ * i_241_)) >> 15;
 			i_234_ = i_242_;
 		}
 		if (i_233_ != 0)
 		{
-			final int i_243_ = Applet_Sub1.anIntArray151[i_233_];
-			final int i_244_ = Applet_Sub1.anIntArray151[i_233_ + 1024];
+			final int i_243_ = GameWindow.anIntArray151[i_233_];
+			final int i_244_ = GameWindow.anIntArray151[i_233_ + 1024];
 			final int i_245_ = ((i_235_ * i_243_) + (i_234_ * i_244_)) >> 15;
 			i_235_ = ((i_244_ * i_235_) + -(i_243_ * i_234_)) >> 15;
 			i_234_ = i_245_;
@@ -2424,24 +2424,24 @@ final class Class41
 		final int i_453_ = (-anInt480 - -1024) & 0x3ff;
 		if (i_453_ != 0)
 		{
-			final int i_454_ = Applet_Sub1.anIntArray151[i_453_];
-			final int i_455_ = Applet_Sub1.anIntArray151[i_453_ + 1024];
+			final int i_454_ = GameWindow.anIntArray151[i_453_];
+			final int i_455_ = GameWindow.anIntArray151[i_453_ + 1024];
 			final int i_456_ = ((i_455_ * i_450_) + (i_454_ * i)) >> 15;
 			i = (-(i_454_ * i_450_) + (i_455_ * i)) >> 15;
 			i_450_ = i_456_;
 		}
 		if (i_451_ != 0)
 		{
-			final int i_457_ = Applet_Sub1.anIntArray151[i_451_];
-			final int i_458_ = Applet_Sub1.anIntArray151[i_451_ + 1024];
+			final int i_457_ = GameWindow.anIntArray151[i_451_];
+			final int i_458_ = GameWindow.anIntArray151[i_451_ + 1024];
 			final int i_459_ = ((i_458_ * i) - (i_449_ * i_457_)) >> 15;
 			i_449_ = ((i_457_ * i) + (i_449_ * i_458_)) >> 15;
 			i = i_459_;
 		}
 		if (i_452_ != 0)
 		{
-			final int i_461_ = Applet_Sub1.anIntArray151[i_452_];
-			final int i_462_ = Applet_Sub1.anIntArray151[i_452_ + 1024];
+			final int i_461_ = GameWindow.anIntArray151[i_452_];
+			final int i_462_ = GameWindow.anIntArray151[i_452_ + 1024];
 			final int i_463_ = ((i_462_ * i_450_) + (i_449_ * i_461_)) >> 15;
 			i_449_ = (-(i_461_ * i_450_) + (i_449_ * i_462_)) >> 15;
 			i_450_ = i_463_;
@@ -3189,13 +3189,13 @@ final class Class41
 		anIntArray105 = new int[i_567_];
 		for (int i_569_ = 0; 256 > i_569_; i_569_++)
 		{
-			Applet_Sub1.anIntArray152[i_569_] = (int) (Math.sin(0.02454369 * i_569_) * 32768.0);
-			Applet_Sub1.anIntArray152[i_569_ + 256] = (int) (32768.0 * Math.cos(0.02454369 * i_569_));
+			GameWindow.anIntArray152[i_569_] = (int) (Math.sin(0.02454369 * i_569_) * 32768.0);
+			GameWindow.anIntArray152[i_569_ + 256] = (int) (32768.0 * Math.cos(0.02454369 * i_569_));
 		}
 		for (int i_570_ = 0; i_570_ < 1024; i_570_++)
 		{
-			Applet_Sub1.anIntArray151[i_570_] = (int) (32768.0 * Math.sin(i_570_ * 0.00613592315));
-			Applet_Sub1.anIntArray151[i_570_ + 1024] = (int) (32768.0 * Math.cos(i_570_ * 0.00613592315));
+			GameWindow.anIntArray151[i_570_] = (int) (32768.0 * Math.sin(i_570_ * 0.00613592315));
+			GameWindow.anIntArray151[i_570_ + 1024] = (int) (32768.0 * Math.cos(i_570_ * 0.00613592315));
 		}
 	}
 }

@@ -198,7 +198,7 @@ final class Class44
 			final int i_19_ = i_17_ + ((i_18_ - -i_16_ - 1) >> 3);
 			i_13_ += i_16_;
 			i_18_ += 24;
-			is[i_17_] = (byte) (i_12_ = Applet_Sub1.method485(i_12_, i_15_ >>> i_18_));
+			is[i_17_] = (byte) (i_12_ = GameWindow.method485(i_12_, i_15_ >>> i_18_));
 			if (i_19_ > i_17_)
 			{
 				i_17_++;
@@ -257,7 +257,7 @@ final class Class44
 						final int i_29_ = 1 << (-i_27_ + 32);
 						if ((i_28_ & i_29_) == 0)
 						{
-							is_20_[i_27_] = Applet_Sub1.method485(i_29_, i_28_);
+							is_20_[i_27_] = GameWindow.method485(i_29_, i_28_);
 						}
 						else
 						{

@@ -16,16 +16,16 @@ final class Class52
 	static int anInt593;
 	static byte[] aByteArray20;
 
-	static synchronized long method377(final int i)
+	static synchronized long method377(final int arg1)
 	{
 		anInt592++;
-		final long l = System.currentTimeMillis();
-		if (Class41.aLong14 > l)
+		final long now = System.currentTimeMillis();
+		if (Class41.aLong14 > now)
 		{
-			Class35.aLong4 += Class41.aLong14 - l;
+			Class35.aLong4 += Class41.aLong14 - now;
 		}
-		Class41.aLong14 = l;
-		return Class35.aLong4 + l;
+		Class41.aLong14 = now;
+		return Class35.aLong4 + now;
 	}
 
 	static int method378(final int i, final int i_0_)
@@ -34,7 +34,7 @@ final class Class52
 	}
 
 	static boolean method379(final int i, boolean bool, final int i_1_, final Font font, final int i_2_, final char c,
-	        final Applet_Sub1 applet_sub1, final FontMetrics fontmetrics)
+	        final GameWindow applet_sub1, final FontMetrics fontmetrics)
 	{
 		anInt593++;
 		int i_3_ = fontmetrics.charWidth(c);

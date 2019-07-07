@@ -77,7 +77,7 @@ final class Class9
 				                        new StringBuilder().append("clienterror.ws?c=").append(Class48.anInt579)
 				                                .append("&u=")
 				                                .append(Class2.aString1 == null ? new StringBuilder().append("")
-				                                        .append(Applet_Sub1.aLong16).toString() : Class2.aString1)
+				                                        .append(GameWindow.aLong16).toString() : Class2.aString1)
 				                                .append("&v1=").append(Class32.aString13).append("&v2=")
 				                                .append(Class32.aString16).append("&e=").append(string_10_).toString()),
 				                false));
@@ -111,7 +111,7 @@ final class Class9
 			{
 				if ((i_15_ >= 128) && (i_15_ < 160))
 				{
-					int i_16_ = Applet_Sub1.aCharArray3[i_15_ - 128];
+					int i_16_ = GameWindow.aCharArray3[i_15_ - 128];
 					if (i_16_ == 0)
 					{
 						i_16_ = 63;
@@ -124,11 +124,11 @@ final class Class9
 		return new String(cs, 0, i_13_);
 	}
 
-	static void method63(final byte i, final long l)
+	static void method63(final byte unused, final long millis)
 	{
 		try
 		{
-			Thread.sleep(l);
+			Thread.sleep(millis);
 		}
 		catch (final InterruptedException interruptedexception)
 		{

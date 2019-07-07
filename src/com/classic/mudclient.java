@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
 
-public final class Client extends Applet_Sub1
+public final class mudclient extends GameWindow
 {
 	/**
 	 *
@@ -32,7 +32,7 @@ public final class Client extends Applet_Sub1
 	static int anInt771;
 	static int anInt772;
 	private final Class27_Sub1_Sub1 aClass27_Sub1_Sub1_2 = new Class27_Sub1_Sub1(5000);
-	private Class16_Sub1 aClass16_Sub1_1;
+	private Class16_Sub1 packetHandler;
 	static int anInt773;
 	static int anInt774;
 	static int anInt775;
@@ -143,7 +143,7 @@ public final class Client extends Applet_Sub1
 	private boolean aBool52;
 	static int anInt875;
 	private int anInt876;
-	private final int[] anIntArray154;
+	private final int[] mouseClickY;
 	private boolean aBool53 = false;
 	static int anInt877;
 	static int anInt878;
@@ -170,7 +170,7 @@ public final class Client extends Applet_Sub1
 	private final long[] aLongArray4;
 	static int anInt895;
 	private boolean aBool54;
-	private int anInt896;
+	private int mouseClickCount;
 	static int anInt897;
 	static int anInt898;
 	private int anInt899;
@@ -180,7 +180,7 @@ public final class Client extends Applet_Sub1
 	private int anInt903;
 	private final Class15[] aClass15Array3;
 	private int anInt904;
-	private final int[] anIntArray156;
+	private final int[] mouseClickX;
 	private Graphics aGraphics2;
 	private int anInt905;
 	private int anInt906;
@@ -297,7 +297,7 @@ public final class Client extends Applet_Sub1
 	private final int[] anIntArray173;
 	private final int[] anIntArray174;
 	private String aString31;
-	private int anInt970;
+	private int logoutTimeout;
 	private int anInt971;
 	private final Class23[] aClass23Array4;
 	private int anInt972;
@@ -463,7 +463,7 @@ public final class Client extends Applet_Sub1
 	private int anInt1049;
 	private final int[] anIntArray216;
 	private int anInt1050;
-	private int anInt1051;
+	private int combatTimeout;
 	private String aString40;
 	private Class10 aClass10_7;
 	private boolean aBool89;
@@ -517,7 +517,7 @@ public final class Client extends Applet_Sub1
 				}
 				else
 				{
-					container = Class38.aFrame_Sub1_1;
+					container = Class38.gameFrame;
 				}
 				final Graphics graphics = container.getGraphics();
 				if (graphics != null)
@@ -548,24 +548,24 @@ public final class Client extends Applet_Sub1
 		}
 	}
 
-	private void method491(final byte i)
+	private void sendLogout()
 	{
 		anInt1046++;
 		if (anInt899 != 0)
 		{
-			if (anInt1051 > 450)
+			if (combatTimeout > 450)
 			{
-				method513(0, "You can't logout during combat!", 0, null, -109, "@cya@", null, false);
+				displayMessage(0, "You can't logout during combat!", 0, null, -109, "@cya@", null, false);
 			}
-			else if (anInt1051 > 0)
+			else if (combatTimeout > 0)
 			{
-				method513(0, "You can't logout for 10 seconds after combat", 0, null, -29, "@cya@", null, false);
+				displayMessage(0, "You can't logout for 10 seconds after combat", 0, null, -29, "@cya@", null, false);
 			}
 			else
 			{
-				aClass16_Sub1_1.method118(102, 56);
-				aClass16_Sub1_1.method126(2);
-				anInt970 = 1000;
+				packetHandler.createPacket(102, 56);
+				packetHandler.finishPacket(2);
+				logoutTimeout = 1000;
 			}
 		}
 	}
@@ -573,7 +573,7 @@ public final class Client extends Applet_Sub1
 	private String method492(final int i, final byte i_4_)
 	{
 		anInt758++;
-		final Class20 class20 = Frame_Sub1.aClass32_4.method222(i, -29661);
+		final Class20 class20 = GameFrame.aClass32_4.method222(i, -29661);
 		while (class20.anInt216 == 0)
 		{
 			Class7.method51(i_4_ ^ ~0x7b, 50L);
@@ -586,7 +586,7 @@ public final class Client extends Applet_Sub1
 		{
 			return (String) class20.anObject2;
 		}
-		return Class16.method115(i, i_4_ + 151);
+		return PacketConstruction.method115(i, i_4_ + 151);
 	}
 
 	private void method493(final int i)
@@ -703,7 +703,7 @@ public final class Client extends Applet_Sub1
 			i_6_ += 15;
 		}
 		int i_7_ = 16777215;
-		if ((this.anInt736 > (i_6_ - 12)) && (i_6_ >= this.anInt736) && (106 < this.anInt739) && (this.anInt739 < 406))
+		if ((this.mouseY > (i_6_ - 12)) && (i_6_ >= this.mouseY) && (106 < this.mouseX) && (this.mouseX < 406))
 		{
 			i_7_ = 16711680;
 		}
@@ -714,8 +714,8 @@ public final class Client extends Applet_Sub1
 			{
 				aBool91 = false;
 			}
-			if (((86 > this.anInt739) || (426 < this.anInt739))
-			        && (((-(i_5_ / 2) + 167) > this.anInt736) || (this.anInt736 > ((i_5_ / 2) + 167))))
+			if (((86 > this.mouseX) || (426 < this.mouseX))
+			        && (((-(i_5_ / 2) + 167) > this.mouseY) || (this.mouseY > ((i_5_ / 2) + 167))))
 			{
 				aBool91 = false;
 			}
@@ -745,9 +745,9 @@ public final class Client extends Applet_Sub1
 						Class6.aStringArray7[i_10_] = Class6.aStringArray7[i_10_ + 1];
 						Class3.aStringArray4[i_10_] = Class3.aStringArray4[i_10_];
 					}
-					aClass16_Sub1_1.method118(241, 101);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method389(0, string);
-					aClass16_Sub1_1.method126(i + 85);
+					packetHandler.createPacket(241, 101);
+					packetHandler.aClass27_Sub1_Sub1_1.method389(0, string);
+					packetHandler.finishPacket(i + 85);
 					break;
 				}
 			}
@@ -761,7 +761,7 @@ public final class Client extends Applet_Sub1
 			aByteArray28 = method468("Sound effects", 90, 10, -21865);
 			Class37.method231(22050, false, 1);
 			Container container;
-			if (Class38.aFrame_Sub1_1 == null)
+			if (Class38.gameFrame == null)
 			{
 				if (Class27.anApplet1 != null)
 				{
@@ -774,9 +774,9 @@ public final class Client extends Applet_Sub1
 			}
 			else
 			{
-				container = Class38.aFrame_Sub1_1;
+				container = Class38.gameFrame;
 			}
-			aClass37_1 = Class37.method242(Frame_Sub1.aClass32_4, container, 0, 22050);
+			aClass37_1 = Class37.method242(GameFrame.aClass32_4, container, 0, 22050);
 			anAClass4_Sub2_1 = new AClass4_Sub2();
 			aClass37_1.method232(anAClass4_Sub2_1);
 		}
@@ -806,8 +806,8 @@ public final class Client extends Applet_Sub1
 		aClass46_Sub1_2.method333(187 - (i_12_ / 2), (byte) -7, i_11_ + -40, 1, 16777215, aString38, 256, true);
 		final int i_13_ = (i_12_ / 2) + 157;
 		int i_14_ = 16777215;
-		if ((this.anInt736 > (i_13_ - 12)) && (this.anInt736 <= i_13_) && (106 < this.anInt739)
-		        && (this.anInt739 < 406))
+		if ((this.mouseY > (i_13_ - 12)) && (this.mouseY <= i_13_) && (106 < this.mouseX)
+		        && (this.mouseX < 406))
 		{
 			i_14_ = 16711680;
 		}
@@ -818,8 +818,8 @@ public final class Client extends Applet_Sub1
 			{
 				aBool88 = false;
 			}
-			if ((((256 - (i_11_ / 2)) > this.anInt739) || (((i_11_ / 2) + 256) < this.anInt739))
-			        && ((this.anInt736 < (167 - (i_12_ / 2))) || ((167 - -(i_12_ / 2)) < this.anInt736)))
+			if ((((256 - (i_11_ / 2)) > this.mouseX) || (((i_11_ / 2) + 256) < this.mouseX))
+			        && ((this.mouseY < (167 - (i_12_ / 2))) || ((167 - -(i_12_ / 2)) < this.mouseY)))
 			{
 				aBool88 = false;
 			}
@@ -829,7 +829,7 @@ public final class Client extends Applet_Sub1
 
 	private void method497(int i, final int i_15_, final int i_16_)
 	{
-		i = aClass16_Sub1_1.method122(i, false);
+		i = packetHandler.method122(i, false);
 		anInt763++;
 		if (i != 131)
 		{
@@ -917,7 +917,7 @@ public final class Client extends Applet_Sub1
 									}
 									aLongArray4[anInt911] = l;
 									anInt911 = (anInt911 - -1) % 100;
-									method513(i_22_, string_23_, 1, string, i_15_ ^ ~0x71, null, string_21_,
+									displayMessage(i_22_, string_23_, 1, string, i_15_ ^ ~0x71, null, string_21_,
 									        i_22_ == 2);
 								}
 								else if (i != 87)
@@ -928,7 +928,7 @@ public final class Client extends Applet_Sub1
 								{
 									final String string = aClass27_Sub1_Sub1_2.method398(i_15_ + -21);
 									final String string_25_ = Class4.method8(aClass27_Sub1_Sub1_2, -46);
-									method513(0, string_25_, 2, string, i_15_ ^ ~0x27, null, string, false);
+									displayMessage(0, string_25_, 2, string, i_15_ ^ ~0x27, null, string, false);
 								}
 							}
 							else
@@ -963,7 +963,7 @@ public final class Client extends Applet_Sub1
 						{
 							string_30_ = aClass27_Sub1_Sub1_2.method398(-1);
 						}
-						for (int i_31_ = 0; i_31_ < Class16.anInt185; i_31_++)
+						for (int i_31_ = 0; i_31_ < PacketConstruction.anInt185; i_31_++)
 						{
 							if (!bool)
 							{
@@ -971,13 +971,13 @@ public final class Client extends Applet_Sub1
 								{
 									if ((Class10.aStringArray8[i_31_] == null) && bool_29_)
 									{
-										method513(0,
+										displayMessage(0,
 										        new StringBuilder().append(string).append(" has logged in").toString(),
 										        5, null, -97, null, null, false);
 									}
 									if ((Class10.aStringArray8[i_31_] != null) && !bool_29_)
 									{
-										method513(0,
+										displayMessage(0,
 										        new StringBuilder().append(string).append(" has logged out").toString(),
 										        5, null, -98, null, null, false);
 									}
@@ -992,12 +992,12 @@ public final class Client extends Applet_Sub1
 							{
 								if ((Class10.aStringArray8[i_31_] == null) && bool_29_)
 								{
-									method513(0, new StringBuilder().append(string).append(" has logged in").toString(),
+									displayMessage(0, new StringBuilder().append(string).append(" has logged in").toString(),
 									        5, null, -34, null, null, false);
 								}
 								if ((Class10.aStringArray8[i_31_] != null) && !bool_29_)
 								{
-									method513(0,
+									displayMessage(0,
 									        new StringBuilder().append(string).append(" has logged out").toString(), 5,
 									        null, -63, null, null, false);
 								}
@@ -1016,11 +1016,11 @@ public final class Client extends Applet_Sub1
 							        .append(string_27_).append("' is not on friend list").toString());
 							return;
 						}
-						Class28.aStringArray24[Class16.anInt185] = string;
-						RuntimeException_Sub1.aStringArray41[Class16.anInt185] = string_27_;
-						Class10.aStringArray8[Class16.anInt185] = string_30_;
-						Class7.anIntArray18[Class16.anInt185] = i_28_;
-						Class16.anInt185++;
+						Class28.aStringArray24[PacketConstruction.anInt185] = string;
+						RuntimeException_Sub1.aStringArray41[PacketConstruction.anInt185] = string_27_;
+						Class10.aStringArray8[PacketConstruction.anInt185] = string_30_;
+						Class7.anIntArray18[PacketConstruction.anInt185] = i_28_;
+						PacketConstruction.anInt185++;
 						method561((byte) -123);
 					}
 				}
@@ -1054,7 +1054,7 @@ public final class Client extends Applet_Sub1
 			{
 				string_38_ = aClass27_Sub1_Sub1_2.method398(-1);
 			}
-			method513(0, string, i_34_, string_36_, -72, string_38_, string_37_, false);
+			displayMessage(0, string, i_34_, string_36_, -72, string_38_, string_37_, false);
 		}
 		if (i_15_ != 20)
 		{
@@ -1148,7 +1148,7 @@ public final class Client extends Applet_Sub1
 				        new StringBuilder().append("@whi@").append(string).append(string_41_).toString());
 			}
 		}
-		else if ((Frame_Sub1.anIntArray153[anInt940] == 1) || (Frame_Sub1.anIntArray153[anInt940] == 2))
+		else if ((GameFrame.anIntArray153[anInt940] == 1) || (GameFrame.anIntArray153[anInt940] == 2))
 		{
 			aClass29_1.method195(
 			        new StringBuilder().append("Cast ").append(Class46_Sub1.aStringArray36[anInt940]).append(" on")
@@ -1187,34 +1187,34 @@ public final class Client extends Applet_Sub1
 	}
 
 	@Override
-	void method478(final int i, final int i_44_, final byte i_45_, final int i_46_)
+	void addMouseClick(final int mouseY, final int mouseX, final byte i_45_, final int i_46_)
 	{
-		anIntArray156[anInt896] = i_44_;
+		mouseClickX[mouseClickCount] = mouseX;
 		anInt783++;
-		anIntArray154[anInt896] = i;
-		anInt896 = (anInt896 + 1) & 0x1fff;
-		for (int i_47_ = 10; i_47_ < 4000; i_47_++)
+		mouseClickY[mouseClickCount] = mouseY;
+		mouseClickCount = (mouseClickCount + 1) & 0x1fff;
+		for (int i = 10; i < 4000; ++i)
 		{
-			final int i_48_ = 0x1fff & (-i_47_ + anInt896);
-			if ((i_44_ == anIntArray156[i_48_]) && (anIntArray154[i_48_] == i))
+			final int pID = 0x1fff & (-i + mouseClickCount);
+			if ((mouseX == mouseClickX[pID]) && (mouseClickY[pID] == mouseY))
 			{
-				boolean bool = false;
-				for (int i_49_ = 1; i_47_ > i_49_; i_49_++)
+				boolean hasInteracted = false;
+				for (int j = 1; i > j; ++j)
 				{
-					final int i_50_ = (-i_49_ + anInt896) & 0x1fff;
-					final int i_51_ = (-i_49_ + i_48_) & 0x1fff;
-					if ((i_44_ != anIntArray156[i_51_]) || (anIntArray154[i_51_] != i))
+					final int sID = (mouseClickCount - j) & 0x1fff;
+					final int psID = (pID - j) & 0x1fff;
+					if ((mouseX != mouseClickX[psID]) || (mouseClickY[psID] != mouseY))
 					{
-						bool = true;
+						hasInteracted = true;
 					}
-					if ((anIntArray156[i_50_] != anIntArray156[i_51_])
-					        || (anIntArray154[i_50_] != anIntArray154[i_51_]))
+					if ((mouseClickX[sID] != mouseClickX[psID])
+					        || (mouseClickY[sID] != mouseClickY[psID]))
 					{
 						break;
 					}
-					if ((i_49_ == (i_47_ + -1)) && bool && (anInt1051 == 0) && (anInt970 == 0))
+					if ((j == (i - 1)) && hasInteracted && (combatTimeout == 0) && (logoutTimeout == 0))
 					{
-						method491((byte) -66);
+						sendLogout();
 						return;
 					}
 				}
@@ -1273,8 +1273,8 @@ public final class Client extends Applet_Sub1
 					string = new StringBuilder().append(string).append(" Suggest mute").toString();
 				}
 				final int i_62_ = aClass46_Sub1_2.method328(string, i ^ 0xe46, 1);
-				if ((this.anInt739 > (-(i_62_ / 2) + 256)) && (this.anInt739 < ((i_62_ / 2) + 256))
-				        && (this.anInt736 > (-i_53_ + i_60_)) && (this.anInt736 < i_60_))
+				if ((this.mouseX > (-(i_62_ / 2) + 256)) && (this.mouseX < ((i_62_ / 2) + 256))
+				        && (this.mouseY > (-i_53_ + i_60_)) && (this.mouseY < i_60_))
 				{
 					i_61_ = 16776960;
 					if (anInt887 != 0)
@@ -1287,8 +1287,8 @@ public final class Client extends Applet_Sub1
 				i_60_ = i_60_ + i_53_ + 10;
 			}
 			i_61_ = 16777215;
-			if ((this.anInt739 > 210) && (228 > this.anInt739) && (this.anInt736 > (-i_53_ + i_60_))
-			        && (this.anInt736 < i_60_))
+			if ((this.mouseX > 210) && (228 > this.mouseX) && (this.mouseY > (-i_53_ + i_60_))
+			        && (this.mouseY < i_60_))
 			{
 				if (anInt887 != 0)
 				{
@@ -1299,8 +1299,8 @@ public final class Client extends Applet_Sub1
 			}
 			aClass46_Sub1_2.method324("OK", i ^ i, 1, i_61_, 210, i_60_);
 			i_61_ = 16777215;
-			if ((this.anInt739 > 264) && (304 > this.anInt739) && ((-i_53_ + i_60_) < this.anInt736)
-			        && (this.anInt736 < i_60_))
+			if ((this.mouseX > 264) && (304 > this.mouseX) && ((-i_53_ + i_60_) < this.mouseY)
+			        && (this.mouseY < i_60_))
 			{
 				i_61_ = 16776960;
 				if (anInt887 != 0)
@@ -1310,8 +1310,8 @@ public final class Client extends Applet_Sub1
 				}
 			}
 			aClass46_Sub1_2.method324("Cancel", 0, 1, i_61_, 264, i_60_);
-			if ((anInt887 == 1) && ((i_57_ > this.anInt739) || ((i_55_ + i_57_) < this.anInt739)
-			        || (i_58_ > this.anInt736) || (this.anInt736 > (i_58_ - -i_56_))))
+			if ((anInt887 == 1) && ((i_57_ > this.mouseX) || ((i_55_ + i_57_) < this.mouseX)
+			        || (i_58_ > this.mouseY) || (this.mouseY > (i_58_ - -i_56_))))
 			{
 				anInt887 = 0;
 				anInt994 = 0;
@@ -1367,21 +1367,21 @@ public final class Client extends Applet_Sub1
 		final String string_63_ = Class43.method298((byte) 92, string);
 		if (string_63_ != null)
 		{
-			for (int i_64_ = 0; Class16.anInt185 > i_64_; i_64_++)
+			for (int i_64_ = 0; PacketConstruction.anInt185 > i_64_; i_64_++)
 			{
 				if (string_63_.equals(Class43.method298((byte) -103, (Class28.aStringArray24[i_64_]))))
 				{
-					Class16.anInt185--;
-					for (int i_65_ = i_64_; Class16.anInt185 > i_65_; i_65_++)
+					PacketConstruction.anInt185--;
+					for (int i_65_ = i_64_; PacketConstruction.anInt185 > i_65_; i_65_++)
 					{
 						Class28.aStringArray24[i_65_] = Class28.aStringArray24[i_65_ + 1];
 						RuntimeException_Sub1.aStringArray41[i_65_] = RuntimeException_Sub1.aStringArray41[i_65_ + 1];
 						Class10.aStringArray8[i_65_] = Class10.aStringArray8[i_65_ - -1];
 						Class7.anIntArray18[i_65_] = Class7.anIntArray18[i_65_ + 1];
 					}
-					aClass16_Sub1_1.method118(167, 94);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method389(0, string);
-					aClass16_Sub1_1.method126(2);
+					packetHandler.createPacket(167, 94);
+					packetHandler.aClass27_Sub1_Sub1_1.method389(0, string);
+					packetHandler.finishPacket(2);
 					break;
 				}
 			}
@@ -1397,7 +1397,7 @@ public final class Client extends Applet_Sub1
 		anInt776++;
 		if (i >= (Class10.anInt129 ^ 0xffffffff))
 		{
-			method513(0, "Ignore list full", 0, null, i + 80, null, null, false);
+			displayMessage(0, "Ignore list full", 0, null, i + 80, null, null, false);
 		}
 		else
 		{
@@ -1408,7 +1408,7 @@ public final class Client extends Applet_Sub1
 				{
 					if (string_66_.equals(Class43.method298((byte) -47, (Class46.aStringArray33[i_67_]))))
 					{
-						method513(0,
+						displayMessage(0,
 						        new StringBuilder().append(string).append(" is already on your ignore list").toString(),
 						        0, null, -22, null, null, false);
 						return;
@@ -1416,17 +1416,17 @@ public final class Client extends Applet_Sub1
 					if ((Class6.aStringArray7[i_67_] != null)
 					        && string_66_.equals(Class43.method298((byte) 106, (Class6.aStringArray7[i_67_]))))
 					{
-						method513(0,
+						displayMessage(0,
 						        new StringBuilder().append(string).append(" is already on your ignore list").toString(),
 						        0, null, -93, null, null, false);
 						return;
 					}
 				}
-				for (int i_68_ = 0; i_68_ < Class16.anInt185; i_68_++)
+				for (int i_68_ = 0; i_68_ < PacketConstruction.anInt185; i_68_++)
 				{
 					if (string_66_.equals(Class43.method298((byte) 99, (Class28.aStringArray24[i_68_]))))
 					{
-						method513(0,
+						displayMessage(0,
 						        new StringBuilder().append("Please remove ").append(string)
 						                .append(" from your friends list first").toString(),
 						        0, null, -18, null, null, false);
@@ -1435,7 +1435,7 @@ public final class Client extends Applet_Sub1
 					if ((RuntimeException_Sub1.aStringArray41[i_68_] != null) && (string_66_
 					        .equals(Class43.method298((byte) 75, (RuntimeException_Sub1.aStringArray41[i_68_])))))
 					{
-						method513(0,
+						displayMessage(0,
 						        new StringBuilder().append("Please remove ").append(string)
 						                .append(" from your friends list first").toString(),
 						        0, null, -8, null, null, false);
@@ -1444,13 +1444,13 @@ public final class Client extends Applet_Sub1
 				}
 				if (string_66_.equals(Class43.method298((byte) 113, (aClass15_1.aString7))))
 				{
-					method513(0, "You can't add yourself to your ignore list", 0, null, -38, null, null, false);
+					displayMessage(0, "You can't add yourself to your ignore list", 0, null, -38, null, null, false);
 				}
 				else
 				{
-					aClass16_Sub1_1.method118(132, 98);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method389(i ^ ~0x64, string);
-					aClass16_Sub1_1.method126(2);
+					packetHandler.createPacket(132, 98);
+					packetHandler.aClass27_Sub1_Sub1_1.method389(i ^ ~0x64, string);
+					packetHandler.finishPacket(2);
 				}
 			}
 		}
@@ -1504,7 +1504,7 @@ public final class Client extends Applet_Sub1
 			}
 			if (Class6.anIntArray10[i_72_] == 1)
 			{
-				method513(0, "This object cannot be traded with other players", 0, null, -17, null, null, false);
+				displayMessage(0, "This object cannot be traded with other players", 0, null, -17, null, null, false);
 				bool = true;
 			}
 			if (!bool)
@@ -1535,14 +1535,14 @@ public final class Client extends Applet_Sub1
 			}
 			if (bool)
 			{
-				aClass16_Sub1_1.method118(46, i_70_ + 77);
-				aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(i_70_ ^ ~0x7b4f, anInt1049);
+				packetHandler.createPacket(46, i_70_ + 77);
+				packetHandler.aClass27_Sub1_Sub1_1.put(i_70_ ^ ~0x7b4f, anInt1049);
 				for (int i_77_ = 0; i_77_ < anInt1049; i_77_++)
 				{
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(anIntArray180[i_77_], (byte) 71);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(anIntArray164[i_77_], true);
+					packetHandler.aClass27_Sub1_Sub1_1.putShort(anIntArray180[i_77_], (byte) 71);
+					packetHandler.aClass27_Sub1_Sub1_1.putInt(anIntArray164[i_77_], true);
 				}
-				aClass16_Sub1_1.method126(i_70_ + 0);
+				packetHandler.finishPacket(i_70_ + 0);
 				aBool68 = false;
 				aBool67 = false;
 			}
@@ -1551,10 +1551,10 @@ public final class Client extends Applet_Sub1
 
 	private void method504(final byte i, final String string)
 	{
-		aClass16_Sub1_1.method118(216, 55);
+		packetHandler.createPacket(216, 55);
 		anInt929++;
-		Class39.method255((aClass16_Sub1_1.aClass27_Sub1_Sub1_1), false, string);
-		aClass16_Sub1_1.method126(2);
+		Class39.method255((packetHandler.aClass27_Sub1_Sub1_1), false, string);
+		packetHandler.finishPacket(2);
 	}
 
 	void method505(final int i, final int i_78_, final int i_79_, final int i_80_, final int i_81_, int i_82_,
@@ -1822,9 +1822,9 @@ public final class Client extends Applet_Sub1
 	}
 
 	@Override
-	void method477(final byte i, final Runnable runnable)
+	void method477(final Runnable runnable)
 	{
-		Frame_Sub1.aClass32_4.method218(1, 0, runnable);
+		GameFrame.aClass32_4.method218(1, 0, runnable);
 		anInt777++;
 	}
 
@@ -1860,7 +1860,7 @@ public final class Client extends Applet_Sub1
 		}
 		boolean bool = false;
 		boolean bool_125_ = false;
-		for (int i_126_ = 0; i_126_ < Class16.anInt185; i_126_++)
+		for (int i_126_ = 0; i_126_ < PacketConstruction.anInt185; i_126_++)
 		{
 			if (string_124_.equals(Class43.method298((byte) 76, (Class28.aStringArray24[i_126_]))))
 			{
@@ -2177,7 +2177,7 @@ public final class Client extends Applet_Sub1
 		return class15;
 	}
 
-	private void method513(final int i, final String string, final int i_165_, final String string_166_,
+	private void displayMessage(final int i, final String string, final int i_165_, final String string_166_,
 	        final int i_167_, final String string_168_, final String string_169_, final boolean bool)
 	{
 		anInt892++;
@@ -2322,9 +2322,9 @@ public final class Client extends Applet_Sub1
 					        .append(Class13.method110(Class2.aStringArray3[i_180_], (Class13.aStringArray13[i_180_]),
 					                (ByteBuffer.anIntArray142[i_180_]), i ^ ~0x3f3a))
 					        .toString();
-					if ((this.anInt739 > 7) && (this.anInt739 < (aClass46_Sub1_2.method328(string, -126, 1) + 7))
-					        && (this.anInt736 > (-(i_180_ * 12) + anInt879 + -30))
-					        && (this.anInt736 < (-(i_180_ * 12) + anInt879 + -18))
+					if ((this.mouseX > 7) && (this.mouseX < (aClass46_Sub1_2.method328(string, -126, 1) + 7))
+					        && (this.mouseY > (-(i_180_ * 12) + anInt879 + -30))
+					        && (this.mouseY < (-(i_180_ * 12) + anInt879 + -18))
 					        && ((anInt887 == 2) || (aBool83 && (anInt887 == 1)))
 					        && method510(Class13.aStringArray13[i_180_], Class27.aStringArray23[i_180_], -126))
 					{
@@ -2416,7 +2416,7 @@ public final class Client extends Applet_Sub1
 								}
 								if (anInt940 >= 0)
 								{
-									if (Frame_Sub1.anIntArray153[anInt940] == 2)
+									if (GameFrame.anIntArray153[anInt940] == 2)
 									{
 										aClass29_1.method195(new StringBuilder().append("Cast ")
 										        .append(Class46_Sub1.aStringArray36[anInt940]).append(" on").toString(),
@@ -2492,7 +2492,7 @@ public final class Client extends Applet_Sub1
 								        anIntArray192[i_187_], (byte) -37);
 							}
 						}
-						else if (Frame_Sub1.anIntArray153[anInt940] == 3)
+						else if (GameFrame.anIntArray153[anInt940] == 3)
 						{
 							aClass29_1.method185(
 							        new StringBuilder().append("Cast ").append(Class46_Sub1.aStringArray36[anInt940])
@@ -2513,7 +2513,7 @@ public final class Client extends Applet_Sub1
 							{
 								if (anInt940 >= 0)
 								{
-									if (Frame_Sub1.anIntArray153[anInt940] == 5)
+									if (GameFrame.anIntArray153[anInt940] == 5)
 									{
 										aClass29_1.method213(true, 400, anIntArray171[i_193_],
 										        new StringBuilder().append("@cya@")
@@ -2580,7 +2580,7 @@ public final class Client extends Applet_Sub1
 						{
 							if (anInt940 >= 0)
 							{
-								if (Frame_Sub1.anIntArray153[anInt940] == 4)
+								if (GameFrame.anIntArray153[anInt940] == 4)
 								{
 									aClass29_1.method185(new StringBuilder().append("Cast ")
 									        .append(Class46_Sub1.aStringArray36[anInt940]).append(" on").toString(),
@@ -2627,7 +2627,7 @@ public final class Client extends Applet_Sub1
 					}
 				}
 			}
-			if ((0 <= anInt940) && (Frame_Sub1.anIntArray153[anInt940] <= 1))
+			if ((0 <= anInt940) && (GameFrame.anIntArray153[anInt940] <= 1))
 			{
 				aClass29_1.method196(new StringBuilder().append("Cast ").append(Class46_Sub1.aStringArray36[anInt940])
 				        .append(" on self").toString(), 1000, "", (byte) -41, anInt940);
@@ -2646,7 +2646,7 @@ public final class Client extends Applet_Sub1
 						        aClass6_1.anIntArray11[i_197_], 920);
 					}
 				}
-				else if (Frame_Sub1.anIntArray153[anInt940] == 6)
+				else if (GameFrame.anIntArray153[anInt940] == 6)
 				{
 					aClass29_1.method193(anInt940, "",
 					        new StringBuilder().append("Cast ").append(Class46_Sub1.aStringArray36[anInt940])
@@ -2722,8 +2722,8 @@ public final class Client extends Applet_Sub1
 		}
 		if (bool)
 		{
-			i = 248 - (aClass46_Sub1_2.anInt502 - this.anInt739);
-			final int i_217_ = this.anInt736 + -36;
+			i = 248 - (aClass46_Sub1_2.anInt502 - this.mouseX);
+			final int i_217_ = this.mouseY + -36;
 			if ((i >= 0) && (i_217_ >= 0) && (i < 248) && (i_217_ < ((anInt973 / 5) * 34)))
 			{
 				final int i_218_ = (i / 49) - -((i_217_ / 34) * 5);
@@ -2782,7 +2782,7 @@ public final class Client extends Applet_Sub1
 							        0, anInt989, 610);
 						}
 					}
-					else if (Frame_Sub1.anIntArray153[anInt940] == 3)
+					else if (GameFrame.anIntArray153[anInt940] == 3)
 					{
 						aClass29_1.method195(
 						        new StringBuilder().append("Cast ").append(Class46_Sub1.aStringArray36[anInt940])
@@ -2912,8 +2912,8 @@ public final class Client extends Applet_Sub1
 		{
 			int i_226_ = 16777215;
 			i_225_ += 5;
-			if ((this.anInt739 > i_224_) && ((i_224_ - -i_222_) > this.anInt739) && ((i_225_ + -12) < this.anInt736)
-			        && (this.anInt736 < (i_225_ + 4)))
+			if ((this.mouseX > i_224_) && ((i_224_ - -i_222_) > this.mouseX) && ((i_225_ + -12) < this.mouseY)
+			        && (this.mouseY < (i_225_ + 4)))
 			{
 				i_226_ = 16776960;
 			}
@@ -2924,16 +2924,16 @@ public final class Client extends Applet_Sub1
 		aClass46_Sub1_2.method324("Always logout when you finish", 0, 1, 0, i_224_, i_225_);
 		int i_227_ = 16777215;
 		i_225_ += 15;
-		if ((this.anInt739 > i_224_) && (this.anInt739 < (i_222_ + i_224_)) && (this.anInt736 > (i_225_ + -12))
-		        && (this.anInt736 < (i_225_ + 4)))
+		if ((this.mouseX > i_224_) && (this.mouseX < (i_222_ + i_224_)) && (this.mouseY > (i_225_ + -12))
+		        && (this.mouseY < (i_225_ + 4)))
 		{
 			i_227_ = 16776960;
 		}
 		aClass46_Sub1_2.method324("Click here to logout", 0, 1, i_227_, i_220_ + 3, i_225_);
 		if (bool)
 		{
-			i_220_ = (this.anInt739 + -aClass46_Sub1_2.anInt502 + 199);
-			i_221_ = this.anInt736 + -36;
+			i_220_ = (this.mouseX + -aClass46_Sub1_2.anInt502 + 199);
+			i_221_ = this.mouseY + -36;
 			if ((0 <= i_220_) && (i_221_ >= 0) && (196 > i_220_) && (i_221_ < 265))
 			{
 				final int i_228_ = aClass46_Sub1_2.anInt502 - 199;
@@ -2941,34 +2941,34 @@ public final class Client extends Applet_Sub1
 				i_224_ = i_228_ + 3;
 				i_222_ = 196;
 				i_225_ = i_229_ + 30;
-				if ((this.anInt739 > i_224_) && ((i_222_ + i_224_) > this.anInt739) && (this.anInt736 > (i_225_ - 12))
-				        && (this.anInt736 < (i_225_ + 4)) && (anInt887 == 1))
+				if ((this.mouseX > i_224_) && ((i_222_ + i_224_) > this.mouseX) && (this.mouseY > (i_225_ - 12))
+				        && (this.mouseY < (i_225_ + 4)) && (anInt887 == 1))
 				{
 					aBool86 = !aBool86;
-					aClass16_Sub1_1.method118(111, 92);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, 0);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, !aBool86 ? 0 : 1);
-					aClass16_Sub1_1.method126(2);
+					packetHandler.createPacket(111, 92);
+					packetHandler.aClass27_Sub1_Sub1_1.put(-31566, 0);
+					packetHandler.aClass27_Sub1_Sub1_1.put(-31566, !aBool86 ? 0 : 1);
+					packetHandler.finishPacket(2);
 				}
 				i_225_ += 15;
-				if ((i_224_ < this.anInt739) && (this.anInt739 < (i_222_ + i_224_)) && (this.anInt736 > (i_225_ - 12))
-				        && ((i_225_ + 4) > this.anInt736) && (anInt887 == 1))
+				if ((i_224_ < this.mouseX) && (this.mouseX < (i_222_ + i_224_)) && (this.mouseY > (i_225_ - 12))
+				        && ((i_225_ + 4) > this.mouseY) && (anInt887 == 1))
 				{
 					aBool83 = !aBool83;
-					aClass16_Sub1_1.method118(111, 98);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, 2);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, aBool83 ? 1 : 0);
-					aClass16_Sub1_1.method126(2);
+					packetHandler.createPacket(111, 98);
+					packetHandler.aClass27_Sub1_Sub1_1.put(-31566, 2);
+					packetHandler.aClass27_Sub1_Sub1_1.put(-31566, aBool83 ? 1 : 0);
+					packetHandler.finishPacket(2);
 				}
 				i_225_ += 15;
-				if (aBool55 && (i_224_ < this.anInt739) && ((i_224_ - -i_222_) > this.anInt739)
-				        && (this.anInt736 > (i_225_ + -12)) && ((i_225_ + 4) > this.anInt736) && (anInt887 == 1))
+				if (aBool55 && (i_224_ < this.mouseX) && ((i_224_ - -i_222_) > this.mouseX)
+				        && (this.mouseY > (i_225_ + -12)) && ((i_225_ + 4) > this.mouseY) && (anInt887 == 1))
 				{
 					aBool58 = !aBool58;
-					aClass16_Sub1_1.method118(111, 123);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, 3);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, !aBool58 ? 0 : 1);
-					aClass16_Sub1_1.method126(2);
+					packetHandler.createPacket(111, 123);
+					packetHandler.aClass27_Sub1_Sub1_1.put(-31566, 3);
+					packetHandler.aClass27_Sub1_Sub1_1.put(-31566, !aBool58 ? 0 : 1);
+					packetHandler.finishPacket(2);
 				}
 				i_225_ += 15;
 				i_225_ += 15;
@@ -2977,29 +2977,29 @@ public final class Client extends Applet_Sub1
 				i_225_ += 15;
 				boolean bool_230_ = false;
 				i_225_ += 35;
-				if ((this.anInt739 > i_224_) && (this.anInt739 < (i_224_ + i_222_)) && (this.anInt736 > (i_225_ + -12))
-				        && ((i_225_ - -4) > this.anInt736) && (anInt887 == 1))
+				if ((this.mouseX > i_224_) && (this.mouseX < (i_224_ + i_222_)) && (this.mouseY > (i_225_ + -12))
+				        && ((i_225_ - -4) > this.mouseY) && (anInt887 == 1))
 				{
 					bool_230_ = true;
 					anInt904 = 1 - anInt904;
 				}
 				i_225_ += 15;
-				if ((this.anInt739 > i_224_) && ((i_224_ + i_222_) > this.anInt739) && (this.anInt736 > (i_225_ + -12))
-				        && ((i_225_ + 4) > this.anInt736) && (anInt887 == 1))
+				if ((this.mouseX > i_224_) && ((i_224_ + i_222_) > this.mouseX) && (this.mouseY > (i_225_ + -12))
+				        && ((i_225_ + 4) > this.mouseY) && (anInt887 == 1))
 				{
 					anInt908 = 1 - anInt908;
 					bool_230_ = true;
 				}
 				i_225_ += 15;
-				if ((this.anInt739 > i_224_) && ((i_224_ - -i_222_) > this.anInt739) && ((i_225_ - 12) < this.anInt736)
-				        && (this.anInt736 < (i_225_ - -4)) && (anInt887 == 1))
+				if ((this.mouseX > i_224_) && ((i_224_ - -i_222_) > this.mouseX) && ((i_225_ - 12) < this.mouseY)
+				        && (this.mouseY < (i_225_ - -4)) && (anInt887 == 1))
 				{
 					bool_230_ = true;
 					anInt890 = -anInt890 + 1;
 				}
 				i_225_ += 15;
-				if (aBool55 && (this.anInt739 > i_224_) && (this.anInt739 < (i_222_ + i_224_))
-				        && (this.anInt736 > (i_225_ - 12)) && ((i_225_ + 4) > this.anInt736) && (anInt887 == 1))
+				if (aBool55 && (this.mouseX > i_224_) && (this.mouseX < (i_222_ + i_224_))
+				        && (this.mouseY > (i_225_ - 12)) && ((i_225_ + 4) > this.mouseY) && (anInt887 == 1))
 				{
 					anInt934 = -anInt934 + 1;
 					bool_230_ = true;
@@ -3012,19 +3012,19 @@ public final class Client extends Applet_Sub1
 				if (aBool93)
 				{
 					i_225_ += 5;
-					if ((this.anInt739 > i_224_) && (this.anInt739 < (i_222_ + i_224_))
-					        && (this.anInt736 > (i_225_ + -12)) && ((i_225_ + 4) > this.anInt736) && (anInt887 == 1))
+					if ((this.mouseX > i_224_) && (this.mouseX < (i_222_ + i_224_))
+					        && (this.mouseY > (i_225_ + -12)) && ((i_225_ + 4) > this.mouseY) && (anInt887 == 1))
 					{
-						method516(Applet_Sub1.aStringArray43, 9, -118, false);
+						method516(GameWindow.aStringArray43, 9, -118, false);
 						anInt939 = 0;
 					}
 					i_225_ += 15;
 				}
 				i_225_ += 20;
-				if ((this.anInt739 > i_224_) && (this.anInt739 < (i_224_ - -i_222_)) && ((i_225_ + -12) < this.anInt736)
-				        && ((i_225_ - -4) > this.anInt736) && (anInt887 == 1))
+				if ((this.mouseX > i_224_) && (this.mouseX < (i_224_ - -i_222_)) && ((i_225_ + -12) < this.mouseY)
+				        && ((i_225_ - -4) > this.mouseY) && (anInt887 == 1))
 				{
-					method491((byte) 75);
+					sendLogout();
 				}
 				anInt887 = 0;
 			}
@@ -3077,12 +3077,12 @@ public final class Client extends Applet_Sub1
 								method533("Please wait...", "Connecting to server", false);
 							}
 							final int i_233_ = 1 < anInt850 ? anInt799 : anInt786;
-							aClass16_Sub1_1 = new Class16_Sub1(method522((byte) -128, aString28, i_233_), this);
-							aClass16_Sub1_1.anInt192 = Class35.anInt377;
+							packetHandler = new Class16_Sub1(method522((byte) -128, aString28, i_233_), this);
+							packetHandler.anInt192 = Class35.anInt377;
 							int i_234_ = 0;
 							try
 							{
-								if (Class38.aFrame_Sub1_1 == null)
+								if (Class38.gameFrame == null)
 								{
 									final String string_235_ = getParameter("limit30");
 									if (string_235_.equals("1"))
@@ -3100,16 +3100,16 @@ public final class Client extends Applet_Sub1
 							is[2] = (int) (Math.random() * 9.9999999E7);
 							is[3] = (int) (9.9999999E7 * Math.random());
 							is[1] = (int) (Math.random() * 9.9999999E7);
-							aClass16_Sub1_1.method118(0, 67);
+							packetHandler.createPacket(0, 67);
 							if (!bool)
 							{
-								aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, 0);
+								packetHandler.aClass27_Sub1_Sub1_1.put(-31566, 0);
 							}
 							else
 							{
-								aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, 1);
+								packetHandler.aClass27_Sub1_Sub1_1.put(-31566, 1);
 							}
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(Class51.anInt583, true);
+							packetHandler.aClass27_Sub1_Sub1_1.putInt(Class51.anInt583, true);
 							final ByteBuffer buffer = new ByteBuffer(500);
 							buffer.put(-31566, 10);
 							buffer.putInt(is[0], true);
@@ -3124,20 +3124,20 @@ public final class Client extends Applet_Sub1
 							buffer.putTribyte(0, (int) (Math.random() * 9.9999999E7));
 							buffer.method399((byte) 93, (RuntimeException_Sub1.aBigInteger2),
 							        AClass1.aBigInteger1);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method394(buffer.position,
+							packetHandler.aClass27_Sub1_Sub1_1.method394(buffer.position,
 							        buffer.buffer, (byte) -107, 0);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(0, (byte) 64);
-							final int i_237_ = ((aClass16_Sub1_1.aClass27_Sub1_Sub1_1).position);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, i_234_);
-							Class39.method251((aClass16_Sub1_1.aClass27_Sub1_Sub1_1), -1);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putString(false, aString34);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method408(-85, i_237_, is,
-							        (aClass16_Sub1_1.aClass27_Sub1_Sub1_1).position);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method401(97,
-							        (aClass16_Sub1_1.aClass27_Sub1_Sub1_1).position + -i_237_);
-							aClass16_Sub1_1.method120(97);
-							aClass16_Sub1_1.method116(is, (byte) 45);
-							final int responseCode = aClass16_Sub1_1.method129(-76);
+							packetHandler.aClass27_Sub1_Sub1_1.putShort(0, (byte) 64);
+							final int i_237_ = ((packetHandler.aClass27_Sub1_Sub1_1).position);
+							packetHandler.aClass27_Sub1_Sub1_1.put(-31566, i_234_);
+							Class39.method251((packetHandler.aClass27_Sub1_Sub1_1), -1);
+							packetHandler.aClass27_Sub1_Sub1_1.putString(false, aString34);
+							packetHandler.aClass27_Sub1_Sub1_1.method408(-85, i_237_, is,
+							        (packetHandler.aClass27_Sub1_Sub1_1).position);
+							packetHandler.aClass27_Sub1_Sub1_1.method401(97,
+							        (packetHandler.aClass27_Sub1_Sub1_1).position + -i_237_);
+							packetHandler.method120(97);
+							packetHandler.method116(is, (byte) 45);
+							final int responseCode = packetHandler.method129(-76);
 							System.out.println(new StringBuilder().append("login response:").append(responseCode).toString());
 							if ((responseCode & 0x40) != 0)
 							{
@@ -3345,7 +3345,7 @@ public final class Client extends Applet_Sub1
 	private void method520(final byte i)
 	{
 		anInt769++;
-		aClass10_1.method85(this.anInt737, this.anInt736, this.anInt738, (byte) -124, this.anInt739);
+		aClass10_1.method85(this.mouseDownButton, this.mouseY, this.lastMouseDownButton, (byte) -124, this.mouseX);
 		if (aClass10_1.method81(true, anInt968))
 		{
 			do
@@ -3413,16 +3413,16 @@ public final class Client extends Applet_Sub1
 		}
 		if (aClass10_1.method81(true, anInt1029))
 		{
-			aClass16_Sub1_1.method118(235, 81);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anInt1028);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anInt1047);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anInt962);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anInt948);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anInt999);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anInt1057);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anInt965);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anInt961);
-			aClass16_Sub1_1.method126(2);
+			packetHandler.createPacket(235, 81);
+			packetHandler.aClass27_Sub1_Sub1_1.put(-31566, anInt1028);
+			packetHandler.aClass27_Sub1_Sub1_1.put(-31566, anInt1047);
+			packetHandler.aClass27_Sub1_Sub1_1.put(-31566, anInt962);
+			packetHandler.aClass27_Sub1_Sub1_1.put(-31566, anInt948);
+			packetHandler.aClass27_Sub1_Sub1_1.put(-31566, anInt999);
+			packetHandler.aClass27_Sub1_Sub1_1.put(-31566, anInt1057);
+			packetHandler.aClass27_Sub1_Sub1_1.put(-31566, anInt965);
+			packetHandler.aClass27_Sub1_Sub1_1.put(-31566, anInt961);
+			packetHandler.finishPacket(2);
 			aClass46_Sub1_2.method331(-1964300920);
 			aBool64 = false;
 		}
@@ -3432,7 +3432,7 @@ public final class Client extends Applet_Sub1
 	{
 		anInt897++;
 		boolean bool = false;
-		if (anInt970 == 0)
+		if (logoutTimeout == 0)
 		{
 			if (!aBool91)
 			{
@@ -3444,9 +3444,9 @@ public final class Client extends Applet_Sub1
 				{
 					method585(false);
 				}
-				else if (!aBool81 || (anInt1051 != 0))
+				else if (!aBool81 || (combatTimeout != 0))
 				{
-					if (aBool57 && (anInt1051 == 0))
+					if (aBool57 && (combatTimeout == 0))
 					{
 						method546((byte) 82);
 					}
@@ -3570,9 +3570,9 @@ public final class Client extends Applet_Sub1
 	{
 		anInt846++;
 		Socket socket;
-		if ((Class38.aFrame_Sub1_1 != null) || (Class27.anApplet1 == null))
+		if ((Class38.gameFrame != null) || (Class27.anApplet1 == null))
 		{
-			if (Class38.aFrame_Sub1_1 != null)
+			if (Class38.gameFrame != null)
 			{
 				socket = new Socket(InetAddress.getByName(string), i_242_);
 			}
@@ -3583,7 +3583,7 @@ public final class Client extends Applet_Sub1
 		}
 		else
 		{
-			final Class20 class20 = Frame_Sub1.aClass32_4.method221(string, 0, i_242_);
+			final Class20 class20 = GameFrame.aClass32_4.method221(string, 0, i_242_);
 			while (class20.anInt216 == 0)
 			{
 				Class7.method51(58, 50L);
@@ -3639,8 +3639,8 @@ public final class Client extends Applet_Sub1
 				}
 			}
 		}
-		aClass16_Sub1_1.method118(46, 110);
-		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anInt1049);
+		packetHandler.createPacket(46, 110);
+		packetHandler.aClass27_Sub1_Sub1_1.put(-31566, anInt1049);
 		int i_251_ = 0;
 		if (i_244_ != 348)
 		{
@@ -3648,10 +3648,10 @@ public final class Client extends Applet_Sub1
 		}
 		for (/**/; anInt1049 > i_251_; i_251_++)
 		{
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(anIntArray180[i_251_], (byte) 119);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(anIntArray164[i_251_], true);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(anIntArray180[i_251_], (byte) 119);
+			packetHandler.aClass27_Sub1_Sub1_1.putInt(anIntArray164[i_251_], true);
 		}
-		aClass16_Sub1_1.method126(i_244_ ^ 0x15e);
+		packetHandler.finishPacket(i_244_ ^ 0x15e);
 		aBool67 = false;
 		aBool68 = false;
 	}
@@ -3702,7 +3702,7 @@ public final class Client extends Applet_Sub1
 		}
 		if (Class6.anIntArray10[i_255_] == 1)
 		{
-			method513(0, "This object cannot be added to a duel offer", 0, null, -100, null, null, false);
+			displayMessage(0, "This object cannot be added to a duel offer", 0, null, -100, null, null, false);
 			bool = true;
 		}
 		if (!bool)
@@ -3737,14 +3737,14 @@ public final class Client extends Applet_Sub1
 		}
 		if (bool)
 		{
-			aClass16_Sub1_1.method118(33, 123);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(i + -31566, anInt1061);
+			packetHandler.createPacket(33, 123);
+			packetHandler.aClass27_Sub1_Sub1_1.put(i + -31566, anInt1061);
 			for (int i_260_ = 0; i_260_ < anInt1061; i_260_++)
 			{
-				aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(anIntArray182[i_260_], (byte) 58);
-				aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(anIntArray198[i_260_], true);
+				packetHandler.aClass27_Sub1_Sub1_1.putShort(anIntArray182[i_260_], (byte) 58);
+				packetHandler.aClass27_Sub1_Sub1_1.putInt(anIntArray198[i_260_], true);
 			}
-			aClass16_Sub1_1.method126(2);
+			packetHandler.finishPacket(2);
 			aBool75 = false;
 			aBool59 = false;
 		}
@@ -3854,25 +3854,25 @@ public final class Client extends Applet_Sub1
 		if (anInt887 != 0)
 		{
 			anInt887 = 0;
-			if ((anInt1059 == 1) && ((this.anInt739 < 106) || (this.anInt736 < 145) || (406 < this.anInt739)
-			        || (215 < this.anInt736)))
+			if ((anInt1059 == 1) && ((this.mouseX < 106) || (this.mouseY < 145) || (406 < this.mouseX)
+			        || (215 < this.mouseY)))
 			{
 				anInt1059 = 0;
 				return;
 			}
 			if ((anInt1059 == 2)
-			        && ((this.anInt739 < 6) || (145 > this.anInt736) || (506 < this.anInt739) || (215 < this.anInt736)))
+			        && ((this.mouseX < 6) || (145 > this.mouseY) || (506 < this.mouseX) || (215 < this.mouseY)))
 			{
 				anInt1059 = 0;
 				return;
 			}
-			if ((anInt1059 == 3) && ((this.anInt739 < 106) || (145 > this.anInt736) || (406 < this.anInt739)
-			        || (215 < this.anInt736)))
+			if ((anInt1059 == 3) && ((this.mouseX < 106) || (145 > this.mouseY) || (406 < this.mouseX)
+			        || (215 < this.mouseY)))
 			{
 				anInt1059 = 0;
 				return;
 			}
-			if ((236 < this.anInt739) && (this.anInt739 < 276) && (193 < this.anInt736) && (213 > this.anInt736))
+			if ((236 < this.mouseX) && (this.mouseX < 276) && (193 < this.mouseY) && (213 > this.mouseY))
 			{
 				anInt1059 = 0;
 				return;
@@ -3943,7 +3943,7 @@ public final class Client extends Applet_Sub1
 			}
 		}
 		int i_286_ = 16777215;
-		if ((236 < this.anInt739) && (this.anInt739 < 276) && (this.anInt736 > 193) && (213 > this.anInt736))
+		if ((236 < this.mouseX) && (this.mouseX < 276) && (this.mouseY > 193) && (213 > this.mouseY))
 		{
 			i_286_ = 16776960;
 		}
@@ -3956,7 +3956,7 @@ public final class Client extends Applet_Sub1
 		int i_287_ = -1;
 		if ((anInt887 != 0) && aBool87)
 		{
-			i_287_ = aClass29_2.method197(this.anInt739, this.anInt736, anInt1058, anInt944, 0);
+			i_287_ = aClass29_2.method197(this.mouseX, this.mouseY, anInt1058, anInt944, 0);
 		}
 		if (i_287_ < 0)
 		{
@@ -3966,8 +3966,8 @@ public final class Client extends Applet_Sub1
 				{
 					anInt1036 = 1;
 				}
-				final int i_288_ = this.anInt739 + -22;
-				final int i_289_ = this.anInt736 + -36;
+				final int i_288_ = this.mouseX + -22;
+				final int i_289_ = this.mouseY + -36;
 				if ((i_288_ >= 0) && (i_289_ >= 0) && (i_288_ < 468) && (i_289_ < 262))
 				{
 					if (anInt1036 > 0)
@@ -3991,14 +3991,14 @@ public final class Client extends Applet_Sub1
 						if ((217 <= i_288_) && (i_289_ >= 238) && (i_288_ <= 286) && (259 >= i_289_))
 						{
 							aBool68 = true;
-							aClass16_Sub1_1.method118(55, 66);
-							aClass16_Sub1_1.method126(2);
+							packetHandler.createPacket(55, 66);
+							packetHandler.finishPacket(2);
 						}
 						if ((394 <= i_288_) && (238 <= i_289_) && (i_288_ < 463) && (i_289_ < 259))
 						{
 							aBool84 = false;
-							aClass16_Sub1_1.method118(230, 123);
-							aClass16_Sub1_1.method126(2);
+							packetHandler.createPacket(230, 123);
+							packetHandler.finishPacket(2);
 						}
 						anInt1036 = 0;
 						anInt887 = 0;
@@ -4009,8 +4009,8 @@ public final class Client extends Applet_Sub1
 						{
 							final int i_292_ = aClass29_1.method207(true);
 							final int i_293_ = aClass29_1.method210(i + -1);
-							anInt955 = this.anInt739 + -(i_292_ / 2);
-							anInt984 = this.anInt736 + -7;
+							anInt955 = this.mouseX + -(i_292_ / 2);
+							anInt984 = this.mouseY + -7;
 							aBool61 = true;
 							if (anInt984 < 0)
 							{
@@ -4046,8 +4046,8 @@ public final class Client extends Applet_Sub1
 								        .append(Class26.aStringArray19[i_295_]).toString(), 0, -2, 1);
 								final int i_296_ = aClass29_2.method207(true);
 								final int i_297_ = aClass29_2.method210(0);
-								anInt1058 = this.anInt736 + -7;
-								anInt944 = this.anInt739 + -(i_296_ / 2);
+								anInt1058 = this.mouseY + -7;
+								anInt944 = this.mouseX + -(i_296_ / 2);
 								if (anInt1058 < 0)
 								{
 									anInt1058 = 0;
@@ -4086,8 +4086,8 @@ public final class Client extends Applet_Sub1
 								        .append(Class26.aStringArray19[i_299_]).toString(), 0, -2, 2);
 								final int i_300_ = aClass29_2.method207(true);
 								final int i_301_ = aClass29_2.method210(0);
-								anInt944 = this.anInt739 - (i_300_ / 2);
-								anInt1058 = this.anInt736 - 7;
+								anInt944 = this.mouseX - (i_300_ / 2);
+								anInt1058 = this.mouseY - 7;
 								if (anInt1058 < 0)
 								{
 									anInt1058 = 0;
@@ -4112,9 +4112,9 @@ public final class Client extends Applet_Sub1
 					{
 						final int i_302_ = aClass29_2.method207(true);
 						final int i_303_ = aClass29_2.method210(0);
-						if ((this.anInt739 < (anInt944 + -10)) || (this.anInt736 < (anInt1058 - 10))
-						        || (this.anInt739 > (i_302_ + anInt944 + 10))
-						        || (this.anInt736 > ((anInt1058 - -i_303_) + 10)))
+						if ((this.mouseX < (anInt944 + -10)) || (this.mouseY < (anInt1058 - 10))
+						        || (this.mouseX > (i_302_ + anInt944 + 10))
+						        || (this.mouseY > ((anInt1058 - -i_303_) + 10)))
 						{
 							aBool87 = false;
 						}
@@ -4123,8 +4123,8 @@ public final class Client extends Applet_Sub1
 				else if (anInt887 != 0)
 				{
 					aBool84 = false;
-					aClass16_Sub1_1.method118(230, i + 88);
-					aClass16_Sub1_1.method126(i ^ 0x3);
+					packetHandler.createPacket(230, i + 88);
+					packetHandler.finishPacket(i ^ 0x3);
 				}
 			}
 		}
@@ -4186,7 +4186,7 @@ public final class Client extends Applet_Sub1
 					}
 					else
 					{
-						method516(Class16.aStringArray14, 2, -128, true);
+						method516(PacketConstruction.aStringArray14, 2, -128, true);
 					}
 				}
 				else
@@ -4292,8 +4292,8 @@ public final class Client extends Applet_Sub1
 					aClass46_Sub1_2.method324(new StringBuilder().append("").append(anIntArray164[i_322_]).toString(),
 					        0, 1, 16776960, i_323_ + 1, i_324_ - -10);
 				}
-				if ((i_323_ < this.anInt739) && ((i_323_ + 48) > this.anInt739) && (this.anInt736 > i_324_)
-				        && (this.anInt736 < (i_324_ + 32)))
+				if ((i_323_ < this.mouseX) && ((i_323_ + 48) > this.mouseX) && (this.mouseY > i_324_)
+				        && (this.mouseY < (i_324_ + 32)))
 				{
 					aClass46_Sub1_2.method324(
 					        new StringBuilder().append(Class26.aStringArray19[anIntArray180[i_322_]]).append(": @whi@")
@@ -4313,8 +4313,8 @@ public final class Client extends Applet_Sub1
 					aClass46_Sub1_2.method324(new StringBuilder().append("").append(anIntArray209[i_325_]).toString(),
 					        i ^ 0x1, 1, 16776960, i_326_ + 1, i_327_ - -10);
 				}
-				if ((this.anInt739 > i_326_) && ((i_326_ + 48) > this.anInt739) && (this.anInt736 > i_327_)
-				        && (this.anInt736 < (i_327_ + 32)))
+				if ((this.mouseX > i_326_) && ((i_326_ + 48) > this.mouseX) && (this.mouseY > i_327_)
+				        && (this.mouseY < (i_327_ + 32)))
 				{
 					aClass46_Sub1_2.method324(
 					        new StringBuilder().append(Class26.aStringArray19[anIntArray181[i_325_]]).append(": @whi@")
@@ -4324,7 +4324,7 @@ public final class Client extends Applet_Sub1
 			}
 			if (aBool87)
 			{
-				aClass29_2.method204(anInt944, anInt1058, (byte) -41, this.anInt739, this.anInt736);
+				aClass29_2.method204(anInt944, anInt1058, (byte) -41, this.mouseX, this.mouseY);
 			}
 		}
 	}
@@ -4336,7 +4336,7 @@ public final class Client extends Applet_Sub1
 		if (i < -97)
 		{
 			anInt1035 = 0;
-			anInt970 = 0;
+			logoutTimeout = 0;
 			anInt949 = 0;
 		}
 	}
@@ -4480,7 +4480,7 @@ public final class Client extends Applet_Sub1
 		aClass10_4.method75(0, anInt951);
 		if (anInt1042 == 0)
 		{
-			for (int i_355_ = 0; i_355_ < Class16.anInt185; i_355_++)
+			for (int i_355_ = 0; i_355_ < PacketConstruction.anInt185; i_355_++)
 			{
 				String string;
 				if ((0x2 & Class7.anIntArray18[i_355_]) == 0)
@@ -4532,9 +4532,9 @@ public final class Client extends Applet_Sub1
 		if (anInt1042 == 0)
 		{
 			final int i_362_ = aClass10_4.method92(false, anInt951);
-			if ((i_362_ >= 0) && (489 > this.anInt739))
+			if ((i_362_ >= 0) && (489 > this.mouseX))
 			{
-				if (this.anInt739 <= 429)
+				if (this.mouseX <= 429)
 				{
 					anInt1016 = i_362_;
 				}
@@ -4546,8 +4546,8 @@ public final class Client extends Applet_Sub1
 			aClass46_Sub1_2.method335(16777215, i + 358, 1, "Click a name to send a message", i_350_ - -35,
 			        (i_351_ / 2) + i_349_);
 			int i_363_;
-			if ((i_349_ >= this.anInt739) || ((i_349_ + i_351_) <= this.anInt739)
-			        || (this.anInt736 <= (i_352_ + i_350_ + -16)) || (this.anInt736 >= (i_350_ + i_352_)))
+			if ((i_349_ >= this.mouseX) || ((i_349_ + i_351_) <= this.mouseX)
+			        || (this.mouseY <= (i_352_ + i_350_ + -16)) || (this.mouseY >= (i_350_ + i_352_)))
 			{
 				i_363_ = 16777215;
 			}
@@ -4561,9 +4561,9 @@ public final class Client extends Applet_Sub1
 		if (anInt1042 == 1)
 		{
 			final int i_364_ = aClass10_4.method92(false, anInt951);
-			if ((i_364_ >= 0) && (489 > this.anInt739))
+			if ((i_364_ >= 0) && (489 > this.mouseX))
 			{
-				if (429 < this.anInt739)
+				if (429 < this.mouseX)
 				{
 					anInt997 = -(i_364_ + 2);
 				}
@@ -4574,8 +4574,8 @@ public final class Client extends Applet_Sub1
 			}
 			aClass46_Sub1_2.method335(16777215, 255, 1, "Blocking messages from:", i_350_ + 35, (i_351_ / 2) + i_349_);
 			int i_365_;
-			if ((i_349_ < this.anInt739) && ((i_349_ + i_351_) > this.anInt739)
-			        && ((i_352_ + i_350_ + -16) < this.anInt736) && (this.anInt736 < (i_352_ + i_350_)))
+			if ((i_349_ < this.mouseX) && ((i_349_ + i_351_) > this.mouseX)
+			        && ((i_352_ + i_350_ + -16) < this.mouseY) && (this.mouseY < (i_352_ + i_350_)))
 			{
 				i_365_ = 16776960;
 			}
@@ -4588,11 +4588,11 @@ public final class Client extends Applet_Sub1
 		}
 		if (bool)
 		{
-			i_349_ = (-aClass46_Sub1_2.anInt502 - (-199 - this.anInt739));
-			i_350_ = this.anInt736 + -36;
+			i_349_ = (-aClass46_Sub1_2.anInt502 - (-199 - this.mouseX));
+			i_350_ = this.mouseY + -36;
 			if ((0 <= i_349_) && (i_350_ >= 0) && (i_349_ < 196) && (182 > i_350_))
 			{
-				aClass10_4.method85(this.anInt737, i_350_ + 36, this.anInt738, (byte) -97,
+				aClass10_4.method85(this.mouseDownButton, i_350_ + 36, this.lastMouseDownButton, (byte) -97,
 				        (aClass46_Sub1_2.anInt502 + i_349_ + -199));
 				if ((24 >= i_350_) && (anInt887 == 1))
 				{
@@ -4613,9 +4613,9 @@ public final class Client extends Applet_Sub1
 				if ((anInt887 == 1) && (anInt1042 == 0))
 				{
 					final int i_366_ = aClass10_4.method92(false, anInt951);
-					if ((0 <= i_366_) && (489 > this.anInt739))
+					if ((0 <= i_366_) && (489 > this.mouseX))
 					{
-						if (429 < this.anInt739)
+						if (429 < this.mouseX)
 						{
 							method501(Class28.aStringArray24[i_366_], 109);
 						}
@@ -4631,7 +4631,7 @@ public final class Client extends Applet_Sub1
 				if ((anInt887 == 1) && (anInt1042 == 1))
 				{
 					final int i_367_ = aClass10_4.method92(false, anInt951);
-					if ((0 <= i_367_) && (489 > this.anInt739) && (429 < this.anInt739))
+					if ((0 <= i_367_) && (489 > this.mouseX) && (429 < this.mouseX))
 					{
 						method494((byte) -83, Class41.aStringArray28[i_367_]);
 					}
@@ -4778,7 +4778,7 @@ public final class Client extends Applet_Sub1
 		anInt870++;
 		if (anInt887 != 0)
 		{
-			final int i_369_ = aClass29_1.method197(this.anInt739, this.anInt736, anInt984, anInt955, 0);
+			final int i_369_ = aClass29_1.method197(this.mouseX, this.mouseY, anInt984, anInt955, 0);
 			if (i_369_ >= 0)
 			{
 				method569(i_369_, i ^ 0x4215);
@@ -4790,14 +4790,14 @@ public final class Client extends Applet_Sub1
 		{
 			final int i_370_ = aClass29_1.method207(true);
 			final int i_371_ = aClass29_1.method210(0);
-			if ((this.anInt739 < (anInt955 + -10)) || (this.anInt736 < (anInt984 + -10))
-			        || (this.anInt739 > (i_370_ + anInt955 + 10)) || (((i_371_ - -10) + anInt984) < this.anInt736))
+			if ((this.mouseX < (anInt955 + -10)) || (this.mouseY < (anInt984 + -10))
+			        || (this.mouseX > (i_370_ + anInt955 + 10)) || (((i_371_ - -10) + anInt984) < this.mouseY))
 			{
 				aBool61 = false;
 			}
 			else
 			{
-				aClass29_1.method204(anInt955, anInt984, (byte) -41, this.anInt739, this.anInt736);
+				aClass29_1.method204(anInt955, anInt984, (byte) -41, this.mouseX, this.mouseY);
 			}
 		}
 	}
@@ -4854,12 +4854,12 @@ public final class Client extends Applet_Sub1
 									if (i_373_ != -1)
 									{
 										final int i_374_ = Integer.parseInt(string);
-										aClass16_Sub1_1.method118(236, 101);
-										aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_373_, (byte) 66);
-										aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(anIntArray219[anInt972],
+										packetHandler.createPacket(236, 101);
+										packetHandler.aClass27_Sub1_Sub1_1.putShort(i_373_, (byte) 66);
+										packetHandler.aClass27_Sub1_Sub1_1.putShort(anIntArray219[anInt972],
 										        (byte) 92);
-										aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_374_, (byte) 81);
-										aClass16_Sub1_1.method126(2);
+										packetHandler.aClass27_Sub1_Sub1_1.putShort(i_374_, (byte) 81);
+										packetHandler.finishPacket(2);
 									}
 									break;
 								}
@@ -4886,8 +4886,8 @@ public final class Client extends Applet_Sub1
 								{
 									if (anInt971 == 9)
 									{
-										aClass16_Sub1_1.method118(84, 83);
-										aClass16_Sub1_1.method126(2);
+										packetHandler.createPacket(84, 83);
+										packetHandler.finishPacket(2);
 									}
 								}
 								else
@@ -4910,13 +4910,13 @@ public final class Client extends Applet_Sub1
 									if (i_375_ != -1)
 									{
 										final int i_376_ = Integer.parseInt(string);
-										aClass16_Sub1_1.method118(221, 108);
-										aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(anIntArray179[anInt972],
+										packetHandler.createPacket(221, 108);
+										packetHandler.aClass27_Sub1_Sub1_1.putShort(anIntArray179[anInt972],
 										        (byte) 123);
-										aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(anIntArray219[anInt972],
+										packetHandler.aClass27_Sub1_Sub1_1.putShort(anIntArray219[anInt972],
 										        (byte) 79);
-										aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_376_, (byte) 88);
-										aClass16_Sub1_1.method126(2);
+										packetHandler.aClass27_Sub1_Sub1_1.putShort(i_376_, (byte) 88);
+										packetHandler.finishPacket(2);
 									}
 								}
 								catch (final NumberFormatException numberformatexception)
@@ -4939,11 +4939,11 @@ public final class Client extends Applet_Sub1
 									i_377_ = anIntArray210[anInt983];
 								}
 								final int i_378_ = Integer.parseInt(string);
-								aClass16_Sub1_1.method118(23, 107);
-								aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_377_, (byte) 63);
-								aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(i_378_, true);
-								aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(-2023406815, true);
-								aClass16_Sub1_1.method126(2);
+								packetHandler.createPacket(23, 107);
+								packetHandler.aClass27_Sub1_Sub1_1.putShort(i_377_, (byte) 63);
+								packetHandler.aClass27_Sub1_Sub1_1.putInt(i_378_, true);
+								packetHandler.aClass27_Sub1_Sub1_1.putInt(-2023406815, true);
+								packetHandler.finishPacket(2);
 							}
 							catch (final NumberFormatException numberformatexception)
 							{
@@ -4965,11 +4965,11 @@ public final class Client extends Applet_Sub1
 								i_379_ = -1;
 							}
 							final int i_380_ = Integer.parseInt(string);
-							aClass16_Sub1_1.method118(22, 87);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_379_, (byte) 123);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(i_380_, true);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(305419896, true);
-							aClass16_Sub1_1.method126(2);
+							packetHandler.createPacket(22, 87);
+							packetHandler.aClass27_Sub1_Sub1_1.putShort(i_379_, (byte) 123);
+							packetHandler.aClass27_Sub1_Sub1_1.putInt(i_380_, true);
+							packetHandler.aClass27_Sub1_Sub1_1.putInt(305419896, true);
+							packetHandler.finishPacket(2);
 						}
 						catch (final NumberFormatException numberformatexception)
 						{
@@ -5014,8 +5014,8 @@ public final class Client extends Applet_Sub1
 		}
 		i_386_ = 16777215;
 		final int i_388_ = (((aStringArray49.length * i_385_) + i_383_ + (i_382_ - -5) + 2) - (-i_384_ + -3));
-		if ((this.anInt739 > 230) && (this.anInt739 < 248) && ((i_388_ - i_383_) < this.anInt736)
-		        && (this.anInt736 < i_388_))
+		if ((this.mouseX > 230) && (this.mouseX < 248) && ((i_388_ - i_383_) < this.mouseY)
+		        && (this.mouseY < i_388_))
 		{
 			if (anInt887 != 0)
 			{
@@ -5027,8 +5027,8 @@ public final class Client extends Applet_Sub1
 		}
 		aClass46_Sub1_2.method324("OK", 0, 1, i_386_, 230, i_388_);
 		i_386_ = 16777215;
-		if ((264 < this.anInt739) && (304 > this.anInt739) && (this.anInt736 > (i_388_ - i_383_))
-		        && (this.anInt736 < i_388_))
+		if ((264 < this.mouseX) && (304 > this.mouseX) && (this.mouseY > (i_388_ - i_383_))
+		        && (this.mouseY < i_388_))
 		{
 			i_386_ = 16776960;
 			if (anInt887 != 0)
@@ -5038,8 +5038,8 @@ public final class Client extends Applet_Sub1
 			}
 		}
 		aClass46_Sub1_2.method324("Cancel", 0, 1, i_386_, 264, i_388_);
-		if ((anInt887 == 1) && ((this.anInt739 < i_381_) || ((i_381_ + anInt985) < this.anInt739)
-		        || (this.anInt736 < i_382_) || ((i_382_ + anInt1060) < this.anInt736)))
+		if ((anInt887 == 1) && ((this.mouseX < i_381_) || ((i_381_ + anInt985) < this.mouseX)
+		        || (this.mouseY < i_382_) || ((i_382_ + anInt1060) < this.mouseY)))
 		{
 			anInt887 = 0;
 			anInt971 = 0;
@@ -5141,14 +5141,14 @@ public final class Client extends Applet_Sub1
 				}
 			}
 		}
-		aClass16_Sub1_1.method118(33, 66);
-		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anInt1061);
+		packetHandler.createPacket(33, 66);
+		packetHandler.aClass27_Sub1_Sub1_1.put(-31566, anInt1061);
 		for (int i_398_ = 0; anInt1061 > i_398_; i_398_++)
 		{
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(anIntArray182[i_398_], (byte) 118);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(anIntArray198[i_398_], true);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(anIntArray182[i_398_], (byte) 118);
+			packetHandler.aClass27_Sub1_Sub1_1.putInt(anIntArray198[i_398_], true);
 		}
-		aClass16_Sub1_1.method126(2);
+		packetHandler.finishPacket(2);
 		aBool75 = false;
 		aBool59 = false;
 	}
@@ -5182,8 +5182,8 @@ public final class Client extends Applet_Sub1
 		{
 			anIntArray189 = null;
 		}
-		anInt970 = 0;
-		method513(0, "Sorry, you can't logout at the moment", 0, null, -108, "@cya@", null, false);
+		logoutTimeout = 0;
+		displayMessage(0, "Sorry, you can't logout at the moment", 0, null, -108, "@cya@", null, false);
 	}
 
 	private boolean method541(final int i, final int i_406_)
@@ -5240,10 +5240,10 @@ public final class Client extends Applet_Sub1
 	private void method542(final String string, final int i, final String string_411_)
 	{
 		anInt826++;
-		aClass16_Sub1_1.method118(i, 67);
-		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method389(0, string_411_);
-		Class39.method255((aClass16_Sub1_1.aClass27_Sub1_Sub1_1), false, string);
-		aClass16_Sub1_1.method126(2);
+		packetHandler.createPacket(i, 67);
+		packetHandler.aClass27_Sub1_Sub1_1.method389(0, string_411_);
+		Class39.method255((packetHandler.aClass27_Sub1_Sub1_1), false, string);
+		packetHandler.finishPacket(2);
 	}
 
 	private void method543(final boolean bool)
@@ -5303,26 +5303,26 @@ public final class Client extends Applet_Sub1
 		}
 		if (anInt887 == 1)
 		{
-			if ((this.anInt739 < i) || (i_412_ > this.anInt736) || ((i + 468) < this.anInt739)
-			        || ((i_412_ + 262) < this.anInt736))
+			if ((this.mouseX < i) || (i_412_ > this.mouseY) || ((i + 468) < this.mouseX)
+			        || ((i_412_ + 262) < this.mouseY))
 			{
 				aBool89 = false;
-				aClass16_Sub1_1.method118(230, 62);
-				aClass16_Sub1_1.method126(2);
+				packetHandler.createPacket(230, 62);
+				packetHandler.finishPacket(2);
 			}
-			if (((i + 83) <= this.anInt739) && (this.anInt739 <= (i - -118 - -70)) && ((i_412_ + 238) <= this.anInt736)
-			        && ((i_412_ + 21 + 238) >= this.anInt736))
+			if (((i + 83) <= this.mouseX) && (this.mouseX <= (i - -118 - -70)) && ((i_412_ + 238) <= this.mouseY)
+			        && ((i_412_ + 21 + 238) >= this.mouseY))
 			{
 				aBool63 = true;
-				aClass16_Sub1_1.method118(104, 107);
-				aClass16_Sub1_1.method126(2);
+				packetHandler.createPacket(104, 107);
+				packetHandler.finishPacket(2);
 			}
-			if (((i + -35 + 352) <= this.anInt739) && (((i - -70) + 353) >= this.anInt739)
-			        && (this.anInt736 >= (i_412_ + 238)) && (this.anInt736 <= ((i_412_ + 21) - -238)))
+			if (((i + -35 + 352) <= this.mouseX) && (((i - -70) + 353) >= this.mouseX)
+			        && (this.mouseY >= (i_412_ + 238)) && (this.mouseY <= ((i_412_ + 21) - -238)))
 			{
 				aBool89 = false;
-				aClass16_Sub1_1.method118(230, 118);
-				aClass16_Sub1_1.method126(2);
+				packetHandler.createPacket(230, 118);
+				packetHandler.finishPacket(2);
 			}
 			anInt887 = 0;
 		}
@@ -5335,12 +5335,12 @@ public final class Client extends Applet_Sub1
 			method538(-39, -41, -43);
 		}
 		anInt871++;
-		if (bool && (aClass16_Sub1_1 != null))
+		if (bool && (packetHandler != null))
 		{
 			try
 			{
-				aClass16_Sub1_1.method118(31, 91);
-				aClass16_Sub1_1.method120(119);
+				packetHandler.createPacket(31, 91);
+				packetHandler.method120(119);
 			}
 			catch (final IOException ioexception)
 			{
@@ -5372,12 +5372,12 @@ public final class Client extends Applet_Sub1
 		if ((anInt887 != 0) && (anInt971 == 0))
 		{
 			anInt887 = 0;
-			final int i_420_ = this.anInt739 + -52;
-			final int i_421_ = this.anInt736 - 44;
+			final int i_420_ = this.mouseX + -52;
+			final int i_421_ = this.mouseY - 44;
 			if ((0 > i_420_) || (12 > i_421_) || (i_420_ >= 408) || (i_421_ >= 246))
 			{
-				aClass16_Sub1_1.method118(166, 112);
-				aClass16_Sub1_1.method126(2);
+				packetHandler.createPacket(166, 112);
+				packetHandler.finishPacket(2);
 				aBool57 = false;
 				return;
 			}
@@ -5428,11 +5428,11 @@ public final class Client extends Applet_Sub1
 						}
 						if (i_429_ > 0)
 						{
-							aClass16_Sub1_1.method118(236, 120);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(anIntArray179[anInt972], (byte) 97);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_428_, (byte) 70);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_429_, (byte) 71);
-							aClass16_Sub1_1.method126(2);
+							packetHandler.createPacket(236, 120);
+							packetHandler.aClass27_Sub1_Sub1_1.putShort(anIntArray179[anInt972], (byte) 97);
+							packetHandler.aClass27_Sub1_Sub1_1.putShort(i_428_, (byte) 70);
+							packetHandler.aClass27_Sub1_Sub1_1.putShort(i_429_, (byte) 71);
+							packetHandler.finishPacket(2);
 						}
 					}
 					final int i_430_ = method584(i_427_, false);
@@ -5461,11 +5461,11 @@ public final class Client extends Applet_Sub1
 						}
 						if (0 < i_431_)
 						{
-							aClass16_Sub1_1.method118(221, 77);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(anIntArray179[anInt972], (byte) 112);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_428_, (byte) 121);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_431_, (byte) 63);
-							aClass16_Sub1_1.method126(2);
+							packetHandler.createPacket(221, 77);
+							packetHandler.aClass27_Sub1_Sub1_1.putShort(anIntArray179[anInt972], (byte) 112);
+							packetHandler.aClass27_Sub1_Sub1_1.putShort(i_428_, (byte) 121);
+							packetHandler.aClass27_Sub1_Sub1_1.putShort(i_431_, (byte) 63);
+							packetHandler.finishPacket(2);
 						}
 					}
 				}
@@ -5481,8 +5481,8 @@ public final class Client extends Applet_Sub1
 		aClass46_Sub1_2.method327(i_432_, i_433_ - -199, 408, 160, 75, i_434_, 47);
 		aClass46_Sub1_2.method324("Buying and selling items", 0, 1, 16777215, i_432_ + 1, i_433_ - -10);
 		int i_435_ = 16777215;
-		if ((this.anInt739 > (i_432_ + 320)) && (i_433_ <= this.anInt736) && ((i_432_ + 408) > this.anInt739)
-		        && (this.anInt736 < (i_433_ + 12)))
+		if ((this.mouseX > (i_432_ + 320)) && (i_433_ <= this.mouseY) && ((i_432_ + 408) > this.mouseX)
+		        && (this.mouseY < (i_433_ + 12)))
 		{
 			i_435_ = 16711680;
 		}
@@ -5541,10 +5541,10 @@ public final class Client extends Applet_Sub1
 					        new StringBuilder().append(Class26.aStringArray19[i_442_]).append(": buy for ")
 					                .append(i_444_).append("gp each").toString(),
 					        0, 1, 16776960, i_432_ + 2, i_433_ + 214);
-					final boolean bool = ((this.anInt736 >= (i_433_ + 204)) && ((i_433_ + 215) >= this.anInt736));
+					final boolean bool = ((this.mouseY >= (i_433_ + 204)) && ((i_433_ + 215) >= this.mouseY));
 					i_435_ = 16777215;
 					aClass46_Sub1_2.method324("Buy:", 0, 3, 16777215, i_432_ + 285, i_433_ + 214);
-					if (bool && (this.anInt739 > (i_432_ + 318)) && (this.anInt739 < (i_432_ + 330)))
+					if (bool && (this.mouseX > (i_432_ + 318)) && (this.mouseX < (i_432_ + 330)))
 					{
 						i_435_ = 16711680;
 					}
@@ -5552,7 +5552,7 @@ public final class Client extends Applet_Sub1
 					if (5 <= i_443_)
 					{
 						i_435_ = 16777215;
-						if (bool && ((i_432_ + 333) < this.anInt739) && (this.anInt739 < (i_432_ + 345)))
+						if (bool && ((i_432_ + 333) < this.mouseX) && (this.mouseX < (i_432_ + 345)))
 						{
 							i_435_ = 16711680;
 						}
@@ -5561,7 +5561,7 @@ public final class Client extends Applet_Sub1
 					if (i_443_ >= 10)
 					{
 						i_435_ = 16777215;
-						if (bool && (this.anInt739 > (i_432_ + 348)) && (this.anInt739 < (i_432_ + 365)))
+						if (bool && (this.mouseX > (i_432_ + 348)) && (this.mouseX < (i_432_ + 365)))
 						{
 							i_435_ = 16711680;
 						}
@@ -5570,14 +5570,14 @@ public final class Client extends Applet_Sub1
 					if (i_443_ >= 50)
 					{
 						i_435_ = 16777215;
-						if (bool && ((i_432_ + 368) < this.anInt739) && (this.anInt739 < (i_432_ - -385)))
+						if (bool && ((i_432_ + 368) < this.mouseX) && (this.mouseX < (i_432_ - -385)))
 						{
 							i_435_ = 16711680;
 						}
 						aClass46_Sub1_2.method324("50", 0, 3, i_435_, i_432_ + 370, i_433_ + 214);
 					}
 					i_435_ = 16777215;
-					if (bool && ((i_432_ - -388) < this.anInt739) && ((i_432_ + 400) > this.anInt739))
+					if (bool && ((i_432_ - -388) < this.mouseX) && ((i_432_ + 400) > this.mouseX))
 					{
 						i_435_ = 16711680;
 					}
@@ -5602,10 +5602,10 @@ public final class Client extends Applet_Sub1
 					        new StringBuilder().append(Class26.aStringArray19[i_442_]).append(": sell for ")
 					                .append(i_446_).append("gp each").toString(),
 					        0, 1, 16776960, i_432_ + 2, i_433_ + 239);
-					final boolean bool = ((this.anInt736 >= (i_433_ - -229)) && (this.anInt736 <= (i_433_ - -240)));
+					final boolean bool = ((this.mouseY >= (i_433_ - -229)) && (this.mouseY <= (i_433_ - -240)));
 					aClass46_Sub1_2.method324("Sell:", 0, 3, 16777215, i_432_ + 285, i_433_ + 239);
 					i_435_ = 16777215;
-					if (bool && (this.anInt739 > (i_432_ + 318)) && (this.anInt739 < (i_432_ + 330)))
+					if (bool && (this.mouseX > (i_432_ + 318)) && (this.mouseX < (i_432_ + 330)))
 					{
 						i_435_ = 16711680;
 					}
@@ -5613,7 +5613,7 @@ public final class Client extends Applet_Sub1
 					if (5 <= i_445_)
 					{
 						i_435_ = 16777215;
-						if (bool && ((i_432_ + 333) < this.anInt739) && ((i_432_ + 345) > this.anInt739))
+						if (bool && ((i_432_ + 333) < this.mouseX) && ((i_432_ + 345) > this.mouseX))
 						{
 							i_435_ = 16711680;
 						}
@@ -5622,7 +5622,7 @@ public final class Client extends Applet_Sub1
 					if (10 <= i_445_)
 					{
 						i_435_ = 16777215;
-						if (bool && (this.anInt739 > (i_432_ + 348)) && ((i_432_ + 365) > this.anInt739))
+						if (bool && (this.mouseX > (i_432_ + 348)) && ((i_432_ + 365) > this.mouseX))
 						{
 							i_435_ = 16711680;
 						}
@@ -5631,14 +5631,14 @@ public final class Client extends Applet_Sub1
 					if (i_445_ >= 50)
 					{
 						i_435_ = 16777215;
-						if (bool && (this.anInt739 > (i_432_ + 368)) && ((i_432_ + 385) > this.anInt739))
+						if (bool && (this.mouseX > (i_432_ + 368)) && ((i_432_ + 385) > this.mouseX))
 						{
 							i_435_ = 16711680;
 						}
 						aClass46_Sub1_2.method324("50", 0, 3, i_435_, i_432_ - -370, i_433_ + 239);
 					}
 					i_435_ = 16777215;
-					if (bool && (this.anInt739 > (i_432_ + 388)) && (this.anInt739 < (i_432_ - -400)))
+					if (bool && (this.mouseX > (i_432_ + 388)) && (this.mouseX < (i_432_ - -400)))
 					{
 						i_435_ = 16711680;
 					}
@@ -5979,7 +5979,7 @@ public final class Client extends Applet_Sub1
 							{
 								class15.anInt165 = 150;
 								class15.aString8 = string;
-								method513(i_500_, class15.aString8, 4, class15.aString6, -105, null, class15.aString7,
+								displayMessage(i_500_, class15.aString8, 4, class15.aString6, -105, null, class15.aString7,
 								        i_500_ == 2);
 							}
 						}
@@ -6037,7 +6037,7 @@ public final class Client extends Applet_Sub1
 							class15.anInt165 = 150;
 							if (class15 == aClass15_1)
 							{
-								method513(0, class15.aString8, 3, class15.aString6, -92, null, class15.aString7, false);
+								displayMessage(0, class15.aString8, 3, class15.aString6, -92, null, class15.aString7, false);
 							}
 						}
 					}
@@ -6277,7 +6277,7 @@ public final class Client extends Applet_Sub1
 						class15.anInt165 = 150;
 						if (aClass15_1.anInt150 == i_551_)
 						{
-							method513(0, new StringBuilder().append(Class22.aStringArray16[class15.anInt161])
+							displayMessage(0, new StringBuilder().append(Class22.aStringArray16[class15.anInt161])
 							        .append(": ").append(class15.aString8).toString(), 3, null, -98, "@yel@", null,
 							        false);
 						}
@@ -6963,7 +6963,7 @@ public final class Client extends Applet_Sub1
 	{
 		try
 		{
-			Class27_Sub1_Sub1.anInt664 = Integer.parseInt(getParameter("nodeid"));
+			Class27_Sub1_Sub1.portOffset = Integer.parseInt(getParameter("nodeid"));
 			anInt808++;
 			Class34.aClass38_5 = Class15.method113(-119, Integer.parseInt(getParameter("modewhere")));
 			if (Class34.aClass38_5 == null)
@@ -7099,32 +7099,32 @@ public final class Client extends Applet_Sub1
 		i_636_ = anIntArray155[i_642_];
 		if (bool)
 		{
-			aClass16_Sub1_1.method118(16, 96);
+			packetHandler.createPacket(16, 96);
 		}
 		else
 		{
-			aClass16_Sub1_1.method118(187, 64);
+			packetHandler.createPacket(187, 64);
 		}
 		i_642_--;
-		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_639_ + anInt867, (byte) 86);
-		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_636_ - -anInt927, (byte) 126);
+		packetHandler.aClass27_Sub1_Sub1_1.putShort(i_639_ + anInt867, (byte) 86);
+		packetHandler.aClass27_Sub1_Sub1_1.putShort(i_636_ - -anInt927, (byte) 126);
 		if (bool && (i_642_ == -1) && (((i_639_ + anInt867) % 5) == 0))
 		{
 			i_642_ = 0;
 		}
 		for (int i_643_ = i_642_; (i_643_ >= 0) && (i_643_ > (i_642_ + -25)); i_643_--)
 		{
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anIntArray157[i_643_] + -i_639_);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, -i_636_ + anIntArray155[i_643_]);
+			packetHandler.aClass27_Sub1_Sub1_1.put(-31566, anIntArray157[i_643_] + -i_639_);
+			packetHandler.aClass27_Sub1_Sub1_1.put(-31566, -i_636_ + anIntArray155[i_643_]);
 		}
 		if (bool_640_ != true)
 		{
-			anInt1051 = -99;
+			combatTimeout = -99;
 		}
-		aClass16_Sub1_1.method126(2);
+		packetHandler.finishPacket(2);
 		anInt928 = -24;
-		anInt854 = this.anInt739;
-		anInt888 = this.anInt736;
+		anInt854 = this.mouseX;
+		anInt888 = this.mouseY;
 		return true;
 	}
 
@@ -7146,19 +7146,19 @@ public final class Client extends Applet_Sub1
 	{
 		anInt827++;
 		final long l = Class52.method377(0);
-		if (aClass16_Sub1_1.method128(86))
+		if (packetHandler.method128(86))
 		{
 			aLong17 = l;
 		}
 		if ((l - aLong17) > 5000L)
 		{
 			aLong17 = l;
-			aClass16_Sub1_1.method118(67, 96);
-			aClass16_Sub1_1.method126(2);
+			packetHandler.createPacket(67, 96);
+			packetHandler.finishPacket(2);
 		}
 		try
 		{
-			aClass16_Sub1_1.method124((byte) 82, i);
+			packetHandler.writePacket((byte) 82, i);
 		}
 		catch (final IOException ioexception)
 		{
@@ -7167,7 +7167,7 @@ public final class Client extends Applet_Sub1
 		}
 		if (method536((byte) -96))
 		{
-			final int i_644_ = aClass16_Sub1_1.method125(i + -20, aClass27_Sub1_Sub1_2);
+			final int i_644_ = packetHandler.method125(i + -20, aClass27_Sub1_Sub1_2);
 			if (i_644_ > 0)
 			{
 				method497(aClass27_Sub1_Sub1_2.method403(false), 20, i_644_);
@@ -7181,7 +7181,7 @@ public final class Client extends Applet_Sub1
 		int i_645_ = -1;
 		if ((anInt887 != 0) && aBool90)
 		{
-			i_645_ = aClass29_3.method197(this.anInt739, this.anInt736, anInt1063, anInt1014, 0);
+			i_645_ = aClass29_3.method197(this.mouseX, this.mouseY, anInt1063, anInt1014, 0);
 		}
 		if (i_645_ < 0)
 		{
@@ -7191,15 +7191,15 @@ public final class Client extends Applet_Sub1
 				{
 					anInt1036 = 1;
 				}
-				final int i_646_ = this.anInt739 + -22;
-				final int i_647_ = this.anInt736 + -36;
+				final int i_646_ = this.mouseX + -22;
+				final int i_647_ = this.mouseY + -36;
 				if ((0 > i_646_) || (i_647_ < 0) || (i_646_ >= 468) || (262 <= i_647_))
 				{
 					if (anInt887 != 0)
 					{
 						aBool72 = false;
-						aClass16_Sub1_1.method118(197, 92);
-						aClass16_Sub1_1.method126(2);
+						packetHandler.createPacket(197, 92);
+						packetHandler.finishPacket(2);
 					}
 				}
 				else
@@ -7245,26 +7245,26 @@ public final class Client extends Applet_Sub1
 						}
 						if (bool)
 						{
-							aClass16_Sub1_1.method118(8, 84);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, aBool85 ? 1 : 0);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, !aBool65 ? 0 : 1);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, !aBool71 ? 0 : 1);
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, !aBool79 ? 0 : 1);
-							aClass16_Sub1_1.method126(2);
+							packetHandler.createPacket(8, 84);
+							packetHandler.aClass27_Sub1_Sub1_1.put(-31566, aBool85 ? 1 : 0);
+							packetHandler.aClass27_Sub1_Sub1_1.put(-31566, !aBool65 ? 0 : 1);
+							packetHandler.aClass27_Sub1_Sub1_1.put(-31566, !aBool71 ? 0 : 1);
+							packetHandler.aClass27_Sub1_Sub1_1.put(-31566, !aBool79 ? 0 : 1);
+							packetHandler.finishPacket(2);
 							aBool59 = false;
 							aBool75 = false;
 						}
 						if ((i_646_ >= 217) && (i_647_ >= 238) && (i_646_ <= 286) && (i_647_ <= 259))
 						{
 							aBool59 = true;
-							aClass16_Sub1_1.method118(176, 126);
-							aClass16_Sub1_1.method126(2);
+							packetHandler.createPacket(176, 126);
+							packetHandler.finishPacket(2);
 						}
 						if ((i_646_ >= 394) && (i_647_ >= 238) && (463 > i_646_) && (259 > i_647_))
 						{
 							aBool72 = false;
-							aClass16_Sub1_1.method118(197, 91);
-							aClass16_Sub1_1.method126(2);
+							packetHandler.createPacket(197, 91);
+							packetHandler.finishPacket(2);
 						}
 						anInt887 = 0;
 						anInt1036 = 0;
@@ -7276,8 +7276,8 @@ public final class Client extends Applet_Sub1
 							final int i_650_ = aClass29_1.method207(true);
 							final int i_651_ = aClass29_1.method210(0);
 							aBool61 = true;
-							anInt984 = this.anInt736 + -7;
-							anInt955 = this.anInt739 + -(i_650_ / 2);
+							anInt984 = this.mouseY + -7;
+							anInt955 = this.mouseX + -(i_650_ / 2);
 							if (0 > anInt984)
 							{
 								anInt984 = 0;
@@ -7312,8 +7312,8 @@ public final class Client extends Applet_Sub1
 								        .append(Class26.aStringArray19[i_653_]).toString(), 0, -2, 3);
 								final int i_654_ = aClass29_3.method207(true);
 								final int i_655_ = aClass29_3.method210(0);
-								anInt1063 = this.anInt736 + -7;
-								anInt1014 = this.anInt739 + -(i_654_ / 2);
+								anInt1063 = this.mouseY + -7;
+								anInt1014 = this.mouseX + -(i_654_ / 2);
 								if (anInt1014 < 0)
 								{
 									anInt1014 = 0;
@@ -7352,8 +7352,8 @@ public final class Client extends Applet_Sub1
 								        .append(Class26.aStringArray19[i_657_]).toString(), 0, -2, 4);
 								final int i_658_ = aClass29_3.method207(true);
 								final int i_659_ = aClass29_3.method210(0);
-								anInt1063 = this.anInt736 + -7;
-								anInt1014 = this.anInt739 + -(i_658_ / 2);
+								anInt1063 = this.mouseY + -7;
+								anInt1014 = this.mouseX + -(i_658_ / 2);
 								if (anInt1014 < 0)
 								{
 									anInt1014 = 0;
@@ -7378,9 +7378,9 @@ public final class Client extends Applet_Sub1
 					{
 						final int i_660_ = aClass29_3.method207(true);
 						final int i_661_ = aClass29_3.method210(0);
-						if ((this.anInt739 < (anInt1014 + -10)) || (this.anInt736 < (anInt1063 + -10))
-						        || ((i_660_ + anInt1014 + 10) < this.anInt739)
-						        || (((i_661_ - -10) + anInt1063) < this.anInt736))
+						if ((this.mouseX < (anInt1014 + -10)) || (this.mouseY < (anInt1063 + -10))
+						        || ((i_660_ + anInt1014 + 10) < this.mouseX)
+						        || (((i_661_ - -10) + anInt1063) < this.mouseY))
 						{
 							aBool90 = false;
 						}
@@ -7587,8 +7587,8 @@ public final class Client extends Applet_Sub1
 					aClass46_Sub1_2.method324(new StringBuilder().append("").append(anIntArray198[i_681_]).toString(),
 					        0, 1, 16776960, i_682_ + 1, i_683_ + 10);
 				}
-				if ((i_682_ < this.anInt739) && (this.anInt739 < (i_682_ + 48)) && (i_683_ < this.anInt736)
-				        && ((i_683_ + 32) > this.anInt736))
+				if ((i_682_ < this.mouseX) && (this.mouseX < (i_682_ + 48)) && (i_683_ < this.mouseY)
+				        && ((i_683_ + 32) > this.mouseY))
 				{
 					aClass46_Sub1_2.method324(
 					        new StringBuilder().append(Class26.aStringArray19[anIntArray182[i_681_]]).append(": @whi@")
@@ -7608,8 +7608,8 @@ public final class Client extends Applet_Sub1
 					aClass46_Sub1_2.method324(new StringBuilder().append("").append(anIntArray193[i_684_]).toString(),
 					        0, 1, 16776960, i_685_ - -1, i_686_ + 10);
 				}
-				if ((this.anInt739 > i_685_) && (this.anInt739 < (i_685_ - -48)) && (i_686_ < this.anInt736)
-				        && (this.anInt736 < (i_686_ - -32)))
+				if ((this.mouseX > i_685_) && (this.mouseX < (i_685_ - -48)) && (i_686_ < this.mouseY)
+				        && (this.mouseY < (i_686_ - -32)))
 				{
 					aClass46_Sub1_2.method324(
 					        new StringBuilder().append(Class26.aStringArray19[anIntArray212[i_684_]]).append(": @whi@")
@@ -7619,7 +7619,7 @@ public final class Client extends Applet_Sub1
 			}
 			if (aBool90)
 			{
-				aClass29_3.method204(anInt1014, anInt1063, (byte) -41, this.anInt739, this.anInt736);
+				aClass29_3.method204(anInt1014, anInt1063, (byte) -41, this.mouseX, this.mouseY);
 			}
 		}
 	}
@@ -7659,8 +7659,8 @@ public final class Client extends Applet_Sub1
 			for (int i_695_ = 0; i_695_ < 9; i_695_++)
 			{
 				int i_696_ = 16777215;
-				if ((this.anInt739 > (i - -3)) && ((i_693_ - 11) <= this.anInt736) && ((i_693_ + 2) > this.anInt736)
-				        && (this.anInt739 < (i + 90)))
+				if ((this.mouseX > (i - -3)) && ((i_693_ - 11) <= this.mouseY) && ((i_693_ + 2) > this.mouseY)
+				        && (this.mouseX < (i + 90)))
 				{
 					i_694_ = i_695_;
 					i_696_ = 16711680;
@@ -7670,8 +7670,8 @@ public final class Client extends Applet_Sub1
 				                .append(anIntArray185[i_695_]).append("/").append(anIntArray200[i_695_]).toString(),
 				        0, 1, i_696_, i + 5, i_693_);
 				i_696_ = 16777215;
-				if (((i + 90) <= this.anInt739) && (((i_693_ + -11) - 13) <= this.anInt736)
-				        && (((i_693_ - -2) + -13) > this.anInt736) && (this.anInt739 < (i - -196)))
+				if (((i + 90) <= this.mouseX) && (((i_693_ + -11) - 13) <= this.mouseY)
+				        && (((i_693_ - -2) + -13) > this.mouseY) && (this.mouseX < (i - -196)))
 				{
 					i_696_ = 16711680;
 					i_694_ = i_695_ - -9;
@@ -7757,13 +7757,13 @@ public final class Client extends Applet_Sub1
 		}
 		if (bool_687_)
 		{
-			i_688_ = this.anInt736 + -36;
-			i = (-aClass46_Sub1_2.anInt502 - (-199 - this.anInt739));
+			i_688_ = this.mouseY + -36;
+			i = (-aClass46_Sub1_2.anInt502 - (-199 - this.mouseX));
 			if ((0 <= i) && (0 <= i_688_) && (i_689_ > i) && (i_688_ < i_690_))
 			{
 				if (anInt938 == 1)
 				{
-					aClass10_6.method85(this.anInt737, i_688_ + 36, this.anInt738, (byte) -99,
+					aClass10_6.method85(this.mouseDownButton, i_688_ + 36, this.lastMouseDownButton, (byte) -99,
 					        ((aClass46_Sub1_2.anInt502) + i) - 199);
 				}
 				if ((i_688_ <= 24) && (anInt887 == 1))
@@ -7800,28 +7800,28 @@ public final class Client extends Applet_Sub1
 		}
 		if (!bool)
 		{
-			aClass16_Sub1_1.method118(187, 89);
+			packetHandler.createPacket(187, 89);
 		}
 		else
 		{
-			aClass16_Sub1_1.method118(16, 83);
+			packetHandler.createPacket(16, 83);
 		}
 		i_710_--;
-		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_707_ + anInt867, (byte) 95);
-		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(anInt927 + i, (byte) 112);
+		packetHandler.aClass27_Sub1_Sub1_1.putShort(i_707_ + anInt867, (byte) 95);
+		packetHandler.aClass27_Sub1_Sub1_1.putShort(anInt927 + i, (byte) 112);
 		if (bool && (i_710_ == -1) && (((i_707_ + anInt867) % 5) == 0))
 		{
 			i_710_ = 0;
 		}
 		for (int i_711_ = i_710_; (0 <= i_711_) && ((i_710_ + -25) < i_711_); i_711_--)
 		{
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anIntArray157[i_711_] + -i_707_);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, -i + anIntArray155[i_711_]);
+			packetHandler.aClass27_Sub1_Sub1_1.put(-31566, anIntArray157[i_711_] + -i_707_);
+			packetHandler.aClass27_Sub1_Sub1_1.put(-31566, -i + anIntArray155[i_711_]);
 		}
-		aClass16_Sub1_1.method126(2);
+		packetHandler.finishPacket(2);
 		anInt928 = -24;
-		anInt888 = this.anInt736;
-		anInt854 = this.anInt739;
+		anInt888 = this.mouseY;
+		anInt854 = this.mouseX;
 		return true;
 	}
 
@@ -7877,7 +7877,7 @@ public final class Client extends Applet_Sub1
 		while (bool)
 		{
 			bool = false;
-			for (int i_719_ = 0; (Class16.anInt185 + -1) > i_719_; i_719_++)
+			for (int i_719_ = 0; (PacketConstruction.anInt185 + -1) > i_719_; i_719_++)
 			{
 				if ((((0x2 & Class7.anIntArray18[i_719_]) == 0) && ((0x2 & Class7.anIntArray18[i_719_ + 1]) != 0))
 				        || (((Class7.anIntArray18[i_719_] & 0x4) == 0)
@@ -7908,12 +7908,12 @@ public final class Client extends Applet_Sub1
 		{
 			for (int i_722_ = 0; i_722_ < anInt953; i_722_++)
 			{
-				if ((this.anInt739 < aClass46_Sub1_2.method328(aStringArray45[i_722_], -116, 1))
-				        && (this.anInt736 > (i_722_ * 12)) && ((12 - -(i_722_ * 12)) > this.anInt736))
+				if ((this.mouseX < aClass46_Sub1_2.method328(aStringArray45[i_722_], -116, 1))
+				        && (this.mouseY > (i_722_ * 12)) && ((12 - -(i_722_ * 12)) > this.mouseY))
 				{
-					aClass16_Sub1_1.method118(116, i ^ 0x80507d);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(i + -8440654, i_722_);
-					aClass16_Sub1_1.method126(2);
+					packetHandler.createPacket(116, i ^ 0x80507d);
+					packetHandler.aClass27_Sub1_Sub1_1.put(i + -8440654, i_722_);
+					packetHandler.finishPacket(2);
 					break;
 				}
 			}
@@ -7929,8 +7929,8 @@ public final class Client extends Applet_Sub1
 			for (int i_723_ = 0; i_723_ < anInt953; i_723_++)
 			{
 				int i_724_ = 65535;
-				if ((this.anInt739 < aClass46_Sub1_2.method328(aStringArray45[i_723_], i ^ ~0x805065, 1))
-				        && (this.anInt736 > (i_723_ * 12)) && (this.anInt736 < ((i_723_ * 12) + 12)))
+				if ((this.mouseX < aClass46_Sub1_2.method328(aStringArray45[i_723_], i ^ ~0x805065, 1))
+				        && (this.mouseY > (i_723_ * 12)) && (this.mouseY < ((i_723_ * 12) + 12)))
 				{
 					i_724_ = 16711680;
 				}
@@ -7941,14 +7941,14 @@ public final class Client extends Applet_Sub1
 
 	private void method563(final String string, final int i)
 	{
-		aClass16_Sub1_1.method118(38, i + 11411);
+		packetHandler.createPacket(38, i + 11411);
 		anInt778++;
-		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method389(i + 11350, string);
+		packetHandler.aClass27_Sub1_Sub1_1.method389(i + 11350, string);
 		if (i != -11350)
 		{
 			anInt1004 = -61;
 		}
-		aClass16_Sub1_1.method126(2);
+		packetHandler.finishPacket(2);
 	}
 
 	private void method564(final byte i, final String string)
@@ -7958,7 +7958,7 @@ public final class Client extends Applet_Sub1
 		{
 			final int i_726_ = RuntimeException_Sub1
 			        .method461(new StringBuilder().append(string).append(".pcm").toString(), aByteArray28, false);
-			final int i_727_ = Frame_Sub1.method487((byte) 113,
+			final int i_727_ = GameFrame.method487((byte) 113,
 			        new StringBuilder().append(string).append(".pcm").toString(), aByteArray28);
 			if (i_727_ != 0)
 			{
@@ -8018,8 +8018,8 @@ public final class Client extends Applet_Sub1
 		if ((anInt971 == 0) && (anInt887 != 0))
 		{
 			anInt887 = 0;
-			int i_733_ = this.anInt739 - 256 - -(i_731_ / 2);
-			int i_734_ = this.anInt736 - (-(i_732_ / 2) + 170);
+			int i_733_ = this.mouseX - 256 - -(i_731_ / 2);
+			int i_734_ = this.mouseY - (-(i_732_ / 2) + 170);
 			if ((i_733_ >= 0) && (i_734_ >= 12) && (i_733_ < 408) && (280 > i_734_))
 			{
 				int i_735_ = anInt1045 * 48;
@@ -8052,109 +8052,109 @@ public final class Client extends Applet_Sub1
 				if (i_740_ != -1)
 				{
 					i_735_ = anIntArray184[anInt983];
-					if ((i_735_ >= 1) && (this.anInt739 >= (i_733_ - -220)) && ((i_734_ + 238) <= this.anInt736)
-					        && (this.anInt739 < (i_733_ + 250)) && (this.anInt736 <= (i_734_ + 249)))
+					if ((i_735_ >= 1) && (this.mouseX >= (i_733_ - -220)) && ((i_734_ + 238) <= this.mouseY)
+					        && (this.mouseX < (i_733_ + 250)) && (this.mouseY <= (i_734_ + 249)))
 					{
-						aClass16_Sub1_1.method118(22, 67);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 86);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(1, true);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(305419896, true);
-						aClass16_Sub1_1.method126(i ^ 0x3);
+						packetHandler.createPacket(22, 67);
+						packetHandler.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 86);
+						packetHandler.aClass27_Sub1_Sub1_1.putInt(1, true);
+						packetHandler.aClass27_Sub1_Sub1_1.putInt(305419896, true);
+						packetHandler.finishPacket(i ^ 0x3);
 					}
-					if ((i_735_ >= 5) && ((i_733_ + 250) <= this.anInt739) && (this.anInt736 >= (i_734_ + 238))
-					        && ((i_733_ + 280) > this.anInt739) && ((i_734_ - -249) >= this.anInt736))
+					if ((i_735_ >= 5) && ((i_733_ + 250) <= this.mouseX) && (this.mouseY >= (i_734_ + 238))
+					        && ((i_733_ + 280) > this.mouseX) && ((i_734_ - -249) >= this.mouseY))
 					{
-						aClass16_Sub1_1.method118(22, 127);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 72);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(5, true);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(305419896, true);
-						aClass16_Sub1_1.method126(2);
+						packetHandler.createPacket(22, 127);
+						packetHandler.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 72);
+						packetHandler.aClass27_Sub1_Sub1_1.putInt(5, true);
+						packetHandler.aClass27_Sub1_Sub1_1.putInt(305419896, true);
+						packetHandler.finishPacket(2);
 					}
-					if ((10 <= i_735_) && (this.anInt739 >= (i_733_ + 280)) && ((i_734_ + 238) <= this.anInt736)
-					        && (this.anInt739 < (i_733_ + 305)) && ((i_734_ + 249) >= this.anInt736))
+					if ((10 <= i_735_) && (this.mouseX >= (i_733_ + 280)) && ((i_734_ + 238) <= this.mouseY)
+					        && (this.mouseX < (i_733_ + 305)) && ((i_734_ + 249) >= this.mouseY))
 					{
-						aClass16_Sub1_1.method118(22, 66);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 62);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(10, true);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(305419896, true);
-						aClass16_Sub1_1.method126(2);
+						packetHandler.createPacket(22, 66);
+						packetHandler.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 62);
+						packetHandler.aClass27_Sub1_Sub1_1.putInt(10, true);
+						packetHandler.aClass27_Sub1_Sub1_1.putInt(305419896, true);
+						packetHandler.finishPacket(2);
 					}
-					if ((i_735_ >= 50) && (this.anInt739 >= (i_733_ + 305)) && ((i_734_ + 238) <= this.anInt736)
-					        && ((i_733_ + 335) > this.anInt739) && (this.anInt736 <= (i_734_ - -249)))
+					if ((i_735_ >= 50) && (this.mouseX >= (i_733_ + 305)) && ((i_734_ + 238) <= this.mouseY)
+					        && ((i_733_ + 335) > this.mouseX) && (this.mouseY <= (i_734_ - -249)))
 					{
-						aClass16_Sub1_1.method118(22, 102);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 118);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(50, true);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(305419896, true);
-						aClass16_Sub1_1.method126(2);
+						packetHandler.createPacket(22, 102);
+						packetHandler.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 118);
+						packetHandler.aClass27_Sub1_Sub1_1.putInt(50, true);
+						packetHandler.aClass27_Sub1_Sub1_1.putInt(305419896, true);
+						packetHandler.finishPacket(2);
 					}
-					if ((this.anInt739 >= (i_733_ + 335)) && (this.anInt736 >= (i_734_ - -238))
-					        && ((i_733_ - -368) > this.anInt739) && (this.anInt736 <= (i_734_ + 249)))
+					if ((this.mouseX >= (i_733_ + 335)) && (this.mouseY >= (i_734_ - -238))
+					        && ((i_733_ - -368) > this.mouseX) && (this.mouseY <= (i_734_ + 249)))
 					{
 						method516(Class43.aStringArray29, 3, -128, true);
 					}
-					if (((i_733_ + 370) <= this.anInt739) && ((i_734_ + 238) <= this.anInt736)
-					        && ((i_733_ + 400) > this.anInt739) && (this.anInt736 <= (i_734_ + 249)))
+					if (((i_733_ + 370) <= this.mouseX) && ((i_734_ + 238) <= this.mouseY)
+					        && ((i_733_ + 400) > this.mouseX) && (this.mouseY <= (i_734_ + 249)))
 					{
-						aClass16_Sub1_1.method118(22, 83);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 96);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(i_735_, true);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(305419896, true);
-						aClass16_Sub1_1.method126(2);
+						packetHandler.createPacket(22, 83);
+						packetHandler.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 96);
+						packetHandler.aClass27_Sub1_Sub1_1.putInt(i_735_, true);
+						packetHandler.aClass27_Sub1_Sub1_1.putInt(305419896, true);
+						packetHandler.finishPacket(2);
 					}
-					if ((1 <= method584(i_740_, false)) && ((i_733_ - -220) <= this.anInt739)
-					        && ((i_734_ - -263) <= this.anInt736) && ((i_733_ + 250) > this.anInt739)
-					        && ((i_734_ + 274) >= this.anInt736))
+					if ((1 <= method584(i_740_, false)) && ((i_733_ - -220) <= this.mouseX)
+					        && ((i_734_ - -263) <= this.mouseY) && ((i_733_ + 250) > this.mouseX)
+					        && ((i_734_ + 274) >= this.mouseY))
 					{
-						aClass16_Sub1_1.method118(23, 76);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 58);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(1, true);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(-2023406815, true);
-						aClass16_Sub1_1.method126(2);
+						packetHandler.createPacket(23, 76);
+						packetHandler.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 58);
+						packetHandler.aClass27_Sub1_Sub1_1.putInt(1, true);
+						packetHandler.aClass27_Sub1_Sub1_1.putInt(-2023406815, true);
+						packetHandler.finishPacket(2);
 					}
-					if ((5 <= method584(i_740_, false)) && ((i_733_ + 250) <= this.anInt739)
-					        && (this.anInt736 >= (i_734_ + 263)) && (this.anInt739 < (i_733_ + 280))
-					        && ((i_734_ + 274) >= this.anInt736))
+					if ((5 <= method584(i_740_, false)) && ((i_733_ + 250) <= this.mouseX)
+					        && (this.mouseY >= (i_734_ + 263)) && (this.mouseX < (i_733_ + 280))
+					        && ((i_734_ + 274) >= this.mouseY))
 					{
-						aClass16_Sub1_1.method118(23, 125);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 57);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(5, true);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(-2023406815, true);
-						aClass16_Sub1_1.method126(2);
+						packetHandler.createPacket(23, 125);
+						packetHandler.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 57);
+						packetHandler.aClass27_Sub1_Sub1_1.putInt(5, true);
+						packetHandler.aClass27_Sub1_Sub1_1.putInt(-2023406815, true);
+						packetHandler.finishPacket(2);
 					}
-					if ((10 <= method584(i_740_, false)) && (this.anInt739 >= (i_733_ + 280))
-					        && ((i_734_ + 263) <= this.anInt736) && ((i_733_ + 305) > this.anInt739)
-					        && ((i_734_ + 274) >= this.anInt736))
+					if ((10 <= method584(i_740_, false)) && (this.mouseX >= (i_733_ + 280))
+					        && ((i_734_ + 263) <= this.mouseY) && ((i_733_ + 305) > this.mouseX)
+					        && ((i_734_ + 274) >= this.mouseY))
 					{
-						aClass16_Sub1_1.method118(23, 124);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 105);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(10, true);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(-2023406815, true);
-						aClass16_Sub1_1.method126(i + 1);
+						packetHandler.createPacket(23, 124);
+						packetHandler.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 105);
+						packetHandler.aClass27_Sub1_Sub1_1.putInt(10, true);
+						packetHandler.aClass27_Sub1_Sub1_1.putInt(-2023406815, true);
+						packetHandler.finishPacket(i + 1);
 					}
-					if ((50 <= method584(i_740_, false)) && ((i_733_ + 305) <= this.anInt739)
-					        && ((i_734_ + 263) <= this.anInt736) && ((i_733_ + 335) > this.anInt739)
-					        && (this.anInt736 <= (i_734_ + 274)))
+					if ((50 <= method584(i_740_, false)) && ((i_733_ + 305) <= this.mouseX)
+					        && ((i_734_ + 263) <= this.mouseY) && ((i_733_ + 335) > this.mouseX)
+					        && (this.mouseY <= (i_734_ + 274)))
 					{
-						aClass16_Sub1_1.method118(23, i ^ 0x75);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 103);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(50, true);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(-2023406815, true);
-						aClass16_Sub1_1.method126(i + 1);
+						packetHandler.createPacket(23, i ^ 0x75);
+						packetHandler.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 103);
+						packetHandler.aClass27_Sub1_Sub1_1.putInt(50, true);
+						packetHandler.aClass27_Sub1_Sub1_1.putInt(-2023406815, true);
+						packetHandler.finishPacket(i + 1);
 					}
-					if (((i_733_ + 335) <= this.anInt739) && ((i_734_ - -263) <= this.anInt736)
-					        && ((i_733_ + 368) > this.anInt739) && (this.anInt736 <= (i_734_ + 274)))
+					if (((i_733_ + 335) <= this.mouseX) && ((i_734_ - -263) <= this.mouseY)
+					        && ((i_733_ + 368) > this.mouseX) && (this.mouseY <= (i_734_ + 274)))
 					{
 						method516(Class45.aStringArray31, 4, 68, true);
 					}
-					if (((i_733_ + 370) <= this.anInt739) && ((i_734_ + 263) <= this.anInt736)
-					        && ((i_733_ + 400) > this.anInt739) && (this.anInt736 <= (i_734_ + 274)))
+					if (((i_733_ + 370) <= this.mouseX) && ((i_734_ + 263) <= this.mouseY)
+					        && ((i_733_ + 400) > this.mouseX) && (this.mouseY <= (i_734_ + 274)))
 					{
-						aClass16_Sub1_1.method118(23, i ^ 0x4a);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 70);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(method584(i_740_, false), true);
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putInt(-2023406815, true);
-						aClass16_Sub1_1.method126(2);
+						packetHandler.createPacket(23, i ^ 0x4a);
+						packetHandler.aClass27_Sub1_Sub1_1.putShort(i_740_, (byte) 70);
+						packetHandler.aClass27_Sub1_Sub1_1.putInt(method584(i_740_, false), true);
+						packetHandler.aClass27_Sub1_Sub1_1.putInt(-2023406815, true);
+						packetHandler.finishPacket(2);
 					}
 				}
 			}
@@ -8172,8 +8172,8 @@ public final class Client extends Applet_Sub1
 					}
 					else
 					{
-						aClass16_Sub1_1.method118(212, 118);
-						aClass16_Sub1_1.method126(2);
+						packetHandler.createPacket(212, 118);
+						packetHandler.finishPacket(2);
 						aBool81 = false;
 						return;
 					}
@@ -8203,8 +8203,8 @@ public final class Client extends Applet_Sub1
 			int i_745_ = 16777215;
 			if (anInt1045 != 0)
 			{
-				if ((this.anInt739 > (i_744_ + i_741_)) && (this.anInt736 >= i_742_)
-				        && (this.anInt739 < ((i_741_ - -i_744_) + 65)) && ((i_742_ + 12) > this.anInt736))
+				if ((this.mouseX > (i_744_ + i_741_)) && (this.mouseY >= i_742_)
+				        && (this.mouseX < ((i_741_ - -i_744_) + 65)) && ((i_742_ + 12) > this.mouseY))
 				{
 					i_745_ = 16776960;
 				}
@@ -8220,8 +8220,8 @@ public final class Client extends Applet_Sub1
 			{
 				i_745_ = 16711680;
 			}
-			else if (((i_744_ + i_741_) < this.anInt739) && (this.anInt736 >= i_742_)
-			        && (this.anInt739 < (i_741_ + i_744_ + 65)) && (this.anInt736 < (i_742_ + 12)))
+			else if (((i_744_ + i_741_) < this.mouseX) && (this.mouseY >= i_742_)
+			        && (this.mouseX < (i_741_ + i_744_ + 65)) && (this.mouseY < (i_742_ + 12)))
 			{
 				i_745_ = 16776960;
 			}
@@ -8235,8 +8235,8 @@ public final class Client extends Applet_Sub1
 			{
 				i_746_ = 16711680;
 			}
-			else if (((i_744_ + i_741_) < this.anInt739) && (i_742_ <= this.anInt736)
-			        && ((i_741_ + (i_744_ - -65)) > this.anInt739) && (this.anInt736 < (i_742_ + 12)))
+			else if (((i_744_ + i_741_) < this.mouseX) && (i_742_ <= this.mouseY)
+			        && ((i_741_ + (i_744_ - -65)) > this.mouseX) && (this.mouseY < (i_742_ + 12)))
 			{
 				i_746_ = 16776960;
 			}
@@ -8250,8 +8250,8 @@ public final class Client extends Applet_Sub1
 			{
 				i_747_ = 16711680;
 			}
-			else if ((this.anInt739 > (i_744_ + i_741_)) && (i_742_ <= this.anInt736)
-			        && ((i_741_ + i_744_ + 65) > this.anInt739) && ((i_742_ + 12) > this.anInt736))
+			else if ((this.mouseX > (i_744_ + i_741_)) && (i_742_ <= this.mouseY)
+			        && ((i_741_ + i_744_ + 65) > this.mouseX) && ((i_742_ + 12) > this.mouseY))
 			{
 				i_747_ = 16776960;
 			}
@@ -8259,8 +8259,8 @@ public final class Client extends Applet_Sub1
 			i_744_ += 65;
 		}
 		int i_748_ = 16777215;
-		if (((i_741_ + 320) < this.anInt739) && (this.anInt736 >= i_742_) && (this.anInt739 < (i_741_ + 408))
-		        && ((i_742_ + 12) > this.anInt736))
+		if (((i_741_ + 320) < this.mouseX) && (this.mouseY >= i_742_) && (this.mouseX < (i_741_ + 408))
+		        && ((i_742_ + 12) > this.mouseY))
 		{
 			i_748_ = 16711680;
 		}
@@ -8327,8 +8327,8 @@ public final class Client extends Applet_Sub1
 					        new StringBuilder().append("Withdraw ").append(Class26.aStringArray19[i_755_]).toString(),
 					        0, 1, 16777215, i_741_ + 2, i_742_ + 248);
 					i_748_ = 16777215;
-					if ((this.anInt739 >= (i_741_ + 220)) && (this.anInt736 >= (i_742_ + 238))
-					        && (this.anInt739 < (i_741_ + 250)) && (this.anInt736 <= (i_742_ + 249)))
+					if ((this.mouseX >= (i_741_ + 220)) && (this.mouseY >= (i_742_ + 238))
+					        && (this.mouseX < (i_741_ + 250)) && (this.mouseY <= (i_742_ + 249)))
 					{
 						i_748_ = 16711680;
 					}
@@ -8336,8 +8336,8 @@ public final class Client extends Applet_Sub1
 					if (i_750_ >= 5)
 					{
 						i_748_ = 16777215;
-						if ((this.anInt739 >= (i_741_ + 250)) && ((i_742_ + 238) <= this.anInt736)
-						        && ((i_741_ + 280) > this.anInt739) && ((i_742_ + 249) >= this.anInt736))
+						if ((this.mouseX >= (i_741_ + 250)) && ((i_742_ + 238) <= this.mouseY)
+						        && ((i_741_ + 280) > this.mouseX) && ((i_742_ + 249) >= this.mouseY))
 						{
 							i_748_ = 16711680;
 						}
@@ -8346,8 +8346,8 @@ public final class Client extends Applet_Sub1
 					if (10 <= i_750_)
 					{
 						i_748_ = 16777215;
-						if (((i_741_ + 280) <= this.anInt739) && (this.anInt736 >= (i_742_ + 238))
-						        && (this.anInt739 < (i_741_ + 305)) && ((i_742_ + 249) >= this.anInt736))
+						if (((i_741_ + 280) <= this.mouseX) && (this.mouseY >= (i_742_ + 238))
+						        && (this.mouseX < (i_741_ + 305)) && ((i_742_ + 249) >= this.mouseY))
 						{
 							i_748_ = 16711680;
 						}
@@ -8356,23 +8356,23 @@ public final class Client extends Applet_Sub1
 					if (i_750_ >= 50)
 					{
 						i_748_ = 16777215;
-						if ((this.anInt739 >= (i_741_ - -305)) && (this.anInt736 >= (i_742_ - -238))
-						        && ((i_741_ + 335) > this.anInt739) && (this.anInt736 <= (i_742_ + 249)))
+						if ((this.mouseX >= (i_741_ - -305)) && (this.mouseY >= (i_742_ - -238))
+						        && ((i_741_ + 335) > this.mouseX) && (this.mouseY <= (i_742_ + 249)))
 						{
 							i_748_ = 16711680;
 						}
 						aClass46_Sub1_2.method324("50", 0, 1, i_748_, i_741_ - -307, i_742_ + 248);
 					}
 					i_748_ = 16777215;
-					if ((this.anInt739 >= (i_741_ + 335)) && ((i_742_ + 238) <= this.anInt736)
-					        && ((i_741_ - -368) > this.anInt739) && ((i_742_ + 249) >= this.anInt736))
+					if ((this.mouseX >= (i_741_ + 335)) && ((i_742_ + 238) <= this.mouseY)
+					        && ((i_741_ - -368) > this.mouseX) && ((i_742_ + 249) >= this.mouseY))
 					{
 						i_748_ = 16711680;
 					}
 					aClass46_Sub1_2.method324("X", 0, 1, i_748_, i_741_ + 337, i_742_ - -248);
 					i_748_ = 16777215;
-					if (((i_741_ + 370) <= this.anInt739) && (this.anInt736 >= (i_742_ + 238))
-					        && ((i_741_ + 400) > this.anInt739) && (this.anInt736 <= (i_742_ + 249)))
+					if (((i_741_ + 370) <= this.mouseX) && (this.mouseY >= (i_742_ + 238))
+					        && ((i_741_ + 400) > this.mouseX) && (this.mouseY <= (i_742_ + 249)))
 					{
 						i_748_ = 16711680;
 					}
@@ -8384,8 +8384,8 @@ public final class Client extends Applet_Sub1
 					        new StringBuilder().append("Deposit ").append(Class26.aStringArray19[i_755_]).toString(),
 					        i ^ 0x1, 1, 16777215, i_741_ + 2, i_742_ + 273);
 					i_748_ = 16777215;
-					if (((i_741_ + 220) <= this.anInt739) && ((i_742_ + 263) <= this.anInt736)
-					        && (this.anInt739 < (i_741_ + 250)) && (this.anInt736 <= (i_742_ + 274)))
+					if (((i_741_ + 220) <= this.mouseX) && ((i_742_ + 263) <= this.mouseY)
+					        && (this.mouseX < (i_741_ + 250)) && (this.mouseY <= (i_742_ + 274)))
 					{
 						i_748_ = 16711680;
 					}
@@ -8393,8 +8393,8 @@ public final class Client extends Applet_Sub1
 					if (5 <= method584(i_755_, false))
 					{
 						i_748_ = 16777215;
-						if ((this.anInt739 >= (i_741_ + 250)) && (this.anInt736 >= (i_742_ + 263))
-						        && (this.anInt739 < (i_741_ - -280)) && (this.anInt736 <= (i_742_ + 274)))
+						if ((this.mouseX >= (i_741_ + 250)) && (this.mouseY >= (i_742_ + 263))
+						        && (this.mouseX < (i_741_ - -280)) && (this.mouseY <= (i_742_ + 274)))
 						{
 							i_748_ = 16711680;
 						}
@@ -8403,8 +8403,8 @@ public final class Client extends Applet_Sub1
 					if (method584(i_755_, false) >= 10)
 					{
 						i_748_ = 16777215;
-						if (((i_741_ + 280) <= this.anInt739) && (this.anInt736 >= (i_742_ + 263))
-						        && (this.anInt739 < (i_741_ + 305)) && (this.anInt736 <= (i_742_ + 274)))
+						if (((i_741_ + 280) <= this.mouseX) && (this.mouseY >= (i_742_ + 263))
+						        && (this.mouseX < (i_741_ + 305)) && (this.mouseY <= (i_742_ + 274)))
 						{
 							i_748_ = 16711680;
 						}
@@ -8413,23 +8413,23 @@ public final class Client extends Applet_Sub1
 					if (50 <= method584(i_755_, false))
 					{
 						i_748_ = 16777215;
-						if (((i_741_ + 305) <= this.anInt739) && ((i_742_ + 263) <= this.anInt736)
-						        && (this.anInt739 < (i_741_ + 335)) && ((i_742_ + 274) >= this.anInt736))
+						if (((i_741_ + 305) <= this.mouseX) && ((i_742_ + 263) <= this.mouseY)
+						        && (this.mouseX < (i_741_ + 335)) && ((i_742_ + 274) >= this.mouseY))
 						{
 							i_748_ = 16711680;
 						}
 						aClass46_Sub1_2.method324("50", 0, 1, i_748_, i_741_ - -307, i_742_ - -273);
 					}
 					i_748_ = 16777215;
-					if ((this.anInt739 >= (i_741_ - -335)) && ((i_742_ + 263) <= this.anInt736)
-					        && (this.anInt739 < (i_741_ + 368)) && ((i_742_ - -274) >= this.anInt736))
+					if ((this.mouseX >= (i_741_ - -335)) && ((i_742_ + 263) <= this.mouseY)
+					        && (this.mouseX < (i_741_ + 368)) && ((i_742_ - -274) >= this.mouseY))
 					{
 						i_748_ = 16711680;
 					}
 					aClass46_Sub1_2.method324("X", 0, 1, i_748_, i_741_ + 337, i_742_ + 273);
 					i_748_ = 16777215;
-					if (((i_741_ + 370) <= this.anInt739) && (this.anInt736 >= (i_742_ + 263))
-					        && ((i_741_ + 400) > this.anInt739) && (this.anInt736 <= (i_742_ + 274)))
+					if (((i_741_ + 370) <= this.mouseX) && (this.mouseY >= (i_742_ + 263))
+					        && ((i_741_ + 400) > this.mouseX) && (this.mouseY <= (i_742_ + 274)))
 					{
 						i_748_ = 16711680;
 					}
@@ -8467,155 +8467,155 @@ public final class Client extends Applet_Sub1
 		if (i_757_ == 200)
 		{
 			method545(anInt1001, anInt1030, i_759_, i_758_, true, (byte) -110);
-			aClass16_Sub1_1.method118(249, 116);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 90);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 125);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_760_, (byte) 57);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_761_, (byte) 80);
-			aClass16_Sub1_1.method126(2);
+			packetHandler.createPacket(249, 116);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 90);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 125);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_760_, (byte) 57);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_761_, (byte) 80);
+			packetHandler.finishPacket(2);
 			anInt940 = -1;
 		}
 		if (i_757_ == 210)
 		{
 			method545(anInt1001, anInt1030, i_759_, i_758_, true, (byte) -110);
-			aClass16_Sub1_1.method118(53, 125);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_ - -anInt867, (byte) 59);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 101);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_760_, (byte) 55);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_761_, (byte) 54);
-			aClass16_Sub1_1.method126(2);
+			packetHandler.createPacket(53, 125);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_ - -anInt867, (byte) 59);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 101);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_760_, (byte) 55);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_761_, (byte) 54);
+			packetHandler.finishPacket(2);
 			anInt989 = -1;
 		}
 		if (i_757_ == 220)
 		{
 			method545(anInt1001, anInt1030, i_759_, i_758_, true, (byte) -110);
-			aClass16_Sub1_1.method118(247, i_756_ ^ 0x254);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 72);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 58);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_760_, (byte) 109);
-			aClass16_Sub1_1.method126(i_756_ + -615);
+			packetHandler.createPacket(247, i_756_ ^ 0x254);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 72);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 58);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_760_, (byte) 109);
+			packetHandler.finishPacket(i_756_ + -615);
 		}
 		if ((i_757_ == 3600) || (i_757_ == 3200))
 		{
-			method513(0, Class28.aStringArray25[i_758_], 0, null, i_756_ ^ ~0x204, null, null, false);
+			displayMessage(0, Class28.aStringArray25[i_758_], 0, null, i_756_ ^ ~0x204, null, null, false);
 		}
 		if (i_757_ == 300)
 		{
 			method558(i_760_, i_759_, 47, i_758_);
-			aClass16_Sub1_1.method118(180, 75);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 72);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 102);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(i_756_ + -32183, i_760_);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_761_, (byte) 104);
-			aClass16_Sub1_1.method126(2);
+			packetHandler.createPacket(180, 75);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 72);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 102);
+			packetHandler.aClass27_Sub1_Sub1_1.put(i_756_ + -32183, i_760_);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_761_, (byte) 104);
+			packetHandler.finishPacket(2);
 			anInt940 = -1;
 		}
 		if (i_757_ == 310)
 		{
 			method558(i_760_, i_759_, 49, i_758_);
-			aClass16_Sub1_1.method118(161, 92);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_ - -anInt867, (byte) 54);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 58);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(i_756_ ^ ~0x7924, i_760_);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_761_, (byte) 122);
-			aClass16_Sub1_1.method126(2);
+			packetHandler.createPacket(161, 92);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_ - -anInt867, (byte) 54);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 58);
+			packetHandler.aClass27_Sub1_Sub1_1.put(i_756_ ^ ~0x7924, i_760_);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_761_, (byte) 122);
+			packetHandler.finishPacket(2);
 			anInt989 = -1;
 		}
 		if (i_757_ == 320)
 		{
 			method558(i_760_, i_759_, 84, i_758_);
-			aClass16_Sub1_1.method118(14, 124);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 112);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_ - -anInt927, (byte) 85);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(i_756_ + -32183, i_760_);
-			aClass16_Sub1_1.method126(i_756_ ^ 0x26b);
+			packetHandler.createPacket(14, 124);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 112);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_759_ - -anInt927, (byte) 85);
+			packetHandler.aClass27_Sub1_Sub1_1.put(i_756_ + -32183, i_760_);
+			packetHandler.finishPacket(i_756_ ^ 0x26b);
 		}
 		if (i_757_ == 2300)
 		{
 			method558(i_760_, i_759_, i_756_ + -500, i_758_);
-			aClass16_Sub1_1.method118(127, 100);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 96);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 118);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, i_760_);
-			aClass16_Sub1_1.method126(i_756_ + -615);
+			packetHandler.createPacket(127, 100);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 96);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 118);
+			packetHandler.aClass27_Sub1_Sub1_1.put(-31566, i_760_);
+			packetHandler.finishPacket(i_756_ + -615);
 		}
 		if (i_757_ == 3300)
 		{
-			method513(0, Applet_Sub1.aStringArray44[i_758_], 0, null, -127, null, null, false);
+			displayMessage(0, GameWindow.aStringArray44[i_758_], 0, null, -127, null, null, false);
 		}
 		if (i_757_ == 400)
 		{
 			method576((byte) 119, i_760_, i_758_, i_759_, i_761_);
-			aClass16_Sub1_1.method118(99, 77);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 63);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 59);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_762_, (byte) 71);
-			aClass16_Sub1_1.method126(2);
+			packetHandler.createPacket(99, 77);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 63);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 59);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_762_, (byte) 71);
+			packetHandler.finishPacket(2);
 			anInt940 = -1;
 		}
 		if (i_757_ == 410)
 		{
 			method576((byte) 119, i_760_, i_758_, i_759_, i_761_);
-			aClass16_Sub1_1.method118(115, 101);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_ - -anInt867, (byte) 80);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 98);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_762_, (byte) 127);
-			aClass16_Sub1_1.method126(2);
+			packetHandler.createPacket(115, 101);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_ - -anInt867, (byte) 80);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 98);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_762_, (byte) 127);
+			packetHandler.finishPacket(2);
 			anInt989 = -1;
 		}
 		if (i_757_ == 420)
 		{
 			method576((byte) 103, i_760_, i_758_, i_759_, i_761_);
-			aClass16_Sub1_1.method118(136, i_756_ ^ 0x257);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 123);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_ - -anInt927, (byte) 124);
-			aClass16_Sub1_1.method126(i_756_ + -615);
+			packetHandler.createPacket(136, i_756_ ^ 0x257);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 123);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_759_ - -anInt927, (byte) 124);
+			packetHandler.finishPacket(i_756_ + -615);
 		}
 		if (i_757_ == 2400)
 		{
 			method576((byte) 123, i_760_, i_758_, i_759_, i_761_);
-			aClass16_Sub1_1.method118(79, 81);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 114);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 113);
-			aClass16_Sub1_1.method126(i_756_ ^ 0x26b);
+			packetHandler.createPacket(79, 81);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 114);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_759_ + anInt927, (byte) 113);
+			packetHandler.finishPacket(i_756_ ^ 0x26b);
 		}
 		if (i_757_ == 3400)
 		{
-			method513(0, Class10.aStringArray10[i_758_], 0, null, -85, null, null, false);
+			displayMessage(0, Class10.aStringArray10[i_758_], 0, null, -85, null, null, false);
 		}
 		if (i_757_ == 600)
 		{
-			aClass16_Sub1_1.method118(4, 80);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 101);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_, (byte) 125);
-			aClass16_Sub1_1.method126(2);
+			packetHandler.createPacket(4, 80);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 101);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_759_, (byte) 125);
+			packetHandler.finishPacket(2);
 			anInt940 = -1;
 		}
 		if (i_757_ == 610)
 		{
-			aClass16_Sub1_1.method118(91, 107);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 106);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_, (byte) 106);
-			aClass16_Sub1_1.method126(2);
+			packetHandler.createPacket(91, 107);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 106);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_759_, (byte) 106);
+			packetHandler.finishPacket(2);
 			anInt989 = -1;
 		}
 		if (i_757_ == 620)
 		{
-			aClass16_Sub1_1.method118(170, 107);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 75);
-			aClass16_Sub1_1.method126(2);
+			packetHandler.createPacket(170, 107);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 75);
+			packetHandler.finishPacket(2);
 		}
 		if (i_757_ == 630)
 		{
-			aClass16_Sub1_1.method118(169, i_756_ + -520);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 100);
-			aClass16_Sub1_1.method126(2);
+			packetHandler.createPacket(169, i_756_ + -520);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 100);
+			packetHandler.finishPacket(2);
 		}
 		if (i_757_ == 640)
 		{
-			aClass16_Sub1_1.method118(90, 60);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 75);
-			aClass16_Sub1_1.method126(2);
+			packetHandler.createPacket(90, 60);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 75);
+			packetHandler.finishPacket(2);
 		}
 		if (i_757_ == 650)
 		{
@@ -8625,12 +8625,12 @@ public final class Client extends Applet_Sub1
 		}
 		if (i_757_ == 660)
 		{
-			aClass16_Sub1_1.method118(246, 99);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 56);
-			aClass16_Sub1_1.method126(2);
+			packetHandler.createPacket(246, 99);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 56);
+			packetHandler.finishPacket(2);
 			anInt939 = 0;
 			anInt989 = -1;
-			method513(0, new StringBuilder().append("Dropping ").append(Class26.aStringArray19[anIntArray194[i_758_]])
+			displayMessage(0, new StringBuilder().append("Dropping ").append(Class26.aStringArray19[anIntArray194[i_758_]])
 			        .toString(), 7, null, -88, null, null, false);
 		}
 		if (i_757_ == 700)
@@ -8639,10 +8639,10 @@ public final class Client extends Applet_Sub1
 			final int i_763_ = (class15.anInt166 + -64) / anInt856;
 			final int i_764_ = (class15.anInt159 + -64) / anInt856;
 			method560(true, anInt1001, true, i_764_, anInt1030, i_763_);
-			aClass16_Sub1_1.method118(50, 110);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 76);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_, (byte) 79);
-			aClass16_Sub1_1.method126(2);
+			packetHandler.createPacket(50, 110);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 76);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_759_, (byte) 79);
+			packetHandler.finishPacket(2);
 			anInt940 = -1;
 		}
 		if (i_757_ == 710)
@@ -8651,10 +8651,10 @@ public final class Client extends Applet_Sub1
 			final int i_765_ = (class15.anInt166 + -64) / anInt856;
 			final int i_766_ = (class15.anInt159 + -64) / anInt856;
 			method560(true, anInt1001, true, i_766_, anInt1030, i_765_);
-			aClass16_Sub1_1.method118(135, 104);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 122);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_, (byte) 58);
-			aClass16_Sub1_1.method126(2);
+			packetHandler.createPacket(135, 104);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 122);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_759_, (byte) 58);
+			packetHandler.finishPacket(2);
 			anInt989 = -1;
 		}
 		if (i_757_ == 720)
@@ -8663,9 +8663,9 @@ public final class Client extends Applet_Sub1
 			final int i_767_ = (class15.anInt166 - 64) / anInt856;
 			final int i_768_ = (class15.anInt159 + -64) / anInt856;
 			method560(true, anInt1001, true, i_768_, anInt1030, i_767_);
-			aClass16_Sub1_1.method118(153, 89);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 103);
-			aClass16_Sub1_1.method126(2);
+			packetHandler.createPacket(153, 89);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 103);
+			packetHandler.finishPacket(2);
 		}
 		if (i_757_ == 725)
 		{
@@ -8673,9 +8673,9 @@ public final class Client extends Applet_Sub1
 			final int i_769_ = (class15.anInt166 + -64) / anInt856;
 			final int i_770_ = (class15.anInt159 - 64) / anInt856;
 			method560(true, anInt1001, true, i_770_, anInt1030, i_769_);
-			aClass16_Sub1_1.method118(202, 109);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 106);
-			aClass16_Sub1_1.method126(i_756_ ^ 0x26b);
+			packetHandler.createPacket(202, 109);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 106);
+			packetHandler.finishPacket(i_756_ ^ 0x26b);
 		}
 		if ((i_757_ == 2715) || (i_757_ == 715))
 		{
@@ -8683,13 +8683,13 @@ public final class Client extends Applet_Sub1
 			final int i_771_ = (class15.anInt166 + -64) / anInt856;
 			final int i_772_ = (class15.anInt159 + -64) / anInt856;
 			method560(true, anInt1001, true, i_772_, anInt1030, i_771_);
-			aClass16_Sub1_1.method118(190, i_756_ + -541);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 76);
-			aClass16_Sub1_1.method126(i_756_ + -615);
+			packetHandler.createPacket(190, i_756_ + -541);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 76);
+			packetHandler.finishPacket(i_756_ + -615);
 		}
 		if (i_757_ == 3700)
 		{
-			method513(0, Class24.aStringArray18[i_758_], 0, null, -21, null, null, false);
+			displayMessage(0, Class24.aStringArray18[i_758_], 0, null, -21, null, null, false);
 		}
 		if (i_757_ == 800)
 		{
@@ -8697,10 +8697,10 @@ public final class Client extends Applet_Sub1
 			final int i_773_ = (class15.anInt166 + -64) / anInt856;
 			final int i_774_ = (class15.anInt159 + -64) / anInt856;
 			method560(true, anInt1001, true, i_774_, anInt1030, i_773_);
-			aClass16_Sub1_1.method118(229, 123);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 119);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_, (byte) 126);
-			aClass16_Sub1_1.method126(2);
+			packetHandler.createPacket(229, 123);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 119);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_759_, (byte) 126);
+			packetHandler.finishPacket(2);
 			anInt940 = -1;
 		}
 		if (i_757_ == 810)
@@ -8709,10 +8709,10 @@ public final class Client extends Applet_Sub1
 			final int i_775_ = (class15.anInt166 + -64) / anInt856;
 			final int i_776_ = (class15.anInt159 + -64) / anInt856;
 			method560(true, anInt1001, true, i_776_, anInt1030, i_775_);
-			aClass16_Sub1_1.method118(113, 106);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 117);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_, (byte) 86);
-			aClass16_Sub1_1.method126(i_756_ ^ 0x26b);
+			packetHandler.createPacket(113, 106);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 117);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_759_, (byte) 86);
+			packetHandler.finishPacket(i_756_ ^ 0x26b);
 			anInt989 = -1;
 		}
 		if ((i_757_ == 2805) || (i_757_ == 805))
@@ -8721,27 +8721,27 @@ public final class Client extends Applet_Sub1
 			final int i_777_ = (class15.anInt166 + -64) / anInt856;
 			final int i_778_ = (class15.anInt159 + -64) / anInt856;
 			method560(true, anInt1001, true, i_778_, anInt1030, i_777_);
-			aClass16_Sub1_1.method118(171, i_756_ ^ 0x20d);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 80);
-			aClass16_Sub1_1.method126(i_756_ ^ 0x26b);
+			packetHandler.createPacket(171, i_756_ ^ 0x20d);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 80);
+			packetHandler.finishPacket(i_756_ ^ 0x26b);
 		}
 		if (i_757_ == 2806)
 		{
-			aClass16_Sub1_1.method118(103, 93);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 113);
-			aClass16_Sub1_1.method126(2);
+			packetHandler.createPacket(103, 93);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 113);
+			packetHandler.finishPacket(2);
 		}
 		if (i_757_ == 2810)
 		{
-			aClass16_Sub1_1.method118(142, 115);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 99);
-			aClass16_Sub1_1.method126(2);
+			packetHandler.createPacket(142, 115);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 99);
+			packetHandler.finishPacket(2);
 		}
 		if (i_757_ == 2820)
 		{
-			aClass16_Sub1_1.method118(165, i_756_ ^ 0x216);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 92);
-			aClass16_Sub1_1.method126(2);
+			packetHandler.createPacket(165, i_756_ ^ 0x216);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 92);
+			packetHandler.finishPacket(2);
 		}
 		if (i_757_ == 2833)
 		{
@@ -8767,11 +8767,11 @@ public final class Client extends Applet_Sub1
 		if (i_757_ == 900)
 		{
 			method560(true, anInt1001, true, i_759_, anInt1030, i_758_);
-			aClass16_Sub1_1.method118(158, 76);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 127);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_759_ - -anInt927, (byte) 65);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_760_, (byte) 94);
-			aClass16_Sub1_1.method126(2);
+			packetHandler.createPacket(158, 76);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_ + anInt867, (byte) 127);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_759_ - -anInt927, (byte) 65);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_760_, (byte) 94);
+			packetHandler.finishPacket(2);
 			anInt940 = -1;
 		}
 		if (i_757_ == 920)
@@ -8784,9 +8784,9 @@ public final class Client extends Applet_Sub1
 		}
 		if (i_757_ == 1000)
 		{
-			aClass16_Sub1_1.method118(137, i_756_ ^ 0x228);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 112);
-			aClass16_Sub1_1.method126(2);
+			packetHandler.createPacket(137, i_756_ ^ 0x228);
+			packetHandler.aClass27_Sub1_Sub1_1.putShort(i_758_, (byte) 112);
+			packetHandler.finishPacket(2);
 			anInt940 = -1;
 		}
 		if (i_756_ == 617)
@@ -8813,8 +8813,8 @@ public final class Client extends Applet_Sub1
 			graphics.fillRect((i_780_ / 2) + -140, (i_781_ / 2) - 25, 280, 50);
 			graphics.setColor(Color.white);
 			graphics.drawRect((i_780_ / 2) - 140, (i_781_ / 2) + -25, 280, 50);
-			method465(i_780_ / 2, true, graphics, font, string, (i_781_ / i) + -10);
-			method465(i_780_ / 2, true, graphics, font, string_779_, (i_781_ / 2) + 10);
+			drawString(i_780_ / 2, true, graphics, font, string, (i_781_ / i) + -10);
+			drawString(i_780_ / 2, true, graphics, font, string_779_, (i_781_ / 2) + 10);
 		}
 	}
 
@@ -9357,7 +9357,7 @@ public final class Client extends Applet_Sub1
 		}
 		anInt949 = 0;
 		anInt788++;
-		if (anInt970 != 0)
+		if (logoutTimeout != 0)
 		{
 			method529(-127);
 		}
@@ -9419,7 +9419,7 @@ public final class Client extends Applet_Sub1
 		try
 		{
 			Class34.aClass38_5 = Class16_Sub1.aClass38_7;
-			Class27_Sub1_Sub1.anInt664 = Integer.parseInt(args[0]);
+			Class27_Sub1_Sub1.portOffset = Integer.parseInt(args[0]);
 			if (!args[1].equals("live"))
 			{
 				if (!args[1].equals("rc"))
@@ -9438,7 +9438,7 @@ public final class Client extends Applet_Sub1
 			{
 				RuntimeException_Sub1.aClass24_4 = Class42.aClass24_1;
 			}
-			final Client var_client = new Client();
+			final mudclient var_client = new mudclient();
 			var_client.aBool51 = false;
 			for (int i = 2; args.length > i; i++)
 			{
@@ -9451,10 +9451,10 @@ public final class Client extends Applet_Sub1
 					var_client.aBool56 = true;
 				}
 			}
-			var_client.method484((byte) 113, false, Class51.anInt583, var_client.anInt879 + 12,
-			        Class27_Sub1_Sub1.anInt664 + 7000, var_client.anInt853, "RuneScape Classic",
+			var_client.createWindow((byte) 113, false, Class51.anInt583, var_client.anInt879 + 12,
+					7000 + Class27_Sub1_Sub1.portOffset, var_client.anInt853, "RuneScape Classic",
 			        (RuntimeException_Sub1.aClass24_4.anInt293) + 32, "classic");
-			var_client.anInt740 = 10;
+			var_client.maybe_threadSleepTime = 10;
 		}
 		catch (final Exception exception)
 		{
@@ -9488,8 +9488,8 @@ public final class Client extends Applet_Sub1
 		int i_849_ = 0xff & (anInt843 + anInt964);
 		int i_850_ = (i_848_ * (aClass15_1.anInt166 + -6040) * 3) / 2048;
 		int i_851_ = (i_848_ * (aClass15_1.anInt159 + -6040) * 3) / 2048;
-		int i_852_ = Applet_Sub1.anIntArray151[(-(i_849_ * 4) + 1024) & 0x3ff];
-		int i_853_ = Applet_Sub1.anIntArray151[(0x3ff & (-(i_849_ * 4) + 1024)) + 1024];
+		int i_852_ = GameWindow.anIntArray151[(-(i_849_ * 4) + 1024) & 0x3ff];
+		int i_853_ = GameWindow.anIntArray151[(0x3ff & (-(i_849_ * 4) + 1024)) + 1024];
 		int i_854_ = ((i_852_ * i_851_) + (i_850_ * i_853_)) >> 18;
 		i_851_ = ((i_851_ * i_853_) + -(i_852_ * i_850_)) >> 18;
 		if (i == -20183)
@@ -9537,7 +9537,7 @@ public final class Client extends Applet_Sub1
 				final String string = Class43.method298((byte) 45, class15.aString7);
 				if (string != null)
 				{
-					for (int i_860_ = 0; i_860_ < Class16.anInt185; i_860_++)
+					for (int i_860_ = 0; i_860_ < PacketConstruction.anInt185; i_860_++)
 					{
 						if (string.equals(Class43.method298((byte) -50, (Class28.aStringArray24[i_860_])))
 						        && ((Class7.anIntArray18[i_860_] & 0x2) != 0))
@@ -9554,8 +9554,8 @@ public final class Client extends Applet_Sub1
 			aClass46_Sub1_2.method357(0, anInt879 + 12, 0, anInt853, 1743849672);
 			if (bool)
 			{
-				i_845_ = (this.anInt739 + -aClass46_Sub1_2.anInt502 + 199);
-				final int i_861_ = this.anInt736 - 36;
+				i_845_ = (this.mouseX + -aClass46_Sub1_2.anInt502 + 199);
+				final int i_861_ = this.mouseY - 36;
 				if ((i_845_ >= 40) && (i_861_ >= 0) && (196 > i_845_) && (152 > i_861_))
 				{
 					i_845_ = aClass46_Sub1_2.anInt502 - 199;
@@ -9564,10 +9564,10 @@ public final class Client extends Applet_Sub1
 					i_849_ = 0xff & (anInt964 + anInt843);
 					i_848_ = anInt1041 + 192;
 					i_845_ += 40;
-					i_851_ = (((this.anInt736 + -(i_847_ / 2) + -36) * 16384) / (i_848_ * 3));
-					i_853_ = (Applet_Sub1.anIntArray151[((1024 - (i_849_ * 4)) & 0x3ff) + 1024]);
-					i_850_ = ((((-(i_846_ / 2) - i_845_) + this.anInt739) * 16384) / (i_848_ * 3));
-					i_852_ = (Applet_Sub1.anIntArray151[(-(i_849_ * 4) + 1024) & 0x3ff]);
+					i_851_ = (((this.mouseY + -(i_847_ / 2) + -36) * 16384) / (i_848_ * 3));
+					i_853_ = (GameWindow.anIntArray151[((1024 - (i_849_ * 4)) & 0x3ff) + 1024]);
+					i_850_ = ((((-(i_846_ / 2) - i_845_) + this.mouseX) * 16384) / (i_848_ * 3));
+					i_852_ = (GameWindow.anIntArray151[(-(i_849_ * 4) + 1024) & 0x3ff]);
 					i_854_ = ((i_851_ * i_852_) + (i_850_ * i_853_)) >> 15;
 					i_851_ = ((i_853_ * i_851_) + -(i_850_ * i_852_)) >> 15;
 					i_850_ = i_854_;
@@ -9697,26 +9697,26 @@ public final class Client extends Applet_Sub1
 		}
 		if (anInt887 == 1)
 		{
-			if ((this.anInt739 < i_866_) || (i_867_ > this.anInt736) || (this.anInt739 > (i_866_ + 468))
-			        || (this.anInt736 > (i_867_ + 262)))
+			if ((this.mouseX < i_866_) || (i_867_ > this.mouseY) || (this.mouseX > (i_866_ + 468))
+			        || (this.mouseY > (i_867_ + 262)))
 			{
 				aBool92 = false;
-				aClass16_Sub1_1.method118(230, 95);
-				aClass16_Sub1_1.method126(2);
+				packetHandler.createPacket(230, 95);
+				packetHandler.finishPacket(2);
 			}
-			if ((this.anInt739 >= (i_866_ + 118 + -35)) && (((i_866_ + 118) - -70) >= this.anInt739)
-			        && ((i_867_ + 238) <= this.anInt736) && (this.anInt736 <= ((i_867_ - -238) + 21)))
+			if ((this.mouseX >= (i_866_ + 118 + -35)) && (((i_866_ + 118) - -70) >= this.mouseX)
+			        && ((i_867_ + 238) <= this.mouseY) && (this.mouseY <= ((i_867_ - -238) + 21)))
 			{
 				aBool66 = true;
-				aClass16_Sub1_1.method118(77, 77);
-				aClass16_Sub1_1.method126(2);
+				packetHandler.createPacket(77, 77);
+				packetHandler.finishPacket(2);
 			}
-			if ((this.anInt739 >= ((i_866_ + 352) - 35)) && (this.anInt739 <= (i_866_ + 353 + 70))
-			        && ((i_867_ + 238) <= this.anInt736) && (((i_867_ - -21) + 238) >= this.anInt736))
+			if ((this.mouseX >= ((i_866_ + 352) - 35)) && (this.mouseX <= (i_866_ + 353 + 70))
+			        && ((i_867_ + 238) <= this.mouseY) && (((i_867_ - -21) + 238) >= this.mouseY))
 			{
 				aBool92 = false;
-				aClass16_Sub1_1.method118(197, 84);
-				aClass16_Sub1_1.method126(2);
+				packetHandler.createPacket(197, 84);
+				packetHandler.finishPacket(2);
 			}
 			anInt887 = 0;
 		}
@@ -9844,7 +9844,7 @@ public final class Client extends Applet_Sub1
 		anInt899 = 1;
 		anInt803++;
 		anInt1035 = 0;
-		anInt970 = 0;
+		logoutTimeout = 0;
 		anInt1054 = 0;
 		anInt949 = 0;
 		method566((byte) 115);
@@ -9887,11 +9887,11 @@ public final class Client extends Applet_Sub1
 			aBoolArray11[i_904_] = false;
 		}
 		aBool81 = false;
-		this.anInt738 = 0;
-		this.anInt737 = 0;
+		this.lastMouseDownButton = 0;
+		this.mouseDownButton = 0;
 		anInt994 = 0;
 		anInt887 = 0;
-		Class16.anInt185 = 0;
+		PacketConstruction.anInt185 = 0;
 		aBool69 = false;
 		aBool57 = false;
 		for (int i_905_ = 0; i_905_ < 100; i_905_++)
@@ -9950,7 +9950,7 @@ public final class Client extends Applet_Sub1
 		AClass1_Sub1.method422("clawspell5", -103);
 		AClass1_Sub1.method422("spellcharge2", -112);
 		AClass1_Sub1.method422("spellcharge3", -127);
-		if (Class38.aFrame_Sub1_1 == null)
+		if (Class38.gameFrame == null)
 		{
 			final byte[] is = method468("3d models", 60, 9, -21865);
 			if (is == null)
@@ -9981,7 +9981,7 @@ public final class Client extends Applet_Sub1
 		}
 		else
 		{
-			method482(70, 97, "Loading 3d models");
+			drawLoadingBarText(70, 97, "Loading 3d models");
 			for (int i_910_ = 0; Class4.anInt11 > i_910_; i_910_++)
 			{
 				aClass23Array6[i_910_] = new Class23(new StringBuilder().append("../content/src/models/")
@@ -10038,19 +10038,19 @@ public final class Client extends Applet_Sub1
 		aClass46_Sub1_2.method335(16777215, 255, 1, "of the screen will show the current level of danger", i, 256);
 		i += 22;
 		int i_913_ = 16777215;
-		if (((i + -12) < this.anInt736) && (i >= this.anInt736) && (181 < this.anInt739) && (this.anInt739 < 331))
+		if (((i + -12) < this.mouseY) && (i >= this.mouseY) && (181 < this.mouseX) && (this.mouseX < 331))
 		{
 			i_913_ = 16711680;
 		}
 		aClass46_Sub1_2.method335(i_913_, 255, 1, "Click here to close window", i, 256);
 		if (anInt887 != 0)
 		{
-			if (((i - 12) < this.anInt736) && (this.anInt736 <= i) && (this.anInt739 > 181) && (this.anInt739 < 331))
+			if (((i - 12) < this.mouseY) && (this.mouseY <= i) && (this.mouseX > 181) && (this.mouseX < 331))
 			{
 				anInt979 = 2;
 			}
 			anInt887 = 0;
-			if ((86 > this.anInt739) || (this.anInt739 > 426) || (this.anInt736 < 77) || (this.anInt736 > 257))
+			if ((86 > this.mouseX) || (this.mouseX > 426) || (this.mouseY < 77) || (this.mouseY > 257))
 			{
 				anInt979 = 2;
 			}
@@ -10060,31 +10060,31 @@ public final class Client extends Applet_Sub1
 	private void method586(final int i, final String string)
 	{
 		anInt772++;
-		if ((!aBool55 ? 100 : 200) <= Class16.anInt185)
+		if ((!aBool55 ? 100 : 200) <= PacketConstruction.anInt185)
 		{
-			method513(0, "Friend list is full", 0, null, -107, null, null, false);
+			displayMessage(0, "Friend list is full", 0, null, -107, null, null, false);
 		}
 		else
 		{
 			if (i >= -108)
 			{
-				anInt1051 = 2;
+				combatTimeout = 2;
 			}
 			final String string_914_ = Class43.method298((byte) 74, string);
 			if (string_914_ != null)
 			{
-				for (int i_915_ = 0; Class16.anInt185 > i_915_; i_915_++)
+				for (int i_915_ = 0; PacketConstruction.anInt185 > i_915_; i_915_++)
 				{
 					if (string_914_.equals(Class43.method298((byte) -105, (Class28.aStringArray24[i_915_]))))
 					{
-						method513(0, new StringBuilder().append(string).append(" is already on your friend list.")
+						displayMessage(0, new StringBuilder().append(string).append(" is already on your friend list.")
 						        .toString(), 0, null, -33, null, null, false);
 						return;
 					}
 					if ((RuntimeException_Sub1.aStringArray41[i_915_] != null) && (string_914_
 					        .equals(Class43.method298((byte) 87, (RuntimeException_Sub1.aStringArray41[i_915_])))))
 					{
-						method513(0, new StringBuilder().append(string).append(" is already on your friend list.")
+						displayMessage(0, new StringBuilder().append(string).append(" is already on your friend list.")
 						        .toString(), 0, null, -115, null, null, false);
 						return;
 					}
@@ -10093,7 +10093,7 @@ public final class Client extends Applet_Sub1
 				{
 					if (string_914_.equals(Class43.method298((byte) 72, (Class46.aStringArray33[i_916_]))))
 					{
-						method513(0,
+						displayMessage(0,
 						        new StringBuilder().append("Please remove ").append(string)
 						                .append(" from your ignore list first.").toString(),
 						        0, null, -19, null, null, false);
@@ -10102,7 +10102,7 @@ public final class Client extends Applet_Sub1
 					if ((Class6.aStringArray7[i_916_] != null)
 					        && string_914_.equals(Class43.method298((byte) 96, (Class6.aStringArray7[i_916_]))))
 					{
-						method513(0,
+						displayMessage(0,
 						        new StringBuilder().append("Please remove ").append(string)
 						                .append(" from your ignore list first.").toString(),
 						        0, null, -87, null, null, false);
@@ -10111,13 +10111,13 @@ public final class Client extends Applet_Sub1
 				}
 				if (string_914_.equals(Class43.method298((byte) -86, (aClass15_1.aString7))))
 				{
-					method513(0, "You can't add yourself to your own friend list.", 0, null, -24, null, null, false);
+					displayMessage(0, "You can't add yourself to your own friend list.", 0, null, -24, null, null, false);
 				}
 				else
 				{
-					aClass16_Sub1_1.method118(195, 104);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method389(0, string);
-					aClass16_Sub1_1.method126(2);
+					packetHandler.createPacket(195, 104);
+					packetHandler.aClass27_Sub1_Sub1_1.method389(0, string);
+					packetHandler.finishPacket(2);
 				}
 			}
 		}
@@ -10132,7 +10132,7 @@ public final class Client extends Applet_Sub1
 		}
 		if (anInt1035 == 0)
 		{
-			aClass10_7.method85(this.anInt737, this.anInt736, this.anInt738, (byte) -95, this.anInt739);
+			aClass10_7.method85(this.mouseDownButton, this.mouseY, this.lastMouseDownButton, (byte) -95, this.mouseX);
 			if (aClass10_7.method81(true, anInt1040))
 			{
 				anInt1035 = 2;
@@ -10145,7 +10145,7 @@ public final class Client extends Applet_Sub1
 		}
 		else if (anInt1035 == 2)
 		{
-			aClass10_5.method85(this.anInt737, this.anInt736, this.anInt738, (byte) -117, this.anInt739);
+			aClass10_5.method85(this.mouseDownButton, this.mouseY, this.lastMouseDownButton, (byte) -117, this.mouseX);
 			if (aClass10_5.method81(true, anInt1033))
 			{
 				anInt1035 = 0;
@@ -10179,15 +10179,15 @@ public final class Client extends Applet_Sub1
 				anInt930++;
 				if (anInt899 == 0)
 				{
-					this.anInt722 = 0;
+					this.lastActionTimeout = 0;
 					method587((byte) -108);
 				}
 				if (anInt899 == 1)
 				{
-					this.anInt722++;
+					this.lastActionTimeout++;
 					method591(56);
 				}
-				this.anInt738 = 0;
+				this.lastMouseDownButton = 0;
 				anInt937++;
 				if (anInt937 > 500)
 				{
@@ -10247,13 +10247,13 @@ public final class Client extends Applet_Sub1
 		anInt862++;
 		anInt1048 = 0;
 		boolean bool = true;
-		if ((this.anInt739 >= 36) && (this.anInt739 < 176))
+		if ((this.mouseX >= 36) && (this.mouseX < 176))
 		{
 			anInt1048 = 1;
 		}
-		else if ((this.anInt739 < 186) || (326 <= this.anInt739))
+		else if ((this.mouseX < 186) || (326 <= this.mouseX))
 		{
-			if ((336 > this.anInt739) || (this.anInt739 >= 476))
+			if ((336 > this.mouseX) || (this.mouseX >= 476))
 			{
 				bool = false;
 			}
@@ -10273,7 +10273,7 @@ public final class Client extends Applet_Sub1
 			for (int i_919_ = 0; 6 > i_919_; i_919_++)
 			{
 				final int i_920_ = i_919_ == 0 ? 30 : 18;
-				if (((i_918_ + -12) < this.anInt736) && (this.anInt736 < ((i_918_ - 12) + i_920_)))
+				if (((i_918_ + -12) < this.mouseY) && (this.mouseY < ((i_918_ - 12) + i_920_)))
 				{
 					if (anInt1048 == 1)
 					{
@@ -10309,11 +10309,11 @@ public final class Client extends Applet_Sub1
 		}
 		if ((anInt887 != 0) && (anInt1048 != 0))
 		{
-			aClass16_Sub1_1.method118(206, i + 62);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method389(0, aString33);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anInt1048);
-			aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(i + -31581, aBool76 ? 1 : 0);
-			aClass16_Sub1_1.method126(2);
+			packetHandler.createPacket(206, i + 62);
+			packetHandler.aClass27_Sub1_Sub1_1.method389(0, aString33);
+			packetHandler.aClass27_Sub1_Sub1_1.put(-31566, anInt1048);
+			packetHandler.aClass27_Sub1_Sub1_1.put(i + -31581, aBool76 ? 1 : 0);
+			packetHandler.finishPacket(2);
 			anInt994 = 0;
 			anInt887 = 0;
 			this.aString26 = "";
@@ -10325,13 +10325,13 @@ public final class Client extends Applet_Sub1
 			if (anInt887 != 0)
 			{
 				anInt887 = 0;
-				if ((this.anInt739 < 31) || (this.anInt736 < 35) || (481 < this.anInt739) || (310 < this.anInt736))
+				if ((this.mouseX < 31) || (this.mouseY < 35) || (481 < this.mouseX) || (310 < this.mouseY))
 				{
 					anInt994 = 0;
 					return;
 				}
-				if ((66 < this.anInt739) && (this.anInt739 < 446) && ((i_918_ - 15) <= this.anInt736)
-				        && ((i_918_ + 5) > this.anInt736))
+				if ((66 < this.mouseX) && (this.mouseX < 446) && ((i_918_ - 15) <= this.mouseY)
+				        && ((i_918_ + 5) > this.mouseY))
 				{
 					anInt994 = 0;
 					return;
@@ -10592,8 +10592,8 @@ public final class Client extends Applet_Sub1
 			i_918_ += 18;
 			i_918_ += 15;
 			i_921_ = 16777215;
-			if ((this.anInt739 > 196) && (316 > this.anInt739) && ((i_918_ + -15) < this.anInt736)
-			        && (this.anInt736 < (i_918_ - -5)))
+			if ((this.mouseX > 196) && (316 > this.mouseX) && ((i_918_ + -15) < this.mouseY)
+			        && (this.mouseY < (i_918_ - -5)))
 			{
 				i_921_ = 16776960;
 			}
@@ -10774,10 +10774,10 @@ public final class Client extends Applet_Sub1
 				}
 				else
 				{
-					aClass16_Sub1_1.method118(59, 124);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(anInt1032, (byte) 79);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.putShort(anInt958, (byte) 87);
-					aClass16_Sub1_1.method126(2);
+					packetHandler.createPacket(59, 124);
+					packetHandler.aClass27_Sub1_Sub1_1.putShort(anInt1032, (byte) 79);
+					packetHandler.aClass27_Sub1_Sub1_1.putShort(anInt958, (byte) 87);
+					packetHandler.finishPacket(2);
 				}
 				anInt887 = 0;
 			}
@@ -10785,8 +10785,8 @@ public final class Client extends Applet_Sub1
 			{
 				final int i_936_ = aClass29_1.method207(true);
 				final int i_937_ = aClass29_1.method210(0);
-				anInt984 = this.anInt736 + -7;
-				anInt955 = this.anInt739 + -(i_936_ / 2);
+				anInt984 = this.mouseY + -7;
+				anInt955 = this.mouseX + -(i_936_ / 2);
 				aBool61 = true;
 				if (0 > anInt955)
 				{
@@ -10817,24 +10817,24 @@ public final class Client extends Applet_Sub1
 			anInt949--;
 		}
 		method554(20);
-		if (anInt970 > 0)
+		if (logoutTimeout > 0)
 		{
-			anInt970--;
+			logoutTimeout--;
 		}
-		if ((15000 < this.anInt722) && (anInt1051 == 0) && (anInt970 == 0))
+		if ((15000 < this.lastActionTimeout) && (combatTimeout == 0) && (logoutTimeout == 0))
 		{
-			this.anInt722 -= 15000;
-			method491((byte) -125);
+			this.lastActionTimeout -= 15000;
+			sendLogout();
 		}
 		else
 		{
 			if ((aClass15_1.anInt160 == 8) || (aClass15_1.anInt160 == 9))
 			{
-				anInt1051 = 500;
+				combatTimeout = 500;
 			}
-			if (0 < anInt1051)
+			if (0 < combatTimeout)
 			{
-				anInt1051--;
+				combatTimeout--;
 			}
 			if (aBool64)
 			{
@@ -10966,12 +10966,12 @@ public final class Client extends Applet_Sub1
 						anInt1000--;
 						if (anInt1000 == 0)
 						{
-							method513(0, "You have been granted another life. Be more careful this time!", 0, null, -39,
+							displayMessage(0, "You have been granted another life. Be more careful this time!", 0, null, -39,
 							        null, null, false);
 						}
 						if (anInt1000 == 0)
 						{
-							method513(0, "You retain your skills. Your objects land where you died", 0, null, -69, null,
+							displayMessage(0, "You retain your skills. Your objects land where you died", 0, null, -69, null,
 							        null, false);
 						}
 					}
@@ -11193,22 +11193,22 @@ public final class Client extends Applet_Sub1
 					{
 						if (this.aString26.equalsIgnoreCase("::lostcon") && !aBool51)
 						{
-							aClass16_Sub1_1.method119((byte) -122);
+							packetHandler.method119((byte) -122);
 						}
 						else if (!this.aString26.equalsIgnoreCase("::closecon") || aBool51)
 						{
-							aClass16_Sub1_1.method118(45, i ^ 0x75);
+							packetHandler.createPacket(45, i ^ 0x75);
 							if (!aBool73)
 							{
-								aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, 0);
+								packetHandler.aClass27_Sub1_Sub1_1.put(-31566, 0);
 								aBool73 = true;
 							}
 							else
 							{
-								aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, 1);
+								packetHandler.aClass27_Sub1_Sub1_1.put(-31566, 1);
 							}
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method389(0, this.aString26);
-							aClass16_Sub1_1.method126(2);
+							packetHandler.aClass27_Sub1_Sub1_1.method389(0, this.aString26);
+							packetHandler.finishPacket(2);
 							this.aString26 = "";
 							aString35 = "Please wait...";
 							this.aString27 = "";
@@ -11218,63 +11218,63 @@ public final class Client extends Applet_Sub1
 							method544(true, (byte) 72);
 						}
 					}
-					if ((this.anInt738 == 1) && (275 < this.anInt736) && (310 > this.anInt736) && (this.anInt739 > 56)
-					        && (456 > this.anInt739))
+					if ((this.lastMouseDownButton == 1) && (275 < this.mouseY) && (310 > this.mouseY) && (this.mouseX > 56)
+					        && (456 > this.mouseX))
 					{
-						aClass16_Sub1_1.method118(45, 101);
+						packetHandler.createPacket(45, 101);
 						if (aBool73)
 						{
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, 1);
+							packetHandler.aClass27_Sub1_Sub1_1.put(-31566, 1);
 						}
 						else
 						{
-							aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, 0);
+							packetHandler.aClass27_Sub1_Sub1_1.put(-31566, 0);
 							aBool73 = true;
 						}
-						aClass16_Sub1_1.aClass27_Sub1_Sub1_1.method389(0, "-null-");
-						aClass16_Sub1_1.method126(i ^ 0x3a);
+						packetHandler.aClass27_Sub1_Sub1_1.method389(0, "-null-");
+						packetHandler.finishPacket(i ^ 0x3a);
 						aString35 = "Please wait...";
 						this.aString26 = "";
 						this.aString27 = "";
 					}
-					this.anInt738 = 0;
+					this.lastMouseDownButton = 0;
 				}
 				else
 				{
-					if (this.anInt736 > (anInt879 + -4))
+					if (this.mouseY > (anInt879 + -4))
 					{
-						if ((15 < this.anInt739) && (96 > this.anInt739) && (this.anInt738 == 1))
+						if ((15 < this.mouseX) && (96 > this.mouseX) && (this.lastMouseDownButton == 1))
 						{
 							anInt976 = 0;
 						}
-						if ((this.anInt739 > 110) && (this.anInt739 < 194) && (this.anInt738 == 1))
+						if ((this.mouseX > 110) && (this.mouseX < 194) && (this.lastMouseDownButton == 1))
 						{
 							anInt976 = 1;
 							aClass10_2.anIntArray23[anInt1052] = 999999;
 						}
-						if ((215 < this.anInt739) && (this.anInt739 < 295) && (this.anInt738 == 1))
+						if ((215 < this.mouseX) && (this.mouseX < 295) && (this.lastMouseDownButton == 1))
 						{
 							anInt976 = 2;
 							aClass10_2.anIntArray23[anInt987] = 999999;
 						}
-						if ((this.anInt739 > 315) && (395 > this.anInt739) && (this.anInt738 == 1))
+						if ((this.mouseX > 315) && (395 > this.mouseX) && (this.lastMouseDownButton == 1))
 						{
 							anInt976 = 3;
 							aClass10_2.anIntArray23[anInt990] = 999999;
 						}
-						if ((this.anInt739 > 417) && (497 > this.anInt739) && (this.anInt738 == 1))
+						if ((this.mouseX > 417) && (497 > this.mouseX) && (this.lastMouseDownButton == 1))
 						{
 							this.aString26 = "";
 							this.aString27 = "";
 							anInt994 = 1;
 						}
-						this.anInt738 = 0;
-						this.anInt737 = 0;
+						this.lastMouseDownButton = 0;
+						this.mouseDownButton = 0;
 					}
-					aClass10_2.method85(this.anInt737, this.anInt736, this.anInt738, (byte) -63, this.anInt739);
-					if ((anInt976 > 0) && (this.anInt739 >= 494) && (this.anInt736 >= (anInt879 + -66)))
+					aClass10_2.method85(this.mouseDownButton, this.mouseY, this.lastMouseDownButton, (byte) -63, this.mouseX);
+					if ((anInt976 > 0) && (this.mouseX >= 494) && (this.mouseY >= (anInt879 + -66)))
 					{
-						this.anInt738 = 0;
+						this.lastMouseDownButton = 0;
 					}
 					if (aClass10_2.method81(true, anInt1019))
 					{
@@ -11284,7 +11284,7 @@ public final class Client extends Applet_Sub1
 						{
 							if (string.equalsIgnoreCase("::closecon") && !aBool51)
 							{
-								aClass16_Sub1_1.method119((byte) -122);
+								packetHandler.method119((byte) -122);
 							}
 							else if (string.equalsIgnoreCase("::logout") && !aBool51)
 							{
@@ -11320,7 +11320,7 @@ public final class Client extends Applet_Sub1
 						}
 						else
 						{
-							if (this.anInt737 != 0)
+							if (this.mouseDownButton != 0)
 							{
 								anInt1009++;
 							}
@@ -11364,18 +11364,18 @@ public final class Client extends Applet_Sub1
 						}
 						if (anInt1000 != 0)
 						{
-							this.anInt738 = 0;
+							this.lastMouseDownButton = 0;
 						}
-						if (this.anInt738 == 1)
+						if (this.lastMouseDownButton == 1)
 						{
 							anInt887 = 1;
 						}
-						else if (this.anInt738 == 2)
+						else if (this.lastMouseDownButton == 2)
 						{
 							anInt887 = 2;
 						}
-						aClass41_2.method286(this.anInt736, this.anInt739, (byte) -19);
-						this.anInt738 = 0;
+						aClass41_2.method286(this.mouseY, this.mouseX, (byte) -19);
+						this.lastMouseDownButton = 0;
 						if (aBool86)
 						{
 							if ((anInt885 == 0) || aBool80)
@@ -11490,12 +11490,12 @@ public final class Client extends Applet_Sub1
 	private void method592(final int i, final int i_962_, final boolean bool, final int i_963_, final int i_964_)
 	{
 		anInt883++;
-		aClass16_Sub1_1.method118(64, 77);
-		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, i);
-		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, i_963_);
-		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, i_964_);
-		aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, i_962_);
-		aClass16_Sub1_1.method126(2);
+		packetHandler.createPacket(64, 77);
+		packetHandler.aClass27_Sub1_Sub1_1.put(-31566, i);
+		packetHandler.aClass27_Sub1_Sub1_1.put(-31566, i_963_);
+		packetHandler.aClass27_Sub1_Sub1_1.put(-31566, i_964_);
+		packetHandler.aClass27_Sub1_Sub1_1.put(-31566, i_962_);
+		packetHandler.finishPacket(2);
 	}
 
 	private void method593(final byte i)
@@ -11677,11 +11677,11 @@ public final class Client extends Applet_Sub1
 		}
 		if (bool)
 		{
-			i_966_ = ((-aClass46_Sub1_2.anInt502 - -199) + this.anInt739);
-			i_967_ = this.anInt736 + -36;
+			i_966_ = ((-aClass46_Sub1_2.anInt502 - -199) + this.mouseX);
+			i_967_ = this.mouseY + -36;
 			if ((0 <= i_966_) && (0 <= i_967_) && (196 > i_966_) && (i_967_ < 182))
 			{
-				aClass10_3.method85(this.anInt737, i_967_ + 36, this.anInt738, (byte) -52,
+				aClass10_3.method85(this.mouseDownButton, i_967_ + 36, this.lastMouseDownButton, (byte) -52,
 				        (i_966_ - 199 - -(aClass46_Sub1_2.anInt502)));
 				if ((i_967_ <= 24) && (anInt887 == 1))
 				{
@@ -11710,7 +11710,7 @@ public final class Client extends Applet_Sub1
 								final int i_988_ = (Class42.anIntArrayArray18[i_985_][i_987_]);
 								if (!method526((Class1.anIntArrayArray1[i_985_][i_987_]), (byte) 109, i_988_))
 								{
-									method513(0, "You don't have all the reagents you need for this spell", 0, null, -9,
+									displayMessage(0, "You don't have all the reagents you need for this spell", 0, null, -9,
 									        null, null, false);
 									i_987_ = -1;
 									break;
@@ -11724,7 +11724,7 @@ public final class Client extends Applet_Sub1
 						}
 						else
 						{
-							method513(0, "Your magic ability is not high enough for this spell", 0, null, i ^ ~0x7e,
+							displayMessage(0, "Your magic ability is not high enough for this spell", 0, null, i ^ ~0x7e,
 							        null, null, false);
 						}
 					}
@@ -11741,30 +11741,30 @@ public final class Client extends Applet_Sub1
 							{
 								if (!aBoolArray11[i_989_])
 								{
-									aClass16_Sub1_1.method118(60, 62);
-									aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, i_989_);
-									aClass16_Sub1_1.method126(2);
+									packetHandler.createPacket(60, 62);
+									packetHandler.aClass27_Sub1_Sub1_1.put(-31566, i_989_);
+									packetHandler.finishPacket(2);
 									aBoolArray11[i_989_] = true;
 									method564((byte) -56, "prayeron");
 								}
 								else
 								{
-									aClass16_Sub1_1.method118(254, 96);
-									aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, i_989_);
-									aClass16_Sub1_1.method126(i + 0);
+									packetHandler.createPacket(254, 96);
+									packetHandler.aClass27_Sub1_Sub1_1.put(-31566, i_989_);
+									packetHandler.finishPacket(i + 0);
 									aBoolArray11[i_989_] = false;
 									method564((byte) -75, "prayeroff");
 								}
 							}
 							else
 							{
-								method513(0, "You have run out of prayer points. Return to a church to recharge", 0,
+								displayMessage(0, "You have run out of prayer points. Return to a church to recharge", 0,
 								        null, i + -44, null, null, false);
 							}
 						}
 						else
 						{
-							method513(0, "Your prayer ability is not high enough for this prayer", 0, null, -63, null,
+							displayMessage(0, "Your prayer ability is not high enough for this prayer", 0, null, -63, null,
 							        null, false);
 						}
 					}
@@ -11801,10 +11801,10 @@ public final class Client extends Applet_Sub1
 			}
 			try
 			{
-				if (Frame_Sub1.aClass32_4.aClass28_1 != null)
+				if (GameFrame.aClass32_4.aClass28_1 != null)
 				{
-					Class27_Sub1_Sub1.aClass39_5 = new Class39((Frame_Sub1.aClass32_4.aClass28_1), 24, 0);
-					Frame_Sub1.aClass32_4.aClass28_1 = null;
+					Class27_Sub1_Sub1.aClass39_5 = new Class39((GameFrame.aClass32_4.aClass28_1), 24, 0);
+					GameFrame.aClass32_4.aClass28_1 = null;
 				}
 			}
 			catch (final IOException ioexception)
@@ -11854,13 +11854,13 @@ public final class Client extends Applet_Sub1
 			else if (Class46.method342(Class34.aClass38_5, 20903))
 			{
 				aString28 = getCodeBase().getHost();
-				anInt786 = Class27_Sub1_Sub1.anInt664 + 50000;
-				anInt799 = 40000 - -Class27_Sub1_Sub1.anInt664;
+				anInt786 = Class27_Sub1_Sub1.portOffset + 50000;
+				anInt799 = 40000 - -Class27_Sub1_Sub1.portOffset;
 			}
 			else if (Class34.aClass38_5 == Class16_Sub1.aClass38_7)
 			{
-				anInt799 = Class27_Sub1_Sub1.anInt664 + 40000;
-				anInt786 = 50000 - -Class27_Sub1_Sub1.anInt664;
+				anInt799 = Class27_Sub1_Sub1.portOffset + 40000;
+				anInt786 = 50000 - -Class27_Sub1_Sub1.portOffset;
 				aString28 = "local.runescape.com";
 			}
 			Class35.anInt377 = 1000;
@@ -11924,7 +11924,7 @@ public final class Client extends Applet_Sub1
 									}
 									if (!aBool52)
 									{
-										method482(100, 97, "Starting game...");
+										drawLoadingBarText(100, 97, "Starting game...");
 										method559(-23945);
 										method537(true);
 										method574((byte) 118);
@@ -11955,15 +11955,15 @@ public final class Client extends Applet_Sub1
 		{
 			for (int i_1001_ = 0; 5 > i_1001_; i_1001_++)
 			{
-				if ((i_1001_ > 0) && (i_998_ < this.anInt739) && (this.anInt739 < (i_1000_ + i_998_))
-				        && (this.anInt736 > (i_999_ + (i_1001_ * 20)))
-				        && ((i_999_ + (i_1001_ * 20) + 20) > this.anInt736))
+				if ((i_1001_ > 0) && (i_998_ < this.mouseX) && (this.mouseX < (i_1000_ + i_998_))
+				        && (this.mouseY > (i_999_ + (i_1001_ * 20)))
+				        && ((i_999_ + (i_1001_ * 20) + 20) > this.mouseY))
 				{
 					anInt887 = 0;
 					anInt1054 = i_1001_ - 1;
-					aClass16_Sub1_1.method118(29, i ^ ~0x7a);
-					aClass16_Sub1_1.aClass27_Sub1_Sub1_1.put(-31566, anInt1054);
-					aClass16_Sub1_1.method126(2);
+					packetHandler.createPacket(29, i ^ ~0x7a);
+					packetHandler.aClass27_Sub1_Sub1_1.put(-31566, anInt1054);
+					packetHandler.finishPacket(2);
 					break;
 				}
 			}
@@ -11993,86 +11993,86 @@ public final class Client extends Applet_Sub1
 	private void method596(final int i)
 	{
 		anInt829++;
-		if ((anInt939 == 0) && ((aClass46_Sub1_2.anInt502 + -35) <= this.anInt739) && (3 <= this.anInt736)
-		        && ((aClass46_Sub1_2.anInt502 - 3) > this.anInt739) && (35 > this.anInt736))
+		if ((anInt939 == 0) && ((aClass46_Sub1_2.anInt502 + -35) <= this.mouseX) && (3 <= this.mouseY)
+		        && ((aClass46_Sub1_2.anInt502 - 3) > this.mouseX) && (35 > this.mouseY))
 		{
 			anInt939 = 1;
 		}
-		if ((anInt939 == 0) && (this.anInt739 >= (aClass46_Sub1_2.anInt502 + -35 + -33)) && (this.anInt736 >= 3)
-		        && (this.anInt739 < (aClass46_Sub1_2.anInt502 + -3 + -33)) && (35 > this.anInt736))
+		if ((anInt939 == 0) && (this.mouseX >= (aClass46_Sub1_2.anInt502 + -35 + -33)) && (this.mouseY >= 3)
+		        && (this.mouseX < (aClass46_Sub1_2.anInt502 + -3 + -33)) && (35 > this.mouseY))
 		{
 			anInt1041 = -11 + (int) (23.0 * Math.random());
 			anInt939 = 2;
 			anInt964 = -6 + (int) (13.0 * Math.random());
 		}
-		if ((anInt939 == 0) && ((aClass46_Sub1_2.anInt502 + -101) <= this.anInt739) && (3 <= this.anInt736)
-		        && (((aClass46_Sub1_2.anInt502 - 3) + -66) > this.anInt739) && (35 > this.anInt736))
+		if ((anInt939 == 0) && ((aClass46_Sub1_2.anInt502 + -101) <= this.mouseX) && (3 <= this.mouseY)
+		        && (((aClass46_Sub1_2.anInt502 - 3) + -66) > this.mouseX) && (35 > this.mouseY))
 		{
 			anInt939 = 3;
 		}
-		if ((anInt939 == 0) && ((aClass46_Sub1_2.anInt502 - 35 - 99) <= this.anInt739) && (this.anInt736 >= 3)
-		        && ((aClass46_Sub1_2.anInt502 + -102) > this.anInt739) && (35 > this.anInt736))
+		if ((anInt939 == 0) && ((aClass46_Sub1_2.anInt502 - 35 - 99) <= this.mouseX) && (this.mouseY >= 3)
+		        && ((aClass46_Sub1_2.anInt502 + -102) > this.mouseX) && (35 > this.mouseY))
 		{
 			anInt939 = 4;
 		}
-		if ((anInt939 == 0) && (this.anInt739 >= (aClass46_Sub1_2.anInt502 + -132 + -35)) && (this.anInt736 >= 3)
-		        && ((aClass46_Sub1_2.anInt502 + -135) > this.anInt739) && (this.anInt736 < 35))
+		if ((anInt939 == 0) && (this.mouseX >= (aClass46_Sub1_2.anInt502 + -132 + -35)) && (this.mouseY >= 3)
+		        && ((aClass46_Sub1_2.anInt502 + -135) > this.mouseX) && (this.mouseY < 35))
 		{
 			anInt939 = 5;
 		}
-		if ((anInt939 == 0) && (this.anInt739 >= (aClass46_Sub1_2.anInt502 + -200)) && (3 <= this.anInt736)
-		        && (this.anInt739 < (aClass46_Sub1_2.anInt502 - 168)) && (this.anInt736 < 35))
+		if ((anInt939 == 0) && (this.mouseX >= (aClass46_Sub1_2.anInt502 + -200)) && (3 <= this.mouseY)
+		        && (this.mouseX < (aClass46_Sub1_2.anInt502 - 168)) && (this.mouseY < 35))
 		{
 			anInt939 = 6;
 		}
-		if ((anInt939 != 0) && (this.anInt739 >= (aClass46_Sub1_2.anInt502 - 35)) && (this.anInt736 >= 3)
-		        && ((aClass46_Sub1_2.anInt502 + -3) > this.anInt739) && (this.anInt736 < 26))
+		if ((anInt939 != 0) && (this.mouseX >= (aClass46_Sub1_2.anInt502 - 35)) && (this.mouseY >= 3)
+		        && ((aClass46_Sub1_2.anInt502 + -3) > this.mouseX) && (this.mouseY < 26))
 		{
 			anInt939 = 1;
 		}
-		if ((anInt939 != 0) && (anInt939 != 2) && (this.anInt739 >= ((aClass46_Sub1_2.anInt502 + -35) - 33))
-		        && (this.anInt736 >= 3) && (this.anInt739 < ((aClass46_Sub1_2.anInt502 + -3) - 33))
-		        && (26 > this.anInt736))
+		if ((anInt939 != 0) && (anInt939 != 2) && (this.mouseX >= ((aClass46_Sub1_2.anInt502 + -35) - 33))
+		        && (this.mouseY >= 3) && (this.mouseX < ((aClass46_Sub1_2.anInt502 + -3) - 33))
+		        && (26 > this.mouseY))
 		{
 			anInt939 = 2;
 			anInt964 = -6 + (int) (13.0 * Math.random());
 			anInt1041 = (int) (Math.random() * 23.0) - 11;
 		}
-		if ((anInt939 != 0) && (this.anInt739 >= (aClass46_Sub1_2.anInt502 + -66 + -35)) && (3 <= this.anInt736)
-		        && (this.anInt739 < (aClass46_Sub1_2.anInt502 + -69)) && (this.anInt736 < 26))
+		if ((anInt939 != 0) && (this.mouseX >= (aClass46_Sub1_2.anInt502 + -66 + -35)) && (3 <= this.mouseY)
+		        && (this.mouseX < (aClass46_Sub1_2.anInt502 + -69)) && (this.mouseY < 26))
 		{
 			anInt939 = 3;
 		}
-		if ((anInt939 != 0) && (((aClass46_Sub1_2.anInt502 - 99) + -35) <= this.anInt739) && (3 <= this.anInt736)
-		        && (this.anInt739 < (aClass46_Sub1_2.anInt502 + -3 + -99)) && (26 > this.anInt736))
+		if ((anInt939 != 0) && (((aClass46_Sub1_2.anInt502 - 99) + -35) <= this.mouseX) && (3 <= this.mouseY)
+		        && (this.mouseX < (aClass46_Sub1_2.anInt502 + -3 + -99)) && (26 > this.mouseY))
 		{
 			anInt939 = 4;
 		}
-		if ((anInt939 != 0) && (this.anInt739 >= ((aClass46_Sub1_2.anInt502 + -132) - 35)) && (3 <= this.anInt736)
-		        && (((aClass46_Sub1_2.anInt502 - 3) + -132) > this.anInt739) && (this.anInt736 < 26))
+		if ((anInt939 != 0) && (this.mouseX >= ((aClass46_Sub1_2.anInt502 + -132) - 35)) && (3 <= this.mouseY)
+		        && (((aClass46_Sub1_2.anInt502 - 3) + -132) > this.mouseX) && (this.mouseY < 26))
 		{
 			anInt939 = 5;
 		}
-		if ((anInt939 != 0) && ((aClass46_Sub1_2.anInt502 + -165 + -35) <= this.anInt739) && (3 <= this.anInt736)
-		        && (((aClass46_Sub1_2.anInt502 - 165) + -3) > this.anInt739) && (this.anInt736 < 26))
+		if ((anInt939 != 0) && ((aClass46_Sub1_2.anInt502 + -165 + -35) <= this.mouseX) && (3 <= this.mouseY)
+		        && (((aClass46_Sub1_2.anInt502 - 165) + -3) > this.mouseX) && (this.mouseY < 26))
 		{
 			anInt939 = 6;
 		}
-		if ((anInt939 == 1) && (((aClass46_Sub1_2.anInt502 + -248) > this.anInt739)
-		        || ((((anInt973 / 5) * 34) + 36) < this.anInt736)))
+		if ((anInt939 == 1) && (((aClass46_Sub1_2.anInt502 + -248) > this.mouseX)
+		        || ((((anInt973 / 5) * 34) + 36) < this.mouseY)))
 		{
 			anInt939 = 0;
 		}
-		if ((anInt939 == 3) && (((aClass46_Sub1_2.anInt502 + -199) > this.anInt739) || (316 < this.anInt736)))
+		if ((anInt939 == 3) && (((aClass46_Sub1_2.anInt502 + -199) > this.mouseX) || (316 < this.mouseY)))
 		{
 			anInt939 = 0;
 		}
 		if (((anInt939 == 2) || (anInt939 == 4) || (anInt939 == 5))
-		        && (((aClass46_Sub1_2.anInt502 + -199) > this.anInt739) || (240 < this.anInt736)))
+		        && (((aClass46_Sub1_2.anInt502 + -199) > this.mouseX) || (240 < this.mouseY)))
 		{
 			anInt939 = 0;
 		}
-		if ((anInt939 == 6) && (((aClass46_Sub1_2.anInt502 + -199) > this.anInt739) || (311 < this.anInt736)))
+		if ((anInt939 == 6) && (((aClass46_Sub1_2.anInt502 + -199) > this.mouseX) || (311 < this.mouseY)))
 		{
 			anInt939 = 0;
 		}
@@ -12137,7 +12137,7 @@ public final class Client extends Applet_Sub1
 		Container container;
 		if (!aBool51)
 		{
-			container = Class38.aFrame_Sub1_1;
+			container = Class38.gameFrame;
 		}
 		else if (Class27.anApplet1 == null)
 		{
@@ -12157,7 +12157,7 @@ public final class Client extends Applet_Sub1
 		}
 	}
 
-	public Client()
+	public mudclient()
 	{
 		aClass15Array1 = new Class15[500];
 		anInt887 = 0;
@@ -12172,7 +12172,7 @@ public final class Client extends Applet_Sub1
 		anInt882 = 0;
 		anInt849 = -1;
 		anInt901 = -1;
-		anIntArray156 = new int[8192];
+		mouseClickX = new int[8192];
 		anInt859 = 0;
 		aBool51 = true;
 		aBool54 = false;
@@ -12181,14 +12181,14 @@ public final class Client extends Applet_Sub1
 		aLongArray4 = new long[100];
 		anInt843 = 128;
 		aClass15Array2 = new Class15[4000];
-		anIntArray154 = new int[8192];
+		mouseClickY = new int[8192];
 		anInt860 = 9;
 		aClass15Array3 = new Class15[500];
 		anInt890 = 0;
 		anInt915 = 0;
 		aBool55 = false;
 		anInt852 = 0;
-		anInt896 = 0;
+		mouseClickCount = 0;
 		aBool50 = false;
 		anInt905 = 0;
 		anInt916 = 0;
@@ -12344,7 +12344,7 @@ public final class Client extends Applet_Sub1
 		anIntArray189 = new int[18];
 		anIntArray201 = new int[5000];
 		aBool65 = false;
-		anInt970 = 0;
+		logoutTimeout = 0;
 		anIntArrayArray21 = new int[][] { { 11, 2, 9, 7, 1, 6, 10, 0, 5, 8, 3, 4 },
 		        { 11, 2, 9, 7, 1, 6, 10, 0, 5, 8, 3, 4 }, { 11, 3, 2, 9, 7, 1, 6, 10, 0, 5, 8, 4 },
 		        { 3, 4, 2, 9, 7, 1, 6, 10, 8, 11, 0, 5 }, { 3, 4, 2, 9, 7, 1, 6, 10, 8, 11, 0, 5 },
@@ -12416,7 +12416,7 @@ public final class Client extends Applet_Sub1
 		anInt1056 = 0;
 		anInt1049 = 0;
 		anInt940 = -1;
-		anInt1051 = 0;
+		combatTimeout = 0;
 		anIntArray205 = new int[35];
 		aString40 = "";
 		aBool76 = false;

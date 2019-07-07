@@ -277,7 +277,7 @@ final class Class17
 		Class16_Sub1.anIntArray140 = new int[IOException_Sub1.anInt675];
 		Class18.aStringArray15 = new String[IOException_Sub1.anInt675];
 		Class18.anIntArray41 = new int[IOException_Sub1.anInt675];
-		Applet_Sub1.aStringArray44 = new String[IOException_Sub1.anInt675];
+		GameWindow.aStringArray44 = new String[IOException_Sub1.anInt675];
 		Class23.aStringArray17 = new String[IOException_Sub1.anInt675];
 		Class3.anIntArray2 = new int[IOException_Sub1.anInt675];
 		IOException_Sub1.aStringArray40 = new String[IOException_Sub1.anInt675];
@@ -288,7 +288,7 @@ final class Class17
 		}
 		for (int i_49_ = 0; i_49_ < IOException_Sub1.anInt675; i_49_++)
 		{
-			Applet_Sub1.aStringArray44[i_49_] = Class29.method212(8854);
+			GameWindow.aStringArray44[i_49_] = Class29.method212(8854);
 		}
 		for (int i_50_ = 0; IOException_Sub1.anInt675 > i_50_; i_50_++)
 		{
@@ -318,30 +318,30 @@ final class Class17
 		{
 			Class18.anIntArray41[i_56_] = Class4.method10(255);
 		}
-		Frame_Sub1.anInt743 = Class12.method108((byte) 96);
-		Class38.anIntArray88 = new int[Frame_Sub1.anInt743];
-		Class6.anIntArray12 = new int[Frame_Sub1.anInt743];
-		for (int i_57_ = 0; i_57_ < Frame_Sub1.anInt743; i_57_++)
+		GameFrame.anInt743 = Class12.method108((byte) 96);
+		Class38.anIntArray88 = new int[GameFrame.anInt743];
+		Class6.anIntArray12 = new int[GameFrame.anInt743];
+		for (int i_57_ = 0; i_57_ < GameFrame.anInt743; i_57_++)
 		{
 			Class38.anIntArray88[i_57_] = Class4.method10(255);
 		}
-		for (int i_58_ = 0; Frame_Sub1.anInt743 > i_58_; i_58_++)
+		for (int i_58_ = 0; GameFrame.anInt743 > i_58_; i_58_++)
 		{
 			Class6.anIntArray12[i_58_] = Class4.method10(i + 255);
 		}
-		Frame_Sub1.anInt745 = Class12.method108((byte) 96);
-		Class23.anIntArray54 = new int[Frame_Sub1.anInt745];
-		Class15.anIntArray37 = new int[Frame_Sub1.anInt745];
-		Class9.anIntArray22 = new int[Frame_Sub1.anInt745];
-		for (int i_59_ = 0; Frame_Sub1.anInt745 > i_59_; i_59_++)
+		GameFrame.anInt745 = Class12.method108((byte) 96);
+		Class23.anIntArray54 = new int[GameFrame.anInt745];
+		Class15.anIntArray37 = new int[GameFrame.anInt745];
+		Class9.anIntArray22 = new int[GameFrame.anInt745];
+		for (int i_59_ = 0; GameFrame.anInt745 > i_59_; i_59_++)
 		{
 			Class23.anIntArray54[i_59_] = AClass1.method176((byte) -123);
 		}
-		for (int i_60_ = 0; Frame_Sub1.anInt745 > i_60_; i_60_++)
+		for (int i_60_ = 0; GameFrame.anInt745 > i_60_; i_60_++)
 		{
 			Class9.anIntArray22[i_60_] = Class4.method10(255);
 		}
-		for (int i_61_ = 0; Frame_Sub1.anInt745 > i_61_; i_61_++)
+		for (int i_61_ = 0; GameFrame.anInt745 > i_61_; i_61_++)
 		{
 			Class15.anIntArray37[i_61_] = Class4.method10(Class47.method369(i, 255));
 		}
@@ -353,7 +353,7 @@ final class Class17
 		Class42.anIntArrayArray18 = new int[Class43.anInt486][];
 		Class46_Sub1.aStringArray36 = new String[Class43.anInt486];
 		Class16_Sub1.anIntArray139 = new int[Class43.anInt486];
-		Frame_Sub1.anIntArray153 = new int[Class43.anInt486];
+		GameFrame.anIntArray153 = new int[Class43.anInt486];
 		for (int i_62_ = 0; Class43.anInt486 > i_62_; i_62_++)
 		{
 			Class46_Sub1.aStringArray36[i_62_] = Class29.method212(8854);
@@ -372,7 +372,7 @@ final class Class17
 		}
 		for (int i_66_ = 0; i_66_ < Class43.anInt486; i_66_++)
 		{
-			Frame_Sub1.anIntArray153[i_66_] = Class4.method10(255);
+			GameFrame.anIntArray153[i_66_] = Class4.method10(255);
 		}
 		for (int i_67_ = 0; Class43.anInt486 > i_67_; i_67_++)
 		{

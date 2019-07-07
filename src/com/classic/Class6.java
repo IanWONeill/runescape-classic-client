@@ -158,7 +158,7 @@ final class Class6
 			{
 				if (i_17_ == 0)
 				{
-					this.anIntArrayArray4[i_18_][i_20_] = Applet_Sub1.method485((this.anIntArrayArray4[i_18_][i_20_]),
+					this.anIntArrayArray4[i_18_][i_20_] = GameWindow.method485((this.anIntArrayArray4[i_18_][i_20_]),
 					        1);
 					if (i_20_ > 0)
 					{
@@ -167,7 +167,7 @@ final class Class6
 				}
 				else if (i_17_ == 1)
 				{
-					this.anIntArrayArray4[i_18_][i_20_] = Applet_Sub1.method485((this.anIntArrayArray4[i_18_][i_20_]),
+					this.anIntArrayArray4[i_18_][i_20_] = GameWindow.method485((this.anIntArrayArray4[i_18_][i_20_]),
 					        2);
 					if (i_18_ > 0)
 					{
@@ -178,13 +178,13 @@ final class Class6
 				{
 					if (i_17_ == 3)
 					{
-						this.anIntArrayArray4[i_18_][i_20_] = Applet_Sub1
+						this.anIntArrayArray4[i_18_][i_20_] = GameWindow
 						        .method485((this.anIntArrayArray4[i_18_][i_20_]), 32);
 					}
 				}
 				else
 				{
-					this.anIntArrayArray4[i_18_][i_20_] = Applet_Sub1.method485((this.anIntArrayArray4[i_18_][i_20_]),
+					this.anIntArrayArray4[i_18_][i_20_] = GameWindow.method485((this.anIntArrayArray4[i_18_][i_20_]),
 					        16);
 				}
 				method19(i_20_, 127, 1, i_18_, 1);
@@ -898,12 +898,12 @@ final class Class6
 						}
 						if (Class15.anIntArray37[i_127_ + -1] != 0)
 						{
-							this.anIntArrayArray4[i_120_][i_121_] = Applet_Sub1
+							this.anIntArrayArray4[i_120_][i_121_] = GameWindow
 							        .method485((this.anIntArrayArray4[i_120_][i_121_]), 64);
 						}
 						if (Class9.anIntArray22[i_127_ + -1] == 2)
 						{
-							this.anIntArrayArray4[i_120_][i_121_] = Applet_Sub1
+							this.anIntArrayArray4[i_120_][i_121_] = GameWindow
 							        .method485((this.anIntArrayArray4[i_120_][i_121_]), 128);
 						}
 					}
@@ -1116,7 +1116,7 @@ final class Class6
 					method37(i_110_ ^ ~0x444d, i_173_, i_174_ + -1, aClass23_1, i_172_ + 1, i_172_, i_173_);
 					if (bool && (Class9.anIntArray21[i_174_ - 1] != 0))
 					{
-						this.anIntArrayArray4[i_172_][i_173_] = Applet_Sub1
+						this.anIntArrayArray4[i_172_][i_173_] = GameWindow
 						        .method485((this.anIntArrayArray4[i_172_][i_173_]), 1);
 						if (0 < i_173_)
 						{
@@ -1134,7 +1134,7 @@ final class Class6
 					method37(i_110_ + 17742, i_173_ + 1, i_174_ + -1, aClass23_1, i_172_, i_172_, i_173_);
 					if (bool && (Class9.anIntArray21[i_174_ + -1] != 0))
 					{
-						this.anIntArrayArray4[i_172_][i_173_] = Applet_Sub1
+						this.anIntArrayArray4[i_172_][i_173_] = GameWindow
 						        .method485((this.anIntArrayArray4[i_172_][i_173_]), 2);
 						if (i_172_ > 0)
 						{
@@ -1152,7 +1152,7 @@ final class Class6
 					method37(128, i_173_ + 1, i_174_ + -1, aClass23_1, i_172_ - -1, i_172_, i_173_);
 					if (bool && (Class9.anIntArray21[i_174_ + -1] != 0))
 					{
-						this.anIntArrayArray4[i_172_][i_173_] = Applet_Sub1
+						this.anIntArrayArray4[i_172_][i_173_] = GameWindow
 						        .method485((this.anIntArrayArray4[i_172_][i_173_]), 32);
 					}
 					if (bool)
@@ -1167,7 +1167,7 @@ final class Class6
 					method37(128, i_173_ + 1, i_174_ + -12001, aClass23_1, i_172_, i_172_ + 1, i_173_);
 					if (bool && (Class9.anIntArray21[i_174_ + -12001] != 0))
 					{
-						this.anIntArrayArray4[i_172_][i_173_] = Applet_Sub1
+						this.anIntArrayArray4[i_172_][i_173_] = GameWindow
 						        .method485((this.anIntArrayArray4[i_172_][i_173_]), 16);
 					}
 					if (bool)
@@ -1698,7 +1698,7 @@ final class Class6
 						{
 							if (i_243_ == 0)
 							{
-								this.anIntArrayArray4[i_246_][i_247_] = Applet_Sub1
+								this.anIntArrayArray4[i_246_][i_247_] = GameWindow
 								        .method485((this.anIntArrayArray4[i_246_][i_247_]), 2);
 								if (0 < i_246_)
 								{
@@ -1711,7 +1711,7 @@ final class Class6
 								{
 									if (i_243_ == 6)
 									{
-										this.anIntArrayArray4[i_246_][i_247_] = (Applet_Sub1
+										this.anIntArrayArray4[i_246_][i_247_] = (GameWindow
 										        .method485((this.anIntArrayArray4[i_246_][i_247_]), 1));
 										if (i_247_ > 0)
 										{
@@ -1721,7 +1721,7 @@ final class Class6
 								}
 								else
 								{
-									this.anIntArrayArray4[i_246_][i_247_] = (Applet_Sub1
+									this.anIntArrayArray4[i_246_][i_247_] = (GameWindow
 									        .method485((this.anIntArrayArray4[i_246_][i_247_]), 8));
 									if (i_246_ < 95)
 									{
@@ -1731,7 +1731,7 @@ final class Class6
 							}
 							else
 							{
-								this.anIntArrayArray4[i_246_][i_247_] = Applet_Sub1
+								this.anIntArrayArray4[i_246_][i_247_] = GameWindow
 								        .method485((this.anIntArrayArray4[i_246_][i_247_]), 4);
 								if (i_247_ < 95)
 								{
@@ -1741,7 +1741,7 @@ final class Class6
 						}
 						else
 						{
-							this.anIntArrayArray4[i_246_][i_247_] = Applet_Sub1
+							this.anIntArrayArray4[i_246_][i_247_] = GameWindow
 							        .method485((this.anIntArrayArray4[i_246_][i_247_]), 64);
 						}
 					}
@@ -2065,7 +2065,7 @@ final class Class6
 	private void method43(final int i, final int i_300_, final int i_301_, final int i_302_)
 	{
 		anInt50++;
-		this.anIntArrayArray4[i_301_][i] = Applet_Sub1.method485((this.anIntArrayArray4[i_301_][i]), i_302_);
+		this.anIntArrayArray4[i_301_][i] = GameWindow.method485((this.anIntArrayArray4[i_301_][i]), i_302_);
 	}
 
 	private int method44(final int i, final int i_303_, int i_304_, int i_305_)
@@ -2335,19 +2335,19 @@ final class Class6
 		aClass41_1 = class41;
 		for (int i = 0; i < 64; i++)
 		{
-			anIntArray9[i] = Frame_Sub1.method486(-(int) (i * 1.75) + 255, -(i * 4) + 255, -(i * 4) + 255, 0);
+			anIntArray9[i] = GameFrame.method486(-(int) (i * 1.75) + 255, -(i * 4) + 255, -(i * 4) + 255, 0);
 		}
 		for (int i = 0; i < 64; i++)
 		{
-			anIntArray9[i + 64] = Frame_Sub1.method486(144, 0, i * 3, 0);
+			anIntArray9[i + 64] = GameFrame.method486(144, 0, i * 3, 0);
 		}
 		for (int i = 0; i < 64; i++)
 		{
-			anIntArray9[i + 128] = Frame_Sub1.method486(144 - (int) (i * 1.5), 0, -(int) (i * 1.5) + 192, 0);
+			anIntArray9[i + 128] = GameFrame.method486(144 - (int) (i * 1.5), 0, -(int) (i * 1.5) + 192, 0);
 		}
 		for (int i = 0; i < 64; i++)
 		{
-			anIntArray9[i + 192] = Frame_Sub1.method486(48 - -(int) (1.5 * i), 0, -(int) (i * 1.5) + 96, 0);
+			anIntArray9[i + 192] = GameFrame.method486(48 - -(int) (1.5 * i), 0, -(int) (i * 1.5) + 96, 0);
 		}
 	}
 }

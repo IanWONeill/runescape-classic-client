@@ -11,7 +11,7 @@ final class Class48
 
 	static void method370(final int i, final int i_0_, final String string)
 	{
-		Class10.anApplet_Sub1_1.method482(Class3.anInt8, 120, new StringBuilder().append(string).append(Class3.aString2)
+		Class10.anApplet_Sub1_1.drawLoadingBarText(Class3.anInt8, 120, new StringBuilder().append(string).append(Class3.aString2)
 		        .append(" - ").append(i).append("%").toString());
 		anInt578++;
 		if (i_0_ != 10140)

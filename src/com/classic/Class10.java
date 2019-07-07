@@ -81,7 +81,7 @@ final class Class10
 	static int anInt124;
 	static int anInt125;
 	static int anInt126;
-	static Applet_Sub1 anApplet_Sub1_1;
+	static GameWindow anApplet_Sub1_1;
 	private final int anInt127;
 	static int anInt128;
 	private final int[] anIntArray34;
@@ -244,7 +244,7 @@ final class Class10
 				        && ((anInt133 + -2) > (i_36_ - aClass46_2.method315((byte) 123, i_28_))))
 				{
 					aBoolArray1[i_23_] = true;
-					anIntArray33[i_23_] = Applet_Sub1.method485(i_37_, anInt112 << 16);
+					anIntArray33[i_23_] = GameWindow.method485(i_37_, anInt112 << 16);
 				}
 				method103(20166, i_23_, i_36_, i_24_ - -2, strings[i_37_], is[i_37_], i_28_);
 				i_36_ += (aClass46_2.method315((byte) 91, i_28_) + -Class46.anInt568);

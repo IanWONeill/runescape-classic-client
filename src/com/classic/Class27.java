@@ -24,7 +24,7 @@ class Class27
 		return i + 1;
 	}
 
-	void method178(final int i)
+	void method178(final int unused)
 	{
 		anInt324++;
 		if (this.aClass27_1 != null)

@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.TimeZone;
 
-class Class16
+class PacketConstruction
 {
 	static int anInt170;
-	String aString9;
+	String errorText;
 	static int anInt171;
 	static int anInt172;
 	static int anInt173;
@@ -16,14 +16,14 @@ class Class16
 	static Calendar aCalendar1;
 	static int anInt175;
 	private int anInt176 = 0;
-	private final int anInt177;
+	private final int maxPacketLength;
 	private int anInt178;
-	boolean aBool7;
+	boolean error;
 	static byte[][] aByteArrayArray8;
 	static int anInt179;
 	static int anInt180;
 	private int anInt181;
-	private int anInt182;
+	private int packetStart;
 	private Class7 aClass7_1;
 	static int anInt183;
 	static int anInt184;
@@ -49,9 +49,9 @@ class Class16
 				anInt176++;
 				if ((0 < this.anInt192) && (this.anInt192 < anInt176))
 				{
-					this.aBool7 = true;
+					this.error = true;
 					this.anInt192 += this.anInt192;
-					this.aString9 = "time-out";
+					this.errorText = "time-out";
 					return 0;
 				}
 				if ((anInt178 == 0) && (2 <= method123((byte) -65)))
@@ -85,8 +85,8 @@ class Class16
 			}
 			catch (final IOException ioexception)
 			{
-				this.aBool7 = true;
-				this.aString9 = ioexception.getMessage();
+				this.error = true;
+				this.errorText = ioexception.getMessage();
 				break;
 			}
 			return i_0_;
@@ -118,26 +118,26 @@ class Class16
 		anInt184++;
 	}
 
-	void method118(final int i, final int i_6_)
+	void createPacket(final int i, final int i_6_)
 	{
-		if (anInt182 > ((anInt177 * 4) / 5))
+		if (packetStart > ((maxPacketLength * 4) / 5))
 		{
 			try
 			{
-				method124((byte) 58, 0);
+				writePacket((byte) 58, 0);
 			}
 			catch (final IOException ioexception)
 			{
-				this.aBool7 = true;
-				this.aString9 = ioexception.getMessage();
+				this.error = true;
+				this.errorText = ioexception.getMessage();
 			}
 		}
 		anInt171++;
-		this.aClass27_Sub1_Sub1_1.position = anInt182 + 2;
+		this.aClass27_Sub1_Sub1_1.position = packetStart + 2;
 		this.aClass27_Sub1_Sub1_1.put(-31566, i);
 		if (i_6_ < 54)
 		{
-			method118(91, 92);
+			createPacket(91, 92);
 		}
 	}
 
@@ -152,9 +152,9 @@ class Class16
 
 	void method120(final int i) throws IOException
 	{
-		method126(2);
+		finishPacket(2);
 		anInt188++;
-		method124((byte) 122, 0);
+		writePacket((byte) 122, 0);
 	}
 
 	private void method121(final int i, final byte[] is, final int i_7_) throws IOException
@@ -179,25 +179,25 @@ class Class16
 		return 0;
 	}
 
-	void method124(final byte i, final int i_8_) throws IOException
+	void writePacket(final byte unused, final int i_8_) throws IOException
 	{
 		anInt183++;
-		if (this.aBool7)
+		if (this.error)
 		{
-			this.aBool7 = false;
+			this.error = false;
 			this.aClass27_Sub1_Sub1_1.position = 3;
-			anInt182 = 0;
-			throw new IOException(this.aString9);
+			packetStart = 0;
+			throw new IOException(this.errorText);
 		}
 		anInt181++;
 		if (i_8_ <= anInt181)
 		{
-			if (anInt182 > 0)
+			if (packetStart > 0)
 			{
 				anInt181 = 0;
-				method117(-121, 0, this.aClass27_Sub1_Sub1_1.buffer, anInt182);
+				method117(-121, 0, this.aClass27_Sub1_Sub1_1.buffer, packetStart);
 			}
-			anInt182 = 0;
+			packetStart = 0;
 			this.aClass27_Sub1_Sub1_1.position = 3;
 		}
 	}
@@ -209,34 +209,34 @@ class Class16
 		return method114(class27_sub1_sub1.buffer, 124);
 	}
 
-	void method126(final int i)
+	void finishPacket(final int i)
 	{
 		anInt180++;
 		if (aClass7_2 != null)
 		{
-			final int i_9_ = ((this.aClass27_Sub1_Sub1_1.buffer[anInt182 - -2]) & 0xff);
-			this.aClass27_Sub1_Sub1_1.buffer[anInt182 + 2] = (byte) (aClass7_2.method47((byte) -106) + i_9_);
+			final int i_9_ = ((this.aClass27_Sub1_Sub1_1.buffer[packetStart - -2]) & 0xff);
+			this.aClass27_Sub1_Sub1_1.buffer[packetStart + 2] = (byte) (aClass7_2.method47((byte) -106) + i_9_);
 		}
-		final int i_10_ = ((this.aClass27_Sub1_Sub1_1.position) - anInt182 - i);
+		final int i_10_ = ((this.aClass27_Sub1_Sub1_1.position) - packetStart - i);
 		if (160 > i_10_)
 		{
-			this.aClass27_Sub1_Sub1_1.buffer[anInt182] = (byte) i_10_;
+			this.aClass27_Sub1_Sub1_1.buffer[packetStart] = (byte) i_10_;
 			this.aClass27_Sub1_Sub1_1.position--;
-			this.aClass27_Sub1_Sub1_1.buffer[anInt182
+			this.aClass27_Sub1_Sub1_1.buffer[packetStart
 			        + 1] = (this.aClass27_Sub1_Sub1_1.buffer[this.aClass27_Sub1_Sub1_1.position]);
 		}
 		else
 		{
-			this.aClass27_Sub1_Sub1_1.buffer[anInt182] = (byte) ((i_10_ / 256) + 160);
-			this.aClass27_Sub1_Sub1_1.buffer[anInt182 - -1] = (byte) Class52.method378(i_10_, 255);
+			this.aClass27_Sub1_Sub1_1.buffer[packetStart] = (byte) ((i_10_ / 256) + 160);
+			this.aClass27_Sub1_Sub1_1.buffer[packetStart - -1] = (byte) Class52.method378(i_10_, 255);
 		}
-		if (anInt177 <= 10000)
+		if (maxPacketLength <= 10000)
 		{
-			final int i_11_ = ((this.aClass27_Sub1_Sub1_1.buffer[anInt182 - -2]) & 0xff);
+			final int i_11_ = ((this.aClass27_Sub1_Sub1_1.buffer[packetStart - -2]) & 0xff);
 			Class22.anIntArray48[i_11_]++;
-			Class10.anIntArray25[i_11_] += (this.aClass27_Sub1_Sub1_1.position) - anInt182;
+			Class10.anIntArray25[i_11_] += (this.aClass27_Sub1_Sub1_1.position) - packetStart;
 		}
-		anInt182 = (this.aClass27_Sub1_Sub1_1.position);
+		packetStart = (this.aClass27_Sub1_Sub1_1.position);
 	}
 
 	void method127(final int i, final int i_12_, final byte[] is, final int i_13_) throws IOException
@@ -251,7 +251,7 @@ class Class16
 			method122(93, false);
 		}
 		anInt186++;
-		if (0 < anInt182)
+		if (0 < packetStart)
 		{
 			return true;
 		}
@@ -264,16 +264,16 @@ class Class16
 		return 0;
 	}
 
-	protected Class16()
+	protected PacketConstruction()
 	{
-		this.aString9 = "";
+		this.errorText = "";
 		anInt178 = 0;
-		this.aBool7 = false;
+		this.error = false;
 		anInt181 = 0;
-		anInt177 = 5000;
-		anInt182 = 0;
+		maxPacketLength = 5000;
+		packetStart = 0;
 		this.anInt192 = 0;
-		this.aClass27_Sub1_Sub1_1 = new Class27_Sub1_Sub1(anInt177);
+		this.aClass27_Sub1_Sub1_1 = new Class27_Sub1_Sub1(maxPacketLength);
 		this.aClass27_Sub1_Sub1_1.position = 3;
 	}
 

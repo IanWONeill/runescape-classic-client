@@ -201,9 +201,9 @@ class Class46 implements ImageProducer, ImageObserver
 		anInt550++;
 		if (i_31_ == 0)
 		{
-			return Class16.aByteArrayArray8[i_31_][8] - 2;
+			return PacketConstruction.aByteArrayArray8[i_31_][8] - 2;
 		}
-		return Class16.aByteArrayArray8[i_31_][8] + -1;
+		return PacketConstruction.aByteArrayArray8[i_31_][8] + -1;
 	}
 
 	private void method308(int i, int i_32_, final int i_33_, final int i_34_, int i_35_, final int[] is,
@@ -1148,7 +1148,7 @@ class Class46 implements ImageProducer, ImageObserver
 			method337(null, 127, 110, -43, 66, -102, -115);
 		}
 		int i_253_ = 0;
-		final byte[] is = Class16.aByteArrayArray8[i_252_];
+		final byte[] is = PacketConstruction.aByteArrayArray8[i_252_];
 		for (int i_254_ = 0; string.length() > i_254_; i_254_++)
 		{
 			if ((string.charAt(i_254_) == '@') && (string.length() > (i_254_ + 4))
@@ -1349,7 +1349,7 @@ class Class46 implements ImageProducer, ImageObserver
 		try
 		{
 			int i_301_ = 0;
-			final byte[] is = Class16.aByteArrayArray8[i_298_];
+			final byte[] is = PacketConstruction.aByteArrayArray8[i_298_];
 			int i_302_ = 0;
 			int i_303_ = 0;
 			for (int i_304_ = 0; i_304_ < string.length(); i_304_++)
@@ -2906,7 +2906,7 @@ class Class46 implements ImageProducer, ImageObserver
 					i_724_ = (this.anIntArray118[i_726_] - -5) + i_724_;
 				}
 			}
-			final byte[] is = Class16.aByteArrayArray8[i_722_];
+			final byte[] is = PacketConstruction.aByteArrayArray8[i_722_];
 			for (int i_727_ = 0; string.length() > i_727_; i_727_++)
 			{
 				if ((string.charAt(i_727_) != '@') || (string.length() <= (i_727_ + 4))

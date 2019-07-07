@@ -17,7 +17,7 @@ import java.awt.event.MouseMotionListener;
 import java.io.IOException;
 import java.net.URL;
 
-public class Applet_Sub1 extends Applet implements Runnable, MouseListener, MouseMotionListener, KeyListener
+public class GameWindow extends Applet implements Runnable, MouseListener, MouseMotionListener, KeyListener
 {
 	/**
 	 *
@@ -27,13 +27,13 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 	static int anInt679;
 	static int anInt680;
 	static int anInt681;
-	private int anInt682;
+	private int appletHeight;
 	static int anInt683;
 	static int anInt684;
-	Thread aThread2 = null;
+	Thread gameWindowThread = null;
 	static String[] aStringArray43 = { "Are you sure you wish to skip the tutorial", "and teleport to Lumbridge?" };
 	static int anInt685;
-	private int anInt686;
+	private int exitTimeout;
 	static char[] aCharArray3;
 	static int anInt687;
 	static String[] aStringArray44;
@@ -50,7 +50,7 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 	static int anInt695;
 	static int anInt696;
 	static int anInt697;
-	String aString22;
+	String loadingBarText;
 	static int anInt698;
 	static int anInt699;
 	static int anInt700;
@@ -60,8 +60,8 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 	static int anInt704;
 	static int anInt705;
 	static int anInt706;
-	private int anInt707;
-	private int anInt708;
+	private int threadSleepModifier;
+	private int appletWidth;
 	static int anInt709;
 	private final int anInt710;
 	static int anInt711;
@@ -72,15 +72,15 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 	static int anInt716;
 	static int[] anIntArray152;
 	static int anInt717;
-	long[] aLongArray3;
+	long[] currentTimeArray;
 	static int anInt718;
 	static int anInt719;
 	int anInt720;
 	Font aFont1;
 	static int anInt721;
-	int anInt722;
+	int lastActionTimeout;
 	static int anInt723;
-	private int anInt724;
+	private int loadingScreen;
 	static int anInt725;
 	private int anInt726;
 	static int anInt727;
@@ -96,30 +96,23 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 	static int anInt735;
 	Font aFont2;
 	Font aFont3;
-	int anInt736;
+	int mouseY;
 	Image anImage2;
 	boolean aBool39;
-	int anInt737;
+	int mouseDownButton;
 	private boolean aBool40;
-	int anInt738;
+	int lastMouseDownButton;
 	boolean aBool41;
 	String aString24;
-	int anInt739;
-	Graphics aGraphics1;
+	int mouseX;
+	Graphics loadingGraphics;
 	boolean aBool42;
 	String aString25;
 	String aString26;
 	boolean aBool43;
 	String aString27;
 	boolean aBool44;
-	int anInt740;
-	public static boolean aBool45;
-	public static boolean aBool46;
-	public static int anInt741;
-	public static int anInt742;
-	public static boolean aBool47;
-	public static boolean aBool48;
-	public static boolean aBool49;
+	int maybe_threadSleepTime;
 
 	private void method463(final int i, final String string)
 	{
@@ -158,72 +151,65 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 	}
 
 	@Override
-	public synchronized void mouseDragged(final MouseEvent mouseevent)
+	public synchronized void mouseDragged(final MouseEvent event)
 	{
 		anInt681++;
-		method472(0, mouseevent);
-		this.anInt739 = mouseevent.getX() - this.anInt720;
-		this.anInt736 = mouseevent.getY() - this.anInt694;
-		if (!mouseevent.isMetaDown())
-		{
-			this.anInt737 = 1;
-		}
-		else
-		{
-			this.anInt737 = 2;
-		}
+		method472(0, event);
+		mouseX = event.getX() - this.anInt720;
+		mouseY = event.getY() - this.anInt694;
+		mouseDownButton = event.isMetaDown() ? 2 : 1; 
 	}
 
-	private void method464(final int i, final String string, final int i_0_)
+	private void drawLoadingScreen(final int i, final String string, final int i_0_)
 	{
 		try
 		{
-			int i_1_ = (anInt708 + -281) / 2;
-			int i_2_ = (anInt682 - 148) / 2;
-			this.aGraphics1.setColor(Color.black);
-			this.aGraphics1.fillRect(0, 0, anInt708, anInt682);
+			int i_1_ = (appletWidth - 281) / 2;
+			int i_2_ = (appletHeight - 148) / 2;
+			loadingGraphics.setColor(Color.black);
+			loadingGraphics.fillRect(0, 0, appletWidth, appletHeight);
 			if (!aBool38)
 			{
-				this.aGraphics1.drawImage((this.anImage2), i_1_, i_2_, this);
+				loadingGraphics.drawImage((this.anImage2), i_1_, i_2_, this);
 			}
 			i_2_ += 90;
 			anInt733 = i;
 			i_1_ += 2;
-			this.aString22 = string;
-			this.aGraphics1.setColor(new Color(132, 132, 132));
+			loadingBarText = string;
+			loadingGraphics.setColor(new Color(132, 132, 132));
 			if (aBool38)
 			{
-				this.aGraphics1.setColor(new Color(220, 0, 0));
+				loadingGraphics.setColor(new Color(220, 0, 0));
 			}
-			this.aGraphics1.drawRect(i_1_ + -2, i_2_ + -2, 280, 23);
-			this.aGraphics1.fillRect(i_1_, i_2_, (i * 277) / 100, 20);
-			this.aGraphics1.setColor(new Color(198, 198, 198));
+			loadingGraphics.drawRect(i_1_ - 2, i_2_ - 2, 280, 23);
+			loadingGraphics.fillRect(i_1_, i_2_, (i * 277) / 100, 20);
+			loadingGraphics.setColor(new Color(198, 198, 198));
 			if (aBool38)
 			{
-				this.aGraphics1.setColor(new Color(255, 255, 255));
+				loadingGraphics.setColor(new Color(255, 255, 255));
 			}
-			method465(i_1_ + 138, true, this.aGraphics1, this.aFont1, string, i_2_ + 10);
+			drawString(i_1_ + 138, true, loadingGraphics, this.aFont1, string, i_2_ + 10);
 			if (!aBool38)
 			{
-				method465(i_1_ - -138, true, this.aGraphics1, this.aFont2, "Created by JAGeX - visit www.jagex.com",
+				drawString(i_1_ - -138, true, loadingGraphics, this.aFont2, "Created by JAGeX - visit www.jagex.com",
 				        i_2_ + 30);
-				method465(
-				        i_1_ + 138, true, this.aGraphics1, this.aFont2, new StringBuilder().append("\u00a9 2001-")
+				drawString(
+				        i_1_ + 138, true, loadingGraphics, this.aFont2, new StringBuilder().append("\u00a9 2001-")
 				                .append(RuntimeException_Sub1.method462((byte) -114)).append(" Jagex Ltd").toString(),
 				        i_2_ + 44);
 			}
 			else
 			{
-				this.aGraphics1.setColor(new Color(132, 132, 152));
-				method465(
-				        i_1_ + 138, true, this.aGraphics1, this.aFont3, new StringBuilder().append("\u00a9 2001-")
+				loadingGraphics.setColor(new Color(132, 132, 152));
+				drawString(
+				        i_1_ + 138, true, loadingGraphics, this.aFont3, new StringBuilder().append("\u00a9 2001-")
 				                .append(RuntimeException_Sub1.method462((byte) -101)).append(" Jagex Ltd").toString(),
-				        anInt682 + -20);
+				        appletHeight + -20);
 			}
 			if (this.aString23 != null)
 			{
-				this.aGraphics1.setColor(Color.white);
-				method465(i_1_ + 138, true, this.aGraphics1, this.aFont2, this.aString23, i_2_ + -120);
+				loadingGraphics.setColor(Color.white);
+				drawString(i_1_ + 138, true, loadingGraphics, this.aFont2, this.aString23, i_2_ + -120);
 			}
 		}
 		catch (final Exception exception)
@@ -239,49 +225,49 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 		anInt699++;
 		try
 		{
-			if (anInt724 == 1)
+			if (loadingScreen == 1)
 			{
-				anInt724 = 2;
-				while (!isDisplayable() && (anInt686 >= 0))
+				loadingScreen = 2;
+				while (!isDisplayable() && (exitTimeout >= 0))
 				{
-					if (anInt686 > 0)
+					if (exitTimeout > 0)
 					{
-						anInt686--;
-						if (anInt686 == 0)
+						exitTimeout--;
+						if (exitTimeout == 0)
 						{
-							method480((byte) -89);
-							this.aThread2 = null;
+							close();
+							this.gameWindowThread = null;
 							return;
 						}
 					}
-					Class7.method51(95, anInt707);
+					Class7.method51(95, threadSleepModifier);
 				}
-				if (0 > anInt686)
+				if (0 > exitTimeout)
 				{
-					if (anInt686 == -1)
+					if (exitTimeout == -1)
 					{
-						method480((byte) -118);
+						close();
 					}
-					this.aThread2 = null;
+					this.gameWindowThread = null;
 					return;
 				}
-				if (!method475(true))
+				if (!loadFonts(true))
 				{
-					if (anInt686 != -2)
+					if (exitTimeout != -2)
 					{
-						method480((byte) -72);
+						close();
 					}
-					this.aThread2 = null;
+					this.gameWindowThread = null;
 					return;
 				}
 				method467(-6464);
-				anInt724 = 0;
+				loadingScreen = 0;
 			}
-			if (Class38.aFrame_Sub1_1 != null)
+			if (Class38.gameFrame != null)
 			{
-				Class38.aFrame_Sub1_1.addMouseListener(this);
-				Class38.aFrame_Sub1_1.addMouseMotionListener(this);
-				Class38.aFrame_Sub1_1.addKeyListener(this);
+				Class38.gameFrame.addMouseListener(this);
+				Class38.gameFrame.addMouseMotionListener(this);
+				Class38.gameFrame.addKeyListener(this);
 			}
 			else if (Class27.anApplet1 != null)
 			{
@@ -301,18 +287,18 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 			int i_5_ = 0;
 			for (int i_6_ = 0; 10 > i_6_; i_6_++)
 			{
-				this.aLongArray3[i_6_] = Class52.method377(0);
+				this.currentTimeArray[i_6_] = Class52.method377(0);
 			}
 			long l = Class52.method377(0);
-			while (anInt686 >= 0)
+			while (exitTimeout >= 0)
 			{
-				if (anInt686 > 0)
+				if (exitTimeout > 0)
 				{
-					anInt686--;
-					if (anInt686 == 0)
+					exitTimeout--;
+					if (exitTimeout == 0)
 					{
-						method480((byte) 47);
-						this.aThread2 = null;
+						close();
+						this.gameWindowThread = null;
 						return;
 					}
 				}
@@ -321,14 +307,14 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 				i_3_ = 300;
 				i_4_ = 1;
 				l = Class52.method377(0);
-				if (0L == this.aLongArray3[i])
+				if (0L == this.currentTimeArray[i])
 				{
 					i_4_ = i_8_;
 					i_3_ = i_7_;
 				}
-				else if (l > this.aLongArray3[i])
+				else if (l > this.currentTimeArray[i])
 				{
-					i_3_ = (int) (anInt707 * 2560 / (l + -this.aLongArray3[i]));
+					i_3_ = (int) (threadSleepModifier * 2560 / (l + -this.currentTimeArray[i]));
 				}
 				if (25 > i_3_)
 				{
@@ -336,23 +322,23 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 				}
 				if (256 < i_3_)
 				{
-					i_4_ = (int) (-((l + -this.aLongArray3[i]) / 10L) + anInt707);
+					i_4_ = (int) (-((l + -this.currentTimeArray[i]) / 10L) + threadSleepModifier);
 					i_3_ = 256;
-					if (i_4_ < this.anInt740)
+					if (i_4_ < this.maybe_threadSleepTime)
 					{
-						i_4_ = this.anInt740;
+						i_4_ = this.maybe_threadSleepTime;
 					}
 				}
 				Class7.method51(70, i_4_);
-				this.aLongArray3[i] = l;
+				this.currentTimeArray[i] = l;
 				i = (i + 1) % 10;
 				if (i_4_ > 1)
 				{
 					for (int i_9_ = 0; 10 > i_9_; i_9_++)
 					{
-						if (0L != this.aLongArray3[i_9_])
+						if (0L != this.currentTimeArray[i_9_])
 						{
-							this.aLongArray3[i_9_] += i_4_;
+							this.currentTimeArray[i_9_] += i_4_;
 						}
 					}
 				}
@@ -383,11 +369,11 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 				anInt726--;
 				method473(false);
 			}
-			if (anInt686 == -1)
+			if (exitTimeout == -1)
 			{
-				method480((byte) -117);
+				close();
 			}
-			this.aThread2 = null;
+			this.gameWindowThread = null;
 		}
 		catch (final Exception exception)
 		{
@@ -396,18 +382,18 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 		}
 	}
 
-	void method465(final int i, final boolean bool, final Graphics graphics, final Font font, final String string,
+	void drawString(final int i, final boolean bool, final Graphics graphics, final Font font, final String string,
 	        final int i_11_)
 	{
 		anInt697++;
 		java.awt.Container container;
-		if (Class38.aFrame_Sub1_1 == null)
+		if (Class38.gameFrame == null)
 		{
 			container = this;
 		}
 		else
 		{
-			container = Class38.aFrame_Sub1_1;
+			container = Class38.gameFrame;
 		}
 		final FontMetrics fontmetrics = container.getFontMetrics(font);
 		fontmetrics.stringWidth(string);
@@ -419,9 +405,9 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 	public Image createImage(final int i, final int i_12_)
 	{
 		anInt721++;
-		if (Class38.aFrame_Sub1_1 != null)
+		if (Class38.gameFrame != null)
 		{
-			return Class38.aFrame_Sub1_1.createImage(i, i_12_);
+			return Class38.gameFrame.createImage(i, i_12_);
 		}
 		if (Class27.anApplet1 != null)
 		{
@@ -493,7 +479,7 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 	public URL getDocumentBase()
 	{
 		anInt709++;
-		if (Class38.aFrame_Sub1_1 != null)
+		if (Class38.gameFrame != null)
 		{
 			return null;
 		}
@@ -543,15 +529,15 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 		{
 			return false;
 		}
-		this.aGraphics1 = graphics.create();
+		loadingGraphics = graphics.create();
 		if (bool)
 		{
 			return false;
 		}
-		this.aGraphics1.translate((this.anInt720), (this.anInt694));
-		this.aGraphics1.setColor(Color.black);
-		this.aGraphics1.fillRect(0, 0, anInt708, anInt682);
-		method464(0, "Loading...", -148);
+		loadingGraphics.translate((this.anInt720), (this.anInt694));
+		loadingGraphics.setColor(Color.black);
+		loadingGraphics.fillRect(0, 0, appletWidth, appletHeight);
+		drawLoadingScreen(0, "Loading...", -148);
 		return true;
 	}
 
@@ -564,7 +550,7 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 	public String getParameter(final String string)
 	{
 		anInt693++;
-		if (Class38.aFrame_Sub1_1 != null)
+		if (Class38.gameFrame != null)
 		{
 			return null;
 		}
@@ -575,7 +561,7 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 		return super.getParameter(string);
 	}
 
-	void method471(final int i)
+	void method471(final int unused)
 	{
 		anInt705++;
 	}
@@ -584,7 +570,7 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 	public URL getCodeBase()
 	{
 		anInt691++;
-		if (Class38.aFrame_Sub1_1 != null)
+		if (Class38.gameFrame != null)
 		{
 			return null;
 		}
@@ -600,10 +586,10 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 	{
 		anInt679++;
 		method472(0, mouseevent);
-		this.anInt739 = mouseevent.getX() - this.anInt720;
-		this.anInt736 = mouseevent.getY() - this.anInt694;
-		this.anInt737 = 0;
-		this.anInt722 = 0;
+		mouseX = mouseevent.getX() - this.anInt720;
+		mouseY = mouseevent.getY() - this.anInt694;
+		mouseDownButton = 0;
+		this.lastActionTimeout = 0;
 	}
 
 	private void method472(final int i, final InputEvent inputevent)
@@ -615,23 +601,16 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 	}
 
 	@Override
-	public synchronized void mousePressed(final MouseEvent mouseevent)
+	public synchronized void mousePressed(final MouseEvent event)
 	{
-		method472(0, mouseevent);
+		method472(0, event);
 		anInt695++;
-		this.anInt739 = mouseevent.getX() - this.anInt720;
-		this.anInt736 = mouseevent.getY() + -this.anInt694;
-		if (mouseevent.isMetaDown())
-		{
-			this.anInt737 = 2;
-		}
-		else
-		{
-			this.anInt737 = 1;
-		}
-		this.anInt738 = this.anInt737;
-		this.anInt722 = 0;
-		method478(this.anInt736, this.anInt739, (byte) -58, this.anInt737);
+		mouseX = event.getX() - this.anInt720;
+		mouseY = event.getY() - this.anInt694;
+		mouseDownButton = event.isMetaDown() ? 2 : 1;
+		lastMouseDownButton = mouseDownButton;
+		lastActionTimeout = 0;
+		addMouseClick(mouseY, mouseX, (byte) -58, mouseDownButton);
 	}
 
 	synchronized void method473(final boolean bool)
@@ -639,41 +618,42 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 		anInt689++;
 	}
 
-	void method474(final int i, final int i_18_)
+	void method474(final int unused, final int i_18_)
 	{
 		anInt700++;
-		anInt707 = 1000 / i_18_;
+		threadSleepModifier = 1000 / i_18_;
 	}
 
 	@Override
 	public void stop()
 	{
-		if (0 <= anInt686)
+		if (exitTimeout >=0)
 		{
-			anInt686 = 4000 / anInt707;
+			exitTimeout = 4000 / threadSleepModifier;
 		}
+		
 		anInt696++;
 	}
 
 	@Override
 	public void destroy()
 	{
-		anInt686 = -1;
+		exitTimeout = -1;
 		anInt725++;
 		Class7.method51(91, 5000L);
-		if (anInt686 == -1)
+		if (exitTimeout == -1)
 		{
 			System.out.println("5 seconds expired, forcing kill");
-			method480((byte) 78);
-			if (this.aThread2 != null)
+			close();
+			if (this.gameWindowThread != null)
 			{
-				this.aThread2.stop();
-				this.aThread2 = null;
+				this.gameWindowThread.stop();
+				this.gameWindowThread = null;
 			}
 		}
 	}
 
-	private boolean method475(final boolean bool)
+	private boolean loadFonts(final boolean unused)
 	{
 		anInt688++;
 		final byte[] is = method468("Jagex library", 0, 3, -21865);
@@ -683,35 +663,35 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 		}
 		final byte[] is_19_ = Class41.method292(is, 0, "logo.tga", 293484812);
 		this.anImage2 = method483(0, is_19_);
-		if (!Class25.method170(0, 29112, this, "h11p"))
+		if (!Class25.loadFont(0, 29112, this, "h11p"))
 		{
 			return false;
 		}
-		if (!Class25.method170(1, 29112, this, "h12b"))
+		if (!Class25.loadFont(1, 29112, this, "h12b"))
 		{
 			return false;
 		}
-		if (!Class25.method170(2, 29112, this, "h12p"))
+		if (!Class25.loadFont(2, 29112, this, "h12p"))
 		{
 			return false;
 		}
-		if (!Class25.method170(3, 29112, this, "h13b"))
+		if (!Class25.loadFont(3, 29112, this, "h13b"))
 		{
 			return false;
 		}
-		if (!Class25.method170(4, 29112, this, "h14b"))
+		if (!Class25.loadFont(4, 29112, this, "h14b"))
 		{
 			return false;
 		}
-		if (!Class25.method170(5, 29112, this, "h16b"))
+		if (!Class25.loadFont(5, 29112, this, "h16b"))
 		{
 			return false;
 		}
-		if (!Class25.method170(6, 29112, this, "h20b"))
+		if (!Class25.loadFont(6, 29112, this, "h20b"))
 		{
 			return false;
 		}
-		if (!Class25.method170(7, 29112, this, "h24b"))
+		if (!Class25.loadFont(7, 29112, this, "h24b"))
 		{
 			return false;
 		}
@@ -723,7 +703,7 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 		anInt730++;
 	}
 
-	void method477(final byte i, final Runnable runnable)
+	void method477(final Runnable runnable)
 	{
 		anInt712++;
 		final Thread thread = new Thread(runnable);
@@ -731,7 +711,7 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 		thread.start();
 	}
 
-	void method478(final int i, final int i_20_, final byte i_21_, final int i_22_)
+	void addMouseClick(final int unused, final int unused2, final byte unsued3, final int unused4)
 	{
 		anInt713++;
 	}
@@ -740,9 +720,9 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 	public boolean isDisplayable()
 	{
 		anInt735++;
-		if (Class38.aFrame_Sub1_1 != null)
+		if (Class38.gameFrame != null)
 		{
-			return Class38.aFrame_Sub1_1.getPeer() != null;
+			return Class38.gameFrame.getPeer() != null;
 		}
 		if (Class27.anApplet1 != null)
 		{
@@ -755,7 +735,7 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 	public AppletContext getAppletContext()
 	{
 		anInt703++;
-		if (Class38.aFrame_Sub1_1 != null)
+		if (Class38.gameFrame != null)
 		{
 			return null;
 		}
@@ -769,9 +749,9 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 	@Override
 	public void start()
 	{
-		if (0 <= anInt686)
+		if (0 <= exitTimeout)
 		{
-			anInt686 = 0;
+			exitTimeout = 0;
 		}
 		anInt717++;
 	}
@@ -782,14 +762,14 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 		try
 		{
 			System.out.println("Started applet");
-			anInt682 = i_24_;
-			anInt708 = i_26_;
-			anInt724 = 1;
+			appletHeight = i_24_;
+			appletWidth = i_26_;
+			loadingScreen = 1;
 			Class47.anURL3 = getCodeBase();
 			Class48.anInt579 = i_25_;
-			if (Frame_Sub1.aClass32_4 == null)
+			if (GameFrame.aClass32_4 == null)
 			{
-				Class48.aClass32_3 = Frame_Sub1.aClass32_4 = new Class32(i_23_, null, 0, Class27.anApplet1 != null);
+				Class48.aClass32_3 = GameFrame.aClass32_4 = new Class32(i_23_, null, 0, Class27.anApplet1 != null);
 			}
 			if (Class27.anApplet1 != null)
 			{
@@ -811,7 +791,7 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 			{
 				ioexception.printStackTrace();
 			}
-			method477((byte) -62, this);
+			method477(this);
 		}
 		catch (final Exception exception)
 		{
@@ -820,19 +800,13 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 		}
 	}
 
-	public static void provideLoaderApplet(final Applet applet)
-	{
-		anInt704++;
-		Class27.anApplet1 = applet;
-	}
-
 	@Override
 	public Graphics getGraphics()
 	{
 		anInt734++;
-		if (Class38.aFrame_Sub1_1 != null)
+		if (Class38.gameFrame != null)
 		{
-			return Class38.aFrame_Sub1_1.getGraphics();
+			return Class38.gameFrame.getGraphics();
 		}
 		if (Class27.anApplet1 != null)
 		{
@@ -880,7 +854,7 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 		{
 			/* empty */
 		}
-		this.anInt722 = 0;
+		this.lastActionTimeout = 0;
 		if (c != '}')
 		{
 			/* empty */
@@ -911,13 +885,13 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 		if (bool && (20 > this.aString27.length()))
 		{
 			final StringBuilder stringbuilder = new StringBuilder();
-			final Applet_Sub1 applet_sub1_29_ = this;
+			final GameWindow applet_sub1_29_ = this;
 			applet_sub1_29_.aString27 = stringbuilder.append(applet_sub1_29_.aString27).append(c).toString();
 		}
 		if (bool && (80 > this.aString24.length()))
 		{
 			final StringBuilder stringbuilder = new StringBuilder();
-			final Applet_Sub1 applet_sub1_30_ = this;
+			final GameWindow applet_sub1_30_ = this;
 			applet_sub1_30_.aString24 = stringbuilder.append(applet_sub1_30_.aString24).append(c).toString();
 		}
 		if ((c == '\010') && (0 < this.aString27.length()))
@@ -935,16 +909,16 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 		}
 	}
 
-	private void method480(final byte i)
+	private void close()
 	{
 		anInt718++;
-		anInt686 = -2;
+		exitTimeout = -2;
 		System.out.println("Closing program");
 		method471(-89);
 		Class7.method51(53, 1000L);
-		if (Class38.aFrame_Sub1_1 != null)
+		if (Class38.gameFrame != null)
 		{
-			Class38.aFrame_Sub1_1.dispose();
+			Class38.gameFrame.dispose();
 			System.exit(0);
 		}
 	}
@@ -963,12 +937,12 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 		anInt701++;
 	}
 
-	void method481(final int i)
+	void method481(final int unused)
 	{
 		anInt698++;
-		for (int i_32_ = 0; 10 > i_32_; i_32_++)
+		for (int i = 0; i < currentTimeArray.length; i++)
 		{
-			this.aLongArray3[i_32_] = 0L;
+			currentTimeArray[i] = 0L;
 		}
 	}
 
@@ -977,44 +951,44 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 	{
 		anInt714++;
 		this.aBool37 = true;
-		if ((anInt724 != 2) || (this.anImage2 == null))
+		if ((loadingScreen != 2) || (this.anImage2 == null))
 		{
-			if (anInt724 == 0)
+			if (loadingScreen == 0)
 			{
 				method476(55);
 			}
 		}
 		else
 		{
-			method464(anInt733, this.aString22, -148);
+			drawLoadingScreen(anInt733, this.loadingBarText, -148);
 		}
 	}
 
-	void method482(final int i, final int i_33_, final String string)
+	void drawLoadingBarText(final int i, final int i_33_, final String string)
 	{
 		try
 		{
-			int i_34_ = (anInt708 - 281) / 2;
-			int i_35_ = (anInt682 + -148) / 2;
+			int i_34_ = (appletWidth - 281) / 2;
+			int i_35_ = (appletHeight - 148) / 2;
 			i_34_ += 2;
 			i_35_ += 90;
 			anInt733 = i;
-			this.aString22 = string;
-			this.aGraphics1.setColor(new Color(132, 132, 132));
+			loadingBarText = string;
+			loadingGraphics.setColor(new Color(132, 132, 132));
 			final int i_37_ = (i * 277) / 100;
 			if (aBool38)
 			{
-				this.aGraphics1.setColor(new Color(220, 0, 0));
+				loadingGraphics.setColor(new Color(220, 0, 0));
 			}
-			this.aGraphics1.fillRect(i_34_, i_35_, i_37_, 20);
-			this.aGraphics1.setColor(Color.black);
-			this.aGraphics1.fillRect(i_37_ + i_34_, i_35_, -i_37_ + 277, 20);
-			this.aGraphics1.setColor(new Color(198, 198, 198));
+			loadingGraphics.fillRect(i_34_, i_35_, i_37_, 20);
+			loadingGraphics.setColor(Color.black);
+			loadingGraphics.fillRect(i_37_ + i_34_, i_35_, -i_37_ + 277, 20);
+			loadingGraphics.setColor(new Color(198, 198, 198));
 			if (aBool38)
 			{
-				this.aGraphics1.setColor(new Color(255, 255, 255));
+				loadingGraphics.setColor(new Color(255, 255, 255));
 			}
-			method465(i_34_ + 138, true, this.aGraphics1, this.aFont1, string, i_35_ + 10);
+			drawString(i_34_ + 138, true, loadingGraphics, aFont1, string, i_35_ + 10);
 		}
 		catch (final Exception exception)
 		{
@@ -1028,9 +1002,9 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 	{
 		method472(0, mouseevent);
 		anInt683++;
-		this.anInt739 = mouseevent.getX() - this.anInt720;
-		this.anInt736 = mouseevent.getY() - this.anInt694;
-		this.anInt737 = 0;
+		this.mouseX = mouseevent.getX() - this.anInt720;
+		this.mouseY = mouseevent.getY() - this.anInt694;
+		this.mouseDownButton = 0;
 	}
 
 	private Image method483(final int i, final byte[] is)
@@ -1039,41 +1013,35 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 		return Class33.method223(this, is, (byte) -118);
 	}
 
-	void method484(final byte i, final boolean bool, final int i_38_, final int i_39_, final int i_40_, final int i_41_,
-	        final String string, final int i_42_, final String string_43_)
+	void createWindow(final byte i, final boolean resizable, final int i_38_, final int height, final int port, final int width,
+	        final String title, final int i_42_, final String string_43_)
 	{
 		try
 		{
 			System.out.println("Started application");
-			anInt682 = i_39_;
-			anInt708 = i_41_;
-			Class38.aFrame_Sub1_1 = new Frame_Sub1(this, 800, 600, string, bool, false);
-			try
-			{
-				Class38.aFrame_Sub1_1.setFocusTraversalKeysEnabled(false);
-			}
-			catch (final Exception exception)
-			{
-				/* empty */
-			}
-			anInt724 = 1;
+			appletWidth = width;
+			appletHeight = height;
+			Class38.gameFrame = new GameFrame(this, 800, 600, title, resizable);
+			Class38.gameFrame.setFocusTraversalKeysEnabled(false);
+			loadingScreen = 1;
 			Class48.anInt579 = i_38_;
-			Class48.aClass32_3 = Frame_Sub1.aClass32_4 = new Class32(i_42_, string_43_, 0, true);
+			Class48.aClass32_3 = GameFrame.aClass32_4 = new Class32(i_42_, string_43_, 0, true);
 			try
 			{
-				Class36.method230(new URL("http", "127.0.0.1", i_40_, ""), this, (byte) 118);
+				Class36.method230(new URL("http", "127.0.0.1", port, ""), this, (byte) 118);
 			}
 			catch (final IOException ioexception)
 			{
+				ioexception.printStackTrace(); // modification
 				Class9.method61(ioexception, i + -5, null);
 			}
 			if (i != 113)
 			{
 				return;
 			}
-			this.aThread2 = new Thread(this);
-			this.aThread2.start();
-			this.aThread2.setPriority(1);
+			this.gameWindowThread = new Thread(this);
+			this.gameWindowThread.start();
+			this.gameWindowThread.setPriority(1);
 		}
 		catch (final Exception exception)
 		{
@@ -1086,9 +1054,9 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 	public Dimension getSize()
 	{
 		anInt687++;
-		if (Class38.aFrame_Sub1_1 != null)
+		if (Class38.gameFrame != null)
 		{
-			return Class38.aFrame_Sub1_1.getSize();
+			return Class38.gameFrame.getSize();
 		}
 		if (Class27.anApplet1 != null)
 		{
@@ -1102,30 +1070,30 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 		return i | i_44_;
 	}
 
-	protected Applet_Sub1()
+	protected GameWindow()
 	{
-		anInt682 = 384;
-		anInt686 = 0;
-		this.aLongArray3 = new long[10];
-		anInt708 = 512;
+		appletHeight = 384;
+		exitTimeout = 0;
+		currentTimeArray = new long[10];
+		appletWidth = 512;
 		anInt710 = 1000;
 		anInt726 = 0;
-		anInt724 = 1;
-		this.anInt722 = 0;
+		loadingScreen = 1;
+		this.lastActionTimeout = 0;
 		this.aString23 = null;
-		anInt707 = 20;
-		this.aString22 = "Loading";
+		threadSleepModifier = 20;
+		loadingBarText = "Loading";
 		anInt733 = 0;
 		aBool38 = false;
 		this.aFont1 = new Font("TimesRoman", 0, 15);
 		this.aFont2 = new Font("Helvetica", 1, 13);
 		this.aFont3 = new Font("Helvetica", 0, 12);
-		this.anInt736 = 0;
+		this.mouseY = 0;
 		aBool40 = false;
 		this.aBool39 = false;
 		this.aBool41 = false;
-		this.anInt738 = 0;
-		this.anInt737 = 0;
+		this.lastMouseDownButton = 0;
+		this.mouseDownButton = 0;
 		this.aString24 = "";
 		this.aString26 = "";
 		this.aString25 = "";
@@ -1133,8 +1101,8 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 		this.aBool43 = false;
 		this.aBool44 = false;
 		this.aString27 = "";
-		this.anInt740 = 1;
-		this.anInt739 = 0;
+		this.maybe_threadSleepTime = 1;
+		this.mouseX = 0;
 	}
 
 	static

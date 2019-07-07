@@ -18,7 +18,7 @@ final class Class46_Sub1 extends Class46
 	static Applet anApplet2;
 	static String[] aStringArray37;
 	static int anInt634;
-	Client aclient1;
+	mudclient aclient1;
 
 	@Override
 	void method349(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_,

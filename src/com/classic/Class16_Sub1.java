@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
-final class Class16_Sub1 extends Class16 implements Runnable
+final class Class16_Sub1 extends PacketConstruction implements Runnable
 {
 	static int anInt594;
 	private final Socket aSocket1;
@@ -108,8 +108,8 @@ final class Class16_Sub1 extends Class16 implements Runnable
 				}
 				catch (final IOException ioexception)
 				{
-					this.aBool7 = true;
-					this.aString9 = new StringBuilder().append("Twriter:").append(ioexception).toString();
+					this.error = true;
+					this.errorText = new StringBuilder().append("Twriter:").append(ioexception).toString();
 				}
 				anInt595 = (i + anInt595) % 5000;
 				try
@@ -121,8 +121,8 @@ final class Class16_Sub1 extends Class16 implements Runnable
 				}
 				catch (final IOException ioexception)
 				{
-					this.aBool7 = true;
-					this.aString9 = new StringBuilder().append("Twriter:").append(ioexception).toString();
+					this.error = true;
+					this.errorText = new StringBuilder().append("Twriter:").append(ioexception).toString();
 				}
 			}
 		}
@@ -331,7 +331,7 @@ final class Class16_Sub1 extends Class16 implements Runnable
 		}
 	}
 
-	Class16_Sub1(final Socket socket, final Applet_Sub1 applet_sub1) throws IOException
+	Class16_Sub1(final Socket socket, final GameWindow applet_sub1) throws IOException
 	{
 		aBool30 = false;
 		aByteArray22 = new byte[1];
@@ -340,6 +340,6 @@ final class Class16_Sub1 extends Class16 implements Runnable
 		anInputStream1 = socket.getInputStream();
 		anOutputStream1 = socket.getOutputStream();
 		aBool31 = false;
-		applet_sub1.method477((byte) -62, this);
+		applet_sub1.method477(this);
 	}
 }

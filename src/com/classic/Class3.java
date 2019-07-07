@@ -22,18 +22,18 @@ final class Class3
 		{
 			return -65;
 		}
-		return Class16.aCalendar1.get(1);
+		return PacketConstruction.aCalendar1.get(1);
 	}
 
 	static byte[] method7(final URL url, final boolean bool, final byte i) throws IOException
 	{
 		anInt9++;
-		final Class25 class25 = new Class25(Frame_Sub1.aClass32_4, url, 2000000);
+		final Class25 class25 = new Class25(GameFrame.aClass32_4, url, 2000000);
 		if (bool)
 		{
 			Class48.method370(0, 10140, "");
 		}
-		while (!class25.method172(-19336))
+		while (!class25.method172())
 		{
 			Class7.method51(49, 50L);
 		}

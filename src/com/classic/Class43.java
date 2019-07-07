@@ -86,7 +86,7 @@ final class Class43
 		this.aClass27_3.aClass27_2 = this.aClass27_3;
 	}
 
-	void method300(final byte i, final Class27 class27)
+	void method300(final byte unused, final Class27 class27)
 	{
 		anInt488++;
 		if (class27.aClass27_1 != null)

@@ -15,11 +15,11 @@ final class Class25 implements Runnable
 	static int anInt296;
 	static int anInt297;
 	static int anInt298;
-	private final ByteBuffer aClass27_Sub1_1;
+	private final ByteBuffer buffer;
 	private Class20 aClass20_2;
 	private Class20 aClass20_3;
 	static int anInt299;
-	private final URL anURL2;
+	private final URL url;
 	private Class20 aClass20_4;
 	static int anInt300;
 	private final Class32 aClass32_2;
@@ -28,7 +28,7 @@ final class Class25 implements Runnable
 	private int anInt303;
 	private DataInputStream aDataInputStream1;
 
-	static boolean method170(final int i, final int i_0_, final Applet_Sub1 applet_sub1, String string)
+	static boolean loadFont(final int i, final int i_0_, final GameWindow applet_sub1, String string)
 	{
 		anInt301++;
 		boolean bool = false;
@@ -82,15 +82,15 @@ final class Class25 implements Runnable
 				return false;
 			}
 		}
-		Class16.aByteArrayArray8[i] = new byte[Class10.anInt90];
+		PacketConstruction.aByteArrayArray8[i] = new byte[Class10.anInt90];
 		for (int i_6_ = 0; i_6_ < Class10.anInt90; i_6_++)
 		{
-			Class16.aByteArrayArray8[i][i_6_] = Class22.aByteArray11[i_6_];
+			PacketConstruction.aByteArrayArray8[i][i_6_] = Class22.aByteArray11[i_6_];
 		}
 		if ((i_2_ == 1) && ByteBuffer.aBoolArray10[i])
 		{
 			ByteBuffer.aBoolArray10[i] = false;
-			if (!method170(i, 29112, applet_sub1, new StringBuilder().append("f").append(i_3_).append("p").toString()))
+			if (!loadFont(i, 29112, applet_sub1, new StringBuilder().append("f").append(i_3_).append("p").toString()))
 			{
 				return false;
 			}
@@ -98,7 +98,7 @@ final class Class25 implements Runnable
 		if (bool && !ByteBuffer.aBoolArray10[i])
 		{
 			ByteBuffer.aBoolArray10[i] = false;
-			if (!method170(i, i_0_ ^ 0x0, applet_sub1,
+			if (!loadFont(i, i_0_ ^ 0x0, applet_sub1,
 			        new StringBuilder().append("d").append(i_3_).append("p").toString()))
 			{
 				return false;
@@ -107,17 +107,17 @@ final class Class25 implements Runnable
 		return true;
 	}
 
-	ByteBuffer method171(final int i)
+	ByteBuffer method171(final int arg1)
 	{
 		anInt299++;
-		if ((anInt303 ^ 0xffffffff) == i)
+		if ((anInt303 ^ 0xffffffff) == arg1)
 		{
-			return aClass27_Sub1_1;
+			return buffer;
 		}
 		return null;
 	}
 
-	synchronized boolean method172(final int i)
+	synchronized boolean method172()
 	{
 		anInt297++;
 		if (anInt303 >= 2)
@@ -128,7 +128,7 @@ final class Class25 implements Runnable
 		{
 			if (aClass20_2 == null)
 			{
-				aClass20_2 = aClass32_2.method216(anURL2, false);
+				aClass20_2 = aClass32_2.method216(url, false);
 			}
 			if (aClass20_2.anInt216 == 0)
 			{
@@ -145,7 +145,7 @@ final class Class25 implements Runnable
 		{
 			if (aClass20_4 == null)
 			{
-				aClass20_4 = aClass32_2.method221(anURL2.getHost(), 0, 443);
+				aClass20_4 = aClass32_2.method221(url.getHost(), 0, 443);
 			}
 			if (aClass20_4.anInt216 == 0)
 			{
@@ -173,11 +173,11 @@ final class Class25 implements Runnable
 					final OutputStream outputstream = socket.getOutputStream();
 					outputstream.write(17);
 					outputstream.write(Class46_Sub1.method409(
-					        new StringBuilder().append("JAGGRAB ").append(anURL2.getFile()).append("\n\n").toString(),
+					        new StringBuilder().append("JAGGRAB ").append(url.getFile()).append("\n\n").toString(),
 					        false));
 					aDataInputStream1 = new DataInputStream(socket.getInputStream());
 				}
-				aClass27_Sub1_1.position = 0;
+				buffer.position = 0;
 			}
 			catch (final IOException ioexception)
 			{
@@ -208,19 +208,19 @@ final class Class25 implements Runnable
 		try
 		{
 			int i;
-			for (/**/; (aClass27_Sub1_1.buffer.length > aClass27_Sub1_1.position); aClass27_Sub1_1.position += i)
+			for (/**/; (buffer.buffer.length > buffer.position); buffer.position += i)
 			{
-				i = (aDataInputStream1.read(aClass27_Sub1_1.buffer, aClass27_Sub1_1.position,
-				        (aClass27_Sub1_1.buffer.length + -aClass27_Sub1_1.position)));
+				i = (aDataInputStream1.read(buffer.buffer, buffer.position,
+				        (buffer.buffer.length + -buffer.position)));
 				if (0 > i)
 				{
 					break;
 				}
 			}
-			if (aClass27_Sub1_1.position == aClass27_Sub1_1.buffer.length)
+			if (buffer.position == buffer.buffer.length)
 			{
-				throw new Exception(new StringBuilder().append("HG1: ").append(aClass27_Sub1_1.buffer.length)
-				        .append(" ").append(anURL2).toString());
+				throw new Exception(new StringBuilder().append("HG1: ").append(buffer.buffer.length)
+				        .append(" ").append(url).toString());
 			}
 			synchronized (this)
 			{
@@ -295,8 +295,8 @@ final class Class25 implements Runnable
 
 	Class25(final Class32 class32, final URL url, final int i)
 	{
-		anURL2 = url;
-		aClass32_2 = class32;
-		aClass27_Sub1_1 = new ByteBuffer(i);
+		this.url = url;
+		this.aClass32_2 = class32;
+		this.buffer = new ByteBuffer(i);
 	}
 }

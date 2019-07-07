@@ -5,7 +5,7 @@ import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 
-final class Frame_Sub1 extends Frame
+final class GameFrame extends Frame
 {
 	/**
 	 *
@@ -16,18 +16,18 @@ final class Frame_Sub1 extends Frame
 	static int[] anIntArray153;
 	static int anInt745;
 	static int anInt746;
-	private final int anInt747 = 0;
-	private int anInt748 = 28;
+	private final int graphicsTranslate = 0;
+	private int frameOffset = 28;
 	static int anInt749;
 	static int anInt750;
-	private final int anInt751;
+	private final int frameWidth;
 	static Class32 aClass32_4;
 	static int anInt752;
-	private final Applet_Sub1 anApplet_Sub1_2;
+	private final GameWindow gameWindow;
 	static int anInt753;
 	static int anInt754;
 	static int anInt755;
-	private final int anInt756;
+	private final int frameHeight;
 
 	static int method486(final int i, final int i_0_, final int i_1_, final int i_2_)
 	{
@@ -68,14 +68,12 @@ final class Frame_Sub1 extends Frame
 	{
 		anInt746++;
 		final Graphics graphics = super.getGraphics();
-		if (anInt747 != 0)
-		{
-			graphics.translate(-5, 0);
-		}
-		else
-		{
+		
+		if (graphicsTranslate == 0)
 			graphics.translate(0, 24);
-		}
+		else
+			graphics.translate(-5, 0);
+		
 		return graphics;
 	}
 
@@ -89,14 +87,14 @@ final class Frame_Sub1 extends Frame
 	public void paint(final Graphics graphics)
 	{
 		anInt755++;
-		anApplet_Sub1_2.paint(graphics);
+		gameWindow.paint(graphics);
 	}
 
 	@Override
 	public void resize(final int i, final int i_9_)
 	{
 		anInt749++;
-		super.resize(i, i_9_ - -anInt748);
+		super.resize(i, i_9_ - -frameOffset);
 	}
 
 	static void method489(int i, final int i_10_, int i_11_, final int[] is, final int i_12_, final int[] is_13_,
@@ -163,18 +161,17 @@ final class Frame_Sub1 extends Frame
 		super.processEvent(awtevent);
 	}
 
-	Frame_Sub1(final Applet_Sub1 applet_sub1, final int i, final int i_19_, final String string, final boolean bool,
-	        final boolean bool_20_)
+	GameFrame(final GameWindow gameWindow, final int width, final int height, final String title, final boolean resizable)
 	{
-		anInt751 = i;
-		anInt756 = i_19_;
-		anInt748 = 28;
-		anApplet_Sub1_2 = applet_sub1;
-		setTitle(string);
-		setResizable(bool);
+		frameWidth = width;
+		frameHeight = height;
+		frameOffset = 28;
+		this.gameWindow = gameWindow;
+		setTitle(title);
+		setResizable(resizable);
 		show();
 		toFront();
-		resize(anInt751, anInt756);
+		resize(frameWidth, frameHeight);
 		getGraphics();
 	}
 }

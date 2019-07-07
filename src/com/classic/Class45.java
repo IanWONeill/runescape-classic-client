@@ -15,7 +15,7 @@ final class Class45
 	static Class24 method304(final int i, final int i_0_)
 	{
 		anInt493++;
-		final Class24[] class24s = Frame_Sub1.method488((byte) -120);
+		final Class24[] class24s = GameFrame.method488((byte) -120);
 		for (int i_1_ = i_0_; class24s.length > i_1_; i_1_++)
 		{
 			final Class24 class24 = class24s[i_1_];

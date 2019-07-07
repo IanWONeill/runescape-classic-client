@@ -9,7 +9,7 @@ final class Class27_Sub1_Sub1 extends ByteBuffer
 {
 	static int[] anIntArray146;
 	static int[] anIntArray147;
-	static int anInt664;
+	static int portOffset;
 	private int anInt665;
 	static int anInt666;
 	static int anInt667;
