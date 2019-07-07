@@ -17,11 +17,9 @@ final class Class25 implements Runnable
 	static int anInt298;
 	private final ByteBuffer buffer;
 	private Class20 aClass20_2;
-	private Class20 aClass20_3;
 	private final URL url;
 	private Class20 aClass20_4;
 	static int anInt300;
-	private final Class32 aClass32_2;
 	static int anInt302;
 	private int downloadStage;
 	private DataInputStream aDataInputStream1;
@@ -310,13 +308,12 @@ final class Class25 implements Runnable
 			}
 			aDataInputStream1 = null;
 		}
-		aClass20_3 = null;
+
 	}
 
 	Class25(final Class32 class32, final URL url, final int i)
 	{
 		this.url = url;
-		this.aClass32_2 = class32;
 		this.buffer = new ByteBuffer(i);
 	}
 }

@@ -22,17 +22,12 @@ final class AClass1_Sub1 extends AClass1
 	static int anInt639;
 	static int[] anIntArray144;
 	static int[] anIntArray145;
-	static int anInt640;
-	static int anInt641;
 	static int anInt642;
 	static String[] aStringArray38 = { "Enter number of items to offer and press enter" };
-	static int anInt643;
-	static int anInt644;
 
 	@Override
 	Socket method174(final boolean bool) throws IOException
 	{
-		anInt641++;
 		final boolean bool_0_ = (Boolean.parseBoolean(System.getProperty("java.net.useSystemProxies")));
 		if (!bool_0_)
 		{
@@ -95,7 +90,6 @@ final class AClass1_Sub1 extends AClass1
 	private Socket method420(final int i, final String string, final int i_6_, final String string_7_)
 	        throws IOException
 	{
-		anInt643++;
 		final Socket socket = new Socket(string_7_, i);
 		socket.setSoTimeout(10000);
 		final OutputStream outputstream = socket.getOutputStream();
@@ -149,7 +143,6 @@ final class AClass1_Sub1 extends AClass1
 
 	private Socket method421(final int i, final Proxy proxy) throws IOException
 	{
-		anInt644++;
 		if (proxy.type() == Proxy.Type.DIRECT)
 		{
 			return method175(true);
@@ -211,7 +204,6 @@ final class AClass1_Sub1 extends AClass1
 
 	static int method422(final String string, final int i)
 	{
-		anInt640++;
 		if (string.equalsIgnoreCase("na"))
 		{
 			return 0;

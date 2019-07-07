@@ -56,10 +56,10 @@ class PacketConstruction
 				}
 				if ((anInt178 == 0) && (2 <= method123((byte) -65)))
 				{
-					anInt178 = method129(92);
+					anInt178 = method129();
 					if (160 <= anInt178)
 					{
-						anInt178 = ((anInt178 * 256) + -40960) - -method129(-67);
+						anInt178 = ((anInt178 * 256) + -40960) - -method129();
 					}
 				}
 				if ((0 >= anInt178) || (method123((byte) -65) < anInt178))
@@ -68,7 +68,7 @@ class PacketConstruction
 				}
 				if (160 > anInt178)
 				{
-					is[anInt178 + -1] = (byte) method129(-115);
+					is[anInt178 + -1] = (byte) method129();
 					if (anInt178 > 1)
 					{
 						method121(anInt178 + -1, is, -2986);
@@ -106,7 +106,7 @@ class PacketConstruction
 		        .append((i >> 8) & 0xff).append(".").append(0xff & i).toString();
 	}
 
-	void method116(final int[] is, final byte unused)
+	void method116(final int[] is)
 	{
 		aClass7_1 = new Class7(is);
 		anInt179++;
@@ -124,7 +124,7 @@ class PacketConstruction
 		{
 			try
 			{
-				writePacket((byte) 58, 0);
+				writePacket(0);
 			}
 			catch (final IOException ioexception)
 			{
@@ -150,11 +150,11 @@ class PacketConstruction
 		anInt170++;
 	}
 
-	void method120(final int unused) throws IOException
+	void method120() throws IOException
 	{
 		finishPacket(2);
 		anInt188++;
-		writePacket((byte) 122, 0);
+		writePacket(0);
 	}
 
 	private void method121(final int i, final byte[] is, final int i_7_) throws IOException
@@ -179,7 +179,7 @@ class PacketConstruction
 		return 0;
 	}
 
-	void writePacket(final byte unused, final int i_8_) throws IOException
+	void writePacket(final int i_8_) throws IOException
 	{
 		anInt183++;
 		if (this.error)
@@ -258,7 +258,7 @@ class PacketConstruction
 		return false;
 	}
 
-	int method129(final int i) throws IOException
+	int method129() throws IOException
 	{
 		anInt190++;
 		return 0;

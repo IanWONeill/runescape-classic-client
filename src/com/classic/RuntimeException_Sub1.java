@@ -57,7 +57,7 @@ final class RuntimeException_Sub1 extends RuntimeException
 		return 0;
 	}
 
-	static int method462(final byte unused)
+	static int method462()
 	{
 		anInt676++;
 		return Class3.method6(System.currentTimeMillis(), 2000000);

@@ -2,105 +2,62 @@ package com.classic;
 
 final class Class10
 {
-	static int anInt74;
 	private final int anInt75;
-	static int anInt76;
 	private final int anInt77;
-	static int anInt78;
-	static int anInt79;
-	static int anInt80;
 	private final int anInt81;
-	static int anInt82;
 	private final String[][] aStringArrayArray1;
 	int[] anIntArray23;
-	static int anInt83;
-	static int anInt84;
 	int[] anIntArray24;
-	static int anInt85;
-	static int anInt86;
 	static int[] anIntArray25;
-	static int anInt87;
 	private final boolean[] aBoolArray1;
-	static int anInt88;
 	static String[] aStringArray8 = new String[200];
 	private final String[] aStringArray9;
-	static int anInt89;
 	private final int[] anIntArray26;
 	private final boolean aBool4;
 	static int anInt90;
 	private final int anInt91;
-	static int anInt92;
-	static int anInt93;
-	static int anInt94;
-	static int anInt95;
-	static int anInt96;
-	static int anInt97;
 	private final boolean[] aBoolArray2;
 	static String[] aStringArray10;
 	private final String[][] aStringArrayArray2;
 	private final int[] anIntArray27;
 	private final int anInt98;
-	static int anInt99;
 	private final int[] anIntArray28;
-	static int anInt100;
 	private final String[][] aStringArrayArray3;
 	private int anInt101;
 	private final boolean[] aBoolArray3;
-	static int anInt102;
 	private final int[] anIntArray29;
 	private final int[] anIntArray30;
 	private final boolean[] aBoolArray4;
 	private int anInt103;
 	private boolean[] aBoolArray5;
-	static int anInt104;
-	static int anInt105;
 	private final int anInt106;
-	static int anInt107;
-	static int anInt108;
 	private final int anInt109;
 	private int anInt110 = 0;
 	private final Class46 aClass46_2;
-	static int anInt111;
 	private int anInt112;
 	static String[] aStringArray11;
-	static int anInt113;
 	private final int[] anIntArray31;
 	static int anInt114;
 	static Class38 aClass38_1;
 	static int[] anIntArray32;
 	private int anInt115;
-	static int anInt116;
 	private int anInt117 = 0;
-	static int anInt118;
-	static int anInt119;
 	private final int[] anIntArray33;
 	private final int anInt120;
-	static int anInt121;
-	static int anInt122;
 	private final int anInt123;
-	static int anInt124;
-	static int anInt125;
-	static int anInt126;
 	static GameWindow gameWindow;
 	private final int anInt127;
-	static int anInt128;
 	private final int[] anIntArray34;
 	static int anInt129;
 	private final int[][] anIntArrayArray6;
-	static int anInt130;
 	private int anInt131;
-	static int anInt132;
 	private int anInt133;
-	static int anInt134;
 	private int anInt135;
-	static int anInt136;
 	private final int[] anIntArray35;
-	static int anInt137;
 
 	private void method64(final int i, final String string, final int i_0_, final int i_1_, final boolean bool,
 	        final int i_2_, final int i_3_)
 	{
-		anInt86++;
 		final int i_4_ = i_1_ + (aClass46_2.method315((byte) 127, i_2_) / 3);
 		method103(20166, i_0_, i_4_, i_3_, string, i, i_2_);
 	}
@@ -108,7 +65,6 @@ final class Class10
 	int method65(final int i, final int i_5_, final byte i_6_, final int i_7_, final int i_8_)
 	{
 		anIntArray35[anInt135] = 10;
-		anInt82++;
 		aBoolArray5[anInt135] = true;
 		aBoolArray1[anInt135] = false;
 		anIntArray27[anInt135] = i_7_ + -(i_8_ / 2);
@@ -121,14 +77,12 @@ final class Class10
 	void method66(final int i, final int i_9_)
 	{
 		aBoolArray5[i_9_] = false;
-		anInt104++;
 	}
 
 	private void method67(final int i, final int i_10_, final int i_11_, final int i_12_, final int i_13_,
 	        final int i_14_)
 	{
 		aClass46_2.method321(i_11_, 16777215, i_12_, i_13_, i, i_10_ + 1);
-		anInt111++;
 		aClass46_2.method341(i_13_, (byte) -122, i_11_, i, anInt103);
 		aClass46_2.method319(anInt103, i_12_, i_11_, true, i);
 		aClass46_2.method341(i_13_, (byte) -110, i_11_ + (i_12_ - 1), i, anInt91);
@@ -150,7 +104,6 @@ final class Class10
 	void method68(final String string, final int i, final String string_16_, final int i_17_, final int i_18_,
 	        final int i_19_, final String string_20_)
 	{
-		anInt88++;
 		aStringArrayArray3[i][i_18_] = string_20_;
 		if (i_19_ != 0)
 		{
@@ -167,14 +120,12 @@ final class Class10
 
 	void method69(final int i, final byte i_21_)
 	{
-		anInt130++;
 		aBoolArray5[i] = true;
 	}
 
 	private void method70(final int i, int i_22_, final int i_23_, final int i_24_, final int[] is,
 	        final String[] strings, final int i_25_, final int i_26_, final int i_27_, final int i_28_, final int i_29_)
 	{
-		anInt74++;
 		final int i_30_ = i_25_ / aClass46_2.method315((byte) 99, i_28_);
 		if (i_22_ > (i_26_ - i_30_))
 		{
@@ -343,14 +294,12 @@ final class Class10
 		{
 			method106(74, -101, -111, (byte) -81, 89, 0, -12);
 		}
-		anInt79++;
 		anInt112 = 0;
 	}
 
 	int method72(final int i, final int i_39_, final boolean bool, final int i_40_, final int i_41_,
 	        final String string)
 	{
-		anInt126++;
 		anIntArray35[anInt135] = 1;
 		aBoolArray5[anInt135] = true;
 		aBoolArray1[anInt135] = false;
@@ -364,7 +313,6 @@ final class Class10
 
 	int method73(final int i, final int i_42_, final byte i_43_, final int i_44_)
 	{
-		anInt87++;
 		final int i_45_ = aClass46_2.anIntArray118[i];
 		final int i_46_ = aClass46_2.anIntArray123[i];
 		anIntArray35[anInt135] = 12;
@@ -381,7 +329,6 @@ final class Class10
 	int method74(final int i, final int i_47_, final int i_48_, final int i_49_, final int i_50_, final int i_51_,
 	        final boolean bool, final int i_52_)
 	{
-		anInt85++;
 		anIntArray35[anInt135] = 4;
 		aBoolArray5[anInt135] = true;
 		aBoolArray1[anInt135] = false;
@@ -404,13 +351,11 @@ final class Class10
 	void method75(final int i, final int i_54_)
 	{
 		this.anIntArray24[i_54_] = i;
-		anInt116++;
 	}
 
 	int method76(final int i, final int i_55_, final int i_56_, final int i_57_, final boolean bool, final int i_58_,
 	        final int i_59_, final int i_60_, final boolean bool_61_)
 	{
-		anInt80++;
 		anIntArray35[anInt135] = i_60_;
 		aBoolArray5[anInt135] = true;
 		aBoolArray4[anInt135] = bool_61_;
@@ -428,14 +373,12 @@ final class Class10
 
 	static int method77(final byte i, final byte i_62_)
 	{
-		anInt93++;
 		return i & 0xff;
 	}
 
 	int method78(final int i, final int i_63_, final int i_64_, final int i_65_, final int i_66_)
 	{
 		anIntArray35[anInt135] = 2;
-		anInt94++;
 		aBoolArray5[anInt135] = true;
 		aBoolArray1[anInt135] = false;
 		anIntArray27[anInt135] = i_66_ - (i_64_ / 2);
@@ -447,7 +390,6 @@ final class Class10
 
 	static String method79(final int i, final int i_67_)
 	{
-		anInt102++;
 		if (i != 1)
 		{
 			return null;
@@ -475,7 +417,6 @@ final class Class10
 	        final int i_73_, final int i_74_)
 	{
 		anIntArray35[anInt135] = 9;
-		anInt137++;
 		aBoolArray5[anInt135] = true;
 		aBoolArray1[anInt135] = false;
 		anIntArray26[anInt135] = i_73_;
@@ -498,7 +439,6 @@ final class Class10
 
 	boolean method81(final boolean bool, final int i)
 	{
-		anInt132++;
 		if (aBoolArray5[i] && aBoolArray1[i])
 		{
 			aBoolArray1[i] = false;
@@ -510,7 +450,6 @@ final class Class10
 	private void method82(int i, final int i_76_, final boolean bool, final int i_77_, final int[] is, final int i_78_,
 	        final String[] strings, final int i_79_, final int i_80_, final int i_81_, final int i_82_)
 	{
-		anInt100++;
 		final int i_83_ = i_82_ / aClass46_2.method315((byte) 86, i_78_);
 		if (i_79_ <= i_83_)
 		{
@@ -610,13 +549,11 @@ final class Class10
 
 	private void method83(final int i, final int i_92_, final int i_93_, final int i_94_)
 	{
-		anInt121++;
 		aClass46_2.method341(i_92_, (byte) -122, i, i_93_, i_94_);
 	}
 
 	static int method84(final int i, final byte[] is, final int i_95_)
 	{
-		anInt134++;
 		return ((is[i_95_] << 8) & 0xff00) + (is[i_95_ + 1] & 0xff);
 	}
 
@@ -627,7 +564,6 @@ final class Class10
 			anInt112 = i_97_;
 		}
 		anInt110 = i;
-		anInt84++;
 		anInt131 = i_99_;
 		anInt133 = i_96_;
 		if (i_97_ == 1)
@@ -676,7 +612,6 @@ final class Class10
 
 	void method86(final int i, final byte i_102_)
 	{
-		anInt97++;
 		if (i != 0)
 		{
 			if ((anInt101 != -1) && (aStringArray9[anInt101] != null) && aBoolArray5[anInt101])
@@ -719,7 +654,6 @@ final class Class10
 	private void method87(final String[] strings, final int i, final int i_106_, final byte i_107_, final int i_108_,
 	        final int i_109_)
 	{
-		anInt99++;
 		final int i_110_ = strings.length;
 		int i_111_ = i + -(((i_110_ - 1) * aClass46_2.method315((byte) 96, i_106_)) / 2);
 		for (int i_112_ = 0; i_110_ > i_112_; i_112_++)
@@ -801,13 +735,11 @@ final class Class10
 		{
 			method103(-36, 103, -51, -16, null, -105, 104);
 		}
-		anInt83++;
 		return aStringArrayArray2[i_121_][i_122_];
 	}
 
 	int method90(final int i, final byte i_123_)
 	{
-		anInt89++;
 		if (i_123_ != 52)
 		{
 			anInt90 = 29;
@@ -818,19 +750,16 @@ final class Class10
 	void method91(final byte i, final int i_124_)
 	{
 		anInt101 = i_124_;
-		anInt108++;
 	}
 
 	int method92(final boolean bool, final int i)
 	{
-		anInt124++;
 		final int i_125_ = anIntArray34[i];
 		return i_125_;
 	}
 
 	private void method93(final byte i, final int i_126_, final int i_127_, final int i_128_, final int i_129_)
 	{
-		anInt95++;
 		aClass46_2.method357(i_126_, i_127_ + i_126_, i_129_, i_129_ + i_128_, 1743849672);
 		aClass46_2.method356(i_128_, i_129_, anInt103, i_126_, -18609, anInt91, i_127_);
 		if (Class24.aBool16)
@@ -864,14 +793,12 @@ final class Class10
 		{
 			anInt103 = -94;
 		}
-		anInt78++;
 		return Class34.method227(false, (i_132_ * Class42.anInt484) / 114, (i_134_ * IOException_Sub1.anInt671) / 114,
 		        (i_133_ * Class51.anInt584) / 176);
 	}
 
 	int method95(final byte i, final int i_135_, final int i_136_, final int i_137_, final int i_138_)
 	{
-		anInt125++;
 		anIntArray35[anInt135] = 11;
 		aBoolArray5[anInt135] = true;
 		aBoolArray1[anInt135] = false;
@@ -885,7 +812,6 @@ final class Class10
 	int method96(final int i, final int i_140_, final int i_141_, final int i_142_, final int i_143_,
 	        final boolean bool, final int i_144_, final boolean bool_145_, final int i_146_)
 	{
-		anInt105++;
 		anIntArray35[anInt135] = 6;
 		aBoolArray5[anInt135] = true;
 		aBoolArray4[anInt135] = bool_145_;
@@ -904,7 +830,6 @@ final class Class10
 	private void method97(final String[] strings, final int i, final int i_147_, final int i_148_, final int i_149_,
 	        final int i_150_)
 	{
-		anInt122++;
 		int i_151_ = 0;
 		if (i_148_ == 12)
 		{
@@ -968,7 +893,6 @@ final class Class10
 	void method98(final boolean bool, final String string, final int i)
 	{
 		aStringArray9[i] = string;
-		anInt96++;
 		if (bool != true)
 		{
 			method79(48, 42);
@@ -977,13 +901,11 @@ final class Class10
 
 	String method99(final int i, final int i_158_, final int i_159_)
 	{
-		anInt76++;
 		return aStringArrayArray1[i_158_][i];
 	}
 
 	String method100(final int i, final int i_161_)
 	{
-		anInt118++;
 		if (aStringArray9[i_161_] == null)
 		{
 			return "null";
@@ -994,13 +916,11 @@ final class Class10
 	void method101(final int i, final byte i_162_)
 	{
 		this.anIntArray23[i] = 0;
-		anInt136++;
 		anIntArray34[i] = -1;
 	}
 
 	private void method102(final int i, final int i_163_, final int i_164_, final int i_165_, final byte i_166_)
 	{
-		anInt92++;
 		aClass46_2.method321(i_163_, 0, i, i_165_, i_164_, 1);
 		aClass46_2.method362(i, i_164_, (byte) 83, i_165_, anInt109, i_163_);
 		aClass46_2.method362(i + -2, i_164_ + 1, (byte) -75, i_165_ + -2, anInt81, i_163_ + 1);
@@ -1014,7 +934,6 @@ final class Class10
 	private void method103(final int i, final int i_167_, final int i_168_, final int i_169_, final String string,
 	        final int i_170_, final int i_171_)
 	{
-		anInt113++;
 		if (i == 20166)
 		{
 			int i_172_;
@@ -1033,7 +952,6 @@ final class Class10
 	private void method104(final int i, final int i_173_, final int i_174_, final int i_175_, final int i_176_,
 	        final int i_177_, int i_178_, String string)
 	{
-		anInt107++;
 		if (!aBoolArray4[i_176_] != true)
 		{
 			final int i_179_ = string.length();
@@ -1115,13 +1033,11 @@ final class Class10
 	private void method105(final int i, final int i_183_, final byte i_184_, final int i_185_)
 	{
 		aClass46_2.method338(i_185_, i_183_, i, (byte) -70);
-		anInt128++;
 	}
 
 	private void method106(final int i, final int i_186_, final int i_187_, final byte i_188_, final int i_189_,
 	        final int i_190_, final int i_191_)
 	{
-		anInt119++;
 		final int i_192_ = (i_189_ + i_191_) - 12;
 		aClass46_2.method362(i_190_, i_192_, (byte) 65, 12, 0, i_187_);
 		aClass46_2.method338(0 - -Class33.anInt368, i_187_ + 1, i_192_ + 1, (byte) -70);

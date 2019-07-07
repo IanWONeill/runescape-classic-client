@@ -67,7 +67,6 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	private final int anInt710;
 	static int anInt711;
 	static int anInt712;
-	static int anInt713;
 	static int anInt714;
 	static int anInt715;
 	static int anInt716;
@@ -196,7 +195,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 				        i_2_ + 30);
 				drawString(
 				        i_1_ + 138, true, loadingGraphics, this.aFont2, new StringBuilder().append("\u00a9 2001-")
-				                .append(RuntimeException_Sub1.method462((byte) -114)).append(" Jagex Ltd").toString(),
+				                .append(RuntimeException_Sub1.method462()).append(" Jagex Ltd").toString(),
 				        i_2_ + 44);
 			}
 			else
@@ -204,7 +203,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 				loadingGraphics.setColor(new Color(132, 132, 152));
 				drawString(
 				        i_1_ + 138, true, loadingGraphics, this.aFont3, new StringBuilder().append("\u00a9 2001-")
-				                .append(RuntimeException_Sub1.method462((byte) -101)).append(" Jagex Ltd").toString(),
+				                .append(RuntimeException_Sub1.method462()).append(" Jagex Ltd").toString(),
 				        appletHeight + -20);
 			}
 			if (this.aString23 != null)
@@ -252,7 +251,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 					this.gameWindowThread = null;
 					return;
 				}
-				if (!loadFonts(true))
+				if (!loadFonts())
 				{
 					if (exitTimeout != -2)
 					{
@@ -561,7 +560,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		return super.getParameter(string);
 	}
 
-	void method471(final int unused)
+	void method471()
 	{
 		anInt705++;
 	}
@@ -610,7 +609,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		mouseDownButton = event.isMetaDown() ? 2 : 1;
 		lastMouseDownButton = mouseDownButton;
 		lastActionTimeout = 0;
-		addMouseClick(mouseY, mouseX, (byte) -58, mouseDownButton);
+		addMouseClick(mouseY, mouseX, mouseDownButton);
 	}
 
 	synchronized void method473(final boolean bool)
@@ -618,7 +617,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		anInt689++;
 	}
 
-	void method474(final int unused, final int i_18_)
+	void method474(final int i_18_)
 	{
 		anInt700++;
 		threadSleepModifier = 1000 / i_18_;
@@ -653,7 +652,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		}
 	}
 
-	private boolean loadFonts(final boolean unused)
+	private boolean loadFonts()
 	{
 		anInt688++;
 		final byte[] is = unpackData("Jagex library", 0, 3);
@@ -711,10 +710,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		thread.start();
 	}
 
-	void addMouseClick(final int unused, final int unused2, final byte unsued3, final int unused4)
-	{
-		anInt713++;
-	}
+	void addMouseClick(final int mouseY, final int mouseX, final int button) {}
 
 	@Override
 	public boolean isDisplayable()
@@ -914,7 +910,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		anInt718++;
 		exitTimeout = -2;
 		System.out.println("Closing program");
-		method471(-89);
+		method471();
 		Class7.unknownSleep(53, 1000L);
 		if (Class38.gameFrame != null)
 		{
@@ -937,7 +933,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		anInt701++;
 	}
 
-	void method481(final int unused)
+	void resetCurrentTimeArray()
 	{
 		anInt698++;
 		for (int i = 0; i < currentTimeArray.length; i++)

@@ -169,7 +169,7 @@ final class StreamClass extends PacketConstruction implements Runnable
 	}
 
 	@Override
-	int method129(final int unused) throws IOException
+	int method129() throws IOException
 	{
 		anInt600++;
 		if (aBool30 != false)

@@ -1187,7 +1187,7 @@ public final class mudclient extends GameWindow
 	}
 
 	@Override
-	void addMouseClick(final int mouseY, final int mouseX, final byte i_45_, final int i_46_)
+	void addMouseClick(final int mouseY, final int mouseX, final int button)
 	{
 		mouseClickX[mouseClickCount] = mouseX;
 		anInt783++;
@@ -3076,9 +3076,14 @@ public final class mudclient extends GameWindow
 							{
 								showLoginScreenStatus("Please wait...", "Connecting to server", false);
 							}
-							final int port = 1 < anInt850 ? anInt799 : anInt786;
-							// NOTE: Original code: streamClass = new StreamClass(makeSocket((byte) -128, serverHost, port), this);
-							streamClass = new StreamClass(makeSocket((byte) -128, "localhost", 43595), this);
+							
+							// NOTE: Original code
+							{
+								//final int port = 1 < anInt850 ? anInt799 : anInt786;
+								//streamClass = new StreamClass(makeSocket(serverHost, port), this);
+							}
+							
+							streamClass = new StreamClass(makeSocket("localhost", 43595), this);
 							streamClass.anInt192 = Class35.anInt377;
 							int i_234_ = 0;
 							try
@@ -3129,16 +3134,16 @@ public final class mudclient extends GameWindow
 							        (streamClass.aClass27_Sub1_Sub1_1).position);
 							streamClass.aClass27_Sub1_Sub1_1.method401(97,
 							        (streamClass.aClass27_Sub1_Sub1_1).position + -i_237_);
-							streamClass.method120(97);
-							streamClass.method116(is, (byte) 45);
-							final int responseCode = streamClass.method129(-76);
+							streamClass.method120();
+							streamClass.method116(is);
+							final int responseCode = streamClass.method129();
 							System.out.println("login response:" + responseCode);
 							if ((responseCode & 0x40) != 0)
 							{
 								anInt850 = 0;
 								anInt905 = (responseCode >> 2) & 0xf;
 								anInt858 = 0x3 & responseCode;
-								method581((byte) -123);
+								method581();
 							}
 							else
 							{
@@ -3468,7 +3473,7 @@ public final class mudclient extends GameWindow
 								}
 								else
 								{
-									drawInputBox(false);
+									drawInputBox();
 								}
 							}
 							else
@@ -3560,7 +3565,7 @@ public final class mudclient extends GameWindow
 		anInt887 = 0;
 	}
 
-	private Socket makeSocket(final byte unused, final String host, final int port) throws IOException
+	private Socket makeSocket(final String host, final int port) throws IOException
 	{
 		anInt846++;
 		Socket socket;
@@ -3638,7 +3643,7 @@ public final class mudclient extends GameWindow
 		int i_251_ = 0;
 		if (i_244_ != 348)
 		{
-			drawInputBox(false);
+			drawInputBox();
 		}
 		for (/**/; anInt1049 > i_251_; i_251_++)
 		{
@@ -3842,7 +3847,7 @@ public final class mudclient extends GameWindow
 		return false;
 	}
 
-	private void drawInputBox(final boolean unused)
+	private void drawInputBox()
 	{
 		anInt837++;
 		if (anInt887 != 0)
@@ -4683,7 +4688,7 @@ public final class mudclient extends GameWindow
 				graphics.drawString("4: Try rebooting your computer", 30, i);
 				i += 30;
 				graphics.drawString("5: Try selecting a different version of Java from the play-game menu", 30, i);
-				method474(123, 1);
+				method474(1);
 			}
 		}
 		else if (aBool50)
@@ -4699,7 +4704,7 @@ public final class mudclient extends GameWindow
 				graphics.drawString("Error - unable to load game!", 50, 50);
 				graphics.drawString("To play RuneScape make sure you play from", 50, 100);
 				graphics.drawString("http://www.runescape.com", 50, 150);
-				method474(123, 1);
+				method474(1);
 			}
 		}
 		else if (aBool54)
@@ -4716,7 +4721,7 @@ public final class mudclient extends GameWindow
 				graphics.drawString("Close ALL unnecessary programs", 50, 100);
 				graphics.drawString("and windows before loading the game", 50, 150);
 				graphics.drawString("RuneScape needs about 48meg of spare RAM", 50, 200);
-				method474(123, 1);
+				method474(1);
 			}
 		}
 		else
@@ -4764,7 +4769,7 @@ public final class mudclient extends GameWindow
 		{
 			maybe_npcArray = null;
 		}
-		method481(-110);
+		resetCurrentTimeArray();
 	}
 
 	private void method534(final int i)
@@ -5331,7 +5336,7 @@ public final class mudclient extends GameWindow
 			try
 			{
 				streamClass.createPacket(31, 91);
-				streamClass.method120(119);
+				streamClass.method120();
 			}
 			catch (final IOException ioexception)
 			{
@@ -5352,7 +5357,7 @@ public final class mudclient extends GameWindow
 			method552(i_417_, bool, i_418_, i, i_418_, i_417_, i_416_, true, true);
 			if (i_419_ != -110)
 			{
-				method471(-2);
+				method471();
 			}
 		}
 	}
@@ -7149,7 +7154,7 @@ public final class mudclient extends GameWindow
 		}
 		try
 		{
-			streamClass.writePacket((byte) 82, i);
+			streamClass.writePacket(i);
 		}
 		catch (final IOException ioexception)
 		{
@@ -9276,7 +9281,7 @@ public final class mudclient extends GameWindow
 		}
 	}
 
-	private void makeCharacterDesignMenu(final byte unused)
+	private void makeCharacterDesignMenu()
 	{
 		anInt810++;
 		aClass10_1 = new Class10(aClass46_Sub1_2, 100);
@@ -9455,7 +9460,7 @@ public final class mudclient extends GameWindow
 	}
 
 	@Override
-	void method471(final int i)
+	void method471()
 	{
 		anInt797++;
 		method544(true, (byte) 72);
@@ -9830,7 +9835,7 @@ public final class mudclient extends GameWindow
 		return true;
 	}
 
-	private void method581(final byte unused)
+	private void method581()
 	{
 		anInt899 = 1;
 		anInt803++;
@@ -11867,7 +11872,7 @@ public final class mudclient extends GameWindow
 				anInt931 = anInt925 - -10;
 				anInt910 = anInt931 + 5;
 				aGraphics2 = getGraphics();
-				method474(123, 50);
+				method474(50);
 				aClass46_Sub1_2 = new Class46_Sub1(maybe_windowWidth, maybe_windowHeight + 12, 4000, this);
 				aClass46_Sub1_2.aclient1 = this;
 				aClass46_Sub1_2.method357(0, maybe_windowHeight + 12, 0, maybe_windowWidth, 1743849672);
@@ -11918,7 +11923,7 @@ public final class mudclient extends GameWindow
 										drawLoadingBarText(100, 97, "Starting game...");
 										method559(-23945);
 										method537(true);
-										makeCharacterDesignMenu((byte) 118);
+										makeCharacterDesignMenu();
 										method507(78);
 										method476(98);
 										method531(3631);
