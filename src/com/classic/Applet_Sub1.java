@@ -15,7 +15,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.io.IOException;
-import java.lang.reflect.Method;
 import java.net.URL;
 
 public class Applet_Sub1 extends Applet implements Runnable, MouseListener, MouseMotionListener, KeyListener
@@ -794,29 +793,14 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 			}
 			if (Class27.anApplet1 != null)
 			{
-				final Method method = Class32.aMethod1;
-				if (method != null)
+				if (Class32.aMethod1 != null)
 				{
-					try
-					{
-						method.invoke(Class27.anApplet1, new Object[] { Boolean.TRUE });
-					}
-					catch (final Throwable throwable)
-					{
-						/* empty */
-					}
+					Class27.anApplet1.setFocusCycleRoot(true);
 				}
-				final Method method_27_ = Class32.aMethod2;
-				if (method_27_ != null)
+
+				if (Class32.aMethod2 != null)
 				{
-					try
-					{
-						method_27_.invoke(Class27.anApplet1, new Object[] { Boolean.FALSE });
-					}
-					catch (final Throwable throwable)
-					{
-						/* empty */
-					}
+					Class27.anApplet1.setFocusTraversalKeysEnabled(false);
 				}
 			}
 			try
@@ -1066,8 +1050,7 @@ public class Applet_Sub1 extends Applet implements Runnable, MouseListener, Mous
 			Class38.aFrame_Sub1_1 = new Frame_Sub1(this, 800, 600, string, bool, false);
 			try
 			{
-				Class38.aFrame_Sub1_1.getClass().getMethod("setFocusTraversalKeysEnabled", new Class[] { Boolean.TYPE })
-				        .invoke(Class38.aFrame_Sub1_1, new Object[] { Boolean.FALSE });
+				Class38.aFrame_Sub1_1.setFocusTraversalKeysEnabled(false);
 			}
 			catch (final Exception exception)
 			{

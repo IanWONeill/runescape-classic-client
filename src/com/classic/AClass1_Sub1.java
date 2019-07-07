@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.lang.reflect.Method;
+import java.lang.reflect.Method; // NOTE: Used to access sun.net.www.protocol.http.AuthenticationInfo.
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.ProxySelector;
@@ -175,25 +175,25 @@ final class AClass1_Sub1 extends AClass1
 			try
 			{
 				final Class var_class = (Class.forName("sun.net.www.protocol.http.AuthenticationInfo"));
-				final Method method = var_class.getDeclaredMethod("getProxyAuth",
-				        (new Class[] { java.lang.String.class, Integer.TYPE }));
-				method.setAccessible(true);
-				final Object object = method.invoke(null,
+				
+				final Method method_getProxyAuth = var_class.getDeclaredMethod("getProxyAuth", (new Class[] { java.lang.String.class, Integer.TYPE }));
+				method_getProxyAuth.setAccessible(true);
+				
+				final Object object = method_getProxyAuth.invoke(null,
 				        (new Object[] { inetsocketaddress.getHostName(), new Integer(inetsocketaddress.getPort()) }));
 				if (object != null)
 				{
-					final Method method_12_ = (var_class.getDeclaredMethod("supportsPreemptiveAuthorization",
-					        new Class[0]));
-					method_12_.setAccessible(true);
-					if (((Boolean) method_12_.invoke(object, new Object[0])).booleanValue())
+					final Method method_supportsPreemptiveAuthorization = (var_class.getDeclaredMethod("supportsPreemptiveAuthorization", new Class[0]));
+					method_supportsPreemptiveAuthorization.setAccessible(true);
+					if (((Boolean) method_supportsPreemptiveAuthorization.invoke(object, new Object[0])).booleanValue())
 					{
-						final Method method_13_ = var_class.getDeclaredMethod("getHeaderName", new Class[0]);
-						method_13_.setAccessible(true);
-						final Method method_14_ = (var_class.getDeclaredMethod("getHeaderValue",
+						final Method method_getHeaderName = var_class.getDeclaredMethod("getHeaderName", new Class[0]);
+						method_getHeaderName.setAccessible(true);
+						final Method method_getHeaderValue = (var_class.getDeclaredMethod("getHeaderValue",
 						        new Class[] { java.net.URL.class, java.lang.String.class }));
-						method_14_.setAccessible(true);
-						final String string_15_ = ((String) method_13_.invoke(object, new Object[0]));
-						final String string_16_ = ((String) (method_14_.invoke(object, (new Object[] { new URL(
+						method_getHeaderValue.setAccessible(true);
+						final String string_15_ = ((String) method_getHeaderName.invoke(object, new Object[0]));
+						final String string_16_ = ((String) (method_getHeaderValue.invoke(object, (new Object[] { new URL(
 						        new StringBuilder().append("https://").append(this.aString11).append("/").toString()),
 						        "https" }))));
 						string = new StringBuilder().append(string_15_).append(": ").append(string_16_).toString();

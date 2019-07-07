@@ -9414,17 +9414,17 @@ public final class Client extends Applet_Sub1
 		}
 	}
 
-	public static void main(final String[] strings)
+	public static void main(final String[] args)
 	{
 		try
 		{
 			Class34.aClass38_5 = Class16_Sub1.aClass38_7;
-			Class27_Sub1_Sub1.anInt664 = Integer.parseInt(strings[0]);
-			if (!strings[1].equals("live"))
+			Class27_Sub1_Sub1.anInt664 = Integer.parseInt(args[0]);
+			if (!args[1].equals("live"))
 			{
-				if (!strings[1].equals("rc"))
+				if (!args[1].equals("rc"))
 				{
-					if (strings[1].equals("wip"))
+					if (args[1].equals("wip"))
 					{
 						RuntimeException_Sub1.aClass24_4 = Class45.aClass24_2;
 					}
@@ -9440,13 +9440,13 @@ public final class Client extends Applet_Sub1
 			}
 			final Client var_client = new Client();
 			var_client.aBool51 = false;
-			for (int i = 2; strings.length > i; i++)
+			for (int i = 2; args.length > i; i++)
 			{
-				if (strings[i].equals("members"))
+				if (args[i].equals("members"))
 				{
 					var_client.aBool55 = true;
 				}
-				if (strings[i].equals("veterans"))
+				if (args[i].equals("veterans"))
 				{
 					var_client.aBool56 = true;
 				}

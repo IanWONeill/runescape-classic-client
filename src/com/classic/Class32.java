@@ -240,9 +240,7 @@ final class Class32 implements Runnable
 										{
 											if (!aBool18)
 											{
-												class20.anObject2 = (Class.forName("Class31")
-												        .getMethod("listmodes", new Class[0])
-												        .invoke(anObject3, new Object[0]));
+												class20.anObject2 = ((Class31)anObject3).listmodes();
 											}
 											else
 											{
@@ -259,8 +257,7 @@ final class Class32 implements Runnable
 												}
 												else
 												{
-													Class.forName("Class31").getMethod("exit", new Class[0])
-													        .invoke(anObject3, new Object[0]);
+													((Class31)anObject3).exit();
 												}
 											}
 											else if (i != 12)
@@ -317,16 +314,7 @@ final class Class32 implements Runnable
 														else
 														{
 															final Object[] objects = ((Object[]) (class20.anObject1));
-															Class.forName("Class30").getDeclaredMethod(
-															        "setcustomcursor",
-															        (new Class[] { java.awt.Component.class,
-															                int[].class, (Integer.TYPE), (Integer.TYPE),
-															                java.awt.Point.class }))
-															        .invoke(anObject4,
-															                (new Object[] { objects[0], objects[1],
-															                        (new Integer(class20.anInt215)),
-															                        (new Integer(class20.anInt214)),
-															                        (objects[2]) }));
+															((Class30)anObject4).setcustomcursor((java.awt.Component)objects[0], (int[])objects[1], class20.anInt215, class20.anInt214, (java.awt.Point)objects[2]);
 														}
 													}
 													else
@@ -339,12 +327,7 @@ final class Class32 implements Runnable
 														}
 														else
 														{
-															Class.forName("Class30")
-															        .getDeclaredMethod("showcursor",
-															                (new Class[] { java.awt.Component.class,
-															                        (Boolean.TYPE) }))
-															        .invoke(anObject4, (new Object[] { component,
-															                (new Boolean(bool)) }));
+															((Class30)anObject4).showcursor(component, bool);
 														}
 													}
 												}
@@ -354,11 +337,7 @@ final class Class32 implements Runnable
 													final int i_15_ = (class20.anInt214);
 													if (!aBool18)
 													{
-														Class.forName("Class30")
-														        .getDeclaredMethod("movemouse",
-														                (new Class[] { Integer.TYPE, (Integer.TYPE) }))
-														        .invoke(anObject4, (new Object[] { (new Integer(i_14_)),
-														                (new Integer(i_15_)) }));
+														((Class30)anObject4).movemouse(i_14_, i_15_);
 													}
 													else
 													{
@@ -386,16 +365,7 @@ final class Class32 implements Runnable
 											}
 											else
 											{
-												Class.forName("Class31")
-												        .getMethod("enter",
-												                (new Class[] { java.awt.Frame.class, Integer.TYPE,
-												                        Integer.TYPE, Integer.TYPE, Integer.TYPE }))
-												        .invoke(anObject3,
-												                (new Object[] { frame,
-												                        new Integer((class20.anInt215) >>> 16),
-												                        new Integer((class20.anInt215) & 0xffff),
-												                        new Integer((class20.anInt214) >> 16),
-												                        (new Integer(0xffff & (class20.anInt214))) }));
+												((Class31)anObject3).enter(frame, class20.anInt215 >>> 16, class20.anInt215 & 0xffff, class20.anInt214 >> 16, class20.anInt214 & 0xffff);
 											}
 										}
 									}
@@ -427,6 +397,12 @@ final class Class32 implements Runnable
 							{
 								throw new SecurityException();
 							}
+
+							// TODO: Investigate this use of reflection.
+							System.out.println("This code path hasn't been checked.");
+							System.out.println("getDeclaredField: " + objects[1]);
+							System.exit(1);
+							
 							class20.anObject2 = ((Class) objects[0]).getDeclaredField((String) objects[1]);
 						}
 					}
@@ -560,8 +536,7 @@ final class Class32 implements Runnable
 		{
 			try
 			{
-				aMethod2 = (Class.forName("java.awt.Component").getDeclaredMethod("setFocusTraversalKeysEnabled",
-				        new Class[] { Boolean.TYPE }));
+				aMethod2 = (Class.forName("java.awt.Component").getDeclaredMethod("setFocusTraversalKeysEnabled", new Class[] { Boolean.TYPE }));
 			}
 			catch (final Exception exception)
 			{
@@ -569,8 +544,7 @@ final class Class32 implements Runnable
 			}
 			try
 			{
-				aMethod1 = (Class.forName("java.awt.Container").getDeclaredMethod("setFocusCycleRoot",
-				        new Class[] { Boolean.TYPE }));
+				aMethod1 = (Class.forName("java.awt.Container").getDeclaredMethod("setFocusCycleRoot", new Class[] { Boolean.TYPE }));
 			}
 			catch (final Exception exception)
 			{
@@ -593,14 +567,7 @@ final class Class32 implements Runnable
 			}
 			if (aBool18)
 			{
-				try
-				{
-					Class.forName("Class50").newInstance();
-				}
-				catch (final Throwable throwable)
-				{
-					/* empty */
-				}
+				new Class50();
 			}
 			try
 			{
@@ -610,7 +577,7 @@ final class Class32 implements Runnable
 				}
 				else
 				{
-					anObject3 = Class.forName("Class31").newInstance();
+					anObject3 = new Class31();
 				}
 			}
 			catch (final Throwable throwable)
@@ -621,7 +588,7 @@ final class Class32 implements Runnable
 			{
 				if (!aBool18)
 				{
-					anObject4 = Class.forName("Class30").newInstance();
+					anObject4 = new Class30();
 				}
 				else
 				{
