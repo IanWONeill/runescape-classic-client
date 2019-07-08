@@ -1483,7 +1483,7 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	void method341(int i, final byte i_373_, final int i_374_, int i_375_, final int i_376_)
+	void method341(int i, final int i_374_, int i_375_, final int i_376_)
 	{
 		if ((i_374_ >= anInt537) && (i_374_ < anInt536))
 		{
@@ -1502,10 +1502,6 @@ class GameImage implements ImageProducer, ImageObserver
 				for (int i_378_ = 0; i_378_ < i; i_378_++)
 				{
 					this.imagePixelArray[i_377_ + i_378_] = i_376_;
-				}
-				if (i_373_ > -6)
-				{
-					drawEntity(-125, 49, 75, -48, 125, 93, 26, -53);
 				}
 			}
 		}
@@ -2946,8 +2942,8 @@ class GameImage implements ImageProducer, ImageObserver
 
 	void method362(final int i, final int i_733_, final int i_735_, final int i_736_, final int i_737_)
 	{
-		method341(i_735_, (byte) -46, i_737_, i_733_, i_736_);
-		method341(i_735_, (byte) -72, i_737_ + i + -1, i_733_, i_736_);
+		method341(i_735_, i_737_, i_733_, i_736_);
+		method341(i_735_, i_737_ + i + -1, i_733_, i_736_);
 		method319(i_736_, i, i_737_, i_733_);
 		method319(i_736_, i, i_737_, i_733_ + i_735_ + -1);
 	}

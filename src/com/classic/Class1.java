@@ -9,13 +9,13 @@ final class Class1
 
 	static int method1(final int i, final int i_0_, final byte[] is, final int i_1_)
 	{
-		int i_2_ = -1;
-		for (int i_3_ = i_1_; i_0_ > i_3_; i_3_++)
+		int result = -1;
+		for (int index = i_1_; i_0_ > index; index++)
 		{
-			i_2_ = (i_2_ >>> 8) ^ Class44.anIntArray114[(is[i_3_] ^ i_2_) & 0xff];
+			result = (result >>> 8) ^ Class44.anIntArray114[(is[index] ^ result) & 0xff];
 		}
-		i_2_ ^= i;
-		return i_2_;
+		result ^= i;
+		return result;
 	}
 
 	static void method2(final Class27 class27, final Class27 class27_4_)

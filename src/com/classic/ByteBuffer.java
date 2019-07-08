@@ -10,11 +10,11 @@ class ByteBuffer extends Class27
 	static boolean[] aBoolArray10 = { false, false, false, false, false, false, false, false, false, false, false, false };
 	static long aLong15 = 0L;
 
-	private void method385(final int i, final byte[] is, final int i_0_)
+	private void readBytes(final int destOffset, final byte[] dest, final int i_0_)
 	{
-		for (int i_2_ = i; i_2_ < (i_0_ + i); i_2_++)
+		for (int index = destOffset; index < (i_0_ + destOffset); index++)
 		{
-			is[i_2_] = (this.buffer[this.position++]);
+			dest[index] = this.buffer[this.position++];
 		}
 	}
 
@@ -60,7 +60,7 @@ class ByteBuffer extends Class27
 		final int i_6_ = ((this.buffer[this.position]) & 0xff);
 		if (128 > i_6_)
 		{
-			return readByte();
+			return readUnsignedByte();
 		}
 		return method392() - 32768;
 	}
@@ -77,8 +77,8 @@ class ByteBuffer extends Class27
 	int method392()
 	{
 		this.position += 2;
-		return ((0xff & (this.buffer[this.position + -1]))
-		        + (((this.buffer[this.position + -2]) & 0xff) << 8));
+		return ((0xff & (this.buffer[this.position - 1]))
+		        + (((this.buffer[this.position - 2]) & 0xff) << 8));
 	}
 
 	boolean method393(final int i)
@@ -93,11 +93,11 @@ class ByteBuffer extends Class27
 		return false;
 	}
 
-	void method394(final int i, final byte[] is, final int i_10_)
+	void writeBytes(final int length, final byte[] src, final int srcOffset)
 	{
-		for (int i_11_ = i_10_; i_11_ < (i_10_ - -i); i_11_++)
+		for (int index = srcOffset; index < (srcOffset + length); index++)
 		{
-			this.buffer[this.position++] = is[i_11_];
+			this.buffer[this.position++] = src[index];
 		}
 	}
 
@@ -142,18 +142,20 @@ class ByteBuffer extends Class27
 		return Class9.method62(i_17_, i_16_, this.buffer);
 	}
 
-	void method399(final BigInteger biginteger, final BigInteger biginteger_18_)
+	void encodeWithRSA(final BigInteger modulus, final BigInteger exponent)
 	{
-		final int i_19_ = this.position;
+		final int pointerPosition = this.position;
 		this.position = 0;
-		final byte[] is = new byte[i_19_];
-		method385(0, is, i_19_);
-		final BigInteger biginteger_20_ = new BigInteger(is);
-		final BigInteger biginteger_21_ = biginteger_20_.modPow(biginteger_18_, biginteger);
-		final byte[] is_22_ = biginteger_21_.toByteArray();
+		
+		final byte[] encodedBuffer = new byte[pointerPosition];
+		readBytes(0, encodedBuffer, pointerPosition);
+		
+		final BigInteger biginteger_20_ = new BigInteger(encodedBuffer);
+		final BigInteger biginteger_21_ = biginteger_20_.modPow(exponent, modulus);
+		final byte[] result = biginteger_21_.toByteArray();
 		this.position = 0;
-		putShort(is_22_.length);
-		method394(is_22_.length, is_22_, 0);
+		putShort(result.length);
+		writeBytes(result.length, result, 0);
 	}
 
 	void method400(final int i_23_)
@@ -194,7 +196,7 @@ class ByteBuffer extends Class27
 		this.buffer = Class13.method109(23310, i);
 	}
 
-	int readByte()
+	int readUnsignedByte()
 	{
 		return this.buffer[this.position++] & 0xFF;
 	}
@@ -223,20 +225,16 @@ class ByteBuffer extends Class27
 		return is;
 	}
 
-	byte method406(final int i)
+	byte readByte()
 	{
-		if (i != -1)
-		{
-			method406(0);
-		}
-		return (this.buffer[this.position++]);
+		return this.buffer[this.position++];
 	}
 
 	int method407()
 	{
 		this.position += 2;
-		int i_28_ = ((0xff00 & ((this.buffer[this.position + -2]) << 8))
-		        + (0xff & (this.buffer[this.position + -1])));
+		int i_28_ = ((0xff00 & ((this.buffer[this.position - 2]) << 8))
+		        + (0xff & (this.buffer[this.position - 1])));
 		if (i_28_ > 32767)
 		{
 			i_28_ -= 65536;

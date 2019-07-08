@@ -153,7 +153,7 @@ final class Class39
 				}
 			}
 		}
-		class27_sub1.method394(24, is, 0);
+		class27_sub1.writeBytes(24, is, 0);
 	}
 
 	private void method252() throws IOException

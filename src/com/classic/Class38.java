@@ -18,18 +18,14 @@ final class Class38
 		this.anInt399 = i;
 	}
 
-	static int method245(int i, final byte i_2_)
+	static int nearestPowerOfTwo(int n)
 	{
-		if (i_2_ <= 121)
-		{
-			method245(-126, (byte) 29);
-		}
-		i = (0x55555555 & i) + ((i >>> 1) & ~0x2aaaaaaa);
-		i = ((~0x33333332 & i) >>> 2) + (0x33333333 & i);
-		i = (i + (i >>> 4)) & 0xf0f0f0f;
-		i += i >>> 8;
-		i += i >>> 16;
-		return i & 0xff;
+		n = (0x55555555 & n) + ((n >>> 1) & ~0x2aaaaaaa);
+		n = ((~0x33333332 & n) >>> 2) + (0x33333333 & n);
+		n = (n + (n >>> 4)) & 0xf0f0f0f;
+		n += n >>> 8;
+		n += n >>> 16;
+		return n & 0xff;
 	}
 
 	@Override

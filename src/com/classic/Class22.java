@@ -12,8 +12,8 @@ final class Class22
 	static AClass1 method135(final String string, final int i)
 	{
 		final AClass1_Sub1 aclass1_sub1 = new AClass1_Sub1();
-		((AClass1) aclass1_sub1).maybe_port = i;
-		((AClass1) aclass1_sub1).maybe_host = string;
+		((AClass1) aclass1_sub1).port = i;
+		((AClass1) aclass1_sub1).host = string;
 		return aclass1_sub1;
 	}
 

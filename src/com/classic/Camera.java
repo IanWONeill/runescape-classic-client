@@ -2941,10 +2941,6 @@ final class Camera
 		int i_541_ = class23_534_.anIntArray66[is_537_[0]];
 		int i_542_ = class23_534_.anIntArray74[is_537_[0]];
 		int i_543_ = class26_533_.anInt316;
-		if (i != -63)
-		{
-			method293(57, -117, 87, 100);
-		}
 		int i_544_ = class26_533_.anInt307;
 		int i_545_ = class26_533_.anInt319;
 		int i_546_ = class23_534_.anIntArray69[i_536_];

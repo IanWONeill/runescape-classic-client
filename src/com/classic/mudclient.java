@@ -737,7 +737,7 @@ public final class mudclient extends GameWindow
 							{
 								string_19_ = string;
 							}
-							final boolean bool = 1 == aClass27_Sub1_Sub1_2.readByte();
+							final boolean bool = 1 == aClass27_Sub1_Sub1_2.readUnsignedByte();
 							for (int i_20_ = 0; Class10.anInt129 > i_20_; i_20_++)
 							{
 								if (!bool)
@@ -777,7 +777,7 @@ public final class mudclient extends GameWindow
 								{
 									final String string = aClass27_Sub1_Sub1_2.method398(i_15_ ^ ~0x14);
 									final String string_21_ = aClass27_Sub1_Sub1_2.method398(-1);
-									final int i_22_ = aClass27_Sub1_Sub1_2.readByte();
+									final int i_22_ = aClass27_Sub1_Sub1_2.readUnsignedByte();
 									final long l = aClass27_Sub1_Sub1_2.method396();
 									final String string_23_ = Class4.method8(aClass27_Sub1_Sub1_2, i_15_ + -66);
 									for (int i_24_ = 0; 100 > i_24_; i_24_++)
@@ -805,15 +805,15 @@ public final class mudclient extends GameWindow
 							}
 							else
 							{
-								anInt904 = aClass27_Sub1_Sub1_2.readByte();
-								anInt908 = aClass27_Sub1_Sub1_2.readByte();
-								anInt890 = aClass27_Sub1_Sub1_2.readByte();
-								anInt934 = aClass27_Sub1_Sub1_2.readByte();
+								anInt904 = aClass27_Sub1_Sub1_2.readUnsignedByte();
+								anInt908 = aClass27_Sub1_Sub1_2.readUnsignedByte();
+								anInt890 = aClass27_Sub1_Sub1_2.readUnsignedByte();
+								anInt934 = aClass27_Sub1_Sub1_2.readUnsignedByte();
 							}
 						}
 						else
 						{
-							Class10.anInt129 = aClass27_Sub1_Sub1_2.readByte();
+							Class10.anInt129 = aClass27_Sub1_Sub1_2.readUnsignedByte();
 							for (int i_26_ = 0; Class10.anInt129 > i_26_; i_26_++)
 							{
 								GameImage.aStringArray33[i_26_] = aClass27_Sub1_Sub1_2.method398(-1);
@@ -827,7 +827,7 @@ public final class mudclient extends GameWindow
 					{
 						final String string = aClass27_Sub1_Sub1_2.method398(-1);
 						final String string_27_ = aClass27_Sub1_Sub1_2.method398(i_15_ ^ ~0x14);
-						final int i_28_ = aClass27_Sub1_Sub1_2.readByte();
+						final int i_28_ = aClass27_Sub1_Sub1_2.readUnsignedByte();
 						final boolean bool = (0x1 & i_28_) != 0;
 						final boolean bool_29_ = (0x4 & i_28_) != 0;
 						String string_30_ = null;
@@ -903,13 +903,13 @@ public final class mudclient extends GameWindow
 			}
 			else
 			{
-				method540((byte) 46);
+				method540();
 			}
 		}
 		else
 		{
-			final int i_34_ = aClass27_Sub1_Sub1_2.readByte();
-			final int i_35_ = aClass27_Sub1_Sub1_2.readByte();
+			final int i_34_ = aClass27_Sub1_Sub1_2.readUnsignedByte();
+			final int i_35_ = aClass27_Sub1_Sub1_2.readUnsignedByte();
 			final String string = aClass27_Sub1_Sub1_2.method398(-1);
 			String string_36_ = null;
 			String string_37_ = null;
@@ -2555,7 +2555,7 @@ public final class mudclient extends GameWindow
 		}
 		for (int i_216_ = 1; ((anInt973 / 5) + -1) >= i_216_; i_216_++)
 		{
-			aClass46_Sub1_2.method341(245, (byte) -48, (i_216_ * 34) + 36, i, 0);
+			aClass46_Sub1_2.method341(245, (i_216_ * 34) + 36, i, 0);
 		}
 		if (bool)
 		{
@@ -2956,9 +2956,9 @@ public final class mudclient extends GameWindow
 								buffer.putInt((int) (9.9999999E7 * Math.random()));
 							}
 							buffer.putTribyte((int) (Math.random() * 9.9999999E7));
-							buffer.method399((RuntimeException_Sub1.aBigInteger2),
+							buffer.encodeWithRSA((RuntimeException_Sub1.aBigInteger2),
 							        AClass1.aBigInteger1);
-							streamClass.aClass27_Sub1_Sub1_1.method394(buffer.position, buffer.buffer, 0);
+							streamClass.aClass27_Sub1_Sub1_1.writeBytes(buffer.position, buffer.buffer, 0);
 							streamClass.aClass27_Sub1_Sub1_1.putShort(0);
 							final int i_237_ = ((streamClass.aClass27_Sub1_Sub1_1).position);
 							streamClass.aClass27_Sub1_Sub1_1.put(i_234_);
@@ -4048,15 +4048,15 @@ public final class mudclient extends GameWindow
 			aClass46_Sub1_2.method327(i_311_ + 216, i_312_ + 30, 246, 160, 73, i_314_, 205);
 			for (int i_315_ = 0; 4 > i_315_; i_315_++)
 			{
-				aClass46_Sub1_2.method341(197, (byte) -33, (i_312_ - -(i_315_ * 34)) + 30, i_311_ + 8, 0);
+				aClass46_Sub1_2.method341(197, (i_312_ - -(i_315_ * 34)) + 30, i_311_ + 8, 0);
 			}
 			for (int i_316_ = 0; i_316_ < 4; i_316_++)
 			{
-				aClass46_Sub1_2.method341(197, (byte) -26, i_312_ + (i_316_ * 34) + 155, i_311_ - -8, 0);
+				aClass46_Sub1_2.method341(197, i_312_ + (i_316_ * 34) + 155, i_311_ - -8, 0);
 			}
 			for (int i_317_ = 0; i_317_ < 7; i_317_++)
 			{
-				aClass46_Sub1_2.method341(246, (byte) -7, i_312_ + (i_317_ * 34) + 30, i_311_ - -216, 0);
+				aClass46_Sub1_2.method341(246, i_312_ + (i_317_ * 34) + 30, i_311_ - -216, 0);
 			}
 			for (int i_318_ = 0; i_318_ < 6; i_318_++)
 			{
@@ -4291,9 +4291,9 @@ public final class mudclient extends GameWindow
 		aClass46_Sub1_2.method327((i_351_ / 2) + i_349_, i_350_, i_351_ / 2, 128, 93, i_354_, 24);
 		aClass46_Sub1_2.method327(i_349_, i_350_ + 24, i_351_, 128, i + 187, Class34.method227(false, 220, 220, 220),
 		        i_352_ + -24);
-		aClass46_Sub1_2.method341(i_351_, (byte) -120, i_350_ - -24, i_349_, 0);
+		aClass46_Sub1_2.method341(i_351_, i_350_ - -24, i_349_, 0);
 		aClass46_Sub1_2.method319(0, 24, i_350_ - 0, (i_351_ / 2) + i_349_);
-		aClass46_Sub1_2.method341(i_351_, (byte) -110, i_352_ + (i_350_ - 16), i_349_, 0);
+		aClass46_Sub1_2.method341(i_351_, i_352_ + (i_350_ - 16), i_349_, 0);
 		aClass46_Sub1_2.method335(0, 255, 4, "Friends", i_350_ + 16, i_349_ + (i_351_ / 4));
 		aClass46_Sub1_2.method335(0, 255, 4, "Ignore", i_350_ - -16, (i_349_ + (i_351_ / 4)) - -(i_351_ / 2));
 		aClass10_4.method75(0, anInt951);
@@ -4982,12 +4982,8 @@ public final class mudclient extends GameWindow
 		}
 	}
 
-	private void method540(final byte i)
+	private void method540()
 	{
-		if (i != 46)
-		{
-			anIntArray189 = null;
-		}
 		logoutTimeout = 0;
 		displayMessage(0, "Sorry, you can't logout at the moment", 0, null, -108, "@cya@", null, false);
 	}
@@ -5322,7 +5318,7 @@ public final class mudclient extends GameWindow
 				i_437_++;
 			}
 		}
-		aClass46_Sub1_2.method341(398, (byte) -63, i_433_ - -222, i_432_ + 5, 0);
+		aClass46_Sub1_2.method341(398, i_433_ - -222, i_432_ + 5, 0);
 		if (anInt972 == -1)
 		{
 			aClass46_Sub1_2.method335(16776960, 255, 3, "Select an object to buy or sell", i_433_ - -214, i_432_ + 204);
@@ -5546,12 +5542,12 @@ public final class mudclient extends GameWindow
 		{
 			while (aClass27_Sub1_Sub1_2.position < i_448_)
 			{
-				if (aClass27_Sub1_Sub1_2.readByte() != 255)
+				if (aClass27_Sub1_Sub1_2.readUnsignedByte() != 255)
 				{
 					aClass27_Sub1_Sub1_2.position--;
 					int i_465_ = aClass27_Sub1_Sub1_2.method392();
-					final int i_466_ = anInt1030 - -aClass27_Sub1_Sub1_2.method406(-1);
-					final int i_467_ = (anInt1001 - -aClass27_Sub1_Sub1_2.method406(i ^ 0x21));
+					final int i_466_ = anInt1030 - -aClass27_Sub1_Sub1_2.readByte();
+					final int i_467_ = (anInt1001 - -aClass27_Sub1_Sub1_2.readByte());
 					if ((0x8000 & i_465_) == 0)
 					{
 						anIntArray192[anInt1062] = i_466_;
@@ -5597,8 +5593,8 @@ public final class mudclient extends GameWindow
 				else
 				{
 					int i_471_ = 0;
-					final int i_472_ = ((anInt1030 + aClass27_Sub1_Sub1_2.method406(i ^ 0x21)) >> 3);
-					final int i_473_ = (anInt1001 + aClass27_Sub1_Sub1_2.method406(-1)) >> 3;
+					final int i_472_ = ((anInt1030 + aClass27_Sub1_Sub1_2.readByte()) >> 3);
+					final int i_473_ = (anInt1001 + aClass27_Sub1_Sub1_2.readByte()) >> 3;
 					for (int i_474_ = 0; anInt1062 > i_474_; i_474_++)
 					{
 						final int i_475_ = (anIntArray192[i_474_] >> 3) + -i_472_;
@@ -5623,11 +5619,11 @@ public final class mudclient extends GameWindow
 		{
 			while (i_448_ > aClass27_Sub1_Sub1_2.position)
 			{
-				if (255 == aClass27_Sub1_Sub1_2.readByte())
+				if (255 == aClass27_Sub1_Sub1_2.readUnsignedByte())
 				{
 					int i_477_ = 0;
-					final int i_478_ = (anInt1030 - -aClass27_Sub1_Sub1_2.method406(-1)) >> 3;
-					final int i_479_ = (anInt1001 + aClass27_Sub1_Sub1_2.method406(-1)) >> 3;
+					final int i_478_ = (anInt1030 - -aClass27_Sub1_Sub1_2.readByte()) >> 3;
+					final int i_479_ = (anInt1001 + aClass27_Sub1_Sub1_2.readByte()) >> 3;
 					for (int i_480_ = 0; i_480_ < anInt1022; i_480_++)
 					{
 						final int i_481_ = (anIntArray191[i_480_] >> 3) + -i_478_;
@@ -5658,8 +5654,8 @@ public final class mudclient extends GameWindow
 				{
 					aClass27_Sub1_Sub1_2.position--;
 					final int i_483_ = aClass27_Sub1_Sub1_2.method392();
-					final int i_484_ = anInt1030 + aClass27_Sub1_Sub1_2.method406(-1);
-					final int i_485_ = anInt1001 + aClass27_Sub1_Sub1_2.method406(-1);
+					final int i_484_ = anInt1030 + aClass27_Sub1_Sub1_2.readByte();
+					final int i_485_ = anInt1001 + aClass27_Sub1_Sub1_2.readByte();
 					int i_486_ = 0;
 					for (int i_487_ = 0; i_487_ < anInt1022; i_487_++)
 					{
@@ -5724,11 +5720,11 @@ public final class mudclient extends GameWindow
 		}
 		else if (i_447_ == 111)
 		{
-			aBool93 = aClass27_Sub1_Sub1_2.readByte() != 0;
+			aBool93 = aClass27_Sub1_Sub1_2.readUnsignedByte() != 0;
 		}
 		else if (i_447_ == 53)
 		{
-			anInt1015 = aClass27_Sub1_Sub1_2.readByte();
+			anInt1015 = aClass27_Sub1_Sub1_2.readUnsignedByte();
 			for (int i_494_ = 0; i_494_ < anInt1015; i_494_++)
 			{
 				final int i_495_ = aClass27_Sub1_Sub1_2.method392();
@@ -5751,14 +5747,14 @@ public final class mudclient extends GameWindow
 			{
 				final int i_498_ = aClass27_Sub1_Sub1_2.method392();
 				final Mob class15 = aClass15Array2[i_498_];
-				final byte i_499_ = aClass27_Sub1_Sub1_2.method406(i + 33);
+				final byte i_499_ = aClass27_Sub1_Sub1_2.readByte();
 				if (i_499_ != 0)
 				{
 					if (i_499_ == 1)
 					{
 						if (class15 != null)
 						{
-							final int i_500_ = aClass27_Sub1_Sub1_2.readByte();
+							final int i_500_ = aClass27_Sub1_Sub1_2.readUnsignedByte();
 							final String string = Class4.method8(aClass27_Sub1_Sub1_2, -46);
 							boolean bool = false;
 							final String string_501_ = Class43.method298((class15.aString7));
@@ -5785,9 +5781,9 @@ public final class mudclient extends GameWindow
 					}
 					else if (i_499_ == 2)
 					{
-						final int i_503_ = aClass27_Sub1_Sub1_2.readByte();
-						final int i_504_ = aClass27_Sub1_Sub1_2.readByte();
-						final int i_505_ = aClass27_Sub1_Sub1_2.readByte();
+						final int i_503_ = aClass27_Sub1_Sub1_2.readUnsignedByte();
+						final int i_504_ = aClass27_Sub1_Sub1_2.readUnsignedByte();
+						final int i_505_ = aClass27_Sub1_Sub1_2.readUnsignedByte();
 						if (class15 != null)
 						{
 							class15.anInt157 = i_503_;
@@ -5845,7 +5841,7 @@ public final class mudclient extends GameWindow
 						aClass27_Sub1_Sub1_2.method392();
 						aClass27_Sub1_Sub1_2.method398(i ^ 0x21);
 						aClass27_Sub1_Sub1_2.method398(-1);
-						final int i_510_ = aClass27_Sub1_Sub1_2.readByte();
+						final int i_510_ = aClass27_Sub1_Sub1_2.readUnsignedByte();
 						aClass27_Sub1_Sub1_2.position += 6 + i_510_;
 					}
 					else
@@ -5853,21 +5849,21 @@ public final class mudclient extends GameWindow
 						aClass27_Sub1_Sub1_2.method392();
 						class15.aString6 = aClass27_Sub1_Sub1_2.method398(-1);
 						class15.aString7 = aClass27_Sub1_Sub1_2.method398(-1);
-						final int i_511_ = aClass27_Sub1_Sub1_2.readByte();
+						final int i_511_ = aClass27_Sub1_Sub1_2.readUnsignedByte();
 						for (int i_512_ = 0; i_511_ > i_512_; i_512_++)
 						{
-							class15.animationCount[i_512_] = aClass27_Sub1_Sub1_2.readByte();
+							class15.animationCount[i_512_] = aClass27_Sub1_Sub1_2.readUnsignedByte();
 						}
 						for (int i_513_ = i_511_; i_513_ < 12; i_513_++)
 						{
 							class15.animationCount[i_513_] = 0;
 						}
-						class15.anInt153 = aClass27_Sub1_Sub1_2.readByte();
-						class15.anInt163 = aClass27_Sub1_Sub1_2.readByte();
-						class15.anInt155 = aClass27_Sub1_Sub1_2.readByte();
-						class15.anInt152 = aClass27_Sub1_Sub1_2.readByte();
-						class15.maybe_level = aClass27_Sub1_Sub1_2.readByte();
-						class15.anInt144 = aClass27_Sub1_Sub1_2.readByte();
+						class15.anInt153 = aClass27_Sub1_Sub1_2.readUnsignedByte();
+						class15.anInt163 = aClass27_Sub1_Sub1_2.readUnsignedByte();
+						class15.anInt155 = aClass27_Sub1_Sub1_2.readUnsignedByte();
+						class15.anInt152 = aClass27_Sub1_Sub1_2.readUnsignedByte();
+						class15.maybe_level = aClass27_Sub1_Sub1_2.readUnsignedByte();
+						class15.anInt144 = aClass27_Sub1_Sub1_2.readUnsignedByte();
 					}
 				}
 				else
@@ -5885,13 +5881,13 @@ public final class mudclient extends GameWindow
 		{
 			while (i_448_ > aClass27_Sub1_Sub1_2.position)
 			{
-				if (aClass27_Sub1_Sub1_2.readByte() != 255)
+				if (aClass27_Sub1_Sub1_2.readUnsignedByte() != 255)
 				{
 					aClass27_Sub1_Sub1_2.position--;
 					final int i_515_ = aClass27_Sub1_Sub1_2.method392();
-					final int i_516_ = anInt1030 + aClass27_Sub1_Sub1_2.method406(-1);
-					final int i_517_ = anInt1001 + aClass27_Sub1_Sub1_2.method406(-1);
-					final int i_518_ = aClass27_Sub1_Sub1_2.method406(-1);
+					final int i_516_ = anInt1030 + aClass27_Sub1_Sub1_2.readByte();
+					final int i_517_ = anInt1001 + aClass27_Sub1_Sub1_2.readByte();
+					final int i_518_ = aClass27_Sub1_Sub1_2.readByte();
 					int i_519_ = 0;
 					for (int i_520_ = 0; anInt957 > i_520_; i_520_++)
 					{
@@ -5931,8 +5927,8 @@ public final class mudclient extends GameWindow
 				else
 				{
 					int i_521_ = 0;
-					final int i_522_ = (anInt1030 + aClass27_Sub1_Sub1_2.method406(-1)) >> 3;
-					final int i_523_ = (anInt1001 - -aClass27_Sub1_Sub1_2.method406(-1)) >> 3;
+					final int i_522_ = (anInt1030 + aClass27_Sub1_Sub1_2.readByte()) >> 3;
+					final int i_523_ = (anInt1001 - -aClass27_Sub1_Sub1_2.readByte()) >> 3;
 					for (int i_524_ = 0; anInt957 > i_524_; i_524_++)
 					{
 						final int i_525_ = (anIntArray176[i_524_] >> 3) + -i_522_;
@@ -6049,14 +6045,14 @@ public final class mudclient extends GameWindow
 			{
 				final int i_546_ = aClass27_Sub1_Sub1_2.method392();
 				final Mob class15 = aClass15Array6[i_546_];
-				final int i_547_ = aClass27_Sub1_Sub1_2.readByte();
+				final int i_547_ = aClass27_Sub1_Sub1_2.readUnsignedByte();
 				if (i_547_ != 1)
 				{
 					if (i_547_ == 2)
 					{
-						final int i_548_ = aClass27_Sub1_Sub1_2.readByte();
-						final int i_549_ = aClass27_Sub1_Sub1_2.readByte();
-						final int i_550_ = aClass27_Sub1_Sub1_2.readByte();
+						final int i_548_ = aClass27_Sub1_Sub1_2.readUnsignedByte();
+						final int i_549_ = aClass27_Sub1_Sub1_2.readUnsignedByte();
+						final int i_550_ = aClass27_Sub1_Sub1_2.readUnsignedByte();
 						if (class15 != null)
 						{
 							class15.anInt148 = i_550_;
@@ -6087,7 +6083,7 @@ public final class mudclient extends GameWindow
 		else if (i_447_ == 245)
 		{
 			aBool70 = true;
-			final int i_552_ = aClass27_Sub1_Sub1_2.readByte();
+			final int i_552_ = aClass27_Sub1_Sub1_2.readUnsignedByte();
 			anInt953 = i_552_;
 			for (int i_553_ = 0; i_553_ < i_552_; i_553_++)
 			{
@@ -6112,23 +6108,23 @@ public final class mudclient extends GameWindow
 		{
 			for (int i_554_ = 0; i_554_ < 18; i_554_++)
 			{
-				anIntArray185[i_554_] = aClass27_Sub1_Sub1_2.readByte();
+				anIntArray185[i_554_] = aClass27_Sub1_Sub1_2.readUnsignedByte();
 			}
 			for (int i_555_ = 0; 18 > i_555_; i_555_++)
 			{
-				anIntArray200[i_555_] = aClass27_Sub1_Sub1_2.readByte();
+				anIntArray200[i_555_] = aClass27_Sub1_Sub1_2.readUnsignedByte();
 			}
 			for (int i_556_ = 0; i_556_ < 18; i_556_++)
 			{
 				anIntArray189[i_556_] = aClass27_Sub1_Sub1_2.readInt();
 			}
-			anInt975 = aClass27_Sub1_Sub1_2.readByte();
+			anInt975 = aClass27_Sub1_Sub1_2.readUnsignedByte();
 		}
 		else if (i_447_ == 153)
 		{
 			for (int i_557_ = 0; 5 > i_557_; i_557_++)
 			{
-				anIntArray186[i_557_] = aClass27_Sub1_Sub1_2.readByte();
+				anIntArray186[i_557_] = aClass27_Sub1_Sub1_2.readUnsignedByte();
 			}
 		}
 		else if (i_447_ == 83)
@@ -6236,7 +6232,7 @@ public final class mudclient extends GameWindow
 		}
 		else if (i_447_ == 97)
 		{
-			anInt1026 = aClass27_Sub1_Sub1_2.readByte();
+			anInt1026 = aClass27_Sub1_Sub1_2.readUnsignedByte();
 			for (int i_573_ = 0; anInt1026 > i_573_; i_573_++)
 			{
 				anIntArray181[i_573_] = aClass27_Sub1_Sub1_2.method392();
@@ -6247,7 +6243,7 @@ public final class mudclient extends GameWindow
 		}
 		else if (i_447_ == 162)
 		{
-			final int i_574_ = aClass27_Sub1_Sub1_2.readByte();
+			final int i_574_ = aClass27_Sub1_Sub1_2.readUnsignedByte();
 			if (i_574_ != 1)
 			{
 				aBool67 = false;
@@ -6260,11 +6256,11 @@ public final class mudclient extends GameWindow
 		else if (i_447_ == 101)
 		{
 			aBool57 = true;
-			final int i_575_ = aClass27_Sub1_Sub1_2.readByte();
-			final byte i_576_ = aClass27_Sub1_Sub1_2.method406(-1);
-			anInt1013 = aClass27_Sub1_Sub1_2.readByte();
-			anInt1024 = aClass27_Sub1_Sub1_2.readByte();
-			anInt959 = aClass27_Sub1_Sub1_2.readByte();
+			final int i_575_ = aClass27_Sub1_Sub1_2.readUnsignedByte();
+			final byte i_576_ = aClass27_Sub1_Sub1_2.readByte();
+			anInt1013 = aClass27_Sub1_Sub1_2.readUnsignedByte();
+			anInt1024 = aClass27_Sub1_Sub1_2.readUnsignedByte();
+			anInt959 = aClass27_Sub1_Sub1_2.readUnsignedByte();
 			for (int i_577_ = 0; 40 > i_577_; i_577_++)
 			{
 				anIntArray179[i_577_] = -1;
@@ -6314,7 +6310,7 @@ public final class mudclient extends GameWindow
 		}
 		else if (i_447_ == 15)
 		{
-			final byte i_582_ = aClass27_Sub1_Sub1_2.method406(-1);
+			final byte i_582_ = aClass27_Sub1_Sub1_2.readByte();
 			if (i_582_ != 1)
 			{
 				aBool68 = false;
@@ -6326,15 +6322,15 @@ public final class mudclient extends GameWindow
 		}
 		else if (i_447_ == 240)
 		{
-			aBool86 = aClass27_Sub1_Sub1_2.readByte() == 1;
-			aBool83 = 1 == aClass27_Sub1_Sub1_2.readByte();
-			aBool58 = 1 == aClass27_Sub1_Sub1_2.readByte();
+			aBool86 = aClass27_Sub1_Sub1_2.readUnsignedByte() == 1;
+			aBool83 = 1 == aClass27_Sub1_Sub1_2.readUnsignedByte();
+			aBool58 = 1 == aClass27_Sub1_Sub1_2.readUnsignedByte();
 		}
 		else if (i_447_ == 206)
 		{
 			for (int i_583_ = 0; i_583_ < (i_448_ + -1); i_583_++)
 			{
-				final boolean bool = 1 == aClass27_Sub1_Sub1_2.method406(-1);
+				final boolean bool = 1 == aClass27_Sub1_Sub1_2.readByte();
 				if (!aBoolArray11[i_583_] && bool)
 				{
 					method564("prayeron");
@@ -6350,14 +6346,14 @@ public final class mudclient extends GameWindow
 		{
 			for (int i_584_ = 0; i_584_ < 50; i_584_++)
 			{
-				aBoolArray12[i_584_] = 1 == aClass27_Sub1_Sub1_2.method406(Class47.method369(i, 33));
+				aBoolArray12[i_584_] = 1 == aClass27_Sub1_Sub1_2.readByte();
 			}
 		}
 		else if (i_447_ == 42)
 		{
 			aBool81 = true;
-			anInt952 = aClass27_Sub1_Sub1_2.readByte();
-			anInt1017 = aClass27_Sub1_Sub1_2.readByte();
+			anInt952 = aClass27_Sub1_Sub1_2.readUnsignedByte();
+			anInt1017 = aClass27_Sub1_Sub1_2.readUnsignedByte();
 			for (int i_585_ = 0; anInt952 > i_585_; i_585_++)
 			{
 				anIntArray177[i_585_] = aClass27_Sub1_Sub1_2.method392();
@@ -6371,7 +6367,7 @@ public final class mudclient extends GameWindow
 		}
 		else if (i_447_ == 33)
 		{
-			final int i_586_ = aClass27_Sub1_Sub1_2.readByte();
+			final int i_586_ = aClass27_Sub1_Sub1_2.readUnsignedByte();
 			anIntArray189[i_586_] = aClass27_Sub1_Sub1_2.readInt();
 		}
 		else
@@ -6408,13 +6404,13 @@ public final class mudclient extends GameWindow
 				aBool89 = true;
 				aBool84 = false;
 				aString31 = aClass27_Sub1_Sub1_2.method398(-1);
-				anInt998 = aClass27_Sub1_Sub1_2.readByte();
+				anInt998 = aClass27_Sub1_Sub1_2.readUnsignedByte();
 				for (int i_588_ = 0; i_588_ < anInt998; i_588_++)
 				{
 					anIntArray159[i_588_] = aClass27_Sub1_Sub1_2.method392();
 					anIntArray220[i_588_] = aClass27_Sub1_Sub1_2.readInt();
 				}
-				anInt1038 = aClass27_Sub1_Sub1_2.readByte();
+				anInt1038 = aClass27_Sub1_Sub1_2.readUnsignedByte();
 				for (int i_589_ = 0; i_589_ < anInt1038; i_589_++)
 				{
 					anIntArray172[i_589_] = aClass27_Sub1_Sub1_2.method392();
@@ -6423,7 +6419,7 @@ public final class mudclient extends GameWindow
 			}
 			else if (i_447_ == 6)
 			{
-				anInt967 = aClass27_Sub1_Sub1_2.readByte();
+				anInt967 = aClass27_Sub1_Sub1_2.readUnsignedByte();
 				for (int i_590_ = 0; anInt967 > i_590_; i_590_++)
 				{
 					anIntArray212[i_590_] = aClass27_Sub1_Sub1_2.method392();
@@ -6434,7 +6430,7 @@ public final class mudclient extends GameWindow
 			}
 			else if (i_447_ == 30)
 			{
-				if (1 != aClass27_Sub1_Sub1_2.readByte())
+				if (1 != aClass27_Sub1_Sub1_2.readUnsignedByte())
 				{
 					aBool85 = false;
 				}
@@ -6442,7 +6438,7 @@ public final class mudclient extends GameWindow
 				{
 					aBool85 = true;
 				}
-				if (1 == aClass27_Sub1_Sub1_2.readByte())
+				if (1 == aClass27_Sub1_Sub1_2.readUnsignedByte())
 				{
 					aBool65 = true;
 				}
@@ -6450,7 +6446,7 @@ public final class mudclient extends GameWindow
 				{
 					aBool65 = false;
 				}
-				if (1 == aClass27_Sub1_Sub1_2.readByte())
+				if (1 == aClass27_Sub1_Sub1_2.readUnsignedByte())
 				{
 					aBool71 = true;
 				}
@@ -6458,7 +6454,7 @@ public final class mudclient extends GameWindow
 				{
 					aBool71 = false;
 				}
-				if (aClass27_Sub1_Sub1_2.readByte() == 1)
+				if (aClass27_Sub1_Sub1_2.readUnsignedByte() == 1)
 				{
 					aBool79 = true;
 				}
@@ -6471,7 +6467,7 @@ public final class mudclient extends GameWindow
 			}
 			else if (i_447_ == 249)
 			{
-				final int i_591_ = aClass27_Sub1_Sub1_2.readByte();
+				final int i_591_ = aClass27_Sub1_Sub1_2.readUnsignedByte();
 				final int i_592_ = aClass27_Sub1_Sub1_2.method392();
 				final int i_593_ = aClass27_Sub1_Sub1_2.method387(18381);
 				if (i_593_ == 0)
@@ -6497,7 +6493,7 @@ public final class mudclient extends GameWindow
 			else if (i_447_ == 90)
 			{
 				int i_595_ = 1;
-				final int i_596_ = aClass27_Sub1_Sub1_2.readByte();
+				final int i_596_ = aClass27_Sub1_Sub1_2.readUnsignedByte();
 				final int i_597_ = aClass27_Sub1_Sub1_2.method392();
 				if (Class1.anIntArray1[i_597_ & 0x7fff] == 0)
 				{
@@ -6513,7 +6509,7 @@ public final class mudclient extends GameWindow
 			}
 			else if (i_447_ == 123)
 			{
-				final int i_598_ = aClass27_Sub1_Sub1_2.readByte();
+				final int i_598_ = aClass27_Sub1_Sub1_2.readUnsignedByte();
 				anInt1015--;
 				for (int i_599_ = i_598_; i_599_ < anInt1015; i_599_++)
 				{
@@ -6524,14 +6520,14 @@ public final class mudclient extends GameWindow
 			}
 			else if (i_447_ == 159)
 			{
-				final int i_600_ = aClass27_Sub1_Sub1_2.readByte();
-				anIntArray185[i_600_] = aClass27_Sub1_Sub1_2.readByte();
-				anIntArray200[i_600_] = aClass27_Sub1_Sub1_2.readByte();
+				final int i_600_ = aClass27_Sub1_Sub1_2.readUnsignedByte();
+				anIntArray185[i_600_] = aClass27_Sub1_Sub1_2.readUnsignedByte();
+				anIntArray200[i_600_] = aClass27_Sub1_Sub1_2.readUnsignedByte();
 				anIntArray189[i_600_] = aClass27_Sub1_Sub1_2.readInt();
 			}
 			else if (i_447_ == 253)
 			{
-				final byte i_601_ = aClass27_Sub1_Sub1_2.method406(i ^ 0x21);
+				final byte i_601_ = aClass27_Sub1_Sub1_2.readByte();
 				if (i_601_ != 1)
 				{
 					aBool75 = false;
@@ -6543,7 +6539,7 @@ public final class mudclient extends GameWindow
 			}
 			else if (i_447_ == 210)
 			{
-				final byte i_602_ = aClass27_Sub1_Sub1_2.method406(-1);
+				final byte i_602_ = aClass27_Sub1_Sub1_2.readByte();
 				if (i_602_ != 1)
 				{
 					aBool59 = false;
@@ -6559,22 +6555,22 @@ public final class mudclient extends GameWindow
 				aBool92 = true;
 				aBool72 = false;
 				aString37 = aClass27_Sub1_Sub1_2.method398(-1);
-				anInt1053 = aClass27_Sub1_Sub1_2.readByte();
+				anInt1053 = aClass27_Sub1_Sub1_2.readUnsignedByte();
 				for (int i_603_ = 0; anInt1053 > i_603_; i_603_++)
 				{
 					anIntArray221[i_603_] = aClass27_Sub1_Sub1_2.method392();
 					anIntArray206[i_603_] = aClass27_Sub1_Sub1_2.readInt();
 				}
-				anInt992 = aClass27_Sub1_Sub1_2.readByte();
+				anInt992 = aClass27_Sub1_Sub1_2.readUnsignedByte();
 				for (int i_604_ = 0; anInt992 > i_604_; i_604_++)
 				{
 					anIntArray215[i_604_] = aClass27_Sub1_Sub1_2.method392();
 					anIntArray183[i_604_] = aClass27_Sub1_Sub1_2.readInt();
 				}
-				anInt995 = aClass27_Sub1_Sub1_2.readByte();
-				anInt1004 = aClass27_Sub1_Sub1_2.readByte();
-				anInt1025 = aClass27_Sub1_Sub1_2.readByte();
-				anInt1034 = aClass27_Sub1_Sub1_2.readByte();
+				anInt995 = aClass27_Sub1_Sub1_2.readUnsignedByte();
+				anInt1004 = aClass27_Sub1_Sub1_2.readUnsignedByte();
+				anInt1025 = aClass27_Sub1_Sub1_2.readUnsignedByte();
+				anInt1034 = aClass27_Sub1_Sub1_2.readUnsignedByte();
 			}
 			else if (i_447_ == 204)
 			{
@@ -6585,9 +6581,9 @@ public final class mudclient extends GameWindow
 			{
 				if (anInt1012 < 50)
 				{
-					final int i_605_ = aClass27_Sub1_Sub1_2.readByte();
-					final int i_606_ = aClass27_Sub1_Sub1_2.method406(-1) + anInt1030;
-					final int i_607_ = aClass27_Sub1_Sub1_2.method406(-1) - -anInt1001;
+					final int i_605_ = aClass27_Sub1_Sub1_2.readUnsignedByte();
+					final int i_606_ = aClass27_Sub1_Sub1_2.readByte() + anInt1030;
+					final int i_607_ = aClass27_Sub1_Sub1_2.readByte() - -anInt1001;
 					anIntArray214[anInt1012] = i_605_;
 					anIntArray208[anInt1012] = 0;
 					anIntArray188[anInt1012] = i_606_;
@@ -6601,7 +6597,7 @@ public final class mudclient extends GameWindow
 				{
 					anInt1021 = aClass27_Sub1_Sub1_2.readInt();
 					anInt988 = aClass27_Sub1_Sub1_2.method392();
-					anInt963 = aClass27_Sub1_Sub1_2.readByte();
+					anInt963 = aClass27_Sub1_Sub1_2.readUnsignedByte();
 					anInt993 = aClass27_Sub1_Sub1_2.method392();
 					aBool77 = true;
 					aString36 = null;
@@ -6956,7 +6952,7 @@ public final class mudclient extends GameWindow
 			final int packetLength = streamClass.method125(i + -20, aClass27_Sub1_Sub1_2);
 			if (packetLength > 0)
 			{
-				checkIncomingPacket(aClass27_Sub1_Sub1_2.readByte(), 20, packetLength);
+				checkIncomingPacket(aClass27_Sub1_Sub1_2.readUnsignedByte(), 20, packetLength);
 			}
 		}
 	}
@@ -7275,15 +7271,15 @@ public final class mudclient extends GameWindow
 			aClass46_Sub1_2.method327(i_669_ + 216, i_670_ + 30, 246, 160, 112, i_672_, 205);
 			for (int i_673_ = 0; 3 > i_673_; i_673_++)
 			{
-				aClass46_Sub1_2.method341(197, (byte) -54, (i_673_ * 34) + i_670_ + 30, i_669_ + 8, 0);
+				aClass46_Sub1_2.method341(197, (i_673_ * 34) + i_670_ + 30, i_669_ + 8, 0);
 			}
 			for (int i_674_ = 0; 3 > i_674_; i_674_++)
 			{
-				aClass46_Sub1_2.method341(197, (byte) -63, (i_670_ + 123) - -(i_674_ * 34), i_669_ + 8, 0);
+				aClass46_Sub1_2.method341(197, (i_670_ + 123) - -(i_674_ * 34), i_669_ + 8, 0);
 			}
 			for (int i_676_ = 0; 7 > i_676_; i_676_++)
 			{
-				aClass46_Sub1_2.method341(246, (byte) -76, (i_676_ * 34) + i_670_ + 30, i_669_ + 216, 0);
+				aClass46_Sub1_2.method341(246, (i_676_ * 34) + i_670_ + 30, i_669_ + 216, 0);
 			}
 			for (int i_677_ = 0; i_677_ < 6; i_677_++)
 			{
@@ -7297,8 +7293,8 @@ public final class mudclient extends GameWindow
 				}
 				aClass46_Sub1_2.method319(0, 205, i_670_ + 30, i_669_ + (i_677_ * 49) + 216);
 			}
-			aClass46_Sub1_2.method341(197, (byte) -33, i_670_ + 215, i_669_ + 8, 0);
-			aClass46_Sub1_2.method341(197, (byte) -43, i_670_ + 257, i_669_ + 8, 0);
+			aClass46_Sub1_2.method341(197, i_670_ + 215, i_669_ + 8, 0);
+			aClass46_Sub1_2.method341(197, i_670_ + 257, i_669_ + 8, 0);
 			aClass46_Sub1_2.method319(0, 43, i_670_ + 215, i_669_ + 8);
 			aClass46_Sub1_2.method319(0, 43, i_670_ + 215, i_669_ + 204);
 			aClass46_Sub1_2.method324(
@@ -7430,7 +7426,7 @@ public final class mudclient extends GameWindow
 		aClass46_Sub1_2.method327((i_689_ / 2) + i, i_688_, i_689_ / 2, 128, 79, i_692_, 24);
 		aClass46_Sub1_2.method327(i, i_688_ + 24, i_689_, 128, 102, Class34.method227(false, 220, 220, 220),
 		        i_690_ - 24);
-		aClass46_Sub1_2.method341(i_689_, (byte) -88, i_688_ + 24, i, 0);
+		aClass46_Sub1_2.method341(i_689_, i_688_ + 24, i, 0);
 		aClass46_Sub1_2.method319(0, 24, i_688_ + 0, (i_689_ / 2) + i);
 		aClass46_Sub1_2.method335(0, 255, 4, "Stats", i_688_ - -16, i - -(i_689_ / 4));
 		aClass46_Sub1_2.method335(0, 255, 4, "Quests", i_688_ - -16, (i_689_ / 2) + (i - -(i_689_ / 4)));
@@ -7488,7 +7484,7 @@ public final class mudclient extends GameWindow
 				i_693_ += 13;
 			}
 			i_693_ += 6;
-			aClass46_Sub1_2.method341(i_689_, (byte) -19, i_693_ + -15, i, 0);
+			aClass46_Sub1_2.method341(i_689_, i_693_ + -15, i, 0);
 			if (i_694_ != -1)
 			{
 				aClass46_Sub1_2.method324(
@@ -8070,7 +8066,7 @@ public final class mudclient extends GameWindow
 				i_750_++;
 			}
 		}
-		aClass46_Sub1_2.method341(398, (byte) -73, i_742_ + 256, i_741_ + 5, 0);
+		aClass46_Sub1_2.method341(398, i_742_ + 256, i_741_ + 5, 0);
 		if (anInt983 == -1)
 		{
 			aClass46_Sub1_2.method335(16776960, i ^ 0xfe, 3, "Select an object to withdraw or deposit", i_742_ + 248,
@@ -11302,9 +11298,9 @@ public final class mudclient extends GameWindow
 		aClass46_Sub1_2.method327(i_966_, i_967_ + 24, i_968_, 128, 125, Class34.method227(false, 220, 220, 220), 90);
 		aClass46_Sub1_2.method327(i_966_, (i_967_ - -24) + 90, i_968_, 128, 108,
 		        Class34.method227(false, 160, 160, 160), (i_969_ - 90) + -24);
-		aClass46_Sub1_2.method341(i_968_, (byte) -30, i_967_ + 24, i_966_, 0);
+		aClass46_Sub1_2.method341(i_968_, i_967_ + 24, i_966_, 0);
 		aClass46_Sub1_2.method319(0, 24, i_967_ - 0, (i_968_ / 2) + i_966_);
-		aClass46_Sub1_2.method341(i_968_, (byte) -82, i_967_ + 113, i_966_, 0);
+		aClass46_Sub1_2.method341(i_968_, i_967_ + 113, i_966_, 0);
 		aClass46_Sub1_2.method335(0, 255, 4, "Magic", i_967_ + 16, i_966_ - -(i_968_ / 4));
 		aClass46_Sub1_2.method335(0, 255, 4, "Prayers", i_967_ - -16, (i_968_ / 2) + i_966_ + (i_968_ / 4));
 		if (anInt1003 == 0)
@@ -11698,8 +11694,8 @@ public final class mudclient extends GameWindow
 				aClass46_Sub1_2.method327(i_998_, i_999_ + (i_1002_ * 20), i_1000_, 128, 101,
 				        Class34.method227(false, 0, 255, 0), 20);
 			}
-			aClass46_Sub1_2.method341(i_1000_, (byte) -88, i_999_ - -(i_1002_ * 20), i_998_, 0);
-			aClass46_Sub1_2.method341(i_1000_, (byte) -38, i_999_ - (-(i_1002_ * 20) - 20), i_998_, 0);
+			aClass46_Sub1_2.method341(i_1000_, i_999_ - -(i_1002_ * 20), i_998_, 0);
+			aClass46_Sub1_2.method341(i_1000_, i_999_ - (-(i_1002_ * 20) - 20), i_998_, 0);
 		}
 		aClass46_Sub1_2.method335(16777215, 255, 3, "Select combat style", i_999_ + 16, i_998_ - -(i_1000_ / 2));
 		aClass46_Sub1_2.method335(0, i + 257, 3, "Controlled (+1 of each)", i_999_ + 36, (i_1000_ / 2) + i_998_);

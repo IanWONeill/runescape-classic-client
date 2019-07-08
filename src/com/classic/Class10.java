@@ -83,16 +83,16 @@ final class Class10
 	        final int i_14_)
 	{
 		aClass46_2.method321(i_11_, 16777215, i_12_, i_13_, i, i_10_ + 1);
-		aClass46_2.method341(i_13_, (byte) -122, i_11_, i, anInt103);
+		aClass46_2.method341(i_13_, i_11_, i, anInt103);
 		aClass46_2.method319(anInt103, i_12_, i_11_, i);
-		aClass46_2.method341(i_13_, (byte) -110, i_11_ + (i_12_ - 1), i, anInt91);
+		aClass46_2.method341(i_13_, i_11_ + (i_12_ - 1), i, anInt91);
 		aClass46_2.method319(anInt91, i_12_, i_11_, (i + -1) - -i_13_);
 		if (anIntArray33[i_14_] == 1)
 		{
 			for (int i_15_ = 0; i_12_ > i_15_; i_15_++)
 			{
-				aClass46_2.method341(1, (byte) -123, i_11_ + i_15_, i_15_ + i, 0);
-				aClass46_2.method341(1, (byte) -104, i_11_ + i_15_, (i - -i_13_) + (-1 - i_15_), 0);
+				aClass46_2.method341(1, i_11_ + i_15_, i_15_ + i, 0);
+				aClass46_2.method341(1, i_11_ + i_15_, (i - -i_13_) + (-1 - i_15_), 0);
 			}
 		}
 		if (i_10_ != 0)
@@ -544,7 +544,7 @@ final class Class10
 
 	private void method83(final int i, final int i_92_, final int i_93_, final int i_94_)
 	{
-		aClass46_2.method341(i_92_, (byte) -122, i, i_93_, i_94_);
+		aClass46_2.method341(i_92_, i, i_93_, i_94_);
 	}
 
 	static int method84(final byte[] is, final int i_95_)
@@ -766,15 +766,15 @@ final class Class10
 				}
 			}
 		}
-		aClass46_2.method341(i_128_, (byte) -17, i_126_, i_129_, anInt103);
-		aClass46_2.method341(i_128_ - 2, (byte) -127, i_126_ - -1, i_129_ + 1, anInt103);
-		aClass46_2.method341(i_128_ + -4, (byte) -73, i_126_ + 2, i_129_ + 2, anInt115);
+		aClass46_2.method341(i_128_, i_126_, i_129_, anInt103);
+		aClass46_2.method341(i_128_ - 2, i_126_ - -1, i_129_ + 1, anInt103);
+		aClass46_2.method341(i_128_ + -4, i_126_ + 2, i_129_ + 2, anInt115);
 		aClass46_2.method319(anInt103, i_127_, i_126_, i_129_);
 		aClass46_2.method319(anInt103, i_127_ - 2, i_126_ + 1, i_129_ + 1);
 		aClass46_2.method319(anInt115, i_127_ - 4, i_126_ + 2, i_129_ + 2);
-		aClass46_2.method341(i_128_, (byte) -71, (i_127_ + i_126_) - 1, i_129_, anInt91);
-		aClass46_2.method341(i_128_ + -2, (byte) -103, (i_126_ - -i_127_) + -2, i_129_ + 1, anInt91);
-		aClass46_2.method341(i_128_ + -4, (byte) -52, i_127_ + i_126_ + -3, i_129_ - -2, anInt123);
+		aClass46_2.method341(i_128_, (i_127_ + i_126_) - 1, i_129_, anInt91);
+		aClass46_2.method341(i_128_ + -2, (i_126_ - -i_127_) + -2, i_129_ + 1, anInt91);
+		aClass46_2.method341(i_128_ + -4, i_127_ + i_126_ + -3, i_129_ - -2, anInt123);
 		aClass46_2.method319(anInt91, i_127_, i_126_, i_129_ + i_128_ + -1);
 		aClass46_2.method319(anInt91, i_127_ - 2, i_126_ + 1, i_129_ + i_128_ + -2);
 		aClass46_2.method319(anInt123, i_127_ + -4, i_126_ + 2, i_129_ + i_128_ + -3);
@@ -1040,8 +1040,8 @@ final class Class10
 		{
 			method106(119, -27, -7, (byte) 6, 62, 28, -36);
 		}
-		aClass46_2.method341(12, (byte) -90, i_187_ + 13, i_192_, 0);
-		aClass46_2.method341(12, (byte) -101, (i_187_ + i_190_) - 13, i_192_, 0);
+		aClass46_2.method341(12, i_187_ + 13, i_192_, 0);
+		aClass46_2.method341(12, (i_187_ + i_190_) - 13, i_192_, 0);
 		aClass46_2.method356(11, i_192_ + 1, anInt75, i_187_ - -14, anInt106, i_190_ + -27);
 		aClass46_2.method321(i_187_ + i + 14, anInt127, i_186_, 7, i_192_ + 3, 1);
 		aClass46_2.method319(anInt98, i_186_, i - -i_187_ - -14, i_192_ - -2);

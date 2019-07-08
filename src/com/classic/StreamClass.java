@@ -118,12 +118,8 @@ final class StreamClass extends PacketConstruction implements Runnable
 		}
 	}
 
-	static int method381(final int i, final byte[] is, final byte i_1_)
+	static int method381(final int i, final byte[] is)
 	{
-		if (i_1_ <= 108)
-		{
-			method381(109, null, (byte) 99);
-		}
 		return ((0xff & is[i - -3]) + ((is[i + 2] << 8) & 0xff00) + ((is[i + 1] & 0xff) << 16)
 		        + (~0xffffff & (is[i] << 24)));
 	}

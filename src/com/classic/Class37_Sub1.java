@@ -67,7 +67,7 @@ final class Class37_Sub1 extends AudioUnknown
 		}
 		catch (final LineUnavailableException lineunavailableexception)
 		{
-			if (Class38.method245(i, (byte) 125) != 1)
+			if (Class38.nearestPowerOfTwo(i) != 1)
 			{
 				method244(Class27.method177(i));
 			}
