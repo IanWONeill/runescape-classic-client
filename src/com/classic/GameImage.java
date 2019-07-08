@@ -9,103 +9,37 @@ import java.awt.image.ImageConsumer;
 import java.awt.image.ImageObserver;
 import java.awt.image.ImageProducer;
 
-class Class46 implements ImageProducer, ImageObserver
+class GameImage implements ImageProducer, ImageObserver
 {
-	static int anInt495;
-	static int anInt496;
-	static int anInt497;
-	static int anInt498;
-	static int anInt499;
-	static int anInt500;
-	static int anInt501;
-	int anInt502;
-	static int anInt503;
-	static int anInt504;
-	static int anInt505;
+	int maybe_imageWidth;
 	private int[] anIntArray116;
 	int[][] anIntArrayArray19;
 	boolean aBool27 = false;
-	static int anInt506;
-	static int anInt507;
-	static int anInt508;
-	static int anInt509;
-	int anInt510;
-	static int anInt511;
-	static int anInt512;
-	static int anInt513;
-	static int anInt514;
-	static int anInt515;
-	static int anInt516;
+	int maybe_imageHeight;
 	private int anInt517 = 0;
-	static int anInt518;
-	static int anInt519;
-	static int anInt520;
 	int[][] anIntArrayArray20;
-	static int anInt521;
 	private int anInt522;
-	static int anInt523;
-	static int anInt524;
 	private int[] anIntArray117;
-	static int anInt525;
-	static int anInt526;
-	static int anInt527;
 	int[] anIntArray118;
-	int[] anIntArray119;
-	static int anInt528;
-	static int anInt529;
+	int[] imagePixelArray;
 	private final int[] anIntArray120;
-	static int anInt530;
-	static int anInt531;
-	static int anInt532;
-	static int anInt533;
 	private int[] anIntArray121;
-	static int anInt534;
-	static int anInt535;
 	private int anInt536;
 	private int anInt537 = 0;
-	static int anInt538;
-	static int anInt539;
 	private ColorModel aColorModel2;
 	int[] anIntArray122;
-	static int anInt540;
-	static int anInt541;
-	static int anInt542;
-	static int anInt543;
-	static int anInt544;
 	int[] anIntArray123;
-	static int anInt545;
-	private Image anImage1;
-	static int anInt546;
-	static int anInt547;
-	static int anInt548;
-	static int anInt549;
-	static int anInt550;
-	static int anInt551;
+	private Image image;
 	private int[] anIntArray124;
-	static int anInt552;
-	static int anInt553;
 	boolean aBool28;
-	static int anInt554;
 	int[] anIntArray125;
 	static int[] anIntArray126 = new int[100];
-	private static int[] anIntArray127;
-	static int anInt555;
-	static int anInt556;
+	private static int[] charIndexes;
 	private final int[] anIntArray128;
-	static int anInt557;
-	static int anInt558;
-	static int anInt559;
-	static int anInt560;
 	private int[] anIntArray129;
 	private final boolean[] aBoolArray9;
 	byte[][] aByteArrayArray13;
-	static int anInt561;
-	static int anInt562;
-	static int anInt563;
 	private int[] anIntArray130;
-	static int anInt564;
-	static int anInt565;
-	static int anInt566;
 	private int[] anIntArray131;
 	private int anInt567;
 	static String[] aStringArray33;
@@ -120,12 +54,10 @@ class Class46 implements ImageProducer, ImageObserver
 	        final int i_2_, final int i_3_)
 	{
 		method361(-122, string, i_2_, i_1_, i_0_, i - (method328(string, -117, i_1_) / 2), i_3_);
-		anInt527++;
 	}
 
 	void method306(final int i, final int i_4_)
 	{
-		anInt506++;
 		final int i_5_ = (this.anIntArray123[i] * this.anIntArray118[i]);
 		final int[] is = this.anIntArrayArray20[i];
 		final int[] is_6_ = new int[32768];
@@ -198,7 +130,6 @@ class Class46 implements ImageProducer, ImageObserver
 
 	private int method307(final int i, final int i_31_)
 	{
-		anInt550++;
 		if (i_31_ == 0)
 		{
 			return PacketConstruction.aByteArrayArray8[i_31_][8] - 2;
@@ -215,17 +146,15 @@ class Class46 implements ImageProducer, ImageObserver
 		}
 		for (i = i_36_; 0 > i; i++)
 		{
-			this.anIntArray119[i_38_++] = is_39_[(i_32_ >> 17) + ((i_35_ >> 17) * i_34_)];
+			this.imagePixelArray[i_38_++] = is_39_[(i_32_ >> 17) + ((i_35_ >> 17) * i_34_)];
 			i_35_ = i_40_ + i_35_;
 			i_32_ = i_33_ + i_32_;
 		}
-		anInt547++;
 	}
 
 	static void method309(int i, final int i_41_, final int[] is, int i_42_, final int i_43_, final int[] is_44_,
 	        int i_45_, int i_46_)
 	{
-		anInt495++;
 		if (i_43_ < 0)
 		{
 			i_46_ = is[0xff & (i >> 8)];
@@ -276,12 +205,10 @@ class Class46 implements ImageProducer, ImageObserver
 		}
 		System.out.println(new StringBuilder().append("Error: ").append(Class6.method22(string, "%0a", "\n", i ^ ~0x78))
 		        .toString());
-		anInt543++;
 	}
 
 	void method311(int i, int i_50_, int i_51_, final int i_52_, final int i_53_, final byte i_54_, int i_55_)
 	{
-		anInt520++;
 		try
 		{
 			final int i_56_ = this.anIntArray118[i_53_];
@@ -313,16 +240,16 @@ class Class46 implements ImageProducer, ImageObserver
 				i_51_ = (i_51_ * (this.anIntArray123[i_53_] + -(i_59_ >> 16))) / i_63_;
 				i_50_ = ((this.anIntArray118[i_53_] - (i_58_ >> 16)) * i_50_) / i_62_;
 			}
-			int i_64_ = i - -(i_55_ * this.anInt502);
+			int i_64_ = i - -(i_55_ * this.maybe_imageWidth);
 			if (i_55_ < anInt537)
 			{
 				final int i_65_ = anInt537 + -i_55_;
 				i_59_ += i_65_ * i_61_;
 				i_51_ -= i_65_;
 				i_55_ = 0;
-				i_64_ += i_65_ * this.anInt502;
+				i_64_ += i_65_ * this.maybe_imageWidth;
 			}
-			int i_66_ = this.anInt502 - i_50_;
+			int i_66_ = this.maybe_imageWidth - i_50_;
 			if (i < anInt517)
 			{
 				final int i_67_ = -i + anInt517;
@@ -347,15 +274,15 @@ class Class46 implements ImageProducer, ImageObserver
 			{
 				i_69_ = 2;
 				i_61_ += i_61_;
-				i_66_ += this.anInt502;
+				i_66_ += this.maybe_imageWidth;
 				if ((i_55_ & 0x1) != 0)
 				{
 					i_51_--;
-					i_64_ += this.anInt502;
+					i_64_ += this.maybe_imageWidth;
 				}
 			}
 			method355(i_59_, i_61_, i_52_, i_69_, false, i_51_, i_56_, 0, this.anIntArrayArray20[i_53_], i_58_, i_66_,
-			        i_60_, this.anIntArray119, i_64_, i_50_);
+			        i_60_, this.imagePixelArray, i_64_, i_50_);
 		}
 		catch (final Exception exception)
 		{
@@ -366,7 +293,6 @@ class Class46 implements ImageProducer, ImageObserver
 	void method312(final int i, final int i_70_, final int i_71_, final int i_72_, final int i_73_, final int i_74_)
 	{
 		this.anIntArray118[i_72_] = i_71_;
-		anInt529++;
 		this.anIntArray123[i_72_] = i_74_;
 		aBoolArray9[i_72_] = false;
 		anIntArray128[i_72_] = 0;
@@ -382,7 +308,7 @@ class Class46 implements ImageProducer, ImageObserver
 			{
 				for (int i_78_ = i_70_; i_78_ < (i_70_ - -i_74_); i_78_++)
 				{
-					this.anIntArrayArray20[i_72_][i_76_++] = (this.anIntArray119[i_77_ - -(i_78_ * this.anInt502)]);
+					this.anIntArrayArray20[i_72_][i_76_++] = (this.imagePixelArray[i_77_ - -(i_78_ * this.maybe_imageWidth)]);
 				}
 			}
 		}
@@ -392,14 +318,12 @@ class Class46 implements ImageProducer, ImageObserver
 	        final String string)
 	{
 		method337(string, i_79_, i_80_, -112, i_82_, 0, i);
-		anInt526++;
 	}
 
 	private void method314(final int i, final int i_84_, int i_85_, final int i_86_, final int i_87_, final int i_88_,
 	        int i_89_, int i_90_, final int i_91_, int i_92_, final byte i_93_, final int i_94_, final int[] is,
 	        final int[] is_95_, int i_96_, int i_97_, final byte[] is_98_)
 	{
-		anInt519++;
 		final int i_99_ = (i >> 16) & 0xff;
 		final int i_100_ = (i >> 8) & 0xff;
 		final int i_101_ = 0xff & i;
@@ -450,7 +374,7 @@ class Class46 implements ImageProducer, ImageObserver
 				}
 				i_92_ += i_86_;
 				i_89_ = i_102_;
-				i_96_ += this.anInt502;
+				i_96_ += this.maybe_imageWidth;
 				i_85_ += i_94_;
 			}
 		}
@@ -462,7 +386,6 @@ class Class46 implements ImageProducer, ImageObserver
 
 	int method315(final byte i, final int i_114_)
 	{
-		anInt505++;
 		if (i_114_ == 0)
 		{
 			return 12;
@@ -500,7 +423,6 @@ class Class46 implements ImageProducer, ImageObserver
 
 	void method316(int i, int i_115_, final int i_116_, int i_117_, final int i_118_, int i_119_)
 	{
-		anInt507++;
 		try
 		{
 			final int i_121_ = this.anIntArray118[i_116_];
@@ -532,15 +454,15 @@ class Class46 implements ImageProducer, ImageObserver
 				i = (i * (this.anIntArray118[i_116_] - (i_123_ >> 16))) / i_127_;
 				i_119_ = (i_119_ * (this.anIntArray123[i_116_] - (i_124_ >> 16))) / i_128_;
 			}
-			int i_129_ = (i_115_ * this.anInt502) + i_117_;
-			int i_130_ = -i + this.anInt502;
+			int i_129_ = (i_115_ * this.maybe_imageWidth) + i_117_;
+			int i_130_ = -i + this.maybe_imageWidth;
 			if (i_115_ < anInt537)
 			{
 				final int i_131_ = -i_115_ + anInt537;
 				i_119_ -= i_131_;
 				i_115_ = 0;
 				i_124_ += i_126_ * i_131_;
-				i_129_ += i_131_ * this.anInt502;
+				i_129_ += i_131_ * this.maybe_imageWidth;
 			}
 			if (i_117_ < anInt517)
 			{
@@ -566,15 +488,15 @@ class Class46 implements ImageProducer, ImageObserver
 			{
 				i_134_ = 2;
 				i_126_ += i_126_;
-				i_130_ += this.anInt502;
+				i_130_ += this.maybe_imageWidth;
 				if ((i_115_ & 0x1) != 0)
 				{
-					i_129_ += this.anInt502;
+					i_129_ += this.maybe_imageWidth;
 					i_119_--;
 				}
 			}
 			method340(0, i_134_, i_119_, this.anIntArrayArray20[i_116_], i_124_, 11990, i_129_, i, i_123_, i_130_,
-			        i_121_, i_125_, this.anIntArray119, i_126_);
+			        i_121_, i_125_, this.imagePixelArray, i_126_);
 		}
 		catch (final Exception exception)
 		{
@@ -646,19 +568,17 @@ class Class46 implements ImageProducer, ImageObserver
 			System.out.println(new StringBuilder().append("plotletter: ").append(exception).toString());
 			exception.printStackTrace();
 		}
-		anInt531++;
 	}
 
 	void method318(final int i, final int i_147_, final int i_148_, final int i_149_)
 	{
-		anInt516++;
 		if (i_147_ != -13292)
 		{
 			method362(-4, 124, (byte) 84, -80, -62, -111);
 		}
 		if ((i >= anInt517) && (i_148_ >= anInt537) && (anInt567 > i) && (anInt536 > i_148_))
 		{
-			this.anIntArray119[((i_148_ * this.anInt502) + i)] = i_149_;
+			this.imagePixelArray[((i_148_ * this.maybe_imageWidth) + i)] = i_149_;
 		}
 	}
 
@@ -669,12 +589,10 @@ class Class46 implements ImageProducer, ImageObserver
 		{
 			anImageConsumer2 = null;
 		}
-		anInt535++;
 	}
 
 	void method319(final int i, int i_150_, int i_151_, final boolean bool, final int i_152_)
 	{
-		anInt511++;
 		if ((i_152_ >= anInt517) && (anInt567 > i_152_))
 		{
 			if (anInt537 > i_151_)
@@ -688,10 +606,10 @@ class Class46 implements ImageProducer, ImageObserver
 			}
 			if (i_150_ > 0)
 			{
-				final int i_153_ = (i_151_ * this.anInt502) + i_152_;
+				final int i_153_ = (i_151_ * this.maybe_imageWidth) + i_152_;
 				for (int i_154_ = 0; i_154_ < i_150_; i_154_++)
 				{
-					this.anIntArray119[i_153_ + (i_154_ * this.anInt502)] = i;
+					this.imagePixelArray[i_153_ + (i_154_ * this.maybe_imageWidth)] = i;
 				}
 			}
 		}
@@ -704,17 +622,16 @@ class Class46 implements ImageProducer, ImageObserver
 			i_157_ = anIntArray120[i_156_] + i_157_;
 			i_155_ = anIntArray128[i_156_] + i_155_;
 		}
-		anInt504++;
-		int i_159_ = (i_157_ * this.anInt502) + i_155_;
+		int i_159_ = (i_157_ * this.maybe_imageWidth) + i_155_;
 		int i_160_ = 0;
 		int i_161_ = this.anIntArray123[i_156_];
 		int i_162_ = this.anIntArray118[i_156_];
-		int i_163_ = -i_162_ + this.anInt502;
+		int i_163_ = -i_162_ + this.maybe_imageWidth;
 		if (anInt537 > i_157_)
 		{
 			final int i_164_ = -i_157_ + anInt537;
 			i_161_ -= i_164_;
-			i_159_ += i_164_ * this.anInt502;
+			i_159_ += i_164_ * this.maybe_imageWidth;
 			i_157_ = anInt537;
 			i_160_ += i_164_ * i_162_;
 		}
@@ -745,10 +662,10 @@ class Class46 implements ImageProducer, ImageObserver
 			int i_168_ = 1;
 			if (this.aBool28 == true)
 			{
-				i_163_ += this.anInt502;
+				i_163_ += this.maybe_imageWidth;
 				if ((0x1 & i_157_) != 0)
 				{
-					i_159_ += this.anInt502;
+					i_159_ += this.maybe_imageWidth;
 					i_161_--;
 				}
 				i_168_ = 2;
@@ -756,13 +673,13 @@ class Class46 implements ImageProducer, ImageObserver
 			}
 			if (this.anIntArrayArray20[i_156_] != null)
 			{
-				method336(i_162_, 0, i_160_, this.anIntArrayArray20[i_156_], i_161_, i_165_, this.anIntArray119, i_158_,
+				method336(i_162_, 0, i_160_, this.anIntArrayArray20[i_156_], i_161_, i_165_, this.imagePixelArray, i_158_,
 				        i_159_, i_168_, 606557889, i_163_);
 			}
 			else
 			{
 				method345((byte) 74, i_162_, this.anIntArrayArray19[i_156_], i_165_, i_168_, i_158_, i_163_, i_161_,
-				        i_159_, i_160_, this.aByteArrayArray13[i_156_], this.anIntArray119);
+				        i_159_, i_160_, this.aByteArrayArray13[i_156_], this.imagePixelArray);
 			}
 		}
 	}
@@ -779,7 +696,6 @@ class Class46 implements ImageProducer, ImageObserver
 			i_171_ -= -i_172_ + anInt517;
 			i_172_ = anInt517;
 		}
-		anInt559++;
 		if (anInt567 < (i_172_ - -i_171_))
 		{
 			i_171_ = anInt567 - i_172_;
@@ -788,11 +704,11 @@ class Class46 implements ImageProducer, ImageObserver
 		{
 			i_170_ = -i + anInt536;
 		}
-		int i_174_ = -i_171_ + this.anInt502;
+		int i_174_ = -i_171_ + this.maybe_imageWidth;
 		int i_175_ = i_173_;
 		if (this.aBool28 == true)
 		{
-			i_174_ += this.anInt502;
+			i_174_ += this.maybe_imageWidth;
 			if ((0x1 & i) != 0)
 			{
 				i_170_--;
@@ -800,12 +716,12 @@ class Class46 implements ImageProducer, ImageObserver
 			}
 			i_175_ = 2;
 		}
-		int i_176_ = i_172_ - -(this.anInt502 * i);
+		int i_176_ = i_172_ - -(this.maybe_imageWidth * i);
 		for (int i_177_ = -i_170_; i_177_ < 0; i_177_ += i_175_)
 		{
 			for (int i_178_ = -i_171_; i_178_ < 0; i_178_++)
 			{
-				this.anIntArray119[i_176_++] = i_169_;
+				this.imagePixelArray[i_176_++] = i_169_;
 			}
 			i_176_ += i_174_;
 		}
@@ -814,7 +730,6 @@ class Class46 implements ImageProducer, ImageObserver
 	@Override
 	public synchronized boolean isConsumer(final ImageConsumer imageconsumer)
 	{
-		anInt539++;
 		if (imageconsumer != anImageConsumer2)
 		{
 			return false;
@@ -826,7 +741,6 @@ class Class46 implements ImageProducer, ImageObserver
 	        final int i_184_, final byte i_185_, int i_186_, int i_187_, int i_188_, int i_189_, final int i_190_,
 	        final int[] is_191_)
 	{
-		anInt514++;
 		if (i_190_ > 0)
 		{
 			int i_192_ = 0;
@@ -970,10 +884,9 @@ class Class46 implements ImageProducer, ImageObserver
 	void method323(final int i)
 	{
 		anInt537 = 0;
-		anInt567 = this.anInt502;
+		anInt567 = this.maybe_imageWidth;
 		anInt517 = 0;
-		anInt536 = this.anInt510;
-		anInt515++;
+		anInt536 = this.maybe_imageHeight;
 		if (i != -10624)
 		{
 			method312(91, -82, -73, -75, -28, 35);
@@ -984,13 +897,11 @@ class Class46 implements ImageProducer, ImageObserver
 	        final int i_203_)
 	{
 		method361(i ^ 0x57, string, i, i_200_, i_203_, i_202_, i_201_);
-		anInt544++;
 	}
 
 	void method325(final int i, final int i_204_, final int i_205_, final int i_206_, final boolean bool,
 	        final int i_207_, final int i_208_)
 	{
-		anInt508++;
 		for (int i_209_ = i_206_; i_209_ < (i_206_ - -i); i_209_++)
 		{
 			for (int i_210_ = i_207_; i_210_ < (i_208_ + i_207_); i_210_++)
@@ -1001,13 +912,13 @@ class Class46 implements ImageProducer, ImageObserver
 				int i_214_ = 0;
 				for (int i_215_ = -i_204_ + i_209_; i_215_ <= (i_209_ - -i_204_); i_215_++)
 				{
-					if ((i_215_ >= 0) && (this.anInt502 > i_215_))
+					if ((i_215_ >= 0) && (this.maybe_imageWidth > i_215_))
 					{
 						for (int i_216_ = i_210_ - i_205_; (i_205_ + i_210_) >= i_216_; i_216_++)
 						{
-							if ((0 <= i_216_) && (this.anInt510 > i_216_))
+							if ((0 <= i_216_) && (this.maybe_imageHeight > i_216_))
 							{
-								final int i_217_ = (this.anIntArray119[i_215_ + (i_216_ * (this.anInt502))]);
+								final int i_217_ = (this.imagePixelArray[i_215_ + (i_216_ * (this.maybe_imageWidth))]);
 								i_213_ = (i_217_ & 0xff) + i_213_;
 								i_211_ += (i_217_ >> 16) & 0xff;
 								i_214_++;
@@ -1016,7 +927,7 @@ class Class46 implements ImageProducer, ImageObserver
 						}
 					}
 				}
-				this.anIntArray119[i_209_ + (i_210_ * this.anInt502)] = (i_213_ / i_214_)
+				this.imagePixelArray[i_209_ + (i_210_ * this.maybe_imageWidth)] = (i_213_ / i_214_)
 				        + (((i_211_ / i_214_) << 16) - -((i_212_ / i_214_) << 8));
 			}
 		}
@@ -1026,27 +937,25 @@ class Class46 implements ImageProducer, ImageObserver
 	public void startProduction(final ImageConsumer imageconsumer)
 	{
 		addConsumer(imageconsumer);
-		anInt500++;
 	}
 
 	private void method326(final int i, final int i_218_, final boolean bool, final int i_219_, final byte i_220_,
 	        final byte[] is, final int i_221_)
 	{
-		anInt554++;
 		int i_222_ = is[i + 5] + i_219_;
 		int i_223_ = -is[i - -6] + i_221_;
 		int i_224_ = is[i + 3];
 		int i_225_ = is[i + 4];
 		int i_226_ = (is[i] * 16384) - (-is[i + 2] + -(is[i + 1] * 128));
-		int i_227_ = i_222_ - -(i_223_ * this.anInt502);
-		int i_228_ = -i_224_ + this.anInt502;
+		int i_227_ = i_222_ - -(i_223_ * this.maybe_imageWidth);
+		int i_228_ = -i_224_ + this.maybe_imageWidth;
 		int i_229_ = 0;
 		if (anInt537 > i_223_)
 		{
 			final int i_230_ = -i_223_ + anInt537;
 			i_223_ = anInt537;
 			i_226_ += i_230_ * i_224_;
-			i_227_ += i_230_ * this.anInt502;
+			i_227_ += i_230_ * this.maybe_imageWidth;
 			i_225_ -= i_230_;
 		}
 		if (anInt517 > i_222_)
@@ -1074,11 +983,11 @@ class Class46 implements ImageProducer, ImageObserver
 		{
 			if (bool)
 			{
-				method359(i_227_, this.anIntArray119, i_226_, i_224_, i_225_, i_229_, i_228_, i_218_, (byte) 106, is);
+				method359(i_227_, this.imagePixelArray, i_226_, i_224_, i_225_, i_229_, i_228_, i_218_, (byte) 106, is);
 			}
 			else
 			{
-				method317(i_225_, i_229_, i_226_, -274772632, i_224_, is, this.anIntArray119, i_228_, i_227_, i_218_);
+				method317(i_225_, i_229_, i_226_, -274772632, i_224_, is, this.imagePixelArray, i_228_, i_227_, i_218_);
 			}
 		}
 	}
@@ -1090,7 +999,6 @@ class Class46 implements ImageProducer, ImageObserver
 			i_238_ -= -i_233_ + anInt537;
 			i_233_ = anInt537;
 		}
-		anInt512++;
 		if (i < anInt517)
 		{
 			i_234_ -= -i + anInt517;
@@ -1112,29 +1020,29 @@ class Class46 implements ImageProducer, ImageObserver
 		final int i_240_ = i_235_ * ((0xff1623 & i_237_) >> 16);
 		final int i_241_ = (0xff & (i_237_ >> 8)) * i_235_;
 		final int i_242_ = (0xff & i_237_) * i_235_;
-		int i_243_ = -i_234_ + this.anInt502;
+		int i_243_ = -i_234_ + this.maybe_imageWidth;
 		int i_244_ = 1;
 		if (this.aBool28 != false)
 		{
 			i_244_ = 2;
-			i_243_ += this.anInt502;
+			i_243_ += this.maybe_imageWidth;
 			if ((i_233_ & 0x1) != 0)
 			{
 				i_233_++;
 				i_238_--;
 			}
 		}
-		int i_245_ = (i_233_ * this.anInt502) + i;
+		int i_245_ = (i_233_ * this.maybe_imageWidth) + i;
 		for (int i_246_ = 0; i_246_ < i_238_; i_246_ += i_244_)
 		{
 			for (int i_247_ = -i_234_; 0 > i_247_; i_247_++)
 			{
-				final int i_248_ = ((0xff & (this.anIntArray119[i_245_] >> 16)) * i_239_);
-				final int i_249_ = i_239_ * ((this.anIntArray119[i_245_] & 0xff4e) >> 8);
-				final int i_250_ = (this.anIntArray119[i_245_] & 0xff) * i_239_;
+				final int i_248_ = ((0xff & (this.imagePixelArray[i_245_] >> 16)) * i_239_);
+				final int i_249_ = i_239_ * ((this.imagePixelArray[i_245_] & 0xff4e) >> 8);
+				final int i_250_ = (this.imagePixelArray[i_245_] & 0xff) * i_239_;
 				final int i_251_ = (((i_242_ - -i_250_) >> 8) + (((i_241_ - -i_249_) >> 8) << 8)
 				        + (((i_240_ - -i_248_) >> 8) << 16));
-				this.anIntArray119[i_245_++] = i_251_;
+				this.imagePixelArray[i_245_++] = i_251_;
 			}
 			i_245_ += i_243_;
 		}
@@ -1142,7 +1050,6 @@ class Class46 implements ImageProducer, ImageObserver
 
 	int method328(final String string, final int i, final int i_252_)
 	{
-		anInt549++;
 		if (i >= -99)
 		{
 			method337(null, 127, 110, -43, 66, -102, -115);
@@ -1160,11 +1067,11 @@ class Class46 implements ImageProducer, ImageObserver
 			        || (string.charAt(i_254_ + 4) != '~'))
 			{
 				char c = string.charAt(i_254_);
-				if ((0 > c) || (c >= anIntArray127.length))
+				if ((0 > c) || (c >= charIndexes.length))
 				{
 					c = ' ';
 				}
-				i_253_ += is[anIntArray127[c] + 7];
+				i_253_ += is[charIndexes[c] + 7];
 			}
 			else
 			{
@@ -1177,7 +1084,6 @@ class Class46 implements ImageProducer, ImageObserver
 	void method329(final int i, final int i_255_, final int i_256_, final int i_257_, final int i_258_,
 	        final byte i_259_)
 	{
-		anInt503++;
 		final int i_260_ = -i_258_ + 256;
 		final int i_261_ = i_258_ * ((0xff884f & i_256_) >> 16);
 		final int i_262_ = i_258_ * ((i_256_ & 0xffc1) >> 8);
@@ -1190,9 +1096,9 @@ class Class46 implements ImageProducer, ImageObserver
 				i_264_ = 0;
 			}
 			int i_265_ = i_255_ + i_257_;
-			if (this.anInt510 <= i_265_)
+			if (this.maybe_imageHeight <= i_265_)
 			{
-				i_265_ = this.anInt510 + -1;
+				i_265_ = this.maybe_imageHeight + -1;
 			}
 			int i_266_ = 1;
 			if (this.aBool28 == true)
@@ -1213,19 +1119,19 @@ class Class46 implements ImageProducer, ImageObserver
 					i_270_ = 0;
 				}
 				int i_271_ = i_269_ + i;
-				if (i_271_ >= this.anInt502)
+				if (i_271_ >= this.maybe_imageWidth)
 				{
-					i_271_ = this.anInt502 - 1;
+					i_271_ = this.maybe_imageWidth - 1;
 				}
-				int i_272_ = i_270_ - -(i_267_ * this.anInt502);
+				int i_272_ = i_270_ - -(i_267_ * this.maybe_imageWidth);
 				for (int i_273_ = i_270_; i_271_ >= i_273_; i_273_++)
 				{
-					final int i_274_ = ((0xff & (this.anIntArray119[i_272_] >> 16)) * i_260_);
-					final int i_275_ = (i_260_ * (0xff & this.anIntArray119[i_272_]));
-					final int i_276_ = (i_260_ * ((this.anIntArray119[i_272_] & 0xff23) >> 8));
+					final int i_274_ = ((0xff & (this.imagePixelArray[i_272_] >> 16)) * i_260_);
+					final int i_275_ = (i_260_ * (0xff & this.imagePixelArray[i_272_]));
+					final int i_276_ = (i_260_ * ((this.imagePixelArray[i_272_] & 0xff23) >> 8));
 					final int i_277_ = ((((i_276_ + i_262_) >> 8) << 8) + (((i_274_ + i_261_) >> 8) << 16)
 					        + ((i_275_ + i_263_) >> 8));
-					this.anIntArray119[i_272_++] = i_277_;
+					this.imagePixelArray[i_272_++] = i_277_;
 				}
 			}
 		}
@@ -1234,7 +1140,6 @@ class Class46 implements ImageProducer, ImageObserver
 	private void method330(final int i, final int[] is, final int i_278_, int i_279_, final int i_280_, int i_281_,
 	        int i_282_, final int[] is_283_, final int i_284_, final int i_285_, int i_286_)
 	{
-		anInt540++;
 		final int i_287_ = -(i_282_ >> 2);
 		i_282_ = -(i_282_ & 0x3);
 		int i_288_ = -i_280_;
@@ -1303,41 +1208,38 @@ class Class46 implements ImageProducer, ImageObserver
 	public void requestTopDownLeftRightResend(final ImageConsumer imageconsumer)
 	{
 		System.out.println("TDLR");
-		anInt496++;
 	}
 
 	void method331(final int i)
 	{
-		anInt513++;
-		final int i_291_ = this.anInt502 * this.anInt510;
+		final int i_291_ = this.maybe_imageWidth * this.maybe_imageHeight;
 		if (this.aBool28 == false)
 		{
 			for (int i_292_ = 0; i_292_ < i_291_; i_292_++)
 			{
-				this.anIntArray119[i_292_] = 0;
+				this.imagePixelArray[i_292_] = 0;
 			}
 		}
 		else
 		{
 			int i_293_ = 0;
-			for (int i_294_ = -this.anInt510; i_294_ < 0; i_294_ += 2)
+			for (int i_294_ = -this.maybe_imageHeight; i_294_ < 0; i_294_ += 2)
 			{
-				for (int i_295_ = -this.anInt502; 0 > i_295_; i_295_++)
+				for (int i_295_ = -this.maybe_imageWidth; 0 > i_295_; i_295_++)
 				{
-					this.anIntArray119[i_293_++] = 0;
+					this.imagePixelArray[i_293_++] = 0;
 				}
-				i_293_ += this.anInt502;
+				i_293_ += this.maybe_imageWidth;
 			}
 		}
 	}
 
-	private synchronized void method332(final int i)
+	private synchronized void completePixels()
 	{
-		anInt556++;
 		if (anImageConsumer2 != null)
 		{
-			anImageConsumer2.setPixels(0, 0, this.anInt502, this.anInt510, aColorModel2, this.anIntArray119, 0,
-			        this.anInt502);
+			anImageConsumer2.setPixels(0, 0, this.maybe_imageWidth, this.maybe_imageHeight, aColorModel2, this.imagePixelArray, 0,
+			        this.maybe_imageWidth);
 			anImageConsumer2.imageComplete(2);
 		}
 	}
@@ -1345,7 +1247,6 @@ class Class46 implements ImageProducer, ImageObserver
 	void method333(int i, final byte i_296_, final int i_297_, final int i_298_, final int i_299_, final String string,
 	        final int i_300_, final boolean bool)
 	{
-		anInt548++;
 		try
 		{
 			int i_301_ = 0;
@@ -1363,11 +1264,11 @@ class Class46 implements ImageProducer, ImageObserver
 				        || ('~' != string.charAt(i_304_ - -4)))
 				{
 					int i_305_ = string.charAt(i_304_);
-					if ((0 > i_305_) || (anIntArray127.length <= i_305_))
+					if ((0 > i_305_) || (charIndexes.length <= i_305_))
 					{
 						i_305_ = 32;
 					}
-					i_301_ += is[anIntArray127[i_305_] + 7];
+					i_301_ += is[charIndexes[i_305_] + 7];
 				}
 				else
 				{
@@ -1420,17 +1321,15 @@ class Class46 implements ImageProducer, ImageObserver
 			}
 			else
 			{
-				this.anIntArray119[i++] = i_309_;
+				this.imagePixelArray[i++] = i_309_;
 			}
 		}
-		anInt541++;
 	}
 
 	@Override
 	public boolean imageUpdate(final Image image, final int i, final int i_316_, final int i_317_, final int i_318_,
 	        final int i_319_)
 	{
-		anInt501++;
 		return true;
 	}
 
@@ -1441,14 +1340,12 @@ class Class46 implements ImageProducer, ImageObserver
 		{
 			method350(-99, 119, null, null, -42);
 		}
-		anInt499++;
 		method305(i_323_, true, i_322_, i_321_, string, 0, i);
 	}
 
 	private void method336(final int i, int i_324_, int i_325_, final int[] is, final int i_326_, final int i_327_,
 	        final int[] is_328_, final int i_329_, int i_330_, final int i_331_, final int i_332_, final int i_333_)
 	{
-		anInt553++;
 		final int i_334_ = -i_329_ + 256;
 		for (int i_335_ = -i_326_; i_335_ < 0; i_335_ = i_331_ + i_335_)
 		{
@@ -1477,28 +1374,26 @@ class Class46 implements ImageProducer, ImageObserver
 	private void method337(final String string, final int i, final int i_338_, final int i_339_, final int i_340_,
 	        final int i_341_, final int i_342_)
 	{
-		anInt562++;
 		method361(85, string, i_341_, i_338_, i_340_, -method328(string, -120, i_338_) + i, i_342_);
 	}
 
 	void method338(final int i, int i_343_, int i_344_, final byte i_345_)
 	{
-		anInt523++;
 		if (aBoolArray9[i])
 		{
 			i_343_ += anIntArray120[i];
 			i_344_ += anIntArray128[i];
 		}
-		int i_346_ = i_344_ + (i_343_ * this.anInt502);
+		int i_346_ = i_344_ + (i_343_ * this.maybe_imageWidth);
 		int i_347_ = 0;
 		int i_348_ = this.anIntArray123[i];
 		int i_349_ = this.anIntArray118[i];
-		int i_350_ = -i_349_ + this.anInt502;
+		int i_350_ = -i_349_ + this.maybe_imageWidth;
 		if (i_343_ < anInt537)
 		{
 			final int i_351_ = -i_343_ + anInt537;
 			i_348_ -= i_351_;
-			i_346_ += i_351_ * this.anInt502;
+			i_346_ += i_351_ * this.maybe_imageWidth;
 			i_343_ = anInt537;
 			i_347_ += i_349_ * i_351_;
 		}
@@ -1529,23 +1424,23 @@ class Class46 implements ImageProducer, ImageObserver
 			int i_355_ = 1;
 			if (this.aBool28 != false)
 			{
-				i_350_ += this.anInt502;
+				i_350_ += this.maybe_imageWidth;
 				i_352_ += this.anIntArray118[i];
 				i_355_ = 2;
 				if ((i_343_ & 0x1) != 0)
 				{
-					i_346_ += this.anInt502;
+					i_346_ += this.maybe_imageWidth;
 					i_348_--;
 				}
 			}
 			if (this.anIntArrayArray20[i] != null)
 			{
-				method330(i_355_, this.anIntArrayArray20[i], i_352_, 0, i_348_, i_346_, i_349_, this.anIntArray119,
+				method330(i_355_, this.anIntArrayArray20[i], i_352_, 0, i_348_, i_346_, i_349_, this.imagePixelArray,
 				        i_350_, -94, i_347_);
 			}
 			else
 			{
-				method344(this.anIntArray119, (byte) 110, this.aByteArrayArray13[i], i_348_, i_350_, i_349_,
+				method344(this.imagePixelArray, (byte) 110, this.aByteArrayArray13[i], i_348_, i_350_, i_349_,
 				        this.anIntArrayArray19[i], i_352_, i_355_, i_347_, i_346_);
 			}
 		}
@@ -1553,7 +1448,6 @@ class Class46 implements ImageProducer, ImageObserver
 
 	void method339(final int i, final int i_356_)
 	{
-		anInt532++;
 		anInt522 = i;
 	}
 
@@ -1561,7 +1455,6 @@ class Class46 implements ImageProducer, ImageObserver
 	        int i_361_, final int i_362_, int i_363_, final int i_364_, final int i_365_, final int i_366_,
 	        final int[] is_367_, final int i_368_)
 	{
-		anInt551++;
 		try
 		{
 			final int i_369_ = i_363_;
@@ -1594,7 +1487,6 @@ class Class46 implements ImageProducer, ImageObserver
 
 	void method341(int i, final byte i_373_, final int i_374_, int i_375_, final int i_376_)
 	{
-		anInt563++;
 		if ((i_374_ >= anInt537) && (i_374_ < anInt536))
 		{
 			if (anInt517 > i_375_)
@@ -1608,10 +1500,10 @@ class Class46 implements ImageProducer, ImageObserver
 			}
 			if (0 < i)
 			{
-				final int i_377_ = (i_374_ * this.anInt502) + i_375_;
+				final int i_377_ = (i_374_ * this.maybe_imageWidth) + i_375_;
 				for (int i_378_ = 0; i_378_ < i; i_378_++)
 				{
-					this.anIntArray119[i_377_ + i_378_] = i_376_;
+					this.imagePixelArray[i_377_ + i_378_] = i_376_;
 				}
 				if (i_373_ > -6)
 				{
@@ -1623,7 +1515,6 @@ class Class46 implements ImageProducer, ImageObserver
 
 	static boolean method342(final Class38 class38, final int i)
 	{
-		anInt545++;
 		return ((Class47.aClass38_6 == class38) || (Class27.aClass38_4 == class38)
 		        || (IOException_Sub1.aClass38_8 == class38) || (Class12.aClass38_2 == class38)
 		        || (Class10.aClass38_1 == class38));
@@ -1633,8 +1524,7 @@ class Class46 implements ImageProducer, ImageObserver
 	public synchronized void addConsumer(final ImageConsumer imageconsumer)
 	{
 		anImageConsumer2 = imageconsumer;
-		anInt546++;
-		imageconsumer.setDimensions(this.anInt502, this.anInt510);
+		imageconsumer.setDimensions(this.maybe_imageWidth, this.maybe_imageHeight);
 		imageconsumer.setProperties(null);
 		imageconsumer.setColorModel(aColorModel2);
 		imageconsumer.setHints(14);
@@ -1642,12 +1532,11 @@ class Class46 implements ImageProducer, ImageObserver
 
 	void method343(final int i)
 	{
-		anInt524++;
-		final int i_379_ = this.anInt502 * this.anInt510;
+		final int i_379_ = this.maybe_imageWidth * this.maybe_imageHeight;
 		for (int i_380_ = 0; i_379_ > i_380_; i_380_++)
 		{
-			final int i_381_ = 0xffffff & this.anIntArray119[i_380_];
-			this.anIntArray119[i_380_] = ((Class52.method378(15790327, i_381_) >>> 4)
+			final int i_381_ = 0xffffff & this.imagePixelArray[i_380_];
+			this.imagePixelArray[i_380_] = ((Class52.method378(15790327, i_381_) >>> 4)
 			        + (Class52.method378(i_381_ >>> 2, 1077886783) + Class52.method378(-2139127937, i_381_ >>> 1))
 			        + Class52.method378(i_381_ >>> 3, 1612652319));
 		}
@@ -1660,7 +1549,6 @@ class Class46 implements ImageProducer, ImageObserver
 	private void method344(final int[] is, final byte i, final byte[] is_382_, final int i_383_, final int i_384_,
 	        int i_385_, final int[] is_386_, final int i_387_, final int i_388_, int i_389_, int i_390_)
 	{
-		anInt555++;
 		final int i_391_ = -(i_385_ >> 2);
 		i_385_ = -(i_385_ & 0x3);
 		for (int i_392_ = -i_383_; 0 > i_392_; i_392_ += i_388_)
@@ -1725,7 +1613,6 @@ class Class46 implements ImageProducer, ImageObserver
 	        final int i_400_, final int i_401_, final int i_402_, int i_403_, int i_404_, final byte[] is_405_,
 	        final int[] is_406_)
 	{
-		anInt552++;
 		final int i_407_ = -i_400_ + 256;
 		for (int i_408_ = -i_402_; i_408_ < 0; i_408_ = i_399_ + i_408_)
 		{
@@ -1755,7 +1642,6 @@ class Class46 implements ImageProducer, ImageObserver
 	        final int i_416_, final int i_417_, int i_418_, final int i_419_, final int[] is_420_, final int i_421_,
 	        final int i_422_, final int i_423_, int i_424_)
 	{
-		anInt560++;
 		final int i_425_ = (i_412_ >> 16) & 0xff;
 		final int i_426_ = (i_412_ >> 8) & 0xff;
 		final int i_427_ = i_412_ & 0xff;
@@ -1802,7 +1688,6 @@ class Class46 implements ImageProducer, ImageObserver
 
 	void method347(final byte i, int i_435_, int i_436_, int i_437_, int i_438_, final int i_439_, final int i_440_)
 	{
-		anInt509++;
 		try
 		{
 			final int i_441_ = this.anIntArray118[i_439_];
@@ -1834,14 +1719,14 @@ class Class46 implements ImageProducer, ImageObserver
 				i_437_ = (i_437_ * (this.anIntArray123[i_439_] + -(i_444_ >> 16))) / i_448_;
 				i_438_ = (i_438_ * (this.anIntArray118[i_439_] + -(i_443_ >> 16))) / i_447_;
 			}
-			int i_449_ = i_436_ + (i_435_ * this.anInt502);
-			int i_450_ = -i_438_ + this.anInt502;
+			int i_449_ = i_436_ + (i_435_ * this.maybe_imageWidth);
+			int i_450_ = -i_438_ + this.maybe_imageWidth;
 			if (anInt537 > i_435_)
 			{
 				final int i_451_ = -i_435_ + anInt537;
 				i_437_ -= i_451_;
 				i_444_ += i_451_ * i_446_;
-				i_449_ += i_451_ * this.anInt502;
+				i_449_ += i_451_ * this.maybe_imageWidth;
 				i_435_ = 0;
 			}
 			if ((i_435_ + i_437_) >= anInt536)
@@ -1869,13 +1754,13 @@ class Class46 implements ImageProducer, ImageObserver
 				i_446_ += i_446_;
 				if ((i_435_ & 0x1) != 0)
 				{
-					i_449_ += this.anInt502;
+					i_449_ += this.maybe_imageWidth;
 					i_437_--;
 				}
 				i_454_ = 2;
-				i_450_ += this.anInt502;
+				i_450_ += this.maybe_imageWidth;
 			}
-			method346(i_441_, i_440_, i_449_, i_450_, i_443_, this.anIntArray119, i_446_, i_445_, i_444_, -113,
+			method346(i_441_, i_440_, i_449_, i_450_, i_443_, this.imagePixelArray, i_446_, i_445_, i_444_, -113,
 			        this.anIntArrayArray20[i_439_], i_438_, i_437_, i_454_, 0);
 		}
 		catch (final Exception exception)
@@ -1887,7 +1772,6 @@ class Class46 implements ImageProducer, ImageObserver
 	void method348(final boolean bool, int i, final int i_455_, int i_456_, int i_457_, int i_458_, final int i_459_,
 	        final int i_460_, int i_461_, int i_462_)
 	{
-		anInt565++;
 		try
 		{
 			if (i_461_ == 0)
@@ -1942,11 +1826,11 @@ class Class46 implements ImageProducer, ImageObserver
 				i_458_ = ((this.anIntArray118[i_460_] << 16) + -i_465_ + i_468_ + -1) / i_468_;
 			}
 			i_467_ = (i_462_ << 16) + i_467_;
-			int i_476_ = i_457_ * this.anInt502;
+			int i_476_ = i_457_ * this.maybe_imageWidth;
 			if (anInt537 > i_457_)
 			{
 				final int i_477_ = anInt537 - i_457_;
-				i_476_ += i_477_ * this.anInt502;
+				i_476_ += i_477_ * this.maybe_imageWidth;
 				i_457_ = anInt537;
 				i_466_ += i_469_ * i_477_;
 				i_467_ += i_477_ * i_470_;
@@ -1956,7 +1840,7 @@ class Class46 implements ImageProducer, ImageObserver
 			{
 				i_456_ -= i_457_ - (-i_456_ + anInt536 + -1);
 			}
-			int i_478_ = (i_476_ / this.anInt502) & 0x1;
+			int i_478_ = (i_476_ / this.maybe_imageWidth) & 0x1;
 			if (!this.aBool28)
 			{
 				i_478_ = 2;
@@ -1968,26 +1852,26 @@ class Class46 implements ImageProducer, ImageObserver
 					if (!bool)
 					{
 						method354(i_458_, i_470_, i_476_, i_463_, i_468_, this.anIntArrayArray20[i_460_], i_465_,
-						        (byte) 84, i_469_, 0, this.anIntArray119, i_466_, i_467_, i_456_, i_478_, i_461_);
+						        (byte) 84, i_469_, 0, this.imagePixelArray, i_466_, i_467_, i_456_, i_478_, i_461_);
 					}
 					else
 					{
 						method354(i_458_, i_470_, i_476_, i_463_, -i_468_, this.anIntArrayArray20[i_460_],
 						        ((this.anIntArray118[i_460_] << 16) + -i_465_) - 1, (byte) 84, i_469_, 0,
-						        this.anIntArray119, i_466_, i_467_, i_456_, i_478_, i_461_);
+						        this.imagePixelArray, i_466_, i_467_, i_456_, i_478_, i_461_);
 					}
 				}
 				else if (!bool)
 				{
 					method314(i_461_, i_458_, i_467_, i_469_, i_468_, i_456_, i_465_, 0, i_463_, i_466_, (byte) -90,
-					        i_470_, this.anIntArrayArray19[i_460_], this.anIntArray119, i_476_, i_478_,
+					        i_470_, this.anIntArrayArray19[i_460_], this.imagePixelArray, i_476_, i_478_,
 					        this.aByteArrayArray13[i_460_]);
 				}
 				else
 				{
 					method314(i_461_, i_458_, i_467_, i_469_, -i_468_, i_456_,
 					        (((this.anIntArray118[i_460_] << 16) + -i_465_) - 1), 0, i_463_, i_466_, (byte) -114,
-					        i_470_, this.anIntArrayArray19[i_460_], this.anIntArray119, i_476_, i_478_,
+					        i_470_, this.anIntArrayArray19[i_460_], this.imagePixelArray, i_476_, i_478_,
 					        this.aByteArrayArray13[i_460_]);
 				}
 			}
@@ -1996,25 +1880,25 @@ class Class46 implements ImageProducer, ImageObserver
 				if (bool)
 				{
 					method352(i_458_, 0, i_466_, this.anIntArrayArray19[i_460_], i_476_, this.aByteArrayArray13[i_460_],
-					        -i_468_, i, i_470_, i_463_, i_461_, i_478_, this.anIntArray119, i_456_, (byte) 105, i_467_,
+					        -i_468_, i, i_470_, i_463_, i_461_, i_478_, this.imagePixelArray, i_456_, (byte) 105, i_467_,
 					        i_469_, (((this.anIntArray118[i_460_] << 16) + -i_465_) - 1));
 				}
 				else
 				{
 					method352(i_458_, 0, i_466_, this.anIntArrayArray19[i_460_], i_476_, this.aByteArrayArray13[i_460_],
-					        i_468_, i, i_470_, i_463_, i_461_, i_478_, this.anIntArray119, i_456_, (byte) 94, i_467_,
+					        i_468_, i, i_470_, i_463_, i_461_, i_478_, this.imagePixelArray, i_456_, (byte) 94, i_467_,
 					        i_469_, i_465_);
 				}
 			}
 			else if (bool)
 			{
-				method358(-122, i_470_, i_466_, i_456_, i_461_, i_458_, i_478_, -i_468_, i_467_, this.anIntArray119, i,
+				method358(-122, i_470_, i_466_, i_456_, i_461_, i_458_, i_478_, -i_468_, i_467_, this.imagePixelArray, i,
 				        i_469_, i_476_, i_463_, 0, (((this.anIntArray118[i_460_] << 16) + -i_465_) - 1),
 				        this.anIntArrayArray20[i_460_]);
 			}
 			else
 			{
-				method358(-44, i_470_, i_466_, i_456_, i_461_, i_458_, i_478_, i_468_, i_467_, this.anIntArray119, i,
+				method358(-44, i_470_, i_466_, i_456_, i_461_, i_458_, i_478_, i_468_, i_467_, this.imagePixelArray, i,
 				        i_469_, i_476_, i_463_, 0, i_465_, this.anIntArrayArray20[i_460_]);
 			}
 		}
@@ -2027,7 +1911,6 @@ class Class46 implements ImageProducer, ImageObserver
 	void method349(final int i, final int i_479_, final int i_480_, final int i_481_, final int i_482_,
 	        final int i_483_, final int i_484_, final int i_485_)
 	{
-		anInt561++;
 		if (i_485_ == -1)
 		{
 			method316(i, i_484_, i_482_, i_481_, 104, i_479_);
@@ -2036,7 +1919,6 @@ class Class46 implements ImageProducer, ImageObserver
 
 	void method350(final int i, final int i_486_, final byte[] is, final byte[] is_487_, final int i_488_)
 	{
-		anInt518++;
 		int i_489_ = Class10.method84(-104, is_487_, 0);
 		final int i_490_ = Class10.method84(-111, is, i_489_);
 		i_489_ += 2;
@@ -2103,9 +1985,8 @@ class Class46 implements ImageProducer, ImageObserver
 
 	void method351(final int i, final int i_503_, final int i_504_, final int i_505_, int i_506_, final int i_507_)
 	{
-		anInt557++;
-		final int i_508_ = this.anInt502;
-		final int i_509_ = this.anInt510;
+		final int i_508_ = this.maybe_imageWidth;
+		final int i_509_ = this.maybe_imageHeight;
 		if (anIntArray117 == null)
 		{
 			anIntArray117 = new int[512];
@@ -2438,12 +2319,12 @@ class Class46 implements ImageProducer, ImageObserver
 				{
 					if (!aBoolArray9[i_504_] != true)
 					{
-						method334(i_547_ + i_549_, is, i_553_, this.anIntArray119, i_535_, 0, (byte) 127,
+						method334(i_547_ + i_549_, is, i_553_, this.imagePixelArray, i_535_, 0, (byte) 127,
 						        -i_550_ + i_549_, i_552_, i_554_, i_551_);
 					}
 					else
 					{
-						method308(0, i_551_, i_552_, i_535_, i_553_, this.anIntArray119, -i_550_ + i_549_, (byte) -102,
+						method308(0, i_551_, i_552_, i_535_, i_553_, this.imagePixelArray, -i_550_ + i_549_, (byte) -102,
 						        i_549_ + i_547_, is, i_554_);
 					}
 				}
@@ -2456,7 +2337,6 @@ class Class46 implements ImageProducer, ImageObserver
 	        final int i_559_, final int i_560_, final int i_561_, final int i_562_, final int i_563_, int i_564_,
 	        final int[] is_565_, final int i_566_, final byte i_567_, int i_568_, final int i_569_, int i_570_)
 	{
-		anInt566++;
 		final int i_571_ = (0xff3ece & i_563_) >> 16;
 		final int i_572_ = 0xff & (i_563_ >> 8);
 		final int i_573_ = i_563_ & 0xff;
@@ -2516,7 +2396,7 @@ class Class46 implements ImageProducer, ImageObserver
 				}
 				i_556_ += i_569_;
 				i_568_ += i_561_;
-				i_557_ += this.anInt502;
+				i_557_ += this.maybe_imageWidth;
 				i_570_ = i_577_;
 			}
 		}
@@ -2529,7 +2409,6 @@ class Class46 implements ImageProducer, ImageObserver
 	void method353(final int i, final int i_588_, final int i_589_, final int i_590_, final int i_591_,
 	        final int i_592_)
 	{
-		anInt525++;
 		this.anIntArray118[i_591_] = i_590_;
 		this.anIntArray123[i_591_] = i_588_;
 		aBoolArray9[i_591_] = false;
@@ -2544,7 +2423,7 @@ class Class46 implements ImageProducer, ImageObserver
 		{
 			for (int i_596_ = i; (i_590_ + i) > i_596_; i_596_++)
 			{
-				this.anIntArrayArray20[i_591_][i_594_++] = (this.anIntArray119[i_596_ - -(i_595_ * this.anInt502)]);
+				this.anIntArrayArray20[i_591_][i_594_++] = (this.imagePixelArray[i_596_ - -(i_595_ * this.maybe_imageWidth)]);
 			}
 		}
 	}
@@ -2553,7 +2432,6 @@ class Class46 implements ImageProducer, ImageObserver
 	        final int[] is, int i_601_, final byte i_602_, final int i_603_, int i_604_, final int[] is_605_,
 	        int i_606_, int i_607_, final int i_608_, int i_609_, final int i_610_)
 	{
-		anInt530++;
 		final int i_611_ = 0xff & (i_610_ >> 16);
 		final int i_612_ = 0xff & (i_610_ >> 8);
 		final int i_613_ = 0xff & i_610_;
@@ -2605,7 +2483,7 @@ class Class46 implements ImageProducer, ImageObserver
 						}
 					}
 					i_601_ = i_614_;
-					i_598_ += this.anInt502;
+					i_598_ += this.maybe_imageWidth;
 					i_607_ += i_597_;
 				}
 			}
@@ -2620,7 +2498,6 @@ class Class46 implements ImageProducer, ImageObserver
 	        final int i_628_, final int i_629_, int i_630_, final int[] is, int i_631_, final int i_632_,
 	        final int i_633_, final int[] is_634_, int i_635_, final int i_636_)
 	{
-		anInt558++;
 		final int i_637_ = -i_626_ + 256;
 		try
 		{
@@ -2666,7 +2543,6 @@ class Class46 implements ImageProducer, ImageObserver
 			i -= -i_643_ + anInt517;
 			i_643_ = anInt517;
 		}
-		anInt497++;
 		if (anInt567 < (i_643_ + i))
 		{
 			i = anInt567 - i_643_;
@@ -2677,7 +2553,7 @@ class Class46 implements ImageProducer, ImageObserver
 		final int i_652_ = (i_647_ >> 16) & 0xff;
 		final int i_653_ = (i_647_ >> 8) & 0xff;
 		final int i_654_ = 0xff & i_647_;
-		int i_655_ = -i + this.anInt502;
+		int i_655_ = -i + this.maybe_imageWidth;
 		int i_656_ = 1;
 		if (this.aBool28 == true)
 		{
@@ -2686,15 +2562,15 @@ class Class46 implements ImageProducer, ImageObserver
 				i_645_++;
 				i_648_--;
 			}
-			i_655_ += this.anInt502;
+			i_655_ += this.maybe_imageWidth;
 			i_656_ = 2;
 		}
-		int i_657_ = (i_645_ * this.anInt502) + i_643_;
+		int i_657_ = (i_645_ * this.maybe_imageWidth) + i_643_;
 		for (int i_658_ = 0; i_658_ < i_648_; i_658_ += i_656_)
 		{
 			if (((i_658_ + i_645_) < anInt537) || (anInt536 <= (i_658_ + i_645_)))
 			{
-				i_657_ += this.anInt502;
+				i_657_ += this.maybe_imageWidth;
 			}
 			else
 			{
@@ -2703,7 +2579,7 @@ class Class46 implements ImageProducer, ImageObserver
 				        + ((((i_649_ * i_658_) + (i_652_ * (i_648_ - i_658_))) / i_648_) << 16));
 				for (int i_660_ = -i; i_660_ < 0; i_660_++)
 				{
-					this.anIntArray119[i_657_++] = i_659_;
+					this.imagePixelArray[i_657_++] = i_659_;
 				}
 				i_657_ += i_655_;
 			}
@@ -2716,14 +2592,13 @@ class Class46 implements ImageProducer, ImageObserver
 		{
 			i_662_ = 0;
 		}
-		anInt538++;
-		if (this.anInt510 < i_661_)
+		if (this.maybe_imageHeight < i_661_)
 		{
-			i_661_ = this.anInt510;
+			i_661_ = this.maybe_imageHeight;
 		}
-		if (this.anInt502 < i_663_)
+		if (this.maybe_imageWidth < i_663_)
 		{
-			i_663_ = this.anInt502;
+			i_663_ = this.maybe_imageWidth;
 		}
 		if (0 > i)
 		{
@@ -2743,7 +2618,6 @@ class Class46 implements ImageProducer, ImageObserver
 		{
 			this.anIntArrayArray20 = null;
 		}
-		anInt521++;
 		final int i_680_ = (i_668_ >> 16) & 0xff;
 		final int i_681_ = (i_668_ & 0xfff3) >> 8;
 		final int i_682_ = 0xff & i_668_;
@@ -2802,7 +2676,7 @@ class Class46 implements ImageProducer, ImageObserver
 				i_666_ += i_674_;
 				i_678_ = i_686_;
 				i_672_ = i_665_ + i_672_;
-				i_675_ += this.anInt502;
+				i_675_ += this.maybe_imageWidth;
 			}
 		}
 		catch (final Exception exception)
@@ -2814,7 +2688,6 @@ class Class46 implements ImageProducer, ImageObserver
 	private void method359(int i, final int[] is, int i_697_, final int i_698_, final int i_699_, final int i_700_,
 	        final int i_701_, final int i_702_, final byte i_703_, final byte[] is_704_)
 	{
-		anInt542++;
 		for (int i_705_ = -i_699_; 0 > i_705_; i_705_++)
 		{
 			for (int i_706_ = -i_698_; 0 > i_706_; i_706_++)
@@ -2848,7 +2721,6 @@ class Class46 implements ImageProducer, ImageObserver
 
 	void method360(final byte i, final byte[] is, final int i_709_)
 	{
-		anInt534++;
 		final int[] is_710_ = this.anIntArrayArray20[i_709_] = new int[10200];
 		this.anIntArray118[i_709_] = 255;
 		this.anIntArray123[i_709_] = 40;
@@ -2894,7 +2766,6 @@ class Class46 implements ImageProducer, ImageObserver
 	void method361(final int i, final String string, final int i_721_, final int i_722_, final int i_723_, int i_724_,
 	        int i_725_)
 	{
-		anInt528++;
 		try
 		{
 			if (0 < i_721_)
@@ -2920,11 +2791,11 @@ class Class46 implements ImageProducer, ImageObserver
 						{
 							i_728_ = 32;
 						}
-						if ((i_728_ < 0) || (anIntArray127.length <= i_728_))
+						if ((i_728_ < 0) || (charIndexes.length <= i_728_))
 						{
 							i_728_ = 32;
 						}
-						final int i_729_ = anIntArray127[i_728_];
+						final int i_729_ = charIndexes[i_728_];
 						if (this.aBool27 && !ByteBuffer.aBoolArray10[i_722_] && (i_725_ != 0))
 						{
 							method326(i_729_, 0, ByteBuffer.aBoolArray10[i_722_], i_724_ - -1, (byte) 63, is, i_723_);
@@ -3083,7 +2954,6 @@ class Class46 implements ImageProducer, ImageObserver
 	        final int i_737_)
 	{
 		method341(i_735_, (byte) -46, i_737_, i_733_, i_736_);
-		anInt533++;
 		method341(i_735_, (byte) -72, i_737_ + i + -1, i_733_, i_736_);
 		method319(i_736_, i, i_737_, true, i_733_);
 		method319(i_736_, i, i_737_, true, i_733_ + i_735_ + -1);
@@ -3091,52 +2961,49 @@ class Class46 implements ImageProducer, ImageObserver
 
 	void method363(final Graphics graphics, final int i, final int i_739_, final int i_740_)
 	{
-		anInt564++;
-		method332(100);
-		graphics.drawImage(anImage1, i, i_739_, this);
+		completePixels();
+		graphics.drawImage(image, i, i_739_, this);
 	}
 
-	Class46(final int i, final int i_741_, final int i_742_, final Component component)
+	GameImage(final int maybe_width, final int maybe_height, final int i_742_, final Component component)
 	{
 		anInt536 = 0;
 		this.aBool28 = false;
 		anInt567 = 0;
 		anIntArray128 = new int[i_742_];
 		this.anIntArrayArray20 = new int[i_742_][];
-		this.anInt510 = i_741_;
-		this.anInt502 = i;
+		this.maybe_imageHeight = maybe_height;
+		this.maybe_imageWidth = maybe_width;
 		this.anIntArray125 = new int[i_742_];
 		aBoolArray9 = new boolean[i_742_];
 		this.anIntArray118 = new int[i_742_];
 		this.anIntArray122 = new int[i_742_];
 		this.aByteArrayArray13 = new byte[i_742_][];
-		this.anIntArray119 = new int[i_741_ * i];
+		this.imagePixelArray = new int[maybe_height * maybe_width];
 		this.anIntArrayArray19 = new int[i_742_][];
-		anInt567 = i;
+		anInt567 = maybe_width;
 		this.anIntArray123 = new int[i_742_];
-		anInt536 = i_741_;
+		anInt536 = maybe_height;
 		anIntArray120 = new int[i_742_];
-		if ((i > 1) && (i_741_ > 1) && (component != null))
+		if ((maybe_width > 1) && (maybe_height > 1) && (component != null))
 		{
 			aColorModel2 = new DirectColorModel(32, 16711680, 65280, 255);
-			final int i_743_ = this.anInt502 * this.anInt510;
-			for (int i_744_ = 0; i_744_ < i_743_; i_744_++)
+			for (int index = 0; index < (this.maybe_imageWidth * this.maybe_imageHeight); index++)
 			{
-				this.anIntArray119[i_744_] = 0;
+				this.imagePixelArray[index] = 0;
 			}
-			anImage1 = component.createImage(this);
-			method332(86);
-			component.prepareImage(anImage1, component);
-			method332(99);
-			component.prepareImage(anImage1, component);
-			method332(79);
-			component.prepareImage(anImage1, component);
+			image = component.createImage(this);
+			completePixels();
+			component.prepareImage(image, component);
+			completePixels();
+			component.prepareImage(image, component);
+			completePixels();
+			component.prepareImage(image, component);
 		}
 	}
 
 	void method364(final byte i, final int i_745_)
 	{
-		anInt498++;
 		if (this.aByteArrayArray13[i_745_] != null)
 		{
 			final int i_746_ = (this.anIntArray123[i_745_] * this.anIntArray118[i_745_]);
@@ -3165,15 +3032,15 @@ class Class46 implements ImageProducer, ImageObserver
 	static
 	{
 		final String string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!\"\u00a3$%^&*()-_=+[{]};:'@#~,<.>/?\\| ";
-		anIntArray127 = new int[256];
-		for (int i = 0; i < 256; i++)
+		charIndexes = new int[256];
+		for (int i = 0; i < charIndexes.length; i++)
 		{
 			int i_751_ = string.indexOf(i);
 			if (i_751_ == -1)
 			{
 				i_751_ = 74;
 			}
-			anIntArray127[i] = i_751_ * 9;
+			charIndexes[i] = i_751_ * 9;
 		}
 		aStringArray33 = new String[100];
 		anInt569 = 0;

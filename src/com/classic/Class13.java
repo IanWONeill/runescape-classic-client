@@ -3,13 +3,10 @@ package com.classic;
 final class Class13
 {
 	static String[] aStringArray12;
-	static int anInt141;
 	static String[] aStringArray13 = new String[100];
-	static int anInt142;
 
 	static synchronized byte[] method109(final int i, final int i_0_)
 	{
-		anInt141++;
 		if ((i_0_ == 100) && (Class6.anInt47 > 0))
 		{
 			final byte[] is = StreamClass.aByteArrayArray15[--Class6.anInt47];
@@ -49,7 +46,6 @@ final class Class13
 
 	static String method110(final String string, final String string_2_, final int i, final int i_3_)
 	{
-		anInt142++;
 		final int i_4_ = i;
 		while_20_: do
 		{

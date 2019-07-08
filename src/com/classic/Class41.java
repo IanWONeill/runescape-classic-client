@@ -4,25 +4,18 @@ import java.awt.image.ColorModel;
 
 final class Class41
 {
-	static int anInt414;
-	static int anInt415;
 	private final int[] anIntArray91;
 	private int[] anIntArray92;
-	static int anInt416;
 	private int anInt417;
 	private final int anInt418;
 	private int[] anIntArray93;
-	static int anInt419;
 	private final int[] anIntArray94;
 	private int[][] anIntArrayArray13;
 	static Class44 aClass44_2;
 	static ColorModel aColorModel1;
-	static int anInt420;
 	private int anInt421;
 	private final int[] anIntArray95;
 	private int anInt422;
-	static int anInt423;
-	static int anInt424;
 	private final int[] anIntArray96;
 	private final int[] anIntArray97;
 	static long aLong14;
@@ -33,8 +26,6 @@ final class Class41
 	private int anInt427;
 	private int anInt428;
 	private final int anInt429;
-	static int anInt430;
-	static int anInt431;
 	private int anInt432;
 	private long[] aLongArray2;
 	private final int[] anIntArray98;
@@ -49,37 +40,21 @@ final class Class41
 	private final int[][] anIntArrayArray15;
 	int anInt437;
 	private int anInt438;
-	static int anInt439;
 	private int anInt440;
 	private byte[][] aByteArrayArray12;
 	private int anInt441;
 	private int anInt442;
-	static int anInt443;
-	static int anInt444;
-	static int anInt445;
-	static int anInt446;
-	static int anInt447;
 	private int anInt448;
 	private final int[] anIntArray100;
-	static int anInt449;
-	static int anInt450;
 	private final int anInt451;
 	private final int[] anIntArray101;
-	static int anInt452;
-	static int anInt453;
-	static int anInt454;
-	static int anInt455;
-	private final Class46 aClass46_3;
+	private final GameImage aClass46_3;
 	private boolean[] aBoolArray8;
 	private final int anInt456;
 	private boolean aBool25;
 	private final int[] anIntArray102;
-	static int anInt457;
-	static int anInt458;
 	private int[][] anIntArrayArray16;
-	static int anInt459;
 	private int anInt460;
-	static int anInt461;
 	private final int[] anIntArray103;
 	private final int anInt462;
 	private int anInt463;
@@ -87,38 +62,24 @@ final class Class41
 	int anInt465;
 	private int[][] anIntArrayArray17;
 	private boolean aBool26;
-	static int anInt466;
 	private final int[] anIntArray104;
 	private final Class23[] aClass23Array3;
 	private final int[] anIntArray105;
-	static int anInt467;
-	static int anInt468;
 	private int anInt469;
-	static int anInt470;
-	static int anInt471;
 	private int[] anIntArray106;
 	private final int[] anIntArray107;
 	private final int[] anIntArray108;
-	static int anInt472;
-	static int anInt473;
 	private int anInt474;
 	private final int[] anIntArray109;
-	static int anInt475;
 	Class23 aClass23_3;
-	static int anInt476;
-	static int anInt477;
 	private int anInt478;
-	static int anInt479;
 	private int anInt480;
 	private final Class26[] aClass26Array1;
-	static int anInt481;
 	private int anInt482;
-	static int anInt483;
 
 	private void method259(final int[] is, int i, int i_0_, final int i_1_, final Class23 class23, int i_2_,
 	        final int[] is_3_, int i_4_, final int[] is_5_)
 	{
-		anInt419++;
 		if (i_2_ != -2)
 		{
 			if (0 <= i_2_)
@@ -205,7 +166,7 @@ final class Class41
 									i_31_ = anInt463;
 									i_32_ = -i + i_31_;
 								}
-								Class46.method322(i_29_ + i, i_19_, anIntArrayArray16[i_2_], 0, i_34_,
+								GameImage.method322(i_29_ + i, i_19_, anIntArrayArray16[i_2_], 0, i_34_,
 								        i_18_ + (i_25_ * i), i_22_, i_16_, (byte) 55, i_33_, 0, i_15_ + (i_24_ * i),
 								        (i_26_ * i) + i_21_, i_32_, anIntArray91);
 								i_15_ += i_17_;
@@ -556,7 +517,7 @@ final class Class41
 								i_88_ = anInt463;
 								i_89_ = -i + i_88_;
 							}
-							Class46.method309(i_90_, -20704, anIntArray93, i_91_, -i_89_, anIntArray91, i_82_ + i, 0);
+							GameImage.method309(i_90_, -20704, anIntArray93, i_91_, -i_89_, anIntArray91, i_82_ + i, 0);
 							i_82_ += i_81_;
 						}
 					}
@@ -600,7 +561,6 @@ final class Class41
 	private void method260(final int i, final int[] is, int i_96_, final int[] is_97_, int i_98_, final int i_99_,
 	        int i_100_, final int i_101_, final int[] is_102_, final Class23 class23, int i_103_)
 	{
-		anInt454++;
 		if (i_99_ == 3)
 		{
 			final int i_104_ = is[0] + anInt432;
@@ -1236,7 +1196,6 @@ final class Class41
 		{
 			i_198_ = 32;
 		}
-		anInt479++;
 		for (int i_199_ = 0; anInt442 > i_199_; i_199_++)
 		{
 			aClass23Array3[i_199_].method138(i_194_, i, i_195_, i_198_, 12345678, i_196_);
@@ -1276,7 +1235,6 @@ final class Class41
 			method262(2, class26s, i_203_, i_201_);
 			method262(i ^ 0x0, class26s, i_200_, i_203_ - -1);
 		}
-		anInt472++;
 		if (i != 2)
 		{
 			anIntArray99 = null;
@@ -1285,7 +1243,6 @@ final class Class41
 
 	int method263(final int i, int i_207_)
 	{
-		anInt439++;
 		if (i_207_ == 12345678)
 		{
 			return 0;
@@ -1309,7 +1266,6 @@ final class Class41
 	private boolean method264(final int i, final byte i_211_, final int i_212_, final boolean bool, final int i_213_,
 	        final int i_214_)
 	{
-		anInt470++;
 		if ((bool && (i <= i_214_)) || (i_214_ > i))
 		{
 			if (i > i_213_)
@@ -1344,7 +1300,6 @@ final class Class41
 	int method265(final int i, final int i_216_, final int i_217_, final int i_218_, final int i_219_, final int i_220_,
 	        final int i_221_, final int i_222_)
 	{
-		anInt424++;
 		anIntArray101[anInt478] = i_222_;
 		anIntArray96[anInt478] = i_216_;
 		anIntArray98[anInt478] = i_218_;
@@ -1363,13 +1318,11 @@ final class Class41
 
 	int[] method266(final byte i)
 	{
-		anInt430++;
 		return anIntArray99;
 	}
 
 	void method267(final Class23 class23, final byte i)
 	{
-		anInt443++;
 		if (class23 == null)
 		{
 			System.out.println("Warning tried to add null object!");
@@ -1384,7 +1337,6 @@ final class Class41
 	void method268(final int i)
 	{
 		method273(1);
-		anInt446++;
 		for (int i_226_ = 0; anInt442 > i_226_; i_226_++)
 		{
 			aClass23Array3[i_226_] = null;
@@ -1398,7 +1350,6 @@ final class Class41
 		i_229_ &= 0x3ff;
 		i_228_ &= 0x3ff;
 		i_233_ &= 0x3ff;
-		anInt452++;
 		anInt480 = 0x3ff & (-i_233_ + 1024);
 		anInt417 = 0x3ff & (-i_228_ + 1024);
 		anInt448 = 0x3ff & (-i_229_ + 1024);
@@ -1436,7 +1387,6 @@ final class Class41
 
 	void method270(final int i, final int i_246_)
 	{
-		anInt449++;
 		if (anIntArrayArray16[i_246_] != null)
 		{
 			final int[] is = anIntArrayArray16[i_246_];
@@ -1468,7 +1418,6 @@ final class Class41
 
 	void method271(final int i, final int i_254_, final boolean bool, final int[] is, final byte[] is_255_)
 	{
-		anInt477++;
 		aByteArrayArray12[i] = is_255_;
 		anIntArrayArray17[i] = is;
 		anIntArray92[i] = i_254_;
@@ -1480,7 +1429,6 @@ final class Class41
 
 	private void method272(final int i, final int i_256_)
 	{
-		anInt453++;
 		final Class26 class26 = aClass26Array1[i_256_];
 		final Class23 class23 = class26.aClass23_2;
 		final int i_257_ = class26.anInt308;
@@ -1557,7 +1505,6 @@ final class Class41
 
 	private void method273(final int i)
 	{
-		anInt450++;
 		anInt478 = 0;
 		this.aClass23_3.method150(i);
 	}
@@ -1568,7 +1515,6 @@ final class Class41
 		{
 			i_271_ = 32;
 		}
-		anInt459++;
 		for (int i_274_ = 0; i_274_ < anInt442; i_274_++)
 		{
 			aClass23Array3[i_274_].method139(i_272_, i, i_271_, 105);
@@ -1582,7 +1528,6 @@ final class Class41
 		{
 			return -33;
 		}
-		anInt444++;
 		if (i_278_ == i_279_)
 		{
 			return i_277_;
@@ -1592,7 +1537,6 @@ final class Class41
 
 	private void method276(final byte i, final int i_280_)
 	{
-		anInt473++;
 		int i_281_;
 		if (anIntArray92[i_280_] != 0)
 		{
@@ -1638,7 +1582,6 @@ final class Class41
 	void method277(final int i, final int i_289_)
 	{
 		this.aClass23_3.aByteArray12[i] = (byte) 1;
-		anInt476++;
 	}
 
 	void method278(final int i, final int i_290_, final int i_291_, final int i_292_, final int i_293_,
@@ -1653,7 +1596,6 @@ final class Class41
 		anInt463 = i;
 		aClass51Array1 = new Class51[i_291_ - -i_292_];
 		anInt482 = i_293_;
-		anInt455++;
 		anInt428 = i_294_;
 		anInt434 = i_295_;
 		for (int i_296_ = 0; (i_291_ + i_292_) > i_296_; i_296_++)
@@ -1664,7 +1606,6 @@ final class Class41
 
 	private boolean method279(final int i, int i_297_, final Class26[] class26s, int i_298_)
 	{
-		anInt467++;
 		for (;;)
 		{
 			final Class26 class26 = class26s[i_297_];
@@ -1720,7 +1661,6 @@ final class Class41
 
 	private boolean method280(final Class26 class26, final int i, final Class26 class26_304_)
 	{
-		anInt466++;
 		final Class23 class23 = class26.aClass23_2;
 		final Class23 class23_305_ = class26_304_.aClass23_2;
 		final int i_306_ = class26.anInt308;
@@ -1784,13 +1724,11 @@ final class Class41
 
 	void method281(final byte i, final int i_326_, final int i_327_)
 	{
-		anInt415++;
 		anIntArray107[i_326_] = i_327_;
 	}
 
 	int method282(final int i)
 	{
-		anInt457++;
 		if (i != -1)
 		{
 			this.anInt465 = -90;
@@ -1801,7 +1739,6 @@ final class Class41
 	void method283(final int i, final byte i_328_)
 	{
 		anInt478 -= i;
-		anInt483++;
 		this.aClass23_3.method149((byte) 96, i * 2, i);
 		if (0 > anInt478)
 		{
@@ -1811,7 +1748,6 @@ final class Class41
 
 	private boolean method284(final boolean bool, final int i, final int i_329_, final int i_330_, final int i_331_)
 	{
-		anInt447++;
 		if (i_331_ != 1024)
 		{
 			anInt482 = 103;
@@ -1834,7 +1770,6 @@ final class Class41
 	private boolean method285(final int[] is, final int[] is_332_, final int i, final int[] is_333_,
 	        final int[] is_334_)
 	{
-		anInt475++;
 		final int i_335_ = is.length;
 		final int i_336_ = is_334_.length;
 		int i_337_ = 0;
@@ -2319,13 +2254,11 @@ final class Class41
 		aBool25 = true;
 		anInt474 = i_422_ - anInt428;
 		anInt433 = i;
-		anInt414++;
 		anInt441 = 0;
 	}
 
 	private void method287(final byte i, final int i_424_)
 	{
-		anInt431++;
 		final Class26 class26 = aClass26Array1[i_424_];
 		final Class23 class23 = class26.aClass23_2;
 		final int i_425_ = class26.anInt308;
@@ -2418,7 +2351,6 @@ final class Class41
 
 	private void method288(int i, final byte i_448_, int i_449_, int i_450_)
 	{
-		anInt461++;
 		final int i_451_ = (-anInt448 + 1024) & 0x3ff;
 		final int i_452_ = (-anInt417 + 1024) & 0x3ff;
 		final int i_453_ = (-anInt480 - -1024) & 0x3ff;
@@ -2474,7 +2406,6 @@ final class Class41
 
 	private void method289(final int i, final int i_464_)
 	{
-		anInt471++;
 		if (i_464_ < 19)
 		{
 			anIntArray106 = null;
@@ -2545,7 +2476,6 @@ final class Class41
 	void method290(final boolean bool)
 	{
 		aBool26 = aClass46_3.aBool28;
-		anInt445++;
 		final int i = (this.anInt437 * anInt463) >> anInt482;
 		AClass1.anInt320 = 0;
 		final int i_471_ = (this.anInt437 * anInt438) >> anInt482;
@@ -2870,7 +2800,6 @@ final class Class41
 
 	private void method291(final Class26[] class26s, final int i, final int i_519_, final int i_520_)
 	{
-		anInt481++;
 		for (int i_521_ = i; i_519_ >= i_521_; i_521_++)
 		{
 			class26s[i_521_].aBool17 = false;
@@ -2921,7 +2850,6 @@ final class Class41
 
 	static byte[] method292(final byte[] is, final int i, final String string, final int i_527_)
 	{
-		anInt423++;
 		if (i_527_ != 293484812)
 		{
 			method292(null, -86, null, -66);
@@ -2942,7 +2870,6 @@ final class Class41
 		anIntArray92 = new int[i_529_];
 		anIntArrayArray14 = new int[i_530_][];
 		aByteArrayArray12 = new byte[i_529_][];
-		anInt416++;
 		anIntArrayArray13 = new int[i][];
 		anIntArrayArray16 = new int[i_529_][];
 		ByteBuffer.aLong15 = 0L;
@@ -2950,7 +2877,6 @@ final class Class41
 
 	void method294(final Class23 class23, final int i)
 	{
-		anInt420++;
 		if (i != 1)
 		{
 			method284(true, 116, 86, -18, -124);
@@ -2975,13 +2901,11 @@ final class Class41
 		{
 			return null;
 		}
-		anInt458++;
 		return aClass23Array2;
 	}
 
 	private boolean method296(final byte i, final Class26 class26, final Class26 class26_533_)
 	{
-		anInt468++;
 		if (class26_533_.anInt315 <= class26.anInt306)
 		{
 			return true;
@@ -3123,7 +3047,7 @@ final class Class41
 		return !method285(is_554_, is_555_, i + -20654, is_560_, is_561_);
 	}
 
-	Class41(final Class46 class46, final int i, final int i_566_, final int i_567_)
+	Class41(final GameImage class46, final int i, final int i_566_, final int i_567_)
 	{
 		anIntArray95 = new int[40];
 		anIntArray94 = new int[40];
@@ -3156,10 +3080,10 @@ final class Class41
 		anIntArrayArray15 = new int[anInt418][256];
 		anInt429 = i;
 		aClass46_3 = class46;
-		anInt438 = class46.anInt510 / 2;
-		anInt463 = class46.anInt502 / 2;
+		anInt438 = class46.maybe_imageHeight / 2;
+		anInt463 = class46.maybe_imageWidth / 2;
 		anInt442 = 0;
-		anIntArray91 = class46.anIntArray119;
+		anIntArray91 = class46.imagePixelArray;
 		aClass26Array1 = new Class26[i_566_];
 		anInt460 = 0;
 		aClass23Array3 = new Class23[anInt429];

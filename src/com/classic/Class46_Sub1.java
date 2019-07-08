@@ -3,7 +3,7 @@ package com.classic;
 import java.applet.Applet;
 import java.awt.Component;
 
-final class Class46_Sub1 extends Class46
+final class Class46_Sub1 extends GameImage
 {
 	static int[] anIntArray143;
 	static char[] aCharArray2 = { ' ', '\u00a0', '_', '-', '\u00e0', '\u00e1', '\u00e2', '\u00e4', '\u00e3', '\u00c0',
@@ -13,11 +13,8 @@ final class Class46_Sub1 extends Class46
 	        '\u00fb', '\u00fc', '\u00d9', '\u00da', '\u00db', '\u00dc', '\u00e7', '\u00c7', '\u00ff', '\u0178',
 	        '\u00f1', '\u00d1', '\u00df' };
 	static String[] aStringArray36;
-	static int anInt632;
-	static int anInt633;
 	static Applet anApplet2;
 	static String[] aStringArray37;
-	static int anInt634;
 	mudclient aclient1;
 
 	@Override
@@ -28,7 +25,6 @@ final class Class46_Sub1 extends Class46
 		{
 			aCharArray2 = null;
 		}
-		anInt632++;
 		if (i_3_ < 50000)
 		{
 			if (i_3_ < 40000)
@@ -64,7 +60,6 @@ final class Class46_Sub1 extends Class46
 
 	static byte[] method409(final CharSequence charsequence)
 	{
-		anInt634++;
 		final int i = charsequence.length();
 		final byte[] is = new byte[i];
 		for (int i_9_ = 0; i > i_9_; i_9_++)
@@ -238,6 +233,5 @@ final class Class46_Sub1 extends Class46
 	static void method410(final int[] is, final Object[] objects, final byte i)
 	{
 		Class51.method375(objects, 0, is.length + -1, is, 1);
-		anInt633++;
 	}
 }

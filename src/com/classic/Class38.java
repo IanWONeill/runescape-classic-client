@@ -6,14 +6,11 @@ final class Class38
 	static String[] aStringArray26;
 	static int[] anIntArray88;
 	static int anInt396;
-	static int anInt397;
 	static int anInt398 = 0;
 	int anInt399;
 	static GameFrame gameFrame = null;
-	static int anInt400;
 	static String[] aStringArray27;
 	static int[] anIntArray89;
-	static int anInt401;
 
 	Class38(final String string, final String string_0_, final String string_1_, final int i)
 	{
@@ -27,7 +24,6 @@ final class Class38
 			method245(-126, (byte) 29);
 		}
 		i = (0x55555555 & i) + ((i >>> 1) & ~0x2aaaaaaa);
-		anInt400++;
 		i = ((~0x33333332 & i) >>> 2) + (0x33333333 & i);
 		i = (i + (i >>> 4)) & 0xf0f0f0f;
 		i += i >>> 8;
@@ -38,13 +34,11 @@ final class Class38
 	@Override
 	public String toString()
 	{
-		anInt401++;
 		throw new IllegalStateException();
 	}
 
 	static byte[] method246(final int i)
 	{
-		anInt397++;
 		final byte[] is = new byte[256];
 		for (int i_3_ = -128; i_3_ < 127; i_3_++)
 		{

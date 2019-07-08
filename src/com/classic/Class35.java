@@ -4,14 +4,12 @@ final class Class35
 {
 	static int[] anIntArray85;
 	static long aLong4;
-	static int anInt375;
 	static int anInt376;
 	static int anInt377 = 0;
 
 	static int method228(final int i, final int i_0_, final int i_1_, final boolean bool, final int i_2_,
 	        final int i_3_, final int i_4_, final int i_5_)
 	{
-		anInt375++;
 		int i_6_ = 0;
 		for (int i_7_ = 0; i_7_ < i_1_; i_7_++)
 		{

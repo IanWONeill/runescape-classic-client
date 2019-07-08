@@ -9,15 +9,12 @@ final class Class3
 	static int anInt8 = 0;
 	static String aString2 = "";
 	static String[] aStringArray4 = new String[100];
-	static int anInt9;
 	static int[] anIntArray2;
 	static int[] anIntArray3;
-	static int anInt10;
 
 	static int method6(final long l, final int i)
 	{
 		Class36.method229(l, 12);
-		anInt10++;
 		if (i != 2000000)
 		{
 			return -65;
@@ -27,7 +24,6 @@ final class Class3
 
 	static byte[] method7(final URL url, final boolean updateLoadingBar) throws IOException
 	{
-		anInt9++;
 		final Class25 class25 = new Class25(GameFrame.aClass32_4, url, 2000000);
 		if (updateLoadingBar)
 		{

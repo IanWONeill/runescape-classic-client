@@ -69,7 +69,7 @@ final class Class37_Sub1 extends AudioUnknown
 		{
 			if (Class38.method245(i, (byte) 125) != 1)
 			{
-				method244(Class27.method177(i, 21657));
+				method244(Class27.method177(i));
 			}
 			else
 			{

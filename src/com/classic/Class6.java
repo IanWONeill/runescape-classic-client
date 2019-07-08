@@ -15,7 +15,7 @@ final class Class6
 	static int anInt19;
 	static String[] aStringArray7 = new String[100];
 	static int anInt20;
-	private final Class46 aClass46_1;
+	private final GameImage aClass46_1;
 	static int anInt21;
 	static int anInt22;
 	static int anInt23;
@@ -408,7 +408,7 @@ final class Class6
 		anInt42++;
 		if ((i_62_ == -30895) && ((0 <= i_61_) && (0 <= i_60_) && (95 > i_61_) && (i_60_ < 95)))
 		{
-			if ((Class46.anIntArray134[i] == 1) || (Class46.anIntArray134[i] == 2))
+			if ((GameImage.anIntArray134[i] == 1) || (GameImage.anIntArray134[i] == 2))
 			{
 				final int i_63_ = method13(i_60_, i_61_, (byte) -118);
 				int i_64_;
@@ -427,7 +427,7 @@ final class Class6
 				{
 					for (int i_67_ = i_60_; i_67_ < (i_64_ + i_60_); i_67_++)
 					{
-						if (Class46.anIntArray134[i] != 1)
+						if (GameImage.anIntArray134[i] != 1)
 						{
 							if (i_63_ == 0)
 							{
@@ -790,7 +790,7 @@ final class Class6
 					{
 						i_117_ = 0;
 					}
-					final int i_118_ = class23.method161((byte) 123, i_117_, i_115_ * 128, i_116_ * 128);
+					final int i_118_ = class23.method161(i_117_, i_115_ * 128, i_116_ * 128);
 					final int i_119_ = -5 + (int) (10.0 * Math.random());
 					class23.method152(0, i_119_, i_118_);
 				}
@@ -993,14 +993,14 @@ final class Class6
 							{
 								final int i_138_ = (Class23.anIntArray54[-1
 								        + method44(i_110_ ^ ~0x44e3, i, i_137_ - -1, i_136_)]);
-								final int i_139_ = class23.method161((byte) 126, -method25(i_137_, i_136_, 76),
+								final int i_139_ = class23.method161( -method25(i_137_, i_136_, 76),
 								        i_136_ * 128, i_137_ * 128);
-								final int i_140_ = class23.method161((byte) 121,
+								final int i_140_ = class23.method161(
 								        -method25(i_137_, i_136_ - -1, (i_110_ ^ ~0x44b7)), (i_136_ * 128) + 128,
 								        i_137_ * 128);
-								final int i_141_ = class23.method161((byte) 125, -method25(i_137_ - -1, i_136_ + 1, 89),
+								final int i_141_ = class23.method161(-method25(i_137_ - -1, i_136_ + 1, 89),
 								        (i_136_ + 1) * 128, (i_137_ + 1) * 128);
-								final int i_142_ = class23.method161((byte) 124, -method25(i_137_ - -1, i_136_, 91),
+								final int i_142_ = class23.method161(-method25(i_137_ - -1, i_136_, 91),
 								        i_136_ * 128, (i_137_ * 128) + 128);
 								final int[] is = { i_139_, i_140_, i_141_, i_142_ };
 								final int i_143_ = class23.method144(is, 12345678, i_138_, -1062, 4);
@@ -1014,13 +1014,13 @@ final class Class6
 							{
 								final int i_144_ = (Class23.anIntArray54[-1
 								        + method44(i_110_ + 17721, i, i_137_ - 1, i_136_)]);
-								final int i_145_ = class23.method161((byte) 119, -method25(i_137_, i_136_, 48),
+								final int i_145_ = class23.method161(-method25(i_137_, i_136_, 48),
 								        i_136_ * 128, i_137_ * 128);
-								final int i_146_ = class23.method161((byte) 120, -method25(i_137_, i_136_ + 1, 31),
+								final int i_146_ = class23.method161(-method25(i_137_, i_136_ + 1, 31),
 								        (i_136_ * 128) + 128, i_137_ * 128);
-								final int i_147_ = class23.method161((byte) 115, -method25(i_137_ + 1, i_136_ + 1, 32),
+								final int i_147_ = class23.method161(-method25(i_137_ + 1, i_136_ + 1, 32),
 								        (i_136_ + 1) * 128, (i_137_ * 128) + 128);
-								final int i_148_ = class23.method161((byte) 124, -method25(i_137_ - -1, i_136_, 62),
+								final int i_148_ = class23.method161(-method25(i_137_ - -1, i_136_, 62),
 								        i_136_ * 128, (i_137_ * 128) - -128);
 								final int[] is = { i_145_, i_146_, i_147_, i_148_ };
 								final int i_149_ = class23.method144(is, 12345678, i_144_, i_110_ + 16552, 4);
@@ -1033,14 +1033,14 @@ final class Class6
 							        + method44(i_110_ ^ ~0x44a7, i, i_137_, i_136_ - -1)])))
 							{
 								final int i_150_ = (Class23.anIntArray54[method44(65, i, i_137_, i_136_ - -1) - 1]);
-								final int i_151_ = class23.method161((byte) 116, -method25(i_137_, i_136_, 39),
+								final int i_151_ = class23.method161(-method25(i_137_, i_136_, 39),
 								        i_136_ * 128, i_137_ * 128);
-								final int i_152_ = class23.method161((byte) 125, -method25(i_137_, i_136_ + 1, 76),
+								final int i_152_ = class23.method161(-method25(i_137_, i_136_ + 1, 76),
 								        (i_136_ * 128) + 128, i_137_ * 128);
-								final int i_153_ = class23.method161((byte) 123,
+								final int i_153_ = class23.method161(
 								        -method25(i_137_ - -1, i_136_ + 1, (i_110_ ^ ~0x44ef)), (i_136_ + 1) * 128,
 								        (i_137_ * 128) - -128);
-								final int i_154_ = class23.method161((byte) 125, -method25(i_137_ + 1, i_136_, 63),
+								final int i_154_ = class23.method161(-method25(i_137_ + 1, i_136_, 63),
 								        i_136_ * 128, (i_137_ * 128) - -128);
 								final int[] is = { i_151_, i_152_, i_153_, i_154_ };
 								final int i_155_ = class23.method144(is, 12345678, i_150_, -1062, 4);
@@ -1053,13 +1053,13 @@ final class Class6
 							        && (4 == (Class9.anIntArray22[(method44(78, i, i_137_, -1 + i_136_) - 1)])))
 							{
 								final int i_156_ = (Class23.anIntArray54[-1 + method44(78, i, i_137_, i_136_ + -1)]);
-								final int i_157_ = class23.method161((byte) 116,
+								final int i_157_ = class23.method161(
 								        -method25(i_137_, i_136_, (i_110_ + 17682)), i_136_ * 128, i_137_ * 128);
-								final int i_158_ = class23.method161((byte) 120, -method25(i_137_, i_136_ + 1, 69),
+								final int i_158_ = class23.method161(-method25(i_137_, i_136_ + 1, 69),
 								        (i_136_ * 128) + 128, i_137_ * 128);
-								final int i_159_ = class23.method161((byte) 127, -method25(i_137_ - -1, i_136_ + 1, 35),
+								final int i_159_ = class23.method161(-method25(i_137_ - -1, i_136_ + 1, 35),
 								        (i_136_ + 1) * 128, (i_137_ + 1) * 128);
-								final int i_160_ = class23.method161((byte) 121, -method25(i_137_ + 1, i_136_, 90),
+								final int i_160_ = class23.method161(-method25(i_137_ + 1, i_136_, 90),
 								        i_136_ * 128, (i_137_ + 1) * 128);
 								final int[] is = { i_157_, i_158_, i_159_, i_160_ };
 								final int i_161_ = class23.method144(is, 12345678, i_156_, i_110_ ^ 0x40e8, 4);
@@ -1073,13 +1073,13 @@ final class Class6
 					else
 					{
 						final int i_162_ = (Class23.anIntArray54[method44(113, i, i_137_, i_136_) + -1]);
-						final int i_163_ = class23.method161((byte) 122, -method25(i_137_, i_136_, i_110_ ^ ~0x44fb),
+						final int i_163_ = class23.method161(-method25(i_137_, i_136_, i_110_ ^ ~0x44fb),
 						        i_136_ * 128, i_137_ * 128);
-						final int i_164_ = class23.method161((byte) 124, -method25(i_137_, i_136_ + 1, 69),
+						final int i_164_ = class23.method161(-method25(i_137_, i_136_ + 1, 69),
 						        (i_136_ * 128) + 128, i_137_ * 128);
-						final int i_165_ = class23.method161((byte) 120, -method25(i_137_ + 1, i_136_ + 1, 123),
+						final int i_165_ = class23.method161(-method25(i_137_ + 1, i_136_ + 1, 123),
 						        (i_136_ + 1) * 128, (i_137_ * 128) + 128);
-						final int i_166_ = class23.method161((byte) 115, -method25(i_137_ + 1, i_136_, 60),
+						final int i_166_ = class23.method161(-method25(i_137_ + 1, i_136_, 60),
 						        i_136_ * 128, (i_137_ + 1) * 128);
 						final int[] is = { i_163_, i_164_, i_165_, i_166_ };
 						final int i_167_ = class23.method144(is, 12345678, i_162_, -1062, 4);
@@ -1446,45 +1446,45 @@ final class Class6
 						        && (method30(i_196_ - 1, -102, i_195_ + -1) == 0))
 						{
 							final int[] is = new int[3];
-							is[0] = aClass23_1.method161((byte) 127, i_216_, i_212_, i_209_);
-							is[1] = aClass23_1.method161((byte) 115, i_217_, i_210_, i_213_);
-							is[2] = aClass23_1.method161((byte) 118, i_215_, i_208_, i_211_);
+							is[0] = aClass23_1.method161(i_216_, i_212_, i_209_);
+							is[1] = aClass23_1.method161(i_217_, i_210_, i_213_);
+							is[2] = aClass23_1.method161(i_215_, i_208_, i_211_);
 							aClass23_1.method144(is, 12345678, i_197_, -1062, 3);
 						}
 						else if ((12000 < method40(false, i_195_, i_196_)) && (method40(false, i_195_, i_196_) < 24000)
 						        && (method30(i_196_ + 1, i_110_ + 17510, i_195_ - -1) == 0))
 						{
 							final int[] is = new int[3];
-							is[0] = aClass23_1.method161((byte) 127, i_214_, i_206_, i_207_);
-							is[1] = aClass23_1.method161((byte) 124, i_215_, i_208_, i_211_);
-							is[2] = aClass23_1.method161((byte) 127, i_217_, i_210_, i_213_);
+							is[0] = aClass23_1.method161(i_214_, i_206_, i_207_);
+							is[1] = aClass23_1.method161(i_215_, i_208_, i_211_);
+							is[2] = aClass23_1.method161(i_217_, i_210_, i_213_);
 							aClass23_1.method144(is, 12345678, i_197_, -1062, 3);
 						}
 						else if ((0 < method40(false, i_195_, i_196_)) && (12000 > method40(false, i_195_, i_196_))
 						        && (method30(i_196_ + -1, -125, i_195_ - -1) == 0))
 						{
 							final int[] is = new int[3];
-							is[0] = aClass23_1.method161((byte) 117, i_217_, i_210_, i_213_);
-							is[1] = aClass23_1.method161((byte) 118, i_214_, i_206_, i_207_);
-							is[2] = aClass23_1.method161((byte) 123, i_216_, i_212_, i_209_);
+							is[0] = aClass23_1.method161(i_217_, i_210_, i_213_);
+							is[1] = aClass23_1.method161(i_214_, i_206_, i_207_);
+							is[2] = aClass23_1.method161(i_216_, i_212_, i_209_);
 							aClass23_1.method144(is, 12345678, i_197_, -1062, 3);
 						}
 						else if ((method40(false, i_195_, i_196_) > 0) && (method40(false, i_195_, i_196_) < 12000)
 						        && (0 == method30(1 + i_196_, i_110_ ^ 0x44b0, -1 + i_195_)))
 						{
 							final int[] is = new int[3];
-							is[0] = aClass23_1.method161((byte) 123, i_215_, i_208_, i_211_);
-							is[1] = aClass23_1.method161((byte) 125, i_216_, i_212_, i_209_);
-							is[2] = aClass23_1.method161((byte) 127, i_214_, i_206_, i_207_);
+							is[0] = aClass23_1.method161(i_215_, i_208_, i_211_);
+							is[1] = aClass23_1.method161(i_216_, i_212_, i_209_);
+							is[2] = aClass23_1.method161(i_214_, i_206_, i_207_);
 							aClass23_1.method144(is, 12345678, i_197_, -1062, 3);
 						}
 						else if ((i_215_ == i_214_) && (i_217_ == i_216_))
 						{
 							final int[] is = new int[4];
-							is[0] = aClass23_1.method161((byte) 123, i_214_, i_206_, i_207_);
-							is[1] = aClass23_1.method161((byte) 122, i_215_, i_208_, i_211_);
-							is[2] = aClass23_1.method161((byte) 127, i_216_, i_212_, i_209_);
-							is[3] = aClass23_1.method161((byte) 125, i_217_, i_210_, i_213_);
+							is[0] = aClass23_1.method161(i_214_, i_206_, i_207_);
+							is[1] = aClass23_1.method161(i_215_, i_208_, i_211_);
+							is[2] = aClass23_1.method161(i_216_, i_212_, i_209_);
+							is[3] = aClass23_1.method161(i_217_, i_210_, i_213_);
 							aClass23_1.method144(is, 12345678, i_197_, -1062, 4);
 						}
 						else if ((i_217_ != i_214_) || (i_216_ != i_215_))
@@ -1501,37 +1501,37 @@ final class Class6
 							if (bool_220_ != false)
 							{
 								final int[] is = new int[3];
-								is[0] = aClass23_1.method161((byte) 119, i_214_, i_206_, i_207_);
-								is[1] = aClass23_1.method161((byte) 119, i_215_, i_208_, i_211_);
-								is[2] = aClass23_1.method161((byte) 119, i_217_, i_210_, i_213_);
+								is[0] = aClass23_1.method161(i_214_, i_206_, i_207_);
+								is[1] = aClass23_1.method161(i_215_, i_208_, i_211_);
+								is[2] = aClass23_1.method161(i_217_, i_210_, i_213_);
 								aClass23_1.method144(is, 12345678, i_197_, -1062, 3);
 								final int[] is_221_ = new int[3];
-								is_221_[0] = aClass23_1.method161((byte) 118, i_216_, i_212_, i_209_);
-								is_221_[1] = aClass23_1.method161((byte) 124, i_217_, i_210_, i_213_);
-								is_221_[2] = aClass23_1.method161((byte) 116, i_215_, i_208_, i_211_);
+								is_221_[0] = aClass23_1.method161(i_216_, i_212_, i_209_);
+								is_221_[1] = aClass23_1.method161(i_217_, i_210_, i_213_);
+								is_221_[2] = aClass23_1.method161(i_215_, i_208_, i_211_);
 								aClass23_1.method144(is_221_, 12345678, i_197_, i_110_ + 16552, 3);
 							}
 							else
 							{
 								final int[] is = new int[3];
-								is[0] = aClass23_1.method161((byte) 118, i_215_, i_208_, i_211_);
-								is[1] = aClass23_1.method161((byte) 116, i_216_, i_212_, i_209_);
-								is[2] = aClass23_1.method161((byte) 125, i_214_, i_206_, i_207_);
+								is[0] = aClass23_1.method161(i_215_, i_208_, i_211_);
+								is[1] = aClass23_1.method161(i_216_, i_212_, i_209_);
+								is[2] = aClass23_1.method161(i_214_, i_206_, i_207_);
 								aClass23_1.method144(is, 12345678, i_197_, -1062, 3);
 								final int[] is_222_ = new int[3];
-								is_222_[0] = aClass23_1.method161((byte) 125, i_217_, i_210_, i_213_);
-								is_222_[1] = aClass23_1.method161((byte) 115, i_214_, i_206_, i_207_);
-								is_222_[2] = aClass23_1.method161((byte) 124, i_216_, i_212_, i_209_);
+								is_222_[0] = aClass23_1.method161(i_217_, i_210_, i_213_);
+								is_222_[1] = aClass23_1.method161(i_214_, i_206_, i_207_);
+								is_222_[2] = aClass23_1.method161(i_216_, i_212_, i_209_);
 								aClass23_1.method144(is_222_, 12345678, i_197_, -1062, 3);
 							}
 						}
 						else
 						{
 							final int[] is = new int[4];
-							is[0] = aClass23_1.method161((byte) 118, i_217_, i_210_, i_213_);
-							is[1] = aClass23_1.method161((byte) 123, i_214_, i_206_, i_207_);
-							is[2] = aClass23_1.method161((byte) 119, i_215_, i_208_, i_211_);
-							is[3] = aClass23_1.method161((byte) 119, i_216_, i_212_, i_209_);
+							is[0] = aClass23_1.method161(i_217_, i_210_, i_213_);
+							is[1] = aClass23_1.method161(i_214_, i_206_, i_207_);
+							is[2] = aClass23_1.method161(i_215_, i_208_, i_211_);
+							is[3] = aClass23_1.method161(i_216_, i_212_, i_209_);
 							aClass23_1.method144(is, 12345678, i_197_, -1062, 4);
 						}
 					}
@@ -1675,7 +1675,7 @@ final class Class6
 		anInt53++;
 		if ((i_241_ >= 0) && (0 <= i_242_) && (95 > i_241_) && (i_242_ < 95))
 		{
-			if ((Class46.anIntArray134[i] == 1) || (Class46.anIntArray134[i] == 2))
+			if ((GameImage.anIntArray134[i] == 1) || (GameImage.anIntArray134[i] == 2))
 			{
 				final int i_243_ = method13(i_242_, i_241_, (byte) 47);
 				int i_244_;
@@ -1694,7 +1694,7 @@ final class Class6
 				{
 					for (int i_247_ = i_242_; (i_245_ + i_242_) > i_247_; i_247_++)
 					{
-						if (Class46.anIntArray134[i] != 1)
+						if (GameImage.anIntArray134[i] != 1)
 						{
 							if (i_243_ == 0)
 							{
@@ -1908,10 +1908,10 @@ final class Class6
 		final int i_278_ = i_273_ * 128;
 		final int i_279_ = i_271_ * i;
 		final int i_280_ = i_269_ * 128;
-		final int i_281_ = class23.method161((byte) 122, -anIntArrayArray5[i_272_][i_273_], i_277_, i_278_);
-		final int i_282_ = class23.method161((byte) 116, -anIntArrayArray5[i_272_][i_273_] - i_274_, i_277_, i_278_);
-		final int i_283_ = class23.method161((byte) 126, -anIntArrayArray5[i_271_][i_269_] - i_274_, i_279_, i_280_);
-		final int i_284_ = class23.method161((byte) 117, -anIntArrayArray5[i_271_][i_269_], i_279_, i_280_);
+		final int i_281_ = class23.method161(-anIntArrayArray5[i_272_][i_273_], i_277_, i_278_);
+		final int i_282_ = class23.method161(-anIntArrayArray5[i_272_][i_273_] - i_274_, i_277_, i_278_);
+		final int i_283_ = class23.method161(-anIntArrayArray5[i_271_][i_269_] - i_274_, i_279_, i_280_);
+		final int i_284_ = class23.method161(-anIntArrayArray5[i_271_][i_269_], i_279_, i_280_);
 		final int[] is = { i_281_, i_282_, i_283_, i_284_ };
 		final int i_285_ = class23.method144(is, i_276_, i_275_, -1062, 4);
 		if (Class18.anIntArray41[i_270_] != 5)
@@ -2311,7 +2311,7 @@ final class Class6
 		return i_326_;
 	}
 
-	Class6(final Class41 class41, final Class46 class46)
+	Class6(final Class41 class41, final GameImage class46)
 	{
 		this.anIntArrayArray4 = new int[96][96];
 		this.anIntArray11 = new int[18432];

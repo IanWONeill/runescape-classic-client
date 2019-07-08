@@ -11,10 +11,6 @@ import java.net.URL;
 final class Class25 implements Runnable
 {
 	static int[] anIntArray79;
-	static int anInt295;
-	static int anInt296;
-	static int anInt297;
-	static int anInt298;
 	private final ByteBuffer buffer;
 	private Class20 aClass20_2;
 	private final URL url;
@@ -113,8 +109,6 @@ final class Class25 implements Runnable
 	
 	synchronized boolean method172()
 	{
-		anInt297++;
-
 		try {
 			InputStream Input = this.url.openStream();
 
@@ -139,7 +133,6 @@ final class Class25 implements Runnable
 	// NOTE: Original code using JAGGRAB.
 	synchronized boolean method172()
 	{
-		anInt297++;
 		if (downloadStage >= 2)
 		{
 			return true;
@@ -222,7 +215,6 @@ final class Class25 implements Runnable
 	@Override
 	public void run()
 	{
-		anInt296++;
 		try
 		{
 			int i;
@@ -258,14 +250,12 @@ final class Class25 implements Runnable
 
 	static boolean isAlphaNumeric(final char c)
 	{
-		anInt298++;
 		return ((('0' <= c) && (c <= '9')) || ((c >= 'A') && (c <= 'Z')) || (('a' <= c) && (c <= 'z')));
 	}
 
 	@Override
 	protected void finalize()
 	{
-		anInt295++;
 		if (aClass20_2 != null)
 		{
 			if (aClass20_2.socket != null)

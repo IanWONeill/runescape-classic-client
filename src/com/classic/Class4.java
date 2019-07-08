@@ -7,10 +7,7 @@ final class Class4
 	        131071, 262143, 524287, 1048575, 2097151, 4194303, 8388607, 16777215, 33554431, 67108863, 134217727,
 	        268435455, 536870911, 1073741823, 2147483647, -1 };
 	static int anInt11;
-	static int anInt12;
-	static int anInt13;
 	static String[] aStringArray6;
-	static int anInt14;
 	static int[] anIntArray5;
 	static int anInt15;
 	static int[] anIntArray6;
@@ -21,13 +18,11 @@ final class Class4
 		{
 			anIntArray4 = null;
 		}
-		anInt14++;
 		return Class29.method206(17469, class27_sub1, 32767);
 	}
 
 	static char method9(final int i, final char c)
 	{
-		anInt12++;
 		final char c_0_ = c;
 		while_10_: do
 		{
@@ -166,7 +161,6 @@ final class Class4
 
 	static int method10(final int i)
 	{
-		anInt13++;
 		final int i_1_ = i & Class52.aByteArray20[Class25.anInt302];
 		Class25.anInt302++;
 		return i_1_;

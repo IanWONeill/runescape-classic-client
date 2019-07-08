@@ -5,22 +5,13 @@ import java.io.IOException;
 
 final class Class39
 {
-	static int anInt402;
-	static int anInt403;
-	static int anInt404;
 	private final byte[] aByteArray15;
 	private long aLong8;
-	static int anInt405;
-	static int anInt406;
 	private int anInt407;
-	static int anInt408;
-	static int anInt409;
 	private long aLong9 = -1L;
-	static int anInt410;
 	private final byte[] aByteArray16;
 	private long aLong10;
 	private long aLong11;
-	static int anInt411;
 	private long aLong12;
 	private int anInt412 = 0;
 	private final Class28 aClass28_4;
@@ -28,7 +19,6 @@ final class Class39
 
 	void method247(final long l, final int i) throws IOException
 	{
-		anInt402++;
 		if (0L > l)
 		{
 			throw new IOException();
@@ -38,7 +28,6 @@ final class Class39
 
 	void method248(final byte[] is, int i, final int i_0_, int i_1_) throws IOException
 	{
-		anInt408++;
 		do
 		{
 			try
@@ -129,19 +118,16 @@ final class Class39
 
 	long method249(final boolean bool)
 	{
-		anInt410++;
 		return aLong12;
 	}
 
 	private void method250(final byte[] is, final int i) throws IOException
 	{
 		method253((byte) 102, 0, is.length, is);
-		anInt404++;
 	}
 
 	static void method251(final ByteBuffer class27_sub1, final int i)
 	{
-		anInt405++;
 		final byte[] is = new byte[24];
 		if (Class27_Sub1_Sub1.aClass39_5 != null)
 		{
@@ -173,7 +159,6 @@ final class Class39
 	private void method252(final boolean bool) throws IOException
 	{
 		anInt407 = 0;
-		anInt409++;
 		if (aLong8 != aLong10)
 		{
 			aClass28_4.method181((byte) -29, aLong8);
@@ -199,7 +184,6 @@ final class Class39
 
 	void method253(final byte i, int i_10_, int i_11_, final byte[] is) throws IOException
 	{
-		anInt406++;
 		try
 		{
 			if (is.length < (i_10_ - -i_11_))
@@ -319,7 +303,6 @@ final class Class39
 
 	private void method254(final int i) throws IOException
 	{
-		anInt403++;
 		if (-1L != aLong11)
 		{
 			if (aLong10 != aLong11)
@@ -363,7 +346,6 @@ final class Class39
 
 	static int method255(final ByteBuffer class27_sub1, final boolean bool, final String string)
 	{
-		anInt411++;
 		final int i = class27_sub1.position;
 		if (bool)
 		{

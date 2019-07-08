@@ -6,8 +6,6 @@ final class Class34
 {
 	static Class38 aClass38_5;
 	static int anInt371;
-	static int anInt372;
-	static int anInt373;
 	static Class44 aClass44_1 = new Class44(new byte[] { 22, 22, 22, 22, 22, 22, 21, 22, 22, 20, 22, 22, 22, 21, 22, 22,
 	        22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 3, 8, 22, 16, 22, 16, 17, 7, 13, 13, 13, 16,
 	        7, 10, 6, 16, 10, 11, 12, 12, 12, 12, 13, 13, 14, 14, 11, 14, 19, 15, 17, 8, 11, 9, 10, 10, 10, 10, 11, 10,
@@ -18,11 +16,9 @@ final class Class34
 	        22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22,
 	        22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22,
 	        22, 22, 22, 22, 22, 22, 21, 22, 21, 22, 22, 22, 21, 22, 22 });
-	static int anInt374;
 
 	static int method225(final byte[] is, final int i, final byte i_0_)
 	{
-		anInt373++;
 		int i_1_ = ((256 * Class10.method77(is[i], (byte) -115)) - -Class10.method77(is[i + 1], (byte) -115));
 		if (i_1_ > 32767)
 		{
@@ -33,7 +29,6 @@ final class Class34
 
 	static void method226(final byte i, final Object object, final Class32 class32)
 	{
-		anInt374++;
 		if (class32.anEventQueue1 != null)
 		{
 			for (int i_2_ = 0; ((50 > i_2_) && (null != class32.anEventQueue1.peekEvent())); i_2_++)
@@ -60,7 +55,6 @@ final class Class34
 		{
 			aClass38_5 = null;
 		}
-		anInt372++;
 		return i_4_ + (i_3_ << 16) + (i << 8);
 	}
 }

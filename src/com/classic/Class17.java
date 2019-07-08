@@ -3,19 +3,17 @@ package com.classic;
 final class Class17
 {
 	static int anInt193;
-	static int anInt194;
 	static byte[][] aByteArrayArray9 = new byte[250][];
 
 	static void method130(final byte[] is, final boolean bool, final int i)
 	{
 		StreamClass.aByteArray23 = Class41.method292(is, 0, "string.dat", 293484812);
-		anInt194++;
 		Class19.anInt208 = 0;
 		Class52.aByteArray20 = Class41.method292(is, 0, "integer.dat", i ^ 0x117e390c);
 		Class25.anInt302 = 0;
 		Class25.anInt300 = Class12.method108((byte) 96);
 		Mob.anIntArray40 = new int[Class25.anInt300];
-		Class46.anIntArray133 = new int[Class25.anInt300];
+		GameImage.anIntArray133 = new int[Class25.anInt300];
 		Class28.aStringArray25 = new String[Class25.anInt300];
 		Class1.anIntArray1 = new int[Class25.anInt300];
 		Class26.aStringArray19 = new String[Class25.anInt300];
@@ -63,7 +61,7 @@ final class Class17
 		}
 		for (int i_8_ = 0; Class25.anInt300 > i_8_; i_8_++)
 		{
-			Class46.anIntArray133[i_8_] = AClass1.method176((byte) -123);
+			GameImage.anIntArray133[i_8_] = AClass1.method176((byte) -123);
 		}
 		for (int i_9_ = 0; Class25.anInt300 > i_9_; i_9_++)
 		{
@@ -87,7 +85,7 @@ final class Class17
 			}
 		}
 		Class35.anInt376 = Class12.method108((byte) 96);
-		Class46.anIntArray132 = new int[Class35.anInt376];
+		GameImage.anIntArray132 = new int[Class35.anInt376];
 		Class22.aStringArray16 = new String[Class35.anInt376];
 		Class46_Sub1.anIntArray143 = new int[Class35.anInt376];
 		Class10.anIntArray32 = new int[Class35.anInt376];
@@ -146,7 +144,7 @@ final class Class17
 		}
 		for (int i_21_ = 0; i_21_ < Class35.anInt376; i_21_++)
 		{
-			Class46.anIntArray132[i_21_] = AClass1.method176((byte) -123);
+			GameImage.anIntArray132[i_21_] = AClass1.method176((byte) -123);
 		}
 		for (int i_22_ = 0; i_22_ < Class35.anInt376; i_22_++)
 		{
@@ -231,7 +229,7 @@ final class Class17
 		Class45.anIntArray115 = new int[Class47.anInt577];
 		Class10.aStringArray10 = new String[Class47.anInt577];
 		IOException_Sub1.anIntArray149 = new int[Class47.anInt577];
-		Class46.anIntArray134 = new int[Class47.anInt577];
+		GameImage.anIntArray134 = new int[Class47.anInt577];
 		Class7.anIntArray17 = new int[Class47.anInt577];
 		Class45.aStringArray32 = new String[Class47.anInt577];
 		Class4.anIntArray5 = new int[Class47.anInt577];
@@ -266,7 +264,7 @@ final class Class17
 		}
 		for (int i_46_ = 0; i_46_ < Class47.anInt577; i_46_++)
 		{
-			Class46.anIntArray134[i_46_] = Class4.method10(255);
+			GameImage.anIntArray134[i_46_] = Class4.method10(255);
 		}
 		for (int i_47_ = 0; i_47_ < Class47.anInt577; i_47_++)
 		{

@@ -7,8 +7,7 @@ class ByteBuffer extends Class27
 	int position = 0;
 	static int[] anIntArray142 = new int[100];
 	byte[] buffer;
-	static boolean[] aBoolArray10 = { false, false, false, false, false, false, false, false, false, false, false,
-	        false };
+	static boolean[] aBoolArray10 = { false, false, false, false, false, false, false, false, false, false, false, false };
 	static long aLong15 = 0L;
 
 	private void method385(final int i, final byte[] is, final int i_0_, final int i_1_)

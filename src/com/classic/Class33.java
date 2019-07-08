@@ -8,14 +8,11 @@ final class Class33
 {
 	static int anInt368 = 0;
 	static int[] anIntArray84;
-	static int anInt369;
-	static int anInt370;
 
 	static Image method223(final Component component, final byte[] is, final byte i)
 	{
 		Class7.anInt60 = (is[15] * 256) + is[14];
 		IOException_Sub1.anInt672 = (is[13] * 256) - -is[12];
-		anInt369++;
 		final byte[] is_0_ = new byte[256];
 		final byte[] is_1_ = new byte[256];
 		final byte[] is_2_ = new byte[256];
@@ -52,7 +49,6 @@ final class Class33
 	static int method224(final int i, final int i_8_, final byte i_9_, final CharSequence charsequence, final int i_10_,
 	        final byte[] is)
 	{
-		anInt370++;
 		final int i_11_ = -i + i_10_;
 		for (int i_12_ = 0; i_11_ > i_12_; i_12_++)
 		{

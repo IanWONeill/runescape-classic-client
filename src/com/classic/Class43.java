@@ -2,18 +2,13 @@ package com.classic;
 
 final class Class43
 {
-	static int anInt485;
 	static String[] aStringArray29 = { "Please enter the number of items to withdraw", "and press enter" };
 	static int anInt486;
-	static int anInt487;
 	Class27 aClass27_3 = new Class27();
-	static int anInt488;
 	private Class27 aClass27_4;
-	static int anInt489;
 
 	Class27 method297(final int i)
 	{
-		anInt487++;
 		final Class27 class27 = aClass27_4;
 		if (class27 == this.aClass27_3)
 		{
@@ -26,7 +21,6 @@ final class Class43
 
 	static String method298(final byte i, final CharSequence charsequence)
 	{
-		anInt485++;
 		if (charsequence == null)
 		{
 			return null;
@@ -69,7 +63,6 @@ final class Class43
 
 	Class27 method299(final boolean bool)
 	{
-		anInt489++;
 		final Class27 class27 = this.aClass27_3.aClass27_2;
 		if (class27 == this.aClass27_3)
 		{
@@ -88,7 +81,6 @@ final class Class43
 
 	void method300(final Class27 class27)
 	{
-		anInt488++;
 		if (class27.aClass27_1 != null)
 		{
 			class27.method178();

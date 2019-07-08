@@ -33,7 +33,7 @@ final class Class10
 	private final int anInt106;
 	private final int anInt109;
 	private int anInt110 = 0;
-	private final Class46 aClass46_2;
+	private final GameImage aClass46_2;
 	private int anInt112;
 	static String[] aStringArray11;
 	private final int[] anIntArray31;
@@ -198,7 +198,7 @@ final class Class10
 					anIntArray33[i_23_] = GameWindow.method485(i_37_, anInt112 << 16);
 				}
 				method103(20166, i_23_, i_36_, i_24_ - -2, strings[i_37_], is[i_37_], i_28_);
-				i_36_ += (aClass46_2.method315((byte) 91, i_28_) + -Class46.anInt568);
+				i_36_ += (aClass46_2.method315((byte) 91, i_28_) + -GameImage.anInt568);
 				if ((i_25_ + i) <= i_36_)
 				{
 					break;
@@ -986,7 +986,7 @@ final class Class10
 		method103(20166, i_176_, i_182_, i_178_, string, 0, i);
 	}
 
-	Class10(final Class46 class46, final int i)
+	Class10(final GameImage class46, final int i)
 	{
 		aBool4 = true;
 		anInt131 = 0;

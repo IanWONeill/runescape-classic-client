@@ -3,17 +3,14 @@ package com.classic;
 final class Class12 implements Runnable
 {
 	static Class38 aClass38_2;
-	static int anInt138;
 	Class32 aClass32_1;
 	AudioUnknown[] aClass37Array1 = new AudioUnknown[2];
 	boolean aBool5 = false;
-	static int anInt139;
 	static int anInt140 = 0;
 	boolean aBool6 = false;
 
 	static int method108(final byte i)
 	{
-		anInt138++;
 		final int i_0_ = Class10.method84(-99, Class52.aByteArray20, Class25.anInt302);
 		Class25.anInt302 += 2;
 		return i_0_;
@@ -22,7 +19,6 @@ final class Class12 implements Runnable
 	@Override
 	public void run()
 	{
-		anInt139++;
 		this.aBool6 = true;
 		do
 		{

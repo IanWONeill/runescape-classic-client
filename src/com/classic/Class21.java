@@ -9,15 +9,11 @@ import java.io.StringWriter;
 final class Class21
 {
 	static int[] anIntArray46;
-	static int anInt217;
 	static int[] anIntArray47 = new int[12];
-	static int anInt218;
-	static int anInt219;
 
 	static void method132(int i, int i_0_, final int i_1_, final int i_2_, final int[] is, int i_3_, final int[] is_4_,
 	        int i_5_, final int i_6_, final int i_7_, final int i_8_, int i_9_, int i_10_, final int i_11_, int i_12_)
 	{
-		anInt218++;
 		if (0 < i_11_)
 		{
 			int i_13_ = 0;
@@ -179,7 +175,6 @@ final class Class21
 
 	static RuntimeException_Sub1 method133(final Throwable throwable, final String string)
 	{
-		anInt219++;
 		RuntimeException_Sub1 runtimeexception_sub1;
 		if (throwable instanceof RuntimeException_Sub1)
 		{
@@ -198,7 +193,6 @@ final class Class21
 
 	static String method134(final int i, Throwable throwable) throws IOException
 	{
-		anInt217++;
 		String string;
 		if (throwable instanceof RuntimeException_Sub1)
 		{

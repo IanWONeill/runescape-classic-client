@@ -10,28 +10,18 @@ import java.util.Date;
 
 final class Class36 implements ImageProducer, ImageObserver
 {
-	static int anInt378;
 	static int[] anIntArray86;
-	static int anInt379;
-	static int anInt380;
-	static int anInt381;
-	static int anInt382;
-	static int anInt383;
-	static int anInt384;
-	static int anInt385;
 
 	@Override
 	public boolean imageUpdate(final Image image, final int i, final int i_0_, final int i_1_, final int i_2_,
 	        final int i_3_)
 	{
-		anInt380++;
 		return true;
 	}
 
 	@Override
 	public synchronized boolean isConsumer(final ImageConsumer imageconsumer)
 	{
-		anInt384++;
 		return imageconsumer == Class45.anImageConsumer1;
 	}
 
@@ -42,16 +32,14 @@ final class Class36 implements ImageProducer, ImageObserver
 			method229(29L, 88);
 		}
 		PacketConstruction.aCalendar1.setTime(new Date(l));
-		anInt378++;
 	}
 
 	static void method230(final URL url, final GameWindow gameWindow) throws IOException
 	{
-		anInt385++;
 		Class5.baseUrl = url;
 		Class10.gameWindow = gameWindow;
 		
-		//final URL url_contentcrcs = new URL(Class5.anURL1, "contentcrcs" + Long.toHexString(Class52.method377()));
+		// NOTE: Original code: final URL url_contentcrcs = new URL(Class5.anURL1, "contentcrcs" + Long.toHexString(Class52.method377()));
 		final URL url_contentcrcs = new URL(Class5.baseUrl, "contentcrcs");
 		
 		Class3.aString2 = "Checking for new content";
@@ -88,7 +76,6 @@ final class Class36 implements ImageProducer, ImageObserver
 	public synchronized void addConsumer(final ImageConsumer imageconsumer)
 	{
 		Class45.anImageConsumer1 = imageconsumer;
-		anInt379++;
 		imageconsumer.setDimensions(IOException_Sub1.anInt672, Class7.anInt60);
 		imageconsumer.setProperties(null);
 		imageconsumer.setColorModel(Class41.aColorModel1);
@@ -98,20 +85,17 @@ final class Class36 implements ImageProducer, ImageObserver
 	@Override
 	public void requestTopDownLeftRightResend(final ImageConsumer imageconsumer)
 	{
-		anInt382++;
 	}
 
 	@Override
 	public void startProduction(final ImageConsumer imageconsumer)
 	{
 		addConsumer(imageconsumer);
-		anInt383++;
 	}
 
 	@Override
 	public synchronized void removeConsumer(final ImageConsumer imageconsumer)
 	{
-		anInt381++;
 		if (imageconsumer == Class45.anImageConsumer1)
 		{
 			Class45.anImageConsumer1 = null;

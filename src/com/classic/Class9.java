@@ -63,7 +63,7 @@ final class Class9
 				}
 				string_10_ = new StringBuilder().append(string_10_).append(string).toString();
 			}
-			Class46.method310(3, string_10_);
+			GameImage.method310(3, string_10_);
 			string_10_ = Class6.method22(string_10_, ":", "%3a", -69);
 			string_10_ = Class6.method22(string_10_, "@", "%40", -69);
 			string_10_ = Class6.method22(string_10_, "&", "%26", -118);

@@ -4,11 +4,9 @@ final class Class18
 {
 	static int[] anIntArray41;
 	static String[] aStringArray15;
-	static int anInt195;
 
 	static String method131(final int i, final String string)
 	{
-		anInt195++;
 		String string_1_ = "";
 
 		for (int i_2_ = 0; i > i_2_; i_2_++)
