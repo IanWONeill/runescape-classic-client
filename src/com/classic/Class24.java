@@ -27,11 +27,11 @@ final class Class24
 		}
 		Class48.drawLoadingBar(0, "Unpacking ");
 		final byte[] is_4_ = new byte[i_0_];
-		Class8.method58(is_4_, i_0_, is, i_2_, 6);
+		Class8.method58(is_4_, i_0_, is, 6);
 		return is_4_;
 	}
 
-	Class24(final String string, final int i)
+	Class24(final int i)
 	{
 		this.anInt293 = i;
 	}

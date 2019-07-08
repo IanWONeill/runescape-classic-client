@@ -68,7 +68,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	boolean aBool44;
 	int threadSleepTime;
 
-	private void method463(final int i, final String string)
+	private void method463(final String string)
 	{
 		if (!aBool40)
 		{
@@ -78,11 +78,11 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 			{
 				if (Class27.anApplet1 == null)
 				{
-					Class11.method107("loggedout", 87, this);
+					Class11.method107("loggedout", this);
 				}
 				else
 				{
-					Class11.method107("loggedout", 54, Class27.anApplet1);
+					Class11.method107("loggedout", Class27.anApplet1);
 				}
 			}
 			catch (final Throwable throwable)
@@ -112,7 +112,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		mouseDownButton = event.isMetaDown() ? 2 : 1; 
 	}
 
-	private void drawLoadingScreen(final int i, final String string, final int i_0_)
+	private void drawLoadingScreen(final int i, final String string)
 	{
 		try
 		{
@@ -140,28 +140,25 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 			{
 				loadingGraphics.setColor(new Color(255, 255, 255));
 			}
-			drawString(i_1_ + 138, true, loadingGraphics, this.aFont1, string, i_2_ + 10);
+			drawString(i_1_ + 138, loadingGraphics, this.aFont1, string, i_2_ + 10);
 			if (!aBool38)
 			{
-				drawString(i_1_ - -138, true, loadingGraphics, this.aFont2, "Created by JAGeX - visit www.jagex.com",
-				        i_2_ + 30);
+				drawString(i_1_ - -138, loadingGraphics, this.aFont2, "Created by JAGeX - visit www.jagex.com", i_2_ + 30);
 				drawString(
-				        i_1_ + 138, true, loadingGraphics, this.aFont2, new StringBuilder().append("\u00a9 2001-")
-				                .append(RuntimeException_Sub1.method462()).append(" Jagex Ltd").toString(),
-				        i_2_ + 44);
+				        i_1_ + 138, loadingGraphics, this.aFont2, new StringBuilder().append("\u00a9 2001-")
+				                .append(RuntimeException_Sub1.method462()).append(" Jagex Ltd").toString(), i_2_ + 44);
 			}
 			else
 			{
 				loadingGraphics.setColor(new Color(132, 132, 152));
 				drawString(
-				        i_1_ + 138, true, loadingGraphics, this.aFont3, new StringBuilder().append("\u00a9 2001-")
-				                .append(RuntimeException_Sub1.method462()).append(" Jagex Ltd").toString(),
-				        appletHeight + -20);
+				        i_1_ + 138, loadingGraphics, this.aFont3, new StringBuilder().append("\u00a9 2001-")
+				                .append(RuntimeException_Sub1.method462()).append(" Jagex Ltd").toString(), appletHeight + -20);
 			}
 			if (this.aString23 != null)
 			{
 				loadingGraphics.setColor(Color.white);
-				drawString(i_1_ + 138, true, loadingGraphics, this.aFont2, this.aString23, i_2_ + -120);
+				drawString(i_1_ + 138, loadingGraphics, this.aFont2, this.aString23, i_2_ + -120);
 			}
 		}
 		catch (final Exception exception)
@@ -301,7 +298,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 						{
 							break while_25_;
 						}
-						method470(31634);
+						method470();
 						i_10_++;
 						i_5_ += i_3_;
 					}
@@ -317,7 +314,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 				while (false);
 				i_5_ &= 0xff;
 				anInt726--;
-				method473(false);
+				method473();
 			}
 			if (exitTimeout == -1)
 			{
@@ -328,12 +325,11 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		catch (final Exception exception)
 		{
 			Class9.method61(exception, 81, null);
-			method463(85, "crash");
+			method463("crash");
 		}
 	}
 
-	void drawString(final int i, final boolean bool, final Graphics graphics, final Font font, final String string,
-	        final int i_11_)
+	void drawString(final int i, final Graphics graphics, final Font font, final String string, final int i_11_)
 	{
 		java.awt.Container container;
 		if (Class38.gameFrame == null)
@@ -364,7 +360,8 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		return super.createImage(i, i_12_);
 	}
 
-	void method466(final int i, final int i_13_) {}
+	@SuppressWarnings("unused") // NOTE: Overridden by mudclient.
+	void method466(final int i) {}
 
 	void method467(final int i)
 	{
@@ -474,11 +471,12 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		loadingGraphics.translate((this.anInt720), (this.anInt694));
 		loadingGraphics.setColor(Color.black);
 		loadingGraphics.fillRect(0, 0, appletWidth, appletHeight);
-		drawLoadingScreen(0, "Loading...", -148);
+		drawLoadingScreen(0, "Loading...");
 		return true;
 	}
 
-	synchronized void method470(final int i) {}
+	// NOTE: Overridden by mudclient.
+	synchronized void method470() {}
 
 	@Override
 	public String getParameter(final String string)
@@ -539,7 +537,8 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		addMouseClick(mouseY, mouseX, mouseDownButton);
 	}
 
-	synchronized void method473(final boolean bool) {}
+	// NOTE: Overridden by mudclient.
+	synchronized void method473() {}
 
 	void method474(final int i_18_)
 	{
@@ -580,7 +579,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 			return false;
 		}
 		final byte[] is_19_ = Camera.method292(is, 0, "logo.tga", 293484812);
-		this.anImage2 = method483(0, is_19_);
+		this.anImage2 = method483(is_19_);
 		if (!Class25.loadFont(0, 29112, this, "h11p"))
 		{
 			return false;
@@ -616,8 +615,6 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		return true;
 	}
 
-	void method476(final int i) {}
-
 	void method477(final Runnable runnable)
 	{
 		final Thread thread = new Thread(runnable);
@@ -625,6 +622,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		thread.start();
 	}
 
+	@SuppressWarnings("unused") // NOTE: Overridden by mudclient.
 	void addMouseClick(final int mouseY, final int mouseX, final int button) {}
 
 	@Override
@@ -664,7 +662,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		}
 	}
 
-	void method479(final byte i, final int i_23_, final int i_24_, final int i_25_, final int i_26_)
+	void method479(final int i_23_, final int i_24_, final int i_25_, final int i_26_)
 	{
 		try
 		{
@@ -703,7 +701,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		catch (final Exception exception)
 		{
 			Class9.method61(exception, 122, null);
-			method463(101, "crash");
+			method463("crash");
 		}
 	}
 
@@ -733,7 +731,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		method472(0, keyevent);
 		final char c = keyevent.getKeyChar();
 		final int i = keyevent.getKeyCode();
-		method466(c, 86);
+		method466(c);
 		if (i == 112)
 		{
 			this.aBool39 = !this.aBool39;
@@ -852,18 +850,15 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		this.aBool37 = true;
 		if ((loadingScreen != 2) || (this.anImage2 == null))
 		{
-			if (loadingScreen == 0)
-			{
-				method476(55);
-			}
+
 		}
 		else
 		{
-			drawLoadingScreen(anInt733, this.loadingBarText, -148);
+			drawLoadingScreen(anInt733, this.loadingBarText);
 		}
 	}
 
-	void drawLoadingBarText(final int i, final int i_33_, final String string)
+	void drawLoadingBarText(final int i, final String string)
 	{
 		try
 		{
@@ -887,7 +882,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 			{
 				loadingGraphics.setColor(new Color(255, 255, 255));
 			}
-			drawString(i_34_ + 138, true, loadingGraphics, aFont1, string, i_35_ + 10);
+			drawString(i_34_ + 138, loadingGraphics, aFont1, string, i_35_ + 10);
 		}
 		catch (final Exception exception)
 		{
@@ -904,12 +899,14 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		this.mouseDownButton = 0;
 	}
 
-	private Image method483(final int i, final byte[] is)
+	private Image method483(final byte[] is)
 	{
 		return Class33.method223(this, is, (byte) -118);
 	}
 
-	void createWindow(final byte i, final boolean resizable, final int i_38_, final int height, final int port, final int width,
+	void createWindow(final byte i, final boolean resizable, final int i_38_, final int height, 
+			@SuppressWarnings("unused")/* NOTE: Used in original code.*/ final int port, 
+			final int width,
 	        final String title, final int i_42_, final String string_43_)
 	{
 		try

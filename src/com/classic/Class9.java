@@ -48,7 +48,7 @@ final class Class9
 			String string_10_ = "";
 			if (throwable != null)
 			{
-				string_10_ = Class21.method134(26347, throwable);
+				string_10_ = Class21.method134(throwable);
 			}
 			if (string != null)
 			{
@@ -93,7 +93,7 @@ final class Class9
 		}
 	}
 
-	static String method62(final int i, final byte i_11_, final int i_12_, final byte[] is)
+	static String method62(final int i, final int i_12_, final byte[] is)
 	{
 		final char[] cs = new char[i];
 		int i_13_ = 0;

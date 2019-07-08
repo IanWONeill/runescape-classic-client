@@ -37,17 +37,16 @@ final class Class33
 			}
 		}
 		final Image image = component.createImage(Class22.aClass36_1);
-		Class2.method4(117, is_4_);
+		Class2.method4(is_4_);
 		component.prepareImage(image, Class22.aClass36_1);
-		Class2.method4(119, is_4_);
+		Class2.method4(is_4_);
 		component.prepareImage(image, Class22.aClass36_1);
-		Class2.method4(123, is_4_);
+		Class2.method4(is_4_);
 		component.prepareImage(image, Class22.aClass36_1);
 		return image;
 	}
 
-	static int method224(final int i, final int i_8_, final byte i_9_, final CharSequence charsequence, final int i_10_,
-	        final byte[] is)
+	static int method224(final int i, final int i_8_, final CharSequence charsequence, final int i_10_, final byte[] is)
 	{
 		final int i_11_ = -i + i_10_;
 		for (int i_12_ = 0; i_11_ > i_12_; i_12_++)

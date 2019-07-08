@@ -21,14 +21,14 @@ final class GameFrame extends Frame
 	private final GameWindow gameWindow;
 	private final int frameHeight;
 
-	static int method486(final int i, final int i_0_, final int i_1_, final int i_2_)
+	static int method486(final int i, final int i_0_, final int i_1_)
 	{
 		return -((i_1_ / 8) * 1024) + -((i / 8) * 32) + -(i_0_ / 8) + -1;
 	}
 
 	static int method487(final byte i, String string, final byte[] is)
 	{
-		final int i_3_ = Class10.method84(-100, is, 0);
+		final int i_3_ = Class10.method84(is, 0);
 		int i_4_ = 0;
 		string = string.toUpperCase();
 		if (i < 96)
@@ -66,7 +66,7 @@ final class GameFrame extends Frame
 		return graphics;
 	}
 
-	static Class24[] method488(final byte i)
+	static Class24[] method488()
 	{
 		return (new Class24[] { Class42.aClass24_1, RuntimeException_Sub1.aClass24_3, Class45.aClass24_2 });
 	}
@@ -80,11 +80,11 @@ final class GameFrame extends Frame
 	@Override
 	public void resize(final int i, final int i_9_)
 	{
-		super.resize(i, i_9_ - -frameOffset);
+		super.resize(i, i_9_ + frameOffset);
 	}
 
-	static void method489(int i, final int i_10_, int i_11_, final int[] is, final int i_12_, final int[] is_13_,
-	        int i_14_, int i_15_)
+	static void method489(int i, final int i_10_, int i_11_, final int[] is, final int[] is_13_, int i_14_,
+	        int i_15_)
 	{
 		if (i_10_ < 0)
 		{

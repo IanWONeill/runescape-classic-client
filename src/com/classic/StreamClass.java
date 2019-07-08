@@ -192,8 +192,7 @@ final class StreamClass extends PacketConstruction implements Runnable
 	}
 
 	static void method382(int i, final int[] is, int i_11_, final int[] is_12_, final int i_13_, int i_14_, int i_15_,
-	        final int i_16_, int i_17_, int i_18_, final int i_19_, int i_20_, final int i_21_, int i_22_,
-	        final int i_23_)
+	        final int i_16_, int i_17_, int i_18_, final int i_19_, int i_20_, final int i_21_, int i_22_)
 	{
 		if (i_19_ > 0)
 		{

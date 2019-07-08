@@ -18,10 +18,10 @@ final class Class4
 		{
 			anIntArray4 = null;
 		}
-		return Class29.method206(17469, class27_sub1, 32767);
+		return Class29.method206(class27_sub1, 32767);
 	}
 
-	static char method9(final int i, final char c)
+	static char method9(final char c)
 	{
 		final char c_0_ = c;
 		while_10_: do

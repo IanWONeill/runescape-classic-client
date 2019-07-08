@@ -263,10 +263,8 @@ class AudioUnknown
 		aLong5 = Class52.method377();
 	}
 
-	void method236(final Component component) throws Exception
-	{
-		/* empty */
-	}
+	@SuppressWarnings("unused") // NOTE: Overridden.
+	void method236(final Component component) throws Exception {}
 
 	private void method237(final AClass4 aclass4, final int i)
 	{
@@ -397,10 +395,8 @@ class AudioUnknown
 		aBool22 = true;
 	}
 
-	void method244(final int i) throws Exception
-	{
-		/* empty */
-	}
+	@SuppressWarnings("unused") // NOTE: Overridden.
+	void method244(final int i) throws Exception {}
 
 	AudioUnknown()
 	{

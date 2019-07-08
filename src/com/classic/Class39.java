@@ -17,7 +17,7 @@ final class Class39
 	private final Class28 aClass28_4;
 	private long aLong13;
 
-	void method247(final long l, final int i) throws IOException
+	void method247(final long l) throws IOException
 	{
 		if (0L > l)
 		{
@@ -26,7 +26,7 @@ final class Class39
 		aLong8 = l;
 	}
 
-	void method248(final byte[] is, int i, final int i_0_, int i_1_) throws IOException
+	void method248(final byte[] is, int i, int i_1_) throws IOException
 	{
 		do
 		{
@@ -38,7 +38,7 @@ final class Class39
 				}
 				if ((aLong11 != -1L) && ((aLong11 > aLong8) || ((anInt412 + aLong11) < aLong8)))
 				{
-					method254(121);
+					method254();
 				}
 				if ((aLong11 != -1L) && ((aByteArray16.length + aLong11) < (aLong8 - -(long) i)))
 				{
@@ -48,16 +48,16 @@ final class Class39
 					aLong8 += i_3_;
 					i_1_ = i_3_ + i_1_;
 					anInt412 = aByteArray16.length;
-					method254(43);
+					method254();
 				}
 				if (aByteArray16.length < i)
 				{
 					if (aLong10 != aLong8)
 					{
-						aClass28_4.method181((byte) -101, aLong8);
+						aClass28_4.method181(aLong8);
 						aLong10 = aLong8;
 					}
-					aClass28_4.method183(i, -1, i_1_, is);
+					aClass28_4.method183(i, i_1_, is);
 					aLong10 += i;
 					if (aLong13 < aLong10)
 					{
@@ -116,25 +116,25 @@ final class Class39
 		while (false);
 	}
 
-	long method249(final boolean bool)
+	long method249()
 	{
 		return aLong12;
 	}
 
-	private void method250(final byte[] is, final int i) throws IOException
+	private void method250(final byte[] is) throws IOException
 	{
-		method253((byte) 102, 0, is.length, is);
+		method253(0, is.length, is);
 	}
 
-	static void method251(final ByteBuffer class27_sub1, final int i)
+	static void method251(final ByteBuffer class27_sub1)
 	{
 		final byte[] is = new byte[24];
 		if (Class27_Sub1_Sub1.aClass39_5 != null)
 		{
 			try
 			{
-				Class27_Sub1_Sub1.aClass39_5.method247(0L, -100);
-				Class27_Sub1_Sub1.aClass39_5.method250(is, 117);
+				Class27_Sub1_Sub1.aClass39_5.method247(0L);
+				Class27_Sub1_Sub1.aClass39_5.method250(is);
 				int i_7_;
 				for (i_7_ = 0; (i_7_ < 24) && (is[i_7_] == 0); i_7_++)
 				{
@@ -153,15 +153,15 @@ final class Class39
 				}
 			}
 		}
-		class27_sub1.method394(24, is, (byte) -101, 0);
+		class27_sub1.method394(24, is, 0);
 	}
 
-	private void method252(final boolean bool) throws IOException
+	private void method252() throws IOException
 	{
 		anInt407 = 0;
 		if (aLong8 != aLong10)
 		{
-			aClass28_4.method181((byte) -29, aLong8);
+			aClass28_4.method181(aLong8);
 			aLong10 = aLong8;
 		}
 		aLong9 = aLong8;
@@ -173,7 +173,7 @@ final class Class39
 			{
 				i_9_ = 200000000;
 			}
-			i = aClass28_4.method182(14925, aByteArray15, anInt407, i_9_);
+			i = aClass28_4.method182(aByteArray15, anInt407, i_9_);
 			if (i == -1)
 			{
 				break;
@@ -182,7 +182,7 @@ final class Class39
 		}
 	}
 
-	void method253(final byte i, int i_10_, int i_11_, final byte[] is) throws IOException
+	void method253(int i_10_, int i_11_, final byte[] is) throws IOException
 	{
 		try
 		{
@@ -213,12 +213,12 @@ final class Class39
 			}
 			if (i_11_ > aByteArray15.length)
 			{
-				aClass28_4.method181((byte) -118, aLong8);
+				aClass28_4.method181(aLong8);
 				aLong10 = aLong8;
 				int i_16_;
 				for (/**/; 0 < i_11_; i_11_ -= i_16_)
 				{
-					i_16_ = aClass28_4.method182(14925, is, i_10_, i_11_);
+					i_16_ = aClass28_4.method182(is, i_10_, i_11_);
 					if (i_16_ == -1)
 					{
 						break;
@@ -230,7 +230,7 @@ final class Class39
 			}
 			else if (i_11_ > 0)
 			{
-				method252(true);
+				method252();
 				int i_17_ = i_11_;
 				if (i_17_ > anInt407)
 				{
@@ -301,16 +301,16 @@ final class Class39
 		}
 	}
 
-	private void method254(final int i) throws IOException
+	private void method254() throws IOException
 	{
 		if (-1L != aLong11)
 		{
 			if (aLong10 != aLong11)
 			{
-				aClass28_4.method181((byte) -77, aLong11);
+				aClass28_4.method181(aLong11);
 				aLong10 = aLong11;
 			}
-			aClass28_4.method183(anInt412, -1, 0, aByteArray16);
+			aClass28_4.method183(anInt412, 0, aByteArray16);
 			aLong10 += anInt412;
 			if (aLong13 < aLong10)
 			{
@@ -352,9 +352,9 @@ final class Class39
 			return 46;
 		}
 		final byte[] is = GameImageMiddleMan.method409(string);
-		class27_sub1.method400(-14859, is.length);
-		class27_sub1.position += Camera.aClass44_2.method303((class27_sub1.buffer), (byte) 69, is.length, is,
-		        (class27_sub1.position), 0);
+		class27_sub1.method400(is.length);
+		class27_sub1.position += Camera.aClass44_2.method303((class27_sub1.buffer), is.length, is, (class27_sub1.position),
+		        0);
 		return -i + class27_sub1.position;
 	}
 
@@ -362,7 +362,7 @@ final class Class39
 	{
 		aLong11 = -1L;
 		aClass28_4 = class28;
-		aLong12 = aLong13 = class28.method184(true);
+		aLong12 = aLong13 = class28.method184();
 		aLong8 = 0L;
 		aByteArray15 = new byte[i];
 		aByteArray16 = new byte[i_24_];

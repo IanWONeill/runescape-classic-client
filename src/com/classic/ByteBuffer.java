@@ -10,7 +10,7 @@ class ByteBuffer extends Class27
 	static boolean[] aBoolArray10 = { false, false, false, false, false, false, false, false, false, false, false, false };
 	static long aLong15 = 0L;
 
-	private void method385(final int i, final byte[] is, final int i_0_, final int i_1_)
+	private void method385(final int i, final byte[] is, final int i_0_)
 	{
 		for (int i_2_ = i; i_2_ < (i_0_ + i); i_2_++)
 		{
@@ -35,7 +35,7 @@ class ByteBuffer extends Class27
 		{
 			return 0x7fffffff & readInt();
 		}
-		return method392(false);
+		return method392();
 	}
 
 	void put(final int value)
@@ -51,18 +51,18 @@ class ByteBuffer extends Class27
 			throw new IllegalArgumentException("");
 		}
 		this.buffer[this.position++] = (byte) 0;
-		this.position += Class33.method224(i, this.position, (byte) -122, string, string.length(), this.buffer);
+		this.position += Class33.method224(i, this.position, string, string.length(), this.buffer);
 		this.buffer[this.position++] = (byte) 0;
 	}
 
-	int method390(final int i)
+	int method390()
 	{
 		final int i_6_ = ((this.buffer[this.position]) & 0xff);
 		if (128 > i_6_)
 		{
 			return readByte();
 		}
-		return method392(false) - 32768;
+		return method392() - 32768;
 	}
 
 	static void method391(final int i, final Class44 class44)
@@ -74,7 +74,7 @@ class ByteBuffer extends Class27
 		}
 	}
 
-	int method392(final boolean bool)
+	int method392()
 	{
 		this.position += 2;
 		return ((0xff & (this.buffer[this.position + -1]))
@@ -93,7 +93,7 @@ class ByteBuffer extends Class27
 		return false;
 	}
 
-	void method394(final int i, final byte[] is, final byte i_9_, final int i_10_)
+	void method394(final int i, final byte[] is, final int i_10_)
 	{
 		for (int i_11_ = i_10_; i_11_ < (i_10_ - -i); i_11_++)
 		{
@@ -109,7 +109,7 @@ class ByteBuffer extends Class27
 		this.buffer[this.position++] = (byte) value;
 	}
 
-	long method396(final byte i)
+	long method396()
 	{
 		final long l = 0xffffffffL & readInt();
 		final long l_13_ = 0xffffffffL & readInt();
@@ -139,7 +139,7 @@ class ByteBuffer extends Class27
 		{
 			return "";
 		}
-		return Class9.method62(i_17_, (byte) 121, i_16_, this.buffer);
+		return Class9.method62(i_17_, i_16_, this.buffer);
 	}
 
 	void method399(final BigInteger biginteger, final BigInteger biginteger_18_)
@@ -147,16 +147,16 @@ class ByteBuffer extends Class27
 		final int i_19_ = this.position;
 		this.position = 0;
 		final byte[] is = new byte[i_19_];
-		method385(0, is, i_19_, -745619704);
+		method385(0, is, i_19_);
 		final BigInteger biginteger_20_ = new BigInteger(is);
 		final BigInteger biginteger_21_ = biginteger_20_.modPow(biginteger_18_, biginteger);
 		final byte[] is_22_ = biginteger_21_.toByteArray();
 		this.position = 0;
 		putShort(is_22_.length);
-		method394(is_22_.length, is_22_, (byte) -112, 0);
+		method394(is_22_.length, is_22_, 0);
 	}
 
-	void method400(final int i, final int i_23_)
+	void method400(final int i_23_)
 	{
 		if ((0 <= i_23_) && (128 > i_23_))
 		{
@@ -172,7 +172,7 @@ class ByteBuffer extends Class27
 		}
 	}
 
-	void method401(final int i, final int i_24_)
+	void method401(final int i_24_)
 	{
 		this.buffer[-i_24_ + this.position + -2] = (byte) (i_24_ >> 8);
 		this.buffer[(this.position - i_24_ - 1)] = (byte) i_24_;
@@ -185,7 +185,7 @@ class ByteBuffer extends Class27
 		{
 			throw new IllegalArgumentException("");
 		}
-		this.position += Class33.method224(0, this.position, (byte) -122, value, value.length(), this.buffer);
+		this.position += Class33.method224(0, this.position, value, value.length(), this.buffer);
 		this.buffer[this.position++] = (byte) 0;
 	}
 
@@ -232,7 +232,7 @@ class ByteBuffer extends Class27
 		return (this.buffer[this.position++]);
 	}
 
-	int method407(final byte i)
+	int method407()
 	{
 		this.position += 2;
 		int i_28_ = ((0xff00 & ((this.buffer[this.position + -2]) << 8))

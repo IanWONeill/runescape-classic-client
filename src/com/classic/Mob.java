@@ -37,9 +37,9 @@ final class Mob
 	String aString8;
 	int anInt169;
 
-	static Class38 method113(final int i, final int i_0_)
+	static Class38 method113(final int i_0_)
 	{
-		final Class38[] class38s = Class29.method194((byte) -116);
+		final Class38[] class38s = Class29.method194();
 		for (int i_1_ = 0; class38s.length > i_1_; i_1_++)
 		{
 			final Class38 class38 = class38s[i_1_];

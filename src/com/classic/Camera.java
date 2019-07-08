@@ -77,8 +77,8 @@ final class Camera
 	private final CameraModel[] cameraModels;
 	private int anInt482;
 
-	private void method259(final int[] is, int i, int i_0_, final int i_1_, final Model class23, int i_2_,
-	        final int[] is_3_, int i_4_, final int[] is_5_)
+	private void method259(final int[] is, int i, int i_0_, final Model class23, int i_2_, final int[] is_3_,
+	        int i_4_, final int[] is_5_)
 	{
 		if (i_2_ != -2)
 		{
@@ -167,8 +167,8 @@ final class Camera
 									i_32_ = -i + i_31_;
 								}
 								GameImage.method322(i_29_ + i, i_19_, anIntArrayArray16[i_2_], 0, i_34_,
-								        i_18_ + (i_25_ * i), i_22_, i_16_, (byte) 55, i_33_, 0, i_15_ + (i_24_ * i),
-								        (i_26_ * i) + i_21_, i_32_, anIntArray91);
+								        i_18_ + (i_25_ * i), i_22_, i_16_, i_33_, 0, i_15_ + (i_24_ * i), (i_26_ * i) + i_21_,
+								        i_32_, anIntArray91);
 								i_15_ += i_17_;
 								i_18_ += i_20_;
 								i_21_ += i_23_;
@@ -206,9 +206,9 @@ final class Camera
 									i_35_ = halfWidth;
 									i_36_ = i_35_ - i;
 								}
-								IOException_Sub1.method459(anIntArrayArray16[i_2_], 96, i_36_, anIntArray91,
-								        i_21_ - -(i_26_ * i), i_19_, 0, i_22_, (i_25_ * i) + i_18_, i_37_, i_38_,
-								        i_29_ + i, 0, 0, i_16_, (i_24_ * i) + i_15_);
+								IOException_Sub1.method459(anIntArrayArray16[i_2_], i_36_, anIntArray91, i_21_ - -(i_26_ * i),
+								        i_19_, 0, i_22_, (i_25_ * i) + i_18_, i_37_, i_38_, i_29_ + i,
+								        0, 0, i_16_, (i_24_ * i) + i_15_);
 								i_21_ += i_23_;
 								i_18_ += i_20_;
 								i_15_ += i_17_;
@@ -248,7 +248,7 @@ final class Camera
 								}
 								StreamClass.method382(i_41_, anIntArray91, i_18_ - -(i_25_ * i),
 								        anIntArrayArray16[i_2_], i_16_, i_21_ - -(i_26_ * i), 0, i_19_, 0,
-								        (i_24_ * i) + i_15_, i_40_, i_29_ + i, i_22_, i_42_, -3552);
+								        (i_24_ * i) + i_15_, i_40_, i_29_ + i, i_22_, i_42_);
 								i_21_ += i_23_;
 								i_29_ += i_28_;
 								i_18_ += i_20_;
@@ -364,9 +364,9 @@ final class Camera
 									i_63_ = halfWidth;
 									i_64_ = -i + i_63_;
 								}
-								Class52.method380(anIntArray91, 739177943, i_43_ + (i_52_ * i), i_64_, i_44_, i_47_,
-								        i_57_ + i, i_66_ << 2, i_49_ + (i_54_ * i), i_50_, 0, anIntArrayArray16[i_2_],
-								        0, (i_53_ * i) + i_46_, i_65_);
+								Class52.method380(anIntArray91, i_43_ + (i_52_ * i), i_64_, i_44_, i_47_, i_57_ + i,
+								        i_66_ << 2, i_49_ + (i_54_ * i), i_50_, 0, anIntArrayArray16[i_2_], 0,
+								        (i_53_ * i) + i_46_, i_65_);
 								i_57_ += i_56_;
 								i_43_ += i_45_;
 								i_49_ += i_51_;
@@ -549,7 +549,7 @@ final class Camera
 								i_92_ = halfWidth;
 								i_93_ = i_92_ - i;
 							}
-							GameFrame.method489(i_82_ + i, -i_93_, i_94_, anIntArray93, -19, anIntArray91, i_95_, 0);
+							GameFrame.method489(i_82_ + i, -i_93_, i_94_, anIntArray93, anIntArray91, i_95_, 0);
 							i_82_ += i_81_;
 						}
 					}
@@ -558,7 +558,7 @@ final class Camera
 		}
 	}
 
-	private void method260(final int i, final int[] is, int i_96_, final int[] is_97_, int i_98_, final int i_99_,
+	private void method260(final int[] is, int i_96_, final int[] is_97_, int i_98_, final int i_99_,
 	        int i_100_, final int i_101_, final int[] is_102_, final Model class23, int i_103_)
 	{
 		if (i_99_ == 3)
@@ -1190,7 +1190,7 @@ final class Camera
 		}
 	}
 
-	void method261(final int i, final int i_194_, final int i_195_, final int i_196_, final byte i_197_, int i_198_)
+	void method261(final int i, final int i_194_, final int i_195_, final int i_196_, int i_198_)
 	{
 		if ((i_198_ == 0) && (i == 0) && (i_194_ == 0))
 		{
@@ -1263,7 +1263,7 @@ final class Camera
 		return 0;
 	}
 
-	private boolean method264(final int i, final byte i_211_, final int i_212_, final boolean bool, final int i_213_,
+	private boolean method264(final int i, final int i_212_, final boolean bool, final int i_213_,
 	        final int i_214_)
 	{
 		if ((bool && (i <= i_214_)) || (i_214_ > i))
@@ -1298,7 +1298,7 @@ final class Camera
 	}
 
 	int method265(final int i, final int i_216_, final int i_217_, final int i_218_, final int i_219_, final int i_220_,
-	        final int i_221_, final int i_222_)
+	        final int i_222_)
 	{
 		anIntArray101[anInt478] = i_222_;
 		anIntArray96[anInt478] = i_216_;
@@ -1307,8 +1307,8 @@ final class Camera
 		anIntArray102[anInt478] = i;
 		anIntArray105[anInt478] = i_219_;
 		anIntArray107[anInt478] = 0;
-		final int i_223_ = this.aClass23_3.method158(i_216_, i_218_, -62, i_217_);
-		final int i_224_ = this.aClass23_3.method158(i_216_, i_218_ + -i_219_, -91, i_217_);
+		final int i_223_ = this.aClass23_3.method158(i_216_, i_218_, i_217_);
+		final int i_224_ = this.aClass23_3.method158(i_216_, i_218_ + -i_219_, i_217_);
 		final int[] is = { i_223_, i_224_ };
 		this.aClass23_3.method144(is, 0, 0, -1062, 2);
 		this.aClass23_3.anIntArray60[anInt478] = i_220_;
@@ -1316,12 +1316,12 @@ final class Camera
 		return anInt478 - 1;
 	}
 
-	int[] method266(final byte i)
+	int[] method266()
 	{
 		return anIntArray99;
 	}
 
-	void method267(final Model model, final byte i)
+	void method267(final Model model)
 	{
 		if (model == null)
 		{
@@ -1334,7 +1334,7 @@ final class Camera
 		}
 	}
 
-	void cleanupModels(final int i)
+	void cleanupModels()
 	{
 		method273(1);
 		for (int index = 0; index < modelCount; index++)
@@ -1345,7 +1345,7 @@ final class Camera
 	}
 
 	void method269(final int i, final int i_227_, int i_228_, int i_229_, final int i_230_, final int i_231_,
-	        final int i_232_, int i_233_)
+	        int i_233_)
 	{
 		i_229_ &= 0x3ff;
 		i_228_ &= 0x3ff;
@@ -1403,7 +1403,7 @@ final class Camera
 			}
 			if (i != 1041214728)
 			{
-				method290(true);
+				method290();
 			}
 			final int i_251_ = 4096;
 			for (int i_252_ = 0; i_251_ > i_252_; i_252_++)
@@ -1509,7 +1509,7 @@ final class Camera
 		this.aClass23_3.method150(i);
 	}
 
-	void method274(final int i, int i_271_, final int i_272_, final byte i_273_)
+	void method274(final int i, int i_271_, final int i_272_)
 	{
 		if ((i_271_ == 0) && (i == 0) && (i_272_ == 0))
 		{
@@ -1517,7 +1517,7 @@ final class Camera
 		}
 		for (int i_274_ = 0; i_274_ < modelCount; i_274_++)
 		{
-			modelArray[i_274_].method139(i_272_, i, i_271_, 105);
+			modelArray[i_274_].method139(i_272_, i, i_271_);
 		}
 	}
 
@@ -1535,7 +1535,7 @@ final class Camera
 		return (i_277_ + (((-i_277_ + i_276_) * (i_275_ - i_278_)) / (i_279_ - i_278_)));
 	}
 
-	private void method276(final byte i, final int i_280_)
+	private void method276(final int i_280_)
 	{
 		int i_281_;
 		if (anIntArray92[i_280_] != 0)
@@ -1579,7 +1579,7 @@ final class Camera
 		}
 	}
 
-	void method277(final int i, final int i_289_)
+	void method277(final int i)
 	{
 		this.aClass23_3.aByteArray12[i] = (byte) 1;
 	}
@@ -1604,7 +1604,7 @@ final class Camera
 		}
 	}
 
-	private boolean method279(final int i, int i_297_, final CameraModel[] class26s, int i_298_)
+	private boolean method279(int i_297_, final CameraModel[] class26s, int i_298_)
 	{
 		for (;;)
 		{
@@ -1650,7 +1650,7 @@ final class Camera
 				anInt435 = i_298_;
 				return false;
 			}
-			if (!method279(20615, i_297_ + 1, class26s, i_298_))
+			if (!method279(i_297_ + 1, class26s, i_298_))
 			{
 				anInt469 = i_297_;
 				return false;
@@ -1722,9 +1722,9 @@ final class Camera
 		return false;
 	}
 
-	void method281(final byte i, final int i_326_, final int i_327_)
+	void method281(final int index, final int value)
 	{
-		anIntArray107[i_326_] = i_327_;
+		anIntArray107[index] = value;
 	}
 
 	int method282(final int i)
@@ -1736,10 +1736,10 @@ final class Camera
 		return anInt441;
 	}
 
-	void method283(final int i, final byte i_328_)
+	void method283(final int i)
 	{
 		anInt478 -= i;
-		this.aClass23_3.method149((byte) 96, i * 2, i);
+		this.aClass23_3.method149(i * 2, i);
 		if (0 > anInt478)
 		{
 			anInt478 = 0;
@@ -1894,7 +1894,7 @@ final class Camera
 						final int i_357_ = method275(i + 10074, is_332_[i_340_], is_334_[i_346_],
 						        is_334_[(((i_346_ + -1) - -i_336_) % i_336_)],
 						        is_333_[((i_346_ + i_336_ + -1) % i_336_)], is_333_[i_346_]);
-						if (method264(i_354_, (byte) -124, i_355_, bool, i_357_, i_356_))
+						if (method264(i_354_, i_355_, bool, i_357_, i_356_))
 						{
 							return true;
 						}
@@ -1914,7 +1914,7 @@ final class Camera
 						final int i_360_ = method275(-10643, is_333_[i_346_], is_334_[i_344_],
 						        is_334_[(i_344_ + 1) % i_336_], is_333_[(i_344_ - -1) % i_336_], is_333_[i_344_]);
 						final int i_361_ = is_334_[i_346_];
-						if (method264(i_358_, (byte) -124, i_359_, bool, i_361_, i_360_))
+						if (method264(i_358_, i_359_, bool, i_361_, i_360_))
 						{
 							return true;
 						}
@@ -1936,7 +1936,7 @@ final class Camera
 					final int i_365_ = method275(-10643, is_333_[i_344_], is_334_[i_346_],
 					        is_334_[(i_346_ - 1 - -i_336_) % i_336_], is_333_[(i_336_ + (i_346_ - 1)) % i_336_],
 					        is_333_[i_346_]);
-					if (method264(i_362_, (byte) -127, i_363_, bool, i_365_, i_364_))
+					if (method264(i_362_, i_363_, bool, i_365_, i_364_))
 					{
 						return true;
 					}
@@ -1956,7 +1956,7 @@ final class Camera
 					final int i_368_ = method275(i ^ 0x797e, is_333_[i_346_], is_334_[i_344_],
 					        is_334_[(i_344_ + 1) % i_336_], is_333_[(i_344_ + 1) % i_336_], is_333_[i_344_]);
 					final int i_369_ = is_334_[i_346_];
-					if (method264(i_366_, (byte) 28, i_367_, bool, i_369_, i_368_))
+					if (method264(i_366_, i_367_, bool, i_369_, i_368_))
 					{
 						return true;
 					}
@@ -1979,7 +1979,7 @@ final class Camera
 					final int i_372_ = method275(-10643, is_333_[i_346_], is_334_[i_344_],
 					        is_334_[(i_344_ + 1) % i_336_], is_333_[(i_344_ + 1) % i_336_], is_333_[i_344_]);
 					final int i_373_ = is_334_[i_346_];
-					if (method264(i_370_, (byte) 11, i_371_, bool, i_373_, i_372_))
+					if (method264(i_370_, i_371_, bool, i_373_, i_372_))
 					{
 						return true;
 					}
@@ -2000,7 +2000,7 @@ final class Camera
 					final int i_377_ = method275(-10643, is_333_[i_344_], is_334_[i_346_],
 					        is_334_[((i_346_ - -i_336_) + -1) % i_336_], is_333_[(i_336_ + i_346_ + -1) % i_336_],
 					        is_333_[i_346_]);
-					if (method264(i_374_, (byte) -112, i_375_, bool, i_377_, i_376_))
+					if (method264(i_374_, i_375_, bool, i_377_, i_376_))
 					{
 						return true;
 					}
@@ -2021,7 +2021,7 @@ final class Camera
 				final int i_380_ = method275(-10643, is_333_[i_346_], is_334_[i_344_], is_334_[(i_344_ + 1) % i_336_],
 				        is_333_[(i_344_ + 1) % i_336_], is_333_[i_344_]);
 				final int i_381_ = is_334_[i_346_];
-				if (method264(i_378_, (byte) 45, i_379_, bool, i_381_, i_380_))
+				if (method264(i_378_, i_379_, bool, i_381_, i_380_))
 				{
 					return true;
 				}
@@ -2041,7 +2041,7 @@ final class Camera
 				final int i_385_ = method275(i + 10074, is_332_[i_347_], is_334_[i_346_],
 				        is_334_[(i_346_ - (1 - i_336_)) % i_336_], is_333_[(i_346_ + i_336_ + -1) % i_336_],
 				        is_333_[i_346_]);
-				if (method264(i_382_, (byte) 54, i_383_, bool, i_385_, i_384_))
+				if (method264(i_382_, i_383_, bool, i_385_, i_384_))
 				{
 					return true;
 				}
@@ -2076,7 +2076,7 @@ final class Camera
 						final int i_388_ = method275(-10643, is_333_[i_346_], is_334_[i_344_],
 						        is_334_[(i_344_ + 1) % i_336_], is_333_[(i_344_ + 1) % i_336_], is_333_[i_344_]);
 						final int i_389_ = is_334_[i_346_];
-						if (method264(i_386_, (byte) -123, i_387_, bool, i_389_, i_388_))
+						if (method264(i_386_, i_387_, bool, i_389_, i_388_))
 						{
 							return true;
 						}
@@ -2097,7 +2097,7 @@ final class Camera
 						final int i_393_ = method275(-10643, is_333_[i_344_], is_334_[i_346_],
 						        is_334_[(((i_346_ - -i_336_) + -1) % i_336_)],
 						        is_333_[((i_336_ + (i_346_ - 1)) % i_336_)], is_333_[i_346_]);
-						if (method264(i_390_, (byte) -126, i_391_, bool, i_393_, i_392_))
+						if (method264(i_390_, i_391_, bool, i_393_, i_392_))
 						{
 							return true;
 						}
@@ -2122,7 +2122,7 @@ final class Camera
 					final int i_396_ = method275(-10643, is_333_[i_346_], is_334_[i_344_],
 					        is_334_[(i_344_ + 1) % i_336_], is_333_[(i_344_ + 1) % i_336_], is_333_[i_344_]);
 					final int i_397_ = is_334_[i_346_];
-					if (method264(i_394_, (byte) -3, i_395_, bool, i_397_, i_396_))
+					if (method264(i_394_, i_395_, bool, i_397_, i_396_))
 					{
 						return true;
 					}
@@ -2172,7 +2172,7 @@ final class Camera
 				final int i_407_ = method275(i + 10074, is_332_[i_347_], is_334_[i_346_],
 				        is_334_[(i_336_ + (i_346_ - 1)) % i_336_], is_333_[(i_346_ - (-i_336_ + 1)) % i_336_],
 				        is_333_[i_346_]);
-				if (method264(i_404_, (byte) -126, i_405_, bool, i_407_, i_406_))
+				if (method264(i_404_, i_405_, bool, i_407_, i_406_))
 				{
 					return true;
 				}
@@ -2192,7 +2192,7 @@ final class Camera
 				final int i_411_ = method275(-10643, is_332_[i_347_], is_334_[i_346_],
 				        is_334_[(i_336_ + (i_346_ - 1)) % i_336_], is_333_[((i_346_ - -i_336_) + -1) % i_336_],
 				        is_333_[i_346_]);
-				if (method264(i_408_, (byte) 9, i_409_, bool, i_411_, i_410_))
+				if (method264(i_408_, i_409_, bool, i_411_, i_410_))
 				{
 					return true;
 				}
@@ -2212,7 +2212,7 @@ final class Camera
 				final int i_415_ = method275(-10643, is_332_[i_340_], is_334_[i_346_],
 				        is_334_[(i_336_ + i_346_ + -1) % i_336_], is_333_[(i_346_ + i_336_ + -1) % i_336_],
 				        is_333_[i_346_]);
-				if (method264(i_412_, (byte) -119, i_413_, bool, i_415_, i_414_))
+				if (method264(i_412_, i_413_, bool, i_415_, i_414_))
 				{
 					return true;
 				}
@@ -2249,7 +2249,7 @@ final class Camera
 		return false;
 	}
 
-	void method286(final int i, final int i_422_, final byte i_423_)
+	void method286(final int i, final int i_422_)
 	{
 		aBool25 = true;
 		anInt474 = i_422_ - anInt428;
@@ -2257,7 +2257,7 @@ final class Camera
 		anInt441 = 0;
 	}
 
-	private void method287(final byte i, final int i_424_)
+	private void method287(final int i_424_)
 	{
 		final CameraModel class26 = cameraModels[i_424_];
 		final Model class23 = class26.aClass23_2;
@@ -2349,7 +2349,7 @@ final class Camera
 		class26.anInt306 = i_442_;
 	}
 
-	private void method288(int i, final byte i_448_, int i_449_, int i_450_)
+	private void method288(int i, int i_449_, int i_450_)
 	{
 		final int i_451_ = (-anInt448 + 1024) & 0x3ff;
 		final int i_452_ = (-anInt417 + 1024) & 0x3ff;
@@ -2423,7 +2423,7 @@ final class Camera
 						{
 							anIntArrayArray13[i_465_] = new int[65536];
 							anIntArrayArray16[i] = anIntArrayArray13[i_465_];
-							method276((byte) -99, i);
+							method276(i);
 							return;
 						}
 					}
@@ -2440,7 +2440,7 @@ final class Camera
 					}
 					anIntArrayArray16[i] = anIntArrayArray16[i_466_];
 					anIntArrayArray16[i_466_] = null;
-					method276((byte) 40, i);
+					method276(i);
 				}
 				else
 				{
@@ -2450,7 +2450,7 @@ final class Camera
 						{
 							anIntArrayArray14[i_468_] = new int[16384];
 							anIntArrayArray16[i] = anIntArrayArray14[i_468_];
-							method276((byte) -116, i);
+							method276(i);
 							return;
 						}
 					}
@@ -2467,13 +2467,13 @@ final class Camera
 					}
 					anIntArrayArray16[i] = anIntArrayArray16[i_469_];
 					anIntArrayArray16[i_469_] = null;
-					method276((byte) 126, i);
+					method276(i);
 				}
 			}
 		}
 	}
 
-	void method290(final boolean bool)
+	void method290()
 	{
 		aBool26 = gameImage.aBool28;
 		final int i = (this.anInt437 * halfWidth) >> anInt482;
@@ -2484,14 +2484,14 @@ final class Camera
 		Class34.anInt371 = 0;
 		AClass1_Sub1.anInt642 = 0;
 		Class19.anInt207 = 0;
-		method288(-i_471_, (byte) 101, this.anInt437, -i);
-		method288(i_471_, (byte) 72, this.anInt437, -i);
-		method288(-i_471_, (byte) -126, this.anInt437, i);
-		method288(i_471_, (byte) 81, this.anInt437, i);
-		method288(-halfHeight, (byte) 33, 0, -halfWidth);
-		method288(halfHeight, (byte) -127, 0, -halfWidth);
-		method288(-halfHeight, (byte) 80, 0, halfWidth);
-		method288(halfHeight, (byte) 62, 0, halfWidth);
+		method288(-i_471_, this.anInt437, -i);
+		method288(i_471_, this.anInt437, -i);
+		method288(-i_471_, this.anInt437, i);
+		method288(i_471_, this.anInt437, i);
+		method288(-halfHeight, 0, -halfWidth);
+		method288(halfHeight, 0, -halfWidth);
+		method288(-halfHeight, 0, halfWidth);
+		method288(halfHeight, 0, halfWidth);
 		AClass1.anInt320 = anInt427 + AClass1.anInt320;
 		CameraModel.anInt312 = anInt436 + CameraModel.anInt312;
 		AClass1_Sub1.anInt642 = anInt427 + AClass1_Sub1.anInt642;
@@ -2570,7 +2570,7 @@ final class Camera
 								final CameraModel class26 = cameraModels[anInt460];
 								class26.aClass23_2 = class23;
 								class26.anInt308 = i_474_;
-								method287((byte) 122, anInt460);
+								method287(anInt460);
 								int i_484_;
 								if (0 > class26.anInt318)
 								{
@@ -2786,11 +2786,10 @@ final class Camera
 							}
 						}
 					}
-					method260(1, anIntArray109, 0, anIntArray94, 0, i_506_, 0, i_495_, anIntArray97, class23, 0);
+					method260(anIntArray109, 0, anIntArray94, 0, i_506_, 0, i_495_, anIntArray97, class23, 0);
 					if (anInt421 < anInt425)
 					{
-						method259(anIntArray103, 0, 0, -100, class23, class26.anInt310, anIntArray95, i_508_,
-						        anIntArray106);
+						method259(anIntArray103, 0, 0, class23, class26.anInt310, anIntArray95, i_508_, anIntArray106);
 					}
 				}
 			}
@@ -2835,7 +2834,7 @@ final class Camera
 					        && (class26.anInt313 != class26_526_.anInt311)
 					        && !method296((byte) -63, class26, class26_526_) && method280(class26_526_, -1, class26))
 					{
-						method279(20615, i_523_, class26s, i_525_);
+						method279(i_523_, class26s, i_525_);
 						i_523_ = anInt469;
 						if (class26_526_ != class26s[i_525_])
 						{

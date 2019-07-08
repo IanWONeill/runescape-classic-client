@@ -8,9 +8,9 @@ abstract class AClass1 {
 	
 	static int anInt320;
 	static int[] anIntArray81;
-	int anInt321;
+	int maybe_port;
 	static BigInteger aBigInteger1 = new BigInteger("10001", 16);
-	String aString11;
+	String maybe_host;
 
 	abstract Socket method174(boolean bool) throws IOException;
 
@@ -18,7 +18,7 @@ abstract class AClass1 {
 		if (bool != true) {
 			method176((byte) 122);
 		}
-		return new Socket(this.aString11, this.anInt321);
+		return new Socket(this.maybe_host, this.maybe_port);
 	}
 
 	static int method176(final byte i) {

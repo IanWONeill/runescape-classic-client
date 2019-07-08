@@ -17,9 +17,9 @@ final class Class34
 	        22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22,
 	        22, 22, 22, 22, 22, 22, 21, 22, 21, 22, 22, 22, 21, 22, 22 });
 
-	static int method225(final byte[] is, final int i, final byte i_0_)
+	static int method225(final byte[] is, final int i)
 	{
-		int i_1_ = ((256 * Class10.method77(is[i], (byte) -115)) - -Class10.method77(is[i + 1], (byte) -115));
+		int i_1_ = ((256 * Class10.getUnsignedByte(is[i])) - -Class10.getUnsignedByte(is[i + 1]));
 		if (i_1_ > 32767)
 		{
 			i_1_ -= 65536;
@@ -27,7 +27,7 @@ final class Class34
 		return i_1_;
 	}
 
-	static void method226(final byte i, final Object object, final Class32 class32)
+	static void method226(final Object object, final Class32 class32)
 	{
 		if (class32.anEventQueue1 != null)
 		{

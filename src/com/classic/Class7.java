@@ -13,17 +13,17 @@ final class Class7
 	static int[] anIntArray19;
 	private int anInt63;
 
-	int method47(final byte i)
+	int method47()
 	{
 		if (0 == anInt56--)
 		{
-			method48((byte) -120);
+			method48();
 			anInt56 = 255;
 		}
 		return anIntArray16[anInt56];
 	}
 
-	private void method48(final byte i)
+	private void method48()
 	{
 		anInt63 += ++anInt55;
 		for (int i_0_ = 0; 256 > i_0_; i_0_++)
@@ -238,7 +238,7 @@ final class Class7
 				anIntArray15[i_23_ - -6] = i_19_;
 				anIntArray15[i_23_ + 7] = i_18_;
 			}
-			method48((byte) -127);
+			method48();
 			anInt56 = 256;
 		}
 	}

@@ -561,7 +561,7 @@ final class Class8
 		}
 	}
 
-	static int method58(final byte[] is, int i, final byte[] is_99_, final int i_100_, final int i_101_)
+	static int method58(final byte[] is, int i, final byte[] is_99_, final int i_101_)
 	{
 		synchronized (aClass19_1)
 		{

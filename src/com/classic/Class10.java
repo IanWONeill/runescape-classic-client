@@ -55,14 +55,14 @@ final class Class10
 	private int anInt135;
 	private final int[] anIntArray35;
 
-	private void method64(final int i, final String string, final int i_0_, final int i_1_, final boolean bool,
-	        final int i_2_, final int i_3_)
+	private void method64(final int i, final String string, final int i_0_, final int i_1_, final int i_2_,
+	        final int i_3_)
 	{
-		final int i_4_ = i_1_ + (aClass46_2.method315((byte) 127, i_2_) / 3);
+		final int i_4_ = i_1_ + (aClass46_2.method315(i_2_) / 3);
 		method103(20166, i_0_, i_4_, i_3_, string, i, i_2_);
 	}
 
-	int method65(final int i, final int i_5_, final byte i_6_, final int i_7_, final int i_8_)
+	int method65(final int i, final int i_5_, final int i_7_, final int i_8_)
 	{
 		anIntArray35[anInt135] = 10;
 		aBoolArray5[anInt135] = true;
@@ -74,9 +74,9 @@ final class Class10
 		return anInt135++;
 	}
 
-	void method66(final int i, final int i_9_)
+	void method66(final int index)
 	{
-		aBoolArray5[i_9_] = false;
+		aBoolArray5[index] = false;
 	}
 
 	private void method67(final int i, final int i_10_, final int i_11_, final int i_12_, final int i_13_,
@@ -84,9 +84,9 @@ final class Class10
 	{
 		aClass46_2.method321(i_11_, 16777215, i_12_, i_13_, i, i_10_ + 1);
 		aClass46_2.method341(i_13_, (byte) -122, i_11_, i, anInt103);
-		aClass46_2.method319(anInt103, i_12_, i_11_, true, i);
+		aClass46_2.method319(anInt103, i_12_, i_11_, i);
 		aClass46_2.method341(i_13_, (byte) -110, i_11_ + (i_12_ - 1), i, anInt91);
-		aClass46_2.method319(anInt91, i_12_, i_11_, true, (i + -1) - -i_13_);
+		aClass46_2.method319(anInt91, i_12_, i_11_, (i + -1) - -i_13_);
 		if (anIntArray33[i_14_] == 1)
 		{
 			for (int i_15_ = 0; i_12_ > i_15_; i_15_++)
@@ -118,15 +118,15 @@ final class Class10
 		}
 	}
 
-	void method69(final int i, final byte i_21_)
+	void method69(final int index)
 	{
-		aBoolArray5[i] = true;
+		aBoolArray5[index] = true;
 	}
 
 	private void method70(final int i, int i_22_, final int i_23_, final int i_24_, final int[] is,
 	        final String[] strings, final int i_25_, final int i_26_, final int i_27_, final int i_28_, final int i_29_)
 	{
-		final int i_30_ = i_25_ / aClass46_2.method315((byte) 99, i_28_);
+		final int i_30_ = i_25_ / aClass46_2.method315(i_28_);
 		if (i_22_ > (i_26_ - i_30_))
 		{
 			i_22_ = -i_30_ + i_26_;
@@ -183,8 +183,8 @@ final class Class10
 			i_33_ = ((-i_32_ + i_25_ + -27) * i_22_) / (i_26_ - i_30_);
 			method106(i_33_, i_32_, i, (byte) -40, i_29_, i_25_, i_24_);
 		}
-		final int i_35_ = -(aClass46_2.method315((byte) 95, i_28_) * i_30_) + i_25_;
-		int i_36_ = ((i - -((5 * aClass46_2.method315((byte) 99, i_28_)) / 6)) + (i_35_ / 2));
+		final int i_35_ = -(aClass46_2.method315(i_28_) * i_30_) + i_25_;
+		int i_36_ = ((i - -((5 * aClass46_2.method315(i_28_)) / 6)) + (i_35_ / 2));
 		if (i_27_ == -5452)
 		{
 			for (int i_37_ = i_22_; i_26_ > i_37_; i_37_++)
@@ -192,13 +192,13 @@ final class Class10
 				if ((anInt112 != 0) && (anInt131 >= (i_24_ + 2))
 				        && (anInt131 <= ((i_24_ + 2) - -aClass46_2.method328(strings[i_37_], -109, i_28_)))
 				        && (i_36_ >= (anInt133 + -2))
-				        && ((anInt133 + -2) > (i_36_ - aClass46_2.method315((byte) 123, i_28_))))
+				        && ((anInt133 + -2) > (i_36_ - aClass46_2.method315(i_28_))))
 				{
 					aBoolArray1[i_23_] = true;
 					anIntArray33[i_23_] = GameWindow.bitwiseOr(i_37_, anInt112 << 16);
 				}
 				method103(20166, i_23_, i_36_, i_24_ - -2, strings[i_37_], is[i_37_], i_28_);
-				i_36_ += (aClass46_2.method315((byte) 91, i_28_) + -GameImage.anInt568);
+				i_36_ += (aClass46_2.method315(i_28_) + -GameImage.anInt568);
 				if ((i_25_ + i) <= i_36_)
 				{
 					break;
@@ -217,14 +217,12 @@ final class Class10
 				{
 					if (anIntArray35[i_38_] == 1)
 					{
-						method64(0, aStringArray9[i_38_], i_38_, anIntArray30[i_38_], true, anIntArray26[i_38_],
-						        (anIntArray27[i_38_]
-						                - (aClass46_2.method328(aStringArray9[i_38_], -128, anIntArray26[i_38_]) / 2)));
+						method64(0, aStringArray9[i_38_], i_38_, anIntArray30[i_38_], anIntArray26[i_38_], (anIntArray27[i_38_]
+						        - (aClass46_2.method328(aStringArray9[i_38_], -128, anIntArray26[i_38_]) / 2)));
 					}
 					else if (anIntArray35[i_38_] == 2)
 					{
-						method93((byte) -75, anIntArray30[i_38_], anIntArray28[i_38_], anIntArray31[i_38_],
-						        anIntArray27[i_38_]);
+						method93(anIntArray30[i_38_], anIntArray28[i_38_], anIntArray31[i_38_], anIntArray27[i_38_]);
 					}
 					else if (anIntArray35[i_38_] != 3)
 					{
@@ -232,32 +230,31 @@ final class Class10
 						{
 							if ((anIntArray35[i_38_] == 5) || (anIntArray35[i_38_] == 6))
 							{
-								method104(anIntArray26[i_38_], anIntArray30[i_38_], 57, anIntArray28[i_38_], i_38_,
-								        anIntArray31[i_38_], anIntArray27[i_38_], aStringArray9[i_38_]);
+								method104(anIntArray26[i_38_], anIntArray30[i_38_], anIntArray28[i_38_], i_38_, anIntArray31[i_38_],
+								        anIntArray27[i_38_], aStringArray9[i_38_]);
 							}
 							else if (anIntArray35[i_38_] != 7)
 							{
 								if (anIntArray35[i_38_] == 8)
 								{
 									method87(aStringArrayArray3[i_38_], anIntArray30[i_38_], anIntArray26[i_38_],
-									        (byte) 53, i_38_, anIntArray27[i_38_]);
+									        i_38_, anIntArray27[i_38_]);
 								}
 								else if (anIntArray35[i_38_] == 9)
 								{
-									method82((this.anIntArray23[i_38_]), anIntArray27[i_38_], false,
-									        anIntArray31[i_38_], anIntArrayArray6[i_38_], anIntArray26[i_38_],
-									        aStringArrayArray3[i_38_], (this.anIntArray24[i_38_]), i_38_,
-									        anIntArray30[i_38_], anIntArray28[i_38_]);
+									method82((this.anIntArray23[i_38_]), anIntArray27[i_38_], anIntArray31[i_38_],
+									        anIntArrayArray6[i_38_], anIntArray26[i_38_], aStringArrayArray3[i_38_],
+									        (this.anIntArray24[i_38_]), i_38_, anIntArray30[i_38_],
+									        anIntArray28[i_38_]);
 								}
 								else if (anIntArray35[i_38_] == 11)
 								{
 									method102(anIntArray28[i_38_], anIntArray30[i_38_], anIntArray27[i_38_],
-									        anIntArray31[i_38_], (byte) 103);
+									        anIntArray31[i_38_]);
 								}
 								else if (anIntArray35[i_38_] == 12)
 								{
-									method105(anIntArray27[i_38_], anIntArray30[i_38_], (byte) 125,
-									        anIntArray26[i_38_]);
+									method105(anIntArray27[i_38_], anIntArray30[i_38_], anIntArray26[i_38_]);
 								}
 								else if (anIntArray35[i_38_] == 14)
 								{
@@ -285,8 +282,7 @@ final class Class10
 				}
 				else
 				{
-					method64(0, aStringArray9[i_38_], i_38_, anIntArray30[i_38_], true, anIntArray26[i_38_],
-					        anIntArray27[i_38_]);
+					method64(0, aStringArray9[i_38_], i_38_, anIntArray30[i_38_], anIntArray26[i_38_], anIntArray27[i_38_]);
 				}
 			}
 		}
@@ -297,8 +293,7 @@ final class Class10
 		anInt112 = 0;
 	}
 
-	int method72(final int i, final int i_39_, final boolean bool, final int i_40_, final int i_41_,
-	        final String string)
+	int method72(final int i_39_, final boolean bool, final int i_40_, final int i_41_, final String string)
 	{
 		anIntArray35[anInt135] = 1;
 		aBoolArray5[anInt135] = true;
@@ -311,7 +306,7 @@ final class Class10
 		return anInt135++;
 	}
 
-	int method73(final int i, final int i_42_, final byte i_43_, final int i_44_)
+	int method73(final int i, final int i_42_, final int i_44_)
 	{
 		final int i_45_ = aClass46_2.anIntArray118[i];
 		final int i_46_ = aClass46_2.anIntArray123[i];
@@ -326,8 +321,8 @@ final class Class10
 		return anInt135++;
 	}
 
-	int method74(final int i, final int i_47_, final int i_48_, final int i_49_, final int i_50_, final int i_51_,
-	        final boolean bool, final int i_52_)
+	int method74(final int i, final int i_47_, final int i_48_, final int i_50_, final int i_51_, final boolean bool,
+	        final int i_52_)
 	{
 		anIntArray35[anInt135] = 4;
 		aBoolArray5[anInt135] = true;
@@ -371,12 +366,12 @@ final class Class10
 		return anInt135++;
 	}
 
-	static int method77(final byte i, final byte i_62_)
+	static int getUnsignedByte(final byte value)
 	{
-		return i & 0xff;
+		return value & 0xff;
 	}
 
-	int method78(final int i, final int i_63_, final int i_64_, final int i_65_, final int i_66_)
+	int method78(final int i_63_, final int i_64_, final int i_65_, final int i_66_)
 	{
 		anIntArray35[anInt135] = 2;
 		aBoolArray5[anInt135] = true;
@@ -413,8 +408,8 @@ final class Class10
 		return string;
 	}
 
-	int method80(final byte i, final int i_69_, final int i_70_, final int i_71_, final boolean bool, final int i_72_,
-	        final int i_73_, final int i_74_)
+	int method80(final int i_69_, final int i_70_, final int i_71_, final boolean bool, final int i_72_, final int i_73_,
+	        final int i_74_)
 	{
 		anIntArray35[anInt135] = 9;
 		aBoolArray5[anInt135] = true;
@@ -437,7 +432,7 @@ final class Class10
 		return anInt135++;
 	}
 
-	boolean method81(final boolean bool, final int i)
+	boolean method81(final int i)
 	{
 		if (aBoolArray5[i] && aBoolArray1[i])
 		{
@@ -447,10 +442,10 @@ final class Class10
 		return false;
 	}
 
-	private void method82(int i, final int i_76_, final boolean bool, final int i_77_, final int[] is, final int i_78_,
-	        final String[] strings, final int i_79_, final int i_80_, final int i_81_, final int i_82_)
+	private void method82(int i, final int i_76_, final int i_77_, final int[] is, final int i_78_, final String[] strings,
+	        final int i_79_, final int i_80_, final int i_81_, final int i_82_)
 	{
-		final int i_83_ = i_82_ / aClass46_2.method315((byte) 86, i_78_);
+		final int i_83_ = i_82_ / aClass46_2.method315(i_78_);
 		if (i_79_ <= i_83_)
 		{
 			i = 0;
@@ -501,8 +496,8 @@ final class Class10
 			method106(i_86_, i_85_, i_81_, (byte) -40, i_77_, i_82_, i_76_);
 		}
 		anIntArray34[i_80_] = -1;
-		final int i_88_ = i_82_ - (aClass46_2.method315((byte) 121, i_78_) * i_83_);
-		int i_89_ = ((i_81_ + ((aClass46_2.method315((byte) 109, i_78_) * 5) / 6)) - -(i_88_ / 2));
+		final int i_88_ = i_82_ - (aClass46_2.method315(i_78_) * i_83_);
+		int i_89_ = ((i_81_ + ((aClass46_2.method315(i_78_) * 5) / 6)) - -(i_88_ / 2));
 		for (int i_90_ = i; i_90_ < i_79_; i_90_++)
 		{
 			int i_91_;
@@ -517,7 +512,7 @@ final class Class10
 			if (((i_76_ + 2) <= anInt131)
 			        && (anInt131 <= (aClass46_2.method328(strings[i_90_], -105, i_78_) + (i_76_ + 2)))
 			        && (i_89_ >= (anInt133 + -2))
-			        && ((anInt133 - 2) > (-aClass46_2.method315((byte) 124, i_78_) + i_89_)))
+			        && ((anInt133 - 2) > (-aClass46_2.method315(i_78_) + i_89_)))
 			{
 				if (aBoolArray2[i_80_])
 				{
@@ -538,8 +533,8 @@ final class Class10
 			{
 				i_91_ = 16711680;
 			}
-			aClass46_2.method361(-124, strings[i_90_], is[i_90_], i_78_, i_89_, i_76_ + 2, i_91_);
-			i_89_ += aClass46_2.method315((byte) 106, i_78_);
+			aClass46_2.method361(strings[i_90_], is[i_90_], i_78_, i_89_, i_76_ + 2, i_91_);
+			i_89_ += aClass46_2.method315(i_78_);
 			if (i_89_ >= (i_82_ + i_81_))
 			{
 				break;
@@ -552,12 +547,12 @@ final class Class10
 		aClass46_2.method341(i_92_, (byte) -122, i, i_93_, i_94_);
 	}
 
-	static int method84(final int i, final byte[] is, final int i_95_)
+	static int method84(final byte[] is, final int i_95_)
 	{
 		return ((is[i_95_] << 8) & 0xff00) + (is[i_95_ + 1] & 0xff);
 	}
 
-	void method85(final int i, final int i_96_, final int i_97_, final byte i_98_, final int i_99_)
+	void method85(final int i, final int i_96_, final int i_97_, final int i_99_)
 	{
 		if (i_97_ != 0)
 		{
@@ -610,7 +605,7 @@ final class Class10
 		}
 	}
 
-	void method86(final int i, final byte i_102_)
+	void method86(final int i)
 	{
 		if (i != 0)
 		{
@@ -651,11 +646,10 @@ final class Class10
 		}
 	}
 
-	private void method87(final String[] strings, final int i, final int i_106_, final byte i_107_, final int i_108_,
-	        final int i_109_)
+	private void method87(final String[] strings, final int i, final int i_106_, final int i_108_, final int i_109_)
 	{
 		final int i_110_ = strings.length;
-		int i_111_ = i + -(((i_110_ - 1) * aClass46_2.method315((byte) 96, i_106_)) / 2);
+		int i_111_ = i + -(((i_110_ - 1) * aClass46_2.method315(i_106_)) / 2);
 		for (int i_112_ = 0; i_110_ > i_112_; i_112_++)
 		{
 			int i_113_;
@@ -670,7 +664,7 @@ final class Class10
 			final int i_114_ = aClass46_2.method328(strings[i_112_], -114, i_106_);
 			if ((anInt131 >= (i_109_ + -(i_114_ / 2))) && (((i_114_ / 2) + i_109_) >= anInt131)
 			        && ((anInt133 + -2) <= i_111_)
-			        && ((anInt133 - 2) > (-aClass46_2.method315((byte) 94, i_106_) + i_111_)))
+			        && ((anInt133 - 2) > (-aClass46_2.method315(i_106_) + i_111_)))
 			{
 				if (aBoolArray2[i_108_])
 				{
@@ -697,13 +691,13 @@ final class Class10
 					i_113_ = 12582912;
 				}
 			}
-			aClass46_2.method361(68, strings[i_112_], 0, i_106_, i_111_, i_109_ + -(i_114_ / 2), i_113_);
-			i_111_ += aClass46_2.method315((byte) 111, i_106_);
+			aClass46_2.method361(strings[i_112_], 0, i_106_, i_111_, i_109_ + -(i_114_ / 2), i_113_);
+			i_111_ += aClass46_2.method315(i_106_);
 		}
 	}
 
 	void method88(final int i, final String string, final int i_115_, final boolean bool, final String string_116_,
-	        final byte i_117_, final String string_118_)
+	        final String string_118_)
 	{
 		anInt114++;
 		int i_119_ = this.anIntArray24[i]++;
@@ -747,43 +741,43 @@ final class Class10
 		return anIntArray33[i];
 	}
 
-	void method91(final byte i, final int i_124_)
+	void method91(final int i_124_)
 	{
 		anInt101 = i_124_;
 	}
 
-	int method92(final boolean bool, final int i)
+	int method92(final int i)
 	{
 		final int i_125_ = anIntArray34[i];
 		return i_125_;
 	}
 
-	private void method93(final byte i, final int i_126_, final int i_127_, final int i_128_, final int i_129_)
+	private void method93(final int i_126_, final int i_127_, final int i_128_, final int i_129_)
 	{
-		aClass46_2.method357(i_126_, i_127_ + i_126_, i_129_, i_129_ + i_128_, 1743849672);
-		aClass46_2.method356(i_128_, i_129_, anInt103, i_126_, -18609, anInt91, i_127_);
+		aClass46_2.method357(i_126_, i_127_ + i_126_, i_129_, i_129_ + i_128_);
+		aClass46_2.method356(i_128_, i_129_, anInt103, i_126_, anInt91, i_127_);
 		if (Class24.aBool16)
 		{
 			for (int i_130_ = i_129_ - (i_126_ & 0x3f); i_130_ < (i_129_ + i_128_); i_130_ += 128)
 			{
 				for (int i_131_ = -(0x1f & i_126_) + i_126_; (i_127_ + i_126_) > i_131_; i_131_ += 128)
 				{
-					aClass46_2.method320((byte) 120, i_130_, Class33.anInt368 + 6, i_131_, 128);
+					aClass46_2.method320(i_130_, Class33.anInt368 + 6, i_131_, 128);
 				}
 			}
 		}
 		aClass46_2.method341(i_128_, (byte) -17, i_126_, i_129_, anInt103);
 		aClass46_2.method341(i_128_ - 2, (byte) -127, i_126_ - -1, i_129_ + 1, anInt103);
 		aClass46_2.method341(i_128_ + -4, (byte) -73, i_126_ + 2, i_129_ + 2, anInt115);
-		aClass46_2.method319(anInt103, i_127_, i_126_, true, i_129_);
-		aClass46_2.method319(anInt103, i_127_ - 2, i_126_ + 1, true, i_129_ + 1);
-		aClass46_2.method319(anInt115, i_127_ - 4, i_126_ + 2, true, i_129_ + 2);
+		aClass46_2.method319(anInt103, i_127_, i_126_, i_129_);
+		aClass46_2.method319(anInt103, i_127_ - 2, i_126_ + 1, i_129_ + 1);
+		aClass46_2.method319(anInt115, i_127_ - 4, i_126_ + 2, i_129_ + 2);
 		aClass46_2.method341(i_128_, (byte) -71, (i_127_ + i_126_) - 1, i_129_, anInt91);
 		aClass46_2.method341(i_128_ + -2, (byte) -103, (i_126_ - -i_127_) + -2, i_129_ + 1, anInt91);
 		aClass46_2.method341(i_128_ + -4, (byte) -52, i_127_ + i_126_ + -3, i_129_ - -2, anInt123);
-		aClass46_2.method319(anInt91, i_127_, i_126_, true, i_129_ + i_128_ + -1);
-		aClass46_2.method319(anInt91, i_127_ - 2, i_126_ + 1, true, i_129_ + i_128_ + -2);
-		aClass46_2.method319(anInt123, i_127_ + -4, i_126_ + 2, true, i_129_ + i_128_ + -3);
+		aClass46_2.method319(anInt91, i_127_, i_126_, i_129_ + i_128_ + -1);
+		aClass46_2.method319(anInt91, i_127_ - 2, i_126_ + 1, i_129_ + i_128_ + -2);
+		aClass46_2.method319(anInt123, i_127_ + -4, i_126_ + 2, i_129_ + i_128_ + -3);
 		aClass46_2.method323(-10624);
 	}
 
@@ -797,7 +791,7 @@ final class Class10
 		        (i_133_ * Class51.anInt584) / 176);
 	}
 
-	int method95(final byte i, final int i_135_, final int i_136_, final int i_137_, final int i_138_)
+	int method95(final int i_135_, final int i_136_, final int i_137_, final int i_138_)
 	{
 		anIntArray35[anInt135] = 11;
 		aBoolArray5[anInt135] = true;
@@ -809,8 +803,8 @@ final class Class10
 		return anInt135++;
 	}
 
-	int method96(final int i, final int i_140_, final int i_141_, final int i_142_, final int i_143_,
-	        final boolean bool, final int i_144_, final boolean bool_145_, final int i_146_)
+	int method96(final int i, final int i_141_, final int i_142_, final int i_143_, final boolean bool,
+	        final int i_144_, final boolean bool_145_, final int i_146_)
 	{
 		anIntArray35[anInt135] = 6;
 		aBoolArray5[anInt135] = true;
@@ -843,7 +837,7 @@ final class Class10
 				}
 			}
 			int i_154_ = i_150_ - (i_151_ / 2);
-			final int i_155_ = i_147_ + (aClass46_2.method315((byte) 103, i) / 3);
+			final int i_155_ = i_147_ + (aClass46_2.method315(i) / 3);
 			for (int i_156_ = 0; i_152_ > i_156_; i_156_++)
 			{
 				int i_157_;
@@ -856,7 +850,7 @@ final class Class10
 					i_157_ = 16777215;
 				}
 				if ((i_154_ <= anInt131) && (anInt131 <= (i_154_ - -aClass46_2.method328(strings[i_156_], -121, i)))
-				        && (anInt133 <= i_155_) && (anInt133 > (i_155_ + -aClass46_2.method315((byte) 109, i))))
+				        && (anInt133 <= i_155_) && (anInt133 > (i_155_ + -aClass46_2.method315(i))))
 				{
 					if (!aBoolArray2[i_149_])
 					{
@@ -883,7 +877,7 @@ final class Class10
 						i_157_ = 16711680;
 					}
 				}
-				aClass46_2.method361(-107, strings[i_156_], 0, i, i_155_, i_154_, i_157_);
+				aClass46_2.method361(strings[i_156_], 0, i, i_155_, i_154_, i_157_);
 				i_154_ += aClass46_2.method328(new StringBuilder().append(strings[i_156_]).append("  ").toString(),
 				        -104, i);
 			}
@@ -899,12 +893,12 @@ final class Class10
 		}
 	}
 
-	String method99(final int i, final int i_158_, final int i_159_)
+	String method99(final int i, final int i_158_)
 	{
 		return aStringArrayArray1[i_158_][i];
 	}
 
-	String method100(final int i, final int i_161_)
+	String method100(final int i_161_)
 	{
 		if (aStringArray9[i_161_] == null)
 		{
@@ -913,22 +907,22 @@ final class Class10
 		return aStringArray9[i_161_];
 	}
 
-	void method101(final int i, final byte i_162_)
+	void method101(final int i)
 	{
 		this.anIntArray23[i] = 0;
 		anIntArray34[i] = -1;
 	}
 
-	private void method102(final int i, final int i_163_, final int i_164_, final int i_165_, final byte i_166_)
+	private void method102(final int i, final int i_163_, final int i_164_, final int i_165_)
 	{
 		aClass46_2.method321(i_163_, 0, i, i_165_, i_164_, 1);
-		aClass46_2.method362(i, i_164_, (byte) 83, i_165_, anInt109, i_163_);
-		aClass46_2.method362(i + -2, i_164_ + 1, (byte) -75, i_165_ + -2, anInt81, i_163_ + 1);
-		aClass46_2.method362(i + -4, i_164_ + 2, (byte) -87, i_165_ + -4, anInt120, i_163_ + 2);
-		aClass46_2.method338(Class33.anInt368 + 2, i_163_, i_164_, (byte) -70);
-		aClass46_2.method338(3 - -Class33.anInt368, i_163_, i_164_ + i_165_ + -7, (byte) -70);
-		aClass46_2.method338(Class33.anInt368 + 4, i_163_ + i + -7, i_164_, (byte) -70);
-		aClass46_2.method338(Class33.anInt368 + 5, i_163_ + i + -7, (i_164_ - -i_165_) + -7, (byte) -70);
+		aClass46_2.method362(i, i_164_, i_165_, anInt109, i_163_);
+		aClass46_2.method362(i + -2, i_164_ + 1, i_165_ + -2, anInt81, i_163_ + 1);
+		aClass46_2.method362(i + -4, i_164_ + 2, i_165_ + -4, anInt120, i_163_ + 2);
+		aClass46_2.method338(Class33.anInt368 + 2, i_163_, i_164_);
+		aClass46_2.method338(3 - -Class33.anInt368, i_163_, i_164_ + i_165_ + -7);
+		aClass46_2.method338(Class33.anInt368 + 4, i_163_ + i + -7, i_164_);
+		aClass46_2.method338(Class33.anInt368 + 5, i_163_ + i + -7, (i_164_ - -i_165_) + -7);
 	}
 
 	private void method103(final int i, final int i_167_, final int i_168_, final int i_169_, final String string,
@@ -945,12 +939,12 @@ final class Class10
 			{
 				i_172_ = 16777215;
 			}
-			aClass46_2.method361(i + -20291, string, i_170_, i_171_, i_168_, i_169_, i_172_);
+			aClass46_2.method361(string, i_170_, i_171_, i_168_, i_169_, i_172_);
 		}
 	}
 
-	private void method104(final int i, final int i_173_, final int i_174_, final int i_175_, final int i_176_,
-	        final int i_177_, int i_178_, String string)
+	private void method104(final int i, final int i_173_, final int i_175_, final int i_176_, final int i_177_,
+	        int i_178_, String string)
 	{
 		if (!aBoolArray4[i_176_] != true)
 		{
@@ -982,7 +976,7 @@ final class Class10
 		{
 			string = new StringBuilder().append(string).append("*").toString();
 		}
-		final int i_182_ = (aClass46_2.method315((byte) 90, i) / 3) + i_173_;
+		final int i_182_ = (aClass46_2.method315(i) / 3) + i_173_;
 		method103(20166, i_176_, i_182_, i_178_, string, 0, i);
 	}
 
@@ -1030,28 +1024,28 @@ final class Class10
 		anInt91 = method94((byte) 42, 93, 120, 84);
 	}
 
-	private void method105(final int i, final int i_183_, final byte i_184_, final int i_185_)
+	private void method105(final int i, final int i_183_, final int i_185_)
 	{
-		aClass46_2.method338(i_185_, i_183_, i, (byte) -70);
+		aClass46_2.method338(i_185_, i_183_, i);
 	}
 
 	private void method106(final int i, final int i_186_, final int i_187_, final byte i_188_, final int i_189_,
 	        final int i_190_, final int i_191_)
 	{
 		final int i_192_ = (i_189_ + i_191_) - 12;
-		aClass46_2.method362(i_190_, i_192_, (byte) 65, 12, 0, i_187_);
-		aClass46_2.method338(0 - -Class33.anInt368, i_187_ + 1, i_192_ + 1, (byte) -70);
-		aClass46_2.method338(Class33.anInt368 + 1, i_187_ + i_190_ + -12, i_192_ + 1, (byte) -70);
+		aClass46_2.method362(i_190_, i_192_, 12, 0, i_187_);
+		aClass46_2.method338(0 - -Class33.anInt368, i_187_ + 1, i_192_ + 1);
+		aClass46_2.method338(Class33.anInt368 + 1, i_187_ + i_190_ + -12, i_192_ + 1);
 		if (i_188_ != -40)
 		{
 			method106(119, -27, -7, (byte) 6, 62, 28, -36);
 		}
 		aClass46_2.method341(12, (byte) -90, i_187_ + 13, i_192_, 0);
 		aClass46_2.method341(12, (byte) -101, (i_187_ + i_190_) - 13, i_192_, 0);
-		aClass46_2.method356(11, i_192_ + 1, anInt75, i_187_ - -14, -18609, anInt106, i_190_ + -27);
+		aClass46_2.method356(11, i_192_ + 1, anInt75, i_187_ - -14, anInt106, i_190_ + -27);
 		aClass46_2.method321(i_187_ + i + 14, anInt127, i_186_, 7, i_192_ + 3, 1);
-		aClass46_2.method319(anInt98, i_186_, i - -i_187_ - -14, true, i_192_ - -2);
-		aClass46_2.method319(anInt77, i_186_, i_187_ + i + 14, true, (i_192_ + 2) - -8);
+		aClass46_2.method319(anInt98, i_186_, i - -i_187_ - -14, i_192_ - -2);
+		aClass46_2.method319(anInt77, i_186_, i_187_ + i + 14, (i_192_ + 2) - -8);
 	}
 
 	static

@@ -87,8 +87,8 @@ final class Model
 	private boolean aBool15;
 	int[] anIntArray77;
 
-	Model[] method136(final int i, final int i_0_, final boolean bool, final int i_1_, final boolean bool_2_,
-	        final int i_3_, final int i_4_, final int i_5_, final int i_6_)
+	Model[] method136(final int i, final boolean bool_2_, final int i_3_, final int i_4_, final int i_5_,
+	        final int i_6_)
 	{
 		method155();
 		final int[] is = new int[i_3_];
@@ -140,7 +140,7 @@ final class Model
 		}
 		for (int i_24_ = 0; i_24_ < i_3_; i_24_++)
 		{
-			class23s[i_24_].method160(0);
+			class23s[i_24_].method160();
 		}
 		return class23s;
 	}
@@ -172,7 +172,7 @@ final class Model
 		}
 	}
 
-	void method139(final int i, final int i_33_, final int i_34_, final int i_35_)
+	void method139(final int i, final int i_33_, final int i_34_)
 	{
 		if (!aBool15)
 		{
@@ -184,7 +184,7 @@ final class Model
 		}
 	}
 
-	private void method140(final int i, final int i_36_, final int i_37_, final int i_38_)
+	private void method140(final int i_36_, final int i_37_, final int i_38_)
 	{
 		for (int i_39_ = 0; i_39_ < this.anInt221; i_39_++)
 		{
@@ -215,7 +215,7 @@ final class Model
 		}
 	}
 
-	void method141(final int i, final int i_49_, final int i_50_, final int i_51_)
+	void method141(final int i_49_, final int i_50_, final int i_51_)
 	{
 		anInt272 = 0xff & (i_50_ + anInt272);
 		anInt281 = (i_51_ + anInt281) & 0xff;
@@ -317,22 +317,22 @@ final class Model
 			}
 			if (anInt270 >= 2)
 			{
-				method140(-72, anInt281, anInt272, anInt267);
+				method140(anInt281, anInt272, anInt267);
 			}
 			if (anInt270 >= 3)
 			{
-				method165((byte) 122, anInt254, anInt276, anInt223);
+				method165(anInt254, anInt276, anInt223);
 			}
 			if (anInt270 >= 4)
 			{
-				method163(anInt264, anInt275, anInt245, 32047, anInt225, anInt256, anInt269);
+				method163(anInt264, anInt275, anInt245, anInt225, anInt256, anInt269);
 			}
 			if (1 <= anInt270)
 			{
-				method146(anInt253, anInt247, 388199944, anInt222);
+				method146(anInt253, anInt247, anInt222);
 			}
-			method157(78);
-			method148(-60);
+			method157();
+			method148();
 		}
 	}
 
@@ -433,7 +433,7 @@ final class Model
 		}
 	}
 
-	private void method146(final int i, final int i_90_, final int i_91_, final int i_92_)
+	private void method146(final int i, final int i_90_, final int i_92_)
 	{
 		for (int i_93_ = 0; i_93_ < this.anInt221; i_93_++)
 		{
@@ -519,7 +519,7 @@ final class Model
 		anInt247 = 0;
 	}
 
-	private void method148(final int i)
+	private void method148()
 	{
 		if (!aBool15 || !aBool8)
 		{
@@ -558,7 +558,7 @@ final class Model
 		}
 	}
 
-	void method149(final byte i, final int i_111_, final int i_112_)
+	void method149(final int i_111_, final int i_112_)
 	{
 		this.anInt248 -= i_112_;
 		this.anInt221 -= i_111_;
@@ -578,7 +578,7 @@ final class Model
 		this.anInt221 = 0;
 		if (i != 1)
 		{
-			method148(-3);
+			method148();
 		}
 	}
 
@@ -608,12 +608,12 @@ final class Model
 		}
 	}
 
-	void method152(final int i, final int i_120_, final int i_121_)
+	void method152(final int i_120_, final int i_121_)
 	{
 		this.aByteArray13[i_121_] = (byte) i_120_;
 	}
 
-	void method153(final int i, final int i_122_, final int i_123_, final byte i_124_)
+	void method153(final int i, final int i_122_, final int i_123_)
 	{
 		anInt267 = 0xff & i_123_;
 		anInt272 = 0xff & i;
@@ -691,7 +691,7 @@ final class Model
 		return i_130_;
 	}
 
-	private void method157(final int i)
+	private void method157()
 	{
 		anInt241 = 999999;
 		anInt287 = -999999;
@@ -796,7 +796,7 @@ final class Model
 		}
 	}
 
-	int method158(final int i, final int i_141_, final int i_142_, final int i_143_)
+	int method158(final int i, final int i_141_, final int i_143_)
 	{
 		if (this.anInt221 >= anInt234)
 		{
@@ -808,7 +808,7 @@ final class Model
 		return this.anInt221++;
 	}
 
-	void method159(final int i, final Model class23_144_)
+	void method159(final Model class23_144_)
 	{
 		anInt253 = class23_144_.anInt253;
 		anInt267 = class23_144_.anInt267;
@@ -820,7 +820,7 @@ final class Model
 		this.anInt274 = 1;
 	}
 
-	private void method160(final int i)
+	private void method160()
 	{
 		this.anIntArray63 = new int[this.anInt221];
 		this.anIntArray66 = new int[this.anInt221];
@@ -873,8 +873,8 @@ final class Model
 		}
 	}
 
-	private void method163(final int i, final int i_156_, final int i_157_, final int i_158_, final int i_159_,
-	        final int i_160_, final int i_161_)
+	private void method163(final int i, final int i_156_, final int i_157_, final int i_159_, final int i_160_,
+	        final int i_161_)
 	{
 		for (int i_162_ = 0; i_162_ < this.anInt221; i_162_++)
 		{
@@ -905,7 +905,7 @@ final class Model
 		}
 	}
 
-	void method164(final int i, final int i_163_, final int i_164_, final int i_165_)
+	void method164(final int i, final int i_163_, final int i_165_)
 	{
 		anInt253 = i;
 		anInt222 = i_163_;
@@ -914,7 +914,7 @@ final class Model
 		this.anInt274 = 1;
 	}
 
-	private void method165(final byte i, final int i_166_, final int i_167_, final int i_168_)
+	private void method165(final int i_166_, final int i_167_, final int i_168_)
 	{
 		for (int i_169_ = 0; this.anInt221 > i_169_; i_169_++)
 		{
@@ -924,7 +924,7 @@ final class Model
 		}
 	}
 
-	Model method166(final int i)
+	Model method166()
 	{
 		final Model[] class23s = new Model[1];
 		class23s[0] = this;
@@ -934,8 +934,7 @@ final class Model
 		return class23_170_;
 	}
 
-	Model method167(final boolean bool, final boolean bool_171_, final byte i, final boolean bool_172_,
-	        final boolean bool_173_)
+	Model method167(final boolean bool, final boolean bool_171_, final boolean bool_172_, final boolean bool_173_)
 	{
 		final Model[] class23s = new Model[1];
 		class23s[0] = this;
@@ -1048,7 +1047,7 @@ final class Model
 		method147(i_188_, i);
 	}
 
-	Model(final byte[] is, int i, final boolean bool)
+	Model(final byte[] is, int i)
 	{
 		anInt230 = 12345678;
 		anInt243 = 256;
@@ -1067,25 +1066,25 @@ final class Model
 		this.anInt288 = -1;
 		aBool15 = false;
 		this.aBool14 = true;
-		final int i_193_ = Class10.method84(-121, is, i);
+		final int i_193_ = Class10.method84(is, i);
 		i += 2;
-		final int i_194_ = Class10.method84(-74, is, i);
+		final int i_194_ = Class10.method84(is, i);
 		method147(i_194_, i_193_);
 		i += 2;
 		anIntArrayArray11 = new int[i_194_][1];
 		for (int i_195_ = 0; i_195_ < i_193_; i_195_++)
 		{
-			this.anIntArray53[i_195_] = Class34.method225(is, i, (byte) 34);
+			this.anIntArray53[i_195_] = Class34.method225(is, i);
 			i += 2;
 		}
 		for (int i_196_ = 0; i_193_ > i_196_; i_196_++)
 		{
-			anIntArray58[i_196_] = Class34.method225(is, i, (byte) 34);
+			anIntArray58[i_196_] = Class34.method225(is, i);
 			i += 2;
 		}
 		for (int i_197_ = 0; i_197_ < i_193_; i_197_++)
 		{
-			this.anIntArray77[i_197_] = Class34.method225(is, i, (byte) 34);
+			this.anIntArray77[i_197_] = Class34.method225(is, i);
 			i += 2;
 		}
 		this.anInt221 = i_193_;
@@ -1095,7 +1094,7 @@ final class Model
 		}
 		for (int i_199_ = 0; i_194_ > i_199_; i_199_++)
 		{
-			this.anIntArray62[i_199_] = Class34.method225(is, i, (byte) 34);
+			this.anIntArray62[i_199_] = Class34.method225(is, i);
 			i += 2;
 			if (this.anIntArray62[i_199_] == 32767)
 			{
@@ -1104,7 +1103,7 @@ final class Model
 		}
 		for (int i_200_ = 0; i_200_ < i_194_; i_200_++)
 		{
-			this.anIntArray59[i_200_] = Class34.method225(is, i, (byte) 34);
+			this.anIntArray59[i_200_] = Class34.method225(is, i);
 			if (this.anIntArray59[i_200_] == 32767)
 			{
 				this.anIntArray59[i_200_] = anInt251;
@@ -1130,7 +1129,7 @@ final class Model
 			{
 				if (i_193_ >= 256)
 				{
-					this.anIntArrayArray10[i_203_][i_204_] = Class10.method84(-123, is, i);
+					this.anIntArrayArray10[i_203_][i_204_] = Class10.method84(is, i);
 					i += 2;
 				}
 				else
@@ -1165,7 +1164,7 @@ final class Model
 		byte[] is;
 		try
 		{
-			final InputStream inputstream = Class51.method376(string, (byte) 93);
+			final InputStream inputstream = Class51.method376(string);
 			final DataInputStream datainputstream = new DataInputStream(inputstream);
 			is = new byte[3];
 			anInt246 = 0;

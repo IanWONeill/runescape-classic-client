@@ -9,9 +9,9 @@ final class Class12 implements Runnable
 	static int anInt140 = 0;
 	boolean aBool6 = false;
 
-	static int method108(final byte i)
+	static int method108()
 	{
-		final int i_0_ = Class10.method84(-99, Class52.aByteArray20, Class25.anInt302);
+		final int i_0_ = Class10.method84(Class52.aByteArray20, Class25.anInt302);
 		Class25.anInt302 += 2;
 		return i_0_;
 	}
@@ -37,7 +37,7 @@ final class Class12 implements Runnable
 							}
 						}
 						Class7.unknownSleep(43, 10L);
-						Class34.method226((byte) -106, null, this.aClass32_1);
+						Class34.method226(null, this.aClass32_1);
 					}
 				}
 				catch (final Exception exception)

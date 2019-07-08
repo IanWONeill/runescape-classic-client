@@ -83,7 +83,7 @@ final class Class32 implements Runnable
 		return method217(true, 2, 0, runnable, i);
 	}
 
-	private static Class28 method219(final String string, final int i, final String string_3_, final byte i_4_)
+	private static Class28 method219(final String string, final int i, final String string_3_)
 	{
 		String string_5_;
 		if (i == 33)
@@ -253,7 +253,7 @@ final class Class32 implements Runnable
 											{
 												if (aBool18)
 												{
-													aClass40_1.method256(-2147483648, ((Frame) (class20.anObject1)));
+													aClass40_1.method256(((Frame) (class20.anObject1)));
 												}
 												else
 												{
@@ -264,8 +264,7 @@ final class Class32 implements Runnable
 											{
 												if (i == 13)
 												{
-													final Class28 class28 = (method219("", anInt367,
-													        ((String) (class20.anObject1)), (byte) 125));
+													final Class28 class28 = (method219("", anInt367, ((String) (class20.anObject1))));
 													class20.socket = class28;
 												}
 												else if (!aBool20 || (i != 14))
@@ -341,14 +340,13 @@ final class Class32 implements Runnable
 													}
 													else
 													{
-														aCallback_Sub1_1.method419(i_14_, (byte) 91, i_15_);
+														aCallback_Sub1_1.method419(i_14_, i_15_);
 													}
 												}
 											}
 											else
 											{
-												final Class28 class28 = method219(aString14, anInt367,
-												        ((String) (class20.anObject1)), (byte) 119);
+												final Class28 class28 = method219(aString14, anInt367, ((String) (class20.anObject1)));
 												class20.socket = class28;
 											}
 										}
@@ -360,8 +358,8 @@ final class Class32 implements Runnable
 											if (aBool18)
 											{
 												aClass40_1.method257((0xffff & (class20.anInt214)),
-												        (class20.anInt214) >> 16, frame, (byte) -124,
-												        class20.anInt215 & 0xffff, class20.anInt215 >>> 16);
+												        (class20.anInt214) >> 16, frame, class20.anInt215 & 0xffff,
+												        class20.anInt215 >>> 16);
 											}
 											else
 											{
@@ -393,27 +391,35 @@ final class Class32 implements Runnable
 						else
 						{
 							final Object[] objects = (Object[]) class20.anObject1;
-							if (aBool20 && (((Class) objects[0]).getClassLoader() == null))
+							if (aBool20 && (((Class<?>) objects[0]).getClassLoader() == null))
 							{
 								throw new SecurityException();
 							}
 
 							// TODO: Investigate this use of reflection.
+							// The issue is that it may refer to a member that has been renamed.
 							System.out.println("This code path hasn't been checked.");
 							System.out.println("getDeclaredField: " + objects[1]);
 							System.exit(1);
 							
-							class20.socket = ((Class) objects[0]).getDeclaredField((String) objects[1]);
+							class20.socket = ((Class<?>) objects[0]).getDeclaredField((String) objects[1]);
 						}
 					}
 					else
 					{
 						final Object[] objects = (Object[]) class20.anObject1;
-						if (aBool20 && (null == ((Class) objects[0]).getClassLoader()))
+						if (aBool20 && (null == ((Class<?>) objects[0]).getClassLoader()))
 						{
 							throw new SecurityException();
 						}
-						class20.socket = (((Class) objects[0]).getDeclaredMethod((String) objects[1],
+						
+						// TODO: Investigate this use of reflection.
+						// The issue is that it may refer to a member that has been renamed.
+						System.out.println("This code path hasn't been checked.");
+						System.out.println("getDeclaredMethod: " + objects[1]);
+						System.exit(1);
+						
+						class20.socket = (((Class<?>) objects[0]).getDeclaredMethod((String) objects[1],
 						        (Class[]) objects[2]));
 					}
 				}
@@ -425,7 +431,7 @@ final class Class32 implements Runnable
 					}
 					try
 					{
-						class20.socket = Class22.method135((String) class20.anObject1, class20.anInt215, 123)
+						class20.socket = Class22.method135((String) class20.anObject1, class20.anInt215)
 						        .method174(false);
 					}
 					catch (final IOException_Sub1 ioexception_sub1)

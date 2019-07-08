@@ -19,6 +19,8 @@ final class Class25 implements Runnable
 	static int anInt302;
 	private int downloadStage;
 	private DataInputStream aDataInputStream1;
+	@SuppressWarnings("unused") // NOTE: Used in the original version of method172.
+	private Class32 class32;
 
 	static boolean loadFont(final int i, final int i_0_, final GameWindow applet_sub1, String string)
 	{
@@ -68,7 +70,7 @@ final class Class25 implements Runnable
 		Class10.anInt90 = 855;
 		for (int i_5_ = 0; 95 > i_5_; i_5_++)
 		{
-			if (!Class52.method379(i_5_, bool_1_, i, font, 126, string_4_.charAt(i_5_), applet_sub1, fontmetrics))
+			if (!Class52.method379(i_5_, bool_1_, i, font, string_4_.charAt(i_5_), applet_sub1, fontmetrics))
 			{
 				return false;
 			}
@@ -304,6 +306,7 @@ final class Class25 implements Runnable
 	Class25(final Class32 class32, final URL url, final int i)
 	{
 		this.url = url;
+		this.class32 = class32;
 		this.buffer = new ByteBuffer(i);
 	}
 }

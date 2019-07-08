@@ -84,7 +84,7 @@ final class Class51
 		}
 	}
 
-	static InputStream method376(final String string, final byte i) throws IOException
+	static InputStream method376(final String string) throws IOException
 	{
 		InputStream inputstream;
 		if (Class47.anURL3 == null)

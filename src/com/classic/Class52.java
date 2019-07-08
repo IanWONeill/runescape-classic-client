@@ -30,8 +30,8 @@ final class Class52
 		return i & i_0_;
 	}
 
-	static boolean method379(final int i, boolean bool, final int i_1_, final Font font, final int i_2_, final char c,
-	        final GameWindow applet_sub1, final FontMetrics fontmetrics)
+	static boolean method379(final int i, boolean bool, final int i_1_, final Font font, final char c, final GameWindow applet_sub1,
+	        final FontMetrics fontmetrics)
 	{
 		int i_3_ = fontmetrics.charWidth(c);
 		final int i_4_ = i_3_;
@@ -159,9 +159,8 @@ final class Class52
 		return true;
 	}
 
-	static void method380(final int[] is, final int i, int i_27_, final int i_28_, final int i_29_, final int i_30_,
-	        int i_31_, final int i_32_, int i_33_, final int i_34_, int i_35_, final int[] is_36_, int i_37_, int i_38_,
-	        int i_39_)
+	static void method380(final int[] is, int i_27_, final int i_28_, final int i_29_, final int i_30_, int i_31_,
+	        final int i_32_, int i_33_, final int i_34_, int i_35_, final int[] is_36_, int i_37_, int i_38_, int i_39_)
 	{
 		anInt591++;
 		if (i_28_ > 0)

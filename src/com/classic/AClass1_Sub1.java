@@ -37,15 +37,15 @@ final class AClass1_Sub1 extends AClass1
 		{
 			anIntArray144 = null;
 		}
-		final boolean bool_1_ = this.anInt321 == 443;
-		List list;
-		List list_2_;
+		final boolean bool_1_ = this.maybe_port == 443;
+		List<Proxy> list;
+		List<Proxy> list_2_;
 		try
 		{
 			list = aProxySelector1.select(new URI(new StringBuilder().append(bool_1_ ? "https" : "http").append("://")
-			        .append(this.aString11).toString()));
+			        .append(this.maybe_host).toString()));
 			list_2_ = aProxySelector1.select(new URI(new StringBuilder().append(bool_1_ ? "http" : "https")
-			        .append("://").append(this.aString11).toString()));
+			        .append("://").append(this.maybe_host).toString()));
 		}
 		catch (final URISyntaxException urisyntaxexception)
 		{
@@ -62,7 +62,7 @@ final class AClass1_Sub1 extends AClass1
 			Socket socket;
 			try
 			{
-				final Socket socket_4_ = method421(0, proxy);
+				final Socket socket_4_ = method421(proxy);
 				if (socket_4_ == null)
 				{
 					continue;
@@ -87,7 +87,7 @@ final class AClass1_Sub1 extends AClass1
 		return method175(true);
 	}
 
-	private Socket method420(final int i, final String string, final int i_6_, final String string_7_)
+	private Socket method420(final int i, final String string, final String string_7_)
 	        throws IOException
 	{
 		final Socket socket = new Socket(string_7_, i);
@@ -95,14 +95,14 @@ final class AClass1_Sub1 extends AClass1
 		final OutputStream outputstream = socket.getOutputStream();
 		if (string != null)
 		{
-			outputstream.write(new StringBuilder().append("CONNECT ").append(this.aString11).append(":")
-			        .append(this.anInt321).append(" HTTP/1.0\n").append(string).append("\n\n").toString()
+			outputstream.write(new StringBuilder().append("CONNECT ").append(this.maybe_host).append(":")
+			        .append(this.maybe_port).append(" HTTP/1.0\n").append(string).append("\n\n").toString()
 			        .getBytes(Charset.forName("ISO-8859-1")));
 		}
 		else
 		{
-			outputstream.write(new StringBuilder().append("CONNECT ").append(this.aString11).append(":")
-			        .append(this.anInt321).append(" HTTP/1.0\n\n").toString().getBytes(Charset.forName("ISO-8859-1")));
+			outputstream.write(new StringBuilder().append("CONNECT ").append(this.maybe_host).append(":")
+			        .append(this.maybe_port).append(" HTTP/1.0\n\n").toString().getBytes(Charset.forName("ISO-8859-1")));
 		}
 		outputstream.flush();
 		final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -141,7 +141,7 @@ final class AClass1_Sub1 extends AClass1
 		return null;
 	}
 
-	private Socket method421(final int i, final Proxy proxy) throws IOException
+	private Socket method421(final Proxy proxy) throws IOException
 	{
 		if (proxy.type() == Proxy.Type.DIRECT)
 		{
@@ -158,7 +158,7 @@ final class AClass1_Sub1 extends AClass1
 			if (proxy.type() == Proxy.Type.SOCKS)
 			{
 				final Socket socket = new Socket(proxy);
-				socket.connect(new InetSocketAddress((this.aString11), (this.anInt321)));
+				socket.connect(new InetSocketAddress((this.maybe_host), (this.maybe_port)));
 				return socket;
 			}
 		}
@@ -167,7 +167,7 @@ final class AClass1_Sub1 extends AClass1
 			String string = null;
 			try
 			{
-				final Class var_class = (Class.forName("sun.net.www.protocol.http.AuthenticationInfo"));
+				final Class<?> var_class = Class.forName("sun.net.www.protocol.http.AuthenticationInfo");
 				
 				final Method method_getProxyAuth = var_class.getDeclaredMethod("getProxyAuth", (new Class[] { java.lang.String.class, Integer.TYPE }));
 				method_getProxyAuth.setAccessible(true);
@@ -187,7 +187,7 @@ final class AClass1_Sub1 extends AClass1
 						method_getHeaderValue.setAccessible(true);
 						final String string_15_ = ((String) method_getHeaderName.invoke(object, new Object[0]));
 						final String string_16_ = ((String) (method_getHeaderValue.invoke(object, (new Object[] { new URL(
-						        new StringBuilder().append("https://").append(this.aString11).append("/").toString()),
+						        new StringBuilder().append("https://").append(this.maybe_host).append("/").toString()),
 						        "https" }))));
 						string = new StringBuilder().append(string_15_).append(": ").append(string_16_).toString();
 					}
@@ -197,7 +197,7 @@ final class AClass1_Sub1 extends AClass1
 			{
 				/* empty */
 			}
-			return method420(inetsocketaddress.getPort(), string, -1, inetsocketaddress.getHostName());
+			return method420(inetsocketaddress.getPort(), string, inetsocketaddress.getHostName());
 		}
 		return null;
 	}

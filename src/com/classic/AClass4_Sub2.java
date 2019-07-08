@@ -7,8 +7,8 @@ final class AClass4_Sub2 extends AClass4 {
 	private int anInt663 = -1;
 
 	private void method447(final int[] is, final int i, final int i_0_) {
-		for (AClass4 aclass4 = (AClass4) aClass43_1.method299(false); aclass4 != null; aclass4 = (AClass4) aClass43_1
-				.method297(0)) {
+		for (AClass4 aclass4 = (AClass4) aClass43_1.method299(); aclass4 != null; aclass4 = (AClass4) aClass43_1
+				.method297()) {
 			aclass4.method415(is, i, i_0_);
 		}
 	}
@@ -16,7 +16,7 @@ final class AClass4_Sub2 extends AClass4 {
 	private void method448() {
 		if (anInt662 > 0) {
 			for (AClass2 aclass2 = (AClass2) aClass43_2
-					.method299(false); aclass2 != null; aclass2 = (AClass2) aClass43_2.method297(0)) {
+					.method299(); aclass2 != null; aclass2 = (AClass2) aClass43_2.method297()) {
 				aclass2.anInt604 -= anInt662;
 			}
 			anInt663 -= anInt662;
@@ -42,7 +42,7 @@ final class AClass4_Sub2 extends AClass4 {
 			i_1_ -= i_2_;
 			anInt662 += i_2_;
 			method448();
-			final AClass2 aclass2 = (AClass2) aClass43_2.method299(false);
+			final AClass2 aclass2 = (AClass2) aClass43_2.method299();
 			synchronized (aclass2) {
 				final int i_3_ = aclass2.method383(this);
 				if (i_3_ < 0) {
@@ -76,13 +76,13 @@ final class AClass4_Sub2 extends AClass4 {
 				&& (((AClass2) class27).anInt604 <= aclass2.anInt604)); class27 = class27.aClass27_2) {
 			/* empty */
 		}
-		Class1.method2(125, aclass2, class27);
+		Class1.method2(aclass2, class27);
 		anInt663 = (((AClass2) aClass43_2.aClass27_3.aClass27_2).anInt604);
 	}
 
 	@Override
 	AClass4 method417() {
-		return (AClass4) aClass43_1.method299(false);
+		return (AClass4) aClass43_1.method299();
 	}
 
 	private synchronized void method452(final AClass4 aclass4) {
@@ -106,7 +106,7 @@ final class AClass4_Sub2 extends AClass4 {
 			i -= i_5_;
 			anInt662 += i_5_;
 			method448();
-			final AClass2 aclass2 = (AClass2) aClass43_2.method299(false);
+			final AClass2 aclass2 = (AClass2) aClass43_2.method299();
 			synchronized (aclass2) {
 				final int i_6_ = aclass2.method383(this);
 				if (i_6_ < 0) {
@@ -122,7 +122,7 @@ final class AClass4_Sub2 extends AClass4 {
 
 	@Override
 	AClass4 method414() {
-		return (AClass4) aClass43_1.method297(0);
+		return (AClass4) aClass43_1.method297();
 	}
 
 	@Override
@@ -131,8 +131,8 @@ final class AClass4_Sub2 extends AClass4 {
 	}
 
 	private void method453(final int i) {
-		for (AClass4 aclass4 = (AClass4) aClass43_1.method299(false); aclass4 != null; aclass4 = (AClass4) aClass43_1
-				.method297(0)) {
+		for (AClass4 aclass4 = (AClass4) aClass43_1.method299(); aclass4 != null; aclass4 = (AClass4) aClass43_1
+				.method297()) {
 			aclass4.method416(i);
 		}
 	}

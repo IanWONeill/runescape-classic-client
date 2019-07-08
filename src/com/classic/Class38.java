@@ -12,6 +12,7 @@ final class Class38
 	static String[] aStringArray27;
 	static int[] anIntArray89;
 
+	@SuppressWarnings("unused")
 	Class38(final String string, final String string_0_, final String string_1_, final int i)
 	{
 		this.anInt399 = i;

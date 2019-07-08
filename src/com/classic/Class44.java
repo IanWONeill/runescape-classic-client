@@ -172,7 +172,7 @@ final class Class44
 		return Class1.method1(-1, i, is, 0);
 	}
 
-	int method303(final byte[] is, final byte i, int i_8_, final byte[] is_9_, final int i_10_, int i_11_)
+	int method303(final byte[] is, int i_8_, final byte[] is_9_, final int i_10_, int i_11_)
 	{
 		int i_12_ = 0;
 		i_8_ += i_11_;

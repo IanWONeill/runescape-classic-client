@@ -15,9 +15,8 @@ final class IOException_Sub1 extends IOException
 	static String[] aStringArray40;
 	static int anInt675;
 
-	static void method459(final int[] is, final int i, final int i_0_, final int[] is_1_, int i_2_, final int i_3_,
-	        int i_4_, final int i_5_, int i_6_, int i_7_, int i_8_, int i_9_, int i_10_, int i_11_, final int i_12_,
-	        int i_13_)
+	static void method459(final int[] is, final int i_0_, final int[] is_1_, int i_2_, final int i_3_, int i_4_,
+	        final int i_5_, int i_6_, int i_7_, int i_8_, int i_9_, int i_10_, int i_11_, final int i_12_, int i_13_)
 	{
 		if (i_0_ > 0)
 		{
@@ -249,7 +248,7 @@ final class IOException_Sub1 extends IOException
 				}
 				if (i_30_ != i_29_)
 				{
-					Class8.method58(is_22_, i_29_, is, i_30_, i_26_);
+					Class8.method58(is_22_, i_29_, is, i_26_);
 				}
 				else
 				{

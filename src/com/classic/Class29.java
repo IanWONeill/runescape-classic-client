@@ -13,17 +13,17 @@ final class Class29
 	private String aString12;
 
 	void method185(final String string, final String string_0_, final int i, final int i_1_, final int i_2_,
-	        final int i_3_, final int i_4_, final byte i_5_)
+	        final int i_3_, final int i_4_)
 	{
 		method188(true, 0, i_2_, i_4_, string_0_, i, string, null, null, i_1_, i_3_, null);
 	}
 
-	int method186(final int i, final byte i_6_)
+	int method186(final int i)
 	{
 		return aClass9Array1[i].anInt68;
 	}
 
-	String method187(final int i, final int i_7_)
+	String method187(final int i)
 	{
 		return aClass9Array1[i].aString5;
 	}
@@ -54,11 +54,10 @@ final class Class29
 		}
 		aClass9Array1[anInt354++].method60(i_15_, string_12_, string_17_, i, string_14_, i_16_, i_11_, -30365,
 		        string_13_, i_10_, i_9_, string);
-		method191(26684);
+		method191();
 	}
 
-	private int method189(final boolean bool, final int i, final int i_19_, final int i_20_, final boolean bool_21_,
-	        final int i_22_)
+	private int method189(final int i, final int i_19_, final int i_20_, final boolean bool_21_, final int i_22_)
 	{
 		if ((anInt355 == 0) || (anInt352 == 0))
 		{
@@ -68,7 +67,7 @@ final class Class29
 		{
 			aClass46_Sub1_1.method327(i_22_, i_20_, anInt355, 160, 84, 13684944, anInt352);
 		}
-		final int i_23_ = 1 + aClass46_Sub1_1.method315((byte) 97, anInt356);
+		final int i_23_ = 1 + aClass46_Sub1_1.method315(anInt356);
 		int i_24_ = i_23_ + i_20_ + -3;
 		int i_25_ = -1;
 		if (aString12 != null)
@@ -111,15 +110,15 @@ final class Class29
 		return i_25_;
 	}
 
-	void method190(final boolean bool)
+	void method190()
 	{
 		anInt354 = 0;
-		method191(26684);
+		method191();
 	}
 
-	private void method191(final int i)
+	private void method191()
 	{
-		final int i_28_ = 1 + aClass46_Sub1_1.method315((byte) 111, anInt356);
+		final int i_28_ = 1 + aClass46_Sub1_1.method315(anInt356);
 		if (aString12 != null)
 		{
 			anInt352 = i_28_;
@@ -166,7 +165,7 @@ final class Class29
 		this(class46_sub1, i, null);
 	}
 
-	static Class38[] method194(final byte i)
+	static Class38[] method194()
 	{
 		return (new Class38[] { Class22.aClass38_3, Class47.aClass38_6, Class27.aClass38_4, IOException_Sub1.aClass38_8,
 		        StreamClass.aClass38_7, Class12.aClass38_2, Class10.aClass38_1 });
@@ -178,17 +177,17 @@ final class Class29
 		method188(true, 0, i_40_, i, string_37_, i_38_, string, null, null, i_39_, 0, null);
 	}
 
-	void method196(final String string, final int i, final String string_41_, final byte i_42_, final int i_43_)
+	void method196(final String string, final int i, final String string_41_, final int i_43_)
 	{
 		method188(true, 0, i, i_43_, string_41_, 0, string, null, null, 0, 0, null);
 	}
 
-	int method197(final int i, final int i_45_, final int i_46_, final int i_47_, final int i_48_)
+	int method197(final int i, final int i_45_, final int i_46_, final int i_47_)
 	{
-		return method189(false, i_45_, i, i_46_, false, i_47_);
+		return method189(i_45_, i, i_46_, false, i_47_);
 	}
 
-	int method198(final int i)
+	int method198()
 	{
 		return anInt354;
 	}
@@ -209,7 +208,7 @@ final class Class29
 			{
 				method205(-107, (byte) 51);
 			}
-			GameImageMiddleMan.method410(is, objects, (byte) 122);
+			GameImageMiddleMan.method410(is, objects);
 			for (int i_50_ = 0; i_50_ < anInt354; i_50_++)
 			{
 				aClass9Array1[i_50_] = (Class9) objects[i_50_];
@@ -217,7 +216,7 @@ final class Class29
 		}
 	}
 
-	int method200(final boolean bool, final int i)
+	int method200(final int i)
 	{
 		return aClass9Array1[i].anInt64;
 	}
@@ -231,7 +230,7 @@ final class Class29
 		return aClass9Array1[i_51_].aString3;
 	}
 
-	void method202(final int i, final int i_52_)
+	void method202(final int i)
 	{
 		if ((0 <= i) && (i < anInt354))
 		{
@@ -241,7 +240,7 @@ final class Class29
 				aClass9Array1[i_53_] = aClass9Array1[i_53_ + 1];
 			}
 			aClass9Array1[--anInt354] = class9;
-			method191(26684);
+			method191();
 		}
 	}
 
@@ -254,9 +253,9 @@ final class Class29
 		return aClass9Array1[i_54_].anInt72;
 	}
 
-	int method204(final int i, final int i_55_, final byte i_56_, final int i_57_, final int i_58_)
+	int method204(final int i, final int i_55_, final int i_57_, final int i_58_)
 	{
-		return method189(false, i_58_, i_57_, i_55_, true, i);
+		return method189(i_58_, i_57_, i_55_, true, i);
 	}
 
 	String method205(final int i, final byte i_59_)
@@ -268,12 +267,12 @@ final class Class29
 		return aClass9Array1[i].aString4;
 	}
 
-	static String method206(final int i, final ByteBuffer class27_sub1, final int i_60_)
+	static String method206(final ByteBuffer class27_sub1, final int i_60_)
 	{
 		String string;
 		try
 		{
-			int i_61_ = class27_sub1.method390(0);
+			int i_61_ = class27_sub1.method390();
 			if (i_61_ > i_60_)
 			{
 				i_61_ = i_60_;
@@ -281,7 +280,7 @@ final class Class29
 			final byte[] is = new byte[i_61_];
 			class27_sub1.position += Camera.aClass44_2.method301(is, (byte) -11, (class27_sub1.buffer), 0,
 			        (class27_sub1.position), i_61_);
-			final String string_62_ = Class9.method62(i_61_, (byte) 87, 0, is);
+			final String string_62_ = Class9.method62(i_61_, 0, is);
 			string = string_62_;
 		}
 		catch (final Exception exception)
@@ -291,7 +290,7 @@ final class Class29
 		return string;
 	}
 
-	int method207(final boolean bool)
+	int method207()
 	{
 		return anInt355;
 	}
@@ -316,10 +315,10 @@ final class Class29
 		{
 			aClass9Array1[i_67_] = new Class9();
 		}
-		method191(26684);
+		method191();
 	}
 
-	void method209(final String string, final byte i, final String string_68_, final int i_69_)
+	void method209(final String string, final String string_68_, final int i_69_)
 	{
 		method188(true, 0, i_69_, 0, string_68_, 0, string, null, null, 0, 0, null);
 	}
@@ -333,7 +332,7 @@ final class Class29
 		return anInt352;
 	}
 
-	int method211(final boolean bool, final int i)
+	int method211(final int i)
 	{
 		return aClass9Array1[i].anInt67;
 	}
@@ -360,7 +359,7 @@ final class Class29
 		method188(bool, i_75_, i, i_74_, string, i_71_, string_76_, null, null, i_72_, i_73_, null);
 	}
 
-	int method214(final int i, final byte i_77_)
+	int method214(final int i)
 	{
 		return aClass9Array1[i].anInt65;
 	}

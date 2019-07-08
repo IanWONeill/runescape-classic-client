@@ -50,13 +50,13 @@ class GameImage implements ImageProducer, ImageObserver
 	static int[] anIntArray133;
 	static int[] anIntArray134;
 
-	private void method305(final int i, final boolean bool, final int i_0_, final int i_1_, final String string,
-	        final int i_2_, final int i_3_)
+	private void method305(final int i, final int i_0_, final int i_1_, final String string, final int i_2_,
+	        final int i_3_)
 	{
-		method361(-122, string, i_2_, i_1_, i_0_, i - (method328(string, -117, i_1_) / 2), i_3_);
+		method361(string, i_2_, i_1_, i_0_, i - (method328(string, -117, i_1_) / 2), i_3_);
 	}
 
-	void method306(final int i, final int i_4_)
+	void method306(final int i)
 	{
 		final int i_5_ = (this.anIntArray123[i] * this.anIntArray118[i]);
 		final int[] is = this.anIntArrayArray20[i];
@@ -128,7 +128,7 @@ class GameImage implements ImageProducer, ImageObserver
 		this.anIntArrayArray20[i] = null;
 	}
 
-	private int method307(final int i, final int i_31_)
+	private int method307(final int i_31_)
 	{
 		if (i_31_ == 0)
 		{
@@ -137,8 +137,8 @@ class GameImage implements ImageProducer, ImageObserver
 		return PacketConstruction.aByteArrayArray8[i_31_][8] + -1;
 	}
 
-	private void method308(int i, int i_32_, final int i_33_, final int i_34_, int i_35_, final int[] is,
-	        final int i_36_, final byte i_37_, int i_38_, final int[] is_39_, final int i_40_)
+	private void method308(int i, int i_32_, final int i_33_, final int i_34_, int i_35_, final int i_36_,
+	        final byte i_37_, int i_38_, final int[] is_39_, final int i_40_)
 	{
 		if (i_37_ > -57)
 		{
@@ -207,7 +207,7 @@ class GameImage implements ImageProducer, ImageObserver
 		        .toString());
 	}
 
-	void method311(int i, int i_50_, int i_51_, final int i_52_, final int i_53_, final byte i_54_, int i_55_)
+	void method311(int i, int i_50_, int i_51_, final int i_52_, final int i_53_, int i_55_)
 	{
 		try
 		{
@@ -281,8 +281,8 @@ class GameImage implements ImageProducer, ImageObserver
 					i_64_ += this.menuDefaultHeight;
 				}
 			}
-			method355(i_59_, i_61_, i_52_, i_69_, false, i_51_, i_56_, 0, this.anIntArrayArray20[i_53_], i_58_, i_66_,
-			        i_60_, this.imagePixelArray, i_64_, i_50_);
+			method355(i_59_, i_61_, i_52_, i_69_, i_51_, i_56_, 0, this.anIntArrayArray20[i_53_], i_58_, i_66_, i_60_,
+			        this.imagePixelArray, i_64_, i_50_);
 		}
 		catch (final Exception exception)
 		{
@@ -314,15 +314,14 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	void method313(final int i, final int i_79_, final int i_80_, final byte i_81_, final int i_82_,
-	        final String string)
+	void method313(final int i, final int i_79_, final int i_80_, final int i_82_, final String string)
 	{
-		method337(string, i_79_, i_80_, -112, i_82_, 0, i);
+		method337(string, i_79_, i_80_, i_82_, 0, i);
 	}
 
 	private void method314(final int i, final int i_84_, int i_85_, final int i_86_, final int i_87_, final int i_88_,
-	        int i_89_, int i_90_, final int i_91_, int i_92_, final byte i_93_, final int i_94_, final int[] is,
-	        final int[] is_95_, int i_96_, int i_97_, final byte[] is_98_)
+	        int i_89_, int i_90_, final int i_91_, int i_92_, final int i_94_, final int[] is, final int[] is_95_,
+	        int i_96_, int i_97_, final byte[] is_98_)
 	{
 		final int i_99_ = (i >> 16) & 0xff;
 		final int i_100_ = (i >> 8) & 0xff;
@@ -384,7 +383,7 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	int method315(final byte i, final int i_114_)
+	int method315(final int i_114_)
 	{
 		if (i_114_ == 0)
 		{
@@ -418,10 +417,10 @@ class GameImage implements ImageProducer, ImageObserver
 		{
 			return 29;
 		}
-		return method307(-26205, i_114_);
+		return method307(i_114_);
 	}
 
-	void spriteClip1(int i, int i_115_, final int i_116_, int i_117_, final int i_118_, int i_119_)
+	void spriteClip1(int i, int i_115_, final int i_116_, int i_117_, int i_119_)
 	{
 		try
 		{
@@ -495,8 +494,8 @@ class GameImage implements ImageProducer, ImageObserver
 					i_119_--;
 				}
 			}
-			method340(0, i_134_, i_119_, this.anIntArrayArray20[i_116_], i_124_, 11990, i_129_, i, i_123_, i_130_,
-			        i_121_, i_125_, this.imagePixelArray, i_126_);
+			method340(0, i_134_, i_119_, this.anIntArrayArray20[i_116_], i_124_, i_129_, i, i_123_, i_130_, i_121_,
+			        i_125_, this.imagePixelArray, i_126_);
 		}
 		catch (final Exception exception)
 		{
@@ -504,8 +503,8 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	private void method317(final int i, final int i_135_, int i_136_, final int i_137_, int i_138_, final byte[] is,
-	        final int[] is_139_, final int i_140_, int i_141_, final int i_142_)
+	private void method317(final int i, final int i_135_, int i_136_, int i_138_, final byte[] is, final int[] is_139_,
+	        final int i_140_, int i_141_, final int i_142_)
 	{
 		try
 		{
@@ -574,7 +573,7 @@ class GameImage implements ImageProducer, ImageObserver
 	{
 		if (i_147_ != -13292)
 		{
-			method362(-4, 124, (byte) 84, -80, -62, -111);
+			method362(-4, 124, -80, -62, -111);
 		}
 		if ((i >= anInt517) && (i_148_ >= anInt537) && (anInt567 > i) && (anInt536 > i_148_))
 		{
@@ -591,7 +590,7 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	void method319(final int i, int i_150_, int i_151_, final boolean bool, final int i_152_)
+	void method319(final int i, int i_150_, int i_151_, final int i_152_)
 	{
 		if ((i_152_ >= anInt517) && (anInt567 > i_152_))
 		{
@@ -615,7 +614,7 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	void method320(final byte i, int i_155_, final int i_156_, int i_157_, final int i_158_)
+	void method320(int i_155_, final int i_156_, int i_157_, final int i_158_)
 	{
 		if (aBoolArray9[i_156_])
 		{
@@ -674,12 +673,12 @@ class GameImage implements ImageProducer, ImageObserver
 			if (this.anIntArrayArray20[i_156_] != null)
 			{
 				method336(i_162_, 0, i_160_, this.anIntArrayArray20[i_156_], i_161_, i_165_, this.imagePixelArray, i_158_,
-				        i_159_, i_168_, 606557889, i_163_);
+				        i_159_, i_168_, i_163_);
 			}
 			else
 			{
-				method345((byte) 74, i_162_, this.anIntArrayArray19[i_156_], i_165_, i_168_, i_158_, i_163_, i_161_,
-				        i_159_, i_160_, this.aByteArrayArray13[i_156_], this.imagePixelArray);
+				method345(i_162_, this.anIntArrayArray19[i_156_], i_165_, i_168_, i_158_, i_163_, i_161_, i_159_,
+				        i_160_, this.aByteArrayArray13[i_156_], this.imagePixelArray);
 			}
 		}
 	}
@@ -738,8 +737,7 @@ class GameImage implements ImageProducer, ImageObserver
 	}
 
 	static void method322(int i, final int i_179_, final int[] is, int i_180_, int i_181_, int i_182_, final int i_183_,
-	        final int i_184_, final byte i_185_, int i_186_, int i_187_, int i_188_, int i_189_, final int i_190_,
-	        final int[] is_191_)
+	        final int i_184_, int i_186_, int i_187_, int i_188_, int i_189_, final int i_190_, final int[] is_191_)
 	{
 		if (i_190_ > 0)
 		{
@@ -896,11 +894,11 @@ class GameImage implements ImageProducer, ImageObserver
 	void method324(final String string, final int i, final int i_200_, final int i_201_, final int i_202_,
 	        final int i_203_)
 	{
-		method361(i ^ 0x57, string, i, i_200_, i_203_, i_202_, i_201_);
+		method361(string, i, i_200_, i_203_, i_202_, i_201_);
 	}
 
-	void method325(final int i, final int i_204_, final int i_205_, final int i_206_, final boolean bool,
-	        final int i_207_, final int i_208_)
+	void method325(final int i, final int i_204_, final int i_205_, final int i_206_, final int i_207_,
+	        final int i_208_)
 	{
 		for (int i_209_ = i_206_; i_209_ < (i_206_ - -i); i_209_++)
 		{
@@ -939,8 +937,8 @@ class GameImage implements ImageProducer, ImageObserver
 		addConsumer(imageconsumer);
 	}
 
-	private void method326(final int i, final int i_218_, final boolean bool, final int i_219_, final byte i_220_,
-	        final byte[] is, final int i_221_)
+	private void method326(final int i, final int i_218_, final boolean bool, final int i_219_, final byte[] is,
+	        final int i_221_)
 	{
 		int i_222_ = is[i + 5] + i_219_;
 		int i_223_ = -is[i - -6] + i_221_;
@@ -983,11 +981,11 @@ class GameImage implements ImageProducer, ImageObserver
 		{
 			if (bool)
 			{
-				method359(i_227_, this.imagePixelArray, i_226_, i_224_, i_225_, i_229_, i_228_, i_218_, (byte) 106, is);
+				method359(i_227_, this.imagePixelArray, i_226_, i_224_, i_225_, i_229_, i_228_, i_218_, is);
 			}
 			else
 			{
-				method317(i_225_, i_229_, i_226_, -274772632, i_224_, is, this.imagePixelArray, i_228_, i_227_, i_218_);
+				method317(i_225_, i_229_, i_226_, i_224_, is, this.imagePixelArray, i_228_, i_227_, i_218_);
 			}
 		}
 	}
@@ -1052,7 +1050,7 @@ class GameImage implements ImageProducer, ImageObserver
 	{
 		if (i >= -99)
 		{
-			method337(null, 127, 110, -43, 66, -102, -115);
+			method337(null, 127, 110, 66, -102, -115);
 		}
 		int i_253_ = 0;
 		final byte[] is = PacketConstruction.aByteArrayArray8[i_252_];
@@ -1210,7 +1208,7 @@ class GameImage implements ImageProducer, ImageObserver
 		System.out.println("TDLR");
 	}
 
-	void method331(final int i)
+	void method331()
 	{
 		final int i_291_ = this.menuDefaultHeight * this.menuDefaultWidth;
 		if (this.aBool28 == false)
@@ -1244,8 +1242,8 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	void method333(int i, final byte i_296_, final int i_297_, final int i_298_, final int i_299_, final String string,
-	        final int i_300_, final boolean bool)
+	void method333(int i, final int i_297_, final int i_298_, final int i_299_, final String string, final int i_300_,
+	        final boolean bool)
 	{
 		try
 		{
@@ -1289,15 +1287,15 @@ class GameImage implements ImageProducer, ImageObserver
 					{
 						i_303_ = i_304_;
 					}
-					method305(i_300_, true, i, i_298_, string.substring(i_302_, i_303_), 0, i_299_);
+					method305(i_300_, i, i_298_, string.substring(i_302_, i_303_), 0, i_299_);
 					i_301_ = 0;
-					i += method315((byte) 95, i_298_);
+					i += method315(i_298_);
 					i_302_ = i_304_ = i_303_ + 1;
 				}
 			}
 			if (0 < i_301_)
 			{
-				method305(i_300_, true, i, i_298_, string.substring(i_302_), 0, i_299_);
+				method305(i_300_, i, i_298_, string.substring(i_302_), 0, i_299_);
 			}
 		}
 		catch (final Exception exception)
@@ -1307,8 +1305,8 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	private void method334(int i, final int[] is, int i_306_, final int[] is_307_, final int i_308_, int i_309_,
-	        final byte i_310_, final int i_311_, final int i_312_, final int i_313_, int i_314_)
+	private void method334(int i, final int[] is, int i_306_, final int i_308_, int i_309_, final int i_311_,
+	        final int i_312_, final int i_313_, int i_314_)
 	{
 		for (int i_315_ = i_311_; 0 > i_315_; i_315_++)
 		{
@@ -1338,13 +1336,13 @@ class GameImage implements ImageProducer, ImageObserver
 	{
 		if (i_320_ != 255)
 		{
-			method350(-99, 119, null, null, -42);
+			method350(-99, null, null, -42);
 		}
-		method305(i_323_, true, i_322_, i_321_, string, 0, i);
+		method305(i_323_, i_322_, i_321_, string, 0, i);
 	}
 
 	private void method336(final int i, int i_324_, int i_325_, final int[] is, final int i_326_, final int i_327_,
-	        final int[] is_328_, final int i_329_, int i_330_, final int i_331_, final int i_332_, final int i_333_)
+	        final int[] is_328_, final int i_329_, int i_330_, final int i_331_, final int i_333_)
 	{
 		final int i_334_ = -i_329_ + 256;
 		for (int i_335_ = -i_326_; i_335_ < 0; i_335_ = i_331_ + i_335_)
@@ -1371,13 +1369,13 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	private void method337(final String string, final int i, final int i_338_, final int i_339_, final int i_340_,
-	        final int i_341_, final int i_342_)
+	private void method337(final String string, final int i, final int i_338_, final int i_340_, final int i_341_,
+	        final int i_342_)
 	{
-		method361(85, string, i_341_, i_338_, i_340_, -method328(string, -120, i_338_) + i, i_342_);
+		method361(string, i_341_, i_338_, i_340_, -method328(string, -120, i_338_) + i, i_342_);
 	}
 
-	void method338(final int i, int i_343_, int i_344_, final byte i_345_)
+	void method338(final int i, int i_343_, int i_344_)
 	{
 		if (aBoolArray9[i])
 		{
@@ -1440,20 +1438,20 @@ class GameImage implements ImageProducer, ImageObserver
 			}
 			else
 			{
-				method344(this.imagePixelArray, (byte) 110, this.aByteArrayArray13[i], i_348_, i_350_, i_349_,
-				        this.anIntArrayArray19[i], i_352_, i_355_, i_347_, i_346_);
+				method344(this.imagePixelArray, this.aByteArrayArray13[i], i_348_, i_350_, i_349_, this.anIntArrayArray19[i],
+				        i_352_, i_355_, i_347_, i_346_);
 			}
 		}
 	}
 
-	void method339(final int i, final int i_356_)
+	void method339(final int i)
 	{
 		anInt522 = i;
 	}
 
-	private void method340(int i, final int i_357_, final int i_358_, final int[] is, int i_359_, final int i_360_,
-	        int i_361_, final int i_362_, int i_363_, final int i_364_, final int i_365_, final int i_366_,
-	        final int[] is_367_, final int i_368_)
+	private void method340(int i, final int i_357_, final int i_358_, final int[] is, int i_359_, int i_361_,
+	        final int i_362_, int i_363_, final int i_364_, final int i_365_, final int i_366_, final int[] is_367_,
+	        final int i_368_)
 	{
 		try
 		{
@@ -1513,7 +1511,7 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	static boolean method342(final Class38 class38, final int i)
+	static boolean method342(final Class38 class38)
 	{
 		return ((Class47.aClass38_6 == class38) || (Class27.aClass38_4 == class38)
 		        || (IOException_Sub1.aClass38_8 == class38) || (Class12.aClass38_2 == class38)
@@ -1546,8 +1544,8 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	private void method344(final int[] is, final byte i, final byte[] is_382_, final int i_383_, final int i_384_,
-	        int i_385_, final int[] is_386_, final int i_387_, final int i_388_, int i_389_, int i_390_)
+	private void method344(final int[] is, final byte[] is_382_, final int i_383_, final int i_384_, int i_385_,
+	        final int[] is_386_, final int i_387_, final int i_388_, int i_389_, int i_390_)
 	{
 		final int i_391_ = -(i_385_ >> 2);
 		i_385_ = -(i_385_ & 0x3);
@@ -1609,9 +1607,8 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	private void method345(final byte i, final int i_397_, final int[] is, final int i_398_, final int i_399_,
-	        final int i_400_, final int i_401_, final int i_402_, int i_403_, int i_404_, final byte[] is_405_,
-	        final int[] is_406_)
+	private void method345(final int i_397_, final int[] is, final int i_398_, final int i_399_, final int i_400_,
+	        final int i_401_, final int i_402_, int i_403_, int i_404_, final byte[] is_405_, final int[] is_406_)
 	{
 		final int i_407_ = -i_400_ + 256;
 		for (int i_408_ = -i_402_; i_408_ < 0; i_408_ = i_399_ + i_408_)
@@ -1639,8 +1636,8 @@ class GameImage implements ImageProducer, ImageObserver
 	}
 
 	private void method346(final int i, final int i_412_, int i_413_, final int i_414_, int i_415_, final int[] is,
-	        final int i_416_, final int i_417_, int i_418_, final int i_419_, final int[] is_420_, final int i_421_,
-	        final int i_422_, final int i_423_, int i_424_)
+	        final int i_416_, final int i_417_, int i_418_, final int[] is_420_, final int i_421_, final int i_422_,
+	        final int i_423_, int i_424_)
 	{
 		final int i_425_ = (i_412_ >> 16) & 0xff;
 		final int i_426_ = (i_412_ >> 8) & 0xff;
@@ -1760,8 +1757,8 @@ class GameImage implements ImageProducer, ImageObserver
 				i_454_ = 2;
 				i_450_ += this.menuDefaultHeight;
 			}
-			method346(i_441_, i_440_, i_449_, i_450_, i_443_, this.imagePixelArray, i_446_, i_445_, i_444_, -113,
-			        this.anIntArrayArray20[i_439_], i_438_, i_437_, i_454_, 0);
+			method346(i_441_, i_440_, i_449_, i_450_, i_443_, this.imagePixelArray, i_446_, i_445_, i_444_, this.anIntArrayArray20[i_439_],
+			        i_438_, i_437_, i_454_, 0);
 		}
 		catch (final Exception exception)
 		{
@@ -1863,16 +1860,14 @@ class GameImage implements ImageProducer, ImageObserver
 				}
 				else if (!bool)
 				{
-					method314(i_461_, i_458_, i_467_, i_469_, i_468_, i_456_, i_465_, 0, i_463_, i_466_, (byte) -90,
-					        i_470_, this.anIntArrayArray19[i_460_], this.imagePixelArray, i_476_, i_478_,
-					        this.aByteArrayArray13[i_460_]);
+					method314(i_461_, i_458_, i_467_, i_469_, i_468_, i_456_, i_465_, 0, i_463_, i_466_, i_470_,
+					        this.anIntArrayArray19[i_460_], this.imagePixelArray, i_476_, i_478_, this.aByteArrayArray13[i_460_]);
 				}
 				else
 				{
 					method314(i_461_, i_458_, i_467_, i_469_, -i_468_, i_456_,
-					        (((this.anIntArray118[i_460_] << 16) + -i_465_) - 1), 0, i_463_, i_466_, (byte) -114,
-					        i_470_, this.anIntArrayArray19[i_460_], this.imagePixelArray, i_476_, i_478_,
-					        this.aByteArrayArray13[i_460_]);
+					        (((this.anIntArray118[i_460_] << 16) + -i_465_) - 1), 0, i_463_, i_466_, i_470_,
+					        this.anIntArrayArray19[i_460_], this.imagePixelArray, i_476_, i_478_, this.aByteArrayArray13[i_460_]);
 				}
 			}
 			else if (this.anIntArrayArray20[i_460_] == null)
@@ -1880,14 +1875,14 @@ class GameImage implements ImageProducer, ImageObserver
 				if (bool)
 				{
 					method352(i_458_, 0, i_466_, this.anIntArrayArray19[i_460_], i_476_, this.aByteArrayArray13[i_460_],
-					        -i_468_, i, i_470_, i_463_, i_461_, i_478_, this.imagePixelArray, i_456_, (byte) 105, i_467_,
-					        i_469_, (((this.anIntArray118[i_460_] << 16) + -i_465_) - 1));
+					        -i_468_, i, i_470_, i_463_, i_461_, i_478_, this.imagePixelArray, i_456_, i_467_, i_469_,
+					        (((this.anIntArray118[i_460_] << 16) + -i_465_) - 1));
 				}
 				else
 				{
 					method352(i_458_, 0, i_466_, this.anIntArrayArray19[i_460_], i_476_, this.aByteArrayArray13[i_460_],
-					        i_468_, i, i_470_, i_463_, i_461_, i_478_, this.imagePixelArray, i_456_, (byte) 94, i_467_,
-					        i_469_, i_465_);
+					        i_468_, i, i_470_, i_463_, i_461_, i_478_, this.imagePixelArray, i_456_, i_467_, i_469_,
+					        i_465_);
 				}
 			}
 			else if (bool)
@@ -1908,21 +1903,22 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
+	@SuppressWarnings("unused") // NOTE: Overridden by GameImageMiddleMan.
 	void drawEntity(final int i, final int i_479_, final int i_480_, final int i_481_, final int i_482_,
 	        final int i_483_, final int i_484_, final int i_485_)
 	{
 		if (i_485_ == -1)
 		{
-			spriteClip1(i, i_484_, i_482_, i_481_, 104, i_479_);
+			spriteClip1(i, i_484_, i_482_, i_481_, i_479_);
 		}
 	}
 
-	void method350(final int i, final int i_486_, final byte[] is, final byte[] is_487_, final int i_488_)
+	void method350(final int i, final byte[] is, final byte[] is_487_, final int i_488_)
 	{
-		int i_489_ = Class10.method84(-104, is_487_, 0);
-		final int i_490_ = Class10.method84(-111, is, i_489_);
+		int i_489_ = Class10.method84(is_487_, 0);
+		final int i_490_ = Class10.method84(is, i_489_);
 		i_489_ += 2;
-		final int i_491_ = Class10.method84(-93, is, i_489_);
+		final int i_491_ = Class10.method84(is, i_489_);
 		i_489_ += 2;
 		final int i_492_ = is[i_489_++] & 0xff;
 		final int[] is_493_ = new int[i_492_];
@@ -1938,9 +1934,9 @@ class GameImage implements ImageProducer, ImageObserver
 		{
 			anIntArray128[i_497_] = Class52.method378(255, is[i_489_++]);
 			anIntArray120[i_497_] = Class52.method378(is[i_489_++], 255);
-			this.anIntArray118[i_497_] = Class10.method84(-77, is, i_489_);
+			this.anIntArray118[i_497_] = Class10.method84(is, i_489_);
 			i_489_ += 2;
-			this.anIntArray123[i_497_] = Class10.method84(-104, is, i_489_);
+			this.anIntArray123[i_497_] = Class10.method84(is, i_489_);
 			i_489_ += 2;
 			final int i_498_ = is[i_489_++] & 0xff;
 			final int i_499_ = (this.anIntArray118[i_497_] * this.anIntArray123[i_497_]);
@@ -1983,7 +1979,7 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	void method351(final int i, final int i_503_, final int i_504_, final int i_505_, int i_506_, final int i_507_)
+	void method351(final int i, final int i_503_, final int i_504_, final int i_505_, int i_506_)
 	{
 		final int i_508_ = this.menuDefaultHeight;
 		final int i_509_ = this.menuDefaultWidth;
@@ -2319,13 +2315,13 @@ class GameImage implements ImageProducer, ImageObserver
 				{
 					if (!aBoolArray9[i_504_] != true)
 					{
-						method334(i_547_ + i_549_, is, i_553_, this.imagePixelArray, i_535_, 0, (byte) 127,
-						        -i_550_ + i_549_, i_552_, i_554_, i_551_);
+						method334(i_547_ + i_549_, is, i_553_, i_535_, 0, -i_550_ + i_549_, i_552_,
+						        i_554_, i_551_);
 					}
 					else
 					{
-						method308(0, i_551_, i_552_, i_535_, i_553_, this.imagePixelArray, -i_550_ + i_549_, (byte) -102,
-						        i_549_ + i_547_, is, i_554_);
+						method308(0, i_551_, i_552_, i_535_, i_553_, -i_550_ + i_549_, (byte) -102, i_549_ + i_547_,
+						        is, i_554_);
 					}
 				}
 				i_547_ += i_508_;
@@ -2335,7 +2331,7 @@ class GameImage implements ImageProducer, ImageObserver
 
 	private void method352(final int i, int i_555_, int i_556_, final int[] is, int i_557_, final byte[] is_558_,
 	        final int i_559_, final int i_560_, final int i_561_, final int i_562_, final int i_563_, int i_564_,
-	        final int[] is_565_, final int i_566_, final byte i_567_, int i_568_, final int i_569_, int i_570_)
+	        final int[] is_565_, final int i_566_, int i_568_, final int i_569_, int i_570_)
 	{
 		final int i_571_ = (0xff3ece & i_563_) >> 16;
 		final int i_572_ = 0xff & (i_563_ >> 8);
@@ -2406,8 +2402,7 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	void method353(final int i, final int i_588_, final int i_589_, final int i_590_, final int i_591_,
-	        final int i_592_)
+	void method353(final int i, final int i_588_, final int i_589_, final int i_590_, final int i_591_)
 	{
 		this.anIntArray118[i_591_] = i_590_;
 		this.anIntArray123[i_591_] = i_588_;
@@ -2494,9 +2489,9 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	private void method355(int i, final int i_625_, final int i_626_, final int i_627_, final boolean bool,
-	        final int i_628_, final int i_629_, int i_630_, final int[] is, int i_631_, final int i_632_,
-	        final int i_633_, final int[] is_634_, int i_635_, final int i_636_)
+	private void method355(int i, final int i_625_, final int i_626_, final int i_627_, final int i_628_,
+	        final int i_629_, int i_630_, final int[] is, int i_631_, final int i_632_, final int i_633_,
+	        final int[] is_634_, int i_635_, final int i_636_)
 	{
 		final int i_637_ = -i_626_ + 256;
 		try
@@ -2536,7 +2531,7 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	void method356(int i, int i_643_, final int i_644_, int i_645_, final int i_646_, final int i_647_, int i_648_)
+	void method356(int i, int i_643_, final int i_644_, int i_645_, final int i_647_, int i_648_)
 	{
 		if (anInt517 > i_643_)
 		{
@@ -2586,7 +2581,7 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	void method357(int i, int i_661_, int i_662_, int i_663_, final int i_664_)
+	void method357(int i, int i_661_, int i_662_, int i_663_)
 	{
 		if (0 > i_662_)
 		{
@@ -2686,7 +2681,7 @@ class GameImage implements ImageProducer, ImageObserver
 	}
 
 	private void method359(int i, final int[] is, int i_697_, final int i_698_, final int i_699_, final int i_700_,
-	        final int i_701_, final int i_702_, final byte i_703_, final byte[] is_704_)
+	        final int i_701_, final int i_702_, final byte[] is_704_)
 	{
 		for (int i_705_ = -i_699_; 0 > i_705_; i_705_++)
 		{
@@ -2719,7 +2714,7 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	void method360(final byte i, final byte[] is, final int i_709_)
+	void method360(final byte[] is, final int i_709_)
 	{
 		final int[] is_710_ = this.anIntArrayArray20[i_709_] = new int[10200];
 		this.anIntArray118[i_709_] = 255;
@@ -2763,8 +2758,7 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	void method361(final int i, final String string, final int i_721_, final int i_722_, final int i_723_, int i_724_,
-	        int i_725_)
+	void method361(final String string, final int i_721_, final int i_722_, final int i_723_, int i_724_, int i_725_)
 	{
 		try
 		{
@@ -2773,7 +2767,7 @@ class GameImage implements ImageProducer, ImageObserver
 				final int i_726_ = i_721_ + anInt522 + -1;
 				if (this.aByteArrayArray13[i_726_] != null)
 				{
-					method338(i_726_, i_723_ + -this.anIntArray123[i_726_], i_724_, (byte) -70);
+					method338(i_726_, i_723_ + -this.anIntArray123[i_726_], i_724_);
 					i_724_ = (this.anIntArray118[i_726_] - -5) + i_724_;
 				}
 			}
@@ -2798,13 +2792,13 @@ class GameImage implements ImageProducer, ImageObserver
 						final int i_729_ = charIndexes[i_728_];
 						if (this.aBool27 && !ByteBuffer.aBoolArray10[i_722_] && (i_725_ != 0))
 						{
-							method326(i_729_, 0, ByteBuffer.aBoolArray10[i_722_], i_724_ - -1, (byte) 63, is, i_723_);
+							method326(i_729_, 0, ByteBuffer.aBoolArray10[i_722_], i_724_ - -1, is, i_723_);
 						}
 						if (this.aBool27 && !ByteBuffer.aBoolArray10[i_722_] && (i_725_ != 0))
 						{
-							method326(i_729_, 0, ByteBuffer.aBoolArray10[i_722_], i_724_, (byte) 100, is, i_723_ + 1);
+							method326(i_729_, 0, ByteBuffer.aBoolArray10[i_722_], i_724_, is, i_723_ + 1);
 						}
-						method326(i_729_, i_725_, ByteBuffer.aBoolArray10[i_722_], i_724_, (byte) 85, is, i_723_);
+						method326(i_729_, i_725_, ByteBuffer.aBoolArray10[i_722_], i_724_, is, i_723_);
 						i_724_ = is[i_729_ + 7] + i_724_;
 					}
 					else
@@ -2950,16 +2944,15 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	void method362(final int i, final int i_733_, final byte i_734_, final int i_735_, final int i_736_,
-	        final int i_737_)
+	void method362(final int i, final int i_733_, final int i_735_, final int i_736_, final int i_737_)
 	{
 		method341(i_735_, (byte) -46, i_737_, i_733_, i_736_);
 		method341(i_735_, (byte) -72, i_737_ + i + -1, i_733_, i_736_);
-		method319(i_736_, i, i_737_, true, i_733_);
-		method319(i_736_, i, i_737_, true, i_733_ + i_735_ + -1);
+		method319(i_736_, i, i_737_, i_733_);
+		method319(i_736_, i, i_737_, i_733_ + i_735_ + -1);
 	}
 
-	void method363(final Graphics graphics, final int i, final int i_739_, final int i_740_)
+	void method363(final Graphics graphics, final int i, final int i_739_)
 	{
 		completePixels();
 		graphics.drawImage(image, i, i_739_, this);
@@ -3002,7 +2995,7 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	void method364(final byte i, final int i_745_)
+	void method364(final int i_745_)
 	{
 		if (this.aByteArrayArray13[i_745_] != null)
 		{

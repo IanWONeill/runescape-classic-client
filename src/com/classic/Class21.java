@@ -191,7 +191,7 @@ final class Class21
 		return runtimeexception_sub1;
 	}
 
-	static String method134(final int i, Throwable throwable) throws IOException
+	static String method134(Throwable throwable) throws IOException
 	{
 		String string;
 		if (throwable instanceof RuntimeException_Sub1)

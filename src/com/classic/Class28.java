@@ -14,7 +14,7 @@ final class Class28
 	private final long aLong2;
 	static int[] anIntArray82;
 
-	private void method179(final int i) throws IOException
+	private void method179() throws IOException
 	{
 		if (aRandomAccessFile1 != null)
 		{
@@ -37,7 +37,7 @@ final class Class28
 		return is_2_;
 	}
 
-	void method181(final byte i, final long l) throws IOException
+	void method181(final long l) throws IOException
 	{
 		aRandomAccessFile1.seek(l);
 		aLong1 = l;
@@ -49,11 +49,11 @@ final class Class28
 		if (aRandomAccessFile1 != null)
 		{
 			System.out.println("");
-			method179(-92);
+			method179();
 		}
 	}
 
-	int method182(final int i, final byte[] is, final int i_4_, final int i_5_) throws IOException
+	int method182(final byte[] is, final int i_4_, final int i_5_) throws IOException
 	{
 		final int i_6_ = aRandomAccessFile1.read(is, i_4_, i_5_);
 		if (0 < i_6_)
@@ -63,7 +63,7 @@ final class Class28
 		return i_6_;
 	}
 
-	void method183(final int i, final int i_7_, final int i_8_, final byte[] is) throws IOException
+	void method183(final int i, final int i_8_, final byte[] is) throws IOException
 	{
 		if (aLong2 < (aLong1 + i))
 		{
@@ -75,7 +75,7 @@ final class Class28
 		aLong1 += i;
 	}
 
-	long method184(final boolean bool) throws IOException
+	long method184() throws IOException
 	{
 		return aRandomAccessFile1.length();
 	}

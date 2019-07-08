@@ -18,8 +18,7 @@ final class GameImageMiddleMan extends GameImage
 	mudclient aclient1;
 
 	@Override
-	void drawEntity(final int i, final int i_0_, final int i_1_, final int i_2_, final int id, final int i_4_,
-	        final int i_5_, final int i_6_)
+	void drawEntity(final int i, final int i_0_, final int i_1_, final int i_2_, final int id, final int i_4_, final int i_5_, final int i_6_)
 	{
 		if (i_6_ != -1)
 		{
@@ -31,27 +30,27 @@ final class GameImageMiddleMan extends GameImage
 			{
 				if (20000 <= id)
 				{
-					this.aclient1.drawNpc(i_4_, id - 20000, i_1_, i_5_, i_0_, i_2_, (byte) -117, i);
+					this.aclient1.drawNpc(i_4_, id - 20000, i_1_, i_5_, i_0_, i_2_, i);
 				}
 				else if (5000 <= id)
 				{
-					this.aclient1.drawPlayer(id - 5000, i_0_, i_2_, i_1_, i, -5, i_4_, i_5_);
+					this.aclient1.drawPlayer(id - 5000, i_0_, i_2_, i_1_, i, i_4_, i_5_);
 				}
 				else
 				{
 					// NOTE: Projectiles get rendered here (both ranged and magic).
-					super.spriteClip1(i, i_5_, id, i_2_, 47, i_0_);
+					super.spriteClip1(i, i_5_, id, i_2_, i_0_);
 				}
 			}
 			else
 			{
-				this.aclient1.drawGroundItem(true, i_4_, id - 40000, i_0_, i_5_, i_2_, i);
+				this.aclient1.drawGroundItem(i_4_, id - 40000, i_0_, i_5_, i_2_, i);
 			}
 		}
 		else
 		{
 			// NOTE: Think this is the teleport bubble.
-			this.aclient1.method515(i_2_, 126, id - 50000, i_0_, i_4_, i, i_5_);
+			this.aclient1.method515(i_2_, id - 50000, i_0_, i, i_5_);
 		}
 	}
 
@@ -232,7 +231,7 @@ final class GameImageMiddleMan extends GameImage
 		return is;
 	}
 
-	static void method410(final int[] is, final Object[] objects, final byte i)
+	static void method410(final int[] is, final Object[] objects)
 	{
 		Class51.method375(objects, 0, is.length + -1, is, 1);
 	}

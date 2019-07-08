@@ -7,7 +7,7 @@ final class Class43
 	Class27 aClass27_3 = new Class27();
 	private Class27 aClass27_4;
 
-	Class27 method297(final int i)
+	Class27 method297()
 	{
 		final Class27 class27 = aClass27_4;
 		if (class27 == this.aClass27_3)
@@ -19,7 +19,7 @@ final class Class43
 		return class27;
 	}
 
-	static String method298(final byte i, final CharSequence charsequence)
+	static String method298(final CharSequence charsequence)
 	{
 		if (charsequence == null)
 		{
@@ -28,11 +28,11 @@ final class Class43
 		int i_0_ = 0;
 		int i_1_;
 		for (i_1_ = charsequence.length(); ((i_1_ > i_0_)
-		        && Class6.method17((byte) 66, charsequence.charAt(i_0_))); i_0_++)
+		        && Class6.method17(charsequence.charAt(i_0_))); i_0_++)
 		{
 			/* empty */
 		}
-		for (/**/; ((i_0_ < i_1_) && Class6.method17((byte) 66, charsequence.charAt(i_1_ + -1))); i_1_--)
+		for (/**/; ((i_0_ < i_1_) && Class6.method17(charsequence.charAt(i_1_ + -1))); i_1_--)
 		{
 			/* empty */
 		}
@@ -47,7 +47,7 @@ final class Class43
 			final char c = charsequence.charAt(i_4_);
 			if (Class51.method374(c))
 			{
-				final char c_5_ = Class4.method9(16777215, c);
+				final char c_5_ = Class4.method9(c);
 				if (c_5_ != '\0')
 				{
 					stringbuilder.append(c_5_);
@@ -61,7 +61,7 @@ final class Class43
 		return stringbuilder.toString();
 	}
 
-	Class27 method299(final boolean bool)
+	Class27 method299()
 	{
 		final Class27 class27 = this.aClass27_3.aClass27_2;
 		if (class27 == this.aClass27_3)

@@ -22,7 +22,7 @@ class PacketConstruction
 	Class27_Sub1_Sub1 aClass27_Sub1_Sub1_1;
 	int anInt192;
 
-	private int method114(final byte[] is, final int i)
+	private int method114(final byte[] is)
 	{
 		do
 		{
@@ -54,12 +54,12 @@ class PacketConstruction
 					is[anInt178 + -1] = (byte) method129();
 					if (anInt178 > 1)
 					{
-						method121(anInt178 + -1, is, -2986);
+						method121(anInt178 + -1, is);
 					}
 				}
 				else
 				{
-					method121(anInt178, is, -2986);
+					method121(anInt178, is);
 				}
 				final int i_1_ = anInt178;
 				anInt176 = 0;
@@ -132,7 +132,7 @@ class PacketConstruction
 		writePacket(0);
 	}
 
-	private void method121(final int i, final byte[] is, final int i_7_) throws IOException
+	private void method121(final int i, final byte[] is) throws IOException
 	{
 		method127(i, 0, is, 1230517990);
 	}
@@ -143,7 +143,7 @@ class PacketConstruction
 		{
 			method122(64, false);
 		}
-		return 0xff & (i - aClass7_1.method47((byte) -106));
+		return 0xff & (i - aClass7_1.method47());
 	}
 
 	int method123(final byte i) throws IOException { return 0; }
@@ -173,7 +173,7 @@ class PacketConstruction
 	int method125(final int i, final Class27_Sub1_Sub1 class27_sub1_sub1)
 	{
 		class27_sub1_sub1.position = i;
-		return method114(class27_sub1_sub1.buffer, 124);
+		return method114(class27_sub1_sub1.buffer);
 	}
 
 	void finishPacket(final int i)
@@ -181,7 +181,7 @@ class PacketConstruction
 		if (aClass7_2 != null)
 		{
 			final int i_9_ = ((this.aClass27_Sub1_Sub1_1.buffer[packetStart - -2]) & 0xff);
-			this.aClass27_Sub1_Sub1_1.buffer[packetStart + 2] = (byte) (aClass7_2.method47((byte) -106) + i_9_);
+			this.aClass27_Sub1_Sub1_1.buffer[packetStart + 2] = (byte) (aClass7_2.method47() + i_9_);
 		}
 		final int i_10_ = ((this.aClass27_Sub1_Sub1_1.position) - packetStart - i);
 		if (160 > i_10_)

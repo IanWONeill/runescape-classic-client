@@ -18,7 +18,7 @@ final class Class1
 		return i_2_;
 	}
 
-	static void method2(final int i, final Class27 class27, final Class27 class27_4_)
+	static void method2(final Class27 class27, final Class27 class27_4_)
 	{
 		if (class27.aClass27_1 != null)
 		{
