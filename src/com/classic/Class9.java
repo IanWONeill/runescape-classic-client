@@ -11,14 +11,11 @@ final class Class9
 	int anInt66;
 	int anInt67;
 	int anInt68;
-	static int anInt69;
 	String aString4 = null;
 	String aString5;
-	static int anInt71;
 	int anInt72;
 	static int[] anIntArray20;
 	static int[] anIntArray21;
-	static int anInt73;
 	static int[] anIntArray22;
 
 	void method60(final int i, final String string, final String string_0_, final int i_1_, final String string_2_,
@@ -29,7 +26,6 @@ final class Class9
 		this.anInt68 = i;
 		this.anInt72 = i_8_;
 		this.anInt65 = i_7_;
-		anInt71++;
 		this.aString4 = string;
 		if (i_5_ != -30365)
 		{
@@ -43,7 +39,6 @@ final class Class9
 
 	static void method61(final Throwable throwable, final int i, final String string)
 	{
-		anInt73++;
 		try
 		{
 			if (i < 80)
@@ -100,7 +95,6 @@ final class Class9
 
 	static String method62(final int i, final byte i_11_, final int i_12_, final byte[] is)
 	{
-		anInt69++;
 		final char[] cs = new char[i];
 		int i_13_ = 0;
 		for (int i_14_ = 0; i_14_ < i; i_14_++)

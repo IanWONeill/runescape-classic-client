@@ -4,7 +4,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-final class Class23
+final class Model
 {
 	private int[] anIntArray49;
 	private int[] anIntArray50;
@@ -87,7 +87,7 @@ final class Class23
 	private boolean aBool15;
 	int[] anIntArray77;
 
-	Class23[] method136(final int i, final int i_0_, final boolean bool, final int i_1_, final boolean bool_2_,
+	Model[] method136(final int i, final int i_0_, final boolean bool, final int i_1_, final boolean bool_2_,
 	        final int i_3_, final int i_4_, final int i_5_, final int i_6_)
 	{
 		method155();
@@ -113,14 +113,14 @@ final class Class23
 			is[i_15_] += i_12_;
 			is_7_[i_15_]++;
 		}
-		final Class23[] class23s = new Class23[i_3_];
+		final Model[] class23s = new Model[i_3_];
 		for (int i_16_ = 0; i_3_ > i_16_; i_16_++)
 		{
 			if (is[i_16_] > i_5_)
 			{
 				is[i_16_] = i_5_;
 			}
-			class23s[i_16_] = new Class23(is[i_16_], is_7_[i_16_], true, true, true, bool_2_, true);
+			class23s[i_16_] = new Model(is[i_16_], is_7_[i_16_], true, true, true, bool_2_, true);
 			class23s[i_16_].anInt255 = anInt255;
 			class23s[i_16_].anInt266 = this.anInt266;
 		}
@@ -224,7 +224,7 @@ final class Class23
 		this.anInt274 = 1;
 	}
 
-	private void method142(final Class23[] class23s, final int i, final boolean bool, final int i_52_)
+	private void method142(final Model[] class23s, final int i, final boolean bool, final int i_52_)
 	{
 		int i_53_ = 0;
 		int i_54_ = 0;
@@ -240,7 +240,7 @@ final class Class23
 		}
 		for (int i_56_ = 0; i_52_ > i_56_; i_56_++)
 		{
-			final Class23 class23_57_ = class23s[i_56_];
+			final Model class23_57_ = class23s[i_56_];
 			class23_57_.method155();
 			anInt255 = class23_57_.anInt255;
 			anInt228 = class23_57_.anInt228;
@@ -359,7 +359,7 @@ final class Class23
 	{
 		method143();
 		if ((AClass1.anInt320 < anInt284) || (AClass1_Sub1.anInt642 > anInt271) || (anInt241 > Class19.anInt207)
-		        || (anInt226 < Class17.anInt193) || (anInt227 > Class34.anInt371) || (anInt287 < Class26.anInt312))
+		        || (anInt226 < Class17.anInt193) || (anInt227 > Class34.anInt371) || (anInt287 < CameraModel.anInt312))
 		{
 			this.aBool14 = false;
 		}
@@ -808,7 +808,7 @@ final class Class23
 		return this.anInt221++;
 	}
 
-	void method159(final int i, final Class23 class23_144_)
+	void method159(final int i, final Model class23_144_)
 	{
 		anInt253 = class23_144_.anInt253;
 		anInt267 = class23_144_.anInt267;
@@ -849,7 +849,7 @@ final class Class23
 		return this.anInt221++;
 	}
 
-	private void method162(final int[] is, final int i, final int i_149_, final Class23 class23_150_, final int i_151_)
+	private void method162(final int[] is, final int i, final int i_149_, final Model class23_150_, final int i_151_)
 	{
 		final int[] is_152_ = new int[i];
 		for (int i_153_ = 0; i_153_ < i; i_153_++)
@@ -924,22 +924,22 @@ final class Class23
 		}
 	}
 
-	Class23 method166(final int i)
+	Model method166(final int i)
 	{
-		final Class23[] class23s = new Class23[1];
+		final Model[] class23s = new Model[1];
 		class23s[0] = this;
-		final Class23 class23_170_ = new Class23(class23s, 1);
+		final Model class23_170_ = new Model(class23s, 1);
 		class23_170_.aBool10 = this.aBool10;
 		class23_170_.anInt239 = this.anInt239;
 		return class23_170_;
 	}
 
-	Class23 method167(final boolean bool, final boolean bool_171_, final byte i, final boolean bool_172_,
+	Model method167(final boolean bool, final boolean bool_171_, final byte i, final boolean bool_172_,
 	        final boolean bool_173_)
 	{
-		final Class23[] class23s = new Class23[1];
+		final Model[] class23s = new Model[1];
 		class23s[0] = this;
-		final Class23 class23_174_ = new Class23(class23s, 1, bool_172_, bool_173_, bool_171_, bool);
+		final Model class23_174_ = new Model(class23s, 1, bool_172_, bool_173_, bool_171_, bool);
 		class23_174_.anInt239 = this.anInt239;
 		return class23_174_;
 	}
@@ -993,7 +993,7 @@ final class Class23
 		}
 	}
 
-	Class23(final int i, final int i_186_)
+	Model(final int i, final int i_186_)
 	{
 		anInt230 = 12345678;
 		anInt243 = 256;
@@ -1020,7 +1020,7 @@ final class Class23
 		}
 	}
 
-	Class23(final int i, final int i_188_, final boolean bool, final boolean bool_189_, final boolean bool_190_,
+	Model(final int i, final int i_188_, final boolean bool, final boolean bool_189_, final boolean bool_190_,
 	        final boolean bool_191_, final boolean bool_192_)
 	{
 		anInt230 = 12345678;
@@ -1048,7 +1048,7 @@ final class Class23
 		method147(i_188_, i);
 	}
 
-	Class23(final byte[] is, int i, final boolean bool)
+	Model(final byte[] is, int i, final boolean bool)
 	{
 		anInt230 = 12345678;
 		anInt243 = 256;
@@ -1143,7 +1143,7 @@ final class Class23
 		this.anInt248 = i_194_;
 	}
 
-	Class23(final String string)
+	Model(final String string)
 	{
 		anInt230 = 12345678;
 		anInt243 = 256;
@@ -1233,7 +1233,7 @@ final class Class23
 		this.anInt274 = 1;
 	}
 
-	private Class23(final Class23[] class23s, final int i, final boolean bool, final boolean bool_224_,
+	private Model(final Model[] class23s, final int i, final boolean bool, final boolean bool_224_,
 	        final boolean bool_225_, final boolean bool_226_)
 	{
 		anInt230 = 12345678;
@@ -1260,7 +1260,7 @@ final class Class23
 		method142(class23s, 0, false, i);
 	}
 
-	private Class23(final Class23[] class23s, final int i)
+	private Model(final Model[] class23s, final int i)
 	{
 		anInt230 = 12345678;
 		anInt243 = 256;

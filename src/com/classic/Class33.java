@@ -22,7 +22,7 @@ final class Class33
 			is_1_[i_3_] = is[(i_3_ * 3) + 19];
 			is_2_[i_3_] = is[(i_3_ * 3) + 18];
 		}
-		Class41.aColorModel1 = new IndexColorModel(8, 256, is_0_, is_1_, is_2_);
+		Camera.aColorModel1 = new IndexColorModel(8, 256, is_0_, is_1_, is_2_);
 		if (i >= -110)
 		{
 			method223(null, null, (byte) 125);

@@ -9,9 +9,7 @@ final class RuntimeException_Sub1 extends RuntimeException
 	 */
 	private static final long serialVersionUID = 1L;
 	String aString21;
-	static int anInt676;
 	Throwable aThrowable1;
-	static int anInt677;
 	static BigInteger aBigInteger2 = (new BigInteger(
 	        "ca950472ae9765185bf290ff54a823b1d29b46dc3cf676203bb871efa278d9c49e16defc53ff479305123454505082f4700b0da381047f51b872f9bbeea653f21fd248a10ff5239b30234add35913cb6068d316edd418611334ae047fcd9acb7b0c13b30393a26204dc85183e0a95555c01bee800440e974bb9b441f464f4057",
 	        16));
@@ -29,7 +27,6 @@ final class RuntimeException_Sub1 extends RuntimeException
 
 	static int method461(String string, final byte[] is, final boolean bool)
 	{
-		anInt677++;
 		final int i = Class10.method84(-94, is, 0);
 		string = string.toUpperCase();
 		int i_0_ = 0;
@@ -59,7 +56,6 @@ final class RuntimeException_Sub1 extends RuntimeException
 
 	static int method462()
 	{
-		anInt676++;
 		return Class3.method6(System.currentTimeMillis(), 2000000);
 	}
 }

@@ -195,7 +195,7 @@ final class Class10
 				        && ((anInt133 + -2) > (i_36_ - aClass46_2.method315((byte) 123, i_28_))))
 				{
 					aBoolArray1[i_23_] = true;
-					anIntArray33[i_23_] = GameWindow.method485(i_37_, anInt112 << 16);
+					anIntArray33[i_23_] = GameWindow.bitwiseOr(i_37_, anInt112 << 16);
 				}
 				method103(20166, i_23_, i_36_, i_24_ - -2, strings[i_37_], is[i_37_], i_28_);
 				i_36_ += (aClass46_2.method315((byte) 91, i_28_) + -GameImage.anInt568);

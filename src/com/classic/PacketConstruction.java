@@ -6,41 +6,24 @@ import java.util.TimeZone;
 
 class PacketConstruction
 {
-	static int anInt170;
 	String errorText;
-	static int anInt171;
-	static int anInt172;
-	static int anInt173;
 	static String[] aStringArray14 = { "Enter number of items to remove and press enter" };
-	static int anInt174;
 	static Calendar aCalendar1;
-	static int anInt175;
 	private int anInt176 = 0;
 	private final int maxPacketLength;
 	private int anInt178;
 	boolean error;
 	static byte[][] aByteArrayArray8;
-	static int anInt179;
-	static int anInt180;
 	private int anInt181;
 	private int packetStart;
 	private Class7 aClass7_1;
-	static int anInt183;
-	static int anInt184;
 	static int anInt185 = 0;
-	static int anInt186;
 	private Class7 aClass7_2;
-	static int anInt187;
-	static int anInt188;
-	static int anInt189;
 	Class27_Sub1_Sub1 aClass27_Sub1_Sub1_1;
-	static int anInt190;
-	static int anInt191;
 	int anInt192;
 
 	private int method114(final byte[] is, final int i)
 	{
-		anInt174++;
 		do
 		{
 			int i_0_;
@@ -97,7 +80,6 @@ class PacketConstruction
 
 	static String method115(final int i, final int i_2_)
 	{
-		anInt191++;
 		if (i_2_ < 79)
 		{
 			method115(-56, 3);
@@ -109,14 +91,10 @@ class PacketConstruction
 	void method116(final int[] is)
 	{
 		aClass7_1 = new Class7(is);
-		anInt179++;
 		aClass7_2 = new Class7(is);
 	}
 
-	void method117(final int i, final int i_3_, final byte[] is, final int i_4_) throws IOException
-	{
-		anInt184++;
-	}
+	void method117(final int i, final int i_3_, final byte[] is, final int i_4_) throws IOException {}
 
 	void createPacket(final int i, final int i_6_)
 	{
@@ -132,7 +110,6 @@ class PacketConstruction
 				this.errorText = ioexception.getMessage();
 			}
 		}
-		anInt171++;
 		this.aClass27_Sub1_Sub1_1.position = packetStart + 2;
 		this.aClass27_Sub1_Sub1_1.put(i);
 		if (i_6_ < 54)
@@ -147,25 +124,21 @@ class PacketConstruction
 		{
 			method122(65, false);
 		}
-		anInt170++;
 	}
 
 	void method120() throws IOException
 	{
 		finishPacket(2);
-		anInt188++;
 		writePacket(0);
 	}
 
 	private void method121(final int i, final byte[] is, final int i_7_) throws IOException
 	{
-		anInt187++;
 		method127(i, 0, is, 1230517990);
 	}
 
 	int method122(final int i, final boolean bool)
 	{
-		anInt173++;
 		if (bool)
 		{
 			method122(64, false);
@@ -173,15 +146,10 @@ class PacketConstruction
 		return 0xff & (i - aClass7_1.method47((byte) -106));
 	}
 
-	int method123(final byte i) throws IOException
-	{
-		anInt172++;
-		return 0;
-	}
+	int method123(final byte i) throws IOException { return 0; }
 
 	void writePacket(final int i_8_) throws IOException
 	{
-		anInt183++;
 		if (this.error)
 		{
 			this.error = false;
@@ -204,14 +172,12 @@ class PacketConstruction
 
 	int method125(final int i, final Class27_Sub1_Sub1 class27_sub1_sub1)
 	{
-		anInt189++;
 		class27_sub1_sub1.position = i;
 		return method114(class27_sub1_sub1.buffer, 124);
 	}
 
 	void finishPacket(final int i)
 	{
-		anInt180++;
 		if (aClass7_2 != null)
 		{
 			final int i_9_ = ((this.aClass27_Sub1_Sub1_1.buffer[packetStart - -2]) & 0xff);
@@ -239,18 +205,14 @@ class PacketConstruction
 		packetStart = (this.aClass27_Sub1_Sub1_1.position);
 	}
 
-	void method127(final int i, final int i_12_, final byte[] is, final int i_13_) throws IOException
-	{
-		anInt175++;
-	}
+	void method127(final int i, final int i_12_, final byte[] is, final int i_13_) throws IOException {}
 
-	boolean method128(final int i)
+	boolean containsData(final int i)
 	{
 		if (i < 17)
 		{
 			method122(93, false);
 		}
-		anInt186++;
 		if (0 < packetStart)
 		{
 			return true;
@@ -258,11 +220,7 @@ class PacketConstruction
 		return false;
 	}
 
-	int method129() throws IOException
-	{
-		anInt190++;
-		return 0;
-	}
+	int method129() throws IOException { return 0; }
 
 	protected PacketConstruction()
 	{

@@ -14,167 +14,54 @@ public final class mudclient extends GameWindow
 	 *
 	 */
 	private static final long serialVersionUID = 1L;
-	static int anInt757;
-	static int anInt758;
-	static int anInt759;
-	static int anInt760;
-	static int anInt761;
-	static int anInt762;
-	static int anInt763;
-	static int anInt764;
-	static int anInt765;
 	private String serverHost;
-	static int anInt766;
-	static int anInt767;
-	static int anInt768;
-	static int anInt769;
-	static int anInt770;
-	static int anInt771;
-	static int anInt772;
 	private final Class27_Sub1_Sub1 aClass27_Sub1_Sub1_2 = new Class27_Sub1_Sub1(5000);
 	private StreamClass streamClass;
-	static int anInt773;
-	static int anInt774;
-	static int anInt775;
-	static int anInt776;
-	static int anInt777;
-	static int anInt778;
-	static int anInt779;
-	static int anInt780;
-	static int anInt781;
-	static int anInt782;
-	static int anInt783;
-	static int anInt784;
-	static int anInt785;
-	private int anInt786;
-	static int anInt787;
-	static int anInt788;
-	static int anInt789;
-	static int anInt790;
-	static int anInt791;
-	static int anInt792;
-	static int anInt793;
-	static int anInt794;
 	static char[] aCharArray4 = { '[', ']', '#' };
-	static int anInt795;
-	static int anInt796;
-	static int anInt797;
-	static int anInt798;
-	private int anInt799;
-	static int anInt800;
-	static int anInt801;
-	static int anInt802;
-	static int anInt803;
-	static int anInt804;
-	static int anInt805;
-	static int anInt806;
-	static int anInt807;
-	static int anInt808;
-	static int anInt809;
-	static int anInt810;
-	static int anInt811;
-	static int anInt812;
-	static int anInt813;
-	static int anInt814;
-	static int anInt815;
-	static int anInt816;
-	static int anInt817;
-	static int anInt818;
-	static int anInt819;
-	static int anInt820;
-	static int anInt821;
-	static int anInt822;
-	static int anInt823;
-	static int anInt824;
-	static int anInt825;
-	static int anInt826;
-	static int anInt827;
-	static int anInt828;
-	static int anInt829;
-	static int anInt830;
-	static int anInt831;
-	static int anInt832;
-	static int anInt833;
-	static int anInt834;
-	static int anInt835;
-	static int anInt836;
-	static int anInt837;
-	static int anInt838;
-	static int anInt839;
-	static int anInt840;
-	static int anInt841;
-	static int anInt842;
 	private int anInt843;
-	static int anInt844;
 	private int maybe_cameraHeight;
-	private long aLong17;
-	static int anInt846;
-	static int anInt847;
+	private long lastPing;
 	private boolean aBool50;
-	static int anInt848;
 	private int anInt849;
 	private boolean maybe_isApplet;
 	private int anInt850;
-	static int anInt851;
 	private int anInt852;
 	private final int maybe_windowWidth = 512;
 	private int anInt854;
 	private final int anInt855;
 	private final int magicLoc;
-	static int anInt857;
 	private int anInt858;
 	private int anInt859;
 	private final int anInt860;
-	static int anInt861;
-	static int anInt862;
 	private int anInt863;
 	private int anInt864;
-	static int anInt865;
 	private int anInt866;
 	private int anInt867;
 	private int anInt868;
-	static int anInt869;
-	static int anInt870;
-	static int anInt871;
-	static int anInt872;
 	private int anInt873;
-	static int anInt874;
 	private final Mob[] aClass15Array1;
 	private boolean aBool52;
-	static int anInt875;
 	private int anInt876;
 	private final int[] mouseClickY;
 	private boolean aBool53 = false;
-	static int anInt877;
-	static int anInt878;
 	private final int maybe_windowHeight;
 	private int anInt880;
-	static int anInt881;
 	private int anInt882;
 	private final Mob[] aClass15Array2;
-	static int anInt883;
-	static int anInt884;
 	private int anInt885;
 	private int anInt886;
 	private int anInt887;
 	private int anInt888;
-	private Class41 aClass41_2;
-	static int anInt889;
+	private Camera aClass41_2;
 	private final int[] anIntArray155;
 	private int anInt890;
-	static int anInt891;
-	static int anInt892;
 	private GameImageMiddleMan aClass46_Sub1_2;
 	private int anInt893;
 	private int anInt894;
 	private final long[] aLongArray4;
-	static int anInt895;
 	private boolean aBool54;
 	private int mouseClickCount;
-	static int anInt897;
-	static int anInt898;
 	private int anInt899;
-	static int anInt900;
 	private int anInt901;
 	private int anInt902;
 	private int anInt903;
@@ -186,31 +73,24 @@ public final class mudclient extends GameWindow
 	private int anInt906;
 	private int anInt907;
 	private int anInt908;
-	static int anInt909;
 	private boolean isMembers;
 	private int anInt910;
 	private int anInt911;
 	private int anInt912;
-	static int anInt913;
 	private int anInt914;
 	private int anInt915;
 	private int anInt916;
 	private Class6 aClass6_1;
-	static int anInt917;
 	private int anInt918;
-	static int anInt919;
 	private Mob aClass15_1;
-	static int anInt920;
 	private int anInt921;
 	private int anInt922;
 	private int anInt923;
-	static int anInt924;
 	private int anInt925;
 	private int anInt926;
 	private int anInt927;
 	private int anInt928;
 	private boolean isVeterans;
-	static int anInt929;
 	private int anInt930;
 	private int anInt931;
 	private int maybe_playerCount;
@@ -299,7 +179,7 @@ public final class mudclient extends GameWindow
 	private String aString31;
 	private int logoutTimeout;
 	private int anInt971;
-	private final Class23[] aClass23Array4;
+	private final Model[] aClass23Array4;
 	private int anInt972;
 	private final String[] skillArrayLong;
 	private String[] aStringArray49;
@@ -393,11 +273,11 @@ public final class mudclient extends GameWindow
 	private int anInt1013;
 	private final int[] characterSkinColors;
 	private final int[] anIntArray198;
-	private final Class23[] aClass23Array5;
+	private final Model[] aClass23Array5;
 	private boolean aBool82;
 	private int anInt1014;
 	private final String[] equipmentStatusName;
-	private final Class23[] aClass23Array6;
+	private final Model[] aClass23Array6;
 	private int anInt1015;
 	private final int[] anIntArray199;
 	private int anInt1016;
@@ -451,7 +331,6 @@ public final class mudclient extends GameWindow
 	private int anInt1044;
 	private final int[] characterHairColors;
 	private int anInt1045;
-	static int anInt1046;
 	private String loginPassword;
 	private final int[] anIntArray212;
 	private final int[] anIntArray213;
@@ -494,7 +373,6 @@ public final class mudclient extends GameWindow
 
 	private void method490(final boolean bool)
 	{
-		anInt787++;
 		final int i = this.anInt720;
 		final int i_0_ = this.anInt694;
 		final int i_1_ = (anInt941 - i) + -maybe_windowWidth;
@@ -550,7 +428,6 @@ public final class mudclient extends GameWindow
 
 	private void sendLogout()
 	{
-		anInt1046++;
 		if (anInt899 != 0)
 		{
 			if (combatTimeout > 450)
@@ -572,7 +449,6 @@ public final class mudclient extends GameWindow
 
 	private String method492(final int i, final byte i_4_)
 	{
-		anInt758++;
 		final Class20 class20 = GameFrame.aClass32_4.method222(i, -29661);
 		while (class20.anInt216 == 0)
 		{
@@ -591,7 +467,6 @@ public final class mudclient extends GameWindow
 
 	private void drawWelcomeBox(final int i)
 	{
-		anInt773++;
 		int i_5_ = 65;
 		if (anInt963 != 201)
 		{
@@ -729,19 +604,18 @@ public final class mudclient extends GameWindow
 		{
 			anInt963 = -50;
 		}
-		anInt765++;
 		final String string_8_ = Class43.method298((byte) 101, string);
 		if (string_8_ != null)
 		{
 			for (int i_9_ = 0; i_9_ < Class10.anInt129; i_9_++)
 			{
-				if (string_8_.equals(Class43.method298((byte) -43, (Class41.aStringArray28[i_9_]))))
+				if (string_8_.equals(Class43.method298((byte) -43, (Camera.aStringArray28[i_9_]))))
 				{
 					Class10.anInt129--;
 					for (int i_10_ = i_9_; Class10.anInt129 > i_10_; i_10_++)
 					{
 						GameImage.aStringArray33[i_10_] = GameImage.aStringArray33[i_10_ + 1];
-						Class41.aStringArray28[i_10_] = Class41.aStringArray28[i_10_ + 1];
+						Camera.aStringArray28[i_10_] = Camera.aStringArray28[i_10_ + 1];
 						Class6.aStringArray7[i_10_] = Class6.aStringArray7[i_10_ + 1];
 						Class3.aStringArray4[i_10_] = Class3.aStringArray4[i_10_];
 					}
@@ -784,12 +658,10 @@ public final class mudclient extends GameWindow
 		{
 			System.out.println(new StringBuilder().append("Unable to init sounds:").append(throwable).toString());
 		}
-		anInt796++;
 	}
 
 	private void drawServerMessageBox(final int i)
 	{
-		anInt807++;
 		final int i_11_ = 400;
 		int i_12_ = 100;
 		if (aBool74)
@@ -827,19 +699,18 @@ public final class mudclient extends GameWindow
 		anInt887 = 0;
 	}
 
-	private void method497(int i, final int i_15_, final int i_16_)
+	private void checkIncomingPacket(int command, final int i_15_, final int length)
 	{
-		i = streamClass.method122(i, false);
-		anInt763++;
-		if (i != 131)
+		command = streamClass.method122(command, false);
+		if (command != 131)
 		{
-			if (i == 4)
+			if (command == 4)
 			{
 				method544(true, (byte) 72);
 			}
-			else if (i != 183)
+			else if (command != 183)
 			{
-				if (i == 189)
+				if (command == 189)
 				{
 					aClass27_Sub1_Sub1_2.position += 28;
 					if (aClass27_Sub1_Sub1_2.method393(0))
@@ -847,11 +718,11 @@ public final class mudclient extends GameWindow
 						Class2.method3(aClass27_Sub1_Sub1_2.position + -28, aClass27_Sub1_Sub1_2, true);
 					}
 				}
-				else if (i != 165)
+				else if (command != 165)
 				{
-					if (i != 149)
+					if (command != 149)
 					{
-						if (i == 237)
+						if (command == 237)
 						{
 							final String string = aClass27_Sub1_Sub1_2.method398(-1);
 							String string_17_ = aClass27_Sub1_Sub1_2.method398(-1);
@@ -870,15 +741,15 @@ public final class mudclient extends GameWindow
 							{
 								if (!bool)
 								{
-									if (Class41.aStringArray28[i_20_].equals(string_17_))
+									if (Camera.aStringArray28[i_20_].equals(string_17_))
 									{
 										return;
 									}
 								}
-								else if (Class41.aStringArray28[i_20_].equals(string_19_))
+								else if (Camera.aStringArray28[i_20_].equals(string_19_))
 								{
 									GameImage.aStringArray33[i_20_] = string;
-									Class41.aStringArray28[i_20_] = string_17_;
+									Camera.aStringArray28[i_20_] = string_17_;
 									Class6.aStringArray7[i_20_] = string_18_;
 									Class3.aStringArray4[i_20_] = string_19_;
 									return;
@@ -892,16 +763,16 @@ public final class mudclient extends GameWindow
 								return;
 							}
 							GameImage.aStringArray33[Class10.anInt129] = string;
-							Class41.aStringArray28[Class10.anInt129] = string_17_;
+							Camera.aStringArray28[Class10.anInt129] = string_17_;
 							Class6.aStringArray7[Class10.anInt129] = string_18_;
 							Class3.aStringArray4[Class10.anInt129] = string_19_;
 							Class10.anInt129++;
 						}
-						else if (i != 109)
+						else if (command != 109)
 						{
-							if (i != 51)
+							if (command != 51)
 							{
-								if (i == 120)
+								if (command == 120)
 								{
 									final String string = aClass27_Sub1_Sub1_2.method398(i_15_ ^ ~0x14);
 									final String string_21_ = aClass27_Sub1_Sub1_2.method398(-1);
@@ -920,9 +791,9 @@ public final class mudclient extends GameWindow
 									displayMessage(i_22_, string_23_, 1, string, i_15_ ^ ~0x71, null, string_21_,
 									        i_22_ == 2);
 								}
-								else if (i != 87)
+								else if (command != 87)
 								{
-									method547((byte) -34, i, i_16_);
+									method547((byte) -34, command, length);
 								}
 								else
 								{
@@ -945,7 +816,7 @@ public final class mudclient extends GameWindow
 							for (int i_26_ = 0; Class10.anInt129 > i_26_; i_26_++)
 							{
 								GameImage.aStringArray33[i_26_] = aClass27_Sub1_Sub1_2.method398(-1);
-								Class41.aStringArray28[i_26_] = aClass27_Sub1_Sub1_2.method398(-1);
+								Camera.aStringArray28[i_26_] = aClass27_Sub1_Sub1_2.method398(-1);
 								Class6.aStringArray7[i_26_] = aClass27_Sub1_Sub1_2.method398(-1);
 								Class3.aStringArray4[i_26_] = aClass27_Sub1_Sub1_2.method398(-1);
 							}
@@ -1064,7 +935,6 @@ public final class mudclient extends GameWindow
 
 	private void method498(final int i, final byte i_39_)
 	{
-		anInt830++;
 		final Mob class15 = maybe_playerArray[i];
 		final String string = class15.aString6;
 		int i_40_ = (-anInt1001 - anInt852) + -anInt927 + 2203;
@@ -1161,7 +1031,6 @@ public final class mudclient extends GameWindow
 	@Override
 	void method466(final int i, final int i_43_)
 	{
-		anInt891++;
 		if (anInt899 == 0)
 		{
 			if ((anInt1035 == 0) && (aClass10_7 != null))
@@ -1190,7 +1059,6 @@ public final class mudclient extends GameWindow
 	void addMouseClick(final int mouseY, final int mouseX, final int button)
 	{
 		mouseClickX[mouseClickCount] = mouseX;
-		anInt783++;
 		mouseClickY[mouseClickCount] = mouseY;
 		mouseClickCount = (mouseClickCount + 1) & 0x1fff;
 		for (int i = 10; i < 4000; ++i)
@@ -1224,7 +1092,6 @@ public final class mudclient extends GameWindow
 
 	private void method499(final int i)
 	{
-		anInt913++;
 		if (0 < this.aString26.length())
 		{
 			aString33 = this.aString26.trim();
@@ -1321,7 +1188,6 @@ public final class mudclient extends GameWindow
 
 	private void method500(final boolean bool)
 	{
-		anInt793++;
 		if (((0x1 & anInt933) != 1) || !method541(anInt933, -112))
 		{
 			if (((0x1 & anInt933) == 0) && method541(anInt933, -116))
@@ -1363,7 +1229,6 @@ public final class mudclient extends GameWindow
 
 	private void method501(final String string, final int i)
 	{
-		anInt869++;
 		final String string_63_ = Class43.method298((byte) 92, string);
 		if (string_63_ != null)
 		{
@@ -1394,7 +1259,6 @@ public final class mudclient extends GameWindow
 
 	private void method502(final String string, final int i)
 	{
-		anInt776++;
 		if (i >= (Class10.anInt129 ^ 0xffffffff))
 		{
 			displayMessage(0, "Ignore list full", 0, null, i + 80, null, null, false);
@@ -1458,7 +1322,6 @@ public final class mudclient extends GameWindow
 
 	private void method503(final int i, final int i_69_, final int i_70_)
 	{
-		anInt857++;
 		boolean bool = false;
 		int i_71_ = 0;
 		final int i_72_ = anIntArray194[i_69_];
@@ -1552,7 +1415,6 @@ public final class mudclient extends GameWindow
 	private void method504(final byte i, final String string)
 	{
 		streamClass.createPacket(216, 55);
-		anInt929++;
 		Class39.method255((streamClass.aClass27_Sub1_Sub1_1), false, string);
 		streamClass.finishPacket(2);
 	}
@@ -1560,7 +1422,6 @@ public final class mudclient extends GameWindow
 	void drawNpc(final int i, final int i_78_, final int i_79_, final int i_80_, final int i_81_, int i_82_,
 	        final byte i_83_, final int i_84_)
 	{
-		anInt801++;
 		final Mob class15 = maybe_npcArray[i_78_];
 		int i_85_ = (class15.anInt160 - -((anInt843 - -16) / 32)) & 0x7;
 		boolean bool = false;
@@ -1586,7 +1447,7 @@ public final class mudclient extends GameWindow
 		int i_87_ = (i_86_ * 3) + walkModel[((class15.anInt146 / (Class10.anIntArray32[class15.anInt161])) % 4)];
 		if (class15.anInt160 == 8)
 		{
-			i_82_ -= ((i_79_ * Class26.anIntArray80[class15.anInt161]) / 100);
+			i_82_ -= ((i_79_ * CameraModel.anIntArray80[class15.anInt161]) / 100);
 			i_86_ = 5;
 			i_85_ = 2;
 			bool = false;
@@ -1594,7 +1455,7 @@ public final class mudclient extends GameWindow
 		}
 		else if (class15.anInt160 == 9)
 		{
-			i_82_ += ((i_79_ * Class26.anIntArray80[class15.anInt161]) / 100);
+			i_82_ += ((i_79_ * CameraModel.anIntArray80[class15.anInt161]) / 100);
 			i_86_ = 5;
 			bool = true;
 			i_85_ = 2;
@@ -1712,10 +1573,9 @@ public final class mudclient extends GameWindow
 		}
 	}
 
-	private Class23 method506(final boolean bool, final int i, final int i_104_, final int i_105_, final int i_106_,
+	private Model method506(final boolean bool, final int i, final int i_104_, final int i_105_, final int i_106_,
 	        final int i_107_)
 	{
-		anInt819++;
 		int i_108_ = i_105_;
 		int i_109_ = i_106_;
 		int i_110_ = i_105_;
@@ -1723,7 +1583,7 @@ public final class mudclient extends GameWindow
 		final int i_112_ = Class25.anIntArray79[i_104_];
 		final int i_113_ = Class3.anIntArray2[i_104_];
 		final int i_114_ = StreamClass.anIntArray140[i_104_];
-		final Class23 class23 = new Class23(4, 1);
+		final Model class23 = new Model(4, 1);
 		if (i_107_ == 0)
 		{
 			i_110_ = i_105_ + 1;
@@ -1770,14 +1630,12 @@ public final class mudclient extends GameWindow
 		anInt899 = 0;
 		anInt1035 = 0;
 		maybe_playerCount = 0;
-		anInt816++;
 		maybe_npcCount = 0;
 	}
 
 	private void method508(final byte i)
 	{
 		aClass46_Sub1_2.method338(anInt935 + 23, maybe_windowHeight + -4, 0, (byte) -70);
-		anInt794++;
 		int i_119_ = Class34.method227(false, 200, 200, 255);
 		if (anInt976 == 0)
 		{
@@ -1825,12 +1683,10 @@ public final class mudclient extends GameWindow
 	void method477(final Runnable runnable)
 	{
 		GameFrame.aClass32_4.method218(1, runnable);
-		anInt777++;
 	}
 
 	private void method509(final int i, final int i_120_, final int i_121_, final int i_122_)
 	{
-		anInt774++;
 		aClass46_Sub1_2.method318(i_122_, -13292, i_121_, i_120_);
 		aClass46_Sub1_2.method318(i_122_ + -1, -13292, i_121_, i_120_);
 		aClass46_Sub1_2.method318(i_122_ + 1, -13292, i_121_, i_120_);
@@ -1844,7 +1700,6 @@ public final class mudclient extends GameWindow
 
 	private boolean method510(final String string, final String string_123_, final int i)
 	{
-		anInt825++;
 		final String string_124_ = Class43.method298((byte) 86, string_123_);
 		if (string_124_ == null)
 		{
@@ -1877,7 +1732,7 @@ public final class mudclient extends GameWindow
 			boolean bool_127_ = false;
 			for (int i_128_ = 0; Class10.anInt129 > i_128_; i_128_++)
 			{
-				if (string_124_.equals(Class43.method298((byte) -120, (Class41.aStringArray28[i_128_]))))
+				if (string_124_.equals(Class43.method298((byte) -120, (Camera.aStringArray28[i_128_]))))
 				{
 					bool_127_ = true;
 					break;
@@ -1904,7 +1759,6 @@ public final class mudclient extends GameWindow
 	void drawPlayer(final int i, final int i_129_, int i_130_, final int i_131_, final int i_132_, final int i_133_,
 	        final int i_134_, final int i_135_)
 	{
-		anInt900++;
 		final Mob class15 = maybe_playerArray[i];
 		if (class15.anInt155 != 255)
 		{
@@ -2134,7 +1988,6 @@ public final class mudclient extends GameWindow
 	private Mob method512(final int i, final int i_158_, final int i_159_, final int i_160_, final int i_161_,
 	        final int i_162_)
 	{
-		anInt838++;
 		if (aClass15Array6[i_159_] == null)
 		{
 			aClass15Array6[i_159_] = new Mob();
@@ -2180,7 +2033,6 @@ public final class mudclient extends GameWindow
 	private void displayMessage(final int i, final String string, final int i_165_, final String string_166_,
 	        final int i_167_, final String string_168_, final String string_169_, final boolean bool)
 	{
-		anInt892++;
 		if (((i_165_ == 1) || (i_165_ == 4) || (i_165_ == 6)) && (string_169_ != null) && !bool)
 		{
 			final String string_170_ = Class43.method298((byte) 125, string_169_);
@@ -2190,13 +2042,13 @@ public final class mudclient extends GameWindow
 			}
 			for (int i_171_ = 0; i_171_ < Class10.anInt129; i_171_++)
 			{
-				if (string_170_.equals(Class43.method298((byte) 50, (Class41.aStringArray28[i_171_]))))
+				if (string_170_.equals(Class43.method298((byte) 50, (Camera.aStringArray28[i_171_]))))
 				{
 					return;
 				}
 			}
 		}
-		String string_172_ = Class26.aStringArray20[i_165_];
+		String string_172_ = CameraModel.aStringArray20[i_165_];
 		if (string_168_ != null)
 		{
 			string_172_ = string_168_;
@@ -2240,7 +2092,7 @@ public final class mudclient extends GameWindow
 			Class13.aStringArray13[i_173_] = Class13.aStringArray13[i_173_ + -1];
 			Class27.aStringArray23[i_173_] = Class27.aStringArray23[i_173_ + -1];
 			Class2.aStringArray3[i_173_] = Class2.aStringArray3[i_173_ + -1];
-			Class26.aStringArray21[i_173_] = Class26.aStringArray21[i_173_ + -1];
+			CameraModel.aStringArray21[i_173_] = CameraModel.aStringArray21[i_173_ + -1];
 		}
 		ByteBuffer.anIntArray142[0] = i_165_;
 		Class29.anIntArray83[0] = 300;
@@ -2248,7 +2100,7 @@ public final class mudclient extends GameWindow
 		Class13.aStringArray13[0] = string_166_;
 		Class27.aStringArray23[0] = string_169_;
 		Class2.aStringArray3[0] = string;
-		Class26.aStringArray21[0] = string_172_;
+		CameraModel.aStringArray21[0] = string_172_;
 		final String string_174_ = new StringBuilder().append(string_172_)
 		        .append(Class13.method110(string, string_166_, i_165_, -6187)).toString();
 		if (i_165_ == 4)
@@ -2293,7 +2145,6 @@ public final class mudclient extends GameWindow
 
 	private void method514(final int i)
 	{
-		anInt828++;
 		if (((anInt976 == 1) && aClass10_2.method81(true, anInt1052))
 		        || ((anInt976 == 3) && aClass10_2.method81(true, anInt990)))
 		{
@@ -2318,7 +2169,7 @@ public final class mudclient extends GameWindow
 				        || (ByteBuffer.anIntArray142[i_180_] == 1) || (ByteBuffer.anIntArray142[i_180_] == 5)
 				        || (ByteBuffer.anIntArray142[i_180_] == 6)))
 				{
-					final String string = new StringBuilder().append(Class26.aStringArray21[i_180_])
+					final String string = new StringBuilder().append(CameraModel.aStringArray21[i_180_])
 					        .append(Class13.method110(Class2.aStringArray3[i_180_], (Class13.aStringArray13[i_180_]),
 					                (ByteBuffer.anIntArray142[i_180_]), i ^ ~0x3f3a))
 					        .toString();
@@ -2344,14 +2195,14 @@ public final class mudclient extends GameWindow
 			aBoolArray14[i_183_] = false;
 		}
 		final int i_184_ = aClass41_2.method282(-1);
-		final Class23[] class23s = aClass41_2.method295(i + -28238);
+		final Model[] class23s = aClass41_2.method295(i + -28238);
 		if (i == 10000)
 		{
 			final int[] is = aClass41_2.method266((byte) -68);
 			for (int i_185_ = 0; (i_184_ > i_185_) && (aClass29_1.method198(-116) <= 200); i_185_++)
 			{
 				int i_186_ = is[i_185_];
-				final Class23 class23 = class23s[i_185_];
+				final Model class23 = class23s[i_185_];
 				if ((65535 >= class23.anIntArray60[i_186_])
 				        || ((200000 <= class23.anIntArray60[i_186_]) && (300000 >= class23.anIntArray60[i_186_])))
 				{
@@ -2475,11 +2326,11 @@ public final class mudclient extends GameWindow
 							{
 								aClass29_1.method193(anIntArray201[i_187_],
 								        new StringBuilder().append("@lre@")
-								                .append(Class26.aStringArray19[anIntArray201[i_187_]]).toString(),
+								                .append(CameraModel.aStringArray19[anIntArray201[i_187_]]).toString(),
 								        "Take", 220, anIntArray199[i_187_], 2743, anIntArray192[i_187_]);
 								aClass29_1.method196("Examine", 3200,
 								        new StringBuilder().append("@lre@")
-								                .append(Class26.aStringArray19[(anIntArray201[i_187_])]).toString(),
+								                .append(CameraModel.aStringArray19[(anIntArray201[i_187_])]).toString(),
 								        (byte) 91, anIntArray201[i_187_]);
 							}
 							else
@@ -2487,7 +2338,7 @@ public final class mudclient extends GameWindow
 								aClass29_1.method185(
 								        new StringBuilder().append("Use ").append(aString30).append(" with").toString(),
 								        new StringBuilder().append("@lre@")
-								                .append(Class26.aStringArray19[anIntArray201[i_187_]]).toString(),
+								                .append(CameraModel.aStringArray19[anIntArray201[i_187_]]).toString(),
 								        anIntArray201[i_187_], anIntArray199[i_187_], 210, anInt989,
 								        anIntArray192[i_187_], (byte) -37);
 							}
@@ -2498,7 +2349,7 @@ public final class mudclient extends GameWindow
 							        new StringBuilder().append("Cast ").append(GameImageMiddleMan.aStringArray36[anInt940])
 							                .append(" on").toString(),
 							        new StringBuilder().append("@lre@")
-							                .append(Class26.aStringArray19[anIntArray201[i_187_]]).toString(),
+							                .append(CameraModel.aStringArray19[anIntArray201[i_187_]]).toString(),
 							        anIntArray201[i_187_], anIntArray199[i_187_], 200, anInt940, anIntArray192[i_187_],
 							        (byte) -37);
 						}
@@ -2584,7 +2435,7 @@ public final class mudclient extends GameWindow
 								{
 									aClass29_1.method185(new StringBuilder().append("Cast ")
 									        .append(GameImageMiddleMan.aStringArray36[anInt940]).append(" on").toString(),
-									        new StringBuilder().append("@cya@").append(Class23.aStringArray17[i_196_])
+									        new StringBuilder().append("@cya@").append(Model.aStringArray17[i_196_])
 									                .toString(),
 									        anIntArray163[i_195_], anIntArray167[i_195_], 300, anInt940,
 									        anIntArray176[i_195_], (byte) -37);
@@ -2594,7 +2445,7 @@ public final class mudclient extends GameWindow
 							{
 								aClass29_1.method185(
 								        new StringBuilder().append("Use ").append(aString30).append(" with").toString(),
-								        new StringBuilder().append("@cya@").append(Class23.aStringArray17[i_196_])
+								        new StringBuilder().append("@cya@").append(Model.aStringArray17[i_196_])
 								                .toString(),
 								        anIntArray163[i_195_], anIntArray167[i_195_], 310, anInt989,
 								        anIntArray176[i_195_], (byte) -37);
@@ -2604,7 +2455,7 @@ public final class mudclient extends GameWindow
 								if (!IOException_Sub1.aStringArray40[i_196_].equalsIgnoreCase("WalkTo"))
 								{
 									aClass29_1.method193(anIntArray163[i_195_],
-									        new StringBuilder().append("@cya@").append(Class23.aStringArray17[i_196_])
+									        new StringBuilder().append("@cya@").append(Model.aStringArray17[i_196_])
 									                .toString(),
 									        (IOException_Sub1.aStringArray40[i_196_]), 320, anIntArray167[i_195_], 2743,
 									        anIntArray176[i_195_]);
@@ -2612,14 +2463,14 @@ public final class mudclient extends GameWindow
 								if (!Class18.aStringArray15[i_196_].equalsIgnoreCase("Examine"))
 								{
 									aClass29_1.method193(anIntArray163[i_195_],
-									        new StringBuilder().append("@cya@").append(Class23.aStringArray17[i_196_])
+									        new StringBuilder().append("@cya@").append(Model.aStringArray17[i_196_])
 									                .toString(),
 									        Class18.aStringArray15[i_196_], 2300, anIntArray167[i_195_], 2743,
 									        anIntArray176[i_195_]);
 								}
 								aClass29_1.method196(
 								        "Examine", 3300, new StringBuilder().append("@cya@")
-								                .append(Class23.aStringArray17[i_196_]).toString(),
+								                .append(Model.aStringArray17[i_196_]).toString(),
 								        (byte) -112, i_196_);
 							}
 							aBoolArray14[i_195_] = true;
@@ -2660,7 +2511,6 @@ public final class mudclient extends GameWindow
 	void method515(final int i, final int i_198_, final int i_199_, final int i_200_, final int i_201_,
 	        final int i_202_, final int i_203_)
 	{
-		anInt759++;
 		final int i_205_ = anIntArray214[i_199_];
 		final int i_206_ = anIntArray208[i_199_];
 		if (i_205_ == 0)
@@ -2679,14 +2529,12 @@ public final class mudclient extends GameWindow
 
 	private void method516(final String[] strings, final int i, final int i_209_, final boolean bool)
 	{
-		anInt771++;
 		method578("", (byte) -107, bool, i, strings);
 	}
 
 	private void method517(final boolean bool, final boolean bool_211_)
 	{
-		anInt770++;
-		int i = aClass46_Sub1_2.maybe_imageWidth + -248;
+		int i = aClass46_Sub1_2.menuDefaultHeight + -248;
 		aClass46_Sub1_2.method338(anInt935 + 1, 3, i, (byte) -70);
 		for (int i_212_ = 0; i_212_ < anInt973; i_212_++)
 		{
@@ -2722,7 +2570,7 @@ public final class mudclient extends GameWindow
 		}
 		if (bool)
 		{
-			i = 248 - (aClass46_Sub1_2.maybe_imageWidth - this.mouseX);
+			i = 248 - (aClass46_Sub1_2.menuDefaultHeight - this.mouseX);
 			final int i_217_ = this.mouseY + -36;
 			if ((i >= 0) && (i_217_ >= 0) && (i < 248) && (i_217_ < ((anInt973 / 5) * 34)))
 			{
@@ -2749,35 +2597,35 @@ public final class mudclient extends GameWindow
 									}
 									aClass29_1.method196(
 									        string, 630, new StringBuilder().append("@lre@")
-									                .append(Class26.aStringArray19[i_219_]).toString(),
+									                .append(CameraModel.aStringArray19[i_219_]).toString(),
 									        (byte) -118, i_218_);
 								}
 							}
 							else
 							{
 								aClass29_1.method196("Remove", 620, new StringBuilder().append("@lre@")
-								        .append(Class26.aStringArray19[i_219_]).toString(), (byte) 77, i_218_);
+								        .append(CameraModel.aStringArray19[i_219_]).toString(), (byte) 77, i_218_);
 							}
 							if (!Class38.aStringArray27[i_219_].equals(""))
 							{
 								aClass29_1
 								        .method196(Class38.aStringArray27[i_219_], 640,
 								                new StringBuilder().append("@lre@")
-								                        .append(Class26.aStringArray19[i_219_]).toString(),
+								                        .append(CameraModel.aStringArray19[i_219_]).toString(),
 								                (byte) 106, i_218_);
 							}
 							aClass29_1.method196("Use", 650, new StringBuilder().append("@lre@")
-							        .append(Class26.aStringArray19[i_219_]).toString(), (byte) 121, i_218_);
+							        .append(CameraModel.aStringArray19[i_219_]).toString(), (byte) 121, i_218_);
 							aClass29_1.method196("Drop", 660, new StringBuilder().append("@lre@")
-							        .append(Class26.aStringArray19[i_219_]).toString(), (byte) -69, i_218_);
+							        .append(CameraModel.aStringArray19[i_219_]).toString(), (byte) -69, i_218_);
 							aClass29_1.method196("Examine", 3600, new StringBuilder().append("@lre@")
-							        .append(Class26.aStringArray19[i_219_]).toString(), (byte) 122, i_219_);
+							        .append(CameraModel.aStringArray19[i_219_]).toString(), (byte) 122, i_219_);
 						}
 						else
 						{
 							aClass29_1.method195(
 							        new StringBuilder().append("Use ").append(aString30).append(" with").toString(),
-							        i_218_, new StringBuilder().append("@lre@").append(Class26.aStringArray19[i_219_])
+							        i_218_, new StringBuilder().append("@lre@").append(CameraModel.aStringArray19[i_219_])
 							                .toString(),
 							        0, anInt989, 610);
 						}
@@ -2788,7 +2636,7 @@ public final class mudclient extends GameWindow
 						        new StringBuilder().append("Cast ").append(GameImageMiddleMan.aStringArray36[anInt940])
 						                .append(" on").toString(),
 						        i_218_,
-						        new StringBuilder().append("@lre@").append(Class26.aStringArray19[i_219_]).toString(),
+						        new StringBuilder().append("@lre@").append(CameraModel.aStringArray19[i_219_]).toString(),
 						        0, anInt940, 600);
 					}
 				}
@@ -2798,8 +2646,7 @@ public final class mudclient extends GameWindow
 
 	private void drawOptionsMenu(final boolean flag, final byte i)
 	{
-		anInt757++;
-		int i_220_ = aClass46_Sub1_2.maybe_imageWidth + -199;
+		int i_220_ = aClass46_Sub1_2.menuDefaultHeight + -199;
 		int i_221_ = 36;
 		aClass46_Sub1_2.method338(anInt935 + 6, 3, i_220_ - 49, (byte) -70);
 		int i_222_ = 196;
@@ -2932,11 +2779,11 @@ public final class mudclient extends GameWindow
 		aClass46_Sub1_2.method324("Click here to logout", 0, 1, i_227_, i_220_ + 3, i_225_);
 		if (flag)
 		{
-			i_220_ = (this.mouseX + -aClass46_Sub1_2.maybe_imageWidth + 199);
+			i_220_ = (this.mouseX + -aClass46_Sub1_2.menuDefaultHeight + 199);
 			i_221_ = this.mouseY + -36;
 			if ((0 <= i_220_) && (i_221_ >= 0) && (196 > i_220_) && (i_221_ < 265))
 			{
-				final int i_228_ = aClass46_Sub1_2.maybe_imageWidth - 199;
+				final int i_228_ = aClass46_Sub1_2.menuDefaultHeight - 199;
 				final int i_229_ = 36;
 				i_224_ = i_228_ + 3;
 				i_222_ = 196;
@@ -3033,7 +2880,6 @@ public final class mudclient extends GameWindow
 
 	private void login(final int arg1, final String pass, final String user, final boolean reconnecting)
 	{
-		anInt839++;
 		if (anInt902 > 0)
 		{
 			showLoginScreenStatus("Please wait...", "Connecting to server", false);
@@ -3343,7 +3189,6 @@ public final class mudclient extends GameWindow
 
 	private void method520(final byte i)
 	{
-		anInt769++;
 		aClass10_1.method85(this.mouseDownButton, this.mouseY, this.lastMouseDownButton, (byte) -124, this.mouseX);
 		if (aClass10_1.method81(true, anInt968))
 		{
@@ -3429,7 +3274,6 @@ public final class mudclient extends GameWindow
 
 	private void method521(final byte i)
 	{
-		anInt897++;
 		boolean bool = false;
 		if (logoutTimeout == 0)
 		{
@@ -3567,7 +3411,6 @@ public final class mudclient extends GameWindow
 
 	private Socket makeSocket(final String host, final int port) throws IOException
 	{
-		anInt846++;
 		Socket socket;
 		if ((Class38.gameFrame != null) || (Class27.anApplet1 == null))
 		{
@@ -3604,7 +3447,6 @@ public final class mudclient extends GameWindow
 
 	private void method523(final int i, final int i_243_, final int i_244_)
 	{
-		anInt815++;
 		final int i_245_ = anIntArray180[i_243_];
 		final int i_246_ = 0 <= i ? i : anInt1036;
 		if (Class1.anIntArray1[i_245_] != 0)
@@ -3657,7 +3499,6 @@ public final class mudclient extends GameWindow
 
 	private void method524(final int i, final int i_252_, final int i_253_)
 	{
-		anInt874++;
 		boolean bool = false;
 		int i_254_ = 0;
 		final int i_255_ = anIntArray194[i_252_];
@@ -3780,7 +3621,6 @@ public final class mudclient extends GameWindow
 				anIntArray203[i_261_] = i_264_;
 				aClass46_Sub1_2.method333(i_264_, (byte) -7, 300, 1, 16776960, aStringArray47[i_261_], i_263_, false);
 			}
-			anInt775++;
 			for (int i_268_ = 0; i_268_ < anInt960; i_268_++)
 			{
 				final int i_269_ = anIntArray217[i_268_];
@@ -3810,7 +3650,6 @@ public final class mudclient extends GameWindow
 
 	private boolean method526(final int i, final byte i_282_, final int i_283_)
 	{
-		anInt789++;
 		if ((i_283_ != 31)
 		        || (!method565((byte) 97, 197) && !method565((byte) -44, 615) && !method565((byte) 108, 682)))
 		{
@@ -3849,7 +3688,6 @@ public final class mudclient extends GameWindow
 
 	private void drawInputBox()
 	{
-		anInt837++;
 		if (anInt887 != 0)
 		{
 			anInt887 = 0;
@@ -3951,7 +3789,6 @@ public final class mudclient extends GameWindow
 
 	private void method528(final int i)
 	{
-		anInt766++;
 		int i_287_ = -1;
 		if ((anInt887 != 0) && aBool87)
 		{
@@ -4034,15 +3871,15 @@ public final class mudclient extends GameWindow
 								aBool87 = true;
 								aClass29_2.method190(true);
 								aClass29_2.method195("Offer 1", i_295_, new StringBuilder().append("@lre@")
-								        .append(Class26.aStringArray19[i_295_]).toString(), 0, 1, 1);
+								        .append(CameraModel.aStringArray19[i_295_]).toString(), 0, 1, 1);
 								aClass29_2.method195("Offer 5", i_295_, new StringBuilder().append("@lre@")
-								        .append(Class26.aStringArray19[i_295_]).toString(), 0, 5, 1);
+								        .append(CameraModel.aStringArray19[i_295_]).toString(), 0, 5, 1);
 								aClass29_2.method195("Offer 10", i_295_, new StringBuilder().append("@lre@")
-								        .append(Class26.aStringArray19[i_295_]).toString(), 0, 10, 1);
+								        .append(CameraModel.aStringArray19[i_295_]).toString(), 0, 10, 1);
 								aClass29_2.method195("Offer All", i_295_, new StringBuilder().append("@lre@")
-								        .append(Class26.aStringArray19[i_295_]).toString(), i ^ 0x1, -1, 1);
+								        .append(CameraModel.aStringArray19[i_295_]).toString(), i ^ 0x1, -1, 1);
 								aClass29_2.method195("Offer X", i_295_, new StringBuilder().append("@lre@")
-								        .append(Class26.aStringArray19[i_295_]).toString(), 0, -2, 1);
+								        .append(CameraModel.aStringArray19[i_295_]).toString(), 0, -2, 1);
 								final int i_296_ = aClass29_2.method207(true);
 								final int i_297_ = aClass29_2.method210(0);
 								anInt1058 = this.mouseY + -7;
@@ -4074,15 +3911,15 @@ public final class mudclient extends GameWindow
 								aBool87 = true;
 								aClass29_2.method190(true);
 								aClass29_2.method195("Remove 1", i_299_, new StringBuilder().append("@lre@")
-								        .append(Class26.aStringArray19[i_299_]).toString(), 0, 1, 2);
+								        .append(CameraModel.aStringArray19[i_299_]).toString(), 0, 1, 2);
 								aClass29_2.method195("Remove 5", i_299_, new StringBuilder().append("@lre@")
-								        .append(Class26.aStringArray19[i_299_]).toString(), 0, 5, 2);
+								        .append(CameraModel.aStringArray19[i_299_]).toString(), 0, 5, 2);
 								aClass29_2.method195("Remove 10", i_299_, new StringBuilder().append("@lre@")
-								        .append(Class26.aStringArray19[i_299_]).toString(), 0, 10, 2);
+								        .append(CameraModel.aStringArray19[i_299_]).toString(), 0, 10, 2);
 								aClass29_2.method195("Remove All", i_299_, new StringBuilder().append("@lre@")
-								        .append(Class26.aStringArray19[i_299_]).toString(), 0, -1, 2);
+								        .append(CameraModel.aStringArray19[i_299_]).toString(), 0, -1, 2);
 								aClass29_2.method195("Remove X", i_299_, new StringBuilder().append("@lre@")
-								        .append(Class26.aStringArray19[i_299_]).toString(), 0, -2, 2);
+								        .append(CameraModel.aStringArray19[i_299_]).toString(), 0, -2, 2);
 								final int i_300_ = aClass29_2.method207(true);
 								final int i_301_ = aClass29_2.method210(0);
 								anInt944 = this.mouseX - (i_300_ / 2);
@@ -4295,7 +4132,7 @@ public final class mudclient extends GameWindow
 				        && (this.mouseY < (i_324_ + 32)))
 				{
 					aClass46_Sub1_2.method324(
-					        new StringBuilder().append(Class26.aStringArray19[anIntArray180[i_322_]]).append(": @whi@")
+					        new StringBuilder().append(CameraModel.aStringArray19[anIntArray180[i_322_]]).append(": @whi@")
 					                .append(Class28.aStringArray25[anIntArray180[i_322_]]).toString(),
 					        0, 1, 16776960, i_311_ + 8, i_312_ - -273);
 				}
@@ -4316,7 +4153,7 @@ public final class mudclient extends GameWindow
 				        && (this.mouseY < (i_327_ + 32)))
 				{
 					aClass46_Sub1_2.method324(
-					        new StringBuilder().append(Class26.aStringArray19[anIntArray181[i_325_]]).append(": @whi@")
+					        new StringBuilder().append(CameraModel.aStringArray19[anIntArray181[i_325_]]).append(": @whi@")
 					                .append(Class28.aStringArray25[anIntArray181[i_325_]]).toString(),
 					        0, 1, 16776960, i_311_ + 8, i_312_ - -273);
 				}
@@ -4330,7 +4167,6 @@ public final class mudclient extends GameWindow
 
 	private void method529(final int i)
 	{
-		anInt924++;
 		anInt899 = 0;
 		if (i < -97)
 		{
@@ -4343,7 +4179,6 @@ public final class mudclient extends GameWindow
 	void drawGroundItem(final boolean bool, final int i, final int i_328_, final int i_329_, final int i_330_,
 	        final int i_331_, final int i_332_)
 	{
-		anInt881++;
 		final int i_333_ = AClass1_Sub1.anIntArray144[i_328_] + anInt863;
 		final int i_334_ = GameImage.anIntArray133[i_328_];
 		aClass46_Sub1_2.method348(false, 0, -90, i_329_, i_330_, i_332_, 0, i_333_, i_334_, i_331_);
@@ -4351,7 +4186,6 @@ public final class mudclient extends GameWindow
 
 	private void method531(final int i)
 	{
-		anInt909++;
 		final int i_335_ = 0;
 		final int i_336_ = 50;
 		final int i_337_ = 50;
@@ -4411,11 +4245,11 @@ public final class mudclient extends GameWindow
 		i_338_ = 11136;
 		for (int i_346_ = 0; i_346_ < 64; i_346_++)
 		{
-			aClass41_2.method294((aClass6_1.aClass23ArrayArray2[0][i_346_]), 1);
-			aClass41_2.method294((aClass6_1.aClass23ArrayArray1[1][i_346_]), 1);
-			aClass41_2.method294((aClass6_1.aClass23ArrayArray2[1][i_346_]), 1);
-			aClass41_2.method294((aClass6_1.aClass23ArrayArray1[2][i_346_]), i + -3630);
-			aClass41_2.method294((aClass6_1.aClass23ArrayArray2[2][i_346_]), 1);
+			aClass41_2.removeModel((aClass6_1.aClass23ArrayArray2[0][i_346_]), 1);
+			aClass41_2.removeModel((aClass6_1.aClass23ArrayArray1[1][i_346_]), 1);
+			aClass41_2.removeModel((aClass6_1.aClass23ArrayArray2[1][i_346_]), 1);
+			aClass41_2.removeModel((aClass6_1.aClass23ArrayArray1[2][i_346_]), i + -3630);
+			aClass41_2.removeModel((aClass6_1.aClass23ArrayArray2[2][i_346_]), 1);
 		}
 		i_341_ = 376;
 		i_339_ = 500;
@@ -4447,8 +4281,7 @@ public final class mudclient extends GameWindow
 
 	private void method532(final byte i, final boolean bool)
 	{
-		anInt798++;
-		int i_349_ = aClass46_Sub1_2.maybe_imageWidth - 199;
+		int i_349_ = aClass46_Sub1_2.menuDefaultHeight - 199;
 		aClass46_Sub1_2.method338(anInt935 - -5, 3, i_349_ + -49, (byte) -70);
 		int i_350_ = 36;
 		final int i_351_ = 196;
@@ -4587,12 +4420,12 @@ public final class mudclient extends GameWindow
 		}
 		if (bool)
 		{
-			i_349_ = (-aClass46_Sub1_2.maybe_imageWidth - (-199 - this.mouseX));
+			i_349_ = (-aClass46_Sub1_2.menuDefaultHeight - (-199 - this.mouseX));
 			i_350_ = this.mouseY + -36;
 			if ((0 <= i_349_) && (i_350_ >= 0) && (i_349_ < 196) && (182 > i_350_))
 			{
 				aClass10_4.method85(this.mouseDownButton, i_350_ + 36, this.lastMouseDownButton, (byte) -97,
-				        (aClass46_Sub1_2.maybe_imageWidth + i_349_ + -199));
+				        (aClass46_Sub1_2.menuDefaultHeight + i_349_ + -199));
 				if ((24 >= i_350_) && (anInt887 == 1))
 				{
 					if ((98 <= i_349_) || (anInt1042 != 1))
@@ -4632,7 +4465,7 @@ public final class mudclient extends GameWindow
 					final int i_367_ = aClass10_4.method92(false, anInt951);
 					if ((0 <= i_367_) && (489 > this.mouseX) && (429 < this.mouseX))
 					{
-						method494((byte) -83, Class41.aStringArray28[i_367_]);
+						method494((byte) -83, Camera.aStringArray28[i_367_]);
 					}
 				}
 				if ((i_350_ > 166) && (anInt887 == 1) && (anInt1042 == 0))
@@ -4660,7 +4493,6 @@ public final class mudclient extends GameWindow
 			method599(-17269);
 			this.aBool37 = false;
 		}
-		anInt780++;
 		if (aBool52)
 		{
 			final Graphics graphics = getGraphics();
@@ -4763,7 +4595,6 @@ public final class mudclient extends GameWindow
 				aClass10_5.method98(!bool, string_368_, anInt1037);
 			}
 		}
-		anInt832++;
 		method593((byte) 44);
 		if (bool)
 		{
@@ -4774,7 +4605,6 @@ public final class mudclient extends GameWindow
 
 	private void method534(final int i)
 	{
-		anInt870++;
 		if (anInt887 != 0)
 		{
 			final int i_369_ = aClass29_1.method197(this.mouseX, this.mouseY, anInt984, anInt955, 0);
@@ -4803,7 +4633,6 @@ public final class mudclient extends GameWindow
 
 	private void method535(final int i)
 	{
-		anInt811++;
 		if ((this.aString26.length() <= 0) && !aBool60)
 		{
 			if ((anInt971 >= 1) && (anInt971 <= 8))
@@ -5044,14 +4873,12 @@ public final class mudclient extends GameWindow
 
 	private boolean method536(final byte i)
 	{
-		anInt818++;
 		return true;
 	}
 
 	private void method537(final boolean bool)
 	{
 		aClass10_7 = new Class10(aClass46_Sub1_2, 50);
-		anInt822++;
 		int i = 40;
 		aClass10_7.method72(255, i + 200, bool, 4, 256, "Welcome to RuneScape Classic");
 		String string = null;
@@ -5103,7 +4930,6 @@ public final class mudclient extends GameWindow
 
 	private void method538(final int i, final int i_389_, final int i_390_)
 	{
-		anInt831++;
 		final int i_391_ = anIntArray182[i_390_];
 		final int i_392_ = 0 > i_389_ ? anInt1036 : i_389_;
 		if (Class1.anIntArray1[i_391_] == 0)
@@ -5151,7 +4977,6 @@ public final class mudclient extends GameWindow
 
 	private void method539(final int i, final int i_399_, final String string)
 	{
-		anInt889++;
 		final int i_400_ = anIntArray191[i];
 		final int i_401_ = anIntArray170[i];
 		final int i_402_ = i_400_ + -(aClass15_1.maybe_currentX / 128);
@@ -5160,9 +4985,9 @@ public final class mudclient extends GameWindow
 		if ((0 <= i_400_) && (0 <= i_401_) && (96 > i_400_) && (i_401_ < 96) && (-i_404_ < i_402_) && (i_404_ > i_402_)
 		        && (-i_404_ < i_403_) && (i_404_ > i_403_))
 		{
-			aClass41_2.method294(aClass23Array4[i], 1);
+			aClass41_2.removeModel(aClass23Array4[i], 1);
 			final int i_405_ = AClass1_Sub1.method422(string, -93);
-			final Class23 class23 = aClass23Array6[i_405_].method166(112);
+			final Model class23 = aClass23Array6[i_405_].method166(112);
 			aClass41_2.method267(class23, (byte) 47);
 			class23.method151(-50, 48, 256, 48, true, -10, -50);
 			class23.method159(-128, aClass23Array4[i]);
@@ -5173,7 +4998,6 @@ public final class mudclient extends GameWindow
 
 	private void method540(final byte i)
 	{
-		anInt781++;
 		if (i != 46)
 		{
 			anIntArray189 = null;
@@ -5184,7 +5008,6 @@ public final class mudclient extends GameWindow
 
 	private boolean method541(final int i, final int i_406_)
 	{
-		anInt767++;
 		final int i_408_ = aClass15_1.maybe_currentX / 128;
 		final int i_409_ = aClass15_1.maybe_currentY / 128;
 		for (int i_410_ = 2; i_410_ >= 1; i_410_--)
@@ -5235,7 +5058,6 @@ public final class mudclient extends GameWindow
 
 	private void method542(final String string, final int i, final String string_411_)
 	{
-		anInt826++;
 		streamClass.createPacket(i, 67);
 		streamClass.aClass27_Sub1_Sub1_1.method389(0, string_411_);
 		Class39.method255((streamClass.aClass27_Sub1_Sub1_1), false, string);
@@ -5244,7 +5066,6 @@ public final class mudclient extends GameWindow
 
 	private void method543(final boolean bool)
 	{
-		anInt833++;
 		final int i = 22;
 		final int i_412_ = 36;
 		aClass46_Sub1_2.method321(i_412_, 192, 16, 468, i, 1);
@@ -5256,7 +5077,7 @@ public final class mudclient extends GameWindow
 		aClass46_Sub1_2.method335(16776960, 255, 1, "You are about to give:", i_412_ + 30, i + 117);
 		for (int i_414_ = 0; i_414_ < anInt1038; i_414_++)
 		{
-			String string = Class26.aStringArray19[anIntArray172[i_414_]];
+			String string = CameraModel.aStringArray19[anIntArray172[i_414_]];
 			if (Class1.anIntArray1[anIntArray172[i_414_]] == 0)
 			{
 				string = new StringBuilder().append(string).append(" x ")
@@ -5271,7 +5092,7 @@ public final class mudclient extends GameWindow
 		aClass46_Sub1_2.method335(16776960, 255, 1, "In return you will receive:", i_412_ + 30, i + 351);
 		for (int i_415_ = 0; anInt998 > i_415_; i_415_++)
 		{
-			String string = Class26.aStringArray19[anIntArray159[i_415_]];
+			String string = CameraModel.aStringArray19[anIntArray159[i_415_]];
 			if (Class1.anIntArray1[anIntArray159[i_415_]] == 0)
 			{
 				string = new StringBuilder().append(string).append(" x ")
@@ -5330,7 +5151,6 @@ public final class mudclient extends GameWindow
 		{
 			method538(-39, -41, -43);
 		}
-		anInt871++;
 		if (bool && (streamClass != null))
 		{
 			try
@@ -5351,7 +5171,6 @@ public final class mudclient extends GameWindow
 	private void method545(final int i, final int i_416_, final int i_417_, final int i_418_, final boolean bool,
 	        final byte i_419_)
 	{
-		anInt817++;
 		if (!method557(i, i_418_, i_418_, i_417_, i_419_ + 229, bool, i_416_, false, i_417_))
 		{
 			method552(i_417_, bool, i_418_, i, i_418_, i_417_, i_416_, true, true);
@@ -5364,7 +5183,6 @@ public final class mudclient extends GameWindow
 
 	private void method546(final byte i)
 	{
-		anInt872++;
 		if ((anInt887 != 0) && (anInt971 == 0))
 		{
 			anInt887 = 0;
@@ -5534,7 +5352,7 @@ public final class mudclient extends GameWindow
 					final int i_444_ = Class35.method228(anInt1024, Mob.anIntArray40[i_442_], 1, true, i_443_,
 					        anInt959, anIntArray174[anInt972], 123);
 					aClass46_Sub1_2.method324(
-					        new StringBuilder().append(Class26.aStringArray19[i_442_]).append(": buy for ")
+					        new StringBuilder().append(CameraModel.aStringArray19[i_442_]).append(": buy for ")
 					                .append(i_444_).append("gp each").toString(),
 					        0, 1, 16776960, i_432_ + 2, i_433_ + 214);
 					final boolean bool = ((this.mouseY >= (i_433_ + 204)) && ((i_433_ + 215) >= this.mouseY));
@@ -5595,7 +5413,7 @@ public final class mudclient extends GameWindow
 					final int i_446_ = Class35.method228(anInt1013, Mob.anIntArray40[i_442_], 1, false, i_443_,
 					        anInt959, anIntArray174[anInt972], 112);
 					aClass46_Sub1_2.method324(
-					        new StringBuilder().append(Class26.aStringArray19[i_442_]).append(": sell for ")
+					        new StringBuilder().append(CameraModel.aStringArray19[i_442_]).append(": sell for ")
 					                .append(i_446_).append("gp each").toString(),
 					        0, 1, 16776960, i_432_ + 2, i_433_ + 239);
 					final boolean bool = ((this.mouseY >= (i_433_ - -229)) && (this.mouseY <= (i_433_ - -240)));
@@ -5646,7 +5464,6 @@ public final class mudclient extends GameWindow
 
 	private void method547(final byte i, final int i_447_, final int i_448_)
 	{
-		anInt805++;
 		if (i_447_ == 191)
 		{
 			anInt859 = maybe_playerCount;
@@ -5844,7 +5661,7 @@ public final class mudclient extends GameWindow
 						}
 						else
 						{
-							aClass41_2.method294(aClass23Array4[i_480_], 1);
+							aClass41_2.removeModel(aClass23Array4[i_480_], 1);
 							aClass6_1.method26(anIntArray178[i_480_], anIntArray170[i_480_], anIntArray191[i_480_],
 							        -30895);
 						}
@@ -5875,7 +5692,7 @@ public final class mudclient extends GameWindow
 						}
 						else
 						{
-							aClass41_2.method294(aClass23Array4[i_487_], 1);
+							aClass41_2.removeModel(aClass23Array4[i_487_], 1);
 							aClass6_1.method26(anIntArray178[i_487_], anIntArray170[i_487_], anIntArray191[i_487_],
 							        i ^ 0x788f);
 						}
@@ -5899,7 +5716,7 @@ public final class mudclient extends GameWindow
 						final int i_491_ = (((i_484_ + i_484_) - -i_490_) * magicLoc) / 2;
 						final int i_492_ = ((i_489_ + i_485_ + i_485_) * magicLoc) / 2;
 						final int i_493_ = IOException_Sub1.anIntArray149[i_483_];
-						final Class23 class23 = aClass23Array6[i_493_].method166(114);
+						final Model class23 = aClass23Array6[i_493_].method166(114);
 						aClass41_2.method267(class23, (byte) -100);
 						class23.anInt288 = anInt1022;
 						class23.method141(-26160, 0, i_488_ * 32, 0);
@@ -5964,7 +5781,7 @@ public final class mudclient extends GameWindow
 								for (int i_502_ = 0; i_502_ < Class10.anInt129; i_502_++)
 								{
 									if (string_501_
-									        .equals(Class43.method298((byte) -54, (Class41.aStringArray28[i_502_]))))
+									        .equals(Class43.method298((byte) -54, (Camera.aStringArray28[i_502_]))))
 									{
 										bool = true;
 										break;
@@ -6108,7 +5925,7 @@ public final class mudclient extends GameWindow
 						}
 						else
 						{
-							aClass41_2.method294(aClass23Array5[i_520_], 1);
+							aClass41_2.removeModel(aClass23Array5[i_520_], 1);
 							aClass6_1.method42(anIntArray163[i_520_], anIntArray176[i_520_], false,
 							        anIntArray190[i_520_], anIntArray167[i_520_]);
 						}
@@ -6117,7 +5934,7 @@ public final class mudclient extends GameWindow
 					if (i_515_ != 65535)
 					{
 						aClass6_1.method15(16, i_518_, i_516_, i_515_, i_517_);
-						final Class23 class23 = method506(false, anInt957, i_515_, i_516_, i_517_, i_518_);
+						final Model class23 = method506(false, anInt957, i_515_, i_516_, i_517_, i_518_);
 						aClass23Array5[anInt957] = class23;
 						anIntArray176[anInt957] = i_516_;
 						anIntArray167[anInt957] = i_517_;
@@ -6149,7 +5966,7 @@ public final class mudclient extends GameWindow
 						}
 						else
 						{
-							aClass41_2.method294(aClass23Array5[i_524_], 1);
+							aClass41_2.removeModel(aClass23Array5[i_524_], 1);
 							aClass6_1.method42(anIntArray163[i_524_], anIntArray176[i_524_], false,
 							        anIntArray190[i_524_], anIntArray167[i_524_]);
 						}
@@ -6377,7 +6194,7 @@ public final class mudclient extends GameWindow
 					}
 					else
 					{
-						aClass41_2.method294(aClass23Array4[i_566_], 1);
+						aClass41_2.removeModel(aClass23Array4[i_566_], 1);
 						aClass6_1.method26(anIntArray178[i_566_], anIntArray170[i_566_], anIntArray191[i_566_], -30895);
 					}
 				}
@@ -6389,7 +6206,7 @@ public final class mudclient extends GameWindow
 					final int i_571_ = (anIntArray167[i_569_] >> 3) + -i_561_;
 					if ((i_570_ == 0) && (i_571_ == 0))
 					{
-						aClass41_2.method294(aClass23Array5[i_569_], i ^ ~0x20);
+						aClass41_2.removeModel(aClass23Array5[i_569_], i ^ ~0x20);
 						aClass6_1.method42(anIntArray163[i_569_], anIntArray176[i_569_], false, anIntArray190[i_569_],
 						        anIntArray167[i_569_]);
 					}
@@ -6861,7 +6678,6 @@ public final class mudclient extends GameWindow
 
 	private Mob method548(final int i, final boolean bool, final int i_608_, final int i_609_, final int i_610_)
 	{
-		anInt809++;
 		if (aClass15Array2[i_609_] == null)
 		{
 			aClass15Array2[i_609_] = new Mob();
@@ -6904,12 +6720,10 @@ public final class mudclient extends GameWindow
 
 	private void method549(final int i)
 	{
-		anInt792++;
 	}
 
 	private void method550(final byte i)
 	{
-		anInt851++;
 		final byte[] is = unpackData("Textures", 50, 11);
 		if (is == null)
 		{
@@ -6917,13 +6731,13 @@ public final class mudclient extends GameWindow
 		}
 		else
 		{
-			final byte[] is_614_ = Class41.method292(is, 0, "index.dat", 293484812);
+			final byte[] is_614_ = Camera.method292(is, 0, "index.dat", 293484812);
 			aClass41_2.method293(11, 13803, Class12.anInt140, 7);
 			int i_615_ = 0;
 			for (/**/; Class12.anInt140 > i_615_; i_615_++)
 			{
 				final String string = GameImageMiddleMan.aStringArray37[i_615_];
-				byte[] is_617_ = Class41.method292(is, 0, new StringBuilder().append(string).append(".dat").toString(),
+				byte[] is_617_ = Camera.method292(is, 0, new StringBuilder().append(string).append(".dat").toString(),
 				        293484812);
 				aClass46_Sub1_2.method350(anInt925, 82, is_614_, is_617_, 1);
 				aClass46_Sub1_2.method321(0, 16711935, 128, 128, 0, 1);
@@ -6932,7 +6746,7 @@ public final class mudclient extends GameWindow
 				final String string_619_ = Class4.aStringArray6[i_615_];
 				if ((string_619_ != null) && (0 < string_619_.length()))
 				{
-					is_617_ = Class41.method292(is, 0,
+					is_617_ = Camera.method292(is, 0,
 					        new StringBuilder().append(string_619_).append(".dat").toString(), 293484812);
 					aClass46_Sub1_2.method350(anInt925, -104, is_614_, is_617_, 1);
 					aClass46_Sub1_2.method338(anInt925, 0, 0, (byte) -70);
@@ -6960,7 +6774,6 @@ public final class mudclient extends GameWindow
 		try
 		{
 			Class27_Sub1_Sub1.portOffset = Integer.parseInt(getParameter("nodeid"));
-			anInt808++;
 			Class34.aClass38_5 = Mob.method113(-119, Integer.parseInt(getParameter("modewhere")));
 			if (Class34.aClass38_5 == null)
 			{
@@ -6982,7 +6795,6 @@ public final class mudclient extends GameWindow
 
 	private void method551(final int i)
 	{
-		anInt841++;
 		final byte[] is = unpackData("people and monsters", 30, 1);
 		if (is == null)
 		{
@@ -6990,7 +6802,7 @@ public final class mudclient extends GameWindow
 		}
 		else
 		{
-			final byte[] is_624_ = Class41.method292(is, 0, "index.dat", 293484812);
+			final byte[] is_624_ = Camera.method292(is, 0, "index.dat", 293484812);
 			byte[] is_625_ = null;
 			byte[] is_626_ = null;
 			if (isMembers)
@@ -7001,7 +6813,7 @@ public final class mudclient extends GameWindow
 					aBool52 = true;
 					return;
 				}
-				is_626_ = Class41.method292(is_625_, 0, "index.dat", 293484812);
+				is_626_ = Camera.method292(is_625_, 0, "index.dat", 293484812);
 			}
 			anInt1050 = 0;
 			int i_627_ = 0;
@@ -7017,13 +6829,13 @@ public final class mudclient extends GameWindow
 						continue while_14_;
 					}
 				}
-				byte[] is_630_ = Class41.method292(is, 0, new StringBuilder().append(string).append(".dat").toString(),
+				byte[] is_630_ = Camera.method292(is, 0, new StringBuilder().append(string).append(".dat").toString(),
 				        293484812);
 				byte[] is_631_ = is_624_;
 				if ((is_630_ == null) && isMembers)
 				{
 					is_631_ = is_626_;
-					is_630_ = Class41.method292(is_625_, 0,
+					is_630_ = Camera.method292(is_625_, 0,
 					        new StringBuilder().append(string).append(".dat").toString(), 293484812);
 				}
 				if (is_630_ != null)
@@ -7032,13 +6844,13 @@ public final class mudclient extends GameWindow
 					i_627_ += 15;
 					if (Class5.anIntArray7[i_628_] == 1)
 					{
-						byte[] is_632_ = Class41.method292(is, 0,
+						byte[] is_632_ = Camera.method292(is, 0,
 						        new StringBuilder().append(string).append("a.dat").toString(), 293484812);
 						is_631_ = is_624_;
 						if ((is_632_ == null) && isMembers)
 						{
 							is_631_ = is_626_;
-							is_632_ = Class41.method292(is_625_, 0,
+							is_632_ = Camera.method292(is_625_, 0,
 							        new StringBuilder().append(string).append("a.dat").toString(), 293484812);
 						}
 						aClass46_Sub1_2.method350(anInt946 - -15, -89, is_631_, is_632_, 3);
@@ -7047,11 +6859,11 @@ public final class mudclient extends GameWindow
 					if (Class9.anIntArray20[i_628_] == 1)
 					{
 						is_631_ = is_624_;
-						byte[] is_633_ = Class41.method292(is, 0,
+						byte[] is_633_ = Camera.method292(is, 0,
 						        new StringBuilder().append(string).append("f.dat").toString(), 293484812);
 						if ((is_633_ == null) && isMembers)
 						{
-							is_633_ = Class41.method292(is_625_, 0,
+							is_633_ = Camera.method292(is_625_, 0,
 							        new StringBuilder().append(string).append("f.dat").toString(), 293484812);
 							is_631_ = is_626_;
 						}
@@ -7077,7 +6889,6 @@ public final class mudclient extends GameWindow
 	private boolean method552(final int i, final boolean bool, final int i_635_, int i_636_, final int i_637_,
 	        final int i_638_, int i_639_, final boolean bool_640_, final boolean bool_641_)
 	{
-		anInt877++;
 		int i_642_ = aClass6_1.method46(i, i_635_, bool_641_, i_639_, i_636_, anIntArray155, i_637_, i_638_,
 		        anIntArray157, (byte) -108);
 		if (i_642_ == -1)
@@ -7126,7 +6937,6 @@ public final class mudclient extends GameWindow
 
 	private void method553(final byte i)
 	{
-		anInt840++;
 		final byte[] is = unpackData("Configuration", 10, 0);
 		if (is == null)
 		{
@@ -7138,17 +6948,16 @@ public final class mudclient extends GameWindow
 		}
 	}
 
-	private void method554(final int i)
+	private void sendPingPacketReadPacketData(final int i)
 	{
-		anInt827++;
 		final long l = Class52.method377();
-		if (streamClass.method128(86))
+		if (streamClass.containsData(86))
 		{
-			aLong17 = l;
+			lastPing = l;
 		}
-		if ((l - aLong17) > 5000L)
+		if ((l - lastPing) > 5000L)
 		{
-			aLong17 = l;
+			lastPing = l;
 			streamClass.createPacket(67, 96);
 			streamClass.finishPacket(2);
 		}
@@ -7163,17 +6972,16 @@ public final class mudclient extends GameWindow
 		}
 		if (method536((byte) -96))
 		{
-			final int i_644_ = streamClass.method125(i + -20, aClass27_Sub1_Sub1_2);
-			if (i_644_ > 0)
+			final int packetLength = streamClass.method125(i + -20, aClass27_Sub1_Sub1_2);
+			if (packetLength > 0)
 			{
-				method497(aClass27_Sub1_Sub1_2.readByte(), 20, i_644_);
+				checkIncomingPacket(aClass27_Sub1_Sub1_2.readByte(), 20, packetLength);
 			}
 		}
 	}
 
 	private void method555(final byte i)
 	{
-		anInt795++;
 		int i_645_ = -1;
 		if ((anInt887 != 0) && aBool90)
 		{
@@ -7297,15 +7105,15 @@ public final class mudclient extends GameWindow
 								aBool90 = true;
 								aClass29_3.method190(true);
 								aClass29_3.method195("Stake 1", i_653_, new StringBuilder().append("@lre@")
-								        .append(Class26.aStringArray19[i_653_]).toString(), 0, 1, 3);
+								        .append(CameraModel.aStringArray19[i_653_]).toString(), 0, 1, 3);
 								aClass29_3.method195("Stake 5", i_653_, new StringBuilder().append("@lre@")
-								        .append(Class26.aStringArray19[i_653_]).toString(), 0, 5, 3);
+								        .append(CameraModel.aStringArray19[i_653_]).toString(), 0, 5, 3);
 								aClass29_3.method195("Stake 10", i_653_, new StringBuilder().append("@lre@")
-								        .append(Class26.aStringArray19[i_653_]).toString(), 0, 10, 3);
+								        .append(CameraModel.aStringArray19[i_653_]).toString(), 0, 10, 3);
 								aClass29_3.method195("Stake All", i_653_, new StringBuilder().append("@lre@")
-								        .append(Class26.aStringArray19[i_653_]).toString(), 0, -1, 3);
+								        .append(CameraModel.aStringArray19[i_653_]).toString(), 0, -1, 3);
 								aClass29_3.method195("Stake X", i_653_, new StringBuilder().append("@lre@")
-								        .append(Class26.aStringArray19[i_653_]).toString(), 0, -2, 3);
+								        .append(CameraModel.aStringArray19[i_653_]).toString(), 0, -2, 3);
 								final int i_654_ = aClass29_3.method207(true);
 								final int i_655_ = aClass29_3.method210(0);
 								anInt1063 = this.mouseY + -7;
@@ -7337,15 +7145,15 @@ public final class mudclient extends GameWindow
 								aBool90 = true;
 								aClass29_3.method190(true);
 								aClass29_3.method195("Remove 1", i_657_, new StringBuilder().append("@lre@")
-								        .append(Class26.aStringArray19[i_657_]).toString(), 0, 1, 4);
+								        .append(CameraModel.aStringArray19[i_657_]).toString(), 0, 1, 4);
 								aClass29_3.method195("Remove 5", i_657_, new StringBuilder().append("@lre@")
-								        .append(Class26.aStringArray19[i_657_]).toString(), 0, 5, 4);
+								        .append(CameraModel.aStringArray19[i_657_]).toString(), 0, 5, 4);
 								aClass29_3.method195("Remove 10", i_657_, new StringBuilder().append("@lre@")
-								        .append(Class26.aStringArray19[i_657_]).toString(), 0, 10, 4);
+								        .append(CameraModel.aStringArray19[i_657_]).toString(), 0, 10, 4);
 								aClass29_3.method195("Remove All", i_657_, new StringBuilder().append("@lre@")
-								        .append(Class26.aStringArray19[i_657_]).toString(), 0, -1, 4);
+								        .append(CameraModel.aStringArray19[i_657_]).toString(), 0, -1, 4);
 								aClass29_3.method195("Remove X", i_657_, new StringBuilder().append("@lre@")
-								        .append(Class26.aStringArray19[i_657_]).toString(), 0, -2, 4);
+								        .append(CameraModel.aStringArray19[i_657_]).toString(), 0, -2, 4);
 								final int i_658_ = aClass29_3.method207(true);
 								final int i_659_ = aClass29_3.method210(0);
 								anInt1063 = this.mouseY + -7;
@@ -7587,7 +7395,7 @@ public final class mudclient extends GameWindow
 				        && ((i_683_ + 32) > this.mouseY))
 				{
 					aClass46_Sub1_2.method324(
-					        new StringBuilder().append(Class26.aStringArray19[anIntArray182[i_681_]]).append(": @whi@")
+					        new StringBuilder().append(CameraModel.aStringArray19[anIntArray182[i_681_]]).append(": @whi@")
 					                .append(Class28.aStringArray25[anIntArray182[i_681_]]).toString(),
 					        0, 1, 16776960, i_669_ + 8, i_670_ + 273);
 				}
@@ -7608,7 +7416,7 @@ public final class mudclient extends GameWindow
 				        && (this.mouseY < (i_686_ - -32)))
 				{
 					aClass46_Sub1_2.method324(
-					        new StringBuilder().append(Class26.aStringArray19[anIntArray212[i_684_]]).append(": @whi@")
+					        new StringBuilder().append(CameraModel.aStringArray19[anIntArray212[i_684_]]).append(": @whi@")
 					                .append(Class28.aStringArray25[anIntArray212[i_684_]]).toString(),
 					        0, 1, 16776960, i_669_ + 8, i_670_ + 273);
 				}
@@ -7622,8 +7430,7 @@ public final class mudclient extends GameWindow
 
 	private void method556(final boolean bool, final boolean bool_687_)
 	{
-		anInt814++;
-		int i = aClass46_Sub1_2.maybe_imageWidth + -199;
+		int i = aClass46_Sub1_2.menuDefaultHeight + -199;
 		int i_688_ = 36;
 		aClass46_Sub1_2.method338(anInt935 + 3, 3, i + -49, (byte) -70);
 		final int i_689_ = 196;
@@ -7754,13 +7561,13 @@ public final class mudclient extends GameWindow
 		if (bool_687_)
 		{
 			i_688_ = this.mouseY + -36;
-			i = (-aClass46_Sub1_2.maybe_imageWidth - (-199 - this.mouseX));
+			i = (-aClass46_Sub1_2.menuDefaultHeight - (-199 - this.mouseX));
 			if ((0 <= i) && (0 <= i_688_) && (i_689_ > i) && (i_688_ < i_690_))
 			{
 				if (anInt938 == 1)
 				{
 					aClass10_6.method85(this.mouseDownButton, i_688_ + 36, this.lastMouseDownButton, (byte) -99,
-					        ((aClass46_Sub1_2.maybe_imageWidth) + i) - 199);
+					        ((aClass46_Sub1_2.menuDefaultHeight) + i) - 199);
 				}
 				if ((i_688_ <= 24) && (anInt887 == 1))
 				{
@@ -7780,7 +7587,6 @@ public final class mudclient extends GameWindow
 	private boolean method557(int i, final int i_703_, final int i_704_, final int i_705_, final int i_706_,
 	        final boolean bool, int i_707_, final boolean bool_708_, final int i_709_)
 	{
-		anInt764++;
 		int i_710_ = aClass6_1.method46(i_709_, i_704_, bool_708_, i_707_, i, anIntArray155, i_703_, i_705_,
 		        anIntArray157, (byte) -99);
 		if (i_710_ == -1)
@@ -7842,13 +7648,11 @@ public final class mudclient extends GameWindow
 		{
 			method552(i_712_, true, i_714_, anInt1001, i_714_, i_712_ - 1, anInt1030, true, false);
 		}
-		anInt865++;
 	}
 
 	private void method559(final int i)
 	{
 		aClass10_2 = new Class10(aClass46_Sub1_2, 10);
-		anInt824++;
 		anInt1052 = aClass10_2.method74(1, 502, 56, 100, 5, 269, true, 20);
 		anInt1019 = aClass10_2.method76(80, 324, 498, 7, true, 14, 1, 5, false);
 		if (i == -23945)
@@ -7862,13 +7666,11 @@ public final class mudclient extends GameWindow
 	private void method560(final boolean bool, final int i, final boolean bool_715_, final int i_716_, final int i_717_,
 	        final int i_718_)
 	{
-		anInt782++;
 		method552(i_716_, bool, i_718_, i, i_718_, i_716_, i_717_, bool_715_, false);
 	}
 
 	private void method561(final byte i)
 	{
-		anInt768++;
 		boolean bool = true;
 		while (bool)
 		{
@@ -7899,7 +7701,6 @@ public final class mudclient extends GameWindow
 
 	private void method562(final int i)
 	{
-		anInt848++;
 		if (anInt887 != 0)
 		{
 			for (int i_722_ = 0; i_722_ < anInt953; i_722_++)
@@ -7938,7 +7739,6 @@ public final class mudclient extends GameWindow
 	private void method563(final String string, final int i)
 	{
 		streamClass.createPacket(38, i + 11411);
-		anInt778++;
 		streamClass.aClass27_Sub1_Sub1_1.method389(i + 11350, string);
 		if (i != -11350)
 		{
@@ -7949,7 +7749,6 @@ public final class mudclient extends GameWindow
 
 	private void method564(final byte i, final String string)
 	{
-		anInt779++;
 		if ((anAClass4_Sub2_1 != null) && !aBool58)
 		{
 			final int i_726_ = RuntimeException_Sub1
@@ -7967,7 +7766,6 @@ public final class mudclient extends GameWindow
 
 	private boolean method565(final byte i, final int i_728_)
 	{
-		anInt898++;
 		for (int i_729_ = 0; i_729_ < anInt1015; i_729_++)
 		{
 			if ((i_728_ == anIntArray194[i_729_]) && (anIntArray205[i_729_] == 1))
@@ -7981,13 +7779,11 @@ public final class mudclient extends GameWindow
 	private void method566(final byte i)
 	{
 		this.aString25 = "";
-		anInt875++;
 		this.aString24 = "";
 	}
 
 	private void method567(final int i)
 	{
-		anInt785++;
 		final int i_731_ = 408;
 		final int i_732_ = 334;
 		if ((0 < anInt1045) && (anInt982 <= 48))
@@ -8320,7 +8116,7 @@ public final class mudclient extends GameWindow
 				if (i_750_ > 0)
 				{
 					aClass46_Sub1_2.method324(
-					        new StringBuilder().append("Withdraw ").append(Class26.aStringArray19[i_755_]).toString(),
+					        new StringBuilder().append("Withdraw ").append(CameraModel.aStringArray19[i_755_]).toString(),
 					        0, 1, 16777215, i_741_ + 2, i_742_ + 248);
 					i_748_ = 16777215;
 					if ((this.mouseX >= (i_741_ + 220)) && (this.mouseY >= (i_742_ + 238))
@@ -8377,7 +8173,7 @@ public final class mudclient extends GameWindow
 				if (0 < method584(i_755_))
 				{
 					aClass46_Sub1_2.method324(
-					        new StringBuilder().append("Deposit ").append(Class26.aStringArray19[i_755_]).toString(),
+					        new StringBuilder().append("Deposit ").append(CameraModel.aStringArray19[i_755_]).toString(),
 					        i ^ 0x1, 1, 16777215, i_741_ + 2, i_742_ + 273);
 					i_748_ = 16777215;
 					if (((i_741_ + 220) <= this.mouseX) && ((i_742_ + 263) <= this.mouseY)
@@ -8437,7 +8233,6 @@ public final class mudclient extends GameWindow
 
 	private void method568(final int i)
 	{
-		anInt760++;
 		aClass6_1.aByteArray4 = unpackData("map", 70, 4);
 		if (isMembers)
 		{
@@ -8452,7 +8247,6 @@ public final class mudclient extends GameWindow
 
 	private void method569(final int i, final int i_756_)
 	{
-		anInt895++;
 		final int i_757_ = aClass29_1.method203(i_756_ + -617, i);
 		final int i_758_ = aClass29_1.method214(i, (byte) 80);
 		final int i_759_ = aClass29_1.method186(i, (byte) -115);
@@ -8617,7 +8411,7 @@ public final class mudclient extends GameWindow
 		{
 			anInt939 = 0;
 			anInt989 = i_758_;
-			aString30 = Class26.aStringArray19[anIntArray194[anInt989]];
+			aString30 = CameraModel.aStringArray19[anIntArray194[anInt989]];
 		}
 		if (i_757_ == 660)
 		{
@@ -8626,7 +8420,7 @@ public final class mudclient extends GameWindow
 			streamClass.finishPacket(2);
 			anInt939 = 0;
 			anInt989 = -1;
-			displayMessage(0, new StringBuilder().append("Dropping ").append(Class26.aStringArray19[anIntArray194[i_758_]])
+			displayMessage(0, new StringBuilder().append("Dropping ").append(CameraModel.aStringArray19[anIntArray194[i_758_]])
 			        .toString(), 7, null, -88, null, null, false);
 		}
 		if (i_757_ == 700)
@@ -8797,7 +8591,6 @@ public final class mudclient extends GameWindow
 
 	private void method570(final int i, final String string, final String string_779_)
 	{
-		anInt784++;
 		final Graphics graphics = getGraphics();
 		if (graphics != null)
 		{
@@ -8816,7 +8609,6 @@ public final class mudclient extends GameWindow
 
 	private void method571(final byte i)
 	{
-		anInt823++;
 		final byte[] is = unpackData("2d graphics", 20, 8);
 		if (is == null)
 		{
@@ -8824,28 +8616,28 @@ public final class mudclient extends GameWindow
 		}
 		else
 		{
-			final byte[] is_782_ = Class41.method292(is, 0, "index.dat", 293484812);
-			aClass46_Sub1_2.method350(anInt935, -83, is_782_, Class41.method292(is, 0, "inv1.dat", 293484812), 1);
-			aClass46_Sub1_2.method350(anInt935 + 1, -100, is_782_, Class41.method292(is, 0, "inv2.dat", 293484812), 6);
-			aClass46_Sub1_2.method350(anInt935 - -9, -124, is_782_, Class41.method292(is, 0, "bubble.dat", 293484812),
+			final byte[] is_782_ = Camera.method292(is, 0, "index.dat", 293484812);
+			aClass46_Sub1_2.method350(anInt935, -83, is_782_, Camera.method292(is, 0, "inv1.dat", 293484812), 1);
+			aClass46_Sub1_2.method350(anInt935 + 1, -100, is_782_, Camera.method292(is, 0, "inv2.dat", 293484812), 6);
+			aClass46_Sub1_2.method350(anInt935 - -9, -124, is_782_, Camera.method292(is, 0, "bubble.dat", 293484812),
 			        1);
-			aClass46_Sub1_2.method350(anInt935 + 10, 56, is_782_, Class41.method292(is, 0, "runescape.dat", 293484812),
+			aClass46_Sub1_2.method350(anInt935 + 10, 56, is_782_, Camera.method292(is, 0, "runescape.dat", 293484812),
 			        1);
-			aClass46_Sub1_2.method350(anInt935 - -11, 5, is_782_, Class41.method292(is, 0, "splat.dat", 293484812), 3);
-			aClass46_Sub1_2.method350(anInt935 + 14, -121, is_782_, Class41.method292(is, 0, "icon.dat", 293484812), 8);
-			aClass46_Sub1_2.method350(anInt935 + 22, -128, is_782_, Class41.method292(is, 0, "hbar.dat", 293484812), 1);
-			aClass46_Sub1_2.method350(anInt935 + 23, 48, is_782_, Class41.method292(is, 0, "hbar2.dat", 293484812), 1);
-			aClass46_Sub1_2.method350(anInt935 + 24, -85, is_782_, Class41.method292(is, 0, "compass.dat", 293484812),
+			aClass46_Sub1_2.method350(anInt935 - -11, 5, is_782_, Camera.method292(is, 0, "splat.dat", 293484812), 3);
+			aClass46_Sub1_2.method350(anInt935 + 14, -121, is_782_, Camera.method292(is, 0, "icon.dat", 293484812), 8);
+			aClass46_Sub1_2.method350(anInt935 + 22, -128, is_782_, Camera.method292(is, 0, "hbar.dat", 293484812), 1);
+			aClass46_Sub1_2.method350(anInt935 + 23, 48, is_782_, Camera.method292(is, 0, "hbar2.dat", 293484812), 1);
+			aClass46_Sub1_2.method350(anInt935 + 24, -85, is_782_, Camera.method292(is, 0, "compass.dat", 293484812),
 			        1);
-			aClass46_Sub1_2.method350(anInt935 + 25, 28, is_782_, Class41.method292(is, 0, "buttons.dat", 293484812),
+			aClass46_Sub1_2.method350(anInt935 + 25, 28, is_782_, Camera.method292(is, 0, "buttons.dat", 293484812),
 			        2);
-			aClass46_Sub1_2.method350(anInt873, -126, is_782_, Class41.method292(is, 0, "scrollbar.dat", 293484812), 2);
-			aClass46_Sub1_2.method350(anInt873 + 2, 121, is_782_, Class41.method292(is, 0, "corners.dat", 293484812),
+			aClass46_Sub1_2.method350(anInt873, -126, is_782_, Camera.method292(is, 0, "scrollbar.dat", 293484812), 2);
+			aClass46_Sub1_2.method350(anInt873 + 2, 121, is_782_, Camera.method292(is, 0, "corners.dat", 293484812),
 			        4);
-			aClass46_Sub1_2.method350(anInt873 + 6, 27, is_782_, Class41.method292(is, 0, "arrows.dat", 293484812), 2);
-			aClass46_Sub1_2.method350(anInt903, -128, is_782_, Class41.method292(is, 0, "projectile.dat", 293484812),
+			aClass46_Sub1_2.method350(anInt873 + 6, 27, is_782_, Camera.method292(is, 0, "arrows.dat", 293484812), 2);
+			aClass46_Sub1_2.method350(anInt903, -128, is_782_, Camera.method292(is, 0, "projectile.dat", 293484812),
 			        Class45.anInt494);
-			aClass46_Sub1_2.method350(anInt931, -91, is_782_, Class41.method292(is, 0, "crowns.dat", 293484812), 2);
+			aClass46_Sub1_2.method350(anInt931, -91, is_782_, Camera.method292(is, 0, "crowns.dat", 293484812), 2);
 			aClass46_Sub1_2.method339(anInt931, 124);
 			int i_783_ = Class1.anInt1;
 			int i_784_ = 1;
@@ -8857,7 +8649,7 @@ public final class mudclient extends GameWindow
 				{
 					i_785_ = 30;
 				}
-				aClass46_Sub1_2.method350((i_784_ * 30) + anInt863 + -30, -81, is_782_, Class41.method292(is, 0,
+				aClass46_Sub1_2.method350((i_784_ * 30) + anInt863 + -30, -81, is_782_, Camera.method292(is, 0,
 				        new StringBuilder().append("objects").append(i_784_).append(".dat").toString(), 293484812),
 				        i_785_);
 				i_784_++;
@@ -8881,7 +8673,6 @@ public final class mudclient extends GameWindow
 
 	private void method572(final int i)
 	{
-		anInt847++;
 		aClass46_Sub1_2.method321(137, 0, 60, 260, 126, i + -136);
 		aClass46_Sub1_2.method362(60, 126, (byte) 92, 260, 16777215, i);
 		aClass46_Sub1_2.method335(16777215, i ^ 0x76, 5, "Logging out...", 173, 256);
@@ -8889,7 +8680,6 @@ public final class mudclient extends GameWindow
 
 	private void method573(final int i)
 	{
-		anInt806++;
 		if (playerAliveTimeout != 0)
 		{
 			aClass46_Sub1_2.method343(-1248297852);
@@ -8943,13 +8733,13 @@ public final class mudclient extends GameWindow
 		{
 			for (int i_790_ = 0; i_790_ < 64; i_790_++)
 			{
-				aClass41_2.method294((aClass6_1.aClass23ArrayArray2[anInt866][i_790_]), 1);
+				aClass41_2.removeModel((aClass6_1.aClass23ArrayArray2[anInt866][i_790_]), 1);
 				if (anInt866 == 0)
 				{
-					aClass41_2.method294((aClass6_1.aClass23ArrayArray1[1][i_790_]), 1);
-					aClass41_2.method294((aClass6_1.aClass23ArrayArray2[1][i_790_]), 1);
-					aClass41_2.method294((aClass6_1.aClass23ArrayArray1[2][i_790_]), 1);
-					aClass41_2.method294((aClass6_1.aClass23ArrayArray2[2][i_790_]), 1);
+					aClass41_2.removeModel((aClass6_1.aClass23ArrayArray1[1][i_790_]), 1);
+					aClass41_2.removeModel((aClass6_1.aClass23ArrayArray2[1][i_790_]), 1);
+					aClass41_2.removeModel((aClass6_1.aClass23ArrayArray1[2][i_790_]), 1);
+					aClass41_2.removeModel((aClass6_1.aClass23ArrayArray2[2][i_790_]), 1);
 				}
 				aBool53 = true;
 				if ((anInt866 == 0)
@@ -9246,7 +9036,7 @@ public final class mudclient extends GameWindow
 				{
 					if (Class29.anIntArray83[i_833_] > 0)
 					{
-						final String string = new StringBuilder().append(Class26.aStringArray21[i_833_])
+						final String string = new StringBuilder().append(CameraModel.aStringArray21[i_833_])
 						        .append(Class13.method110(Class2.aStringArray3[i_833_], Class13.aStringArray13[i_833_],
 						                ByteBuffer.anIntArray142[i_833_], -6187))
 						        .toString();
@@ -9273,7 +9063,7 @@ public final class mudclient extends GameWindow
 			GameImage.anInt568 = 2;
 			aClass10_2.method71(-6);
 			GameImage.anInt568 = 0;
-			aClass46_Sub1_2.method320((byte) 111, (aClass46_Sub1_2.maybe_imageWidth) + -3 + -197, anInt935, 3, 128);
+			aClass46_Sub1_2.method320((byte) 111, (aClass46_Sub1_2.menuDefaultHeight) + -3 + -197, anInt935, 3, 128);
 			method521((byte) -123);
 			aClass46_Sub1_2.aBool27 = false;
 			method508((byte) 92);
@@ -9283,7 +9073,6 @@ public final class mudclient extends GameWindow
 
 	private void makeCharacterDesignMenu()
 	{
-		anInt810++;
 		aClass10_1 = new Class10(aClass46_Sub1_2, 100);
 		aClass10_1.method72(255, 10, true, 4, 256, "Please design Your Character");
 		int i_834_ = 140;
@@ -9352,7 +9141,6 @@ public final class mudclient extends GameWindow
 			anInt910 = -59;
 		}
 		anInt949 = 0;
-		anInt788++;
 		if (logoutTimeout != 0)
 		{
 			method529(-127);
@@ -9367,7 +9155,6 @@ public final class mudclient extends GameWindow
 
 	private void method576(final byte i, final int i_838_, int i_839_, int i_840_, final int i_841_)
 	{
-		anInt917++;
 		int i_842_;
 		int i_843_;
 		if ((i_838_ == 0) || (i_838_ == 4))
@@ -9456,13 +9243,11 @@ public final class mudclient extends GameWindow
 		{
 			Class9.method61(exception, 125, null);
 		}
-		anInt762++;
 	}
 
 	@Override
 	void method471()
 	{
-		anInt797++;
 		method544(true, (byte) 72);
 		if (aClass37_1 != null)
 		{
@@ -9472,8 +9257,7 @@ public final class mudclient extends GameWindow
 
 	private void method577(final boolean bool, final int i)
 	{
-		anInt834++;
-		int i_845_ = aClass46_Sub1_2.maybe_imageWidth + -199;
+		int i_845_ = aClass46_Sub1_2.menuDefaultHeight + -199;
 		int i_846_ = 156;
 		aClass46_Sub1_2.method338(anInt935 + 2, 3, i_845_ + -49, (byte) -70);
 		int i_847_ = 152;
@@ -9550,11 +9334,11 @@ public final class mudclient extends GameWindow
 			aClass46_Sub1_2.method357(0, maybe_windowHeight + 12, 0, maybe_windowWidth, 1743849672);
 			if (bool)
 			{
-				i_845_ = (this.mouseX + -aClass46_Sub1_2.maybe_imageWidth + 199);
+				i_845_ = (this.mouseX + -aClass46_Sub1_2.menuDefaultHeight + 199);
 				final int i_861_ = this.mouseY - 36;
 				if ((i_845_ >= 40) && (i_861_ >= 0) && (196 > i_845_) && (152 > i_861_))
 				{
-					i_845_ = aClass46_Sub1_2.maybe_imageWidth - 199;
+					i_845_ = aClass46_Sub1_2.menuDefaultHeight - 199;
 					i_847_ = 152;
 					i_846_ = 156;
 					i_849_ = 0xff & (anInt964 + anInt843);
@@ -9582,7 +9366,6 @@ public final class mudclient extends GameWindow
 	private void method578(final String string, final byte i, final boolean bool, final int i_862_,
 	        final String[] strings)
 	{
-		anInt878++;
 		aStringArray49 = strings;
 		anInt985 = 400;
 		for (int i_863_ = 0; strings.length > i_863_; i_863_++)
@@ -9604,7 +9387,6 @@ public final class mudclient extends GameWindow
 
 	private void method579(final int i)
 	{
-		anInt861++;
 		final int i_866_ = 22;
 		final int i_867_ = 36;
 		aClass46_Sub1_2.method321(i_867_, 192, 16, 468, i_866_, i ^ ~0x38c4);
@@ -9620,7 +9402,7 @@ public final class mudclient extends GameWindow
 		aClass46_Sub1_2.method335(16776960, 255, 1, "Your stake:", i_867_ - -30, i_866_ + 117);
 		for (int i_869_ = 0; anInt992 > i_869_; i_869_++)
 		{
-			String string = Class26.aStringArray19[anIntArray215[i_869_]];
+			String string = CameraModel.aStringArray19[anIntArray215[i_869_]];
 			if (Class1.anIntArray1[anIntArray215[i_869_]] == 0)
 			{
 				string = new StringBuilder().append(string).append(" x ")
@@ -9635,7 +9417,7 @@ public final class mudclient extends GameWindow
 		aClass46_Sub1_2.method335(16776960, 255, 1, "Your opponent's stake:", i_867_ + 30, i_866_ - -351);
 		for (int i_870_ = 0; i_870_ < anInt1053; i_870_++)
 		{
-			String string = Class26.aStringArray19[anIntArray221[i_870_]];
+			String string = CameraModel.aStringArray19[anIntArray221[i_870_]];
 			if (Class1.anIntArray1[anIntArray221[i_870_]] == 0)
 			{
 				string = new StringBuilder().append(string).append(" x ")
@@ -9720,7 +9502,6 @@ public final class mudclient extends GameWindow
 
 	private boolean method580(final int i, int i_871_, int i_872_)
 	{
-		anInt836++;
 		if (playerAliveTimeout != 0)
 		{
 			aClass6_1.aBool2 = false;
@@ -9765,7 +9546,7 @@ public final class mudclient extends GameWindow
 			final int i_880_ = anIntArray191[i_879_];
 			final int i_881_ = anIntArray170[i_879_];
 			final int i_882_ = anIntArray178[i_879_];
-			final Class23 class23 = aClass23Array4[i_879_];
+			final Model class23 = aClass23Array4[i_879_];
 			final int i_883_ = anIntArray171[i_879_];
 			int i_884_;
 			int i_885_;
@@ -9801,7 +9582,7 @@ public final class mudclient extends GameWindow
 			final int i_891_ = anIntArray190[i_888_];
 			final int i_892_ = anIntArray163[i_888_];
 			aClass6_1.method15(16, i_892_, i_889_, i_891_, i_890_);
-			final Class23 class23 = method506(false, i_888_, i_891_, i_889_, i_890_, i_892_);
+			final Model class23 = method506(false, i_888_, i_891_, i_889_, i_890_, i_892_);
 			aClass23Array5[i_888_] = class23;
 		}
 		for (int i_893_ = 0; anInt1062 > i_893_; i_893_++)
@@ -9838,7 +9619,6 @@ public final class mudclient extends GameWindow
 	private void method581()
 	{
 		anInt899 = 1;
-		anInt803++;
 		anInt1035 = 0;
 		logoutTimeout = 0;
 		anInt1054 = 0;
@@ -9848,12 +9628,12 @@ public final class mudclient extends GameWindow
 		aClass46_Sub1_2.method363(aGraphics2, this.anInt720, this.anInt694, -30);
 		for (int i_898_ = 0; anInt1022 > i_898_; i_898_++)
 		{
-			aClass41_2.method294(aClass23Array4[i_898_], 1);
+			aClass41_2.removeModel(aClass23Array4[i_898_], 1);
 			aClass6_1.method26(anIntArray178[i_898_], anIntArray170[i_898_], anIntArray191[i_898_], -30895);
 		}
 		for (int i_899_ = 0; anInt957 > i_899_; i_899_++)
 		{
-			aClass41_2.method294(aClass23Array5[i_899_], 1);
+			aClass41_2.removeModel(aClass23Array5[i_899_], 1);
 			aClass6_1.method42(anIntArray163[i_899_], anIntArray176[i_899_], false, anIntArray190[i_899_],
 			        anIntArray167[i_899_]);
 		}
@@ -9897,7 +9677,7 @@ public final class mudclient extends GameWindow
 			Class13.aStringArray13[i_905_] = null;
 			GameImage.anIntArray126[i_905_] = 0;
 			Class27.aStringArray23[i_905_] = null;
-			Class26.aStringArray21[i_905_] = null;
+			CameraModel.aStringArray21[i_905_] = null;
 			ByteBuffer.anIntArray142[i_905_] = 0;
 		}
 		aClass10_2.method75(0, anInt1052);
@@ -9907,7 +9687,6 @@ public final class mudclient extends GameWindow
 
 	private Mob method582(final byte i, final int i_906_)
 	{
-		anInt884++;
 		int i_907_ = 0;
 		if (i >= -31)
 		{
@@ -9926,7 +9705,6 @@ public final class mudclient extends GameWindow
 	private void method583(final byte i)
 	{
 		AClass1_Sub1.method422("torcha2", -109);
-		anInt835++;
 		AClass1_Sub1.method422("torcha3", -124);
 		AClass1_Sub1.method422("torcha4", -123);
 		AClass1_Sub1.method422("skulltorcha2", -114);
@@ -9962,11 +9740,11 @@ public final class mudclient extends GameWindow
 					        false));
 					if (i_909_ != 0)
 					{
-						aClass23Array6[i_908_] = new Class23(is, i_909_, true);
+						aClass23Array6[i_908_] = new Model(is, i_909_, true);
 					}
 					else
 					{
-						aClass23Array6[i_908_] = new Class23(1, 1);
+						aClass23Array6[i_908_] = new Model(1, 1);
 					}
 					if (Class2.aStringArray1[i_908_].equals("giantcrystal"))
 					{
@@ -9980,7 +9758,7 @@ public final class mudclient extends GameWindow
 			drawLoadingBarText(70, 97, "Loading 3d models");
 			for (int i_910_ = 0; Class4.anInt11 > i_910_; i_910_++)
 			{
-				aClass23Array6[i_910_] = new Class23(new StringBuilder().append("../content/src/models/")
+				aClass23Array6[i_910_] = new Model(new StringBuilder().append("../content/src/models/")
 				        .append(Class2.aStringArray1[i_910_]).append(".ob2").toString());
 				if (Class2.aStringArray1[i_910_].equals("giantcrystal"))
 				{
@@ -9992,7 +9770,6 @@ public final class mudclient extends GameWindow
 
 	private int method584(final int i)
 	{
-		anInt804++;
 		int i_911_ = 0;
 		for (int i_912_ = 0; i_912_ < anInt1015; i_912_++)
 		{
@@ -10013,7 +9790,6 @@ public final class mudclient extends GameWindow
 
 	private void method585(final boolean bool)
 	{
-		anInt821++;
 		int i = 97;
 		aClass46_Sub1_2.method321(77, 0, 180, 340, 86, 1);
 		aClass46_Sub1_2.method362(180, 86, (byte) -93, 340, 16777215, 77);
@@ -10055,7 +9831,6 @@ public final class mudclient extends GameWindow
 
 	private void method586(final int i, final String string)
 	{
-		anInt772++;
 		if ((!isMembers ? 100 : 200) <= PacketConstruction.anInt185)
 		{
 			displayMessage(0, "Friend list is full", 0, null, -107, null, null, false);
@@ -10121,7 +9896,6 @@ public final class mudclient extends GameWindow
 
 	private void method587(final byte i)
 	{
-		anInt920++;
 		if (anInt902 > 0)
 		{
 			anInt902--;
@@ -10163,7 +9937,6 @@ public final class mudclient extends GameWindow
 	@Override
 	void method470(final int i)
 	{
-		anInt842++;
 		if (!aBool50 && !aBool54 && !aBool52)
 		{
 			if (aClass37_1 != null)
@@ -10240,7 +10013,6 @@ public final class mudclient extends GameWindow
 
 	private void method588(final int i)
 	{
-		anInt862++;
 		anInt1048 = 0;
 		boolean bool = true;
 		if ((this.mouseX >= 36) && (this.mouseX < 176))
@@ -10600,7 +10372,6 @@ public final class mudclient extends GameWindow
 	private void method589(final byte i)
 	{
 		anInt982 = anInt952;
-		anInt802++;
 		for (int i_922_ = 0; i_922_ < anInt952; i_922_++)
 		{
 			anIntArray210[i_922_] = anIntArray177[i_922_];
@@ -10629,7 +10400,6 @@ public final class mudclient extends GameWindow
 
 	private void method590(final int i)
 	{
-		anInt919++;
 		if ((0 <= anInt940) || (0 <= anInt989))
 		{
 			aClass29_1.method209("Cancel", (byte) -66, "", 4000);
@@ -10807,12 +10577,11 @@ public final class mudclient extends GameWindow
 
 	private void method591(final int i)
 	{
-		anInt791++;
 		if (1 < anInt949)
 		{
 			anInt949--;
 		}
-		method554(20);
+		sendPingPacketReadPacketData(20);
 		if (logoutTimeout > 0)
 		{
 			logoutTimeout--;
@@ -11485,7 +11254,6 @@ public final class mudclient extends GameWindow
 
 	private void method592(final int i, final int i_962_, final boolean bool, final int i_963_, final int i_964_)
 	{
-		anInt883++;
 		streamClass.createPacket(64, 77);
 		streamClass.aClass27_Sub1_Sub1_1.put(i);
 		streamClass.aClass27_Sub1_Sub1_1.put(i_963_);
@@ -11496,7 +11264,6 @@ public final class mudclient extends GameWindow
 
 	private void method593(final byte i)
 	{
-		anInt844++;
 		aClass46_Sub1_2.aBool28 = false;
 		aBool77 = false;
 		aClass46_Sub1_2.method331(-1964300920);
@@ -11550,8 +11317,7 @@ public final class mudclient extends GameWindow
 
 	private void method594(final int i, final boolean bool)
 	{
-		anInt790++;
-		int i_966_ = aClass46_Sub1_2.maybe_imageWidth + -199;
+		int i_966_ = aClass46_Sub1_2.menuDefaultHeight + -199;
 		aClass46_Sub1_2.method338(anInt935 - -4, 3, i_966_ + -49, (byte) -70);
 		int i_967_ = 36;
 		final int i_968_ = 196;
@@ -11673,12 +11439,12 @@ public final class mudclient extends GameWindow
 		}
 		if (bool)
 		{
-			i_966_ = ((-aClass46_Sub1_2.maybe_imageWidth - -199) + this.mouseX);
+			i_966_ = ((-aClass46_Sub1_2.menuDefaultHeight - -199) + this.mouseX);
 			i_967_ = this.mouseY + -36;
 			if ((0 <= i_966_) && (0 <= i_967_) && (196 > i_966_) && (i_967_ < 182))
 			{
 				aClass10_3.method85(this.mouseDownButton, i_967_ + 36, this.lastMouseDownButton, (byte) -52,
-				        (i_966_ - 199 - -(aClass46_Sub1_2.maybe_imageWidth)));
+				        (i_966_ - 199 - -(aClass46_Sub1_2.menuDefaultHeight)));
 				if ((i_967_ <= 24) && (anInt887 == 1))
 				{
 					if ((i_966_ < 98) && (anInt1003 == 1))
@@ -11773,7 +11539,6 @@ public final class mudclient extends GameWindow
 	@Override
 	void method467(final int i)
 	{
-		anInt812++;
 		if (maybe_isApplet)
 		{
 			final String string = getDocumentBase().getHost().toLowerCase();
@@ -11844,19 +11609,13 @@ public final class mudclient extends GameWindow
 			if (Class34.aClass38_5 == Class22.aClass38_3)
 			{
 				serverHost = getCodeBase().getHost();
-				anInt786 = 443;
-				anInt799 = 43594;
 			}
 			else if (GameImage.method342(Class34.aClass38_5, 20903))
 			{
 				serverHost = getCodeBase().getHost();
-				anInt786 = 50000 + Class27_Sub1_Sub1.portOffset;
-				anInt799 = 40000 + Class27_Sub1_Sub1.portOffset;
 			}
 			else if (Class34.aClass38_5 == StreamClass.aClass38_7)
 			{
-				anInt799 = 40000 + Class27_Sub1_Sub1.portOffset;
-				anInt786 = 50000 + Class27_Sub1_Sub1.portOffset;
 				serverHost = "local.runescape.com";
 			}
 			Class35.anInt377 = 1000;
@@ -11882,7 +11641,7 @@ public final class mudclient extends GameWindow
 				Class24.aBool16 = false;
 				Class33.anInt368 = anInt873;
 				aClass10_3 = new Class10(aClass46_Sub1_2, 5);
-				final int i_996_ = aClass46_Sub1_2.maybe_imageWidth - 199;
+				final int i_996_ = aClass46_Sub1_2.menuDefaultHeight - 199;
 				final int i_997_ = 36;
 				anInt1043 = aClass10_3.method80((byte) 106, i_997_ + 24, 500, i_996_, true, 90, 1, 196);
 				aClass10_4 = new Class10(aClass46_Sub1_2, 5);
@@ -11895,7 +11654,7 @@ public final class mudclient extends GameWindow
 					method551(77);
 					if (!aBool52)
 					{
-						aClass41_2 = new Class41(aClass46_Sub1_2, 15000, 15000, 1000);
+						aClass41_2 = new Camera(aClass46_Sub1_2, 15000, 15000, 1000);
 						aClass41_2.method278(maybe_windowWidth / 2, 256, maybe_windowHeight / 2, maybe_windowHeight / 2, anInt860, maybe_windowWidth / 2,
 						        maybe_windowWidth);
 						aClass41_2.anInt465 = 1;
@@ -11943,7 +11702,6 @@ public final class mudclient extends GameWindow
 		{
 			method551(-18);
 		}
-		anInt761++;
 		final int i_998_ = 7;
 		final int i_999_ = 15;
 		final int i_1000_ = 175;
@@ -11988,87 +11746,86 @@ public final class mudclient extends GameWindow
 
 	private void method596(final int i)
 	{
-		anInt829++;
-		if ((anInt939 == 0) && ((aClass46_Sub1_2.maybe_imageWidth + -35) <= this.mouseX) && (3 <= this.mouseY)
-		        && ((aClass46_Sub1_2.maybe_imageWidth - 3) > this.mouseX) && (35 > this.mouseY))
+		if ((anInt939 == 0) && ((aClass46_Sub1_2.menuDefaultHeight + -35) <= this.mouseX) && (3 <= this.mouseY)
+		        && ((aClass46_Sub1_2.menuDefaultHeight - 3) > this.mouseX) && (35 > this.mouseY))
 		{
 			anInt939 = 1;
 		}
-		if ((anInt939 == 0) && (this.mouseX >= (aClass46_Sub1_2.maybe_imageWidth + -35 + -33)) && (this.mouseY >= 3)
-		        && (this.mouseX < (aClass46_Sub1_2.maybe_imageWidth + -3 + -33)) && (35 > this.mouseY))
+		if ((anInt939 == 0) && (this.mouseX >= (aClass46_Sub1_2.menuDefaultHeight + -35 + -33)) && (this.mouseY >= 3)
+		        && (this.mouseX < (aClass46_Sub1_2.menuDefaultHeight + -3 + -33)) && (35 > this.mouseY))
 		{
 			anInt1041 = -11 + (int) (23.0 * Math.random());
 			anInt939 = 2;
 			anInt964 = -6 + (int) (13.0 * Math.random());
 		}
-		if ((anInt939 == 0) && ((aClass46_Sub1_2.maybe_imageWidth + -101) <= this.mouseX) && (3 <= this.mouseY)
-		        && (((aClass46_Sub1_2.maybe_imageWidth - 3) + -66) > this.mouseX) && (35 > this.mouseY))
+		if ((anInt939 == 0) && ((aClass46_Sub1_2.menuDefaultHeight + -101) <= this.mouseX) && (3 <= this.mouseY)
+		        && (((aClass46_Sub1_2.menuDefaultHeight - 3) + -66) > this.mouseX) && (35 > this.mouseY))
 		{
 			anInt939 = 3;
 		}
-		if ((anInt939 == 0) && ((aClass46_Sub1_2.maybe_imageWidth - 35 - 99) <= this.mouseX) && (this.mouseY >= 3)
-		        && ((aClass46_Sub1_2.maybe_imageWidth + -102) > this.mouseX) && (35 > this.mouseY))
+		if ((anInt939 == 0) && ((aClass46_Sub1_2.menuDefaultHeight - 35 - 99) <= this.mouseX) && (this.mouseY >= 3)
+		        && ((aClass46_Sub1_2.menuDefaultHeight + -102) > this.mouseX) && (35 > this.mouseY))
 		{
 			anInt939 = 4;
 		}
-		if ((anInt939 == 0) && (this.mouseX >= (aClass46_Sub1_2.maybe_imageWidth + -132 + -35)) && (this.mouseY >= 3)
-		        && ((aClass46_Sub1_2.maybe_imageWidth + -135) > this.mouseX) && (this.mouseY < 35))
+		if ((anInt939 == 0) && (this.mouseX >= (aClass46_Sub1_2.menuDefaultHeight + -132 + -35)) && (this.mouseY >= 3)
+		        && ((aClass46_Sub1_2.menuDefaultHeight + -135) > this.mouseX) && (this.mouseY < 35))
 		{
 			anInt939 = 5;
 		}
-		if ((anInt939 == 0) && (this.mouseX >= (aClass46_Sub1_2.maybe_imageWidth + -200)) && (3 <= this.mouseY)
-		        && (this.mouseX < (aClass46_Sub1_2.maybe_imageWidth - 168)) && (this.mouseY < 35))
+		if ((anInt939 == 0) && (this.mouseX >= (aClass46_Sub1_2.menuDefaultHeight + -200)) && (3 <= this.mouseY)
+		        && (this.mouseX < (aClass46_Sub1_2.menuDefaultHeight - 168)) && (this.mouseY < 35))
 		{
 			anInt939 = 6;
 		}
-		if ((anInt939 != 0) && (this.mouseX >= (aClass46_Sub1_2.maybe_imageWidth - 35)) && (this.mouseY >= 3)
-		        && ((aClass46_Sub1_2.maybe_imageWidth + -3) > this.mouseX) && (this.mouseY < 26))
+		if ((anInt939 != 0) && (this.mouseX >= (aClass46_Sub1_2.menuDefaultHeight - 35)) && (this.mouseY >= 3)
+		        && ((aClass46_Sub1_2.menuDefaultHeight + -3) > this.mouseX) && (this.mouseY < 26))
 		{
 			anInt939 = 1;
 		}
-		if ((anInt939 != 0) && (anInt939 != 2) && (this.mouseX >= ((aClass46_Sub1_2.maybe_imageWidth + -35) - 33))
-		        && (this.mouseY >= 3) && (this.mouseX < ((aClass46_Sub1_2.maybe_imageWidth + -3) - 33))
+		if ((anInt939 != 0) && (anInt939 != 2) && (this.mouseX >= ((aClass46_Sub1_2.menuDefaultHeight + -35) - 33))
+		        && (this.mouseY >= 3) && (this.mouseX < ((aClass46_Sub1_2.menuDefaultHeight + -3) - 33))
 		        && (26 > this.mouseY))
 		{
 			anInt939 = 2;
 			anInt964 = -6 + (int) (13.0 * Math.random());
 			anInt1041 = (int) (Math.random() * 23.0) - 11;
 		}
-		if ((anInt939 != 0) && (this.mouseX >= (aClass46_Sub1_2.maybe_imageWidth + -66 + -35)) && (3 <= this.mouseY)
-		        && (this.mouseX < (aClass46_Sub1_2.maybe_imageWidth + -69)) && (this.mouseY < 26))
+		if ((anInt939 != 0) && (this.mouseX >= (aClass46_Sub1_2.menuDefaultHeight + -66 + -35)) && (3 <= this.mouseY)
+		        && (this.mouseX < (aClass46_Sub1_2.menuDefaultHeight + -69)) && (this.mouseY < 26))
 		{
 			anInt939 = 3;
 		}
-		if ((anInt939 != 0) && (((aClass46_Sub1_2.maybe_imageWidth - 99) + -35) <= this.mouseX) && (3 <= this.mouseY)
-		        && (this.mouseX < (aClass46_Sub1_2.maybe_imageWidth + -3 + -99)) && (26 > this.mouseY))
+		if ((anInt939 != 0) && (((aClass46_Sub1_2.menuDefaultHeight - 99) + -35) <= this.mouseX) && (3 <= this.mouseY)
+		        && (this.mouseX < (aClass46_Sub1_2.menuDefaultHeight + -3 + -99)) && (26 > this.mouseY))
 		{
 			anInt939 = 4;
 		}
-		if ((anInt939 != 0) && (this.mouseX >= ((aClass46_Sub1_2.maybe_imageWidth + -132) - 35)) && (3 <= this.mouseY)
-		        && (((aClass46_Sub1_2.maybe_imageWidth - 3) + -132) > this.mouseX) && (this.mouseY < 26))
+		if ((anInt939 != 0) && (this.mouseX >= ((aClass46_Sub1_2.menuDefaultHeight + -132) - 35)) && (3 <= this.mouseY)
+		        && (((aClass46_Sub1_2.menuDefaultHeight - 3) + -132) > this.mouseX) && (this.mouseY < 26))
 		{
 			anInt939 = 5;
 		}
-		if ((anInt939 != 0) && ((aClass46_Sub1_2.maybe_imageWidth + -165 + -35) <= this.mouseX) && (3 <= this.mouseY)
-		        && (((aClass46_Sub1_2.maybe_imageWidth - 165) + -3) > this.mouseX) && (this.mouseY < 26))
+		if ((anInt939 != 0) && ((aClass46_Sub1_2.menuDefaultHeight + -165 + -35) <= this.mouseX) && (3 <= this.mouseY)
+		        && (((aClass46_Sub1_2.menuDefaultHeight - 165) + -3) > this.mouseX) && (this.mouseY < 26))
 		{
 			anInt939 = 6;
 		}
-		if ((anInt939 == 1) && (((aClass46_Sub1_2.maybe_imageWidth + -248) > this.mouseX)
+		if ((anInt939 == 1) && (((aClass46_Sub1_2.menuDefaultHeight + -248) > this.mouseX)
 		        || ((((anInt973 / 5) * 34) + 36) < this.mouseY)))
 		{
 			anInt939 = 0;
 		}
-		if ((anInt939 == 3) && (((aClass46_Sub1_2.maybe_imageWidth + -199) > this.mouseX) || (316 < this.mouseY)))
+		if ((anInt939 == 3) && (((aClass46_Sub1_2.menuDefaultHeight + -199) > this.mouseX) || (316 < this.mouseY)))
 		{
 			anInt939 = 0;
 		}
 		if (((anInt939 == 2) || (anInt939 == 4) || (anInt939 == 5))
-		        && (((aClass46_Sub1_2.maybe_imageWidth + -199) > this.mouseX) || (240 < this.mouseY)))
+		        && (((aClass46_Sub1_2.menuDefaultHeight + -199) > this.mouseX) || (240 < this.mouseY)))
 		{
 			anInt939 = 0;
 		}
-		if ((anInt939 == 6) && (((aClass46_Sub1_2.maybe_imageWidth + -199) > this.mouseX) || (311 < this.mouseY)))
+		if ((anInt939 == 6) && (((aClass46_Sub1_2.menuDefaultHeight + -199) > this.mouseX) || (311 < this.mouseY)))
 		{
 			anInt939 = 0;
 		}
@@ -12080,7 +11837,6 @@ public final class mudclient extends GameWindow
 		{
 			anInt899 = -107;
 		}
-		anInt820++;
 		for (int i_1004_ = 0; maybe_playerCount > i_1004_; i_1004_++)
 		{
 			if (i_1003_ == maybe_playerArray[i_1004_].anInt150)
@@ -12093,7 +11849,6 @@ public final class mudclient extends GameWindow
 
 	private void method598(final byte i)
 	{
-		anInt800++;
 		aClass46_Sub1_2.aBool28 = false;
 		aClass46_Sub1_2.method331(-1964300920);
 		aClass10_1.method71(-6);
@@ -12129,7 +11884,6 @@ public final class mudclient extends GameWindow
 
 	private void method599(final int i)
 	{
-		anInt813++;
 		Container container;
 		if (!maybe_isApplet)
 		{
@@ -12232,7 +11986,7 @@ public final class mudclient extends GameWindow
 		aClass15Array4 = new Mob[500];
 		anIntArray175 = new int[5000];
 		aBool66 = false;
-		aClass23Array4 = new Class23[1500];
+		aClass23Array4 = new Model[1500];
 		anInt957 = 0;
 		anIntArray169 = new int[50];
 		anInt972 = -1;
@@ -12296,7 +12050,7 @@ public final class mudclient extends GameWindow
 		anInt1016 = -1;
 		aBool68 = false;
 		aString32 = "";
-		aClass23Array5 = new Class23[500];
+		aClass23Array5 = new Model[500];
 		anInt961 = 0;
 		aBool57 = false;
 		anInt985 = 0;
@@ -12388,7 +12142,7 @@ public final class mudclient extends GameWindow
 		aBool85 = false;
 		anIntArray215 = new int[8];
 		anIntArray185 = new int[18];
-		aClass23Array6 = new Class23[1000];
+		aClass23Array6 = new Model[1000];
 		anIntArray194 = new int[35];
 		anIntArray172 = new int[14];
 		anIntArray210 = new int[256];

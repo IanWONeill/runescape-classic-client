@@ -6,79 +6,42 @@ final class Class6
 {
 	int anInt16;
 	byte[] aByteArray1;
-	static int anInt17;
 	static int[] anIntArray8;
 	byte[] aByteArray2;
 	private int[] anIntArray9 = new int[256];
-	static int anInt18;
 	private final byte[][] aByteArrayArray1;
-	static int anInt19;
 	static String[] aStringArray7 = new String[100];
-	static int anInt20;
 	private final GameImage aClass46_1;
-	static int anInt21;
-	static int anInt22;
-	static int anInt23;
-	static int anInt24;
-	static int anInt25;
-	static int anInt26;
 	private int[][] anIntArrayArray2;
 	private final int[][] anIntArrayArray3;
 	int[][] anIntArrayArray4;
-	private final Class41 aClass41_1;
-	static int anInt27;
-	static int anInt28;
-	private Class23[] aClass23Array1 = new Class23[64];
+	private final Camera aClass41_1;
+	private Model[] aClass23Array1 = new Model[64];
 	static int[] anIntArray10;
-	static int anInt29;
 	private final boolean aBool1 = false;
 	private final int[][] anIntArrayArray5;
 	byte[] aByteArray3;
 	private final byte[][] aByteArrayArray2;
 	int[] anIntArray11;
-	static int anInt30;
-	static int anInt31;
 	private final byte[][] aByteArrayArray3;
-	Class23[][] aClass23ArrayArray1;
+	Model[][] aClass23ArrayArray1;
 	static int[] anIntArray12;
-	static int anInt32;
-	static int anInt33;
 	private byte[][] aByteArrayArray4;
-	static int anInt34;
-	static int anInt35;
-	static int anInt36;
 	static int[] anIntArray13;
-	private Class23 aClass23_1;
-	static int anInt37;
-	static int anInt38;
-	static int anInt39;
-	static int anInt40;
+	private Model aClass23_1;
 	private final byte[][] aByteArrayArray5;
 	byte[] aByteArray4;
 	int[] anIntArray14;
-	static int anInt41;
-	static int anInt42;
 	boolean aBool2;
-	static int anInt43;
-	static int anInt44;
 	private final byte[][] aByteArrayArray6;
-	static int anInt45;
-	static int anInt46;
 	static int anInt47 = 0;
-	static int anInt48;
-	static int anInt49;
-	static int anInt50;
-	Class23[][] aClass23ArrayArray2;
-	static int anInt51;
-	static int anInt52;
+	Model[][] aClass23ArrayArray2;
 	private final boolean aBool3;
 	private final byte[][] aByteArrayArray7;
-	static int anInt53;
 
 	void method11(final byte i, final int i_0_, final int i_1_, final int i_2_)
 	{
 		method24(96);
-		anInt49++;
 		final int i_3_ = (i_0_ + 24) / 48;
 		method28(true, i_1_, i_0_, i_2_, -17614);
 		final int i_4_ = (i_2_ + 24) / 48;
@@ -96,7 +59,6 @@ final class Class6
 
 	private void method12(final int i, final int i_5_, final int i_6_, final int i_7_)
 	{
-		anInt26++;
 		if (i != 1)
 		{
 			method19(-62, 105, -1, 102, -88);
@@ -106,7 +68,6 @@ final class Class6
 
 	int method13(int i, int i_8_, final byte i_9_)
 	{
-		anInt45++;
 		if ((0 > i_8_) || (96 <= i_8_) || (i < 0) || (i >= 96))
 		{
 			return 0;
@@ -136,7 +97,6 @@ final class Class6
 
 	private int method14(final int i, final int i_12_, final int i_13_, final byte i_14_, final int i_15_)
 	{
-		anInt38++;
 		final int i_16_ = method44(i_14_ + 83, i_15_, i_13_, i_12_);
 		if (i_16_ == 0)
 		{
@@ -146,19 +106,18 @@ final class Class6
 		{
 			return -28;
 		}
-		return Class23.anIntArray54[i_16_ - 1];
+		return Model.anIntArray54[i_16_ - 1];
 	}
 
 	void method15(final int i, final int i_17_, final int i_18_, final int i_19_, final int i_20_)
 	{
-		anInt37++;
 		if ((i_18_ >= 0) && (i_20_ >= 0) && (95 > i_18_) && (95 > i_20_))
 		{
 			if (Class9.anIntArray21[i_19_] == 1)
 			{
 				if (i_17_ == 0)
 				{
-					this.anIntArrayArray4[i_18_][i_20_] = GameWindow.method485((this.anIntArrayArray4[i_18_][i_20_]),
+					this.anIntArrayArray4[i_18_][i_20_] = GameWindow.bitwiseOr((this.anIntArrayArray4[i_18_][i_20_]),
 					        1);
 					if (i_20_ > 0)
 					{
@@ -167,7 +126,7 @@ final class Class6
 				}
 				else if (i_17_ == 1)
 				{
-					this.anIntArrayArray4[i_18_][i_20_] = GameWindow.method485((this.anIntArrayArray4[i_18_][i_20_]),
+					this.anIntArrayArray4[i_18_][i_20_] = GameWindow.bitwiseOr((this.anIntArrayArray4[i_18_][i_20_]),
 					        2);
 					if (i_18_ > 0)
 					{
@@ -179,12 +138,12 @@ final class Class6
 					if (i_17_ == 3)
 					{
 						this.anIntArrayArray4[i_18_][i_20_] = GameWindow
-						        .method485((this.anIntArrayArray4[i_18_][i_20_]), 32);
+						        .bitwiseOr((this.anIntArrayArray4[i_18_][i_20_]), 32);
 					}
 				}
 				else
 				{
-					this.anIntArrayArray4[i_18_][i_20_] = GameWindow.method485((this.anIntArrayArray4[i_18_][i_20_]),
+					this.anIntArrayArray4[i_18_][i_20_] = GameWindow.bitwiseOr((this.anIntArrayArray4[i_18_][i_20_]),
 					        16);
 				}
 				method19(i_20_, 127, 1, i_18_, 1);
@@ -195,8 +154,7 @@ final class Class6
 	private void method16(final int i, final int i_21_, final int i_22_, final int i_23_, final int i_24_,
 	        final int i_25_)
 	{
-		anInt22++;
-		final Class23 class23 = aClass23Array1[(i_25_ * 8) + i_23_];
+		final Model class23 = aClass23Array1[(i_25_ * 8) + i_23_];
 		for (int i_26_ = 0; class23.anInt221 > i_26_; i_26_++)
 		{
 			if (((i_21_ * 128) == class23.anIntArray53[i_26_]) && ((i_24_ * 128) == class23.anIntArray77[i_26_]))
@@ -209,13 +167,11 @@ final class Class6
 
 	static boolean method17(final byte i, final char c)
 	{
-		anInt35++;
 		return (c == '\u00a0') || (c == ' ') || (c == '_') || (c == '-');
 	}
 
 	private int method18(final int i, int i_27_, int i_28_)
 	{
-		anInt34++;
 		if ((i_27_ < 0) || (96 <= i_27_) || (i_28_ < 0) || (96 <= i_28_))
 		{
 			return 0;
@@ -252,7 +208,6 @@ final class Class6
 
 	private void method19(final int i, final int i_30_, final int i_31_, final int i_32_, final int i_33_)
 	{
-		anInt24++;
 		if ((i_32_ >= 1) && (i >= 1) && ((i_33_ + i_32_) < 96) && ((i - -i_31_) < 96))
 		{
 			int i_34_ = i_32_;
@@ -286,7 +241,6 @@ final class Class6
 		{
 			method21(-56, 81, -18, false, 34, 91);
 		}
-		anInt27++;
 		if ((0 > i_36_) || (0 > i_37_) || (i_36_ >= 96) || (i_37_ >= 96))
 		{
 			return 0;
@@ -297,7 +251,6 @@ final class Class6
 	private void method21(final int i, final int i_38_, final int i_39_, final boolean bool, final int i_40_,
 	        final int i_41_)
 	{
-		anInt51++;
 		final int i_42_ = StreamClass.anIntArray140[i_38_];
 		if (80000 > anIntArrayArray5[i][i_40_])
 		{
@@ -315,7 +268,6 @@ final class Class6
 		{
 			aStringArray7 = null;
 		}
-		anInt25++;
 		for (int i_45_ = string.indexOf(string_43_); i_45_ != -1; i_45_ = string.indexOf(string_43_,
 		        i_45_ - -string_44_.length()))
 		{
@@ -327,7 +279,6 @@ final class Class6
 
 	private void method23(final int i, final int i_46_, final byte i_47_, final int i_48_)
 	{
-		anInt18++;
 		final int i_49_ = i_46_ / 12;
 		final int i_50_ = i / 12;
 		final int i_51_ = (i_46_ - 1) / 12;
@@ -351,9 +302,8 @@ final class Class6
 	{
 		if (aBool3)
 		{
-			aClass41_1.method268(116);
+			aClass41_1.cleanupModels(116);
 		}
-		anInt44++;
 		for (int i_54_ = 0; 64 > i_54_; i_54_++)
 		{
 			aClass23Array1[i_54_] = null;
@@ -371,7 +321,6 @@ final class Class6
 
 	private int method25(int i, int i_57_, final int i_58_)
 	{
-		anInt46++;
 		if ((0 > i_57_) || (i_57_ >= 96) || (i < 0) || (i >= 96))
 		{
 			return 0;
@@ -405,7 +354,6 @@ final class Class6
 
 	void method26(final int i, final int i_60_, final int i_61_, final int i_62_)
 	{
-		anInt42++;
 		if ((i_62_ == -30895) && ((0 <= i_61_) && (0 <= i_60_) && (95 > i_61_) && (i_60_ < 95)))
 		{
 			if ((GameImage.anIntArray134[i] == 1) || (GameImage.anIntArray134[i] == 2))
@@ -483,7 +431,6 @@ final class Class6
 
 	private void method27(final int i, final int i_68_, final int i_69_, final int i_70_, final int i_71_)
 	{
-		anInt20++;
 		if (i_69_ >= 6)
 		{
 			final String string = new StringBuilder().append("m").append(i).append(i_71_ / 10).append(i_71_ % 10)
@@ -492,11 +439,11 @@ final class Class6
 			{
 				if (this.aByteArray3 != null)
 				{
-					byte[] is = Class41.method292(this.aByteArray3, 0,
+					byte[] is = Camera.method292(this.aByteArray3, 0,
 					        new StringBuilder().append(string).append(".hei").toString(), 293484812);
 					if ((is == null) && (this.aByteArray2 != null))
 					{
-						is = Class41.method292(this.aByteArray2, 0,
+						is = Camera.method292(this.aByteArray2, 0,
 						        new StringBuilder().append(string).append(".hei").toString(), 293484812);
 					}
 					if ((is == null) || (is.length <= 0))
@@ -565,11 +512,11 @@ final class Class6
 							}
 						}
 					}
-					is = Class41.method292(this.aByteArray4, 0,
+					is = Camera.method292(this.aByteArray4, 0,
 					        new StringBuilder().append(string).append(".dat").toString(), 293484812);
 					if ((is == null) && (this.aByteArray1 != null))
 					{
-						is = Class41.method292(this.aByteArray1, 0,
+						is = Camera.method292(this.aByteArray1, 0,
 						        new StringBuilder().append(string).append(".dat").toString(), 293484812);
 					}
 					if ((is == null) || (is.length == 0))
@@ -647,7 +594,7 @@ final class Class6
 							}
 						}
 					}
-					is = Class41.method292(this.aByteArray4, 0,
+					is = Camera.method292(this.aByteArray4, 0,
 					        new StringBuilder().append(string).append(".loc").toString(), 293484812);
 					if ((is != null) && (is.length > 0))
 					{
@@ -670,7 +617,7 @@ final class Class6
 				else
 				{
 					final byte[] is = new byte[20736];
-					Class27_Sub1_Sub1.method455(
+					Class27_Sub1_Sub1.readFromPath(
 					        new StringBuilder().append("../gamedata/maps/").append(string).append(".jm").toString(), is,
 					        (byte) -117, 20736);
 					int i_97_ = 0;
@@ -741,7 +688,6 @@ final class Class6
 
 	private void method28(final boolean bool, final int i, final int i_108_, final int i_109_, final int i_110_)
 	{
-		anInt32++;
 		final int i_111_ = (i_108_ - -24) / 48;
 		final int i_112_ = (i_109_ - -24) / 48;
 		method27(i, 0, i_110_ + 17679, i_112_ - 1, i_111_ + -1);
@@ -751,7 +697,7 @@ final class Class6
 		method32(5136);
 		if (aClass23_1 == null)
 		{
-			aClass23_1 = new Class23(18688, 18688, true, true, false, false, true);
+			aClass23_1 = new Model(18688, 18688, true, true, false, false, true);
 		}
 		if (bool)
 		{
@@ -763,7 +709,7 @@ final class Class6
 					this.anIntArrayArray4[i_113_][i_114_] = 0;
 				}
 			}
-			final Class23 class23 = aClass23_1;
+			final Model class23 = aClass23_1;
 			class23.method150(i_110_ ^ ~0x44cc);
 			for (int i_115_ = 0; 96 > i_115_; i_115_++)
 			{
@@ -815,7 +761,7 @@ final class Class6
 						final int i_127_ = method44(i_110_ + 17739, i, i_121_, i_120_);
 						i_122_ = Class9.anIntArray22[i_127_ + -1];
 						final int i_128_ = method41(i_121_, i_120_, i, 34);
-						i_123_ = i_124_ = Class23.anIntArray54[i_127_ + -1];
+						i_123_ = i_124_ = Model.anIntArray54[i_127_ + -1];
 						if (i_122_ == 4)
 						{
 							i_124_ = 1;
@@ -899,12 +845,12 @@ final class Class6
 						if (Mob.anIntArray37[i_127_ + -1] != 0)
 						{
 							this.anIntArrayArray4[i_120_][i_121_] = GameWindow
-							        .method485((this.anIntArrayArray4[i_120_][i_121_]), 64);
+							        .bitwiseOr((this.anIntArrayArray4[i_120_][i_121_]), 64);
 						}
 						if (Class9.anIntArray22[i_127_ + -1] == 2)
 						{
 							this.anIntArrayArray4[i_120_][i_121_] = GameWindow
-							        .method485((this.anIntArrayArray4[i_120_][i_121_]), 128);
+							        .bitwiseOr((this.anIntArrayArray4[i_120_][i_121_]), 128);
 						}
 					}
 					method45(i_124_, i_126_, 0, i_121_, i_120_, i_123_);
@@ -991,7 +937,7 @@ final class Class6
 							if ((method44(79, i, i_137_ + 1, i_136_) > 0)
 							        && (Class9.anIntArray22[method44(94, i, 1 + i_137_, i_136_) + -1] == 4))
 							{
-								final int i_138_ = (Class23.anIntArray54[-1
+								final int i_138_ = (Model.anIntArray54[-1
 								        + method44(i_110_ ^ ~0x44e3, i, i_137_ - -1, i_136_)]);
 								final int i_139_ = class23.method161( -method25(i_137_, i_136_, 76),
 								        i_136_ * 128, i_137_ * 128);
@@ -1012,7 +958,7 @@ final class Class6
 							if ((0 < method44(i_110_ ^ ~0x44bd, i, i_137_ - 1, i_136_))
 							        && (4 == (Class9.anIntArray22[-1 + method44(105, i, -1 + i_137_, i_136_)])))
 							{
-								final int i_144_ = (Class23.anIntArray54[-1
+								final int i_144_ = (Model.anIntArray54[-1
 								        + method44(i_110_ + 17721, i, i_137_ - 1, i_136_)]);
 								final int i_145_ = class23.method161(-method25(i_137_, i_136_, 48),
 								        i_136_ * 128, i_137_ * 128);
@@ -1032,7 +978,7 @@ final class Class6
 							if ((0 < method44(97, i, i_137_, i_136_ + 1)) && (4 == (Class9.anIntArray22[-1
 							        + method44(i_110_ ^ ~0x44a7, i, i_137_, i_136_ - -1)])))
 							{
-								final int i_150_ = (Class23.anIntArray54[method44(65, i, i_137_, i_136_ - -1) - 1]);
+								final int i_150_ = (Model.anIntArray54[method44(65, i, i_137_, i_136_ - -1) - 1]);
 								final int i_151_ = class23.method161(-method25(i_137_, i_136_, 39),
 								        i_136_ * 128, i_137_ * 128);
 								final int i_152_ = class23.method161(-method25(i_137_, i_136_ + 1, 76),
@@ -1052,7 +998,7 @@ final class Class6
 							if ((method44(81, i, i_137_, i_136_ + -1) > 0)
 							        && (4 == (Class9.anIntArray22[(method44(78, i, i_137_, -1 + i_136_) - 1)])))
 							{
-								final int i_156_ = (Class23.anIntArray54[-1 + method44(78, i, i_137_, i_136_ + -1)]);
+								final int i_156_ = (Model.anIntArray54[-1 + method44(78, i, i_137_, i_136_ + -1)]);
 								final int i_157_ = class23.method161(
 								        -method25(i_137_, i_136_, (i_110_ + 17682)), i_136_ * 128, i_137_ * 128);
 								final int i_158_ = class23.method161(-method25(i_137_, i_136_ + 1, 69),
@@ -1072,7 +1018,7 @@ final class Class6
 					}
 					else
 					{
-						final int i_162_ = (Class23.anIntArray54[method44(113, i, i_137_, i_136_) + -1]);
+						final int i_162_ = (Model.anIntArray54[method44(113, i, i_137_, i_136_) + -1]);
 						final int i_163_ = class23.method161(-method25(i_137_, i_136_, i_110_ ^ ~0x44fb),
 						        i_136_ * 128, i_137_ * 128);
 						final int i_164_ = class23.method161(-method25(i_137_, i_136_ + 1, 69),
@@ -1117,7 +1063,7 @@ final class Class6
 					if (bool && (Class9.anIntArray21[i_174_ - 1] != 0))
 					{
 						this.anIntArrayArray4[i_172_][i_173_] = GameWindow
-						        .method485((this.anIntArrayArray4[i_172_][i_173_]), 1);
+						        .bitwiseOr((this.anIntArrayArray4[i_172_][i_173_]), 1);
 						if (0 < i_173_)
 						{
 							method43(i_173_ + -1, 1, i_172_, 4);
@@ -1135,7 +1081,7 @@ final class Class6
 					if (bool && (Class9.anIntArray21[i_174_ + -1] != 0))
 					{
 						this.anIntArrayArray4[i_172_][i_173_] = GameWindow
-						        .method485((this.anIntArrayArray4[i_172_][i_173_]), 2);
+						        .bitwiseOr((this.anIntArrayArray4[i_172_][i_173_]), 2);
 						if (i_172_ > 0)
 						{
 							method43(i_173_, 1, i_172_ + -1, 8);
@@ -1153,7 +1099,7 @@ final class Class6
 					if (bool && (Class9.anIntArray21[i_174_ + -1] != 0))
 					{
 						this.anIntArrayArray4[i_172_][i_173_] = GameWindow
-						        .method485((this.anIntArrayArray4[i_172_][i_173_]), 32);
+						        .bitwiseOr((this.anIntArrayArray4[i_172_][i_173_]), 32);
 					}
 					if (bool)
 					{
@@ -1168,7 +1114,7 @@ final class Class6
 					if (bool && (Class9.anIntArray21[i_174_ + -12001] != 0))
 					{
 						this.anIntArrayArray4[i_172_][i_173_] = GameWindow
-						        .method485((this.anIntArrayArray4[i_172_][i_173_]), 16);
+						        .bitwiseOr((this.anIntArrayArray4[i_172_][i_173_]), 16);
 					}
 					if (bool)
 					{
@@ -1560,9 +1506,8 @@ final class Class6
 		}
 	}
 
-	void method29(final Class23[] class23s, final int i)
+	void method29(final Model[] class23s, final int i)
 	{
-		anInt43++;
 		for (int i_226_ = 0; 94 > i_226_; i_226_++)
 		{
 			for (int i_227_ = 0; 94 > i_227_; i_227_++)
@@ -1584,7 +1529,7 @@ final class Class6
 						i_231_ = Class45.anIntArray115[i_228_];
 					}
 					method31(i_228_, (byte) -58, i_226_, i_227_);
-					final Class23 class23 = class23s[IOException_Sub1.anIntArray149[i_228_]].method167(false, false,
+					final Model class23 = class23s[IOException_Sub1.anIntArray149[i_228_]].method167(false, false,
 					        (byte) 39, false, true);
 					int i_232_ = ((i_231_ + i_226_ + i_226_) * 128) / 2;
 					int i_233_ = ((i_227_ + (i_227_ - -i_230_)) * 128) / 2;
@@ -1642,7 +1587,6 @@ final class Class6
 		{
 			anInt47 = -7;
 		}
-		anInt33++;
 		if ((i_238_ < 0) || (96 <= i_238_) || (0 > i) || (96 <= i))
 		{
 			return 0;
@@ -1672,7 +1616,6 @@ final class Class6
 
 	void method31(final int i, final byte i_240_, final int i_241_, final int i_242_)
 	{
-		anInt53++;
 		if ((i_241_ >= 0) && (0 <= i_242_) && (95 > i_241_) && (i_242_ < 95))
 		{
 			if ((GameImage.anIntArray134[i] == 1) || (GameImage.anIntArray134[i] == 2))
@@ -1699,7 +1642,7 @@ final class Class6
 							if (i_243_ == 0)
 							{
 								this.anIntArrayArray4[i_246_][i_247_] = GameWindow
-								        .method485((this.anIntArrayArray4[i_246_][i_247_]), 2);
+								        .bitwiseOr((this.anIntArrayArray4[i_246_][i_247_]), 2);
 								if (0 < i_246_)
 								{
 									method43(i_247_, 1, i_246_ + -1, 8);
@@ -1712,7 +1655,7 @@ final class Class6
 									if (i_243_ == 6)
 									{
 										this.anIntArrayArray4[i_246_][i_247_] = (GameWindow
-										        .method485((this.anIntArrayArray4[i_246_][i_247_]), 1));
+										        .bitwiseOr((this.anIntArrayArray4[i_246_][i_247_]), 1));
 										if (i_247_ > 0)
 										{
 											method43(i_247_ + -1, 1, i_246_, 4);
@@ -1722,7 +1665,7 @@ final class Class6
 								else
 								{
 									this.anIntArrayArray4[i_246_][i_247_] = (GameWindow
-									        .method485((this.anIntArrayArray4[i_246_][i_247_]), 8));
+									        .bitwiseOr((this.anIntArrayArray4[i_246_][i_247_]), 8));
 									if (i_246_ < 95)
 									{
 										method43(i_247_, 1, i_246_ + 1, 2);
@@ -1732,7 +1675,7 @@ final class Class6
 							else
 							{
 								this.anIntArrayArray4[i_246_][i_247_] = GameWindow
-								        .method485((this.anIntArrayArray4[i_246_][i_247_]), 4);
+								        .bitwiseOr((this.anIntArrayArray4[i_246_][i_247_]), 4);
 								if (i_247_ < 95)
 								{
 									method43(i_247_ + 1, 1, i_246_, 1);
@@ -1742,7 +1685,7 @@ final class Class6
 						else
 						{
 							this.anIntArrayArray4[i_246_][i_247_] = GameWindow
-							        .method485((this.anIntArrayArray4[i_246_][i_247_]), 64);
+							        .bitwiseOr((this.anIntArrayArray4[i_246_][i_247_]), 64);
 						}
 					}
 				}
@@ -1780,12 +1723,10 @@ final class Class6
 				}
 			}
 		}
-		anInt23++;
 	}
 
 	private int method33(int i, int i_250_, final byte i_251_)
 	{
-		anInt39++;
 		if ((0 > i) || (96 <= i) || (0 > i_250_) || (96 <= i_250_))
 		{
 			return 0;
@@ -1818,7 +1759,6 @@ final class Class6
 
 	private boolean method34(final int i, final byte i_253_, final int i_254_)
 	{
-		anInt52++;
 		if ((method30(i, -120, i_254_) > 0) || (method30(i, -105, i_254_ + -1) > 0)
 		        || (method30(i + -1, -105, i_254_ - 1) > 0) || (0 < method30(i - 1, -112, i_254_)))
 		{
@@ -1829,7 +1769,6 @@ final class Class6
 
 	int method35(final int i, final boolean bool, final int i_255_)
 	{
-		anInt30++;
 		if (bool != true)
 		{
 			return 80;
@@ -1865,7 +1804,6 @@ final class Class6
 
 	private void method36(int i, int i_264_, final int i_265_, final byte i_266_)
 	{
-		anInt41++;
 		if ((i_264_ >= 0) && (i_264_ < 96) && (i >= 0) && (i < 96))
 		{
 			int i_267_ = 0;
@@ -1895,11 +1833,10 @@ final class Class6
 		}
 	}
 
-	private void method37(final int i, final int i_269_, final int i_270_, final Class23 class23, final int i_271_,
+	private void method37(final int i, final int i_269_, final int i_270_, final Model class23, final int i_271_,
 	        final int i_272_, final int i_273_)
 	{
 		method23(i_273_, i_272_, (byte) 78, 40);
-		anInt28++;
 		method23(i_269_, i_271_, (byte) -118, 40);
 		final int i_274_ = StreamClass.anIntArray140[i_270_];
 		final int i_275_ = Class25.anIntArray79[i_270_];
@@ -1930,7 +1867,6 @@ final class Class6
 		{
 			return -27;
 		}
-		anInt31++;
 		if ((i_286_ < 0) || (96 <= i_286_) || (i < 0) || (i >= 96))
 		{
 			return 0;
@@ -1957,7 +1893,6 @@ final class Class6
 
 	private boolean method39(final int i, final int i_288_, final int i_289_)
 	{
-		anInt36++;
 		if (i_288_ != -3)
 		{
 			return false;
@@ -1972,7 +1907,6 @@ final class Class6
 
 	private int method40(final boolean bool, int i, int i_290_)
 	{
-		anInt48++;
 		if ((0 > i) || (i >= 96) || (0 > i_290_) || (96 <= i_290_))
 		{
 			return 0;
@@ -2002,7 +1936,6 @@ final class Class6
 
 	private int method41(final int i, final int i_292_, final int i_293_, final int i_294_)
 	{
-		anInt21++;
 		final int i_295_ = method44(52, i_293_, i, i_292_);
 		if (i_295_ == 0)
 		{
@@ -2018,7 +1951,6 @@ final class Class6
 
 	void method42(final int i, final int i_297_, final boolean bool, final int i_298_, final int i_299_)
 	{
-		anInt19++;
 		if ((i_297_ >= 0) && (i_299_ >= 0) && (i_297_ < 95) && (95 > i_299_))
 		{
 			if (Class9.anIntArray21[i_298_] == 1)
@@ -2064,13 +1996,11 @@ final class Class6
 
 	private void method43(final int i, final int i_300_, final int i_301_, final int i_302_)
 	{
-		anInt50++;
-		this.anIntArrayArray4[i_301_][i] = GameWindow.method485((this.anIntArrayArray4[i_301_][i]), i_302_);
+		this.anIntArrayArray4[i_301_][i] = GameWindow.bitwiseOr((this.anIntArrayArray4[i_301_][i]), i_302_);
 	}
 
 	private int method44(final int i, final int i_303_, int i_304_, int i_305_)
 	{
-		anInt17++;
 		if ((0 > i_305_) || (i_305_ >= 96) || (i_304_ < 0) || (96 <= i_304_))
 		{
 			return 0;
@@ -2108,7 +2038,6 @@ final class Class6
 	private void method45(final int i, final int i_307_, final int i_308_, final int i_309_, final int i_310_,
 	        final int i_311_)
 	{
-		anInt40++;
 		final int i_312_ = i_310_ * 3;
 		final int i_313_ = i_309_ * 3;
 		int i_314_ = aClass41_1.method263(0, i_311_);
@@ -2136,7 +2065,6 @@ final class Class6
 	int method46(final int i, final int i_316_, final boolean bool, final int i_317_, final int i_318_, final int[] is,
 	        final int i_319_, final int i_320_, final int[] is_321_, final byte i_322_)
 	{
-		anInt29++;
 		for (int i_323_ = 0; i_323_ < 96; i_323_++)
 		{
 			for (int i_324_ = 0; i_324_ < 96; i_324_++)
@@ -2311,7 +2239,7 @@ final class Class6
 		return i_326_;
 	}
 
-	Class6(final Class41 class41, final GameImage class46)
+	Class6(final Camera class41, final GameImage class46)
 	{
 		this.anIntArrayArray4 = new int[96][96];
 		this.anIntArray11 = new int[18432];
@@ -2321,13 +2249,13 @@ final class Class6
 		this.anInt16 = 750;
 		this.anIntArray14 = new int[18432];
 		anIntArrayArray2 = new int[96][96];
-		this.aClass23ArrayArray1 = new Class23[4][64];
+		this.aClass23ArrayArray1 = new Model[4][64];
 		anIntArrayArray3 = new int[4][2304];
 		aByteArrayArray1 = new byte[4][2304];
 		this.aBool2 = false;
 		aByteArrayArray6 = new byte[4][2304];
 		anIntArrayArray5 = new int[96][96];
-		this.aClass23ArrayArray2 = new Class23[4][64];
+		this.aClass23ArrayArray2 = new Model[4][64];
 		aByteArrayArray5 = new byte[4][2304];
 		aBool3 = true;
 		aByteArrayArray7 = new byte[4][2304];

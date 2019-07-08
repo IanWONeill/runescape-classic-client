@@ -37,7 +37,7 @@ final class Class38
 		throw new IllegalStateException();
 	}
 
-	static byte[] method246(final int i)
+	static byte[] method246()
 	{
 		final byte[] is = new byte[256];
 		for (int i_3_ = -128; i_3_ < 127; i_3_++)

@@ -8,9 +8,6 @@ final class Class47
 {
 	private Class39 aClass39_3;
 	private Class39 aClass39_4 = null;
-	static int anInt570;
-	static int anInt571;
-	static int anInt572;
 	static String[] aStringArray34;
 	static byte[] aByteArray18;
 	static int anInt573;
@@ -25,7 +22,6 @@ final class Class47
 
 	private boolean method365(final byte[] is, boolean bool, final int i, final byte i_0_, final int i_1_)
 	{
-		anInt570++;
 		synchronized (aClass39_3)
 		{
 			boolean bool_3_;
@@ -196,7 +192,6 @@ final class Class47
 
 	boolean method366(final byte[] is, final int i, final int i_19_)
 	{
-		anInt571++;
 		synchronized (aClass39_3)
 		{
 			if ((0 > i) || (i > anInt574))
@@ -529,7 +524,6 @@ final class Class47
 	@Override
 	public String toString()
 	{
-		anInt572++;
 		return new StringBuilder().append("").append(anInt576).toString();
 	}
 

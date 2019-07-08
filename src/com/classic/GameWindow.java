@@ -24,76 +24,30 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	 *
 	 */
 	private static final long serialVersionUID = 1L;
-	static int anInt678;
-	static int anInt679;
-	static int anInt680;
-	static int anInt681;
 	private int appletHeight;
-	static int anInt683;
-	static int anInt684;
 	Thread gameWindowThread = null;
 	static String[] aStringArray43 = { "Are you sure you wish to skip the tutorial", "and teleport to Lumbridge?" };
-	static int anInt685;
 	private int exitTimeout;
 	static char[] aCharArray3;
-	static int anInt687;
 	static String[] aStringArray44;
 	static int[] anIntArray151 = new int[2048];
 	static long aLong16;
 	boolean aBool37 = false;
-	static int anInt688;
-	static int anInt689;
-	static int anInt690;
-	static int anInt691;
-	static int anInt692;
-	static int anInt693;
 	int anInt694;
-	static int anInt695;
-	static int anInt696;
-	static int anInt697;
 	String loadingBarText;
-	static int anInt698;
-	static int anInt699;
-	static int anInt700;
-	static int anInt701;
-	static int anInt702;
-	static int anInt703;
-	static int anInt704;
-	static int anInt705;
-	static int anInt706;
 	private int threadSleepModifier;
 	private int appletWidth;
-	static int anInt709;
 	private final int anInt710;
-	static int anInt711;
-	static int anInt712;
-	static int anInt714;
-	static int anInt715;
-	static int anInt716;
 	static int[] anIntArray152;
-	static int anInt717;
 	long[] currentTimeArray;
-	static int anInt718;
-	static int anInt719;
 	int anInt720;
 	Font aFont1;
-	static int anInt721;
 	int lastActionTimeout;
-	static int anInt723;
 	private int loadingScreen;
-	static int anInt725;
 	private int anInt726;
-	static int anInt727;
-	static int anInt728;
 	String aString23;
-	static int anInt729;
-	static int anInt730;
-	static int anInt731;
-	static int anInt732;
 	private int anInt733;
-	static int anInt734;
 	private final boolean aBool38;
-	static int anInt735;
 	Font aFont2;
 	Font aFont3;
 	int mouseY;
@@ -116,7 +70,6 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 
 	private void method463(final int i, final String string)
 	{
-		anInt716++;
 		if (!aBool40)
 		{
 			aBool40 = true;
@@ -153,7 +106,6 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	@Override
 	public synchronized void mouseDragged(final MouseEvent event)
 	{
-		anInt681++;
 		method472(0, event);
 		mouseX = event.getX() - this.anInt720;
 		mouseY = event.getY() - this.anInt694;
@@ -216,13 +168,11 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		{
 			/* empty */
 		}
-		anInt692++;
 	}
 
 	@Override
 	public void run()
 	{
-		anInt699++;
 		try
 		{
 			if (loadingScreen == 1)
@@ -385,7 +335,6 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	void drawString(final int i, final boolean bool, final Graphics graphics, final Font font, final String string,
 	        final int i_11_)
 	{
-		anInt697++;
 		java.awt.Container container;
 		if (Class38.gameFrame == null)
 		{
@@ -404,7 +353,6 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	@Override
 	public Image createImage(final int i, final int i_12_)
 	{
-		anInt721++;
 		if (Class38.gameFrame != null)
 		{
 			return Class38.gameFrame.createImage(i, i_12_);
@@ -416,14 +364,10 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		return super.createImage(i, i_12_);
 	}
 
-	void method466(final int i, final int i_13_)
-	{
-		anInt729++;
-	}
+	void method466(final int i, final int i_13_) {}
 
 	void method467(final int i)
 	{
-		anInt684++;
 		if (i != -6464)
 		{
 			this.anInt694 = 12;
@@ -433,7 +377,6 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	@Override
 	public synchronized void keyReleased(final KeyEvent keyevent)
 	{
-		anInt728++;
 		method472(0, keyevent);
 		final char c = keyevent.getKeyChar();
 		final int i = keyevent.getKeyCode();
@@ -478,7 +421,6 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	@Override
 	public URL getDocumentBase()
 	{
-		anInt709++;
 		if (Class38.gameFrame != null)
 		{
 			return null;
@@ -492,7 +434,6 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 
 	byte[] unpackData(final String fileTitle, final int percentage, final int i_14_)
 	{
-		anInt715++;
 		byte[] data;
 		try
 		{
@@ -509,7 +450,6 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	@Override
 	public void mouseEntered(final MouseEvent mouseevent)
 	{
-		anInt685++;
 		method472(0, mouseevent);
 	}
 
@@ -517,12 +457,10 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	public void mouseClicked(final MouseEvent mouseevent)
 	{
 		method472(0, mouseevent);
-		anInt723++;
 	}
 
 	boolean method469(final boolean bool)
 	{
-		anInt732++;
 		final Graphics graphics = getGraphics();
 		if (graphics == null)
 		{
@@ -540,15 +478,11 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		return true;
 	}
 
-	synchronized void method470(final int i)
-	{
-		anInt706++;
-	}
+	synchronized void method470(final int i) {}
 
 	@Override
 	public String getParameter(final String string)
 	{
-		anInt693++;
 		if (Class38.gameFrame != null)
 		{
 			return null;
@@ -560,15 +494,11 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		return super.getParameter(string);
 	}
 
-	void method471()
-	{
-		anInt705++;
-	}
+	void method471() {}
 
 	@Override
 	public URL getCodeBase()
 	{
-		anInt691++;
 		if (Class38.gameFrame != null)
 		{
 			return null;
@@ -583,7 +513,6 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	@Override
 	public synchronized void mouseMoved(final MouseEvent mouseevent)
 	{
-		anInt679++;
 		method472(0, mouseevent);
 		mouseX = mouseevent.getX() - this.anInt720;
 		mouseY = mouseevent.getY() - this.anInt694;
@@ -593,7 +522,6 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 
 	private void method472(final int i, final InputEvent inputevent)
 	{
-		anInt690++;
 		final int i_17_ = inputevent.getModifiers();
 		this.aBool44 = (0x2 & i_17_) != 0;
 		this.aBool42 = (0x1 & i_17_) != i;
@@ -603,7 +531,6 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	public synchronized void mousePressed(final MouseEvent event)
 	{
 		method472(0, event);
-		anInt695++;
 		mouseX = event.getX() - this.anInt720;
 		mouseY = event.getY() - this.anInt694;
 		mouseDownButton = event.isMetaDown() ? 2 : 1;
@@ -612,14 +539,10 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		addMouseClick(mouseY, mouseX, mouseDownButton);
 	}
 
-	synchronized void method473(final boolean bool)
-	{
-		anInt689++;
-	}
+	synchronized void method473(final boolean bool) {}
 
 	void method474(final int i_18_)
 	{
-		anInt700++;
 		threadSleepModifier = 1000 / i_18_;
 	}
 
@@ -630,15 +553,12 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		{
 			exitTimeout = 4000 / threadSleepModifier;
 		}
-		
-		anInt696++;
 	}
 
 	@Override
 	public void destroy()
 	{
 		exitTimeout = -1;
-		anInt725++;
 		Class7.unknownSleep(91, 5000L);
 		if (exitTimeout == -1)
 		{
@@ -654,13 +574,12 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 
 	private boolean loadFonts()
 	{
-		anInt688++;
 		final byte[] is = unpackData("Jagex library", 0, 3);
 		if (is == null)
 		{
 			return false;
 		}
-		final byte[] is_19_ = Class41.method292(is, 0, "logo.tga", 293484812);
+		final byte[] is_19_ = Camera.method292(is, 0, "logo.tga", 293484812);
 		this.anImage2 = method483(0, is_19_);
 		if (!Class25.loadFont(0, 29112, this, "h11p"))
 		{
@@ -697,14 +616,10 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		return true;
 	}
 
-	void method476(final int i)
-	{
-		anInt730++;
-	}
+	void method476(final int i) {}
 
 	void method477(final Runnable runnable)
 	{
-		anInt712++;
 		final Thread thread = new Thread(runnable);
 		thread.setDaemon(true);
 		thread.start();
@@ -715,7 +630,6 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	@Override
 	public boolean isDisplayable()
 	{
-		anInt735++;
 		if (Class38.gameFrame != null)
 		{
 			return Class38.gameFrame.getPeer() != null;
@@ -730,7 +644,6 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	@Override
 	public AppletContext getAppletContext()
 	{
-		anInt703++;
 		if (Class38.gameFrame != null)
 		{
 			return null;
@@ -749,12 +662,10 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		{
 			exitTimeout = 0;
 		}
-		anInt717++;
 	}
 
 	void method479(final byte i, final int i_23_, final int i_24_, final int i_25_, final int i_26_)
 	{
-		anInt680++;
 		try
 		{
 			System.out.println("Started applet");
@@ -799,7 +710,6 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	@Override
 	public Graphics getGraphics()
 	{
-		anInt734++;
 		if (Class38.gameFrame != null)
 		{
 			return Class38.gameFrame.getGraphics();
@@ -814,14 +724,12 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	@Override
 	public void update(final Graphics graphics)
 	{
-		anInt711++;
 		paint(graphics);
 	}
 
 	@Override
 	public synchronized void keyPressed(final KeyEvent keyevent)
 	{
-		anInt719++;
 		method472(0, keyevent);
 		final char c = keyevent.getKeyChar();
 		final int i = keyevent.getKeyCode();
@@ -907,7 +815,6 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 
 	private void close()
 	{
-		anInt718++;
 		exitTimeout = -2;
 		System.out.println("Closing program");
 		method471();
@@ -922,7 +829,6 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	@Override
 	public void keyTyped(final KeyEvent keyevent)
 	{
-		anInt727++;
 		method472(0, keyevent);
 	}
 
@@ -930,12 +836,10 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	public void mouseExited(final MouseEvent mouseevent)
 	{
 		method472(0, mouseevent);
-		anInt701++;
 	}
 
 	void resetCurrentTimeArray()
 	{
-		anInt698++;
 		for (int i = 0; i < currentTimeArray.length; i++)
 		{
 			currentTimeArray[i] = 0L;
@@ -945,7 +849,6 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	@Override
 	public void paint(final Graphics graphics)
 	{
-		anInt714++;
 		this.aBool37 = true;
 		if ((loadingScreen != 2) || (this.anImage2 == null))
 		{
@@ -990,14 +893,12 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		{
 			/* empty */
 		}
-		anInt678++;
 	}
 
 	@Override
 	public synchronized void mouseReleased(final MouseEvent mouseevent)
 	{
 		method472(0, mouseevent);
-		anInt683++;
 		this.mouseX = mouseevent.getX() - this.anInt720;
 		this.mouseY = mouseevent.getY() - this.anInt694;
 		this.mouseDownButton = 0;
@@ -1005,7 +906,6 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 
 	private Image method483(final int i, final byte[] is)
 	{
-		anInt731++;
 		return Class33.method223(this, is, (byte) -118);
 	}
 
@@ -1041,13 +941,11 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		{
 			Class9.method61(exception, i ^ 0x25, null);
 		}
-		anInt702++;
 	}
 
 	@Override
 	public Dimension getSize()
 	{
-		anInt687++;
 		if (Class38.gameFrame != null)
 		{
 			return Class38.gameFrame.getSize();
@@ -1059,9 +957,9 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		return super.getSize();
 	}
 
-	static int method485(final int i, final int i_44_)
+	static int bitwiseOr(final int a, final int b)
 	{
-		return i | i_44_;
+		return a | b;
 	}
 
 	protected GameWindow()

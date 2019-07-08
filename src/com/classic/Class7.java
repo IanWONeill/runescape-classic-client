@@ -3,24 +3,18 @@ package com.classic;
 final class Class7
 {
 	private final int[] anIntArray15 = new int[256];
-	static int anInt54;
 	private int anInt55;
 	private int anInt56;
 	private int anInt57;
-	static int anInt58;
 	private final int[] anIntArray16 = new int[256];
-	static int anInt59;
 	static int anInt60;
 	static int[] anIntArray17;
 	static int[] anIntArray18 = new int[200];
-	static int anInt61;
-	static int anInt62;
 	static int[] anIntArray19;
 	private int anInt63;
 
 	int method47(final byte i)
 	{
-		anInt59++;
 		if (0 == anInt56--)
 		{
 			method48((byte) -120);
@@ -31,7 +25,6 @@ final class Class7
 
 	private void method48(final byte i)
 	{
-		anInt61++;
 		anInt63 += ++anInt55;
 		for (int i_0_ = 0; 256 > i_0_; i_0_++)
 		{
@@ -69,7 +62,6 @@ final class Class7
 	static void method49(int i, final int[] is, final byte i_4_, int i_5_, int i_6_, final int i_7_, final int[] is_8_,
 	        int i_9_)
 	{
-		anInt54++;
 		if (i_7_ < 0)
 		{
 			i <<= 2;
@@ -123,7 +115,6 @@ final class Class7
 
 	private void method50(final byte i)
 	{
-		anInt58++;
 		int i_13_ = -1640531527;
 		if (i == 73)
 		{
@@ -258,7 +249,6 @@ final class Class7
 		{
 			anInt60 = 81;
 		}
-		anInt62++;
 		if (0L < l)
 		{
 			if (0L != (l % 10L))

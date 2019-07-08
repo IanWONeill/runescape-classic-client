@@ -30,18 +30,15 @@ final class Class27_Sub1_Sub1 extends ByteBuffer
 		super(i);
 	}
 
-	static void method455(final String string, final byte[] is, final byte i, final int i_0_) throws IOException
+	static void readFromPath(final String string, final byte[] is, final byte i, final int length) throws IOException
 	{
 		final InputStream inputstream = Class51.method376(string, (byte) 93);
 		final DataInputStream datainputstream = new DataInputStream(inputstream);
 		try
 		{
-			datainputstream.readFully(is, 0, i_0_);
+			datainputstream.readFully(is, 0, length);
 		}
-		catch (final EOFException eofexception)
-		{
-			/* empty */
-		}
+		catch (final EOFException eofexception) {}
 		datainputstream.close();
 	}
 

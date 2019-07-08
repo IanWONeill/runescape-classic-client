@@ -9,18 +9,14 @@ import java.net.URL;
 final class Class51
 {
 	int anInt581;
-	static int anInt582;
 	static int clientVersion = 235;
 	static int anInt584 = 176;
 	int anInt585;
-	static int anInt586;
-	static int anInt587;
 	int anInt588;
 	int anInt589;
 
 	static boolean method374(final char c)
 	{
-		anInt587++;
 		if (Character.isISOControl(c))
 		{
 			return false;
@@ -52,7 +48,6 @@ final class Class51
 
 	static void method375(final Object[] objects, final int i, final int i_4_, final int[] is, final int i_5_)
 	{
-		anInt582++;
 		if (i_5_ != 1)
 		{
 			anInt584 = 20;
@@ -91,7 +86,6 @@ final class Class51
 
 	static InputStream method376(final String string, final byte i) throws IOException
 	{
-		anInt586++;
 		InputStream inputstream;
 		if (Class47.anURL3 == null)
 		{

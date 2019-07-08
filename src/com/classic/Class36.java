@@ -78,7 +78,7 @@ final class Class36 implements ImageProducer, ImageObserver
 		Class45.anImageConsumer1 = imageconsumer;
 		imageconsumer.setDimensions(IOException_Sub1.anInt672, Class7.anInt60);
 		imageconsumer.setProperties(null);
-		imageconsumer.setColorModel(Class41.aColorModel1);
+		imageconsumer.setColorModel(Camera.aColorModel1);
 		imageconsumer.setHints(14);
 	}
 

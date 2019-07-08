@@ -279,7 +279,7 @@ final class Class29
 				i_61_ = i_60_;
 			}
 			final byte[] is = new byte[i_61_];
-			class27_sub1.position += Class41.aClass44_2.method301(is, (byte) -11, (class27_sub1.buffer), 0,
+			class27_sub1.position += Camera.aClass44_2.method301(is, (byte) -11, (class27_sub1.buffer), 0,
 			        (class27_sub1.position), i_61_);
 			final String string_62_ = Class9.method62(i_61_, (byte) 87, 0, is);
 			string = string_62_;

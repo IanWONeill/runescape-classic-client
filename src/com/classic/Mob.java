@@ -18,7 +18,6 @@ final class Mob
 	int anInt153;
 	int anInt154;
 	int anInt155;
-	static int anInt156;
 	String aString6;
 	int anInt157;
 	int anInt158;
@@ -40,7 +39,6 @@ final class Mob
 
 	static Class38 method113(final int i, final int i_0_)
 	{
-		anInt156++;
 		final Class38[] class38s = Class29.method194((byte) -116);
 		for (int i_1_ = 0; class38s.length > i_1_; i_1_++)
 		{

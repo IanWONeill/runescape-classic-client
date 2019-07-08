@@ -67,7 +67,7 @@ class ByteBuffer extends Class27
 
 	static void method391(final int i, final Class44 class44)
 	{
-		Class41.aClass44_2 = class44;
+		Camera.aClass44_2 = class44;
 		if (i != 1993313440)
 		{
 			method391(17, null);

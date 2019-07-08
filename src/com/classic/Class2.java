@@ -35,7 +35,7 @@ final class Class2
 		anInt5++;
 		if (Class45.anImageConsumer1 != null)
 		{
-			Class45.anImageConsumer1.setPixels(0, 0, IOException_Sub1.anInt672, Class7.anInt60, Class41.aColorModel1,
+			Class45.anImageConsumer1.setPixels(0, 0, IOException_Sub1.anInt672, Class7.anInt60, Camera.aColorModel1,
 			        is, 0, IOException_Sub1.anInt672);
 			Class45.anImageConsumer1.imageComplete(3);
 		}

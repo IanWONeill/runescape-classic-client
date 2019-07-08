@@ -353,7 +353,7 @@ final class Class39
 		}
 		final byte[] is = GameImageMiddleMan.method409(string);
 		class27_sub1.method400(-14859, is.length);
-		class27_sub1.position += Class41.aClass44_2.method303((class27_sub1.buffer), (byte) 69, is.length, is,
+		class27_sub1.position += Camera.aClass44_2.method303((class27_sub1.buffer), (byte) 69, is.length, is,
 		        (class27_sub1.position), 0);
 		return -i + class27_sub1.position;
 	}

@@ -11,8 +11,6 @@ final class IOException_Sub1 extends IOException
 	static int[] anIntArray149;
 	static int anInt671 = 114;
 	static int anInt672;
-	static int anInt673;
-	static int anInt674;
 	static Class38 aClass38_8 = new Class38("WTWIP", "office", "_wip", 3);
 	static String[] aStringArray40;
 	static int anInt675;
@@ -21,7 +19,6 @@ final class IOException_Sub1 extends IOException
 	        int i_4_, final int i_5_, int i_6_, int i_7_, int i_8_, int i_9_, int i_10_, int i_11_, final int i_12_,
 	        int i_13_)
 	{
-		anInt673++;
 		if (i_0_ > 0)
 		{
 			int i_14_ = 0;
@@ -223,7 +220,6 @@ final class IOException_Sub1 extends IOException
 
 	static byte[] method460(final int i, final byte i_21_, final byte[] is, byte[] is_22_, String string)
 	{
-		anInt674++;
 		final int i_23_ = ((0xff & is[0]) * 256) - -(is[1] & 0xff);
 		int i_24_ = 0;
 		string = string.toUpperCase();

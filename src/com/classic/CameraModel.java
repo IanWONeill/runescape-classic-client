@@ -1,11 +1,11 @@
 package com.classic;
 
-final class Class26
+final class CameraModel
 {
 	int anInt304;
 	int anInt305;
 	int anInt306;
-	Class23 aClass23_2;
+	Model aClass23_2;
 	int anInt307;
 	static String[] aStringArray19;
 	static String[] aStringArray20;
@@ -25,7 +25,7 @@ final class Class26
 	int anInt318;
 	int anInt319;
 
-	Class26()
+	CameraModel()
 	{
 		this.anInt311 = -1;
 		this.aBool17 = false;

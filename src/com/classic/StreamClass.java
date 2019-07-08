@@ -7,10 +7,8 @@ import java.net.Socket;
 
 final class StreamClass extends PacketConstruction implements Runnable
 {
-	static int anInt594;
 	private final Socket aSocket1;
 	private int anInt595;
-	static int anInt596;
 	private byte[] aByteArray21;
 	private boolean aBool30;
 	static int[] anIntArray139;
@@ -19,24 +17,17 @@ final class StreamClass extends PacketConstruction implements Runnable
 	private final OutputStream anOutputStream1;
 	static int[] anIntArray140;
 	private int anInt597 = 0;
-	static int anInt598;
 	private final byte[] aByteArray22;
 	static byte[][] aByteArrayArray15 = new byte[1000][];
 	private final InputStream anInputStream1;
 	static int[] anIntArray141;
-	static int anInt599;
-	static int anInt600;
 	static byte[] aByteArray23;
 	static Class38 aClass38_7 = new Class38("LOCAL", "", "local", 4);
-	static int anInt601;
-	static int anInt602;
-	static int anInt603;
 
 	@Override
 	void method119(final byte i)
 	{
 		super.method119(i);
-		anInt603++;
 		aBool30 = true;
 		try
 		{
@@ -68,7 +59,6 @@ final class StreamClass extends PacketConstruction implements Runnable
 	@Override
 	public void run()
 	{
-		anInt596++;
 		while (!aBool31)
 		{
 			int i;
@@ -134,7 +124,6 @@ final class StreamClass extends PacketConstruction implements Runnable
 		{
 			method381(109, null, (byte) 99);
 		}
-		anInt602++;
 		return ((0xff & is[i - -3]) + ((is[i + 2] << 8) & 0xff00) + ((is[i + 1] & 0xff) << 16)
 		        + (~0xffffff & (is[i] << 24)));
 	}
@@ -142,7 +131,6 @@ final class StreamClass extends PacketConstruction implements Runnable
 	@Override
 	int method123(final byte i) throws IOException
 	{
-		anInt598++;
 		if (!aBool30 != true)
 		{
 			return 0;
@@ -153,7 +141,6 @@ final class StreamClass extends PacketConstruction implements Runnable
 	@Override
 	void method127(final int i, final int i_2_, final byte[] is, final int i_3_) throws IOException
 	{
-		anInt601++;
 		if (aBool30 == false)
 		{
 			int i_4_ = 0;
@@ -171,7 +158,6 @@ final class StreamClass extends PacketConstruction implements Runnable
 	@Override
 	int method129() throws IOException
 	{
-		anInt600++;
 		if (aBool30 != false)
 		{
 			return 0;
@@ -183,7 +169,6 @@ final class StreamClass extends PacketConstruction implements Runnable
 	@Override
 	void method117(final int i, final int i_7_, final byte[] is, final int i_8_) throws IOException
 	{
-		anInt594++;
 		if (aBool30 != true)
 		{
 			if (aByteArray21 == null)
@@ -210,7 +195,6 @@ final class StreamClass extends PacketConstruction implements Runnable
 	        final int i_16_, int i_17_, int i_18_, final int i_19_, int i_20_, final int i_21_, int i_22_,
 	        final int i_23_)
 	{
-		anInt599++;
 		if (i_19_ > 0)
 		{
 			int i_24_ = 0;
