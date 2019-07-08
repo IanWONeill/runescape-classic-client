@@ -164,7 +164,7 @@ public final class mudclient extends GameWindow
 	private int anInt890;
 	static int anInt891;
 	static int anInt892;
-	private Class46_Sub1 aClass46_Sub1_2;
+	private GameImageMiddleMan aClass46_Sub1_2;
 	private int anInt893;
 	private int anInt894;
 	private final long[] aLongArray4;
@@ -1151,7 +1151,7 @@ public final class mudclient extends GameWindow
 		else if ((GameFrame.anIntArray153[anInt940] == 1) || (GameFrame.anIntArray153[anInt940] == 2))
 		{
 			aClass29_1.method195(
-			        new StringBuilder().append("Cast ").append(Class46_Sub1.aStringArray36[anInt940]).append(" on")
+			        new StringBuilder().append("Cast ").append(GameImageMiddleMan.aStringArray36[anInt940]).append(" on")
 			                .toString(),
 			        class15.anInt150, new StringBuilder().append("@whi@").append(string).append(string_41_).toString(),
 			        0, anInt940, 800);
@@ -1557,7 +1557,7 @@ public final class mudclient extends GameWindow
 		streamClass.finishPacket(2);
 	}
 
-	void method505(final int i, final int i_78_, final int i_79_, final int i_80_, final int i_81_, int i_82_,
+	void drawNpc(final int i, final int i_78_, final int i_79_, final int i_80_, final int i_81_, int i_82_,
 	        final byte i_83_, final int i_84_)
 	{
 		anInt801++;
@@ -1901,7 +1901,7 @@ public final class mudclient extends GameWindow
 		return true;
 	}
 
-	void method511(final int i, final int i_129_, int i_130_, final int i_131_, final int i_132_, final int i_133_,
+	void drawPlayer(final int i, final int i_129_, int i_130_, final int i_131_, final int i_132_, final int i_133_,
 	        final int i_134_, final int i_135_)
 	{
 		anInt900++;
@@ -2125,7 +2125,7 @@ public final class mudclient extends GameWindow
 				}
 				final int i_156_ = (i_131_ * 16) / 100;
 				final int i_157_ = (i_131_ * 16) / 100;
-				aClass46_Sub1_2.method316(i_156_, (i_135_ + -((i_131_ * 10) / 100) + -(i_157_ / 2)), anInt935 + 13,
+				aClass46_Sub1_2.spriteClip1(i_156_, (i_135_ + -((i_131_ * 10) / 100) + -(i_157_ / 2)), anInt935 + 13,
 				        i_155_ - (i_156_ / 2), 64, i_157_);
 			}
 		}
@@ -2373,7 +2373,7 @@ public final class mudclient extends GameWindow
 								if (StreamClass.anIntArray141[i_190_] > 0)
 								{
 									final int i_191_ = ((Class47.anIntArray136[i_190_] + Class7.anIntArray19[i_190_]
-									        + Class47.anIntArray135[i_190_] + (Class46_Sub1.anIntArray143[i_190_]))
+									        + Class47.anIntArray135[i_190_] + (GameImageMiddleMan.anIntArray143[i_190_]))
 									        / 4);
 									final int i_192_ = ((anIntArray200[1] + anIntArray200[2]
 									        + ((anIntArray200[3] + anIntArray200[0]) - -27)) / 4);
@@ -2419,7 +2419,7 @@ public final class mudclient extends GameWindow
 									if (GameFrame.anIntArray153[anInt940] == 2)
 									{
 										aClass29_1.method195(new StringBuilder().append("Cast ")
-										        .append(Class46_Sub1.aStringArray36[anInt940]).append(" on").toString(),
+										        .append(GameImageMiddleMan.aStringArray36[anInt940]).append(" on").toString(),
 										        maybe_npcArray[i_187_].anInt150,
 										        new StringBuilder().append("@yel@").append(
 										                Class22.aStringArray16[(maybe_npcArray[i_187_].anInt161)])
@@ -2495,7 +2495,7 @@ public final class mudclient extends GameWindow
 						else if (GameFrame.anIntArray153[anInt940] == 3)
 						{
 							aClass29_1.method185(
-							        new StringBuilder().append("Cast ").append(Class46_Sub1.aStringArray36[anInt940])
+							        new StringBuilder().append("Cast ").append(GameImageMiddleMan.aStringArray36[anInt940])
 							                .append(" on").toString(),
 							        new StringBuilder().append("@lre@")
 							                .append(Class26.aStringArray19[anIntArray201[i_187_]]).toString(),
@@ -2521,7 +2521,7 @@ public final class mudclient extends GameWindow
 										        anIntArray170[i_193_], anIntArray178[i_193_], anIntArray191[i_193_],
 										        anInt940,
 										        new StringBuilder().append("Cast ")
-										                .append(Class46_Sub1.aStringArray36[anInt940]).append(" on")
+										                .append(GameImageMiddleMan.aStringArray36[anInt940]).append(" on")
 										                .toString());
 									}
 								}
@@ -2583,7 +2583,7 @@ public final class mudclient extends GameWindow
 								if (GameFrame.anIntArray153[anInt940] == 4)
 								{
 									aClass29_1.method185(new StringBuilder().append("Cast ")
-									        .append(Class46_Sub1.aStringArray36[anInt940]).append(" on").toString(),
+									        .append(GameImageMiddleMan.aStringArray36[anInt940]).append(" on").toString(),
 									        new StringBuilder().append("@cya@").append(Class23.aStringArray17[i_196_])
 									                .toString(),
 									        anIntArray163[i_195_], anIntArray167[i_195_], 300, anInt940,
@@ -2629,7 +2629,7 @@ public final class mudclient extends GameWindow
 			}
 			if ((0 <= anInt940) && (GameFrame.anIntArray153[anInt940] <= 1))
 			{
-				aClass29_1.method196(new StringBuilder().append("Cast ").append(Class46_Sub1.aStringArray36[anInt940])
+				aClass29_1.method196(new StringBuilder().append("Cast ").append(GameImageMiddleMan.aStringArray36[anInt940])
 				        .append(" on self").toString(), 1000, "", (byte) -41, anInt940);
 			}
 			if (i_181_ != -1)
@@ -2649,7 +2649,7 @@ public final class mudclient extends GameWindow
 				else if (GameFrame.anIntArray153[anInt940] == 6)
 				{
 					aClass29_1.method193(anInt940, "",
-					        new StringBuilder().append("Cast ").append(Class46_Sub1.aStringArray36[anInt940])
+					        new StringBuilder().append("Cast ").append(GameImageMiddleMan.aStringArray36[anInt940])
 					                .append(" on ground").toString(),
 					        900, aClass6_1.anIntArray11[i_197_], i ^ 0x2da7, aClass6_1.anIntArray14[i_197_]);
 				}
@@ -2785,7 +2785,7 @@ public final class mudclient extends GameWindow
 					else if (GameFrame.anIntArray153[anInt940] == 3)
 					{
 						aClass29_1.method195(
-						        new StringBuilder().append("Cast ").append(Class46_Sub1.aStringArray36[anInt940])
+						        new StringBuilder().append("Cast ").append(GameImageMiddleMan.aStringArray36[anInt940])
 						                .append(" on").toString(),
 						        i_218_,
 						        new StringBuilder().append("@lre@").append(Class26.aStringArray19[i_219_]).toString(),
@@ -4340,7 +4340,7 @@ public final class mudclient extends GameWindow
 		}
 	}
 
-	void method530(final boolean bool, final int i, final int i_328_, final int i_329_, final int i_330_,
+	void drawGroundItem(final boolean bool, final int i, final int i_328_, final int i_329_, final int i_330_,
 	        final int i_331_, final int i_332_)
 	{
 		anInt881++;
@@ -6922,7 +6922,7 @@ public final class mudclient extends GameWindow
 			int i_615_ = 0;
 			for (/**/; Class12.anInt140 > i_615_; i_615_++)
 			{
-				final String string = Class46_Sub1.aStringArray37[i_615_];
+				final String string = GameImageMiddleMan.aStringArray37[i_615_];
 				byte[] is_617_ = Class41.method292(is, 0, new StringBuilder().append(string).append(".dat").toString(),
 				        293484812);
 				aClass46_Sub1_2.method350(anInt925, 82, is_614_, is_617_, 1);
@@ -11599,7 +11599,7 @@ public final class mudclient extends GameWindow
 				}
 				aClass10_3.method68(null, anInt1043, null, 0, i_972_++, 0,
 				        new StringBuilder().append(string).append("Level ").append(StreamClass.anIntArray139[i_973_])
-				                .append(": ").append(Class46_Sub1.aStringArray36[i_973_]).toString());
+				                .append(": ").append(GameImageMiddleMan.aStringArray36[i_973_]).toString());
 			}
 			aClass10_3.method71(-6);
 			final int i_977_ = aClass10_3.method92(false, anInt1043);
@@ -11611,7 +11611,7 @@ public final class mudclient extends GameWindow
 			{
 				aClass46_Sub1_2.method324(
 				        new StringBuilder().append("Level ").append(StreamClass.anIntArray139[i_977_]).append(": ")
-				                .append(Class46_Sub1.aStringArray36[i_977_]).toString(),
+				                .append(GameImageMiddleMan.aStringArray36[i_977_]).toString(),
 				        0, 1, 16776960, i_966_ + 2, i_967_ + 124);
 				aClass46_Sub1_2.method324(Class13.aStringArray12[i_977_], 0, 0, 16777215, i_966_ + 2, i_967_ + 136);
 				for (int i_978_ = 0; i_978_ < Class48.anIntArray138[i_977_]; i_978_++)
@@ -11873,7 +11873,7 @@ public final class mudclient extends GameWindow
 				anInt910 = anInt931 + 5;
 				aGraphics2 = getGraphics();
 				method474(50);
-				aClass46_Sub1_2 = new Class46_Sub1(maybe_windowWidth, maybe_windowHeight + 12, 4000, this);
+				aClass46_Sub1_2 = new GameImageMiddleMan(maybe_windowWidth, maybe_windowHeight + 12, 4000, this);
 				aClass46_Sub1_2.aclient1 = this;
 				aClass46_Sub1_2.method357(0, maybe_windowHeight + 12, 0, maybe_windowWidth, 1743849672);
 				aClass29_1 = new Class29(aClass46_Sub1_2, 1, "Choose option");
@@ -12105,19 +12105,19 @@ public final class mudclient extends GameWindow
 		}
 		int i_1006_ = 50;
 		i_1006_ -= 25;
-		aClass46_Sub1_2.method347((byte) -118, i_1006_, i_1005_ + -87, 102, 64, Class24.anIntArray78[anInt948],
+		aClass46_Sub1_2.spriteClipUnknown(i_1006_, i_1005_ + -87, 102, 64, Class24.anIntArray78[anInt948],
 		        characterTopBottomColors[anInt965]);
 		aClass46_Sub1_2.method348(false, characterSkinColors[anInt961], -128, 102, i_1006_, 64, 0,
 		        Class24.anIntArray78[anInt962], characterTopBottomColors[anInt1057], i_1005_ + -32 + -55);
 		aClass46_Sub1_2.method348(false, characterSkinColors[anInt961], -68, 102, i_1006_, 64, 0,
 		        Class24.anIntArray78[anInt1047], characterHairColors[anInt999], (i_1005_ - 32) + -55);
-		aClass46_Sub1_2.method347((byte) -20, i_1006_, i_1005_ - 32, 102, 64, Class24.anIntArray78[anInt948] + 6,
+		aClass46_Sub1_2.spriteClipUnknown(i_1006_, i_1005_ - 32, 102, 64, Class24.anIntArray78[anInt948] + 6,
 		        characterTopBottomColors[anInt965]);
 		aClass46_Sub1_2.method348(false, characterSkinColors[anInt961], -119, 102, i_1006_, 64, 0,
 		        Class24.anIntArray78[anInt962] + 6, characterTopBottomColors[anInt1057], i_1005_ + -32);
 		aClass46_Sub1_2.method348(false, characterSkinColors[anInt961], -72, 102, i_1006_, 64, 0,
 		        Class24.anIntArray78[anInt1047] + 6, characterHairColors[anInt999], i_1005_ + -32);
-		aClass46_Sub1_2.method347((byte) -19, i_1006_, i_1005_ + 23, 102, 64, Class24.anIntArray78[anInt948] + 12,
+		aClass46_Sub1_2.spriteClipUnknown(i_1006_, i_1005_ + 23, 102, 64, Class24.anIntArray78[anInt948] + 12,
 		        characterTopBottomColors[anInt965]);
 		aClass46_Sub1_2.method348(false, characterSkinColors[anInt961], i ^ ~0x53, 102, i_1006_, 64, 0,
 		        Class24.anIntArray78[anInt962] + 12, characterTopBottomColors[anInt1057], (i_1005_ - -55) + -32);

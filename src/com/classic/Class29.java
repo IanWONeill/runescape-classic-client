@@ -3,7 +3,7 @@ package com.classic;
 final class Class29
 {
 	private static long[] aLongArray1;
-	private Class46_Sub1 aClass46_Sub1_1;
+	private GameImageMiddleMan aClass46_Sub1_1;
 	private Class9[] aClass9Array1;
 	private int anInt352 = 0;
 	private int anInt354 = 0;
@@ -161,7 +161,7 @@ final class Class29
 		}
 	}
 
-	Class29(final Class46_Sub1 class46_sub1, final int i)
+	Class29(final GameImageMiddleMan class46_sub1, final int i)
 	{
 		this(class46_sub1, i, null);
 	}
@@ -209,7 +209,7 @@ final class Class29
 			{
 				method205(-107, (byte) 51);
 			}
-			Class46_Sub1.method410(is, objects, (byte) 122);
+			GameImageMiddleMan.method410(is, objects, (byte) 122);
 			for (int i_50_ = 0; i_50_ < anInt354; i_50_++)
 			{
 				aClass9Array1[i_50_] = (Class9) objects[i_50_];
@@ -306,7 +306,7 @@ final class Class29
 		method188(true, 0, i, 0, string_66_, 0, string_65_, string, null, 0, 0, string_63_);
 	}
 
-	Class29(final Class46_Sub1 class46_sub1, final int i, final String string)
+	Class29(final GameImageMiddleMan class46_sub1, final int i, final String string)
 	{
 		aString12 = string;
 		aClass46_Sub1_1 = class46_sub1;

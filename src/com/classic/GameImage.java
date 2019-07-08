@@ -421,7 +421,7 @@ class GameImage implements ImageProducer, ImageObserver
 		return method307(-26205, i_114_);
 	}
 
-	void method316(int i, int i_115_, final int i_116_, int i_117_, final int i_118_, int i_119_)
+	void spriteClip1(int i, int i_115_, final int i_116_, int i_117_, final int i_118_, int i_119_)
 	{
 		try
 		{
@@ -1507,7 +1507,7 @@ class GameImage implements ImageProducer, ImageObserver
 				}
 				if (i_373_ > -6)
 				{
-					method349(-125, 49, 75, -48, 125, 93, 26, -53);
+					drawEntity(-125, 49, 75, -48, 125, 93, 26, -53);
 				}
 			}
 		}
@@ -1686,7 +1686,7 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	void method347(final byte i, int i_435_, int i_436_, int i_437_, int i_438_, final int i_439_, final int i_440_)
+	void spriteClipUnknown(int i_435_, int i_436_, int i_437_, int i_438_, final int i_439_, final int i_440_)
 	{
 		try
 		{
@@ -1851,12 +1851,12 @@ class GameImage implements ImageProducer, ImageObserver
 				{
 					if (!bool)
 					{
-						method354(i_458_, i_470_, i_476_, i_463_, i_468_, this.anIntArrayArray20[i_460_], i_465_,
+						spritePlotTransparent(i_458_, i_470_, i_476_, i_463_, i_468_, this.anIntArrayArray20[i_460_], i_465_,
 						        (byte) 84, i_469_, 0, this.imagePixelArray, i_466_, i_467_, i_456_, i_478_, i_461_);
 					}
 					else
 					{
-						method354(i_458_, i_470_, i_476_, i_463_, -i_468_, this.anIntArrayArray20[i_460_],
+						spritePlotTransparent(i_458_, i_470_, i_476_, i_463_, -i_468_, this.anIntArrayArray20[i_460_],
 						        ((this.anIntArray118[i_460_] << 16) + -i_465_) - 1, (byte) 84, i_469_, 0,
 						        this.imagePixelArray, i_466_, i_467_, i_456_, i_478_, i_461_);
 					}
@@ -1892,13 +1892,13 @@ class GameImage implements ImageProducer, ImageObserver
 			}
 			else if (bool)
 			{
-				method358(-122, i_470_, i_466_, i_456_, i_461_, i_458_, i_478_, -i_468_, i_467_, this.imagePixelArray, i,
+				spritePlotTransparent(-122, i_470_, i_466_, i_456_, i_461_, i_458_, i_478_, -i_468_, i_467_, this.imagePixelArray, i,
 				        i_469_, i_476_, i_463_, 0, (((this.anIntArray118[i_460_] << 16) + -i_465_) - 1),
 				        this.anIntArrayArray20[i_460_]);
 			}
 			else
 			{
-				method358(-44, i_470_, i_466_, i_456_, i_461_, i_458_, i_478_, i_468_, i_467_, this.imagePixelArray, i,
+				spritePlotTransparent(-44, i_470_, i_466_, i_456_, i_461_, i_458_, i_478_, i_468_, i_467_, this.imagePixelArray, i,
 				        i_469_, i_476_, i_463_, 0, i_465_, this.anIntArrayArray20[i_460_]);
 			}
 		}
@@ -1908,12 +1908,12 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	void method349(final int i, final int i_479_, final int i_480_, final int i_481_, final int i_482_,
+	void drawEntity(final int i, final int i_479_, final int i_480_, final int i_481_, final int i_482_,
 	        final int i_483_, final int i_484_, final int i_485_)
 	{
 		if (i_485_ == -1)
 		{
-			method316(i, i_484_, i_482_, i_481_, 104, i_479_);
+			spriteClip1(i, i_484_, i_482_, i_481_, 104, i_479_);
 		}
 	}
 
@@ -2428,7 +2428,7 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	private void method354(final int i, final int i_597_, int i_598_, final int i_599_, final int i_600_,
+	private void spritePlotTransparent(final int i, final int i_597_, int i_598_, final int i_599_, final int i_600_,
 	        final int[] is, int i_601_, final byte i_602_, final int i_603_, int i_604_, final int[] is_605_,
 	        int i_606_, int i_607_, final int i_608_, int i_609_, final int i_610_)
 	{
@@ -2610,7 +2610,7 @@ class GameImage implements ImageProducer, ImageObserver
 		anInt537 = i;
 	}
 
-	private void method358(final int i, final int i_665_, int i_666_, final int i_667_, final int i_668_,
+	private void spritePlotTransparent(final int i, final int i_665_, int i_666_, final int i_667_, final int i_668_,
 	        final int i_669_, int i_670_, final int i_671_, int i_672_, final int[] is, final int i_673_,
 	        final int i_674_, int i_675_, final int i_676_, int i_677_, int i_678_, final int[] is_679_)
 	{

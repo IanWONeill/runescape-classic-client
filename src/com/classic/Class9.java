@@ -68,11 +68,11 @@ final class Class9
 			string_10_ = Class6.method22(string_10_, "@", "%40", -69);
 			string_10_ = Class6.method22(string_10_, "&", "%26", -118);
 			string_10_ = Class6.method22(string_10_, "#", "%23", -110);
-			if (Class46_Sub1.anApplet2 != null)
+			if (GameImageMiddleMan.anApplet2 != null)
 			{
 				final Class20 class20 = (Class48.aClass32_3
 				        .method216(
-				                new URL(Class46_Sub1.anApplet2.getCodeBase(),
+				                new URL(GameImageMiddleMan.anApplet2.getCodeBase(),
 				                        new StringBuilder().append("clienterror.ws?c=").append(Class48.anInt579)
 				                                .append("&u=")
 				                                .append(Class2.aString1 == null ? new StringBuilder().append("")

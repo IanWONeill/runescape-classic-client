@@ -29,7 +29,7 @@ final class Class51
 		{
 			return true;
 		}
-		char[] cs = Class46_Sub1.aCharArray2;
+		char[] cs = GameImageMiddleMan.aCharArray2;
 		for (int i_0_ = 0; i_0_ < cs.length; i_0_++)
 		{
 			final char c_1_ = cs[i_0_];

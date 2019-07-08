@@ -3,7 +3,7 @@ package com.classic;
 import java.applet.Applet;
 import java.awt.Component;
 
-final class Class46_Sub1 extends GameImage
+final class GameImageMiddleMan extends GameImage
 {
 	static int[] anIntArray143;
 	static char[] aCharArray2 = { ' ', '\u00a0', '_', '-', '\u00e0', '\u00e1', '\u00e2', '\u00e4', '\u00e3', '\u00c0',
@@ -18,44 +18,46 @@ final class Class46_Sub1 extends GameImage
 	mudclient aclient1;
 
 	@Override
-	void method349(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_,
+	void drawEntity(final int i, final int i_0_, final int i_1_, final int i_2_, final int id, final int i_4_,
 	        final int i_5_, final int i_6_)
 	{
 		if (i_6_ != -1)
 		{
 			aCharArray2 = null;
 		}
-		if (i_3_ < 50000)
+		if (id < 50000)
 		{
-			if (i_3_ < 40000)
+			if (id < 40000)
 			{
-				if (20000 <= i_3_)
+				if (20000 <= id)
 				{
-					this.aclient1.method505(i_4_, i_3_ + -20000, i_1_, i_5_, i_0_, i_2_, (byte) -117, i);
+					this.aclient1.drawNpc(i_4_, id - 20000, i_1_, i_5_, i_0_, i_2_, (byte) -117, i);
 				}
-				else if (5000 <= i_3_)
+				else if (5000 <= id)
 				{
-					this.aclient1.method511(i_3_ + -5000, i_0_, i_2_, i_1_, i, -5, i_4_, i_5_);
+					this.aclient1.drawPlayer(id - 5000, i_0_, i_2_, i_1_, i, -5, i_4_, i_5_);
 				}
 				else
 				{
-					super.method316(i, i_5_, i_3_, i_2_, 47, i_0_);
+					// NOTE: Projectiles get rendered here (both ranged and magic).
+					super.spriteClip1(i, i_5_, id, i_2_, 47, i_0_);
 				}
 			}
 			else
 			{
-				this.aclient1.method530(true, i_4_, i_3_ + -40000, i_0_, i_5_, i_2_, i);
+				this.aclient1.drawGroundItem(true, i_4_, id - 40000, i_0_, i_5_, i_2_, i);
 			}
 		}
 		else
 		{
-			this.aclient1.method515(i_2_, 126, i_3_ - 50000, i_0_, i_4_, i, i_5_);
+			// NOTE: Think this is the teleport bubble.
+			this.aclient1.method515(i_2_, 126, id - 50000, i_0_, i_4_, i, i_5_);
 		}
 	}
 
-	Class46_Sub1(final int i, final int i_7_, final int i_8_, final Component component)
+	GameImageMiddleMan(final int maybe_width, final int maybe_height, final int i_8_, final Component component)
 	{
-		super(i, i_7_, i_8_, component);
+		super(maybe_width, maybe_height, i_8_, component);
 	}
 
 	static byte[] method409(final CharSequence charsequence)

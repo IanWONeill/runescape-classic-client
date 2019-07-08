@@ -87,7 +87,7 @@ final class Class17
 		Class35.anInt376 = Class12.method108((byte) 96);
 		GameImage.anIntArray132 = new int[Class35.anInt376];
 		Class22.aStringArray16 = new String[Class35.anInt376];
-		Class46_Sub1.anIntArray143 = new int[Class35.anInt376];
+		GameImageMiddleMan.anIntArray143 = new int[Class35.anInt376];
 		Class10.anIntArray32 = new int[Class35.anInt376];
 		Class47.anIntArray135 = new int[Class35.anInt376];
 		Class24.aStringArray18 = new String[Class35.anInt376];
@@ -125,7 +125,7 @@ final class Class17
 		}
 		for (int i_17_ = 0; Class35.anInt376 > i_17_; i_17_++)
 		{
-			Class46_Sub1.anIntArray143[i_17_] = Class4.method10(255);
+			GameImageMiddleMan.anIntArray143[i_17_] = Class4.method10(255);
 		}
 		for (int i_18_ = 0; i_18_ < Class35.anInt376; i_18_++)
 		{
@@ -183,11 +183,11 @@ final class Class17
 			Class47.aStringArray34[i_30_] = Class29.method212(8854);
 		}
 		Class12.anInt140 = Class12.method108((byte) 96);
-		Class46_Sub1.aStringArray37 = new String[Class12.anInt140];
+		GameImageMiddleMan.aStringArray37 = new String[Class12.anInt140];
 		Class4.aStringArray6 = new String[Class12.anInt140];
 		for (int i_31_ = 0; i_31_ < Class12.anInt140; i_31_++)
 		{
-			Class46_Sub1.aStringArray37[i_31_] = Class29.method212(8854);
+			GameImageMiddleMan.aStringArray37[i_31_] = Class29.method212(8854);
 		}
 		for (int i_32_ = 0; Class12.anInt140 > i_32_; i_32_++)
 		{
@@ -349,12 +349,12 @@ final class Class17
 		Class13.aStringArray12 = new String[Class43.anInt486];
 		Class48.anIntArray138 = new int[Class43.anInt486];
 		Class42.anIntArrayArray18 = new int[Class43.anInt486][];
-		Class46_Sub1.aStringArray36 = new String[Class43.anInt486];
+		GameImageMiddleMan.aStringArray36 = new String[Class43.anInt486];
 		StreamClass.anIntArray139 = new int[Class43.anInt486];
 		GameFrame.anIntArray153 = new int[Class43.anInt486];
 		for (int i_62_ = 0; Class43.anInt486 > i_62_; i_62_++)
 		{
-			Class46_Sub1.aStringArray36[i_62_] = Class29.method212(8854);
+			GameImageMiddleMan.aStringArray36[i_62_] = Class29.method212(8854);
 		}
 		for (int i_63_ = 0; Class43.anInt486 > i_63_; i_63_++)
 		{

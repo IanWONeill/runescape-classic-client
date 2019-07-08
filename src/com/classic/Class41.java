@@ -2647,7 +2647,7 @@ final class Class41
 					i_503_ = class23.anIntArray65[is[1]] - i_497_;
 					int i_504_ = i_497_ + -(i_500_ / 2);
 					final int i_505_ = anInt432 - -i_498_ - i_501_;
-					aClass46_3.method349(i_500_, i_501_, (256 << anInt482) / i_499_, i_504_ + anInt428,
+					aClass46_3.drawEntity(i_500_, i_501_, (256 << anInt482) / i_499_, i_504_ + anInt428,
 					        anIntArray101[i_495_], i_503_, i_505_, -1);
 					if (aBool25 && (anInt441 < anInt462))
 					{
