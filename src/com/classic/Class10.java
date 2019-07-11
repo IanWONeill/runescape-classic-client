@@ -8,7 +8,7 @@ final class Class10
 	private final String[][] aStringArrayArray1;
 	int[] anIntArray23;
 	int[] anIntArray24;
-	static int[] anIntArray25;
+	static int[] packetCommandLength;
 	private final boolean[] aBoolArray1;
 	static String[] aStringArray8 = new String[200];
 	private final String[] aStringArray9;
@@ -1050,7 +1050,7 @@ final class Class10
 
 	static
 	{
-		anIntArray25 = new int[256];
+		packetCommandLength = new int[256];
 		anInt90 = 0;
 		anInt129 = 0;
 		aClass38_1 = new Class38("INTBETA", "office", "_intbeta", 6);

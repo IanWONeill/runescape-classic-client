@@ -36,7 +36,7 @@ final class Class12 implements Runnable
 								class37.method234();
 							}
 						}
-						Class7.unknownSleep(43, 10L);
+						Isaac.unknownSleep(43, 10L);
 						Class34.method226(null, this.aClass32_1);
 					}
 				}

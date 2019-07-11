@@ -52,7 +52,7 @@ final class Class38
 			{
 				i_8_ = -i_8_;
 			}
-			is[Class52.method378(i_3_, 255)] = (byte) (i_8_ / 256);
+			is[Class52.bitwiseAnd(i_3_, 255)] = (byte) (i_8_ / 256);
 		}
 		return is;
 	}

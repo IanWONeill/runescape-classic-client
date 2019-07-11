@@ -11,7 +11,7 @@ final class Class33
 
 	static Image method223(final Component component, final byte[] is, final byte i)
 	{
-		Class7.anInt60 = (is[15] * 256) + is[14];
+		Isaac.anInt60 = (is[15] * 256) + is[14];
 		IOException_Sub1.anInt672 = (is[13] * 256) - -is[12];
 		final byte[] is_0_ = new byte[256];
 		final byte[] is_1_ = new byte[256];
@@ -27,9 +27,9 @@ final class Class33
 		{
 			method223(null, null, (byte) 125);
 		}
-		final byte[] is_4_ = new byte[Class7.anInt60 * IOException_Sub1.anInt672];
+		final byte[] is_4_ = new byte[Isaac.anInt60 * IOException_Sub1.anInt672];
 		int i_5_ = 0;
-		for (int i_6_ = Class7.anInt60 - 1; 0 <= i_6_; i_6_--)
+		for (int i_6_ = Isaac.anInt60 - 1; 0 <= i_6_; i_6_--)
 		{
 			for (int i_7_ = 0; i_7_ < IOException_Sub1.anInt672; i_7_++)
 			{

@@ -484,7 +484,7 @@ final class Camera
 								i_84_ = halfWidth;
 								i_85_ = -i + i_84_;
 							}
-							Class7.method49(i_87_, anIntArray93, (byte) -115, i_82_ + i, 0, -i_85_, anIntArray91,
+							Isaac.method49(i_87_, anIntArray93, (byte) -115, i_82_ + i, 0, -i_85_, anIntArray91,
 							        i_86_);
 							i_82_ += i_81_;
 						}
@@ -1409,9 +1409,9 @@ final class Camera
 			for (int i_252_ = 0; i_251_ > i_252_; i_252_++)
 			{
 				final int i_253_ = is[i_252_];
-				is[i_252_ + i_251_] = Class52.method378(i_253_ - (i_253_ >>> 3), 16316671);
-				is[(i_251_ * 2) + i_252_] = Class52.method378(i_253_ + -(i_253_ >>> 2), 16316671);
-				is[(i_251_ * 3) - -i_252_] = Class52.method378(16316671, i_253_ + -(i_253_ >>> 3) + -(i_253_ >>> 2));
+				is[i_252_ + i_251_] = Class52.bitwiseAnd(i_253_ - (i_253_ >>> 3), 16316671);
+				is[(i_251_ * 2) + i_252_] = Class52.bitwiseAnd(i_253_ + -(i_253_ >>> 2), 16316671);
+				is[(i_251_ * 3) - -i_252_] = Class52.bitwiseAnd(16316671, i_253_ + -(i_253_ >>> 3) + -(i_253_ >>> 2));
 			}
 		}
 	}
@@ -1573,9 +1573,9 @@ final class Camera
 		for (int i_287_ = 0; i_287_ < i_282_; i_287_++)
 		{
 			final int i_288_ = is[i_287_];
-			is[i_287_ + i_282_] = Class52.method378(16316671, i_288_ - (i_288_ >>> 3));
-			is[i_287_ + (i_282_ * 2)] = Class52.method378(16316671, i_288_ + -(i_288_ >>> 2));
-			is[i_287_ + (i_282_ * 3)] = Class52.method378(i_288_ + -(i_288_ >>> 3) + -(i_288_ >>> 2), 16316671);
+			is[i_287_ + i_282_] = Class52.bitwiseAnd(16316671, i_288_ - (i_288_ >>> 3));
+			is[i_287_ + (i_282_ * 2)] = Class52.bitwiseAnd(16316671, i_288_ + -(i_288_ >>> 2));
+			is[i_287_ + (i_282_ * 3)] = Class52.bitwiseAnd(i_288_ + -(i_288_ >>> 3) + -(i_288_ >>> 2), 16316671);
 		}
 	}
 

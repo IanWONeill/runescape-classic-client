@@ -77,7 +77,7 @@ final class Class9
 				                false));
 				while (class20.anInt216 == 0)
 				{
-					Class7.unknownSleep(117, 1L);
+					Isaac.unknownSleep(117, 1L);
 				}
 				if (class20.anInt216 == 1)
 				{

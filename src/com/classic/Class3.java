@@ -31,7 +31,7 @@ final class Class3
 		}
 		while (!class25.method172())
 		{
-			Class7.unknownSleep(49, 50L);
+			Isaac.unknownSleep(49, 50L);
 		}
 		final ByteBuffer buffer = class25.getBuffer(-4);
 		if (buffer == null)

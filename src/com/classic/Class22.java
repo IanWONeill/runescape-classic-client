@@ -3,7 +3,7 @@ package com.classic;
 final class Class22
 {
 	static Class38 aClass38_3;
-	static int[] anIntArray48 = new int[256];
+	static int[] packetCommandCount = new int[256];
 	static byte[] aByteArray11 = new byte[100000];
 	static byte[][][] aByteArrayArrayArray1;
 	static Class36 aClass36_1;

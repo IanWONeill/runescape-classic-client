@@ -385,7 +385,7 @@ class AudioUnknown
 				aClass12_1.aBool5 = true;
 				while (aClass12_1.aBool6)
 				{
-					Class7.unknownSleep(68, 50L);
+					Isaac.unknownSleep(68, 50L);
 				}
 				aClass12_1 = null;
 			}

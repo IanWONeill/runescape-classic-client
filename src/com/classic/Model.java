@@ -1090,7 +1090,7 @@ final class Model
 		this.anInt221 = i_193_;
 		for (int i_198_ = 0; i_198_ < i_194_; i_198_++)
 		{
-			this.anIntArray64[i_198_] = Class52.method378(is[i++], 255);
+			this.anIntArray64[i_198_] = Class52.bitwiseAnd(is[i++], 255);
 		}
 		for (int i_199_ = 0; i_194_ > i_199_; i_199_++)
 		{
@@ -1134,7 +1134,7 @@ final class Model
 				}
 				else
 				{
-					this.anIntArrayArray10[i_203_][i_204_] = Class52.method378(is[i++], 255);
+					this.anIntArrayArray10[i_203_][i_204_] = Class52.bitwiseAnd(is[i++], 255);
 				}
 			}
 		}

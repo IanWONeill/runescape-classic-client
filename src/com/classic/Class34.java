@@ -33,7 +33,7 @@ final class Class34
 		{
 			for (int i_2_ = 0; ((50 > i_2_) && (null != class32.anEventQueue1.peekEvent())); i_2_++)
 			{
-				Class7.unknownSleep(93, 1L);
+				Isaac.unknownSleep(93, 1L);
 			}
 			try
 			{

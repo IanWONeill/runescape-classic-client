@@ -91,7 +91,7 @@ final class Class17
 		Class10.anIntArray32 = new int[Class35.anInt376];
 		Class47.anIntArray135 = new int[Class35.anInt376];
 		Class24.aStringArray18 = new String[Class35.anInt376];
-		Class7.anIntArray19 = new int[Class35.anInt376];
+		Isaac.anIntArray19 = new int[Class35.anInt376];
 		RuntimeException_Sub1.anIntArray150 = new int[Class35.anInt376];
 		StreamClass.anIntArray141 = new int[Class35.anInt376];
 		Class38.anIntArray89 = new int[Class35.anInt376];
@@ -117,7 +117,7 @@ final class Class17
 		}
 		for (int i_15_ = 0; Class35.anInt376 > i_15_; i_15_++)
 		{
-			Class7.anIntArray19[i_15_] = Class4.method10(Class47.method369(i, 255));
+			Isaac.anIntArray19[i_15_] = Class4.method10(Class47.method369(i, 255));
 		}
 		for (int i_16_ = 0; Class35.anInt376 > i_16_; i_16_++)
 		{
@@ -230,7 +230,7 @@ final class Class17
 		Class10.aStringArray10 = new String[Class47.anInt577];
 		IOException_Sub1.anIntArray149 = new int[Class47.anInt577];
 		GameImage.anIntArray134 = new int[Class47.anInt577];
-		Class7.anIntArray17 = new int[Class47.anInt577];
+		Isaac.anIntArray17 = new int[Class47.anInt577];
 		Class45.aStringArray32 = new String[Class47.anInt577];
 		Class4.anIntArray5 = new int[Class47.anInt577];
 		Class38.aStringArray26 = new String[Class47.anInt577];
@@ -260,7 +260,7 @@ final class Class17
 		}
 		for (int i_45_ = 0; Class47.anInt577 > i_45_; i_45_++)
 		{
-			Class7.anIntArray17[i_45_] = Class4.method10(255);
+			Isaac.anIntArray17[i_45_] = Class4.method10(255);
 		}
 		for (int i_46_ = 0; i_46_ < Class47.anInt577; i_46_++)
 		{

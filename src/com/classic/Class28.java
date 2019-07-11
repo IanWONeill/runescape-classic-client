@@ -28,7 +28,7 @@ final class Class28
 		final byte[] is_2_ = new byte[i];
 		for (int i_3_ = 0; i > i_3_; i_3_++)
 		{
-			is_2_[i_3_] = Class48.aByteArray19[Class52.method378(is[i_1_ + i_3_], 255)];
+			is_2_[i_3_] = Class48.aByteArray19[Class52.bitwiseAnd(is[i_1_ + i_3_], 255)];
 		}
 		if (i_0_ != 99)
 		{

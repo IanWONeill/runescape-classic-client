@@ -63,7 +63,7 @@ final class Class6
 		{
 			method19(-62, 105, -1, 102, -88);
 		}
-		this.anIntArrayArray4[i_7_][i_6_] = Class52.method378(this.anIntArrayArray4[i_7_][i_6_], -i_5_ + 65535);
+		this.anIntArrayArray4[i_7_][i_6_] = Class52.bitwiseAnd(this.anIntArrayArray4[i_7_][i_6_], -i_5_ + 65535);
 	}
 
 	int method13(int i, int i_8_)
@@ -361,13 +361,13 @@ final class Class6
 				int i_65_;
 				if ((i_63_ == 0) || (i_63_ == 4))
 				{
-					i_64_ = Class7.anIntArray17[i];
+					i_64_ = Isaac.anIntArray17[i];
 					i_65_ = Class45.anIntArray115[i];
 				}
 				else
 				{
 					i_64_ = Class45.anIntArray115[i];
-					i_65_ = Class7.anIntArray17[i];
+					i_65_ = Isaac.anIntArray17[i];
 				}
 				for (int i_66_ = i_61_; i_66_ < (i_61_ + i_65_); i_66_++)
 				{
@@ -378,7 +378,7 @@ final class Class6
 							if (i_63_ == 0)
 							{
 								this.anIntArrayArray4[i_66_][i_67_] = Class52
-								        .method378((this.anIntArrayArray4[i_66_][i_67_]), 65533);
+								        .bitwiseAnd((this.anIntArrayArray4[i_66_][i_67_]), 65533);
 								if (i_66_ > 0)
 								{
 									method12(1, 8, i_67_, i_66_ + -1);
@@ -389,7 +389,7 @@ final class Class6
 								if (i_63_ == 4)
 								{
 									this.anIntArrayArray4[i_66_][i_67_] = Class52
-									        .method378((this.anIntArrayArray4[i_66_][i_67_]), 65527);
+									        .bitwiseAnd((this.anIntArrayArray4[i_66_][i_67_]), 65527);
 									if (i_66_ < 95)
 									{
 										method12(1, 2, i_67_, i_66_ + 1);
@@ -398,7 +398,7 @@ final class Class6
 								else if (i_63_ == 6)
 								{
 									this.anIntArrayArray4[i_66_][i_67_] = Class52
-									        .method378((this.anIntArrayArray4[i_66_][i_67_]), 65534);
+									        .bitwiseAnd((this.anIntArrayArray4[i_66_][i_67_]), 65534);
 									if (0 < i_67_)
 									{
 										method12(i_62_ + 30896, 4, i_67_ + -1, i_66_);
@@ -408,7 +408,7 @@ final class Class6
 							else
 							{
 								this.anIntArrayArray4[i_66_][i_67_] = Class52
-								        .method378((this.anIntArrayArray4[i_66_][i_67_]), 65531);
+								        .bitwiseAnd((this.anIntArrayArray4[i_66_][i_67_]), 65531);
 								if (95 > i_67_)
 								{
 									method12(i_62_ ^ ~0x78af, 1, i_67_ + 1, i_66_);
@@ -418,7 +418,7 @@ final class Class6
 						else
 						{
 							this.anIntArrayArray4[i_66_][i_67_] = Class52
-							        .method378((this.anIntArrayArray4[i_66_][i_67_]), 65471);
+							        .bitwiseAnd((this.anIntArrayArray4[i_66_][i_67_]), 65471);
 						}
 					}
 				}
@@ -532,7 +532,7 @@ final class Class6
 					}
 					for (int i_85_ = 0; 2304 > i_85_; i_85_++)
 					{
-						anIntArrayArray3[i_68_][i_85_] = Class52.method378(is[i_82_++], 255);
+						anIntArrayArray3[i_68_][i_85_] = Class52.bitwiseAnd(is[i_82_++], 255);
 					}
 					for (int i_86_ = 0; i_86_ < 2304; i_86_++)
 					{
@@ -641,8 +641,8 @@ final class Class6
 					}
 					for (int i_103_ = 0; 2304 > i_103_; i_103_++)
 					{
-						anIntArrayArray3[i_68_][i_103_] = ((256 * Class52.method378(is[i_98_], 255))
-						        - -Class52.method378(255, is[i_98_ + 1]));
+						anIntArrayArray3[i_68_][i_103_] = ((256 * Class52.bitwiseAnd(is[i_98_], 255))
+						        - -Class52.bitwiseAnd(255, is[i_98_ + 1]));
 						i_98_ += 2;
 					}
 					for (int i_104_ = 0; 2304 > i_104_; i_104_++)
@@ -1518,12 +1518,12 @@ final class Class6
 					int i_231_;
 					if ((i_229_ != 0) && (i_229_ != 4))
 					{
-						i_231_ = Class7.anIntArray17[i_228_];
+						i_231_ = Isaac.anIntArray17[i_228_];
 						i_230_ = Class45.anIntArray115[i_228_];
 					}
 					else
 					{
-						i_230_ = Class7.anIntArray17[i_228_];
+						i_230_ = Isaac.anIntArray17[i_228_];
 						i_231_ = Class45.anIntArray115[i_228_];
 					}
 					method31(i_228_, i_226_, i_227_);
@@ -1624,11 +1624,11 @@ final class Class6
 				if ((i_243_ == 0) || (i_243_ == 4))
 				{
 					i_244_ = Class45.anIntArray115[i];
-					i_245_ = Class7.anIntArray17[i];
+					i_245_ = Isaac.anIntArray17[i];
 				}
 				else
 				{
-					i_244_ = Class7.anIntArray17[i];
+					i_244_ = Isaac.anIntArray17[i];
 					i_245_ = Class45.anIntArray115[i];
 				}
 				for (int i_246_ = i_241_; (i_241_ + i_244_) > i_246_; i_246_++)
@@ -1960,18 +1960,18 @@ final class Class6
 						if (i == 2)
 						{
 							this.anIntArrayArray4[i_297_][i_299_] = Class52
-							        .method378((this.anIntArrayArray4[i_297_][i_299_]), 65519);
+							        .bitwiseAnd((this.anIntArrayArray4[i_297_][i_299_]), 65519);
 						}
 						else if (i == 3)
 						{
 							this.anIntArrayArray4[i_297_][i_299_] = Class52
-							        .method378((this.anIntArrayArray4[i_297_][i_299_]), 65503);
+							        .bitwiseAnd((this.anIntArrayArray4[i_297_][i_299_]), 65503);
 						}
 					}
 					else
 					{
 						this.anIntArrayArray4[i_297_][i_299_] = Class52
-						        .method378((this.anIntArrayArray4[i_297_][i_299_]), 65533);
+						        .bitwiseAnd((this.anIntArrayArray4[i_297_][i_299_]), 65533);
 						if (0 < i_297_)
 						{
 							method12(1, 8, i_299_, i_297_ + -1);
@@ -1980,7 +1980,7 @@ final class Class6
 				}
 				else
 				{
-					this.anIntArrayArray4[i_297_][i_299_] = Class52.method378((this.anIntArrayArray4[i_297_][i_299_]),
+					this.anIntArrayArray4[i_297_][i_299_] = Class52.bitwiseAnd((this.anIntArrayArray4[i_297_][i_299_]),
 					        65534);
 					if (0 < i_299_)
 					{

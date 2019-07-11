@@ -125,7 +125,7 @@ final class StreamClass extends PacketConstruction implements Runnable
 	}
 
 	@Override
-	int method123(final byte i) throws IOException
+	int inputStreamAvailable() throws IOException
 	{
 		if (!aBool30 != true)
 		{
@@ -135,15 +135,14 @@ final class StreamClass extends PacketConstruction implements Runnable
 	}
 
 	@Override
-	void method127(final int i, final int i_2_, final byte[] is, final int i_3_) throws IOException
+	void readInputStream(final int length, final int offset, final byte[] data) throws IOException
 	{
 		if (aBool30 == false)
 		{
-			int i_4_ = 0;
-			int i_5_;
-			for (/**/; i_4_ < i; i_4_ += i_5_)
+			int bytesRead;
+			for (int count = 0; count < length; count += bytesRead)
 			{
-				if ((i_5_ = anInputStream1.read(is, i_4_ + i_2_, -i_4_ + i)) <= 0)
+				if ((bytesRead = anInputStream1.read(data, count + offset, -count + length)) <= 0)
 				{
 					throw new IOException("EOF");
 				}
@@ -152,14 +151,14 @@ final class StreamClass extends PacketConstruction implements Runnable
 	}
 
 	@Override
-	int method129() throws IOException
+	int readInputStream() throws IOException
 	{
 		if (aBool30 != false)
 		{
 			return 0;
 		}
-		method127(1, 0, aByteArray22, 1230517990);
-		return 0xff & aByteArray22[0];
+		readInputStream(1, 0, aByteArray22);
+		return aByteArray22[0] & 0xff;
 	}
 
 	@Override
@@ -235,67 +234,67 @@ final class StreamClass extends PacketConstruction implements Runnable
 				i = i_22_ + i;
 				if (16 <= i_26_)
 				{
-					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.method378(i_17_, 4032)] >>> i_29_);
+					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.bitwiseAnd(i_17_, 4032)] >>> i_29_);
 					i_15_ = i_28_ + i_15_;
 					i_17_ = i_27_ + i_17_;
-					is[i_20_++] = is_12_[(Class52.method378(4032, i_17_) + (i_15_ >> 6))] >>> i_29_;
+					is[i_20_++] = is_12_[(Class52.bitwiseAnd(4032, i_17_) + (i_15_ >> 6))] >>> i_29_;
 					i_17_ = i_27_ + i_17_;
 					i_15_ = i_28_ + i_15_;
-					is[i_20_++] = is_12_[(Class52.method378(4032, i_17_) + (i_15_ >> 6))] >>> i_29_;
+					is[i_20_++] = is_12_[(Class52.bitwiseAnd(4032, i_17_) + (i_15_ >> 6))] >>> i_29_;
 					i_17_ = i_27_ + i_17_;
 					i_15_ = i_28_ + i_15_;
-					is[i_20_++] = is_12_[(Class52.method378(i_17_, 4032) - -(i_15_ >> 6))] >>> i_29_;
+					is[i_20_++] = is_12_[(Class52.bitwiseAnd(i_17_, 4032) - -(i_15_ >> 6))] >>> i_29_;
 					i_17_ = i_27_ + i_17_;
 					i_15_ = i_28_ + i_15_;
 					i_15_ = (i_15_ & 0xfff) + (i & 0xc0000);
 					i_29_ = i >> 20;
-					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.method378(i_17_, 4032)] >>> i_29_);
+					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.bitwiseAnd(i_17_, 4032)] >>> i_29_);
 					i = i_22_ + i;
 					i_17_ = i_27_ + i_17_;
 					i_15_ = i_28_ + i_15_;
-					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.method378(4032, i_17_)] >>> i_29_);
+					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.bitwiseAnd(4032, i_17_)] >>> i_29_);
 					i_15_ = i_28_ + i_15_;
 					i_17_ = i_27_ + i_17_;
-					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.method378(4032, i_17_)] >>> i_29_);
+					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.bitwiseAnd(4032, i_17_)] >>> i_29_);
 					i_15_ = i_28_ + i_15_;
 					i_17_ = i_27_ + i_17_;
-					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.method378(4032, i_17_)] >>> i_29_);
+					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.bitwiseAnd(4032, i_17_)] >>> i_29_);
 					i_15_ = i_28_ + i_15_;
 					i_17_ = i_27_ + i_17_;
 					i_29_ = i >> 20;
 					i_15_ = (i_15_ & 0xfff) + (i & 0xc0000);
 					i = i_22_ + i;
-					is[i_20_++] = is_12_[(Class52.method378(i_17_, 4032) - -(i_15_ >> 6))] >>> i_29_;
+					is[i_20_++] = is_12_[(Class52.bitwiseAnd(i_17_, 4032) - -(i_15_ >> 6))] >>> i_29_;
 					i_15_ = i_28_ + i_15_;
 					i_17_ = i_27_ + i_17_;
-					is[i_20_++] = is_12_[(Class52.method378(4032, i_17_) - -(i_15_ >> 6))] >>> i_29_;
+					is[i_20_++] = is_12_[(Class52.bitwiseAnd(4032, i_17_) - -(i_15_ >> 6))] >>> i_29_;
 					i_17_ = i_27_ + i_17_;
 					i_15_ = i_28_ + i_15_;
-					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.method378(i_17_, 4032)] >>> i_29_);
+					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.bitwiseAnd(i_17_, 4032)] >>> i_29_);
 					i_15_ = i_28_ + i_15_;
 					i_17_ = i_27_ + i_17_;
-					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.method378(4032, i_17_)] >>> i_29_);
+					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.bitwiseAnd(4032, i_17_)] >>> i_29_);
 					i_15_ = i_28_ + i_15_;
 					i_17_ = i_27_ + i_17_;
 					i_15_ = (0xc0000 & i) + (i_15_ & 0xfff);
 					i_29_ = i >> 20;
-					is[i_20_++] = is_12_[(Class52.method378(4032, i_17_) + (i_15_ >> 6))] >>> i_29_;
+					is[i_20_++] = is_12_[(Class52.bitwiseAnd(4032, i_17_) + (i_15_ >> 6))] >>> i_29_;
 					i = i_22_ + i;
 					i_17_ = i_27_ + i_17_;
 					i_15_ = i_28_ + i_15_;
-					is[i_20_++] = is_12_[(Class52.method378(4032, i_17_) + (i_15_ >> 6))] >>> i_29_;
+					is[i_20_++] = is_12_[(Class52.bitwiseAnd(4032, i_17_) + (i_15_ >> 6))] >>> i_29_;
 					i_15_ = i_28_ + i_15_;
 					i_17_ = i_27_ + i_17_;
-					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.method378(4032, i_17_)] >>> i_29_);
+					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.bitwiseAnd(4032, i_17_)] >>> i_29_);
 					i_17_ = i_27_ + i_17_;
 					i_15_ = i_28_ + i_15_;
-					is[i_20_++] = is_12_[(Class52.method378(4032, i_17_) - -(i_15_ >> 6))] >>> i_29_;
+					is[i_20_++] = is_12_[(Class52.bitwiseAnd(4032, i_17_) - -(i_15_ >> 6))] >>> i_29_;
 				}
 				else
 				{
 					for (int i_30_ = 0; i_30_ < i_26_; i_30_++)
 					{
-						is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.method378(4032, i_17_)] >>> i_29_);
+						is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.bitwiseAnd(4032, i_17_)] >>> i_29_);
 						i_17_ = i_27_ + i_17_;
 						i_15_ = i_28_ + i_15_;
 						if ((i_30_ & 0x3) == 3)

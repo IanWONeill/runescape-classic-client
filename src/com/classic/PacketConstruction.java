@@ -9,61 +9,60 @@ class PacketConstruction
 	String errorText;
 	static String[] aStringArray14 = { "Enter number of items to remove and press enter" };
 	static Calendar aCalendar1;
-	private int anInt176 = 0;
+	private int packetReadCount = 0;
 	private final int maxPacketLength;
-	private int anInt178;
+	private int length;
 	boolean error;
 	static byte[][] aByteArrayArray8;
 	private int anInt181;
 	private int packetStart;
-	private Class7 aClass7_1;
+	private Isaac serverRandom;
 	static int anInt185 = 0;
-	private Class7 aClass7_2;
+	private Isaac clientRandom;
 	Class27_Sub1_Sub1 aClass27_Sub1_Sub1_1;
-	int anInt192;
+	int maxPacketReadCount;
 
-	private int method114(final byte[] is)
+	private int readPacket(final byte[] data)
 	{
 		do
 		{
 			int i_0_;
 			try
 			{
-				anInt176++;
-				if ((0 < this.anInt192) && (this.anInt192 < anInt176))
+				packetReadCount++;
+				if ((maxPacketReadCount > 0) && (packetReadCount > maxPacketReadCount))
 				{
-					this.error = true;
-					this.anInt192 += this.anInt192;
-					this.errorText = "time-out";
+					error = true;
+					maxPacketReadCount += maxPacketReadCount;
+					errorText = "time-out";
 					return 0;
 				}
-				if ((anInt178 == 0) && (2 <= method123((byte) -65)))
+				
+				if ((length == 0) && inputStreamAvailable() >= 2)
 				{
-					anInt178 = method129();
-					if (160 <= anInt178)
+					length = readInputStream();
+					if (length >= 160)
 					{
-						anInt178 = ((anInt178 * 256) + -40960) - -method129();
+						length = ((length - 160) * 256) + readInputStream();
 					}
 				}
-				if ((0 >= anInt178) || (method123((byte) -65) < anInt178))
+				if ((0 >= length) || (inputStreamAvailable() < length))
 				{
 					break;
 				}
-				if (160 > anInt178)
+				if (160 > length)
 				{
-					is[anInt178 + -1] = (byte) method129();
-					if (anInt178 > 1)
-					{
-						method121(anInt178 + -1, is);
-					}
+					data[length - 1] = (byte) readInputStream();
+					if (length > 1)
+						readInputStream(length - 1, data);
 				}
 				else
 				{
-					method121(anInt178, is);
+					readInputStream(length, data);
 				}
-				final int i_1_ = anInt178;
-				anInt176 = 0;
-				anInt178 = 0;
+				final int i_1_ = length;
+				packetReadCount = 0;
+				length = 0;
 				i_0_ = i_1_;
 			}
 			catch (final IOException ioexception)
@@ -90,13 +89,13 @@ class PacketConstruction
 
 	void method116(final int[] is)
 	{
-		aClass7_1 = new Class7(is);
-		aClass7_2 = new Class7(is);
+		serverRandom = new Isaac(is);
+		clientRandom = new Isaac(is);
 	}
 
 	void method117(final int i, final int i_3_, final byte[] is, final int i_4_) throws IOException {}
 
-	void createPacket(final int i, final int i_6_)
+	void createPacket(final int id)
 	{
 		if (packetStart > ((maxPacketLength * 4) / 5))
 		{
@@ -111,18 +110,14 @@ class PacketConstruction
 			}
 		}
 		this.aClass27_Sub1_Sub1_1.position = packetStart + 2;
-		this.aClass27_Sub1_Sub1_1.put(i);
-		if (i_6_ < 54)
-		{
-			createPacket(91, 92);
-		}
+		this.aClass27_Sub1_Sub1_1.put(id);
 	}
 
 	void method119(final byte i)
 	{
 		if (i != -122)
 		{
-			method122(65, false);
+			decodePacketCommand(65);
 		}
 	}
 
@@ -132,21 +127,17 @@ class PacketConstruction
 		writePacket(0);
 	}
 
-	private void method121(final int i, final byte[] is) throws IOException
+	private void readInputStream(final int length, final byte[] data) throws IOException
 	{
-		method127(i, 0, is, 1230517990);
+		readInputStream(length, 0, data);
 	}
 
-	int method122(final int i, final boolean bool)
+	int decodePacketCommand(final int command)
 	{
-		if (bool)
-		{
-			method122(64, false);
-		}
-		return 0xff & (i - aClass7_1.method47());
+		return (command - serverRandom.random()) & 0xff;
 	}
 
-	int method123(final byte i) throws IOException { return 0; }
+	int inputStreamAvailable() throws IOException { return 0; }
 
 	void writePacket(final int i_8_) throws IOException
 	{
@@ -173,45 +164,44 @@ class PacketConstruction
 	int method125(final int i, final Class27_Sub1_Sub1 class27_sub1_sub1)
 	{
 		class27_sub1_sub1.position = i;
-		return method114(class27_sub1_sub1.buffer);
+		return readPacket(class27_sub1_sub1.buffer);
 	}
 
 	void finishPacket(final int i)
 	{
-		if (aClass7_2 != null)
+		if (clientRandom != null)
 		{
-			final int i_9_ = ((this.aClass27_Sub1_Sub1_1.buffer[packetStart - -2]) & 0xff);
-			this.aClass27_Sub1_Sub1_1.buffer[packetStart + 2] = (byte) (aClass7_2.method47() + i_9_);
+			final int packetId = this.aClass27_Sub1_Sub1_1.buffer[packetStart + 2] & 0xff;
+			this.aClass27_Sub1_Sub1_1.buffer[packetStart + 2] = (byte) (clientRandom.random() + packetId);
 		}
-		final int i_10_ = ((this.aClass27_Sub1_Sub1_1.position) - packetStart - i);
-		if (160 > i_10_)
+		final int Length = ((this.aClass27_Sub1_Sub1_1.position) - packetStart - i);
+		if (160 > Length)
 		{
-			this.aClass27_Sub1_Sub1_1.buffer[packetStart] = (byte) i_10_;
+			this.aClass27_Sub1_Sub1_1.buffer[packetStart] = (byte) Length;
 			this.aClass27_Sub1_Sub1_1.position--;
-			this.aClass27_Sub1_Sub1_1.buffer[packetStart
-			        + 1] = (this.aClass27_Sub1_Sub1_1.buffer[this.aClass27_Sub1_Sub1_1.position]);
+			this.aClass27_Sub1_Sub1_1.buffer[packetStart + 1] = (this.aClass27_Sub1_Sub1_1.buffer[this.aClass27_Sub1_Sub1_1.position]);
 		}
 		else
 		{
-			this.aClass27_Sub1_Sub1_1.buffer[packetStart] = (byte) ((i_10_ / 256) + 160);
-			this.aClass27_Sub1_Sub1_1.buffer[packetStart - -1] = (byte) Class52.method378(i_10_, 255);
+			this.aClass27_Sub1_Sub1_1.buffer[packetStart] = (byte) ((Length / 256) + 160);
+			this.aClass27_Sub1_Sub1_1.buffer[packetStart + 1] = (byte) Class52.bitwiseAnd(Length, 255);
 		}
 		if (maxPacketLength <= 10000)
 		{
-			final int i_11_ = ((this.aClass27_Sub1_Sub1_1.buffer[packetStart - -2]) & 0xff);
-			Class22.anIntArray48[i_11_]++;
-			Class10.anIntArray25[i_11_] += (this.aClass27_Sub1_Sub1_1.position) - packetStart;
+			final int i_11_ = this.aClass27_Sub1_Sub1_1.buffer[packetStart + 2] & 0xff;
+			Class22.packetCommandCount[i_11_]++;
+			Class10.packetCommandLength[i_11_] += this.aClass27_Sub1_Sub1_1.position - packetStart;
 		}
 		packetStart = (this.aClass27_Sub1_Sub1_1.position);
 	}
 
-	void method127(final int i, final int i_12_, final byte[] is, final int i_13_) throws IOException {}
+	void readInputStream(final int length, final int offset, final byte[] data) throws IOException {}
 
 	boolean containsData(final int i)
 	{
 		if (i < 17)
 		{
-			method122(93, false);
+			decodePacketCommand(93);
 		}
 		if (0 < packetStart)
 		{
@@ -220,17 +210,17 @@ class PacketConstruction
 		return false;
 	}
 
-	int method129() throws IOException { return 0; }
+	int readInputStream() throws IOException { return 0; }
 
 	protected PacketConstruction()
 	{
 		this.errorText = "";
-		anInt178 = 0;
+		length = 0;
 		this.error = false;
 		anInt181 = 0;
 		maxPacketLength = 5000;
 		packetStart = 0;
-		this.anInt192 = 0;
+		this.maxPacketReadCount = 0;
 		this.aClass27_Sub1_Sub1_1 = new Class27_Sub1_Sub1(maxPacketLength);
 		this.aClass27_Sub1_Sub1_1.position = 3;
 	}

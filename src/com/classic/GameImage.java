@@ -83,8 +83,8 @@ class GameImage implements ImageProducer, ImageObserver
 							is_9_[i_14_] = is_9_[i_14_ + -1];
 							is_10_[i_14_] = is_10_[i_14_ + -1];
 						}
-						is_9_[i_13_] = (Class52.method378(248, i_11_ << 3)
-						        + (((Class52.method378(i_11_, 31744) << 9) - -Class52.method378(63488, i_11_ << 6))
+						is_9_[i_13_] = (Class52.bitwiseAnd(248, i_11_ << 3)
+						        + (((Class52.bitwiseAnd(i_11_, 31744) << 9) - -Class52.bitwiseAnd(63488, i_11_ << 6))
 						                + 263172));
 						is_10_[i_13_] = i_12_;
 						break;
@@ -787,84 +787,84 @@ class GameImage implements ImageProducer, ImageObserver
 				i_186_ = i_181_ + i_186_;
 				if (i_195_ >= 16)
 				{
-					is_191_[i++] = ((Class52.method378(is_191_[i], 16711423) >> 1)
-					        + (is[(i_187_ >> 6) + Class52.method378(4032, i_180_)] >>> i_198_));
+					is_191_[i++] = ((Class52.bitwiseAnd(is_191_[i], 16711423) >> 1)
+					        + (is[(i_187_ >> 6) + Class52.bitwiseAnd(4032, i_180_)] >>> i_198_));
 					i_180_ += i_197_;
 					i_187_ += i_196_;
-					is_191_[i++] = ((Class52.method378(16711423, is_191_[i]) >> 1)
-					        + (is[Class52.method378(i_180_, 4032) + (i_187_ >> 6)] >>> i_198_));
+					is_191_[i++] = ((Class52.bitwiseAnd(16711423, is_191_[i]) >> 1)
+					        + (is[Class52.bitwiseAnd(i_180_, 4032) + (i_187_ >> 6)] >>> i_198_));
 					i_180_ += i_197_;
 					i_187_ += i_196_;
-					is_191_[i++] = ((is[Class52.method378(i_180_, 4032) + (i_187_ >> 6)] >>> i_198_)
-					        - -(Class52.method378(16711422, is_191_[i]) >> 1));
+					is_191_[i++] = ((is[Class52.bitwiseAnd(i_180_, 4032) + (i_187_ >> 6)] >>> i_198_)
+					        - -(Class52.bitwiseAnd(16711422, is_191_[i]) >> 1));
 					i_187_ += i_196_;
 					i_180_ += i_197_;
-					is_191_[i++] = ((is[Class52.method378(i_180_, 4032) + (i_187_ >> 6)] >>> i_198_)
-					        + Class52.method378(8355711, is_191_[i] >> 1));
+					is_191_[i++] = ((is[Class52.bitwiseAnd(i_180_, 4032) + (i_187_ >> 6)] >>> i_198_)
+					        + Class52.bitwiseAnd(8355711, is_191_[i] >> 1));
 					i_187_ += i_196_;
 					i_180_ += i_197_;
 					i_187_ = (0xfff & i_187_) + (0xc0000 & i_186_);
 					i_198_ = i_186_ >> 20;
-					is_191_[i++] = ((Class52.method378(is_191_[i], 16711422) >> 1)
-					        + (is[(i_187_ >> 6) + Class52.method378(4032, i_180_)] >>> i_198_));
+					is_191_[i++] = ((Class52.bitwiseAnd(is_191_[i], 16711422) >> 1)
+					        + (is[(i_187_ >> 6) + Class52.bitwiseAnd(4032, i_180_)] >>> i_198_));
 					i_186_ = i_181_ + i_186_;
 					i_187_ += i_196_;
 					i_180_ += i_197_;
-					is_191_[i++] = ((is[(i_187_ >> 6) + Class52.method378(i_180_, 4032)] >>> i_198_)
-					        - -Class52.method378(8355711, is_191_[i] >> 1));
+					is_191_[i++] = ((is[(i_187_ >> 6) + Class52.bitwiseAnd(i_180_, 4032)] >>> i_198_)
+					        - -Class52.bitwiseAnd(8355711, is_191_[i] >> 1));
 					i_180_ += i_197_;
 					i_187_ += i_196_;
-					is_191_[i++] = ((is[(i_187_ >> 6) + Class52.method378(i_180_, 4032)] >>> i_198_)
-					        + (Class52.method378(is_191_[i], 16711423) >> 1));
+					is_191_[i++] = ((is[(i_187_ >> 6) + Class52.bitwiseAnd(i_180_, 4032)] >>> i_198_)
+					        + (Class52.bitwiseAnd(is_191_[i], 16711423) >> 1));
 					i_180_ += i_197_;
 					i_187_ += i_196_;
-					is_191_[i++] = ((is[(i_187_ >> 6) + Class52.method378(i_180_, 4032)] >>> i_198_)
-					        - -(Class52.method378(16711423, is_191_[i]) >> 1));
+					is_191_[i++] = ((is[(i_187_ >> 6) + Class52.bitwiseAnd(i_180_, 4032)] >>> i_198_)
+					        - -(Class52.bitwiseAnd(16711423, is_191_[i]) >> 1));
 					i_180_ += i_197_;
 					i_187_ += i_196_;
 					i_198_ = i_186_ >> 20;
 					i_187_ = (0xfff & i_187_) + (i_186_ & 0xc0000);
-					is_191_[i++] = ((is[Class52.method378(i_180_, 4032) + (i_187_ >> 6)] >>> i_198_)
-					        - -Class52.method378(8355711, is_191_[i] >> 1));
+					is_191_[i++] = ((is[Class52.bitwiseAnd(i_180_, 4032) + (i_187_ >> 6)] >>> i_198_)
+					        - -Class52.bitwiseAnd(8355711, is_191_[i] >> 1));
 					i_186_ = i_181_ + i_186_;
 					i_180_ += i_197_;
 					i_187_ += i_196_;
-					is_191_[i++] = ((is[Class52.method378(i_180_, 4032) - -(i_187_ >> 6)] >>> i_198_)
-					        + Class52.method378(is_191_[i] >> 1, 8355711));
+					is_191_[i++] = ((is[Class52.bitwiseAnd(i_180_, 4032) - -(i_187_ >> 6)] >>> i_198_)
+					        + Class52.bitwiseAnd(is_191_[i] >> 1, 8355711));
 					i_180_ += i_197_;
 					i_187_ += i_196_;
-					is_191_[i++] = ((is[(i_187_ >> 6) + Class52.method378(i_180_, 4032)] >>> i_198_)
-					        + Class52.method378(is_191_[i] >> 1, 8355711));
+					is_191_[i++] = ((is[(i_187_ >> 6) + Class52.bitwiseAnd(i_180_, 4032)] >>> i_198_)
+					        + Class52.bitwiseAnd(is_191_[i] >> 1, 8355711));
 					i_187_ += i_196_;
 					i_180_ += i_197_;
-					is_191_[i++] = ((is[Class52.method378(4032, i_180_) + (i_187_ >> 6)] >>> i_198_)
-					        - -(Class52.method378(is_191_[i], 16711423) >> 1));
+					is_191_[i++] = ((is[Class52.bitwiseAnd(4032, i_180_) + (i_187_ >> 6)] >>> i_198_)
+					        - -(Class52.bitwiseAnd(is_191_[i], 16711423) >> 1));
 					i_187_ += i_196_;
 					i_180_ += i_197_;
 					i_198_ = i_186_ >> 20;
 					i_187_ = (0xfff & i_187_) + (0xc0000 & i_186_);
-					is_191_[i++] = ((is[(i_187_ >> 6) + Class52.method378(i_180_, 4032)] >>> i_198_)
-					        + Class52.method378(8355711, is_191_[i] >> 1));
+					is_191_[i++] = ((is[(i_187_ >> 6) + Class52.bitwiseAnd(i_180_, 4032)] >>> i_198_)
+					        + Class52.bitwiseAnd(8355711, is_191_[i] >> 1));
 					i_186_ = i_181_ + i_186_;
 					i_187_ += i_196_;
 					i_180_ += i_197_;
-					is_191_[i++] = (Class52.method378(8355711, is_191_[i] >> 1)
-					        + (is[Class52.method378(i_180_, 4032) - -(i_187_ >> 6)] >>> i_198_));
+					is_191_[i++] = (Class52.bitwiseAnd(8355711, is_191_[i] >> 1)
+					        + (is[Class52.bitwiseAnd(i_180_, 4032) - -(i_187_ >> 6)] >>> i_198_));
 					i_180_ += i_197_;
 					i_187_ += i_196_;
-					is_191_[i++] = ((is[Class52.method378(4032, i_180_) + (i_187_ >> 6)] >>> i_198_)
-					        + Class52.method378(is_191_[i] >> 1, 8355711));
+					is_191_[i++] = ((is[Class52.bitwiseAnd(4032, i_180_) + (i_187_ >> 6)] >>> i_198_)
+					        + Class52.bitwiseAnd(is_191_[i] >> 1, 8355711));
 					i_187_ += i_196_;
 					i_180_ += i_197_;
-					is_191_[i++] = ((Class52.method378(16711422, is_191_[i]) >> 1)
-					        + (is[Class52.method378(i_180_, 4032) + (i_187_ >> 6)] >>> i_198_));
+					is_191_[i++] = ((Class52.bitwiseAnd(16711422, is_191_[i]) >> 1)
+					        + (is[Class52.bitwiseAnd(i_180_, 4032) + (i_187_ >> 6)] >>> i_198_));
 				}
 				else
 				{
 					for (int i_199_ = 0; i_199_ < i_195_; i_199_++)
 					{
-						is_191_[i++] = ((is[Class52.method378(4032, i_180_) - -(i_187_ >> 6)] >>> i_198_)
-						        - -Class52.method378(is_191_[i] >> 1, 8355711));
+						is_191_[i++] = ((is[Class52.bitwiseAnd(4032, i_180_) - -(i_187_ >> 6)] >>> i_198_)
+						        - -Class52.bitwiseAnd(is_191_[i] >> 1, 8355711));
 						i_180_ += i_197_;
 						i_187_ += i_196_;
 						if ((0x3 & i_199_) == 3)
@@ -1354,10 +1354,10 @@ class GameImage implements ImageProducer, ImageObserver
 				{
 					final int i_337_ = is_328_[i_330_];
 					is_328_[i_330_++] = (Class52
-					        .method378(((Class52.method378(16711935, i_324_) * i_329_)
-					                + (Class52.method378(16711935, i_337_) * i_334_)), -16711936)
-					        - -Class52.method378(((Class52.method378(i_337_, 65280) * i_334_)
-					                + (Class52.method378(i_324_, 65280) * i_329_)), 16711680)) >> 8;
+					        .bitwiseAnd(((Class52.bitwiseAnd(16711935, i_324_) * i_329_)
+					                + (Class52.bitwiseAnd(16711935, i_337_) * i_334_)), -16711936)
+					        - -Class52.bitwiseAnd(((Class52.bitwiseAnd(i_337_, 65280) * i_334_)
+					                + (Class52.bitwiseAnd(i_324_, 65280) * i_329_)), 16711680)) >> 8;
 				}
 				else
 				{
@@ -1530,9 +1530,9 @@ class GameImage implements ImageProducer, ImageObserver
 		for (int i_380_ = 0; i_379_ > i_380_; i_380_++)
 		{
 			final int i_381_ = 0xffffff & this.imagePixelArray[i_380_];
-			this.imagePixelArray[i_380_] = ((Class52.method378(15790327, i_381_) >>> 4)
-			        + (Class52.method378(i_381_ >>> 2, 1077886783) + Class52.method378(-2139127937, i_381_ >>> 1))
-			        + Class52.method378(i_381_ >>> 3, 1612652319));
+			this.imagePixelArray[i_380_] = ((Class52.bitwiseAnd(15790327, i_381_) >>> 4)
+			        + (Class52.bitwiseAnd(i_381_ >>> 2, 1077886783) + Class52.bitwiseAnd(-2139127937, i_381_ >>> 1))
+			        + Class52.bitwiseAnd(i_381_ >>> 3, 1612652319));
 		}
 		if (i != -1248297852)
 		{
@@ -1556,12 +1556,12 @@ class GameImage implements ImageProducer, ImageObserver
 				}
 				else
 				{
-					is[i_390_++] = is_386_[Class52.method378(255, i_394_)];
+					is[i_390_++] = is_386_[Class52.bitwiseAnd(255, i_394_)];
 				}
 				i_394_ = is_382_[i_389_++];
 				if (i_394_ != 0)
 				{
-					is[i_390_++] = is_386_[Class52.method378(255, i_394_)];
+					is[i_390_++] = is_386_[Class52.bitwiseAnd(255, i_394_)];
 				}
 				else
 				{
@@ -1570,7 +1570,7 @@ class GameImage implements ImageProducer, ImageObserver
 				i_394_ = is_382_[i_389_++];
 				if (i_394_ != 0)
 				{
-					is[i_390_++] = is_386_[Class52.method378(255, i_394_)];
+					is[i_390_++] = is_386_[Class52.bitwiseAnd(255, i_394_)];
 				}
 				else
 				{
@@ -1583,7 +1583,7 @@ class GameImage implements ImageProducer, ImageObserver
 				}
 				else
 				{
-					is[i_390_++] = is_386_[Class52.method378(255, i_394_)];
+					is[i_390_++] = is_386_[Class52.bitwiseAnd(255, i_394_)];
 				}
 			}
 			for (int i_395_ = i_385_; i_395_ < 0; i_395_++)
@@ -1591,7 +1591,7 @@ class GameImage implements ImageProducer, ImageObserver
 				final byte i_396_ = is_382_[i_389_++];
 				if (i_396_ != 0)
 				{
-					is[i_390_++] = is_386_[Class52.method378(i_396_, 255)];
+					is[i_390_++] = is_386_[Class52.bitwiseAnd(i_396_, 255)];
 				}
 				else
 				{
@@ -1616,10 +1616,10 @@ class GameImage implements ImageProducer, ImageObserver
 				{
 					i_410_ = is[0xff & i_410_];
 					final int i_411_ = is_406_[i_403_];
-					is_406_[i_403_++] = (((Class52.method378(((i_400_ * Class52.method378(i_410_, 65280))
-					        - -(i_407_ * Class52.method378(65280, i_411_))), 16711680))
-					        + (Class52.method378(-16711936, ((Class52.method378(i_411_, 16711935) * i_407_)
-					                + (i_400_ * Class52.method378(i_410_, 16711935)))))) >> 8);
+					is_406_[i_403_++] = (((Class52.bitwiseAnd(((i_400_ * Class52.bitwiseAnd(i_410_, 65280))
+					        - -(i_407_ * Class52.bitwiseAnd(65280, i_411_))), 16711680))
+					        + (Class52.bitwiseAnd(-16711936, ((Class52.bitwiseAnd(i_411_, 16711935) * i_407_)
+					                + (i_400_ * Class52.bitwiseAnd(i_410_, 16711935)))))) >> 8);
 				}
 				else
 				{
@@ -1921,15 +1921,15 @@ class GameImage implements ImageProducer, ImageObserver
 		is_493_[0] = 16711935;
 		for (int i_494_ = 0; i_494_ < (i_492_ + -1); i_494_++)
 		{
-			is_493_[i_494_ - -1] = (Class52.method378(255, is[2 + i_489_])
-			        + Class52.method378(65280, is[1 + i_489_] << 8) + (Class52.method378(255, is[i_489_]) << 16));
+			is_493_[i_494_ - -1] = (Class52.bitwiseAnd(255, is[2 + i_489_])
+			        + Class52.bitwiseAnd(65280, is[1 + i_489_] << 8) + (Class52.bitwiseAnd(255, is[i_489_]) << 16));
 			i_489_ += 3;
 		}
 		int i_496_ = 2;
 		for (int i_497_ = i; (i - -i_488_) > i_497_; i_497_++)
 		{
-			anIntArray128[i_497_] = Class52.method378(255, is[i_489_++]);
-			anIntArray120[i_497_] = Class52.method378(is[i_489_++], 255);
+			anIntArray128[i_497_] = Class52.bitwiseAnd(255, is[i_489_++]);
+			anIntArray120[i_497_] = Class52.bitwiseAnd(is[i_489_++], 255);
 			this.anIntArray118[i_497_] = Class10.method84(is, i_489_);
 			i_489_ += 2;
 			this.anIntArray123[i_497_] = Class10.method84(is, i_489_);
@@ -2507,12 +2507,12 @@ class GameImage implements ImageProducer, ImageObserver
 					else
 					{
 						final int i_642_ = is_634_[i_635_];
-						is_634_[i_635_++] = ((Class52.method378(((i_626_ * Class52.method378(i_630_, 16711935))
-						        - -(Class52.method378(16711935, i_642_) * i_637_)), -16711936))
+						is_634_[i_635_++] = ((Class52.bitwiseAnd(((i_626_ * Class52.bitwiseAnd(i_630_, 16711935))
+						        - -(Class52.bitwiseAnd(16711935, i_642_) * i_637_)), -16711936))
 						        + (Class52
-						                .method378(
-						                        ((i_637_ * Class52.method378(65280, i_642_))
-						                                + (Class52.method378(i_630_, 65280) * i_626_)),
+						                .bitwiseAnd(
+						                        ((i_637_ * Class52.bitwiseAnd(65280, i_642_))
+						                                + (Class52.bitwiseAnd(i_630_, 65280) * i_626_)),
 						                        16711680))) >> 8;
 					}
 					i_631_ += i_633_;
@@ -2693,11 +2693,11 @@ class GameImage implements ImageProducer, ImageObserver
 					else
 					{
 						final int i_708_ = is[i];
-						is[i++] = (((Class52.method378(-16711936,
-						        ((Class52.method378(i_708_, 16711935) * (256 - i_707_))
-						                + (Class52.method378(16711935, i_702_) * i_707_))))
-						        + (Class52.method378(16711680, (((-i_707_ + 256) * Class52.method378(65280, i_708_))
-						                + (i_707_ * Class52.method378(i_702_, 65280)))))) >> 8);
+						is[i++] = (((Class52.bitwiseAnd(-16711936,
+						        ((Class52.bitwiseAnd(i_708_, 16711935) * (256 - i_707_))
+						                + (Class52.bitwiseAnd(16711935, i_702_) * i_707_))))
+						        + (Class52.bitwiseAnd(16711680, (((-i_707_ + 256) * Class52.bitwiseAnd(65280, i_708_))
+						                + (i_707_ * Class52.bitwiseAnd(i_702_, 65280)))))) >> 8);
 					}
 				}
 				else

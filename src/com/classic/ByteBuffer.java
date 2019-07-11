@@ -35,7 +35,7 @@ class ByteBuffer extends Class27
 		{
 			return 0x7fffffff & readInt();
 		}
-		return method392();
+		return readUnsignedShort();
 	}
 
 	void put(final int value)
@@ -62,7 +62,7 @@ class ByteBuffer extends Class27
 		{
 			return readUnsignedByte();
 		}
-		return method392() - 32768;
+		return readUnsignedShort() - 32768;
 	}
 
 	static void method391(final int i, final Class44 class44)
@@ -74,7 +74,7 @@ class ByteBuffer extends Class27
 		}
 	}
 
-	int method392()
+	int readUnsignedShort()
 	{
 		this.position += 2;
 		return ((0xff & (this.buffer[this.position - 1]))

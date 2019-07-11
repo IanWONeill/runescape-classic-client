@@ -187,7 +187,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 							return;
 						}
 					}
-					Class7.unknownSleep(95, threadSleepModifier);
+					Isaac.unknownSleep(95, threadSleepModifier);
 				}
 				if (0 > exitTimeout)
 				{
@@ -276,7 +276,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 						i_4_ = this.threadSleepTime;
 					}
 				}
-				Class7.unknownSleep(70, i_4_);
+				Isaac.unknownSleep(70, i_4_);
 				this.currentTimeArray[i] = l;
 				i = (i + 1) % 10;
 				if (i_4_ > 1)
@@ -558,7 +558,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	public void destroy()
 	{
 		exitTimeout = -1;
-		Class7.unknownSleep(91, 5000L);
+		Isaac.unknownSleep(91, 5000L);
 		if (exitTimeout == -1)
 		{
 			System.out.println("5 seconds expired, forcing kill");
@@ -816,7 +816,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		exitTimeout = -2;
 		System.out.println("Closing program");
 		method471();
-		Class7.unknownSleep(53, 1000L);
+		Isaac.unknownSleep(53, 1000L);
 		if (Class38.gameFrame != null)
 		{
 			Class38.gameFrame.dispose();
