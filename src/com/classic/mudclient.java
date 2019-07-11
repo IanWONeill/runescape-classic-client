@@ -702,7 +702,6 @@ public final class mudclient extends GameWindow
 
 	private void checkIncomingPacket(int command, final int i_15_, final int length)
 	{
-		System.out.format("Packet: command=%d length=%d\n", command, length);
 		command = streamClass.decodePacketCommand(command);
 		if (command != 131)
 		{
@@ -6097,7 +6096,6 @@ public final class mudclient extends GameWindow
 		}
 		else if (command == 25)
 		{
-			System.out.println("Got wild cmd");
 			aBool78 = true;
 			anInt1010 = aClass27_Sub1_Sub1_2.readUnsignedShort();
 			anInt894 = aClass27_Sub1_Sub1_2.readUnsignedShort();
