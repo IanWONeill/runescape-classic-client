@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.TimeZone;
 
+import org.custom.Custom;
+
 class PacketConstruction
 {
 	String errorText;
@@ -93,6 +95,7 @@ class PacketConstruction
 		clientRandom = new Isaac(is);
 	}
 
+	// NOTE: Overridden by StreamClass.
 	void method117(final int i, final int i_3_, final byte[] is, final int i_4_) throws IOException {}
 
 	void createPacket(final int id)
@@ -113,17 +116,12 @@ class PacketConstruction
 		this.aClass27_Sub1_Sub1_1.put(id);
 	}
 
-	void method119(final byte i)
-	{
-		if (i != -122)
-		{
-			decodePacketCommand(65);
-		}
-	}
+	// NOTE: Overridden by StreamClass.
+	void closeStream() {}
 
-	void method120() throws IOException
+	void finalizePacket() throws IOException
 	{
-		finishPacket(2);
+		finishPacket();
 		writePacket(0);
 	}
 
@@ -134,6 +132,8 @@ class PacketConstruction
 
 	int decodePacketCommand(final int command)
 	{
+		if(!Custom.ENCODE_PACKET_IDS) return command;
+		
 		return (command - serverRandom.random()) & 0xff;
 	}
 
@@ -167,15 +167,19 @@ class PacketConstruction
 		return readPacket(class27_sub1_sub1.buffer);
 	}
 
-	void finishPacket(final int i)
+	void finishPacket()
 	{
-		if (clientRandom != null)
+		if(Custom.ENCODE_PACKET_IDS)
 		{
-			final int packetId = this.aClass27_Sub1_Sub1_1.buffer[packetStart + 2] & 0xff;
-			this.aClass27_Sub1_Sub1_1.buffer[packetStart + 2] = (byte) (clientRandom.random() + packetId);
+			if (clientRandom != null)
+			{
+				final int packetId = this.aClass27_Sub1_Sub1_1.buffer[packetStart + 2] & 0xff;
+				this.aClass27_Sub1_Sub1_1.buffer[packetStart + 2] = (byte) (clientRandom.random() + packetId);
+			}
 		}
-		final int Length = ((this.aClass27_Sub1_Sub1_1.position) - packetStart - i);
-		if (160 > Length)
+		
+		final int Length = ((this.aClass27_Sub1_Sub1_1.position) - packetStart - 2);
+		if (Length < 160)
 		{
 			this.aClass27_Sub1_Sub1_1.buffer[packetStart] = (byte) Length;
 			this.aClass27_Sub1_Sub1_1.position--;
@@ -190,7 +194,7 @@ class PacketConstruction
 		{
 			final int i_11_ = this.aClass27_Sub1_Sub1_1.buffer[packetStart + 2] & 0xff;
 			Class22.packetCommandCount[i_11_]++;
-			Class10.packetCommandLength[i_11_] += this.aClass27_Sub1_Sub1_1.position - packetStart;
+			Menu.packetCommandLength[i_11_] += this.aClass27_Sub1_Sub1_1.position - packetStart;
 		}
 		packetStart = (this.aClass27_Sub1_Sub1_1.position);
 	}

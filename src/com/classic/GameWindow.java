@@ -18,6 +18,8 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
+import org.custom.Custom;
+
 public class GameWindow extends Applet implements Runnable, MouseListener, MouseMotionListener, KeyListener
 {
 	/**
@@ -540,7 +542,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	// NOTE: Overridden by mudclient.
 	synchronized void method473() {}
 
-	void method474(final int i_18_)
+	void changeThreadSleepModifier(final int i_18_)
 	{
 		threadSleepModifier = 1000 / i_18_;
 	}
@@ -905,9 +907,9 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	}
 
 	void createWindow(final byte i, final boolean resizable, final int i_38_, final int height, 
-			@SuppressWarnings("unused")/* NOTE: Used in original code.*/ final int port, 
-			final int width,
-	        final String title, final int i_42_, final String string_43_)
+					  final int port, 
+					  final int width,
+					  final String title, final int i_42_, final String string_43_)
 	{
 		try
 		{
@@ -921,12 +923,17 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 			Class48.aClass32_3 = GameFrame.aClass32_4 = new Class32(i_42_, string_43_, 0, true);
 			try
 			{
-				// NOTE: Original code: Class36.method230(new URL("http", "127.0.0.1", port, ""), this);
-				Class36.method230(new File("resources\\cache\\").toURI().toURL(), this);
+				if(Custom.LOAD_FROM_DISK)
+				{
+					Class36.method230(new File("resources\\cache\\").toURI().toURL(), this);
+				}
+				else
+				{
+					Class36.method230(new URL("http", "127.0.0.1", port, ""), this);
+				}
 			}
 			catch (final IOException ioexception)
 			{
-				ioexception.printStackTrace(); // modification
 				Class9.method61(ioexception, i + -5, null);
 			}
 

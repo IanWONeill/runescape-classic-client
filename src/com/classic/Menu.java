@@ -1,6 +1,6 @@
 package com.classic;
 
-final class Class10
+final class Menu
 {
 	private final int anInt75;
 	private final int anInt77;
@@ -23,7 +23,7 @@ final class Class10
 	private final int anInt98;
 	private final int[] anIntArray28;
 	private final String[][] aStringArrayArray3;
-	private int anInt101;
+	private int currentFocusHandle;
 	private final boolean[] aBoolArray3;
 	private final int[] anIntArray29;
 	private final int[] anIntArray30;
@@ -34,7 +34,7 @@ final class Class10
 	private final int anInt109;
 	private int anInt110 = 0;
 	private final GameImage aClass46_2;
-	private int anInt112;
+	private int lastMouseButton;
 	static String[] aStringArray11;
 	private final int[] anIntArray31;
 	static int anInt114;
@@ -52,8 +52,8 @@ final class Class10
 	private final int[][] anIntArrayArray6;
 	private int anInt131;
 	private int anInt133;
-	private int anInt135;
-	private final int[] anIntArray35;
+	private int menuObjectCount;
+	private final int[] menuObjectType;
 
 	private void method64(final int i, final String string, final int i_0_, final int i_1_, final int i_2_,
 	        final int i_3_)
@@ -64,14 +64,14 @@ final class Class10
 
 	int method65(final int i, final int i_5_, final int i_7_, final int i_8_)
 	{
-		anIntArray35[anInt135] = 10;
-		aBoolArray5[anInt135] = true;
-		aBoolArray1[anInt135] = false;
-		anIntArray27[anInt135] = i_7_ + -(i_8_ / 2);
-		anIntArray30[anInt135] = -(i_5_ / 2) + i;
-		anIntArray31[anInt135] = i_8_;
-		anIntArray28[anInt135] = i_5_;
-		return anInt135++;
+		menuObjectType[menuObjectCount] = 10;
+		aBoolArray5[menuObjectCount] = true;
+		aBoolArray1[menuObjectCount] = false;
+		anIntArray27[menuObjectCount] = i_7_ + -(i_8_ / 2);
+		anIntArray30[menuObjectCount] = -(i_5_ / 2) + i;
+		anIntArray31[menuObjectCount] = i_8_;
+		anIntArray28[menuObjectCount] = i_5_;
+		return menuObjectCount++;
 	}
 
 	void method66(final int index)
@@ -189,13 +189,13 @@ final class Class10
 		{
 			for (int i_37_ = i_22_; i_26_ > i_37_; i_37_++)
 			{
-				if ((anInt112 != 0) && (anInt131 >= (i_24_ + 2))
+				if ((lastMouseButton != 0) && (anInt131 >= (i_24_ + 2))
 				        && (anInt131 <= ((i_24_ + 2) - -aClass46_2.method328(strings[i_37_], -109, i_28_)))
 				        && (i_36_ >= (anInt133 + -2))
 				        && ((anInt133 + -2) > (i_36_ - aClass46_2.method315(i_28_))))
 				{
 					aBoolArray1[i_23_] = true;
-					anIntArray33[i_23_] = GameWindow.bitwiseOr(i_37_, anInt112 << 16);
+					anIntArray33[i_23_] = GameWindow.bitwiseOr(i_37_, lastMouseButton << 16);
 				}
 				method103(20166, i_23_, i_36_, i_24_ - -2, strings[i_37_], is[i_37_], i_28_);
 				i_36_ += (aClass46_2.method315(i_28_) + -GameImage.anInt568);
@@ -207,82 +207,82 @@ final class Class10
 		}
 	}
 
-	void method71(final int i)
+	void drawMenu(final int i)
 	{
-		for (int i_38_ = 0; anInt135 > i_38_; i_38_++)
+		for (int menuObject = 0; menuObjectCount > menuObject; menuObject++)
 		{
-			if (aBoolArray5[i_38_])
+			if (aBoolArray5[menuObject])
 			{
-				if (anIntArray35[i_38_] != 0)
+				if (menuObjectType[menuObject] != 0)
 				{
-					if (anIntArray35[i_38_] == 1)
+					if (menuObjectType[menuObject] == 1)
 					{
-						method64(0, aStringArray9[i_38_], i_38_, anIntArray30[i_38_], anIntArray26[i_38_], (anIntArray27[i_38_]
-						        - (aClass46_2.method328(aStringArray9[i_38_], -128, anIntArray26[i_38_]) / 2)));
+						method64(0, aStringArray9[menuObject], menuObject, anIntArray30[menuObject], anIntArray26[menuObject], (anIntArray27[menuObject]
+						        - (aClass46_2.method328(aStringArray9[menuObject], -128, anIntArray26[menuObject]) / 2)));
 					}
-					else if (anIntArray35[i_38_] == 2)
+					else if (menuObjectType[menuObject] == 2)
 					{
-						method93(anIntArray30[i_38_], anIntArray28[i_38_], anIntArray31[i_38_], anIntArray27[i_38_]);
+						method93(anIntArray30[menuObject], anIntArray28[menuObject], anIntArray31[menuObject], anIntArray27[menuObject]);
 					}
-					else if (anIntArray35[i_38_] != 3)
+					else if (menuObjectType[menuObject] != 3)
 					{
-						if (anIntArray35[i_38_] != 4)
+						if (menuObjectType[menuObject] != 4)
 						{
-							if ((anIntArray35[i_38_] == 5) || (anIntArray35[i_38_] == 6))
+							if ((menuObjectType[menuObject] == 5) || (menuObjectType[menuObject] == 6))
 							{
-								method104(anIntArray26[i_38_], anIntArray30[i_38_], anIntArray28[i_38_], i_38_, anIntArray31[i_38_],
-								        anIntArray27[i_38_], aStringArray9[i_38_]);
+								method104(anIntArray26[menuObject], anIntArray30[menuObject], anIntArray28[menuObject], menuObject, anIntArray31[menuObject],
+								        anIntArray27[menuObject], aStringArray9[menuObject]);
 							}
-							else if (anIntArray35[i_38_] != 7)
+							else if (menuObjectType[menuObject] != 7)
 							{
-								if (anIntArray35[i_38_] == 8)
+								if (menuObjectType[menuObject] == 8)
 								{
-									method87(aStringArrayArray3[i_38_], anIntArray30[i_38_], anIntArray26[i_38_],
-									        i_38_, anIntArray27[i_38_]);
+									method87(aStringArrayArray3[menuObject], anIntArray30[menuObject], anIntArray26[menuObject],
+									        menuObject, anIntArray27[menuObject]);
 								}
-								else if (anIntArray35[i_38_] == 9)
+								else if (menuObjectType[menuObject] == 9)
 								{
-									method82((this.anIntArray23[i_38_]), anIntArray27[i_38_], anIntArray31[i_38_],
-									        anIntArrayArray6[i_38_], anIntArray26[i_38_], aStringArrayArray3[i_38_],
-									        (this.anIntArray24[i_38_]), i_38_, anIntArray30[i_38_],
-									        anIntArray28[i_38_]);
+									method82((this.anIntArray23[menuObject]), anIntArray27[menuObject], anIntArray31[menuObject],
+									        anIntArrayArray6[menuObject], anIntArray26[menuObject], aStringArrayArray3[menuObject],
+									        (this.anIntArray24[menuObject]), menuObject, anIntArray30[menuObject],
+									        anIntArray28[menuObject]);
 								}
-								else if (anIntArray35[i_38_] == 11)
+								else if (menuObjectType[menuObject] == 11)
 								{
-									method102(anIntArray28[i_38_], anIntArray30[i_38_], anIntArray27[i_38_],
-									        anIntArray31[i_38_]);
+									method102(anIntArray28[menuObject], anIntArray30[menuObject], anIntArray27[menuObject],
+									        anIntArray31[menuObject]);
 								}
-								else if (anIntArray35[i_38_] == 12)
+								else if (menuObjectType[menuObject] == 12)
 								{
-									method105(anIntArray27[i_38_], anIntArray30[i_38_], anIntArray26[i_38_]);
+									method105(anIntArray27[menuObject], anIntArray30[menuObject], anIntArray26[menuObject]);
 								}
-								else if (anIntArray35[i_38_] == 14)
+								else if (menuObjectType[menuObject] == 14)
 								{
-									method67(anIntArray27[i_38_], 0, anIntArray30[i_38_], anIntArray28[i_38_],
-									        anIntArray31[i_38_], i_38_);
+									method67(anIntArray27[menuObject], 0, anIntArray30[menuObject], anIntArray28[menuObject],
+									        anIntArray31[menuObject], menuObject);
 								}
 							}
 							else
 							{
-								method97(aStringArrayArray3[i_38_], anIntArray26[i_38_], anIntArray30[i_38_], 12, i_38_,
-								        anIntArray27[i_38_]);
+								method97(aStringArrayArray3[menuObject], anIntArray26[menuObject], anIntArray30[menuObject], 12, menuObject,
+								        anIntArray27[menuObject]);
 							}
 						}
 						else
 						{
-							method70(anIntArray30[i_38_], this.anIntArray23[i_38_], i_38_, anIntArray27[i_38_],
-							        anIntArrayArray6[i_38_], aStringArrayArray3[i_38_], anIntArray28[i_38_],
-							        this.anIntArray24[i_38_], -5452, anIntArray26[i_38_], anIntArray31[i_38_]);
+							method70(anIntArray30[menuObject], this.anIntArray23[menuObject], menuObject, anIntArray27[menuObject],
+							        anIntArrayArray6[menuObject], aStringArrayArray3[menuObject], anIntArray28[menuObject],
+							        this.anIntArray24[menuObject], -5452, anIntArray26[menuObject], anIntArray31[menuObject]);
 						}
 					}
 					else
 					{
-						method83(anIntArray30[i_38_], anIntArray31[i_38_], anIntArray27[i_38_], i + 6);
+						method83(anIntArray30[menuObject], anIntArray31[menuObject], anIntArray27[menuObject], i + 6);
 					}
 				}
 				else
 				{
-					method64(0, aStringArray9[i_38_], i_38_, anIntArray30[i_38_], anIntArray26[i_38_], anIntArray27[i_38_]);
+					method64(0, aStringArray9[menuObject], menuObject, anIntArray30[menuObject], anIntArray26[menuObject], anIntArray27[menuObject]);
 				}
 			}
 		}
@@ -290,57 +290,57 @@ final class Class10
 		{
 			method106(74, -101, -111, (byte) -81, 89, 0, -12);
 		}
-		anInt112 = 0;
+		lastMouseButton = 0;
 	}
 
-	int method72(final int i_39_, final boolean bool, final int i_40_, final int i_41_, final String string)
+	int drawText(final int i_39_, final boolean bool, final int i_40_, final int i_41_, final String string)
 	{
-		anIntArray35[anInt135] = 1;
-		aBoolArray5[anInt135] = true;
-		aBoolArray1[anInt135] = false;
-		anIntArray26[anInt135] = i_40_;
-		aBoolArray2[anInt135] = bool;
-		anIntArray27[anInt135] = i_41_;
-		anIntArray30[anInt135] = i_39_;
-		aStringArray9[anInt135] = string;
-		return anInt135++;
+		menuObjectType[menuObjectCount] = 1;
+		aBoolArray5[menuObjectCount] = true;
+		aBoolArray1[menuObjectCount] = false;
+		anIntArray26[menuObjectCount] = i_40_;
+		aBoolArray2[menuObjectCount] = bool;
+		anIntArray27[menuObjectCount] = i_41_;
+		anIntArray30[menuObjectCount] = i_39_;
+		aStringArray9[menuObjectCount] = string;
+		return menuObjectCount++;
 	}
 
 	int method73(final int i, final int i_42_, final int i_44_)
 	{
 		final int i_45_ = aClass46_2.anIntArray118[i];
 		final int i_46_ = aClass46_2.anIntArray123[i];
-		anIntArray35[anInt135] = 12;
-		aBoolArray5[anInt135] = true;
-		aBoolArray1[anInt135] = false;
-		anIntArray27[anInt135] = i_42_ + -(i_45_ / 2);
-		anIntArray30[anInt135] = i_44_ + -(i_46_ / 2);
-		anIntArray31[anInt135] = i_45_;
-		anIntArray28[anInt135] = i_46_;
-		anIntArray26[anInt135] = i;
-		return anInt135++;
+		menuObjectType[menuObjectCount] = 12;
+		aBoolArray5[menuObjectCount] = true;
+		aBoolArray1[menuObjectCount] = false;
+		anIntArray27[menuObjectCount] = i_42_ + -(i_45_ / 2);
+		anIntArray30[menuObjectCount] = i_44_ + -(i_46_ / 2);
+		anIntArray31[menuObjectCount] = i_45_;
+		anIntArray28[menuObjectCount] = i_46_;
+		anIntArray26[menuObjectCount] = i;
+		return menuObjectCount++;
 	}
 
 	int method74(final int i, final int i_47_, final int i_48_, final int i_50_, final int i_51_, final boolean bool,
 	        final int i_52_)
 	{
-		anIntArray35[anInt135] = 4;
-		aBoolArray5[anInt135] = true;
-		aBoolArray1[anInt135] = false;
-		anIntArray27[anInt135] = i_50_;
-		anIntArray30[anInt135] = i_51_;
-		anIntArray31[anInt135] = i_47_;
-		anIntArray28[anInt135] = i_48_;
-		aBoolArray2[anInt135] = bool;
-		anIntArray26[anInt135] = i;
-		anIntArray29[anInt135] = i_52_;
-		this.anIntArray24[anInt135] = 0;
-		this.anIntArray23[anInt135] = 0;
-		aStringArrayArray3[anInt135] = new String[i_52_];
-		anIntArrayArray6[anInt135] = new int[i_52_];
-		aStringArrayArray2[anInt135] = new String[i_52_];
-		aStringArrayArray1[anInt135] = new String[i_52_];
-		return anInt135++;
+		menuObjectType[menuObjectCount] = 4;
+		aBoolArray5[menuObjectCount] = true;
+		aBoolArray1[menuObjectCount] = false;
+		anIntArray27[menuObjectCount] = i_50_;
+		anIntArray30[menuObjectCount] = i_51_;
+		anIntArray31[menuObjectCount] = i_47_;
+		anIntArray28[menuObjectCount] = i_48_;
+		aBoolArray2[menuObjectCount] = bool;
+		anIntArray26[menuObjectCount] = i;
+		anIntArray29[menuObjectCount] = i_52_;
+		this.anIntArray24[menuObjectCount] = 0;
+		this.anIntArray23[menuObjectCount] = 0;
+		aStringArrayArray3[menuObjectCount] = new String[i_52_];
+		anIntArrayArray6[menuObjectCount] = new int[i_52_];
+		aStringArrayArray2[menuObjectCount] = new String[i_52_];
+		aStringArrayArray1[menuObjectCount] = new String[i_52_];
+		return menuObjectCount++;
 	}
 
 	void method75(final int i, final int i_54_)
@@ -351,19 +351,19 @@ final class Class10
 	int method76(final int i, final int i_55_, final int i_56_, final int i_57_, final boolean bool, final int i_58_,
 	        final int i_59_, final int i_60_, final boolean bool_61_)
 	{
-		anIntArray35[anInt135] = i_60_;
-		aBoolArray5[anInt135] = true;
-		aBoolArray4[anInt135] = bool_61_;
-		aBoolArray1[anInt135] = false;
-		anIntArray26[anInt135] = i_59_;
-		aBoolArray2[anInt135] = bool;
-		anIntArray27[anInt135] = i_57_;
-		anIntArray30[anInt135] = i_55_;
-		anIntArray31[anInt135] = i_56_;
-		anIntArray28[anInt135] = i_58_;
-		anIntArray29[anInt135] = i;
-		aStringArray9[anInt135] = "";
-		return anInt135++;
+		menuObjectType[menuObjectCount] = i_60_;
+		aBoolArray5[menuObjectCount] = true;
+		aBoolArray4[menuObjectCount] = bool_61_;
+		aBoolArray1[menuObjectCount] = false;
+		anIntArray26[menuObjectCount] = i_59_;
+		aBoolArray2[menuObjectCount] = bool;
+		anIntArray27[menuObjectCount] = i_57_;
+		anIntArray30[menuObjectCount] = i_55_;
+		anIntArray31[menuObjectCount] = i_56_;
+		anIntArray28[menuObjectCount] = i_58_;
+		anIntArray29[menuObjectCount] = i;
+		aStringArray9[menuObjectCount] = "";
+		return menuObjectCount++;
 	}
 
 	static int getUnsignedByte(final byte value)
@@ -373,14 +373,14 @@ final class Class10
 
 	int method78(final int i_63_, final int i_64_, final int i_65_, final int i_66_)
 	{
-		anIntArray35[anInt135] = 2;
-		aBoolArray5[anInt135] = true;
-		aBoolArray1[anInt135] = false;
-		anIntArray27[anInt135] = i_66_ - (i_64_ / 2);
-		anIntArray30[anInt135] = i_65_ - (i_63_ / 2);
-		anIntArray31[anInt135] = i_64_;
-		anIntArray28[anInt135] = i_63_;
-		return anInt135++;
+		menuObjectType[menuObjectCount] = 2;
+		aBoolArray5[menuObjectCount] = true;
+		aBoolArray1[menuObjectCount] = false;
+		anIntArray27[menuObjectCount] = i_66_ - (i_64_ / 2);
+		anIntArray30[menuObjectCount] = i_65_ - (i_63_ / 2);
+		anIntArray31[menuObjectCount] = i_64_;
+		anIntArray28[menuObjectCount] = i_63_;
+		return menuObjectCount++;
 	}
 
 	static String method79(final int i, final int i_67_)
@@ -411,25 +411,25 @@ final class Class10
 	int method80(final int i_69_, final int i_70_, final int i_71_, final boolean bool, final int i_72_, final int i_73_,
 	        final int i_74_)
 	{
-		anIntArray35[anInt135] = 9;
-		aBoolArray5[anInt135] = true;
-		aBoolArray1[anInt135] = false;
-		anIntArray26[anInt135] = i_73_;
-		aBoolArray2[anInt135] = bool;
-		anIntArray27[anInt135] = i_71_;
-		anIntArray30[anInt135] = i_69_;
-		anIntArray31[anInt135] = i_74_;
-		anIntArray28[anInt135] = i_72_;
-		anIntArray29[anInt135] = i_70_;
-		aStringArrayArray3[anInt135] = new String[i_70_];
-		anIntArrayArray6[anInt135] = new int[i_70_];
-		aStringArrayArray2[anInt135] = new String[i_70_];
-		aStringArrayArray1[anInt135] = new String[i_70_];
-		this.anIntArray24[anInt135] = 0;
-		this.anIntArray23[anInt135] = 0;
-		anIntArray33[anInt135] = -1;
-		anIntArray34[anInt135] = -1;
-		return anInt135++;
+		menuObjectType[menuObjectCount] = 9;
+		aBoolArray5[menuObjectCount] = true;
+		aBoolArray1[menuObjectCount] = false;
+		anIntArray26[menuObjectCount] = i_73_;
+		aBoolArray2[menuObjectCount] = bool;
+		anIntArray27[menuObjectCount] = i_71_;
+		anIntArray30[menuObjectCount] = i_69_;
+		anIntArray31[menuObjectCount] = i_74_;
+		anIntArray28[menuObjectCount] = i_72_;
+		anIntArray29[menuObjectCount] = i_70_;
+		aStringArrayArray3[menuObjectCount] = new String[i_70_];
+		anIntArrayArray6[menuObjectCount] = new int[i_70_];
+		aStringArrayArray2[menuObjectCount] = new String[i_70_];
+		aStringArrayArray1[menuObjectCount] = new String[i_70_];
+		this.anIntArray24[menuObjectCount] = 0;
+		this.anIntArray23[menuObjectCount] = 0;
+		anIntArray33[menuObjectCount] = -1;
+		anIntArray34[menuObjectCount] = -1;
+		return menuObjectCount++;
 	}
 
 	boolean method81(final int i)
@@ -523,7 +523,7 @@ final class Class10
 					i_91_ = 16777215;
 				}
 				anIntArray34[i_80_] = i_90_;
-				if (anInt112 == 1)
+				if (lastMouseButton == 1)
 				{
 					anIntArray33[i_80_] = i_90_;
 					aBoolArray1[i_80_] = true;
@@ -556,23 +556,23 @@ final class Class10
 	{
 		if (i_97_ != 0)
 		{
-			anInt112 = i_97_;
+			lastMouseButton = i_97_;
 		}
 		anInt110 = i;
 		anInt131 = i_99_;
 		anInt133 = i_96_;
 		if (i_97_ == 1)
 		{
-			for (int i_100_ = 0; i_100_ < anInt135; i_100_++)
+			for (int i_100_ = 0; i_100_ < menuObjectCount; i_100_++)
 			{
-				if (aBoolArray5[i_100_] && (anIntArray35[i_100_] == 10) && (anIntArray27[i_100_] <= anInt131)
+				if (aBoolArray5[i_100_] && (menuObjectType[i_100_] == 10) && (anIntArray27[i_100_] <= anInt131)
 				        && (anIntArray30[i_100_] <= anInt133)
 				        && (anInt131 <= (anIntArray31[i_100_] + anIntArray27[i_100_]))
 				        && ((anIntArray30[i_100_] - -anIntArray28[i_100_]) >= anInt133))
 				{
 					aBoolArray1[i_100_] = true;
 				}
-				if (aBoolArray5[i_100_] && (anIntArray35[i_100_] == 14) && (anIntArray27[i_100_] <= anInt131)
+				if (aBoolArray5[i_100_] && (menuObjectType[i_100_] == 14) && (anIntArray27[i_100_] <= anInt131)
 				        && (anInt133 >= anIntArray30[i_100_])
 				        && ((anIntArray31[i_100_] + anIntArray27[i_100_]) >= anInt131)
 				        && (anInt133 <= (anIntArray30[i_100_] + anIntArray28[i_100_])))
@@ -591,9 +591,9 @@ final class Class10
 		}
 		if ((i_97_ == 1) || (anInt117 > 20))
 		{
-			for (int i_101_ = 0; i_101_ < anInt135; i_101_++)
+			for (int i_101_ = 0; i_101_ < menuObjectCount; i_101_++)
 			{
-				if (aBoolArray5[i_101_] && (anIntArray35[i_101_] == 15) && (anInt131 >= anIntArray27[i_101_])
+				if (aBoolArray5[i_101_] && (menuObjectType[i_101_] == 15) && (anInt131 >= anIntArray27[i_101_])
 				        && (anInt133 >= anIntArray30[i_101_])
 				        && (anInt131 <= (anIntArray31[i_101_] + anIntArray27[i_101_]))
 				        && (anInt133 <= (anIntArray28[i_101_] + anIntArray30[i_101_])))
@@ -609,19 +609,19 @@ final class Class10
 	{
 		if (i != 0)
 		{
-			if ((anInt101 != -1) && (aStringArray9[anInt101] != null) && aBoolArray5[anInt101])
+			if ((currentFocusHandle != -1) && (aStringArray9[currentFocusHandle] != null) && aBoolArray5[currentFocusHandle])
 			{
-				final int i_103_ = aStringArray9[anInt101].length();
+				final int i_103_ = aStringArray9[currentFocusHandle].length();
 				if ((i == 8) && (0 < i_103_))
 				{
-					aStringArray9[anInt101] = aStringArray9[anInt101].substring(0, i_103_ - 1);
+					aStringArray9[currentFocusHandle] = aStringArray9[currentFocusHandle].substring(0, i_103_ - 1);
 				}
 				if (((i == 10) || (i == 13)) && (i_103_ > 0))
 				{
-					aBoolArray1[anInt101] = true;
+					aBoolArray1[currentFocusHandle] = true;
 				}
 				final String string = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!\"\u00a3$%^&*()-_=+[{]};:'@#~,<.>/?\\| ";
-				if (anIntArray29[anInt101] > i_103_)
+				if (anIntArray29[currentFocusHandle] > i_103_)
 				{
 					for (int i_104_ = 0; string.length() > i_104_; i_104_++)
 					{
@@ -629,7 +629,7 @@ final class Class10
 						{
 							final StringBuilder stringbuilder = new StringBuilder();
 							final String[] strings = aStringArray9;
-							final int i_105_ = anInt101;
+							final int i_105_ = currentFocusHandle;
 							strings[i_105_] = stringbuilder.append(strings[i_105_]).append((char) i).toString();
 						}
 					}
@@ -638,9 +638,9 @@ final class Class10
 				{
 					do
 					{
-						anInt101 = (anInt101 - -1) % anInt135;
+						currentFocusHandle = (currentFocusHandle - -1) % menuObjectCount;
 					}
-					while ((anIntArray35[anInt101] != 5) && (anIntArray35[anInt101] != 6));
+					while ((menuObjectType[currentFocusHandle] != 5) && (menuObjectType[currentFocusHandle] != 6));
 				}
 			}
 		}
@@ -674,7 +674,7 @@ final class Class10
 				{
 					i_113_ = 16777215;
 				}
-				if (anInt112 == 1)
+				if (lastMouseButton == 1)
 				{
 					anIntArray33[i_108_] = i_112_;
 					aBoolArray1[i_108_] = true;
@@ -741,9 +741,9 @@ final class Class10
 		return anIntArray33[i];
 	}
 
-	void method91(final int i_124_)
+	void setFocus(final int i_124_)
 	{
-		anInt101 = i_124_;
+		currentFocusHandle = i_124_;
 	}
 
 	int method92(final int i)
@@ -793,32 +793,32 @@ final class Class10
 
 	int method95(final int i_135_, final int i_136_, final int i_137_, final int i_138_)
 	{
-		anIntArray35[anInt135] = 11;
-		aBoolArray5[anInt135] = true;
-		aBoolArray1[anInt135] = false;
-		anIntArray27[anInt135] = i_135_ - (i_138_ / 2);
-		anIntArray30[anInt135] = i_136_ - (i_137_ / 2);
-		anIntArray31[anInt135] = i_138_;
-		anIntArray28[anInt135] = i_137_;
-		return anInt135++;
+		menuObjectType[menuObjectCount] = 11;
+		aBoolArray5[menuObjectCount] = true;
+		aBoolArray1[menuObjectCount] = false;
+		anIntArray27[menuObjectCount] = i_135_ - (i_138_ / 2);
+		anIntArray30[menuObjectCount] = i_136_ - (i_137_ / 2);
+		anIntArray31[menuObjectCount] = i_138_;
+		anIntArray28[menuObjectCount] = i_137_;
+		return menuObjectCount++;
 	}
 
 	int method96(final int i, final int i_141_, final int i_142_, final int i_143_, final boolean bool,
 	        final int i_144_, final boolean bool_145_, final int i_146_)
 	{
-		anIntArray35[anInt135] = 6;
-		aBoolArray5[anInt135] = true;
-		aBoolArray4[anInt135] = bool_145_;
-		aBoolArray1[anInt135] = false;
-		anIntArray26[anInt135] = i_141_;
-		aBoolArray2[anInt135] = bool;
-		anIntArray27[anInt135] = i;
-		anIntArray30[anInt135] = i_144_;
-		anIntArray31[anInt135] = i_146_;
-		anIntArray28[anInt135] = i_143_;
-		anIntArray29[anInt135] = i_142_;
-		aStringArray9[anInt135] = "";
-		return anInt135++;
+		menuObjectType[menuObjectCount] = 6;
+		aBoolArray5[menuObjectCount] = true;
+		aBoolArray4[menuObjectCount] = bool_145_;
+		aBoolArray1[menuObjectCount] = false;
+		anIntArray26[menuObjectCount] = i_141_;
+		aBoolArray2[menuObjectCount] = bool;
+		anIntArray27[menuObjectCount] = i;
+		anIntArray30[menuObjectCount] = i_144_;
+		anIntArray31[menuObjectCount] = i_146_;
+		anIntArray28[menuObjectCount] = i_143_;
+		anIntArray29[menuObjectCount] = i_142_;
+		aStringArray9[menuObjectCount] = "";
+		return menuObjectCount++;
 	}
 
 	private void method97(final String[] strings, final int i, final int i_147_, final int i_148_, final int i_149_,
@@ -860,7 +860,7 @@ final class Class10
 					{
 						i_157_ = 8421504;
 					}
-					if (anInt112 == 1)
+					if (lastMouseButton == 1)
 					{
 						anIntArray33[i_149_] = i_156_;
 						aBoolArray1[i_149_] = true;
@@ -919,10 +919,10 @@ final class Class10
 		aClass46_2.method362(i, i_164_, i_165_, anInt109, i_163_);
 		aClass46_2.method362(i + -2, i_164_ + 1, i_165_ + -2, anInt81, i_163_ + 1);
 		aClass46_2.method362(i + -4, i_164_ + 2, i_165_ + -4, anInt120, i_163_ + 2);
-		aClass46_2.method338(Class33.anInt368 + 2, i_163_, i_164_);
-		aClass46_2.method338(3 - -Class33.anInt368, i_163_, i_164_ + i_165_ + -7);
-		aClass46_2.method338(Class33.anInt368 + 4, i_163_ + i + -7, i_164_);
-		aClass46_2.method338(Class33.anInt368 + 5, i_163_ + i + -7, (i_164_ - -i_165_) + -7);
+		aClass46_2.drawPicture(Class33.anInt368 + 2, i_163_, i_164_);
+		aClass46_2.drawPicture(3 - -Class33.anInt368, i_163_, i_164_ + i_165_ + -7);
+		aClass46_2.drawPicture(Class33.anInt368 + 4, i_163_ + i + -7, i_164_);
+		aClass46_2.drawPicture(Class33.anInt368 + 5, i_163_ + i + -7, (i_164_ - -i_165_) + -7);
 	}
 
 	private void method103(final int i, final int i_167_, final int i_168_, final int i_169_, final String string,
@@ -952,27 +952,27 @@ final class Class10
 			string = "";
 			for (int i_180_ = 0; i_179_ > i_180_; i_180_++)
 			{
-				string = new StringBuilder().append(string).append("X").toString();
+				string += "X";
 			}
 		}
-		if (anIntArray35[i_176_] == 5)
+		if (menuObjectType[i_176_] == 5)
 		{
-			if ((anInt112 == 1) && (i_178_ <= anInt131) && ((i_173_ + -(i_175_ / 2)) <= anInt133)
+			if ((lastMouseButton == 1) && (i_178_ <= anInt131) && ((i_173_ + -(i_175_ / 2)) <= anInt133)
 			        && ((i_178_ + i_177_) >= anInt131) && (anInt133 <= (i_173_ - -(i_175_ / 2))))
 			{
-				anInt101 = i_176_;
+				currentFocusHandle = i_176_;
 			}
 		}
-		else if (anIntArray35[i_176_] == 6)
+		else if (menuObjectType[i_176_] == 6)
 		{
-			if ((anInt112 == 1) && (anInt131 >= (i_178_ - (i_177_ / 2))) && (anInt133 >= (i_173_ + -(i_175_ / 2)))
+			if ((lastMouseButton == 1) && (anInt131 >= (i_178_ - (i_177_ / 2))) && (anInt133 >= (i_173_ + -(i_175_ / 2)))
 			        && (anInt131 <= ((i_177_ / 2) + i_178_)) && (((i_175_ / 2) + i_173_) >= anInt133))
 			{
-				anInt101 = i_176_;
+				currentFocusHandle = i_176_;
 			}
 			i_178_ -= aClass46_2.method328(string, -102, i) / 2;
 		}
-		if (i_176_ == anInt101)
+		if (i_176_ == currentFocusHandle)
 		{
 			string = new StringBuilder().append(string).append("*").toString();
 		}
@@ -980,19 +980,19 @@ final class Class10
 		method103(20166, i_176_, i_182_, i_178_, string, 0, i);
 	}
 
-	Class10(final GameImage class46, final int i)
+	Menu(final GameImage class46, final int i)
 	{
 		aBool4 = true;
 		anInt131 = 0;
-		anInt101 = -1;
-		anInt112 = 0;
-		anInt135 = 0;
+		currentFocusHandle = -1;
+		lastMouseButton = 0;
+		menuObjectCount = 0;
 		anInt133 = 0;
 		anIntArray28 = new int[i];
 		aBoolArray3 = new boolean[i];
 		aClass46_2 = class46;
 		anIntArrayArray6 = new int[i][];
-		anIntArray35 = new int[i];
+		menuObjectType = new int[i];
 		anIntArray26 = new int[i];
 		this.anIntArray24 = new int[i];
 		anIntArray27 = new int[i];
@@ -1026,7 +1026,7 @@ final class Class10
 
 	private void method105(final int i, final int i_183_, final int i_185_)
 	{
-		aClass46_2.method338(i_185_, i_183_, i);
+		aClass46_2.drawPicture(i_185_, i_183_, i);
 	}
 
 	private void method106(final int i, final int i_186_, final int i_187_, final byte i_188_, final int i_189_,
@@ -1034,8 +1034,8 @@ final class Class10
 	{
 		final int i_192_ = (i_189_ + i_191_) - 12;
 		aClass46_2.method362(i_190_, i_192_, 12, 0, i_187_);
-		aClass46_2.method338(0 - -Class33.anInt368, i_187_ + 1, i_192_ + 1);
-		aClass46_2.method338(Class33.anInt368 + 1, i_187_ + i_190_ + -12, i_192_ + 1);
+		aClass46_2.drawPicture(0 - -Class33.anInt368, i_187_ + 1, i_192_ + 1);
+		aClass46_2.drawPicture(Class33.anInt368 + 1, i_187_ + i_190_ + -12, i_192_ + 1);
 		if (i_188_ != -40)
 		{
 			method106(119, -27, -7, (byte) 6, 62, 28, -36);

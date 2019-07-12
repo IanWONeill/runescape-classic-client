@@ -202,25 +202,21 @@ final class AClass1_Sub1 extends AClass1
 		return null;
 	}
 
-	static int method422(final String string, final int i)
+	static int storeModel(final String name)
 	{
-		if (string.equalsIgnoreCase("na"))
+		if (name.equalsIgnoreCase("na"))
 		{
 			return 0;
 		}
-		int i_17_ = 0;
-		if (i >= -78)
+		
+		for (int index = 0; index < Class4.modelNamesCount; index++)
 		{
-			aStringArray38 = null;
-		}
-		for (/**/; i_17_ < Class4.anInt11; i_17_++)
-		{
-			if (Class2.aStringArray1[i_17_].equalsIgnoreCase(string))
+			if (Class2.modelNames[index].equalsIgnoreCase(name))
 			{
-				return i_17_;
+				return index;
 			}
 		}
-		Class2.aStringArray1[Class4.anInt11++] = string;
-		return Class4.anInt11 + -1;
+		Class2.modelNames[Class4.modelNamesCount++] = name;
+		return Class4.modelNamesCount - 1;
 	}
 }

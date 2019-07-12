@@ -14,6 +14,8 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.net.URL;
 
+import org.custom.Custom;
+
 final class Class32 implements Runnable
 {
 	private final Thread aThread1;
@@ -398,9 +400,9 @@ final class Class32 implements Runnable
 
 							// TODO: Investigate this use of reflection.
 							// The issue is that it may refer to a member that has been renamed.
-							System.out.println("This code path hasn't been checked.");
-							System.out.println("getDeclaredField: " + objects[1]);
-							System.exit(1);
+							Custom.println("This code path hasn't been checked.");
+							Custom.println("getDeclaredField: " + objects[1]);
+							Custom.exit();
 							
 							class20.socket = ((Class<?>) objects[0]).getDeclaredField((String) objects[1]);
 						}
@@ -415,9 +417,9 @@ final class Class32 implements Runnable
 						
 						// TODO: Investigate this use of reflection.
 						// The issue is that it may refer to a member that has been renamed.
-						System.out.println("This code path hasn't been checked.");
-						System.out.println("getDeclaredMethod: " + objects[1]);
-						System.exit(1);
+						Custom.println("This code path hasn't been checked.");
+						Custom.println("getDeclaredMethod: " + objects[1]);
+						Custom.exit();
 						
 						class20.socket = (((Class<?>) objects[0]).getDeclaredMethod((String) objects[1],
 						        (Class[]) objects[2]));

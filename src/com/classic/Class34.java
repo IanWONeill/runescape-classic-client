@@ -19,7 +19,7 @@ final class Class34
 
 	static int method225(final byte[] is, final int i)
 	{
-		int i_1_ = ((256 * Class10.getUnsignedByte(is[i])) - -Class10.getUnsignedByte(is[i + 1]));
+		int i_1_ = ((256 * Menu.getUnsignedByte(is[i])) - -Menu.getUnsignedByte(is[i + 1]));
 		if (i_1_ > 32767)
 		{
 			i_1_ -= 65536;

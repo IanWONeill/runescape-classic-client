@@ -28,7 +28,7 @@ final class GameFrame extends Frame
 
 	static int method487(final byte i, String string, final byte[] is)
 	{
-		final int i_3_ = Class10.method84(is, 0);
+		final int i_3_ = Menu.method84(is, 0);
 		int i_4_ = 0;
 		string = string.toUpperCase();
 		if (i < 96)

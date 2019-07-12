@@ -10,6 +10,6 @@ final class Class48
 
 	static void drawLoadingBar(final int percentage, final String string)
 	{
-		Class10.gameWindow.drawLoadingBarText(Class3.anInt8, string + Class3.aString2 + " - " + percentage + "%");
+		Menu.gameWindow.drawLoadingBarText(Class3.anInt8, string + Class3.aString2 + " - " + percentage + "%");
 	}
 }

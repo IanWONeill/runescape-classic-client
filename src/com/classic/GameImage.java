@@ -11,11 +11,11 @@ import java.awt.image.ImageProducer;
 
 class GameImage implements ImageProducer, ImageObserver
 {
-	int menuDefaultHeight;
+	int menuDefaultWidth;
 	private int[] anIntArray116;
 	int[][] anIntArrayArray19;
-	boolean aBool27 = false;
-	int menuDefaultWidth;
+	boolean drawStringShadows = false;
+	int menuDefaultHeight;
 	private int anInt517 = 0;
 	int[][] anIntArrayArray20;
 	private int anInt522;
@@ -31,7 +31,7 @@ class GameImage implements ImageProducer, ImageObserver
 	int[] anIntArray123;
 	private Image image;
 	private int[] anIntArray124;
-	boolean aBool28;
+	boolean f1Toggle;
 	int[] anIntArray125;
 	static int[] anIntArray126 = new int[100];
 	private static int[] charIndexes;
@@ -142,7 +142,7 @@ class GameImage implements ImageProducer, ImageObserver
 	{
 		if (i_37_ > -57)
 		{
-			this.aBool27 = true;
+			this.drawStringShadows = true;
 		}
 		for (i = i_36_; 0 > i; i++)
 		{
@@ -203,7 +203,7 @@ class GameImage implements ImageProducer, ImageObserver
 		{
 			method309(-87, -49, null, -71, -95, null, 85, -125);
 		}
-		System.out.println(new StringBuilder().append("Error: ").append(Class6.method22(string, "%0a", "\n", i ^ ~0x78))
+		System.out.println(new StringBuilder().append("Error: ").append(EngineHandle.method22(string, "%0a", "\n", i ^ ~0x78))
 		        .toString());
 	}
 
@@ -240,16 +240,16 @@ class GameImage implements ImageProducer, ImageObserver
 				i_51_ = (i_51_ * (this.anIntArray123[i_53_] + -(i_59_ >> 16))) / i_63_;
 				i_50_ = ((this.anIntArray118[i_53_] - (i_58_ >> 16)) * i_50_) / i_62_;
 			}
-			int i_64_ = i - -(i_55_ * this.menuDefaultHeight);
+			int i_64_ = i - -(i_55_ * this.menuDefaultWidth);
 			if (i_55_ < anInt537)
 			{
 				final int i_65_ = anInt537 + -i_55_;
 				i_59_ += i_65_ * i_61_;
 				i_51_ -= i_65_;
 				i_55_ = 0;
-				i_64_ += i_65_ * this.menuDefaultHeight;
+				i_64_ += i_65_ * this.menuDefaultWidth;
 			}
-			int i_66_ = this.menuDefaultHeight - i_50_;
+			int i_66_ = this.menuDefaultWidth - i_50_;
 			if (i < anInt517)
 			{
 				final int i_67_ = -i + anInt517;
@@ -270,15 +270,15 @@ class GameImage implements ImageProducer, ImageObserver
 				i_66_ += i_68_;
 			}
 			int i_69_ = 1;
-			if (!!this.aBool28)
+			if (!!this.f1Toggle)
 			{
 				i_69_ = 2;
 				i_61_ += i_61_;
-				i_66_ += this.menuDefaultHeight;
+				i_66_ += this.menuDefaultWidth;
 				if ((i_55_ & 0x1) != 0)
 				{
 					i_51_--;
-					i_64_ += this.menuDefaultHeight;
+					i_64_ += this.menuDefaultWidth;
 				}
 			}
 			method355(i_59_, i_61_, i_52_, i_69_, i_51_, i_56_, 0, this.anIntArrayArray20[i_53_], i_58_, i_66_, i_60_,
@@ -308,7 +308,7 @@ class GameImage implements ImageProducer, ImageObserver
 			{
 				for (int i_78_ = i_70_; i_78_ < (i_70_ - -i_74_); i_78_++)
 				{
-					this.anIntArrayArray20[i_72_][i_76_++] = (this.imagePixelArray[i_77_ - -(i_78_ * this.menuDefaultHeight)]);
+					this.anIntArrayArray20[i_72_][i_76_++] = (this.imagePixelArray[i_77_ - -(i_78_ * this.menuDefaultWidth)]);
 				}
 			}
 		}
@@ -373,7 +373,7 @@ class GameImage implements ImageProducer, ImageObserver
 				}
 				i_92_ += i_86_;
 				i_89_ = i_102_;
-				i_96_ += this.menuDefaultHeight;
+				i_96_ += this.menuDefaultWidth;
 				i_85_ += i_94_;
 			}
 		}
@@ -453,15 +453,15 @@ class GameImage implements ImageProducer, ImageObserver
 				i = (i * (this.anIntArray118[i_116_] - (i_123_ >> 16))) / i_127_;
 				i_119_ = (i_119_ * (this.anIntArray123[i_116_] - (i_124_ >> 16))) / i_128_;
 			}
-			int i_129_ = (i_115_ * this.menuDefaultHeight) + i_117_;
-			int i_130_ = -i + this.menuDefaultHeight;
+			int i_129_ = (i_115_ * this.menuDefaultWidth) + i_117_;
+			int i_130_ = -i + this.menuDefaultWidth;
 			if (i_115_ < anInt537)
 			{
 				final int i_131_ = -i_115_ + anInt537;
 				i_119_ -= i_131_;
 				i_115_ = 0;
 				i_124_ += i_126_ * i_131_;
-				i_129_ += i_131_ * this.menuDefaultHeight;
+				i_129_ += i_131_ * this.menuDefaultWidth;
 			}
 			if (i_117_ < anInt517)
 			{
@@ -483,14 +483,14 @@ class GameImage implements ImageProducer, ImageObserver
 				i -= i_133_;
 			}
 			int i_134_ = 1;
-			if (this.aBool28 == true)
+			if (this.f1Toggle == true)
 			{
 				i_134_ = 2;
 				i_126_ += i_126_;
-				i_130_ += this.menuDefaultHeight;
+				i_130_ += this.menuDefaultWidth;
 				if ((i_115_ & 0x1) != 0)
 				{
-					i_129_ += this.menuDefaultHeight;
+					i_129_ += this.menuDefaultWidth;
 					i_119_--;
 				}
 			}
@@ -577,7 +577,7 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 		if ((i >= anInt517) && (i_148_ >= anInt537) && (anInt567 > i) && (anInt536 > i_148_))
 		{
-			this.imagePixelArray[((i_148_ * this.menuDefaultHeight) + i)] = i_149_;
+			this.imagePixelArray[((i_148_ * this.menuDefaultWidth) + i)] = i_149_;
 		}
 	}
 
@@ -605,10 +605,10 @@ class GameImage implements ImageProducer, ImageObserver
 			}
 			if (i_150_ > 0)
 			{
-				final int i_153_ = (i_151_ * this.menuDefaultHeight) + i_152_;
+				final int i_153_ = (i_151_ * this.menuDefaultWidth) + i_152_;
 				for (int i_154_ = 0; i_154_ < i_150_; i_154_++)
 				{
-					this.imagePixelArray[i_153_ + (i_154_ * this.menuDefaultHeight)] = i;
+					this.imagePixelArray[i_153_ + (i_154_ * this.menuDefaultWidth)] = i;
 				}
 			}
 		}
@@ -621,16 +621,16 @@ class GameImage implements ImageProducer, ImageObserver
 			i_157_ = anIntArray120[i_156_] + i_157_;
 			i_155_ = anIntArray128[i_156_] + i_155_;
 		}
-		int i_159_ = (i_157_ * this.menuDefaultHeight) + i_155_;
+		int i_159_ = (i_157_ * this.menuDefaultWidth) + i_155_;
 		int i_160_ = 0;
 		int i_161_ = this.anIntArray123[i_156_];
 		int i_162_ = this.anIntArray118[i_156_];
-		int i_163_ = -i_162_ + this.menuDefaultHeight;
+		int i_163_ = -i_162_ + this.menuDefaultWidth;
 		if (anInt537 > i_157_)
 		{
 			final int i_164_ = -i_157_ + anInt537;
 			i_161_ -= i_164_;
-			i_159_ += i_164_ * this.menuDefaultHeight;
+			i_159_ += i_164_ * this.menuDefaultWidth;
 			i_157_ = anInt537;
 			i_160_ += i_164_ * i_162_;
 		}
@@ -659,12 +659,12 @@ class GameImage implements ImageProducer, ImageObserver
 		if ((i_162_ > 0) && (0 < i_161_))
 		{
 			int i_168_ = 1;
-			if (this.aBool28 == true)
+			if (this.f1Toggle == true)
 			{
-				i_163_ += this.menuDefaultHeight;
+				i_163_ += this.menuDefaultWidth;
 				if ((0x1 & i_157_) != 0)
 				{
-					i_159_ += this.menuDefaultHeight;
+					i_159_ += this.menuDefaultWidth;
 					i_161_--;
 				}
 				i_168_ = 2;
@@ -703,11 +703,11 @@ class GameImage implements ImageProducer, ImageObserver
 		{
 			i_170_ = -i + anInt536;
 		}
-		int i_174_ = -i_171_ + this.menuDefaultHeight;
+		int i_174_ = -i_171_ + this.menuDefaultWidth;
 		int i_175_ = i_173_;
-		if (this.aBool28 == true)
+		if (this.f1Toggle == true)
 		{
-			i_174_ += this.menuDefaultHeight;
+			i_174_ += this.menuDefaultWidth;
 			if ((0x1 & i) != 0)
 			{
 				i_170_--;
@@ -715,7 +715,7 @@ class GameImage implements ImageProducer, ImageObserver
 			}
 			i_175_ = 2;
 		}
-		int i_176_ = i_172_ - -(this.menuDefaultHeight * i);
+		int i_176_ = i_172_ - -(this.menuDefaultWidth * i);
 		for (int i_177_ = -i_170_; i_177_ < 0; i_177_ += i_175_)
 		{
 			for (int i_178_ = -i_171_; i_178_ < 0; i_178_++)
@@ -882,9 +882,9 @@ class GameImage implements ImageProducer, ImageObserver
 	void method323(final int i)
 	{
 		anInt537 = 0;
-		anInt567 = this.menuDefaultHeight;
+		anInt567 = this.menuDefaultWidth;
 		anInt517 = 0;
-		anInt536 = this.menuDefaultWidth;
+		anInt536 = this.menuDefaultHeight;
 		if (i != -10624)
 		{
 			method312(91, -82, -73, -75, -28, 35);
@@ -910,13 +910,13 @@ class GameImage implements ImageProducer, ImageObserver
 				int i_214_ = 0;
 				for (int i_215_ = -i_204_ + i_209_; i_215_ <= (i_209_ - -i_204_); i_215_++)
 				{
-					if ((i_215_ >= 0) && (this.menuDefaultHeight > i_215_))
+					if ((i_215_ >= 0) && (this.menuDefaultWidth > i_215_))
 					{
 						for (int i_216_ = i_210_ - i_205_; (i_205_ + i_210_) >= i_216_; i_216_++)
 						{
-							if ((0 <= i_216_) && (this.menuDefaultWidth > i_216_))
+							if ((0 <= i_216_) && (this.menuDefaultHeight > i_216_))
 							{
-								final int i_217_ = (this.imagePixelArray[i_215_ + (i_216_ * (this.menuDefaultHeight))]);
+								final int i_217_ = (this.imagePixelArray[i_215_ + (i_216_ * (this.menuDefaultWidth))]);
 								i_213_ = (i_217_ & 0xff) + i_213_;
 								i_211_ += (i_217_ >> 16) & 0xff;
 								i_214_++;
@@ -925,7 +925,7 @@ class GameImage implements ImageProducer, ImageObserver
 						}
 					}
 				}
-				this.imagePixelArray[i_209_ + (i_210_ * this.menuDefaultHeight)] = (i_213_ / i_214_)
+				this.imagePixelArray[i_209_ + (i_210_ * this.menuDefaultWidth)] = (i_213_ / i_214_)
 				        + (((i_211_ / i_214_) << 16) - -((i_212_ / i_214_) << 8));
 			}
 		}
@@ -945,15 +945,15 @@ class GameImage implements ImageProducer, ImageObserver
 		int i_224_ = is[i + 3];
 		int i_225_ = is[i + 4];
 		int i_226_ = (is[i] * 16384) - (-is[i + 2] + -(is[i + 1] * 128));
-		int i_227_ = i_222_ - -(i_223_ * this.menuDefaultHeight);
-		int i_228_ = -i_224_ + this.menuDefaultHeight;
+		int i_227_ = i_222_ - -(i_223_ * this.menuDefaultWidth);
+		int i_228_ = -i_224_ + this.menuDefaultWidth;
 		int i_229_ = 0;
 		if (anInt537 > i_223_)
 		{
 			final int i_230_ = -i_223_ + anInt537;
 			i_223_ = anInt537;
 			i_226_ += i_230_ * i_224_;
-			i_227_ += i_230_ * this.menuDefaultHeight;
+			i_227_ += i_230_ * this.menuDefaultWidth;
 			i_225_ -= i_230_;
 		}
 		if (anInt517 > i_222_)
@@ -1008,7 +1008,7 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 		if (i_236_ < 68)
 		{
-			this.aBool27 = false;
+			this.drawStringShadows = false;
 		}
 		if (anInt567 < (i_234_ + i))
 		{
@@ -1018,19 +1018,19 @@ class GameImage implements ImageProducer, ImageObserver
 		final int i_240_ = i_235_ * ((0xff1623 & i_237_) >> 16);
 		final int i_241_ = (0xff & (i_237_ >> 8)) * i_235_;
 		final int i_242_ = (0xff & i_237_) * i_235_;
-		int i_243_ = -i_234_ + this.menuDefaultHeight;
+		int i_243_ = -i_234_ + this.menuDefaultWidth;
 		int i_244_ = 1;
-		if (this.aBool28 != false)
+		if (this.f1Toggle != false)
 		{
 			i_244_ = 2;
-			i_243_ += this.menuDefaultHeight;
+			i_243_ += this.menuDefaultWidth;
 			if ((i_233_ & 0x1) != 0)
 			{
 				i_233_++;
 				i_238_--;
 			}
 		}
-		int i_245_ = (i_233_ * this.menuDefaultHeight) + i;
+		int i_245_ = (i_233_ * this.menuDefaultWidth) + i;
 		for (int i_246_ = 0; i_246_ < i_238_; i_246_ += i_244_)
 		{
 			for (int i_247_ = -i_234_; 0 > i_247_; i_247_++)
@@ -1094,12 +1094,12 @@ class GameImage implements ImageProducer, ImageObserver
 				i_264_ = 0;
 			}
 			int i_265_ = i_255_ + i_257_;
-			if (this.menuDefaultWidth <= i_265_)
+			if (this.menuDefaultHeight <= i_265_)
 			{
-				i_265_ = this.menuDefaultWidth + -1;
+				i_265_ = this.menuDefaultHeight + -1;
 			}
 			int i_266_ = 1;
-			if (this.aBool28 == true)
+			if (this.f1Toggle == true)
 			{
 				i_266_ = 2;
 				if ((i_264_ & 0x1) != 0)
@@ -1117,11 +1117,11 @@ class GameImage implements ImageProducer, ImageObserver
 					i_270_ = 0;
 				}
 				int i_271_ = i_269_ + i;
-				if (i_271_ >= this.menuDefaultHeight)
+				if (i_271_ >= this.menuDefaultWidth)
 				{
-					i_271_ = this.menuDefaultHeight - 1;
+					i_271_ = this.menuDefaultWidth - 1;
 				}
-				int i_272_ = i_270_ - -(i_267_ * this.menuDefaultHeight);
+				int i_272_ = i_270_ - -(i_267_ * this.menuDefaultWidth);
 				for (int i_273_ = i_270_; i_271_ >= i_273_; i_273_++)
 				{
 					final int i_274_ = ((0xff & (this.imagePixelArray[i_272_] >> 16)) * i_260_);
@@ -1210,24 +1210,24 @@ class GameImage implements ImageProducer, ImageObserver
 
 	void method331()
 	{
-		final int i_291_ = this.menuDefaultHeight * this.menuDefaultWidth;
-		if (this.aBool28 == false)
+		final int size = this.menuDefaultWidth * this.menuDefaultHeight;
+		if (!this.f1Toggle)
 		{
-			for (int i_292_ = 0; i_292_ < i_291_; i_292_++)
+			for (int i = 0; i < size; i++)
 			{
-				this.imagePixelArray[i_292_] = 0;
+				this.imagePixelArray[i] = 0;
 			}
 		}
 		else
 		{
-			int i_293_ = 0;
-			for (int i_294_ = -this.menuDefaultWidth; i_294_ < 0; i_294_ += 2)
+			int index = 0;
+			for (int i_294_ = -this.menuDefaultHeight; i_294_ < 0; i_294_ += 2)
 			{
-				for (int i_295_ = -this.menuDefaultHeight; 0 > i_295_; i_295_++)
+				for (int i_295_ = -this.menuDefaultWidth; 0 > i_295_; i_295_++)
 				{
-					this.imagePixelArray[i_293_++] = 0;
+					this.imagePixelArray[index++] = 0;
 				}
-				i_293_ += this.menuDefaultHeight;
+				index += this.menuDefaultWidth;
 			}
 		}
 	}
@@ -1236,8 +1236,8 @@ class GameImage implements ImageProducer, ImageObserver
 	{
 		if (anImageConsumer2 != null)
 		{
-			anImageConsumer2.setPixels(0, 0, this.menuDefaultHeight, this.menuDefaultWidth, aColorModel2, this.imagePixelArray, 0,
-			        this.menuDefaultHeight);
+			anImageConsumer2.setPixels(0, 0, this.menuDefaultWidth, this.menuDefaultHeight, aColorModel2, this.imagePixelArray, 0,
+			        this.menuDefaultWidth);
 			anImageConsumer2.imageComplete(2);
 		}
 	}
@@ -1331,7 +1331,7 @@ class GameImage implements ImageProducer, ImageObserver
 		return true;
 	}
 
-	void method335(final int i, final int i_320_, final int i_321_, final String string, final int i_322_,
+	void drawText(final int i, final int i_320_, final int i_321_, final String string, final int i_322_,
 	        final int i_323_)
 	{
 		if (i_320_ != 255)
@@ -1375,23 +1375,23 @@ class GameImage implements ImageProducer, ImageObserver
 		method361(string, i_341_, i_338_, i_340_, -method328(string, -120, i_338_) + i, i_342_);
 	}
 
-	void method338(final int i, int i_343_, int i_344_)
+	void drawPicture(final int i, int i_343_, int i_344_)
 	{
 		if (aBoolArray9[i])
 		{
 			i_343_ += anIntArray120[i];
 			i_344_ += anIntArray128[i];
 		}
-		int i_346_ = i_344_ + (i_343_ * this.menuDefaultHeight);
+		int i_346_ = i_344_ + (i_343_ * this.menuDefaultWidth);
 		int i_347_ = 0;
 		int i_348_ = this.anIntArray123[i];
 		int i_349_ = this.anIntArray118[i];
-		int i_350_ = -i_349_ + this.menuDefaultHeight;
+		int i_350_ = -i_349_ + this.menuDefaultWidth;
 		if (i_343_ < anInt537)
 		{
 			final int i_351_ = -i_343_ + anInt537;
 			i_348_ -= i_351_;
-			i_346_ += i_351_ * this.menuDefaultHeight;
+			i_346_ += i_351_ * this.menuDefaultWidth;
 			i_343_ = anInt537;
 			i_347_ += i_349_ * i_351_;
 		}
@@ -1420,14 +1420,14 @@ class GameImage implements ImageProducer, ImageObserver
 		if ((i_349_ > 0) && (0 < i_348_))
 		{
 			int i_355_ = 1;
-			if (this.aBool28 != false)
+			if (this.f1Toggle != false)
 			{
-				i_350_ += this.menuDefaultHeight;
+				i_350_ += this.menuDefaultWidth;
 				i_352_ += this.anIntArray118[i];
 				i_355_ = 2;
 				if ((i_343_ & 0x1) != 0)
 				{
-					i_346_ += this.menuDefaultHeight;
+					i_346_ += this.menuDefaultWidth;
 					i_348_--;
 				}
 			}
@@ -1498,7 +1498,7 @@ class GameImage implements ImageProducer, ImageObserver
 			}
 			if (0 < i)
 			{
-				final int i_377_ = (i_374_ * this.menuDefaultHeight) + i_375_;
+				final int i_377_ = (i_374_ * this.menuDefaultWidth) + i_375_;
 				for (int i_378_ = 0; i_378_ < i; i_378_++)
 				{
 					this.imagePixelArray[i_377_ + i_378_] = i_376_;
@@ -1511,14 +1511,14 @@ class GameImage implements ImageProducer, ImageObserver
 	{
 		return ((Class47.aClass38_6 == class38) || (Class27.aClass38_4 == class38)
 		        || (IOException_Sub1.aClass38_8 == class38) || (Class12.aClass38_2 == class38)
-		        || (Class10.aClass38_1 == class38));
+		        || (Menu.aClass38_1 == class38));
 	}
 
 	@Override
 	public synchronized void addConsumer(final ImageConsumer imageconsumer)
 	{
 		anImageConsumer2 = imageconsumer;
-		imageconsumer.setDimensions(this.menuDefaultHeight, this.menuDefaultWidth);
+		imageconsumer.setDimensions(this.menuDefaultWidth, this.menuDefaultHeight);
 		imageconsumer.setProperties(null);
 		imageconsumer.setColorModel(aColorModel2);
 		imageconsumer.setHints(14);
@@ -1526,7 +1526,7 @@ class GameImage implements ImageProducer, ImageObserver
 
 	void method343(final int i)
 	{
-		final int i_379_ = this.menuDefaultHeight * this.menuDefaultWidth;
+		final int i_379_ = this.menuDefaultWidth * this.menuDefaultHeight;
 		for (int i_380_ = 0; i_379_ > i_380_; i_380_++)
 		{
 			final int i_381_ = 0xffffff & this.imagePixelArray[i_380_];
@@ -1712,14 +1712,14 @@ class GameImage implements ImageProducer, ImageObserver
 				i_437_ = (i_437_ * (this.anIntArray123[i_439_] + -(i_444_ >> 16))) / i_448_;
 				i_438_ = (i_438_ * (this.anIntArray118[i_439_] + -(i_443_ >> 16))) / i_447_;
 			}
-			int i_449_ = i_436_ + (i_435_ * this.menuDefaultHeight);
-			int i_450_ = -i_438_ + this.menuDefaultHeight;
+			int i_449_ = i_436_ + (i_435_ * this.menuDefaultWidth);
+			int i_450_ = -i_438_ + this.menuDefaultWidth;
 			if (anInt537 > i_435_)
 			{
 				final int i_451_ = -i_435_ + anInt537;
 				i_437_ -= i_451_;
 				i_444_ += i_451_ * i_446_;
-				i_449_ += i_451_ * this.menuDefaultHeight;
+				i_449_ += i_451_ * this.menuDefaultWidth;
 				i_435_ = 0;
 			}
 			if ((i_435_ + i_437_) >= anInt536)
@@ -1742,16 +1742,16 @@ class GameImage implements ImageProducer, ImageObserver
 				i_438_ -= i_453_;
 			}
 			int i_454_ = 1;
-			if (true != !this.aBool28)
+			if (true != !this.f1Toggle)
 			{
 				i_446_ += i_446_;
 				if ((i_435_ & 0x1) != 0)
 				{
-					i_449_ += this.menuDefaultHeight;
+					i_449_ += this.menuDefaultWidth;
 					i_437_--;
 				}
 				i_454_ = 2;
-				i_450_ += this.menuDefaultHeight;
+				i_450_ += this.menuDefaultWidth;
 			}
 			method346(i_441_, i_440_, i_449_, i_450_, i_443_, this.imagePixelArray, i_446_, i_445_, i_444_, this.anIntArrayArray20[i_439_],
 			        i_438_, i_437_, i_454_, 0);
@@ -1819,11 +1819,11 @@ class GameImage implements ImageProducer, ImageObserver
 				i_458_ = ((this.anIntArray118[i_460_] << 16) + -i_465_ + i_468_ + -1) / i_468_;
 			}
 			i_467_ = (i_462_ << 16) + i_467_;
-			int i_476_ = i_457_ * this.menuDefaultHeight;
+			int i_476_ = i_457_ * this.menuDefaultWidth;
 			if (anInt537 > i_457_)
 			{
 				final int i_477_ = anInt537 - i_457_;
-				i_476_ += i_477_ * this.menuDefaultHeight;
+				i_476_ += i_477_ * this.menuDefaultWidth;
 				i_457_ = anInt537;
 				i_466_ += i_469_ * i_477_;
 				i_467_ += i_477_ * i_470_;
@@ -1833,8 +1833,8 @@ class GameImage implements ImageProducer, ImageObserver
 			{
 				i_456_ -= i_457_ - (-i_456_ + anInt536 + -1);
 			}
-			int i_478_ = (i_476_ / this.menuDefaultHeight) & 0x1;
-			if (!this.aBool28)
+			int i_478_ = (i_476_ / this.menuDefaultWidth) & 0x1;
+			if (!this.f1Toggle)
 			{
 				i_478_ = 2;
 			}
@@ -1911,10 +1911,10 @@ class GameImage implements ImageProducer, ImageObserver
 
 	void method350(final int i, final byte[] is, final byte[] is_487_, final int i_488_)
 	{
-		int i_489_ = Class10.method84(is_487_, 0);
-		final int i_490_ = Class10.method84(is, i_489_);
+		int i_489_ = Menu.method84(is_487_, 0);
+		final int i_490_ = Menu.method84(is, i_489_);
 		i_489_ += 2;
-		final int i_491_ = Class10.method84(is, i_489_);
+		final int i_491_ = Menu.method84(is, i_489_);
 		i_489_ += 2;
 		final int i_492_ = is[i_489_++] & 0xff;
 		final int[] is_493_ = new int[i_492_];
@@ -1930,9 +1930,9 @@ class GameImage implements ImageProducer, ImageObserver
 		{
 			anIntArray128[i_497_] = Class52.bitwiseAnd(255, is[i_489_++]);
 			anIntArray120[i_497_] = Class52.bitwiseAnd(is[i_489_++], 255);
-			this.anIntArray118[i_497_] = Class10.method84(is, i_489_);
+			this.anIntArray118[i_497_] = Menu.method84(is, i_489_);
 			i_489_ += 2;
-			this.anIntArray123[i_497_] = Class10.method84(is, i_489_);
+			this.anIntArray123[i_497_] = Menu.method84(is, i_489_);
 			i_489_ += 2;
 			final int i_498_ = is[i_489_++] & 0xff;
 			final int i_499_ = (this.anIntArray118[i_497_] * this.anIntArray123[i_497_]);
@@ -1977,8 +1977,8 @@ class GameImage implements ImageProducer, ImageObserver
 
 	void method351(final int i, final int i_503_, final int i_504_, final int i_505_, int i_506_)
 	{
-		final int i_508_ = this.menuDefaultHeight;
-		final int i_509_ = this.menuDefaultWidth;
+		final int i_508_ = this.menuDefaultWidth;
+		final int i_509_ = this.menuDefaultHeight;
 		if (anIntArray117 == null)
 		{
 			anIntArray117 = new int[512];
@@ -2307,7 +2307,7 @@ class GameImage implements ImageProducer, ImageObserver
 				{
 					i_550_ = anInt567;
 				}
-				if ((this.aBool28 != true) || ((0x1 & i_548_) == 0))
+				if ((this.f1Toggle != true) || ((0x1 & i_548_) == 0))
 				{
 					if (!aBoolArray9[i_504_] != true)
 					{
@@ -2388,7 +2388,7 @@ class GameImage implements ImageProducer, ImageObserver
 				}
 				i_556_ += i_569_;
 				i_568_ += i_561_;
-				i_557_ += this.menuDefaultHeight;
+				i_557_ += this.menuDefaultWidth;
 				i_570_ = i_577_;
 			}
 		}
@@ -2414,7 +2414,7 @@ class GameImage implements ImageProducer, ImageObserver
 		{
 			for (int i_596_ = i; (i_590_ + i) > i_596_; i_596_++)
 			{
-				this.anIntArrayArray20[i_591_][i_594_++] = (this.imagePixelArray[i_596_ - -(i_595_ * this.menuDefaultHeight)]);
+				this.anIntArrayArray20[i_591_][i_594_++] = (this.imagePixelArray[i_596_ - -(i_595_ * this.menuDefaultWidth)]);
 			}
 		}
 	}
@@ -2474,7 +2474,7 @@ class GameImage implements ImageProducer, ImageObserver
 						}
 					}
 					i_601_ = i_614_;
-					i_598_ += this.menuDefaultHeight;
+					i_598_ += this.menuDefaultWidth;
 					i_607_ += i_597_;
 				}
 			}
@@ -2544,24 +2544,24 @@ class GameImage implements ImageProducer, ImageObserver
 		final int i_652_ = (i_647_ >> 16) & 0xff;
 		final int i_653_ = (i_647_ >> 8) & 0xff;
 		final int i_654_ = 0xff & i_647_;
-		int i_655_ = -i + this.menuDefaultHeight;
+		int i_655_ = -i + this.menuDefaultWidth;
 		int i_656_ = 1;
-		if (this.aBool28 == true)
+		if (this.f1Toggle == true)
 		{
 			if ((i_645_ & 0x1) != 0)
 			{
 				i_645_++;
 				i_648_--;
 			}
-			i_655_ += this.menuDefaultHeight;
+			i_655_ += this.menuDefaultWidth;
 			i_656_ = 2;
 		}
-		int i_657_ = (i_645_ * this.menuDefaultHeight) + i_643_;
+		int i_657_ = (i_645_ * this.menuDefaultWidth) + i_643_;
 		for (int i_658_ = 0; i_658_ < i_648_; i_658_ += i_656_)
 		{
 			if (((i_658_ + i_645_) < anInt537) || (anInt536 <= (i_658_ + i_645_)))
 			{
-				i_657_ += this.menuDefaultHeight;
+				i_657_ += this.menuDefaultWidth;
 			}
 			else
 			{
@@ -2583,13 +2583,13 @@ class GameImage implements ImageProducer, ImageObserver
 		{
 			i_662_ = 0;
 		}
-		if (this.menuDefaultWidth < i_661_)
+		if (this.menuDefaultHeight < i_661_)
 		{
-			i_661_ = this.menuDefaultWidth;
+			i_661_ = this.menuDefaultHeight;
 		}
-		if (this.menuDefaultHeight < i_663_)
+		if (this.menuDefaultWidth < i_663_)
 		{
-			i_663_ = this.menuDefaultHeight;
+			i_663_ = this.menuDefaultWidth;
 		}
 		if (0 > i)
 		{
@@ -2667,7 +2667,7 @@ class GameImage implements ImageProducer, ImageObserver
 				i_666_ += i_674_;
 				i_678_ = i_686_;
 				i_672_ = i_665_ + i_672_;
-				i_675_ += this.menuDefaultHeight;
+				i_675_ += this.menuDefaultWidth;
 			}
 		}
 		catch (final Exception exception)
@@ -2763,7 +2763,7 @@ class GameImage implements ImageProducer, ImageObserver
 				final int i_726_ = i_721_ + anInt522 + -1;
 				if (this.aByteArrayArray13[i_726_] != null)
 				{
-					method338(i_726_, i_723_ + -this.anIntArray123[i_726_], i_724_);
+					drawPicture(i_726_, i_723_ + -this.anIntArray123[i_726_], i_724_);
 					i_724_ = (this.anIntArray118[i_726_] - -5) + i_724_;
 				}
 			}
@@ -2786,11 +2786,11 @@ class GameImage implements ImageProducer, ImageObserver
 							i_728_ = 32;
 						}
 						final int i_729_ = charIndexes[i_728_];
-						if (this.aBool27 && !ByteBuffer.aBoolArray10[i_722_] && (i_725_ != 0))
+						if (this.drawStringShadows && !ByteBuffer.aBoolArray10[i_722_] && (i_725_ != 0))
 						{
 							method326(i_729_, 0, ByteBuffer.aBoolArray10[i_722_], i_724_ - -1, is, i_723_);
 						}
-						if (this.aBool27 && !ByteBuffer.aBoolArray10[i_722_] && (i_725_ != 0))
+						if (this.drawStringShadows && !ByteBuffer.aBoolArray10[i_722_] && (i_725_ != 0))
 						{
 							method326(i_729_, 0, ByteBuffer.aBoolArray10[i_722_], i_724_, is, i_723_ + 1);
 						}
@@ -2948,7 +2948,7 @@ class GameImage implements ImageProducer, ImageObserver
 		method319(i_736_, i, i_737_, i_733_ + i_735_ + -1);
 	}
 
-	void method363(final Graphics graphics, final int i, final int i_739_)
+	void drawImage(final Graphics graphics, final int i, final int i_739_)
 	{
 		completePixels();
 		graphics.drawImage(image, i, i_739_, this);
@@ -2957,12 +2957,12 @@ class GameImage implements ImageProducer, ImageObserver
 	GameImage(final int maybe_width, final int maybe_height, final int i_742_, final Component component)
 	{
 		anInt536 = 0;
-		this.aBool28 = false;
+		this.f1Toggle = false;
 		anInt567 = 0;
 		anIntArray128 = new int[i_742_];
 		this.anIntArrayArray20 = new int[i_742_][];
-		this.menuDefaultWidth = maybe_height;
-		this.menuDefaultHeight = maybe_width;
+		this.menuDefaultHeight = maybe_height;
+		this.menuDefaultWidth = maybe_width;
 		this.anIntArray125 = new int[i_742_];
 		aBoolArray9 = new boolean[i_742_];
 		this.anIntArray118 = new int[i_742_];
@@ -2977,7 +2977,7 @@ class GameImage implements ImageProducer, ImageObserver
 		if ((maybe_width > 1) && (maybe_height > 1) && (component != null))
 		{
 			aColorModel2 = new DirectColorModel(32, 16711680, 65280, 255);
-			for (int index = 0; index < (this.menuDefaultHeight * this.menuDefaultWidth); index++)
+			for (int index = 0; index < (this.menuDefaultWidth * this.menuDefaultHeight); index++)
 			{
 				this.imagePixelArray[index] = 0;
 			}

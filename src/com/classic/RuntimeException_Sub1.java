@@ -27,7 +27,7 @@ final class RuntimeException_Sub1 extends RuntimeException
 
 	static int method461(String string, final byte[] is, final boolean bool)
 	{
-		final int i = Class10.method84(is, 0);
+		final int i = Menu.method84(is, 0);
 		string = string.toUpperCase();
 		int i_0_ = 0;
 		for (int i_1_ = 0; i_1_ < string.length(); i_1_++)

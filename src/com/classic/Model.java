@@ -47,7 +47,7 @@ final class Model
 	private int anInt256;
 	private int[] anIntArray61;
 	int[] anIntArray62;
-	boolean aBool10;
+	boolean isGiantCrystal;
 	int[] anIntArray63;
 	private int anInt264;
 	int anInt266;
@@ -145,7 +145,7 @@ final class Model
 		return class23s;
 	}
 
-	void method137(final int i, final int i_25_, final int i_26_, final int i_27_)
+	void translate(final int i, final int i_25_, final int i_26_, final int i_27_)
 	{
 		anInt253 += i_25_;
 		anInt222 += i_26_;
@@ -905,7 +905,7 @@ final class Model
 		}
 	}
 
-	void method164(final int i, final int i_163_, final int i_165_)
+	void setOrigin(final int i, final int i_163_, final int i_165_)
 	{
 		anInt253 = i;
 		anInt222 = i_163_;
@@ -926,12 +926,12 @@ final class Model
 
 	Model method166()
 	{
-		final Model[] class23s = new Model[1];
-		class23s[0] = this;
-		final Model class23_170_ = new Model(class23s, 1);
-		class23_170_.aBool10 = this.aBool10;
-		class23_170_.anInt239 = this.anInt239;
-		return class23_170_;
+		final Model[] models = new Model[1];
+		models[0] = this;
+		final Model model = new Model(models, 1);
+		model.isGiantCrystal = this.isGiantCrystal;
+		model.anInt239 = this.anInt239;
+		return model;
 	}
 
 	Model method167(final boolean bool, final boolean bool_171_, final boolean bool_172_, final boolean bool_173_)
@@ -997,7 +997,7 @@ final class Model
 		anInt230 = 12345678;
 		anInt243 = 256;
 		anInt228 = 155;
-		this.aBool10 = false;
+		this.isGiantCrystal = false;
 		this.anInt239 = 0;
 		this.anInt274 = 1;
 		aBool9 = false;
@@ -1025,7 +1025,7 @@ final class Model
 		anInt230 = 12345678;
 		anInt243 = 256;
 		anInt228 = 155;
-		this.aBool10 = false;
+		this.isGiantCrystal = false;
 		this.anInt239 = 0;
 		this.anInt274 = 1;
 		aBool9 = false;
@@ -1052,7 +1052,7 @@ final class Model
 		anInt230 = 12345678;
 		anInt243 = 256;
 		anInt228 = 155;
-		this.aBool10 = false;
+		this.isGiantCrystal = false;
 		this.anInt239 = 0;
 		this.anInt274 = 1;
 		aBool9 = false;
@@ -1066,9 +1066,9 @@ final class Model
 		this.anInt288 = -1;
 		aBool15 = false;
 		this.aBool14 = true;
-		final int i_193_ = Class10.method84(is, i);
+		final int i_193_ = Menu.method84(is, i);
 		i += 2;
-		final int i_194_ = Class10.method84(is, i);
+		final int i_194_ = Menu.method84(is, i);
 		method147(i_194_, i_193_);
 		i += 2;
 		anIntArrayArray11 = new int[i_194_][1];
@@ -1129,7 +1129,7 @@ final class Model
 			{
 				if (i_193_ >= 256)
 				{
-					this.anIntArrayArray10[i_203_][i_204_] = Class10.method84(is, i);
+					this.anIntArrayArray10[i_203_][i_204_] = Menu.method84(is, i);
 					i += 2;
 				}
 				else
@@ -1147,7 +1147,7 @@ final class Model
 		anInt230 = 12345678;
 		anInt243 = 256;
 		anInt228 = 155;
-		this.aBool10 = false;
+		this.isGiantCrystal = false;
 		this.anInt239 = 0;
 		this.anInt274 = 1;
 		aBool9 = false;
@@ -1238,7 +1238,7 @@ final class Model
 		anInt230 = 12345678;
 		anInt243 = 256;
 		anInt228 = 155;
-		this.aBool10 = false;
+		this.isGiantCrystal = false;
 		this.anInt239 = 0;
 		this.anInt274 = 1;
 		aBool9 = false;
@@ -1264,7 +1264,7 @@ final class Model
 		anInt230 = 12345678;
 		anInt243 = 256;
 		anInt228 = 155;
-		this.aBool10 = false;
+		this.isGiantCrystal = false;
 		this.anInt239 = 0;
 		this.anInt274 = 1;
 		aBool9 = false;

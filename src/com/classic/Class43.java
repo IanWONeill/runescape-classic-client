@@ -28,11 +28,11 @@ final class Class43
 		int i_0_ = 0;
 		int i_1_;
 		for (i_1_ = charsequence.length(); ((i_1_ > i_0_)
-		        && Class6.method17(charsequence.charAt(i_0_))); i_0_++)
+		        && EngineHandle.method17(charsequence.charAt(i_0_))); i_0_++)
 		{
 			/* empty */
 		}
-		for (/**/; ((i_0_ < i_1_) && Class6.method17(charsequence.charAt(i_1_ + -1))); i_1_--)
+		for (/**/; ((i_0_ < i_1_) && EngineHandle.method17(charsequence.charAt(i_1_ + -1))); i_1_--)
 		{
 			/* empty */
 		}

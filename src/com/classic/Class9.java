@@ -59,10 +59,10 @@ final class Class9
 				string_10_ = new StringBuilder().append(string_10_).append(string).toString();
 			}
 			GameImage.method310(3, string_10_);
-			string_10_ = Class6.method22(string_10_, ":", "%3a", -69);
-			string_10_ = Class6.method22(string_10_, "@", "%40", -69);
-			string_10_ = Class6.method22(string_10_, "&", "%26", -118);
-			string_10_ = Class6.method22(string_10_, "#", "%23", -110);
+			string_10_ = EngineHandle.method22(string_10_, ":", "%3a", -69);
+			string_10_ = EngineHandle.method22(string_10_, "@", "%40", -69);
+			string_10_ = EngineHandle.method22(string_10_, "&", "%26", -118);
+			string_10_ = EngineHandle.method22(string_10_, "#", "%23", -110);
 			if (GameImageMiddleMan.anApplet2 != null)
 			{
 				final Class20 class20 = (Class48.aClass32_3
@@ -95,8 +95,8 @@ final class Class9
 
 	static String method62(final int i, final int i_12_, final byte[] is)
 	{
-		final char[] cs = new char[i];
-		int i_13_ = 0;
+		final char[] chars = new char[i];
+		int count = 0;
 		for (int i_14_ = 0; i_14_ < i; i_14_++)
 		{
 			int i_15_ = 0xff & is[i_14_ + i_12_];
@@ -111,10 +111,10 @@ final class Class9
 					}
 					i_15_ = i_16_;
 				}
-				cs[i_13_++] = (char) i_15_;
+				chars[count++] = (char) i_15_;
 			}
 		}
-		return new String(cs, 0, i_13_);
+		return new String(chars, 0, count);
 	}
 
 	static void sleep(final long millis)

@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 
+import org.custom.Custom;
+
 final class Class36 implements ImageProducer, ImageObserver
 {
 	static int[] anIntArray86;
@@ -37,11 +39,18 @@ final class Class36 implements ImageProducer, ImageObserver
 	static void method230(final URL url, final GameWindow gameWindow) throws IOException
 	{
 		Class5.baseUrl = url;
-		Class10.gameWindow = gameWindow;
+		Menu.gameWindow = gameWindow;
 		
-		// NOTE: Original code: final URL url_contentcrcs = new URL(Class5.anURL1, "contentcrcs" + Long.toHexString(Class52.method377()));
-		final URL url_contentcrcs = new URL(Class5.baseUrl, "contentcrcs");
-		
+		final URL url_contentcrcs;
+		if(Custom.LOAD_FROM_DISK)
+		{
+			url_contentcrcs = new URL(Class5.baseUrl, "contentcrcs");
+		}
+		else
+		{
+			url_contentcrcs = new URL(Class5.baseUrl, "contentcrcs" + Long.toHexString(Class52.method377()));
+		}
+
 		Class3.aString2 = "Checking for new content";
 		final byte[] data = Class3.method7(url_contentcrcs, true);
 		final ByteBuffer class27_sub1 = new ByteBuffer(data);

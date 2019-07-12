@@ -122,24 +122,21 @@ class ByteBuffer extends Class27
 		this.buffer[this.position++] = (byte) value;
 	}
 
-	String method398(final int i)
+	String readString()
 	{
-		final byte i_15_ = (this.buffer[this.position++]);
+		final byte i_15_ = this.buffer[this.position++];
 		if (i_15_ != 0)
 		{
 			throw new IllegalStateException("");
 		}
-		final int i_16_ = this.position;
-		while ((this.buffer[this.position++]) != 0)
-		{
-			/* empty */
-		}
-		final int i_17_ = this.position - (i_16_ - i);
-		if (i_17_ == 0)
+		final int startPos = this.position;
+		while ((this.buffer[this.position++]) != 0);
+		final int maybe_length = this.position - (startPos + 1);
+		if (maybe_length == 0)
 		{
 			return "";
 		}
-		return Class9.method62(i_17_, i_16_, this.buffer);
+		return Class9.method62(maybe_length, startPos, this.buffer);
 	}
 
 	void encodeWithRSA(final BigInteger modulus, final BigInteger exponent)

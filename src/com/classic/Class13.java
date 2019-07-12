@@ -7,10 +7,10 @@ final class Class13
 
 	static synchronized byte[] method109(final int i, final int i_0_)
 	{
-		if ((i_0_ == 100) && (Class6.anInt47 > 0))
+		if ((i_0_ == 100) && (EngineHandle.anInt47 > 0))
 		{
-			final byte[] is = StreamClass.aByteArrayArray15[--Class6.anInt47];
-			StreamClass.aByteArrayArray15[Class6.anInt47] = null;
+			final byte[] is = StreamClass.aByteArrayArray15[--EngineHandle.anInt47];
+			StreamClass.aByteArrayArray15[EngineHandle.anInt47] = null;
 			return is;
 		}
 		if (i != 23310)

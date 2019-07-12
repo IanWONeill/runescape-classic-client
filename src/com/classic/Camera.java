@@ -457,7 +457,7 @@ final class Camera
 					i_81_ <<= 1;
 					i_83_ = 2;
 				}
-				if (class23.aBool10)
+				if (class23.isGiantCrystal)
 				{
 					for (i_0_ = anInt421; i_0_ < anInt425; i_0_ += i_83_)
 					{
@@ -1321,7 +1321,7 @@ final class Camera
 		return anIntArray99;
 	}
 
-	void method267(final Model model)
+	void addModel(final Model model)
 	{
 		if (model == null)
 		{
@@ -1344,7 +1344,7 @@ final class Camera
 		modelCount = 0;
 	}
 
-	void method269(final int i, final int i_227_, int i_228_, int i_229_, final int i_230_, final int i_231_,
+	void setCamera(final int i, final int i_227_, int i_228_, int i_229_, final int i_230_, final int i_231_,
 	        int i_233_)
 	{
 		i_229_ &= 0x3ff;
@@ -1403,7 +1403,7 @@ final class Camera
 			}
 			if (i != 1041214728)
 			{
-				method290();
+				finishCamera();
 			}
 			final int i_251_ = 4096;
 			for (int i_252_ = 0; i_251_ > i_252_; i_252_++)
@@ -1584,7 +1584,7 @@ final class Camera
 		this.aClass23_3.aByteArray12[i] = (byte) 1;
 	}
 
-	void method278(final int i, final int i_290_, final int i_291_, final int i_292_, final int i_293_,
+	void setCameraSize(final int i, final int i_290_, final int i_291_, final int i_292_, final int i_293_,
 	        final int i_294_, final int i_295_)
 	{
 		halfHeight = i_291_;
@@ -2473,9 +2473,9 @@ final class Camera
 		}
 	}
 
-	void method290()
+	void finishCamera()
 	{
-		aBool26 = gameImage.aBool28;
+		aBool26 = gameImage.f1Toggle;
 		final int i = (this.anInt437 * halfWidth) >> anInt482;
 		AClass1.anInt320 = 0;
 		final int i_471_ = (this.anInt437 * halfHeight) >> anInt482;
@@ -2863,7 +2863,7 @@ final class Camera
 		anIntArrayArray17 = new int[i_529_][];
 		if (i_528_ != 13803)
 		{
-			method278(71, 119, -51, 38, -95, 56, 8);
+			setCameraSize(71, 119, -51, 38, -95, 56, 8);
 		}
 		anInt422 = i_529_;
 		anIntArray92 = new int[i_529_];
@@ -2874,18 +2874,14 @@ final class Camera
 		ByteBuffer.aLong15 = 0L;
 	}
 
-	void removeModel(final Model model, final int i)
+	void removeModel(final Model model)
 	{
-		if (i != 1)
-		{
-			method284(true, 116, 86, -18, -124);
-		}
-		for (int index = 0; modelCount > index; index++)
+		for (int index = 0; index < modelCount; index++)
 		{
 			if (modelArray[index] == model)
 			{
 				modelCount--;
-				for (int index2 = index; modelCount > index2; index2++)
+				for (int index2 = index; index2 < modelCount; index2++)
 				{
 					modelArray[index2] = modelArray[index2 + 1];
 					modelIntArray[index2] = modelIntArray[index2 + 1];
@@ -3075,8 +3071,8 @@ final class Camera
 		anIntArrayArray15 = new int[anInt418][256];
 		maxModelCount = maxModels;
 		this.gameImage = gameImage;
-		halfHeight = gameImage.menuDefaultWidth / 2;
-		halfWidth = gameImage.menuDefaultHeight / 2;
+		halfHeight = gameImage.menuDefaultHeight / 2;
+		halfWidth = gameImage.menuDefaultWidth / 2;
 		modelCount = 0;
 		anIntArray91 = gameImage.imagePixelArray;
 		cameraModels = new CameraModel[maxCameraModels];

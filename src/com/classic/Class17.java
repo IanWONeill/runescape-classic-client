@@ -20,9 +20,9 @@ final class Class17
 		Class44.anIntArray112 = new int[Class25.anInt300];
 		Class38.aStringArray27 = new String[Class25.anInt300];
 		Class33.anIntArray84 = new int[Class25.anInt300];
-		Class6.anIntArray10 = new int[Class25.anInt300];
+		EngineHandle.anIntArray10 = new int[Class25.anInt300];
 		AClass1_Sub1.anIntArray144 = new int[Class25.anInt300];
-		Class6.anIntArray8 = new int[Class25.anInt300];
+		EngineHandle.anIntArray8 = new int[Class25.anInt300];
 		for (int i_0_ = 0; Class25.anInt300 > i_0_; i_0_++)
 		{
 			CameraModel.aStringArray19[i_0_] = Class29.method212(i + 8854);
@@ -57,7 +57,7 @@ final class Class17
 		}
 		for (int i_7_ = 0; i_7_ < Class25.anInt300; i_7_++)
 		{
-			Class6.anIntArray8[i_7_] = Class12.method108();
+			EngineHandle.anIntArray8[i_7_] = Class12.method108();
 		}
 		for (int i_8_ = 0; Class25.anInt300 > i_8_; i_8_++)
 		{
@@ -65,7 +65,7 @@ final class Class17
 		}
 		for (int i_9_ = 0; Class25.anInt300 > i_9_; i_9_++)
 		{
-			Class6.anIntArray10[i_9_] = Class4.method10(255);
+			EngineHandle.anIntArray10[i_9_] = Class4.method10(255);
 		}
 		for (int i_10_ = 0; Class25.anInt300 > i_10_; i_10_++)
 		{
@@ -80,15 +80,15 @@ final class Class17
 				Mob.anIntArray40[i_11_] = 0;
 				Class38.aStringArray27[i_11_] = "";
 				Class44.anIntArray112[0] = 0;
-				Class6.anIntArray8[i_11_] = 0;
-				Class6.anIntArray10[i_11_] = 1;
+				EngineHandle.anIntArray8[i_11_] = 0;
+				EngineHandle.anIntArray10[i_11_] = 1;
 			}
 		}
 		Class35.anInt376 = Class12.method108();
 		GameImage.anIntArray132 = new int[Class35.anInt376];
 		Class22.aStringArray16 = new String[Class35.anInt376];
 		GameImageMiddleMan.anIntArray143 = new int[Class35.anInt376];
-		Class10.anIntArray32 = new int[Class35.anInt376];
+		Menu.anIntArray32 = new int[Class35.anInt376];
 		Class47.anIntArray135 = new int[Class35.anInt376];
 		Class24.aStringArray18 = new String[Class35.anInt376];
 		Isaac.anIntArray19 = new int[Class35.anInt376];
@@ -168,7 +168,7 @@ final class Class17
 		}
 		for (int i_27_ = 0; Class35.anInt376 > i_27_; i_27_++)
 		{
-			Class10.anIntArray32[i_27_] = Class4.method10(i + 255);
+			Menu.anIntArray32[i_27_] = Class4.method10(i + 255);
 		}
 		for (int i_28_ = 0; i_28_ < Class35.anInt376; i_28_++)
 		{
@@ -198,11 +198,11 @@ final class Class17
 		Class9.anIntArray20 = new int[Class38.anInt396];
 		Class24.anIntArray78 = new int[Class38.anInt396];
 		Class48.anIntArray137 = new int[Class38.anInt396];
-		Class6.anIntArray13 = new int[Class38.anInt396];
-		Class10.aStringArray11 = new String[Class38.anInt396];
+		EngineHandle.anIntArray13 = new int[Class38.anInt396];
+		Menu.aStringArray11 = new String[Class38.anInt396];
 		for (int i_33_ = 0; Class38.anInt396 > i_33_; i_33_++)
 		{
-			Class10.aStringArray11[i_33_] = Class29.method212(Class47.method369(i, 8854));
+			Menu.aStringArray11[i_33_] = Class29.method212(Class47.method369(i, 8854));
 		}
 		for (int i_34_ = 0; i_34_ < Class38.anInt396; i_34_++)
 		{
@@ -210,7 +210,7 @@ final class Class17
 		}
 		for (int i_35_ = 0; Class38.anInt396 > i_35_; i_35_++)
 		{
-			Class6.anIntArray13[i_35_] = Class4.method10(255);
+			EngineHandle.anIntArray13[i_35_] = Class4.method10(255);
 		}
 		for (int i_36_ = 0; i_36_ < Class38.anInt396; i_36_++)
 		{
@@ -227,7 +227,7 @@ final class Class17
 		Class47.anInt577 = Class12.method108();
 		Class2.aStringArray2 = new String[Class47.anInt577];
 		Class45.anIntArray115 = new int[Class47.anInt577];
-		Class10.aStringArray10 = new String[Class47.anInt577];
+		Menu.aStringArray10 = new String[Class47.anInt577];
 		IOException_Sub1.anIntArray149 = new int[Class47.anInt577];
 		GameImage.anIntArray134 = new int[Class47.anInt577];
 		Isaac.anIntArray17 = new int[Class47.anInt577];
@@ -240,7 +240,7 @@ final class Class17
 		}
 		for (int i_40_ = 0; i_40_ < Class47.anInt577; i_40_++)
 		{
-			Class10.aStringArray10[i_40_] = Class29.method212(8854);
+			Menu.aStringArray10[i_40_] = Class29.method212(8854);
 		}
 		for (int i_41_ = 0; i_41_ < Class47.anInt577; i_41_++)
 		{
@@ -252,7 +252,7 @@ final class Class17
 		}
 		for (int i_43_ = 0; i_43_ < Class47.anInt577; i_43_++)
 		{
-			IOException_Sub1.anIntArray149[i_43_] = AClass1_Sub1.method422(Class29.method212(8854), i + -91);
+			IOException_Sub1.anIntArray149[i_43_] = AClass1_Sub1.storeModel(Class29.method212(8854));
 		}
 		for (int i_44_ = 0; Class47.anInt577 > i_44_; i_44_++)
 		{
@@ -318,14 +318,14 @@ final class Class17
 		}
 		GameFrame.anInt743 = Class12.method108();
 		Class38.anIntArray88 = new int[GameFrame.anInt743];
-		Class6.anIntArray12 = new int[GameFrame.anInt743];
+		EngineHandle.anIntArray12 = new int[GameFrame.anInt743];
 		for (int i_57_ = 0; i_57_ < GameFrame.anInt743; i_57_++)
 		{
 			Class38.anIntArray88[i_57_] = Class4.method10(255);
 		}
 		for (int i_58_ = 0; GameFrame.anInt743 > i_58_; i_58_++)
 		{
-			Class6.anIntArray12[i_58_] = Class4.method10(i + 255);
+			EngineHandle.anIntArray12[i_58_] = Class4.method10(i + 255);
 		}
 		GameFrame.anInt745 = Class12.method108();
 		Model.anIntArray54 = new int[GameFrame.anInt745];

@@ -2,7 +2,7 @@ package com.classic;
 
 import java.io.IOException;
 
-final class Class6
+final class EngineHandle
 {
 	int anInt16;
 	byte[] aByteArray1;
@@ -32,7 +32,7 @@ final class Class6
 	private final byte[][] aByteArrayArray5;
 	byte[] aByteArray4;
 	int[] anIntArray14;
-	boolean aBool2;
+	boolean playerIsAlive;
 	private final byte[][] aByteArrayArray6;
 	static int anInt47 = 0;
 	Model[][] aClass23ArrayArray2;
@@ -350,7 +350,7 @@ final class Class6
 		return (0xff & aByteArrayArray5[i_59_][(i_57_ * 48) - -i]) * 3;
 	}
 
-	void method26(final int i, final int i_60_, final int i_61_, final int i_62_)
+	void updateObjectAnd(final int i, final int i_60_, final int i_61_, final int i_62_)
 	{
 		if ((i_62_ == -30895) && ((0 <= i_61_) && (0 <= i_60_) && (95 > i_61_) && (i_60_ < 95)))
 		{
@@ -1038,7 +1038,7 @@ final class Class6
 			aClass23Array1 = aClass23_1.method136(1536, false, 64, 8, 233, 1536);
 			for (int i_168_ = 0; i_168_ < 64; i_168_++)
 			{
-				aClass41_1.method267(aClass23Array1[i_168_]);
+				aClass41_1.addModel(aClass23Array1[i_168_]);
 			}
 			for (int i_169_ = 0; i_169_ < 96; i_169_++)
 			{
@@ -1131,7 +1131,7 @@ final class Class6
 		this.aClass23ArrayArray1[i] = aClass23_1.method136(1536, true, 64, 8, 338, 1536);
 		for (int i_175_ = 0; i_175_ < 64; i_175_++)
 		{
-			aClass41_1.method267((this.aClass23ArrayArray1[i][i_175_]));
+			aClass41_1.addModel((this.aClass23ArrayArray1[i][i_175_]));
 		}
 		if (i_110_ == -17614)
 		{
@@ -1485,7 +1485,7 @@ final class Class6
 			this.aClass23ArrayArray2[i] = aClass23_1.method136(1536, true, 64, 8, 169, 1536);
 			for (int i_223_ = 0; 64 > i_223_; i_223_++)
 			{
-				aClass41_1.method267((this.aClass23ArrayArray2[i][i_223_]));
+				aClass41_1.addModel((this.aClass23ArrayArray2[i][i_223_]));
 			}
 			if (this.aClass23ArrayArray2[i][0] == null)
 			{
@@ -1526,14 +1526,14 @@ final class Class6
 						i_230_ = Isaac.anIntArray17[i_228_];
 						i_231_ = Class45.anIntArray115[i_228_];
 					}
-					method31(i_228_, i_226_, i_227_);
+					updateObjectAnd(i_228_, i_226_, i_227_);
 					final Model class23 = class23s[IOException_Sub1.anIntArray149[i_228_]].method167(false, false,
 					        false, true);
 					int i_232_ = ((i_231_ + i_226_ + i_226_) * 128) / 2;
 					int i_233_ = ((i_227_ + (i_227_ - -i_230_)) * 128) / 2;
-					class23.method137(1, i_233_, -method35(i_233_, true, i_232_), i_232_);
+					class23.translate(1, i_233_, -getAveragedElevation(i_233_, i_232_), i_232_);
 					class23.method153((method13(i_227_, i_226_) * 32), 0, 0);
-					aClass41_1.method267(class23);
+					aClass41_1.addModel(class23);
 					class23.method138(-50, -10, 48, -50, 12345678, 48);
 					if ((1 < i_231_) || (i_230_ > 1))
 					{
@@ -1612,7 +1612,7 @@ final class Class6
 		return aByteArrayArray7[i_239_][(i_238_ * 48) + i];
 	}
 
-	void method31(final int i, final int i_241_, final int i_242_)
+	void updateObjectAnd(final int i, final int i_241_, final int i_242_)
 	{
 		if ((i_241_ >= 0) && (0 <= i_242_) && (95 > i_241_) && (i_242_ < 95))
 		{
@@ -1765,12 +1765,8 @@ final class Class6
 		return false;
 	}
 
-	int method35(final int i, final boolean bool, final int i_255_)
+	int getAveragedElevation(final int i, final int i_255_)
 	{
-		if (bool != true)
-		{
-			return 80;
-		}
 		final int i_256_ = i_255_ >> 7;
 		final int i_257_ = i >> 7;
 		int i_258_ = 0x7f & i_255_;
@@ -2237,7 +2233,7 @@ final class Class6
 		return i_326_;
 	}
 
-	Class6(final Camera class41, final GameImage class46)
+	EngineHandle(final Camera class41, final GameImage class46)
 	{
 		this.anIntArrayArray4 = new int[96][96];
 		this.anIntArray11 = new int[18432];
@@ -2250,7 +2246,7 @@ final class Class6
 		this.aClass23ArrayArray1 = new Model[4][64];
 		anIntArrayArray3 = new int[4][2304];
 		aByteArrayArray1 = new byte[4][2304];
-		this.aBool2 = false;
+		this.playerIsAlive = false;
 		aByteArrayArray6 = new byte[4][2304];
 		anIntArrayArray5 = new int[96][96];
 		this.aClass23ArrayArray2 = new Model[4][64];

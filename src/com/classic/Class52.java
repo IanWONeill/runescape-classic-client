@@ -134,9 +134,9 @@ final class Class52
 				}
 			}
 		}
-		Class22.aByteArray11[(i * 9) + 0] = (byte) (Class10.anInt90 / 16384);
-		Class22.aByteArray11[(i * 9) + 1] = (byte) bitwiseAnd(Class10.anInt90 / 128, 127);
-		Class22.aByteArray11[(i * 9) + 2] = (byte) bitwiseAnd(Class10.anInt90, 127);
+		Class22.aByteArray11[(i * 9) + 0] = (byte) (Menu.anInt90 / 16384);
+		Class22.aByteArray11[(i * 9) + 1] = (byte) bitwiseAnd(Menu.anInt90 / 128, 127);
+		Class22.aByteArray11[(i * 9) + 2] = (byte) bitwiseAnd(Menu.anInt90, 127);
 		Class22.aByteArray11[(i * 9) - -3] = (byte) (-i_8_ + i_10_);
 		Class22.aByteArray11[(i * 9) + 4] = (byte) (-i_9_ + i_14_);
 		Class22.aByteArray11[(i * 9) - -5] = (byte) i_8_;
@@ -152,7 +152,7 @@ final class Class52
 				{
 					ByteBuffer.aBoolArray10[i_1_] = true;
 				}
-				Class22.aByteArray11[Class10.anInt90++] = (byte) i_26_;
+				Class22.aByteArray11[Menu.anInt90++] = (byte) i_26_;
 			}
 		}
 		return true;

@@ -11,7 +11,7 @@ final class Class12 implements Runnable
 
 	static int method108()
 	{
-		final int i_0_ = Class10.method84(Class52.aByteArray20, Class25.anInt302);
+		final int i_0_ = Menu.method84(Class52.aByteArray20, Class25.anInt302);
 		Class25.anInt302 += 2;
 		return i_0_;
 	}

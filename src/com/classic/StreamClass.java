@@ -25,9 +25,9 @@ final class StreamClass extends PacketConstruction implements Runnable
 	static Class38 aClass38_7 = new Class38("LOCAL", "", "local", 4);
 
 	@Override
-	void method119(final byte i)
+	void closeStream()
 	{
-		super.method119(i);
+		super.closeStream();
 		aBool30 = true;
 		try
 		{

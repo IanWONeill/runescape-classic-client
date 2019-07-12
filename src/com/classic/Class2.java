@@ -5,7 +5,7 @@ import java.net.URL;
 
 final class Class2
 {
-	static String[] aStringArray1 = new String[5000];
+	static String[] modelNames = new String[5000];
 	static String[] aStringArray2;
 	static int anInt4;
 	static int anInt5;

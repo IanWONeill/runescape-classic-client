@@ -5,21 +5,24 @@ import java.awt.FontMetrics;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.Socket;
 import java.net.URL;
+
+import org.custom.Custom;
 
 final class Class25 implements Runnable
 {
 	static int[] anIntArray79;
 	private final ByteBuffer buffer;
 	private Class20 aClass20_2;
+	private Class20 aClass20_3;
 	private final URL url;
 	private Class20 aClass20_4;
 	static int anInt300;
 	static int anInt302;
 	private int downloadStage;
 	private DataInputStream aDataInputStream1;
-	@SuppressWarnings("unused") // NOTE: Used in the original version of method172.
 	private Class32 class32;
 
 	static boolean loadFont(final int i, final int i_0_, final GameWindow applet_sub1, String string)
@@ -67,7 +70,7 @@ final class Class25 implements Runnable
 		final Font font = new Font("Helvetica", i_2_, i_3_);
 		final FontMetrics fontmetrics = applet_sub1.getFontMetrics(font);
 		final String string_4_ = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!\"\u00a3$%^&*()-_=+[{]};:'@#~,<.>/?\\| ";
-		Class10.anInt90 = 855;
+		Menu.anInt90 = 855;
 		for (int i_5_ = 0; 95 > i_5_; i_5_++)
 		{
 			if (!Class52.method379(i_5_, bool_1_, i, font, string_4_.charAt(i_5_), applet_sub1, fontmetrics))
@@ -75,8 +78,8 @@ final class Class25 implements Runnable
 				return false;
 			}
 		}
-		PacketConstruction.aByteArrayArray8[i] = new byte[Class10.anInt90];
-		for (int i_6_ = 0; i_6_ < Class10.anInt90; i_6_++)
+		PacketConstruction.aByteArrayArray8[i] = new byte[Menu.anInt90];
+		for (int i_6_ = 0; i_6_ < Menu.anInt90; i_6_++)
 		{
 			PacketConstruction.aByteArrayArray8[i][i_6_] = Class22.aByteArray11[i_6_];
 		}
@@ -111,108 +114,108 @@ final class Class25 implements Runnable
 	
 	synchronized boolean method172()
 	{
-		try {
-			InputStream Input = this.url.openStream();
-
-			byte[] Buffer = new byte[4096];
-			int Length;
-			while((Length = Input.read(Buffer)) != -1)
-			{
-				System.arraycopy(Buffer, 0, this.buffer.buffer, this.buffer.position, Length);
-				this.buffer.position += Length;
+		if(Custom.LOAD_FROM_DISK)
+		{
+			try {
+				InputStream Input = this.url.openStream();
+	
+				byte[] Buffer = new byte[4096];
+				int Length;
+				while((Length = Input.read(Buffer)) != -1)
+				{
+					System.arraycopy(Buffer, 0, this.buffer.buffer, this.buffer.position, Length);
+					this.buffer.position += Length;
+				}
+				
+				Input.close();
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
 			
-			Input.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		downloadStage = 3;
-		return true;
-	}
-
-	/*
-	// NOTE: Original code using JAGGRAB.
-	synchronized boolean method172()
-	{
-		if (downloadStage >= 2)
-		{
+			downloadStage = 3;
 			return true;
 		}
-		if (downloadStage == 0)
+		else
 		{
-			if (aClass20_2 == null)
+			if (downloadStage >= 2)
 			{
-				aClass20_2 = aClass32_2.method216(url, false);
+				return true;
 			}
-			if (aClass20_2.anInt216 == 0)
+			if (downloadStage == 0)
 			{
-				return false;
-			}
-			if (aClass20_2.anInt216 != 1)
-			{
-				downloadStage++;
-				aClass20_2 = null;
-				return false;
-			}
-		}
-		if (downloadStage == 1)
-		{
-			if (aClass20_4 == null)
-			{
-				aClass20_4 = aClass32_2.method221(url.getHost(), 0, 443);
-			}
-			if (aClass20_4.anInt216 == 0)
-			{
-				return false;
-			}
-			if (aClass20_4.anInt216 != 1)
-			{
-				aClass20_4 = null;
-				downloadStage++;
-				return false;
-			}
-		}
-		if (aDataInputStream1 == null)
-		{
-			try
-			{
-				if (downloadStage == 0)
+				if (aClass20_2 == null)
 				{
-					aDataInputStream1 = (DataInputStream) aClass20_2.socket;
+					aClass20_2 = class32.method216(url, false);
 				}
-				if (downloadStage == 1)
+				if (aClass20_2.anInt216 == 0)
 				{
-					final Socket socket = (Socket) aClass20_4.socket;
-					socket.setSoTimeout(10000);
-					final OutputStream outputstream = socket.getOutputStream();
-					outputstream.write(17);
-					outputstream.write(Class46_Sub1.method409("JAGGRAB " + url.getFile() + "\n\n"));
-					aDataInputStream1 = new DataInputStream(socket.getInputStream());
+					return false;
 				}
-				buffer.position = 0;
+				if (aClass20_2.anInt216 != 1)
+				{
+					downloadStage++;
+					aClass20_2 = null;
+					return false;
+				}
 			}
-			catch (final IOException ioexception)
+			if (downloadStage == 1)
+			{
+				if (aClass20_4 == null)
+				{
+					aClass20_4 = class32.method221(url.getHost(), 0, 443);
+				}
+				if (aClass20_4.anInt216 == 0)
+				{
+					return false;
+				}
+				if (aClass20_4.anInt216 != 1)
+				{
+					aClass20_4 = null;
+					downloadStage++;
+					return false;
+				}
+			}
+			if (aDataInputStream1 == null)
+			{
+				try
+				{
+					if (downloadStage == 0)
+					{
+						aDataInputStream1 = (DataInputStream) aClass20_2.socket;
+					}
+					if (downloadStage == 1)
+					{
+						final Socket socket = (Socket) aClass20_4.socket;
+						socket.setSoTimeout(10000);
+						final OutputStream outputstream = socket.getOutputStream();
+						outputstream.write(17);
+						outputstream.write(GameImageMiddleMan.method409("JAGGRAB " + url.getFile() + "\n\n"));
+						aDataInputStream1 = new DataInputStream(socket.getInputStream());
+					}
+					buffer.position = 0;
+				}
+				catch (final IOException ioexception)
+				{
+					finalize();
+					downloadStage++;
+				}
+			}
+			if (aClass20_3 == null)
+			{
+				aClass20_3 = class32.method218(5, this);
+			}
+			if (aClass20_3.anInt216 == 0)
+			{
+				return false;
+			}
+			if (aClass20_3.anInt216 != 1)
 			{
 				finalize();
 				downloadStage++;
 			}
-		}
-		if (aClass20_3 == null)
-		{
-			aClass20_3 = aClass32_2.method218(5, 0, this);
-		}
-		if (aClass20_3.anInt216 == 0)
-		{
 			return false;
 		}
-		if (aClass20_3.anInt216 != 1)
-		{
-			finalize();
-			downloadStage++;
-		}
-		return false;
-	}*/
+	}
 
 	@Override
 	public void run()
