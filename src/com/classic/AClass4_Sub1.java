@@ -33,14 +33,14 @@ final class AClass4_Sub1 extends AClass4 {
 			}
 			anInt651 += i;
 			if ((anInt649 == 256) && ((anInt650 & 0xff) == 0)) {
-				if (AudioUnknown.maybe_isMono) {
+				if (AudioUnknown.maybe_isStereo) {
 					i = method426(0, (((AClass3_Sub1) this.anAClass3_1).aByteArray26), is, anInt650, i, anInt661,
 							anInt648, anInt657, anInt659, 0, i_3_, i_0_, this);
 				} else {
 					i = method443((((AClass3_Sub1) this.anAClass3_1).aByteArray26), is, anInt650, i, anInt656, anInt658,
 							0, i_3_, i_0_, this);
 				}
-			} else if (AudioUnknown.maybe_isMono) {
+			} else if (AudioUnknown.maybe_isStereo) {
 				i = method433(0, 0, ((AClass3_Sub1) this.anAClass3_1).aByteArray26, is, anInt650, i, anInt661, anInt648,
 						anInt657, anInt659, 0, i_3_, i_0_, this, anInt649, i_2_);
 			} else {
@@ -56,14 +56,14 @@ final class AClass4_Sub1 extends AClass4 {
 			}
 		}
 		if ((anInt649 == 256) && ((anInt650 & 0xff) == 0)) {
-			if (AudioUnknown.maybe_isMono) {
+			if (AudioUnknown.maybe_isStereo) {
 				return method441(0, (((AClass3_Sub1) this.anAClass3_1).aByteArray26), is, anInt650, i, anInt661,
 						anInt648, 0, i_1_, i_0_, this);
 			}
 			return method434(((AClass3_Sub1) this.anAClass3_1).aByteArray26, is, anInt650, i, anInt656, 0, i_1_, i_0_,
 					this);
 		}
-		if (AudioUnknown.maybe_isMono) {
+		if (AudioUnknown.maybe_isStereo) {
 			return method442(0, 0, ((AClass3_Sub1) this.anAClass3_1).aByteArray26, is, anInt650, i, anInt661, anInt648,
 					0, i_1_, i_0_, this, anInt649, i_2_);
 		}
@@ -406,14 +406,14 @@ final class AClass4_Sub1 extends AClass4 {
 			}
 			anInt651 += i;
 			if ((anInt649 == -256) && ((anInt650 & 0xff) == 0)) {
-				if (AudioUnknown.maybe_isMono) {
+				if (AudioUnknown.maybe_isStereo) {
 					i = method446(0, (((AClass3_Sub1) this.anAClass3_1).aByteArray26), is, anInt650, i, anInt661,
 							anInt648, anInt657, anInt659, 0, i_67_, i_64_, this);
 				} else {
 					i = method445((((AClass3_Sub1) this.anAClass3_1).aByteArray26), is, anInt650, i, anInt656, anInt658,
 							0, i_67_, i_64_, this);
 				}
-			} else if (AudioUnknown.maybe_isMono) {
+			} else if (AudioUnknown.maybe_isStereo) {
 				i = method439(0, 0, ((AClass3_Sub1) this.anAClass3_1).aByteArray26, is, anInt650, i, anInt661, anInt648,
 						anInt657, anInt659, 0, i_67_, i_64_, this, anInt649, i_66_);
 			} else {
@@ -429,14 +429,14 @@ final class AClass4_Sub1 extends AClass4 {
 			}
 		}
 		if ((anInt649 == -256) && ((anInt650 & 0xff) == 0)) {
-			if (AudioUnknown.maybe_isMono) {
+			if (AudioUnknown.maybe_isStereo) {
 				return method444(0, (((AClass3_Sub1) this.anAClass3_1).aByteArray26), is, anInt650, i, anInt661,
 						anInt648, 0, i_65_, i_64_, this);
 			}
 			return method438(((AClass3_Sub1) this.anAClass3_1).aByteArray26, is, anInt650, i, anInt656, 0, i_65_, i_64_,
 					this);
 		}
-		if (AudioUnknown.maybe_isMono) {
+		if (AudioUnknown.maybe_isStereo) {
 			return method427(0, 0, ((AClass3_Sub1) this.anAClass3_1).aByteArray26, is, anInt650, i, anInt661, anInt648,
 					0, i_65_, i_64_, this, anInt649, i_66_);
 		}

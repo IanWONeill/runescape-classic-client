@@ -13,14 +13,12 @@ import org.custom.Custom;
 
 final class Class25 implements Runnable
 {
-	static int[] anIntArray79;
 	private final ByteBuffer buffer;
 	private Class20 aClass20_2;
 	private Class20 aClass20_3;
 	private final URL url;
 	private Class20 aClass20_4;
-	static int anInt300;
-	static int anInt302;
+	static int maybe_offset;
 	private int downloadStage;
 	private DataInputStream aDataInputStream1;
 	private Class32 class32;

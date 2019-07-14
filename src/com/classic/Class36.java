@@ -12,7 +12,7 @@ import org.custom.Custom;
 
 final class Class36 implements ImageProducer, ImageObserver
 {
-	static int[] anIntArray86;
+	static URL baseUrl;
 
 	@Override
 	public boolean imageUpdate(final Image image, final int i, final int i_0_, final int i_1_, final int i_2_,
@@ -38,28 +38,30 @@ final class Class36 implements ImageProducer, ImageObserver
 
 	static void method230(final URL url, final GameWindow gameWindow) throws IOException
 	{
-		Class5.baseUrl = url;
+		Class36.baseUrl = url;
 		Menu.gameWindow = gameWindow;
 		
 		final URL url_contentcrcs;
 		if(Custom.LOAD_FROM_DISK)
 		{
-			url_contentcrcs = new URL(Class5.baseUrl, "contentcrcs");
+			url_contentcrcs = new URL(Class36.baseUrl, "contentcrcs");
 		}
 		else
 		{
-			url_contentcrcs = new URL(Class5.baseUrl, "contentcrcs" + Long.toHexString(Class52.method377()));
+			url_contentcrcs = new URL(Class36.baseUrl, "contentcrcs" + Long.toHexString(Class52.method377()));
 		}
 
-		Class3.aString2 = "Checking for new content";
+		Class3.maybe_loadingText = "Checking for new content";
 		final byte[] data = Class3.method7(url_contentcrcs, true);
-		final ByteBuffer class27_sub1 = new ByteBuffer(data);
-		for (int index = 0; index < Class21.anIntArray47.length; index++)
+		final ByteBuffer buffer = new ByteBuffer(data);
+		
+		for (int index = 0; index < Class21.contentPackCrcs.length; index++)
 		{
-			Class21.anIntArray47[index] = class27_sub1.readInt();
+			Class21.contentPackCrcs[index] = buffer.readInt();
 		}
-		class27_sub1.readInt();
-		if (!class27_sub1.method393(0))
+		buffer.readInt();
+		
+		if (!buffer.compareCrc(0)) // NOTE: Compute and compare the CRC of the crc table to the crc following the table in the file.
 		{
 			throw new IOException("Invalid CRC in CRC check file");
 		}

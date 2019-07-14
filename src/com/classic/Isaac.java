@@ -9,9 +9,6 @@ final class Isaac
 	private int anInt57;
 	private final int[] rsl = new int[256];
 	static int anInt60;
-	static int[] anIntArray17;
-	static int[] anIntArray18 = new int[200];
-	static int[] anIntArray19;
 	private int anInt63;
 
 	int random()

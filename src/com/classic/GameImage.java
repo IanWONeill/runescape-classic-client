@@ -42,14 +42,9 @@ class GameImage implements ImageProducer, ImageObserver
 	private int[] anIntArray130;
 	private int[] anIntArray131;
 	private int anInt567;
-	static String[] aStringArray33;
 	private ImageConsumer anImageConsumer2;
-	static int[] anIntArray132;
 	static int anInt568;
 	static int anInt569;
-	static int[] anIntArray133;
-	static int[] anIntArray134;
-
 	private void method305(final int i, final int i_0_, final int i_1_, final String string, final int i_2_,
 	        final int i_3_)
 	{
@@ -1331,14 +1326,10 @@ class GameImage implements ImageProducer, ImageObserver
 		return true;
 	}
 
-	void drawText(final int i, final int i_320_, final int i_321_, final String string, final int i_322_,
-	        final int i_323_)
+	void drawText(final int color, final int dummy, final int size, final String string, final int drawY,
+	        final int drawX)
 	{
-		if (i_320_ != 255)
-		{
-			method350(-99, null, null, -42);
-		}
-		method305(i_323_, i_322_, i_321_, string, 0, i);
+		method305(drawX, drawY, size, string, 0, color);
 	}
 
 	private void method336(final int i, int i_324_, int i_325_, final int[] is, final int i_326_, final int i_327_,
@@ -3031,7 +3022,6 @@ class GameImage implements ImageProducer, ImageObserver
 			}
 			charIndexes[i] = i_751_ * 9;
 		}
-		aStringArray33 = new String[100];
 		anInt569 = 0;
 		anInt568 = 0;
 	}

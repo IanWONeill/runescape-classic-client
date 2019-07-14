@@ -6,7 +6,7 @@ class AudioUnknown
 {
 	private long aLong5;
 	private static Class12 aClass12_1;
-	static boolean maybe_isMono;
+	static boolean maybe_isStereo;
 	static int sampleRate;
 	private boolean aBool22 = false;
 	int[] anIntArray87;
@@ -26,14 +26,14 @@ class AudioUnknown
 	private final AClass4[] anAClass4Array2;
 	private boolean aBool23;
 
-	static void method231(final int inSampleRate, final boolean maybe_inIsMono, final int i_0_)
+	static void method231(final int inSampleRate, final boolean maybe_inIsStereo, final int i_0_)
 	{
 		if ((inSampleRate < 8000) || (inSampleRate > 48000))
 		{
 			throw new IllegalArgumentException();
 		}
 		sampleRate = inSampleRate;
-		maybe_isMono = maybe_inIsMono;
+		maybe_isStereo = maybe_inIsStereo;
 		anInt389 = i_0_;
 	}
 
@@ -148,11 +148,11 @@ class AudioUnknown
 	private void method235(final int[] is, final int i)
 	{
 		int i_2_ = i;
-		if (maybe_isMono)
+		if (maybe_isStereo)
 		{
 			i_2_ <<= 1;
 		}
-		Class14.method111(is, 0, i_2_);
+		method111(is, 0, i_2_);
 		anInt392 -= i;
 		if ((anAClass4_1 != null) && (anInt392 <= 0))
 		{
@@ -332,7 +332,7 @@ class AudioUnknown
 		try
 		{
 			final Class37_Sub1 class37_sub1_20_ = new Class37_Sub1();
-			((AudioUnknown) class37_sub1_20_).anIntArray87 = new int[256 * (maybe_isMono ? 2 : 1)];
+			((AudioUnknown) class37_sub1_20_).anIntArray87 = new int[256 * (maybe_isStereo ? 2 : 1)];
 			((AudioUnknown) class37_sub1_20_).anInt390 = inSampleRate;
 			class37_sub1_20_.method236(component);
 			((AudioUnknown) class37_sub1_20_).anInt395 = (inSampleRate & ~0x3ff) + 1024;
@@ -397,6 +397,27 @@ class AudioUnknown
 
 	@SuppressWarnings("unused") // NOTE: Overridden.
 	void method244(final int i) throws Exception {}
+
+	static void method111(final int[] is, int i, int i_0_)
+	{
+		i_0_ = (i_0_ + i) - 7;
+		while (i < i_0_)
+		{
+			is[i++] = 0;
+			is[i++] = 0;
+			is[i++] = 0;
+			is[i++] = 0;
+			is[i++] = 0;
+			is[i++] = 0;
+			is[i++] = 0;
+			is[i++] = 0;
+		}
+		i_0_ += 7;
+		while (i < i_0_)
+		{
+			is[i++] = 0;
+		}
+	}
 
 	AudioUnknown()
 	{

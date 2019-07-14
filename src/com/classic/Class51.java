@@ -9,7 +9,6 @@ import java.net.URL;
 final class Class51
 {
 	int anInt581;
-	static int clientVersion = 235;
 	static int anInt584 = 176;
 	int anInt585;
 	int anInt588;

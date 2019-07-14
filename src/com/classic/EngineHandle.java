@@ -2,12 +2,13 @@ package com.classic;
 
 import java.io.IOException;
 
+import org.custom.Custom;
+
 final class EngineHandle
 {
 	int anInt16;
-	byte[] aByteArray1;
-	static int[] anIntArray8;
-	byte[] aByteArray2;
+	byte[] membersMapData;
+	byte[] membersLandscapeData;
 	private int[] anIntArray9 = new int[256];
 	private final byte[][] aByteArrayArray1;
 	static String[] aStringArray7 = new String[100];
@@ -17,20 +18,17 @@ final class EngineHandle
 	int[][] anIntArrayArray4;
 	private final Camera aClass41_1;
 	private Model[] aClass23Array1 = new Model[64];
-	static int[] anIntArray10;
 	private final boolean aBool1 = false;
 	private final int[][] anIntArrayArray5;
-	byte[] aByteArray3;
+	byte[] landscapeData;
 	private final byte[][] aByteArrayArray2;
 	int[] anIntArray11;
-	private final byte[][] aByteArrayArray3;
+	private final byte[][] maybe_objectRotationTable;
 	Model[][] aClass23ArrayArray1;
-	static int[] anIntArray12;
 	private byte[][] aByteArrayArray4;
-	static int[] anIntArray13;
 	private Model aClass23_1;
 	private final byte[][] aByteArrayArray5;
-	byte[] aByteArray4;
+	byte[] mapData;
 	int[] anIntArray14;
 	boolean playerIsAlive;
 	private final byte[][] aByteArrayArray6;
@@ -73,14 +71,14 @@ final class EngineHandle
 			return 0;
 		}
 		int i_11_ = 0;
-		if ((i_8_ >= 48) && (48 > i))
+		if (i_8_ >= 48 && 48 > i)
 		{
 			i_11_ = 1;
 			i_8_ -= 48;
 		}
-		else if ((48 <= i_8_) || (i < 48))
+		else if (48 <= i_8_ || i < 48)
 		{
-			if ((i_8_ >= 48) && (i >= 48))
+			if (i_8_ >= 48 && i >= 48)
 			{
 				i -= 48;
 				i_11_ = 3;
@@ -92,7 +90,7 @@ final class EngineHandle
 			i -= 48;
 			i_11_ = 2;
 		}
-		return aByteArrayArray3[i_11_][(i_8_ * 48) + i];
+		return maybe_objectRotationTable[i_11_][i_8_ * 48 + i];
 	}
 
 	private int method14(final int i, final int i_12_, final int i_13_, final byte i_14_)
@@ -106,14 +104,14 @@ final class EngineHandle
 		{
 			return -28;
 		}
-		return Model.anIntArray54[i_16_ - 1];
+		return EntityHandler.anIntArray54[i_16_ - 1];
 	}
 
 	void method15(final int i_17_, final int i_18_, final int i_19_, final int i_20_)
 	{
 		if ((i_18_ >= 0) && (i_20_ >= 0) && (95 > i_18_) && (95 > i_20_))
 		{
-			if (Class9.anIntArray21[i_19_] == 1)
+			if (EntityHandler.anIntArray21[i_19_] == 1)
 			{
 				if (i_17_ == 0)
 				{
@@ -249,7 +247,7 @@ final class EngineHandle
 
 	private void method21(final int i, final int i_38_, final int i_39_, final int i_40_, final int i_41_)
 	{
-		final int i_42_ = StreamClass.anIntArray140[i_38_];
+		final int i_42_ = EntityHandler.anIntArray140[i_38_];
 		if (80000 > anIntArrayArray5[i][i_40_])
 		{
 			anIntArrayArray5[i][i_40_] += 80000 - -i_42_;
@@ -354,26 +352,26 @@ final class EngineHandle
 	{
 		if ((i_62_ == -30895) && ((0 <= i_61_) && (0 <= i_60_) && (95 > i_61_) && (i_60_ < 95)))
 		{
-			if ((GameImage.anIntArray134[i] == 1) || (GameImage.anIntArray134[i] == 2))
+			if ((EntityHandler.objectdef_types[i] == 1) || (EntityHandler.objectdef_types[i] == 2))
 			{
 				final int i_63_ = method13(i_60_, i_61_);
 				int i_64_;
 				int i_65_;
 				if ((i_63_ == 0) || (i_63_ == 4))
 				{
-					i_64_ = Isaac.anIntArray17[i];
-					i_65_ = Class45.anIntArray115[i];
+					i_64_ = EntityHandler.maybe_objectdef_heights_or_widths[i];
+					i_65_ = EntityHandler.maybe_objectdef_widths_or_heights[i];
 				}
 				else
 				{
-					i_64_ = Class45.anIntArray115[i];
-					i_65_ = Isaac.anIntArray17[i];
+					i_64_ = EntityHandler.maybe_objectdef_widths_or_heights[i];
+					i_65_ = EntityHandler.maybe_objectdef_heights_or_widths[i];
 				}
 				for (int i_66_ = i_61_; i_66_ < (i_61_ + i_65_); i_66_++)
 				{
 					for (int i_67_ = i_60_; i_67_ < (i_64_ + i_60_); i_67_++)
 					{
-						if (GameImage.anIntArray134[i] != 1)
+						if (EntityHandler.objectdef_types[i] != 1)
 						{
 							if (i_63_ == 0)
 							{
@@ -431,20 +429,17 @@ final class EngineHandle
 	{
 		if (i_69_ >= 6)
 		{
-			final String string = new StringBuilder().append("m").append(i).append(i_71_ / 10).append(i_71_ % 10)
-			        .append(i_70_ / 10).append(i_70_ % 10).toString();
+			final String name = "m" + i + (i_71_ / 10) + (i_71_ % 10) + (i_70_ / 10) + (i_70_ % 10);
 			try
 			{
-				if (this.aByteArray3 != null)
+				if (this.landscapeData != null)
 				{
-					byte[] is = Camera.method292(this.aByteArray3, 0,
-					        new StringBuilder().append(string).append(".hei").toString(), 293484812);
-					if ((is == null) && (this.aByteArray2 != null))
+					byte[] is = Camera.loadData(this.landscapeData, 0, name + ".hei");
+					if (is == null && this.membersLandscapeData != null)
 					{
-						is = Camera.method292(this.aByteArray2, 0,
-						        new StringBuilder().append(string).append(".hei").toString(), 293484812);
+						is = Camera.loadData(this.membersLandscapeData, 0, name + ".hei");
 					}
-					if ((is == null) || (is.length <= 0))
+					if (is == null || is.length <= 0)
 					{
 						for (int i_72_ = 0; i_72_ < 2304; i_72_++)
 						{
@@ -510,12 +505,12 @@ final class EngineHandle
 							}
 						}
 					}
-					is = Camera.method292(this.aByteArray4, 0,
-					        new StringBuilder().append(string).append(".dat").toString(), 293484812);
-					if ((is == null) && (this.aByteArray1 != null))
+					
+					is = Camera.loadData(this.mapData, 0, name + ".dat");
+					
+					if ((is == null) && (this.membersMapData != null))
 					{
-						is = Camera.method292(this.aByteArray1, 0,
-						        new StringBuilder().append(string).append(".dat").toString(), 293484812);
+						is = Camera.loadData(this.membersMapData, 0, name + ".dat");
 					}
 					if ((is == null) || (is.length == 0))
 					{
@@ -582,32 +577,32 @@ final class EngineHandle
 						final int i_94_ = is[i_82_++] & 0xff;
 						if (i_94_ < 128)
 						{
-							aByteArrayArray3[i_68_][i_91_++] = (byte) i_94_;
+							maybe_objectRotationTable[i_68_][i_91_++] = (byte) i_94_;
 						}
 						else
 						{
-							for (int i_95_ = 0; (i_94_ + -128) > i_95_; i_95_++)
+							for (int i_95_ = 0; (i_94_ - 128) > i_95_; i_95_++)
 							{
-								aByteArrayArray3[i_68_][i_91_++] = (byte) 0;
+								maybe_objectRotationTable[i_68_][i_91_++] = (byte) 0;
 							}
 						}
 					}
-					is = Camera.method292(this.aByteArray4, 0,
-					        new StringBuilder().append(string).append(".loc").toString(), 293484812);
+					is = Camera.loadData(this.mapData, 0, name + ".loc");
+					
 					if ((is != null) && (is.length > 0))
 					{
 						i_82_ = 0;
 						i_91_ = 0;
 						while (i_91_ < 2304)
 						{
-							final int i_96_ = 0xff & is[i_82_++];
+							final int i_96_ = is[i_82_++] & 0xff;
 							if (i_96_ < 128)
 							{
 								anIntArrayArray3[i_68_][i_91_++] = i_96_ + 48000;
 							}
 							else
 							{
-								i_91_ = i_91_ + i_96_ + -128;
+								i_91_ = i_91_ + i_96_ - 128;
 							}
 						}
 					}
@@ -616,7 +611,7 @@ final class EngineHandle
 				{
 					final byte[] is = new byte[20736];
 					Class27_Sub1_Sub1.readFromPath(
-					        new StringBuilder().append("../gamedata/maps/").append(string).append(".jm").toString(), is,
+					        new StringBuilder().append("../gamedata/maps/").append(name).append(".jm").toString(), is,
 					        20736);
 					int i_97_ = 0;
 					int i_98_ = 0;
@@ -655,7 +650,7 @@ final class EngineHandle
 					}
 					for (int i_106_ = 0; 2304 > i_106_; i_106_++)
 					{
-						aByteArrayArray3[i_68_][i_106_] = is[i_98_++];
+						maybe_objectRotationTable[i_68_][i_106_] = is[i_98_++];
 					}
 				}
 			}
@@ -678,7 +673,7 @@ final class EngineHandle
 					{
 						aByteArrayArray1[i_68_][i_107_] = (byte) 8;
 					}
-					aByteArrayArray3[i_68_][i_107_] = (byte) 0;
+					maybe_objectRotationTable[i_68_][i_107_] = (byte) 0;
 				}
 			}
 		}
@@ -715,22 +710,22 @@ final class EngineHandle
 				{
 					int i_117_ = -method25(i_116_, i_115_, 66);
 					if ((0 < method44(127, i_116_, i_115_))
-					        && (4 == (Class9.anIntArray22[-1 + method44(67, i_116_, i_115_)])))
+					        && (4 == (EntityHandler.anIntArray22[-1 + method44(67, i_116_, i_115_)])))
 					{
 						i_117_ = 0;
 					}
 					if ((0 < method44(i_110_ + 17691, i_116_, i_115_ - 1))
-					        && (4 == (Class9.anIntArray22[-1 + method44(48, i_116_, i_115_ - 1)])))
+					        && (4 == (EntityHandler.anIntArray22[-1 + method44(48, i_116_, i_115_ - 1)])))
 					{
 						i_117_ = 0;
 					}
 					if ((method44(102, i_116_ + -1, i_115_) > 0)
-					        && ((Class9.anIntArray22[-1 + method44(119, i_116_ - 1, i_115_)]) == 4))
+					        && ((EntityHandler.anIntArray22[-1 + method44(119, i_116_ - 1, i_115_)]) == 4))
 					{
 						i_117_ = 0;
 					}
 					if ((0 < method44(55, i_116_ + -1, i_115_ - 1))
-					        && (4 == (Class9.anIntArray22[(method44(111, -1 + i_116_, -1 + i_115_) + -1)])))
+					        && (4 == (EntityHandler.anIntArray22[(method44(111, -1 + i_116_, -1 + i_115_) + -1)])))
 					{
 						i_117_ = 0;
 					}
@@ -757,9 +752,9 @@ final class EngineHandle
 					if (0 < method44(123, i_121_, i_120_))
 					{
 						final int i_127_ = method44(i_110_ + 17739, i_121_, i_120_);
-						i_122_ = Class9.anIntArray22[i_127_ + -1];
+						i_122_ = EntityHandler.anIntArray22[i_127_ + -1];
 						final int i_128_ = method41(i_121_, i_120_);
-						i_123_ = i_124_ = Model.anIntArray54[i_127_ + -1];
+						i_123_ = i_124_ = EntityHandler.anIntArray54[i_127_ + -1];
 						if (i_122_ == 4)
 						{
 							i_124_ = 1;
@@ -840,12 +835,12 @@ final class EngineHandle
 								i_126_ = 0;
 							}
 						}
-						if (Mob.anIntArray37[i_127_ + -1] != 0)
+						if (EntityHandler.anIntArray37[i_127_ + -1] != 0)
 						{
 							this.anIntArrayArray4[i_120_][i_121_] = GameWindow
 							        .bitwiseOr((this.anIntArrayArray4[i_120_][i_121_]), 64);
 						}
-						if (Class9.anIntArray22[i_127_ + -1] == 2)
+						if (EntityHandler.anIntArray22[i_127_ + -1] == 2)
 						{
 							this.anIntArrayArray4[i_120_][i_121_] = GameWindow
 							        .bitwiseOr((this.anIntArrayArray4[i_120_][i_121_]), 128);
@@ -927,15 +922,15 @@ final class EngineHandle
 				for (int i_137_ = 1; i_137_ < 95; i_137_++)
 				{
 					if ((method44(90, i_137_, i_136_) <= 0)
-					        || (Class9.anIntArray22[-1 + method44(101, i_137_, i_136_)] != 4))
+					        || (EntityHandler.anIntArray22[-1 + method44(101, i_137_, i_136_)] != 4))
 					{
 						if ((0 == method44(72, i_137_, i_136_))
-						        || (3 != (Class9.anIntArray22[method44(69, i_137_, i_136_) + -1])))
+						        || (3 != (EntityHandler.anIntArray22[method44(69, i_137_, i_136_) + -1])))
 						{
 							if ((method44(79, i_137_ + 1, i_136_) > 0)
-							        && (Class9.anIntArray22[method44(94, 1 + i_137_, i_136_) + -1] == 4))
+							        && (EntityHandler.anIntArray22[method44(94, 1 + i_137_, i_136_) + -1] == 4))
 							{
-								final int i_138_ = (Model.anIntArray54[-1
+								final int i_138_ = (EntityHandler.anIntArray54[-1
 								        + method44(i_110_ ^ ~0x44e3, i_137_ - -1, i_136_)]);
 								final int i_139_ = class23.method161( -method25(i_137_, i_136_, 76),
 								        i_136_ * 128, i_137_ * 128);
@@ -954,9 +949,9 @@ final class EngineHandle
 								method45(i_138_, 0, 0, i_137_, i_136_, i_138_);
 							}
 							if ((0 < method44(i_110_ ^ ~0x44bd, i_137_ - 1, i_136_))
-							        && (4 == (Class9.anIntArray22[-1 + method44(105, -1 + i_137_, i_136_)])))
+							        && (4 == (EntityHandler.anIntArray22[-1 + method44(105, -1 + i_137_, i_136_)])))
 							{
-								final int i_144_ = (Model.anIntArray54[-1
+								final int i_144_ = (EntityHandler.anIntArray54[-1
 								        + method44(i_110_ + 17721, i_137_ - 1, i_136_)]);
 								final int i_145_ = class23.method161(-method25(i_137_, i_136_, 48),
 								        i_136_ * 128, i_137_ * 128);
@@ -973,10 +968,10 @@ final class EngineHandle
 								class23.anIntArray60[i_149_] = i_149_ + 200000;
 								method45(i_144_, 0, 0, i_137_, i_136_, i_144_);
 							}
-							if ((0 < method44(97, i_137_, i_136_ + 1)) && (4 == (Class9.anIntArray22[-1
+							if ((0 < method44(97, i_137_, i_136_ + 1)) && (4 == (EntityHandler.anIntArray22[-1
 							        + method44(i_110_ ^ ~0x44a7, i_137_, i_136_ - -1)])))
 							{
-								final int i_150_ = (Model.anIntArray54[method44(65, i_137_, i_136_ - -1) - 1]);
+								final int i_150_ = (EntityHandler.anIntArray54[method44(65, i_137_, i_136_ - -1) - 1]);
 								final int i_151_ = class23.method161(-method25(i_137_, i_136_, 39),
 								        i_136_ * 128, i_137_ * 128);
 								final int i_152_ = class23.method161(-method25(i_137_, i_136_ + 1, 76),
@@ -994,9 +989,9 @@ final class EngineHandle
 								method45(i_150_, 0, 0, i_137_, i_136_, i_150_);
 							}
 							if ((method44(81, i_137_, i_136_ + -1) > 0)
-							        && (4 == (Class9.anIntArray22[(method44(78, i_137_, -1 + i_136_) - 1)])))
+							        && (4 == (EntityHandler.anIntArray22[(method44(78, i_137_, -1 + i_136_) - 1)])))
 							{
-								final int i_156_ = (Model.anIntArray54[-1 + method44(78, i_137_, i_136_ + -1)]);
+								final int i_156_ = (EntityHandler.anIntArray54[-1 + method44(78, i_137_, i_136_ + -1)]);
 								final int i_157_ = class23.method161(
 								        -method25(i_137_, i_136_, (i_110_ + 17682)), i_136_ * 128, i_137_ * 128);
 								final int i_158_ = class23.method161(-method25(i_137_, i_136_ + 1, 69),
@@ -1016,7 +1011,7 @@ final class EngineHandle
 					}
 					else
 					{
-						final int i_162_ = (Model.anIntArray54[method44(113, i_137_, i_136_) + -1]);
+						final int i_162_ = (EntityHandler.anIntArray54[method44(113, i_137_, i_136_) + -1]);
 						final int i_163_ = class23.method161(-method25(i_137_, i_136_, i_110_ ^ ~0x44fb),
 						        i_136_ * 128, i_137_ * 128);
 						final int i_164_ = class23.method161(-method25(i_137_, i_136_ + 1, 69),
@@ -1055,10 +1050,10 @@ final class EngineHandle
 			for (int i_173_ = 0; 95 > i_173_; i_173_++)
 			{
 				int i_174_ = method33(i_172_, i_173_);
-				if ((0 < i_174_) && ((Class18.anIntArray41[i_174_ + -1] == 0) || aBool1))
+				if ((0 < i_174_) && ((EntityHandler.anIntArray41[i_174_ + -1] == 0) || aBool1))
 				{
 					method37(i_110_ ^ ~0x444d, i_173_, i_174_ + -1, aClass23_1, i_172_ + 1, i_172_, i_173_);
-					if (bool && (Class9.anIntArray21[i_174_ - 1] != 0))
+					if (bool && (EntityHandler.anIntArray21[i_174_ - 1] != 0))
 					{
 						this.anIntArrayArray4[i_172_][i_173_] = GameWindow
 						        .bitwiseOr((this.anIntArrayArray4[i_172_][i_173_]), 1);
@@ -1073,10 +1068,10 @@ final class EngineHandle
 					}
 				}
 				i_174_ = method18(i_110_ ^ 0x44fd, i_172_, i_173_);
-				if ((i_174_ > 0) && ((Class18.anIntArray41[i_174_ + -1] == 0) || aBool1))
+				if ((i_174_ > 0) && ((EntityHandler.anIntArray41[i_174_ + -1] == 0) || aBool1))
 				{
 					method37(i_110_ + 17742, i_173_ + 1, i_174_ + -1, aClass23_1, i_172_, i_172_, i_173_);
-					if (bool && (Class9.anIntArray21[i_174_ + -1] != 0))
+					if (bool && (EntityHandler.anIntArray21[i_174_ + -1] != 0))
 					{
 						this.anIntArrayArray4[i_172_][i_173_] = GameWindow
 						        .bitwiseOr((this.anIntArrayArray4[i_172_][i_173_]), 2);
@@ -1091,10 +1086,10 @@ final class EngineHandle
 					}
 				}
 				i_174_ = method40(i_172_, i_173_);
-				if ((i_174_ > 0) && (i_174_ < 12000) && ((Class18.anIntArray41[i_174_ + -1] == 0) || aBool1))
+				if ((i_174_ > 0) && (i_174_ < 12000) && ((EntityHandler.anIntArray41[i_174_ + -1] == 0) || aBool1))
 				{
 					method37(128, i_173_ + 1, i_174_ + -1, aClass23_1, i_172_ - -1, i_172_, i_173_);
-					if (bool && (Class9.anIntArray21[i_174_ + -1] != 0))
+					if (bool && (EntityHandler.anIntArray21[i_174_ + -1] != 0))
 					{
 						this.anIntArrayArray4[i_172_][i_173_] = GameWindow
 						        .bitwiseOr((this.anIntArrayArray4[i_172_][i_173_]), 32);
@@ -1106,10 +1101,10 @@ final class EngineHandle
 						aClass46_1.method318((i_172_ * 3) + 2, i_110_ ^ 0x7726, (i_173_ * 3) - -2, i_171_);
 					}
 				}
-				if ((i_174_ > 12000) && (i_174_ < 24000) && ((Class18.anIntArray41[i_174_ + -12001] == 0) || aBool1))
+				if ((i_174_ > 12000) && (i_174_ < 24000) && ((EntityHandler.anIntArray41[i_174_ + -12001] == 0) || aBool1))
 				{
 					method37(128, i_173_ + 1, i_174_ + -12001, aClass23_1, i_172_, i_172_ + 1, i_173_);
-					if (bool && (Class9.anIntArray21[i_174_ + -12001] != 0))
+					if (bool && (EntityHandler.anIntArray21[i_174_ + -12001] != 0))
 					{
 						this.anIntArrayArray4[i_172_][i_173_] = GameWindow
 						        .bitwiseOr((this.anIntArrayArray4[i_172_][i_173_]), 16);
@@ -1279,7 +1274,7 @@ final class EngineHandle
 						int i_215_ = anIntArrayArray5[i_200_][i_201_];
 						int i_216_ = anIntArrayArray5[i_202_][i_203_];
 						int i_217_ = anIntArrayArray5[i_204_][i_205_];
-						final int i_218_ = Class38.anIntArray88[i_197_ + -1];
+						final int i_218_ = EntityHandler.anIntArray88[i_197_ + -1];
 						if (method39(i_199_, -3, i_198_) && (i_214_ < 80000))
 						{
 							i_214_ += i_218_ - -80000;
@@ -1383,7 +1378,7 @@ final class EngineHandle
 						}
 						i_217_ = -i_217_;
 						i_214_ = -i_214_;
-						i_197_ = anIntArray12[i_197_ + -1];
+						i_197_ = EntityHandler.anIntArray12[i_197_ + -1];
 						i_215_ = -i_215_;
 						i_216_ = -i_216_;
 						if ((method40(i_195_, i_196_) > 12000) && (method40(i_195_, i_196_) < 24000)
@@ -1518,16 +1513,16 @@ final class EngineHandle
 					int i_231_;
 					if ((i_229_ != 0) && (i_229_ != 4))
 					{
-						i_231_ = Isaac.anIntArray17[i_228_];
-						i_230_ = Class45.anIntArray115[i_228_];
+						i_231_ = EntityHandler.maybe_objectdef_heights_or_widths[i_228_];
+						i_230_ = EntityHandler.maybe_objectdef_widths_or_heights[i_228_];
 					}
 					else
 					{
-						i_230_ = Isaac.anIntArray17[i_228_];
-						i_231_ = Class45.anIntArray115[i_228_];
+						i_230_ = EntityHandler.maybe_objectdef_heights_or_widths[i_228_];
+						i_231_ = EntityHandler.maybe_objectdef_widths_or_heights[i_228_];
 					}
 					updateObjectAnd(i_228_, i_226_, i_227_);
-					final Model class23 = class23s[IOException_Sub1.anIntArray149[i_228_]].method167(false, false,
+					final Model class23 = class23s[EntityHandler.objectdef_itemIds[i_228_]].method167(false, false,
 					        false, true);
 					int i_232_ = ((i_231_ + i_226_ + i_226_) * 128) / 2;
 					int i_233_ = ((i_227_ + (i_227_ - -i_230_)) * 128) / 2;
@@ -1616,26 +1611,26 @@ final class EngineHandle
 	{
 		if ((i_241_ >= 0) && (0 <= i_242_) && (95 > i_241_) && (i_242_ < 95))
 		{
-			if ((GameImage.anIntArray134[i] == 1) || (GameImage.anIntArray134[i] == 2))
+			if ((EntityHandler.objectdef_types[i] == 1) || (EntityHandler.objectdef_types[i] == 2))
 			{
 				final int i_243_ = method13(i_242_, i_241_);
 				int i_244_;
 				int i_245_;
 				if ((i_243_ == 0) || (i_243_ == 4))
 				{
-					i_244_ = Class45.anIntArray115[i];
-					i_245_ = Isaac.anIntArray17[i];
+					i_244_ = EntityHandler.maybe_objectdef_widths_or_heights[i];
+					i_245_ = EntityHandler.maybe_objectdef_heights_or_widths[i];
 				}
 				else
 				{
-					i_244_ = Isaac.anIntArray17[i];
-					i_245_ = Class45.anIntArray115[i];
+					i_244_ = EntityHandler.maybe_objectdef_heights_or_widths[i];
+					i_245_ = EntityHandler.maybe_objectdef_widths_or_heights[i];
 				}
 				for (int i_246_ = i_241_; (i_241_ + i_244_) > i_246_; i_246_++)
 				{
 					for (int i_247_ = i_242_; (i_245_ + i_242_) > i_247_; i_247_++)
 					{
-						if (GameImage.anIntArray134[i] != 1)
+						if (EntityHandler.objectdef_types[i] != 1)
 						{
 							if (i_243_ == 0)
 							{
@@ -1832,9 +1827,9 @@ final class EngineHandle
 	{
 		method23(i_273_, i_272_, 40);
 		method23(i_269_, i_271_, 40);
-		final int i_274_ = StreamClass.anIntArray140[i_270_];
-		final int i_275_ = Class25.anIntArray79[i_270_];
-		final int i_276_ = Class3.anIntArray2[i_270_];
+		final int i_274_ = EntityHandler.anIntArray140[i_270_];
+		final int i_275_ = EntityHandler.anIntArray79[i_270_];
+		final int i_276_ = EntityHandler.anIntArray2[i_270_];
 		final int i_277_ = i_272_ * 128;
 		final int i_278_ = i_273_ * 128;
 		final int i_279_ = i_271_ * i;
@@ -1845,7 +1840,7 @@ final class EngineHandle
 		final int i_284_ = class23.method161(-anIntArrayArray5[i_271_][i_269_], i_279_, i_280_);
 		final int[] is = { i_281_, i_282_, i_283_, i_284_ };
 		final int i_285_ = class23.method144(is, i_276_, i_275_, -1062, 4);
-		if (Class18.anIntArray41[i_270_] != 5)
+		if (EntityHandler.anIntArray41[i_270_] != 5)
 		{
 			class23.anIntArray60[i_285_] = 0;
 		}
@@ -1935,7 +1930,7 @@ final class EngineHandle
 		{
 			return -1;
 		}
-		final int i_296_ = Class9.anIntArray22[i_295_ + -1];
+		final int i_296_ = EntityHandler.anIntArray22[i_295_ + -1];
 		if (i_296_ == 2)
 		{
 			return 1;
@@ -1947,7 +1942,7 @@ final class EngineHandle
 	{
 		if ((i_297_ >= 0) && (i_299_ >= 0) && (i_297_ < 95) && (95 > i_299_))
 		{
-			if (Class9.anIntArray21[i_298_] == 1)
+			if (EntityHandler.anIntArray21[i_298_] == 1)
 			{
 				if (i != 0)
 				{
@@ -2237,7 +2232,7 @@ final class EngineHandle
 	{
 		this.anIntArrayArray4 = new int[96][96];
 		this.anIntArray11 = new int[18432];
-		aByteArrayArray3 = new byte[4][2304];
+		maybe_objectRotationTable = new byte[4][2304];
 		aByteArrayArray2 = new byte[4][2304];
 		aByteArrayArray4 = new byte[4][2304];
 		this.anInt16 = 750;

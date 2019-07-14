@@ -19,9 +19,6 @@ final class AClass1_Sub1 extends AClass1
 {
 	private final ProxySelector aProxySelector1 = ProxySelector.getDefault();
 	static Class47 aClass47_1 = null;
-	static int anInt639;
-	static int[] anIntArray144;
-	static int[] anIntArray145;
 	static int anInt642;
 	static String[] aStringArray38 = { "Enter number of items to offer and press enter" };
 
@@ -35,7 +32,7 @@ final class AClass1_Sub1 extends AClass1
 		}
 		if (bool)
 		{
-			anIntArray144 = null;
+			EntityHandler.anIntArray144 = null;
 		}
 		final boolean bool_1_ = this.port == 443;
 		List<Proxy> list;

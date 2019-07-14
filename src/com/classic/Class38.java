@@ -2,16 +2,9 @@ package com.classic;
 
 final class Class38
 {
-	static int[][] anIntArrayArray12;
-	static String[] aStringArray26;
-	static int[] anIntArray88;
-	static int anInt396;
 	static int anInt398 = 0;
 	int anInt399;
 	static GameFrame gameFrame = null;
-	static String[] aStringArray27;
-	static int[] anIntArray89;
-
 	@SuppressWarnings("unused")
 	Class38(final String string, final String string_0_, final String string_1_, final int i)
 	{

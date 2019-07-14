@@ -7,8 +7,6 @@ final class Class4
 	        131071, 262143, 524287, 1048575, 2097151, 4194303, 8388607, 16777215, 33554431, 67108863, 134217727,
 	        268435455, 536870911, 1073741823, 2147483647, -1 };
 	static int modelNamesCount;
-	static String[] aStringArray6;
-	static int[] anIntArray5;
 	static int anInt15;
 	static int[] anIntArray6;
 
@@ -159,11 +157,11 @@ final class Class4
 		return Character.toLowerCase(c);
 	}
 
-	static int method10(final int i)
+	static int readUnsignedByte()
 	{
-		final int i_1_ = i & Class52.aByteArray20[Class25.anInt302];
-		Class25.anInt302++;
-		return i_1_;
+		final int result = Class52.integerData[Class25.maybe_offset] & 0xFF;
+		Class25.maybe_offset++;
+		return result;
 	}
 
 	static

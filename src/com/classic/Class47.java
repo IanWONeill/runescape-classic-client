@@ -8,7 +8,6 @@ final class Class47
 {
 	private Class39 aClass39_3;
 	private Class39 aClass39_4 = null;
-	static String[] aStringArray34;
 	static byte[] aByteArray18;
 	static int anInt573;
 	private int anInt574 = 65000;
@@ -16,10 +15,6 @@ final class Class47
 	static Class38 aClass38_6 = new Class38("WTRC", "office", "_rc", 1);
 	private final int anInt576;
 	static URL anURL3 = null;
-	static int anInt577;
-	static int[] anIntArray135;
-	static int[] anIntArray136;
-
 	private boolean method365(final byte[] is, boolean bool, final int i, final int i_1_)
 	{
 		synchronized (aClass39_3)

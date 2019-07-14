@@ -2,7 +2,6 @@ package com.classic;
 
 final class Class13
 {
-	static String[] aStringArray12;
 	static String[] aStringArray13 = new String[100];
 
 	static synchronized byte[] method109(final int i, final int i_0_)
@@ -19,8 +18,8 @@ final class Class13
 		}
 		if ((i_0_ == 5000) && (0 < Class38.anInt398))
 		{
-			final byte[] is = Class17.aByteArrayArray9[--Class38.anInt398];
-			Class17.aByteArrayArray9[Class38.anInt398] = null;
+			final byte[] is = EntityHandler.aByteArrayArray9[--Class38.anInt398];
+			EntityHandler.aByteArrayArray9[Class38.anInt398] = null;
 			return is;
 		}
 		if ((i_0_ == 30000) && (0 < Class4.anInt15))
@@ -155,7 +154,7 @@ final class Class13
 		while (false);
 		if (i_3_ != -6187)
 		{
-			aStringArray12 = null;
+			EntityHandler.aStringArray12 = null;
 		}
 		return "";
 	}

@@ -9,7 +9,6 @@ final class Mob
 	int stepFrame;
 	int waypointEndSprite;
 	int anInt148;
-	static int[] anIntArray37;
 	int[] waypointsX;
 	int waypointCurrentIndex;
 	int serverIndex;
@@ -32,7 +31,6 @@ final class Mob
 	int currentX;
 	int nextSprite;
 	String maybe_accountName;
-	static int[] anIntArray40;
 	int anInt168;
 	String aString8;
 	int anInt169;

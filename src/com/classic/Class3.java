@@ -6,12 +6,9 @@ import java.net.URL;
 final class Class3
 {
 	static int anInt7 = 0;
-	static int anInt8 = 0;
-	static String aString2 = "";
+	static int loadingPercentage = 0;
+	static String maybe_loadingText = "";
 	static String[] aStringArray4 = new String[100];
-	static int[] anIntArray2;
-	static int[] anIntArray3;
-
 	static int method6(final long l, final int i)
 	{
 		Class36.method229(l, 12);

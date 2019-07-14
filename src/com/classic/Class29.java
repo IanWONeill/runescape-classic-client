@@ -337,19 +337,15 @@ final class Class29
 		return aClass9Array1[i].anInt67;
 	}
 
-	static String method212(final int i)
+	static String readString()
 	{
 		String string = "";
-		while (StreamClass.aByteArray23[Class19.anInt208] != 0)
+		while (StreamClass.stringData[DataFileVariables.anInt208] != 0)
 		{
-			string = new StringBuilder().append(string).append((char) StreamClass.aByteArray23[Class19.anInt208++])
+			string = new StringBuilder().append(string).append((char) StreamClass.stringData[DataFileVariables.anInt208++])
 			        .toString();
 		}
-		if (i != 8854)
-		{
-			method212(3);
-		}
-		Class19.anInt208++;
+		DataFileVariables.anInt208++;
 		return string;
 	}
 

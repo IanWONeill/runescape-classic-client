@@ -6,11 +6,6 @@ final class Class45
 {
 	static Class24 aClass24_2;
 	static ImageConsumer anImageConsumer1;
-	static String[] aStringArray31 = { "Please enter the number of items to deposit", "and press enter" };
-	static int[] anIntArray115;
-	static String[] aStringArray32;
-	static int anInt494;
-
 	static Class24 method304(final int i, final int i_0_)
 	{
 		final Class24[] class24s = GameFrame.method488();
@@ -28,6 +23,5 @@ final class Class45
 	static
 	{
 		aClass24_2 = new Class24(2);
-		anInt494 = 0;
 	}
 }

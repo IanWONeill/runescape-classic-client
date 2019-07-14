@@ -2,6 +2,8 @@ package com.classic;
 
 import java.math.BigInteger;
 
+import org.custom.Custom;
+
 class ByteBuffer extends Class27
 {
 	int position = 0;
@@ -81,16 +83,12 @@ class ByteBuffer extends Class27
 		        + (((this.buffer[this.position - 2]) & 0xff) << 8));
 	}
 
-	boolean method393(final int i)
+	boolean compareCrc(final int offset)
 	{
 		this.position -= 4;
-		final int i_7_ = Class1.method1(-1, this.position, this.buffer, i);
-		final int i_8_ = readInt();
-		if (i_8_ == i_7_)
-		{
-			return true;
-		}
-		return false;
+		final int computedCrc = Class1.maybe_crc(-1, this.position, this.buffer, offset);
+		final int fileCrc = readInt();
+		return fileCrc == computedCrc;
 	}
 
 	void writeBytes(final int length, final byte[] src, final int srcOffset)

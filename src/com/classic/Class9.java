@@ -14,10 +14,6 @@ final class Class9
 	String aString4 = null;
 	String aString5;
 	int anInt72;
-	static int[] anIntArray20;
-	static int[] anIntArray21;
-	static int[] anIntArray22;
-
 	void method60(final int i, final String string, final String string_0_, final int i_1_, final String string_2_,
 	        final int i_3_, final int i_4_, final int i_5_, final String string_6_, final int i_7_, final int i_8_,
 	        final String string_9_)
@@ -68,7 +64,7 @@ final class Class9
 				final Class20 class20 = (Class48.aClass32_3
 				        .method216(
 				                new URL(GameImageMiddleMan.anApplet2.getCodeBase(),
-				                        new StringBuilder().append("clienterror.ws?c=").append(Class48.anInt579)
+				                        new StringBuilder().append("clienterror.ws?c=").append(Class48.clientVersion)
 				                                .append("&u=")
 				                                .append(Class2.aString1 == null ? new StringBuilder().append("")
 				                                        .append(GameWindow.aLong16).toString() : Class2.aString1)

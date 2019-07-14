@@ -15,8 +15,6 @@ final class RuntimeException_Sub1 extends RuntimeException
 	        16));
 	static String[] aStringArray41 = new String[200];
 	static Class24 aClass24_3 = new Class24(1);
-	static int[] anIntArray150;
-	static String[] aStringArray42;
 	static Class24 aClass24_4;
 
 	RuntimeException_Sub1(final Throwable throwable, final String string)
@@ -25,7 +23,7 @@ final class RuntimeException_Sub1 extends RuntimeException
 		this.aThrowable1 = throwable;
 	}
 
-	static int method461(String string, final byte[] is, final boolean bool)
+	static int method461(String string, final byte[] is)
 	{
 		final int i = Menu.method84(is, 0);
 		string = string.toUpperCase();
@@ -46,10 +44,6 @@ final class RuntimeException_Sub1 extends RuntimeException
 				return i_2_;
 			}
 			i_2_ += i_5_;
-		}
-		if (bool)
-		{
-			method461(null, null, true);
 		}
 		return 0;
 	}

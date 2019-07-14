@@ -8,16 +8,14 @@ final class Menu
 	private final String[][] aStringArrayArray1;
 	int[] anIntArray23;
 	int[] anIntArray24;
-	static int[] packetCommandLength;
 	private final boolean[] aBoolArray1;
 	static String[] aStringArray8 = new String[200];
-	private final String[] aStringArray9;
+	private final String[] menuObjectText;
 	private final int[] anIntArray26;
 	private final boolean aBool4;
 	static int anInt90;
 	private final int anInt91;
 	private final boolean[] aBoolArray2;
-	static String[] aStringArray10;
 	private final String[][] aStringArrayArray2;
 	private final int[] anIntArray27;
 	private final int anInt98;
@@ -35,11 +33,9 @@ final class Menu
 	private int anInt110 = 0;
 	private final GameImage aClass46_2;
 	private int lastMouseButton;
-	static String[] aStringArray11;
 	private final int[] anIntArray31;
 	static int anInt114;
 	static Class38 aClass38_1;
-	static int[] anIntArray32;
 	private int anInt115;
 	private int anInt117 = 0;
 	private final int[] anIntArray33;
@@ -48,7 +44,6 @@ final class Menu
 	static GameWindow gameWindow;
 	private final int anInt127;
 	private final int[] anIntArray34;
-	static int anInt129;
 	private final int[][] anIntArrayArray6;
 	private int anInt131;
 	private int anInt133;
@@ -217,8 +212,8 @@ final class Menu
 				{
 					if (menuObjectType[menuObject] == 1)
 					{
-						method64(0, aStringArray9[menuObject], menuObject, anIntArray30[menuObject], anIntArray26[menuObject], (anIntArray27[menuObject]
-						        - (aClass46_2.method328(aStringArray9[menuObject], -128, anIntArray26[menuObject]) / 2)));
+						method64(0, menuObjectText[menuObject], menuObject, anIntArray30[menuObject], anIntArray26[menuObject], (anIntArray27[menuObject]
+						        - (aClass46_2.method328(menuObjectText[menuObject], -128, anIntArray26[menuObject]) / 2)));
 					}
 					else if (menuObjectType[menuObject] == 2)
 					{
@@ -231,7 +226,7 @@ final class Menu
 							if ((menuObjectType[menuObject] == 5) || (menuObjectType[menuObject] == 6))
 							{
 								method104(anIntArray26[menuObject], anIntArray30[menuObject], anIntArray28[menuObject], menuObject, anIntArray31[menuObject],
-								        anIntArray27[menuObject], aStringArray9[menuObject]);
+								        anIntArray27[menuObject], menuObjectText[menuObject]);
 							}
 							else if (menuObjectType[menuObject] != 7)
 							{
@@ -282,7 +277,7 @@ final class Menu
 				}
 				else
 				{
-					method64(0, aStringArray9[menuObject], menuObject, anIntArray30[menuObject], anIntArray26[menuObject], anIntArray27[menuObject]);
+					method64(0, menuObjectText[menuObject], menuObject, anIntArray30[menuObject], anIntArray26[menuObject], anIntArray27[menuObject]);
 				}
 			}
 		}
@@ -302,7 +297,7 @@ final class Menu
 		aBoolArray2[menuObjectCount] = bool;
 		anIntArray27[menuObjectCount] = i_41_;
 		anIntArray30[menuObjectCount] = i_39_;
-		aStringArray9[menuObjectCount] = string;
+		menuObjectText[menuObjectCount] = string;
 		return menuObjectCount++;
 	}
 
@@ -362,7 +357,7 @@ final class Menu
 		anIntArray31[menuObjectCount] = i_56_;
 		anIntArray28[menuObjectCount] = i_58_;
 		anIntArray29[menuObjectCount] = i;
-		aStringArray9[menuObjectCount] = "";
+		menuObjectText[menuObjectCount] = "";
 		return menuObjectCount++;
 	}
 
@@ -605,16 +600,16 @@ final class Menu
 		}
 	}
 
-	void method86(final int i)
+	void keyDown(final int i)
 	{
 		if (i != 0)
 		{
-			if ((currentFocusHandle != -1) && (aStringArray9[currentFocusHandle] != null) && aBoolArray5[currentFocusHandle])
+			if ((currentFocusHandle != -1) && (menuObjectText[currentFocusHandle] != null) && aBoolArray5[currentFocusHandle])
 			{
-				final int i_103_ = aStringArray9[currentFocusHandle].length();
+				final int i_103_ = menuObjectText[currentFocusHandle].length();
 				if ((i == 8) && (0 < i_103_))
 				{
-					aStringArray9[currentFocusHandle] = aStringArray9[currentFocusHandle].substring(0, i_103_ - 1);
+					menuObjectText[currentFocusHandle] = menuObjectText[currentFocusHandle].substring(0, i_103_ - 1);
 				}
 				if (((i == 10) || (i == 13)) && (i_103_ > 0))
 				{
@@ -628,7 +623,7 @@ final class Menu
 						if (i == string.charAt(i_104_))
 						{
 							final StringBuilder stringbuilder = new StringBuilder();
-							final String[] strings = aStringArray9;
+							final String[] strings = menuObjectText;
 							final int i_105_ = currentFocusHandle;
 							strings[i_105_] = stringbuilder.append(strings[i_105_]).append((char) i).toString();
 						}
@@ -817,7 +812,7 @@ final class Menu
 		anIntArray31[menuObjectCount] = i_146_;
 		anIntArray28[menuObjectCount] = i_143_;
 		anIntArray29[menuObjectCount] = i_142_;
-		aStringArray9[menuObjectCount] = "";
+		menuObjectText[menuObjectCount] = "";
 		return menuObjectCount++;
 	}
 
@@ -884,13 +879,9 @@ final class Menu
 		}
 	}
 
-	void method98(final boolean bool, final String string, final int i)
+	void updateText(final String string, final int i)
 	{
-		aStringArray9[i] = string;
-		if (bool != true)
-		{
-			method79(48, 42);
-		}
+		menuObjectText[i] = string;
 	}
 
 	String method99(final int i, final int i_158_)
@@ -898,13 +889,13 @@ final class Menu
 		return aStringArrayArray1[i_158_][i];
 	}
 
-	String method100(final int i_161_)
+	String getText(final int i_161_)
 	{
-		if (aStringArray9[i_161_] == null)
+		if (menuObjectText[i_161_] == null)
 		{
 			return "null";
 		}
-		return aStringArray9[i_161_];
+		return menuObjectText[i_161_];
 	}
 
 	void method101(final int i)
@@ -998,7 +989,7 @@ final class Menu
 		anIntArray27 = new int[i];
 		aStringArrayArray1 = new String[i][];
 		aBoolArray5 = new boolean[i];
-		aStringArray9 = new String[i];
+		menuObjectText = new String[i];
 		this.anIntArray23 = new int[i];
 		aStringArrayArray3 = new String[i][];
 		aBoolArray4 = new boolean[i];
@@ -1050,9 +1041,8 @@ final class Menu
 
 	static
 	{
-		packetCommandLength = new int[256];
 		anInt90 = 0;
-		anInt129 = 0;
+		GameWindowMiddleMan.ignoreListCount = 0;
 		aClass38_1 = new Class38("INTBETA", "office", "_intbeta", 6);
 	}
 }

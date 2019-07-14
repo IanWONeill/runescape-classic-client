@@ -19,14 +19,14 @@ final class Class37_Sub1 extends AudioUnknown
 	@Override
 	int method233()
 	{
-		return anInt630 - (aSourceDataLine1.available() >> (maybe_isMono ? 2 : 1));
+		return anInt630 - (aSourceDataLine1.available() >> (maybe_isStereo ? 2 : 1));
 	}
 
 	@Override
 	void method240()
 	{
 		int i = 256;
-		if (maybe_isMono)
+		if (maybe_isStereo)
 		{
 			i <<= 1;
 		}
@@ -59,7 +59,7 @@ final class Class37_Sub1 extends AudioUnknown
 		try
 		{
 			final DataLine.Info info = new DataLine.Info(javax.sound.sampled.SourceDataLine.class, anAudioFormat1,
-			        i << (maybe_isMono ? 2 : 1));
+			        i << (maybe_isStereo ? 2 : 1));
 			aSourceDataLine1 = (SourceDataLine) AudioSystem.getLine(info);
 			aSourceDataLine1.open();
 			aSourceDataLine1.start();
@@ -100,7 +100,7 @@ final class Class37_Sub1 extends AudioUnknown
 				}
 			}
 		}
-		anAudioFormat1 = new AudioFormat(sampleRate, 16, maybe_isMono ? 2 : 1, true, false);
-		aByteArray25 = new byte[256 << (maybe_isMono ? 2 : 1)];
+		anAudioFormat1 = new AudioFormat(sampleRate, 16, maybe_isStereo ? 2 : 1, true, false);
+		aByteArray25 = new byte[256 << (maybe_isStereo ? 2 : 1)];
 	}
 }

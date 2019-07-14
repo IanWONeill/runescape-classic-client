@@ -11,9 +11,6 @@ final class GameFrame extends Frame
 	 *
 	 */
 	private static final long serialVersionUID = 1L;
-	static int anInt743;
-	static int[] anIntArray153;
-	static int anInt745;
 	private final int graphicsTranslate = 0;
 	private int frameOffset = 28;
 	private final int frameWidth;
@@ -26,26 +23,22 @@ final class GameFrame extends Frame
 		return -((i_1_ / 8) * 1024) + -((i / 8) * 32) + -(i_0_ / 8) + -1;
 	}
 
-	static int method487(final byte i, String string, final byte[] is)
+	static int method487(String file, final byte[] soundData)
 	{
-		final int i_3_ = Menu.method84(is, 0);
-		int i_4_ = 0;
-		string = string.toUpperCase();
-		if (i < 96)
+		final int i_3_ = Menu.method84(soundData, 0);
+		int searchHash = 0;
+		file = file.toUpperCase();
+		for (int index = 0; index < file.length(); index++)
 		{
-			anIntArray153 = null;
+			searchHash = file.charAt(index) + (61 * searchHash - 32);
 		}
-		for (int i_5_ = 0; i_5_ < string.length(); i_5_++)
+		for (int index = 0; i_3_ > index; index++)
 		{
-			i_4_ = string.charAt(i_5_) + ((61 * i_4_) + -32);
-		}
-		for (int i_6_ = 0; i_3_ > i_6_; i_6_++)
-		{
-			final int i_7_ = (((0xff & is[(i_6_ * 10) + 2]) * 16777216) + ((is[(i_6_ * 10) + 4] & 0xff) * 256)
-			        + ((is[(i_6_ * 10) + 3] & 0xff) * 65536) + (is[(i_6_ * 10) - -5] & 0xff));
-			final int i_8_ = (((0xff & is[(i_6_ * 10) + 7]) * 256) + ((0xff & is[(i_6_ * 10) - -6]) * 65536)
-			        + (0xff & is[(i_6_ * 10) + 8]));
-			if (i_7_ == i_4_)
+			final int hash = (((0xff & soundData[(index * 10) + 2]) * 16777216) + ((soundData[(index * 10) + 4] & 0xff) * 256)
+			        + ((soundData[(index * 10) + 3] & 0xff) * 65536) + (soundData[(index * 10) - -5] & 0xff));
+			final int i_8_ = (((0xff & soundData[(index * 10) + 7]) * 256) + ((0xff & soundData[(index * 10) - -6]) * 65536)
+			        + (0xff & soundData[(index * 10) + 8]));
+			if (hash == searchHash)
 			{
 				return i_8_;
 			}

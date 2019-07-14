@@ -4,15 +4,12 @@ final class Class1
 {
 	static Class39 aClass39_1 = null;
 	static int anInt1 = 0;
-	static int[][] anIntArrayArray1;
-	static int[] anIntArray1;
-
-	static int method1(final int i, final int i_0_, final byte[] is, final int i_1_)
+	static int maybe_crc(final int i, final int i_0_, final byte[] buffer, final int offset)
 	{
 		int result = -1;
-		for (int index = i_1_; i_0_ > index; index++)
+		for (int index = offset; index < i_0_; index++)
 		{
-			result = (result >>> 8) ^ Class44.anIntArray114[(is[index] ^ result) & 0xff];
+			result = (result >>> 8) ^ Class44.crcTable[(buffer[index] ^ result) & 0xff];
 		}
 		result ^= i;
 		return result;

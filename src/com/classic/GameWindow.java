@@ -16,9 +16,13 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.io.File;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
 import java.net.URL;
 
 import org.custom.Custom;
+
+import netscape.javascript.JSObject;
 
 public class GameWindow extends Applet implements Runnable, MouseListener, MouseMotionListener, KeyListener
 {
@@ -28,10 +32,8 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	private static final long serialVersionUID = 1L;
 	private int appletHeight;
 	Thread gameWindowThread = null;
-	static String[] aStringArray43 = { "Are you sure you wish to skip the tutorial", "and teleport to Lumbridge?" };
 	private int exitTimeout;
 	static char[] aCharArray3;
-	static String[] aStringArray44;
 	static int[] anIntArray151 = new int[2048];
 	static long aLong16;
 	boolean aBool37 = false;
@@ -59,16 +61,52 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	private boolean aBool40;
 	int lastMouseDownButton;
 	boolean aBool41;
-	String aString24;
+	String inputMessage;
 	int mouseX;
 	Graphics loadingGraphics;
 	boolean aBool42;
-	String aString25;
+	String enteredMessage;
 	String aString26;
 	boolean aBool43;
 	String aString27;
 	boolean aBool44;
 	int threadSleepTime;
+	
+	protected Socket makeSocket(final String host, final int port) throws IOException
+	{
+		Socket socket;
+		if ((Class38.gameFrame != null) || (Class27.anApplet1 == null))
+		{
+			if (Class38.gameFrame != null)
+			{
+				socket = new Socket(InetAddress.getByName(host), port);
+			}
+			else
+			{
+				socket = new Socket(InetAddress.getByName(getCodeBase().getHost()), port);
+			}
+		}
+		else
+		{
+			final Class20 class20 = GameFrame.aClass32_4.method221(host, 0, port);
+			while (class20.anInt216 == 0)
+			{
+				Isaac.unknownSleep(58, 50L);
+			}
+			if (class20.anInt216 != 1)
+			{
+				throw new IOException();
+			}
+			socket = (Socket) class20.socket;
+			if (socket == null)
+			{
+				throw new IOException();
+			}
+		}
+		socket.setSoTimeout(30000);
+		socket.setTcpNoDelay(true);
+		return socket;
+	}
 
 	private void method463(final String string)
 	{
@@ -80,11 +118,11 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 			{
 				if (Class27.anApplet1 == null)
 				{
-					Class11.method107("loggedout", this);
+					GameWindow.method107("loggedout", this);
 				}
 				else
 				{
-					Class11.method107("loggedout", Class27.anApplet1);
+					GameWindow.method107("loggedout", Class27.anApplet1);
 				}
 			}
 			catch (final Throwable throwable)
@@ -363,7 +401,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 	}
 
 	@SuppressWarnings("unused") // NOTE: Overridden by mudclient.
-	void method466(final int i) {}
+	void handleMenuKeyDown(final int i) {}
 
 	void method467(final int i)
 	{
@@ -431,16 +469,16 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		return super.getDocumentBase();
 	}
 
-	byte[] unpackData(final String fileTitle, final int percentage, final int i_14_)
+	byte[] unpackData(final String fileTitle, final int percentage, final int packIndex)
 	{
 		byte[] data;
 		try
 		{
-			data = Class2.method5(i_14_, percentage, fileTitle);
+			data = Class2.method5(packIndex, percentage, fileTitle);
 		}
 		catch (final IOException ioexception)
 		{
-			Class9.method61(ioexception, 118, "Unable to load content pack " + i_14_);
+			Class9.method61(ioexception, 118, "Unable to load content pack " + packIndex);
 			return null;
 		}
 		return data;
@@ -580,7 +618,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		{
 			return false;
 		}
-		final byte[] is_19_ = Camera.method292(is, 0, "logo.tga", 293484812);
+		final byte[] is_19_ = Camera.loadData(is, 0, "logo.tga");
 		this.anImage2 = method483(is_19_);
 		if (!Class25.loadFont(0, 29112, this, "h11p"))
 		{
@@ -673,7 +711,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 			appletWidth = i_26_;
 			loadingScreen = 1;
 			Class47.anURL3 = getCodeBase();
-			Class48.anInt579 = i_25_;
+			Class48.clientVersion = i_25_;
 			if (GameFrame.aClass32_4 == null)
 			{
 				Class48.aClass32_3 = GameFrame.aClass32_4 = new Class32(i_23_, null, 0, Class27.anApplet1 != null);
@@ -733,7 +771,13 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		method472(0, keyevent);
 		final char c = keyevent.getKeyChar();
 		final int i = keyevent.getKeyCode();
-		method466(c);
+		
+		if(Custom.EXISTS)
+		{
+			Custom.lastKey = i;
+		}
+		
+		handleMenuKeyDown(c);
 		if (i == 112)
 		{
 			this.aBool39 = !this.aBool39;
@@ -792,23 +836,23 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 			final GameWindow applet_sub1_29_ = this;
 			applet_sub1_29_.aString27 = stringbuilder.append(applet_sub1_29_.aString27).append(c).toString();
 		}
-		if (bool && (80 > this.aString24.length()))
+		if (bool && (80 > this.inputMessage.length()))
 		{
 			final StringBuilder stringbuilder = new StringBuilder();
 			final GameWindow applet_sub1_30_ = this;
-			applet_sub1_30_.aString24 = stringbuilder.append(applet_sub1_30_.aString24).append(c).toString();
+			applet_sub1_30_.inputMessage = stringbuilder.append(applet_sub1_30_.inputMessage).append(c).toString();
 		}
 		if ((c == '\010') && (0 < this.aString27.length()))
 		{
 			this.aString27 = this.aString27.substring(0, -1 + this.aString27.length());
 		}
-		if ((c == '\010') && (this.aString24.length() > 0))
+		if ((c == '\010') && (this.inputMessage.length() > 0))
 		{
-			this.aString24 = this.aString24.substring(0, -1 + this.aString24.length());
+			this.inputMessage = this.inputMessage.substring(0, -1 + this.inputMessage.length());
 		}
 		if ((c == '\n') || (c == '\r'))
 		{
-			this.aString25 = this.aString24;
+			this.enteredMessage = this.inputMessage;
 			this.aString26 = this.aString27;
 		}
 	}
@@ -906,7 +950,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		return Class33.method223(this, is, (byte) -118);
 	}
 
-	void createWindow(final byte i, final boolean resizable, final int i_38_, final int height, 
+	void createWindow(final byte i, final boolean resizable, final int clientVersion, final int height, 
 					  final int port, 
 					  final int width,
 					  final String title, final int i_42_, final String string_43_)
@@ -919,7 +963,7 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 			Class38.gameFrame = new GameFrame(this, 800, 600, title, resizable);
 			Class38.gameFrame.setFocusTraversalKeysEnabled(false);
 			loadingScreen = 1;
-			Class48.anInt579 = i_38_;
+			Class48.clientVersion = clientVersion;
 			Class48.aClass32_3 = GameFrame.aClass32_4 = new Class32(i_42_, string_43_, 0, true);
 			try
 			{
@@ -961,6 +1005,11 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		return super.getSize();
 	}
 
+	static Object method107(final String string, final Applet applet) throws Throwable
+	{
+		return JSObject.getWindow(applet).call(string, null);
+	}
+
 	static int bitwiseOr(final int a, final int b)
 	{
 		return a | b;
@@ -990,9 +1039,9 @@ public class GameWindow extends Applet implements Runnable, MouseListener, Mouse
 		this.aBool41 = false;
 		this.lastMouseDownButton = 0;
 		this.mouseDownButton = 0;
-		this.aString24 = "";
+		this.inputMessage = "";
 		this.aString26 = "";
-		this.aString25 = "";
+		this.enteredMessage = "";
 		this.aBool42 = false;
 		this.aBool43 = false;
 		this.aBool44 = false;

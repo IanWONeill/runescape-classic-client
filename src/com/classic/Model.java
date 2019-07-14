@@ -23,7 +23,6 @@ final class Model
 	private int anInt234;
 	private int anInt236 = 95;
 	int anInt239;
-	static int[] anIntArray54;
 	private int anInt241;
 	private int anInt243;
 	private int[] anIntArray55;
@@ -66,7 +65,6 @@ final class Model
 	private int[] anIntArray68;
 	private boolean aBool12;
 	private int anInt276;
-	static String[] aStringArray17;
 	int[] anIntArray69;
 	boolean aBool13;
 	private int anInt281;
@@ -358,8 +356,8 @@ final class Model
 	        final int i_74_, final int i_75_, final int i_76_)
 	{
 		method143();
-		if ((AClass1.anInt320 < anInt284) || (AClass1_Sub1.anInt642 > anInt271) || (anInt241 > Class19.anInt207)
-		        || (anInt226 < Class17.anInt193) || (anInt227 > Class34.anInt371) || (anInt287 < CameraModel.anInt312))
+		if ((AClass1.anInt320 < anInt284) || (AClass1_Sub1.anInt642 > anInt271) || (anInt241 > DataFileVariables.anInt207)
+		        || (anInt226 < EntityHandler.anInt193) || (anInt227 > Class34.anInt371) || (anInt287 < CameraModel.anInt312))
 		{
 			this.aBool14 = false;
 		}

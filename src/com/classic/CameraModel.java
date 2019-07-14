@@ -7,7 +7,6 @@ final class CameraModel
 	int anInt306;
 	Model aClass23_2;
 	int anInt307;
-	static String[] aStringArray19;
 	static String[] aStringArray20;
 	int anInt308;
 	boolean aBool17;
@@ -20,7 +19,6 @@ final class CameraModel
 	int anInt314;
 	int anInt315;
 	int anInt316;
-	static int[] anIntArray80;
 	int anInt317;
 	int anInt318;
 	int anInt319;

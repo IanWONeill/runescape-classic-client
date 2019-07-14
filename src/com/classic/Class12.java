@@ -6,14 +6,13 @@ final class Class12 implements Runnable
 	Class32 aClass32_1;
 	AudioUnknown[] aClass37Array1 = new AudioUnknown[2];
 	boolean aBool5 = false;
-	static int anInt140 = 0;
 	boolean aBool6 = false;
 
 	static int method108()
 	{
-		final int i_0_ = Menu.method84(Class52.aByteArray20, Class25.anInt302);
-		Class25.anInt302 += 2;
-		return i_0_;
+		final int result = Menu.method84(Class52.integerData, Class25.maybe_offset);
+		Class25.maybe_offset += 2;
+		return result;
 	}
 
 	@Override

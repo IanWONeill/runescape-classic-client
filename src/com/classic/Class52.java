@@ -11,17 +11,19 @@ final class Class52
 {
 	static int anInt590 = 0;
 	static byte[][] aByteArrayArray14 = new byte[50][];
-	static byte[] aByteArray20;
-
+	static byte[] integerData;
+	static long aLong4;
+	static long aLong14;
+	
 	static synchronized long method377()
 	{
 		final long now = System.currentTimeMillis();
-		if (Camera.aLong14 > now)
+		if (Class52.aLong14 > now)
 		{
-			Class35.aLong4 += Camera.aLong14 - now;
+			Class52.aLong4 += Class52.aLong14 - now;
 		}
-		Camera.aLong14 = now;
-		return Class35.aLong4 + now;
+		Class52.aLong14 = now;
+		return Class52.aLong4 + now;
 	}
 
 	static int bitwiseAnd(final int a, final int b)

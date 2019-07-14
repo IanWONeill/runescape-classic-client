@@ -11,17 +11,13 @@ final class StreamClass extends PacketConstruction implements Runnable
 	private int anInt595;
 	private byte[] aByteArray21;
 	private boolean aBool30;
-	static int[] anIntArray139;
-	static String[] aStringArray35;
 	private boolean aBool31 = true;
 	private final OutputStream anOutputStream1;
-	static int[] anIntArray140;
 	private int anInt597 = 0;
 	private final byte[] aByteArray22;
 	static byte[][] aByteArrayArray15 = new byte[1000][];
 	private final InputStream anInputStream1;
-	static int[] anIntArray141;
-	static byte[] aByteArray23;
+	static byte[] stringData;
 	static Class38 aClass38_7 = new Class38("LOCAL", "", "local", 4);
 
 	@Override

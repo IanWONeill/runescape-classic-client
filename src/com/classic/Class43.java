@@ -3,7 +3,6 @@ package com.classic;
 final class Class43
 {
 	static String[] aStringArray29 = { "Please enter the number of items to withdraw", "and press enter" };
-	static int anInt486;
 	Class27 aClass27_3 = new Class27();
 	private Class27 aClass27_4;
 

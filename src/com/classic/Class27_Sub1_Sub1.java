@@ -64,12 +64,8 @@ final class Class27_Sub1_Sub1 extends ByteBuffer
 		return i_4_;
 	}
 
-	int method457(final int i)
+	int method457()
 	{
-		if (i != 32253)
-		{
-			method458();
-		}
 		return anInt665;
 	}
 

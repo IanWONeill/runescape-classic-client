@@ -3,12 +3,9 @@ package com.classic;
 final class Class22
 {
 	static Class38 aClass38_3;
-	static int[] packetCommandCount = new int[256];
 	static byte[] aByteArray11 = new byte[100000];
 	static byte[][][] aByteArrayArrayArray1;
 	static Class36 aClass36_1;
-	static String[] aStringArray16;
-
 	static AClass1 method135(final String string, final int i)
 	{
 		final AClass1_Sub1 aclass1_sub1 = new AClass1_Sub1();

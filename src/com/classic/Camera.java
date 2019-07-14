@@ -2,6 +2,8 @@ package com.classic;
 
 import java.awt.image.ColorModel;
 
+import org.custom.Custom;
+
 final class Camera
 {
 	private final int[] anIntArray91;
@@ -18,7 +20,6 @@ final class Camera
 	private int anInt422;
 	private final int[] anIntArray96;
 	private final int[] anIntArray97;
-	static long aLong14;
 	private int anInt425;
 	private int[][] anIntArrayArray14;
 	private final boolean aBool24 = false;
@@ -2390,17 +2391,17 @@ final class Camera
 		{
 			Class34.anInt371 = i;
 		}
-		if (Class17.anInt193 > i_450_)
+		if (EntityHandler.anInt193 > i_450_)
 		{
-			Class17.anInt193 = i_450_;
+			EntityHandler.anInt193 = i_450_;
 		}
 		if (CameraModel.anInt312 > i)
 		{
 			CameraModel.anInt312 = i;
 		}
-		if (Class19.anInt207 < i_450_)
+		if (DataFileVariables.anInt207 < i_450_)
 		{
-			Class19.anInt207 = i_450_;
+			DataFileVariables.anInt207 = i_450_;
 		}
 	}
 
@@ -2479,11 +2480,11 @@ final class Camera
 		final int i = (this.anInt437 * halfWidth) >> anInt482;
 		AClass1.anInt320 = 0;
 		final int i_471_ = (this.anInt437 * halfHeight) >> anInt482;
-		Class17.anInt193 = 0;
+		EntityHandler.anInt193 = 0;
 		CameraModel.anInt312 = 0;
 		Class34.anInt371 = 0;
 		AClass1_Sub1.anInt642 = 0;
-		Class19.anInt207 = 0;
+		DataFileVariables.anInt207 = 0;
 		method288(-i_471_, this.anInt437, -i);
 		method288(i_471_, this.anInt437, -i);
 		method288(-i_471_, this.anInt437, i);
@@ -2496,8 +2497,8 @@ final class Camera
 		CameraModel.anInt312 = anInt436 + CameraModel.anInt312;
 		AClass1_Sub1.anInt642 = anInt427 + AClass1_Sub1.anInt642;
 		Class34.anInt371 = anInt436 + Class34.anInt371;
-		Class17.anInt193 = anInt440 + Class17.anInt193;
-		Class19.anInt207 = anInt440 + Class19.anInt207;
+		EntityHandler.anInt193 = anInt440 + EntityHandler.anInt193;
+		DataFileVariables.anInt207 = anInt440 + DataFileVariables.anInt207;
 		modelArray[modelCount] = this.aClass23_3;
 		this.aClass23_3.anInt274 = 2;
 		for (int i_472_ = 0; i_472_ < modelCount; i_472_++)
@@ -2846,14 +2847,43 @@ final class Camera
 			}
 		}
 	}
-
-	static byte[] method292(final byte[] is, final int i, final String string, final int i_527_)
+	
+	static byte[] loadData(final byte[] data, final int maybe_dummy, String fileName)
 	{
-		if (i_527_ != 293484812)
+		final int i_23_ = ((0xff & data[0]) * 256) + (data[1] & 0xff);
+		int searchHash = 0;
+		fileName = fileName.toUpperCase();
+		for (int index = 0; index < fileName.length(); index++)
 		{
-			method292(null, -86, null, -66);
+			searchHash = (searchHash * 61) + (fileName.charAt(index) - 32);
 		}
-		return IOException_Sub1.method460(i, (byte) -68, is, null, string);
+		int offset = (i_23_ * 10) + 2;
+		for (int index = 0; i_23_ > index; index++)
+		{
+			final int hash = (((data[index*10 + 4] & 0xff) * 256) + (((data[index*10 + 2] & 0xff) * 16777216) + ((data[index*10 + 3] & 0xff) * 65536)) + (data[index*10 + 5] & 0xff));
+			final int decmp_len = ((((data[index*10 + 6] & 0xff) * 65536) + ((data[(index * 10) + 7] & 0xff) * 256)) + (data[(index * 10) + 8] & 0xff));
+			final int cmp_len = (((data[index*10 + 10] & 0xff) * 256) + ((data[index*10 + 9] & 0xff) * 65536) + (data[index*10 + 11] & 0xff));
+			
+			if (hash == searchHash)
+			{
+				byte[] dest = new byte[maybe_dummy + decmp_len];
+				
+				if (cmp_len != decmp_len)
+				{
+					DataFileDecrypter.unpackData(dest, decmp_len, data, offset);
+				}
+				else
+				{
+					for (int i = 0; i < decmp_len; i++)
+					{
+						dest[i] = data[offset + i];
+					}
+				}
+				return dest;
+			}
+			offset += cmp_len;
+		}
+		return null;
 	}
 
 	void method293(final int i, final int i_528_, final int i_529_, final int i_530_)

@@ -8,12 +8,8 @@ import java.io.RandomAccessFile;
 final class Class28
 {
 	private long aLong1;
-	static String[] aStringArray24 = new String[200];
 	private RandomAccessFile aRandomAccessFile1;
-	static String[] aStringArray25;
 	private final long aLong2;
-	static int[] anIntArray82;
-
 	private void method179() throws IOException
 	{
 		if (aRandomAccessFile1 != null)
@@ -23,16 +19,12 @@ final class Class28
 		}
 	}
 
-	static byte[] method180(final int i, final byte i_0_, final byte[] is, final int i_1_)
+	static byte[] method180(final int i, final byte[] is, final int i_1_)
 	{
 		final byte[] is_2_ = new byte[i];
 		for (int i_3_ = 0; i > i_3_; i_3_++)
 		{
 			is_2_[i_3_] = Class48.aByteArray19[Class52.bitwiseAnd(is[i_1_ + i_3_], 255)];
-		}
-		if (i_0_ != 99)
-		{
-			aStringArray24 = null;
 		}
 		return is_2_;
 	}

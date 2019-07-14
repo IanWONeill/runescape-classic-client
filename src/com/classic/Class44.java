@@ -5,9 +5,8 @@ final class Class44
 	private byte[] aByteArray17;
 	private final int[] anIntArray111;
 	static String[] aStringArray30 = { "Type the number of items to buy and press enter" };
-	static int[] anIntArray112;
 	private int[] anIntArray113;
-	static int[] anIntArray114 = new int[256];
+	static int[] crcTable = new int[256];
 
 	int method301(final byte[] is, final byte i, final byte[] is_0_, int i_1_, final int i_2_, int i_3_)
 	{
@@ -167,9 +166,9 @@ final class Class44
 		return i_5_ + -i_2_ + 1;
 	}
 
-	static int method302(final int i, final byte[] is)
+	static int maybe_crc(final int i, final byte[] is)
 	{
-		return Class1.method1(-1, i, is, 0);
+		return Class1.maybe_crc(-1, i, is, 0);
 	}
 
 	int method303(final byte[] is, int i_8_, final byte[] is_9_, final int i_10_, int i_11_)
@@ -310,21 +309,21 @@ final class Class44
 
 	static
 	{
-		for (int i = 0; 256 > i; i++)
+		for (int index = 0; index < crcTable.length; index++)
 		{
-			int i_36_ = i;
+			int generatedCrc = index;
 			for (int i_37_ = 0; i_37_ < 8; i_37_++)
 			{
-				if ((0x1 & i_36_) != 1)
+				if ((0x1 & generatedCrc) != 1)
 				{
-					i_36_ >>>= 1;
+					generatedCrc >>>= 1;
 				}
 				else
 				{
-					i_36_ = (i_36_ >>> 1) ^ ~0x12477cdf;
+					generatedCrc = (generatedCrc >>> 1) ^ ~0x12477cdf;
 				}
 			}
-			anIntArray114[i] = i_36_;
+			crcTable[index] = generatedCrc;
 		}
 	}
 }

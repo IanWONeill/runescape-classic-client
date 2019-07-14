@@ -7,7 +7,6 @@ import java.awt.image.IndexColorModel;
 final class Class33
 {
 	static int anInt368 = 0;
-	static int[] anIntArray84;
 
 	static Image method223(final Component component, final byte[] is, final byte i)
 	{

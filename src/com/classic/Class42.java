@@ -6,8 +6,6 @@ final class Class42
 	private static char[] aCharArray1 = new char[256];
 	static int anInt484 = 114;
 	static int[] anIntArray110;
-	static int[][] anIntArrayArray18;
-
 	static
 	{
 		for (int i = 0; i < 256; i++)

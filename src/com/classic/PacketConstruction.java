@@ -19,10 +19,11 @@ class PacketConstruction
 	private int anInt181;
 	private int packetStart;
 	private Isaac serverRandom;
-	static int anInt185 = 0;
 	private Isaac clientRandom;
 	Class27_Sub1_Sub1 aClass27_Sub1_Sub1_1;
 	int maxPacketReadCount;
+	static int[] packetCommandLength = new int[256];
+	static int[] packetCommandCount = new int[256];
 
 	private int readPacket(final byte[] data)
 	{
@@ -193,8 +194,8 @@ class PacketConstruction
 		if (maxPacketLength <= 10000)
 		{
 			final int i_11_ = this.aClass27_Sub1_Sub1_1.buffer[packetStart + 2] & 0xff;
-			Class22.packetCommandCount[i_11_]++;
-			Menu.packetCommandLength[i_11_] += this.aClass27_Sub1_Sub1_1.position - packetStart;
+			packetCommandCount[i_11_]++;
+			packetCommandLength[i_11_] += this.aClass27_Sub1_Sub1_1.position - packetStart;
 		}
 		packetStart = (this.aClass27_Sub1_Sub1_1.position);
 	}
