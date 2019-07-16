@@ -171,24 +171,24 @@ final class Class44
 		return Class1.maybe_crc(-1, i, is, 0);
 	}
 
-	int method303(final byte[] is, int i_8_, final byte[] is_9_, final int i_10_, int i_11_)
+	int method303(final byte[] is, int i_8_, final byte[] src, final int i_10_, int i_11_)
 	{
 		int i_12_ = 0;
 		i_8_ += i_11_;
 		int i_13_ = i_10_ << 3;
 		for (/**/; i_8_ > i_11_; i_11_++)
 		{
-			final int i_14_ = is_9_[i_11_] & 0xff;
+			final int i_14_ = src[i_11_] & 0xff;
 			final int i_15_ = anIntArray111[i_14_];
 			final int i_16_ = aByteArray17[i_14_];
 			if (i_16_ == 0)
 			{
-				throw new RuntimeException(new StringBuilder().append("").append(i_14_).toString());
+				throw new RuntimeException("" + i_14_);
 			}
 			int i_17_ = i_13_ >> 3;
 			int i_18_ = 0x7 & i_13_;
 			i_12_ &= -i_18_ >> 31;
-			final int i_19_ = i_17_ + ((i_18_ - -i_16_ - 1) >> 3);
+			final int i_19_ = i_17_ + ((i_18_ + i_16_ - 1) >> 3);
 			i_13_ += i_16_;
 			i_18_ += 24;
 			is[i_17_] = (byte) (i_12_ = GameWindow.bitwiseOr(i_12_, i_15_ >>> i_18_));

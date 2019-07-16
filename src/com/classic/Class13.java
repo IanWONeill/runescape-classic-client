@@ -18,8 +18,8 @@ final class Class13
 		}
 		if ((i_0_ == 5000) && (0 < Class38.anInt398))
 		{
-			final byte[] is = EntityHandler.aByteArrayArray9[--Class38.anInt398];
-			EntityHandler.aByteArrayArray9[Class38.anInt398] = null;
+			final byte[] is = aByteArrayArray9[--Class38.anInt398];
+			aByteArrayArray9[Class38.anInt398] = null;
 			return is;
 		}
 		if ((i_0_ == 30000) && (0 < Class4.anInt15))
@@ -43,7 +43,7 @@ final class Class13
 		return new byte[i_0_];
 	}
 
-	static String method110(final String string, final String string_2_, final int i, final int i_3_)
+	static String method110(final String string, final String string_2_, final int i)
 	{
 		final int i_4_ = i;
 		while_20_: do
@@ -152,10 +152,8 @@ final class Class13
 			return new StringBuilder().append(string_2_).append(": ").append(string).toString();
 		}
 		while (false);
-		if (i_3_ != -6187)
-		{
-			EntityHandler.aStringArray12 = null;
-		}
 		return "";
 	}
+
+	static byte[][] aByteArrayArray9 = new byte[250][];
 }

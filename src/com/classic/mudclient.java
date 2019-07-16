@@ -4,11 +4,9 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.InetAddress;
-import java.net.Socket;
 
+import org.custom.Constants;
 import org.custom.Custom;
 
 public final class mudclient extends GameWindowMiddleMan
@@ -41,7 +39,7 @@ public final class mudclient extends GameWindowMiddleMan
 	private int anInt876;
 	private final int[] mouseClickY;
 	private boolean aBool53 = false;
-	private final int maybe_windowHeight;
+	private final int windowHeight;
 	private int anInt880;
 	private int anInt882;
 	private final Mob[] mobArray;
@@ -121,7 +119,7 @@ public final class mudclient extends GameWindowMiddleMan
 	private final int[] characterTopBottomColors;
 	private Menu gameMenu;
 	private final String[] questListArray;
-	private final int[] anIntArray166;
+	private final int[] inventoryItemsCount;
 	private int anInt950;
 	private int anInt951;
 	private int anInt952;
@@ -157,7 +155,7 @@ public final class mudclient extends GameWindowMiddleMan
 	private int welcomeRecoverySetDays;
 	private int anInt964;
 	private int anInt965;
-	private Menu aClass10_3;
+	private Menu spellMenu;
 	private final boolean[] aBoolArray14;
 	private int anInt966;
 	private int anInt967;
@@ -228,7 +226,7 @@ public final class mudclient extends GameWindowMiddleMan
 	private String aString32;
 	private final int[] anIntArray188;
 	private int anInt1002;
-	private int anInt1003;
+	private int menuMagicPrayersSelected;
 	private String aString33;
 	private int[] anIntArray189;
 	private final int[] wallObjectType;
@@ -247,7 +245,7 @@ public final class mudclient extends GameWindowMiddleMan
 	private boolean aBool79;
 	private String aString35;
 	private String aString36;
-	private final int[] anIntArray194;
+	private final int[] inventoryItems;
 	private final boolean aBool80;
 	private final int[] anIntArray195;
 	private String aString37;
@@ -266,7 +264,7 @@ public final class mudclient extends GameWindowMiddleMan
 	private int anInt1014;
 	private final String[] equipmentStatusName;
 	private final Model[] modelCache;
-	private int anInt1015;
+	private int inventoryCount;
 	private final int[] groundItemY;
 	private int anInt1016;
 	private int anInt1017;
@@ -288,7 +286,7 @@ public final class mudclient extends GameWindowMiddleMan
 	private boolean configMouseButtons;
 	private int anInt1025;
 	private int anInt1026;
-	private final int[] anIntArray205;
+	private final int[] wearing;
 	private int anInt1027;
 	private int anInt1028;
 	private boolean aBool84;
@@ -315,7 +313,7 @@ public final class mudclient extends GameWindowMiddleMan
 	private final int[] anIntArray210;
 	private int anInt1042;
 	private boolean aBool87;
-	private int anInt1043;
+	private int spellMenuHandle;
 	private int anInt1044;
 	private final int[] characterHairColors;
 	private int anInt1045;
@@ -357,6 +355,7 @@ public final class mudclient extends GameWindowMiddleMan
 	private AudioUnknown aClass37_1;
 	private int anInt1064;
 	private final int[] anIntArray221;
+	static int[] messagesTimeout = new int[100];
 	protected static String[] aStringArray43 = { "Are you sure you wish to skip the tutorial", "and teleport to Lumbridge?" };
 	static String[] aStringArray31 = { "Please enter the number of items to deposit", "and press enter" };
 
@@ -365,7 +364,7 @@ public final class mudclient extends GameWindowMiddleMan
 		final int i = this.anInt720;
 		final int i_0_ = this.anInt694;
 		final int i_1_ = (anInt941 - i) + -maybe_windowWidth;
-		final int i_2_ = ((-maybe_windowHeight - 12) + anInt1023) - i_0_;
+		final int i_2_ = ((-windowHeight - 12) + anInt1023) - i_0_;
 		if ((i > 0) || (i_1_ > 0) || (0 < i_0_) || (0 < i_2_))
 		{
 			try
@@ -429,7 +428,7 @@ public final class mudclient extends GameWindowMiddleMan
 			}
 			else
 			{
-				streamClass.createPacket(102);
+				streamClass.createPacket(Constants.CPacketID_RequestLogout);
 				streamClass.finishPacket();
 				logoutTimeout = 1000;
 			}
@@ -771,10 +770,10 @@ public final class mudclient extends GameWindowMiddleMan
 				        new StringBuilder().append("@whi@").append(string).append(string_41_).toString());
 			}
 		}
-		else if ((EntityHandler.anIntArray153[anInt940] == 1) || (EntityHandler.anIntArray153[anInt940] == 2))
+		else if ((EntityHandler.spelldef_type[anInt940] == 1) || (EntityHandler.spelldef_type[anInt940] == 2))
 		{
 			aClass29_1.method195(
-			        new StringBuilder().append("Cast ").append(EntityHandler.aStringArray36[anInt940]).append(" on")
+			        new StringBuilder().append("Cast ").append(EntityHandler.spelldef_name[anInt940]).append(" on")
 			                .toString(),
 			        class15.serverIndex, new StringBuilder().append("@whi@").append(string).append(string_41_).toString(),
 			        0, anInt940, 800);
@@ -1061,18 +1060,18 @@ public final class mudclient extends GameWindowMiddleMan
 	{
 		boolean bool = false;
 		int i_71_ = 0;
-		final int i_72_ = anIntArray194[i_69_];
+		final int i_72_ = inventoryItems[i_69_];
 		for (int i_73_ = 0; i_73_ < anInt1049; i_73_++)
 		{
 			if (i_72_ == anIntArray180[i_73_])
 			{
-				if (EntityHandler.anIntArray1[i_72_] == 0)
+				if (EntityHandler.itemdef_isUnstackable[i_72_] == 0)
 				{
 					if (0 > i)
 					{
 						for (int i_74_ = 0; anInt1036 > i_74_; i_74_++)
 						{
-							if (anIntArray164[i_73_] < anIntArray166[i_69_])
+							if (anIntArray164[i_73_] < inventoryItemsCount[i_69_])
 							{
 								anIntArray164[i_73_]++;
 							}
@@ -1083,9 +1082,9 @@ public final class mudclient extends GameWindowMiddleMan
 					{
 						anIntArray164[i_73_] += i;
 						bool = true;
-						if (anIntArray164[i_73_] > anIntArray166[i_69_])
+						if (anIntArray164[i_73_] > inventoryItemsCount[i_69_])
 						{
-							anIntArray164[i_73_] = anIntArray166[i_69_];
+							anIntArray164[i_73_] = inventoryItemsCount[i_69_];
 						}
 					}
 				}
@@ -1095,14 +1094,14 @@ public final class mudclient extends GameWindowMiddleMan
 				}
 			}
 		}
-		final int i_75_ = method584(i_72_);
+		final int i_75_ = inventoryCount(i_72_);
 		if (i_70_ == 2)
 		{
 			if (i_71_ >= i_75_)
 			{
 				bool = true;
 			}
-			if (EntityHandler.anIntArray10[i_72_] == 1)
+			if (EntityHandler.itemdef_isQuest[i_72_] == 1)
 			{
 				displayMessage(0, "This object cannot be traded with other players", 0, null, -17, null, null, false);
 				bool = true;
@@ -1118,9 +1117,9 @@ public final class mudclient extends GameWindowMiddleMan
 						anInt1049++;
 						bool = true;
 						i_71_++;
-						if ((i_76_ == 0) && (EntityHandler.anIntArray1[i_72_] == 0))
+						if ((i_76_ == 0) && (EntityHandler.itemdef_isUnstackable[i_72_] == 0))
 						{
-							anIntArray164[anInt1049 + -1] = (i <= anIntArray166[i_69_] ? i : anIntArray166[i_69_]);
+							anIntArray164[anInt1049 + -1] = (i <= inventoryItemsCount[i_69_] ? i : inventoryItemsCount[i_69_]);
 							break;
 						}
 					}
@@ -1173,67 +1172,67 @@ public final class mudclient extends GameWindowMiddleMan
 			i_86_ = 3;
 			bool = true;
 		}
-		int i_87_ = (i_86_ * 3) + walkModel[((class15.stepFrame / (EntityHandler.anIntArray32[class15.type])) % 4)];
+		int i_87_ = (i_86_ * 3) + walkModel[((class15.stepFrame / (EntityHandler.npcdef_walkModel[class15.type])) % 4)];
 		if (class15.currentSprite == 8)
 		{
-			i_82_ -= ((i_79_ * EntityHandler.anIntArray80[class15.type]) / 100);
+			i_82_ -= ((i_79_ * EntityHandler.npcdef_combatSprite[class15.type]) / 100);
 			i_86_ = 5;
 			i_85_ = 2;
 			bool = false;
-			i_87_ = npcCombatModelArray1[(anInt930 / ((EntityHandler.anIntArray86[class15.type]) - 1)) % 8] + (i_86_ * 3);
+			i_87_ = npcCombatModelArray1[(anInt930 / ((EntityHandler.npcdef_combatModel[class15.type]) - 1)) % 8] + (i_86_ * 3);
 		}
 		else if (class15.currentSprite == 9)
 		{
-			i_82_ += ((i_79_ * EntityHandler.anIntArray80[class15.type]) / 100);
+			i_82_ += ((i_79_ * EntityHandler.npcdef_combatSprite[class15.type]) / 100);
 			i_86_ = 5;
 			bool = true;
 			i_85_ = 2;
-			i_87_ = (i_86_ * 3) + npcCombatModelArray2[(anInt930 / (EntityHandler.anIntArray86[(class15.type)])) % 8];
+			i_87_ = (i_86_ * 3) + npcCombatModelArray2[(anInt930 / (EntityHandler.npcdef_combatModel[(class15.type)])) % 8];
 		}
 		for (int i_88_ = 0; i_88_ < 12; i_88_++)
 		{
 			final int i_89_ = npcAnimationArray[i_85_][i_88_];
-			final int i_90_ = (EntityHandler.anIntArrayArray12[class15.type][i_89_]);
+			final int i_90_ = (EntityHandler.npcdef_sprites[class15.type][i_89_]);
 			if (0 <= i_90_)
 			{
 				int i_91_ = 0;
 				int i_92_ = 0;
 				int i_93_ = i_87_;
-				if (bool && (1 <= i_86_) && (i_86_ <= 3) && (EntityHandler.anIntArray20[i_90_] == 1))
+				if (bool && (1 <= i_86_) && (i_86_ <= 3) && (EntityHandler.animationdef_hasF[i_90_] == 1))
 				{
 					i_93_ += 15;
 				}
-				if ((i_86_ != 5) || (EntityHandler.anIntArray7[i_90_] == 1))
+				if ((i_86_ != 5) || (EntityHandler.animationdef_hasA[i_90_] == 1))
 				{
-					final int i_94_ = i_93_ - -EntityHandler.anIntArray78[i_90_];
+					final int i_94_ = i_93_ - -EntityHandler.animationdef_number[i_90_];
 					final int i_95_ = (gameGraphics.anIntArray125[i_94_]);
 					final int i_96_ = (gameGraphics.anIntArray122[i_94_]);
-					final int i_97_ = (gameGraphics.anIntArray125[EntityHandler.anIntArray78[i_90_]]);
+					final int i_97_ = (gameGraphics.anIntArray125[EntityHandler.animationdef_number[i_90_]]);
 					if ((i_95_ != 0) && (i_96_ != 0) && (i_97_ != 0))
 					{
 						i_92_ = (i_81_ * i_92_) / i_96_;
 						i_91_ = (i_91_ * i_84_) / i_95_;
 						final int i_98_ = (i_84_ * (gameGraphics.anIntArray125[i_94_])) / i_97_;
 						i_91_ -= (i_98_ + -i_84_) / 2;
-						int i_99_ = EntityHandler.anIntArray137[i_90_];
+						int i_99_ = EntityHandler.animationdef_color[i_90_];
 						int i_100_ = 0;
 						if (i_99_ != 1)
 						{
 							if (i_99_ == 2)
 							{
-								i_99_ = (EntityHandler.anIntArray3[class15.type]);
-								i_100_ = (EntityHandler.anIntArray85[class15.type]);
+								i_99_ = (EntityHandler.npcdef_topColor[class15.type]);
+								i_100_ = (EntityHandler.npcdef_skinColor[class15.type]);
 							}
 							else if (i_99_ == 3)
 							{
-								i_100_ = (EntityHandler.anIntArray85[class15.type]);
-								i_99_ = (EntityHandler.anIntArray150[class15.type]);
+								i_100_ = (EntityHandler.npcdef_skinColor[class15.type]);
+								i_99_ = (EntityHandler.npcdef_bottomColor[class15.type]);
 							}
 						}
 						else
 						{
-							i_99_ = (EntityHandler.anIntArray132[class15.type]);
-							i_100_ = (EntityHandler.anIntArray85[class15.type]);
+							i_99_ = (EntityHandler.npcdef_hairColor[class15.type]);
+							i_100_ = (EntityHandler.npcdef_skinColor[class15.type]);
 						}
 						gameGraphics.method348(bool, i_100_, -118, i_81_, i_92_ + i_80_, i_98_, i, i_94_, i_99_,
 						        i_91_ + i_82_);
@@ -1304,9 +1303,9 @@ public final class mudclient extends GameWindowMiddleMan
 		int i_109_ = i_106_;
 		int i_110_ = i_105_;
 		int i_111_ = i_106_;
-		final int i_112_ = EntityHandler.anIntArray79[i_104_];
-		final int i_113_ = EntityHandler.anIntArray2[i_104_];
-		final int i_114_ = EntityHandler.anIntArray140[i_104_];
+		final int i_112_ = EntityHandler.wallobjectdef_modelVar2[i_104_];
+		final int i_113_ = EntityHandler.wallobjectdef_modelVar3[i_104_];
+		final int i_114_ = EntityHandler.wallobjectdef_height[i_104_];
 		final Model class23 = new Model(4, 1);
 		if (i_107_ == 0)
 		{
@@ -1359,7 +1358,7 @@ public final class mudclient extends GameWindowMiddleMan
 
 	private void drawChatMessageTabs()
 	{
-		gameGraphics.drawPicture(anInt935 + 23, maybe_windowHeight + -4, 0);
+		gameGraphics.drawPicture(anInt935 + 23, windowHeight + -4, 0);
 		int i_119_ = Class34.method227(false, 200, 200, 255);
 		if (messagesTab == 0)
 		{
@@ -1369,7 +1368,7 @@ public final class mudclient extends GameWindowMiddleMan
 		{
 			i_119_ = Class34.method227(false, 50, 255, 50);
 		}
-		gameGraphics.drawText(i_119_, 255, 0, "All messages", maybe_windowHeight + 6, 54);
+		gameGraphics.drawText(i_119_, 255, 0, "All messages", windowHeight + 6, 54);
 		i_119_ = Class34.method227(false, 200, 200, 255);
 		if (messagesTab == 1)
 		{
@@ -1379,7 +1378,7 @@ public final class mudclient extends GameWindowMiddleMan
 		{
 			i_119_ = Class34.method227(false, 50, 255, 50);
 		}
-		gameGraphics.drawText(i_119_, 255, 0, "Chat history", maybe_windowHeight + 6, 155);
+		gameGraphics.drawText(i_119_, 255, 0, "Chat history", windowHeight + 6, 155);
 		i_119_ = Class34.method227(false, 200, 200, 255);
 		if (messagesTab == 2)
 		{
@@ -1389,7 +1388,7 @@ public final class mudclient extends GameWindowMiddleMan
 		{
 			i_119_ = Class34.method227(false, 50, 255, 50);
 		}
-		gameGraphics.drawText(i_119_, 255, 0, "Quest history", maybe_windowHeight + 6, 255);
+		gameGraphics.drawText(i_119_, 255, 0, "Quest history", windowHeight + 6, 255);
 		i_119_ = Class34.method227(false, 200, 200, 255);
 		if (messagesTab == 3)
 		{
@@ -1399,8 +1398,8 @@ public final class mudclient extends GameWindowMiddleMan
 		{
 			i_119_ = Class34.method227(false, 50, 255, 50);
 		}
-		gameGraphics.drawText(i_119_, 255, 0, "Private history", maybe_windowHeight + 6, 355);
-		gameGraphics.drawText(16777215, 255, 0, "Report abuse", maybe_windowHeight - -6, 457);
+		gameGraphics.drawText(i_119_, 255, 0, "Private history", windowHeight + 6, 355);
+		gameGraphics.drawText(16777215, 255, 0, "Report abuse", windowHeight - -6, 457);
 	}
 
 	@Override
@@ -1417,7 +1416,7 @@ public final class mudclient extends GameWindowMiddleMan
 		gameGraphics.method318(i_122_, i + -13290, i_121_ + -1, i_120_);
 		if (i != -2)
 		{
-			method584(-25);
+			inventoryCount(-25);
 		}
 		gameGraphics.method318(i_122_, i ^ 0x33ea, i_121_ + 1, i_120_);
 	}
@@ -1486,146 +1485,146 @@ public final class mudclient extends GameWindowMiddleMan
 		final Mob mob = playerArray[i];
 		if (mob.colorBottomType != 255)
 		{
-			int i_136_ = 0x7 & (mob.currentSprite + ((anInt843 + 16) / 32));
-			boolean bool = false;
-			int i_137_ = i_136_;
-			if (i_137_ != 5)
+			int wantedAnimDir = 0x7 & (mob.currentSprite + ((anInt843 + 16) / 32));
+			boolean mirrorX = false;
+			int actualAnimDir = wantedAnimDir;
+			if (actualAnimDir != 5)
 			{
-				if (i_137_ != 6)
+				if (actualAnimDir != 6)
 				{
-					if (i_137_ == 7)
+					if (actualAnimDir == 7)
 					{
-						bool = true;
-						i_137_ = 1;
+						mirrorX = true;
+						actualAnimDir = 1;
 					}
 				}
 				else
 				{
-					i_137_ = 2;
-					bool = true;
+					actualAnimDir = 2;
+					mirrorX = true;
 				}
 			}
 			else
 			{
-				bool = true;
-				i_137_ = 3;
+				mirrorX = true;
+				actualAnimDir = 3;
 			}
-			int i_138_ = ((i_137_ * 3) + walkModel[(mob.stepFrame / 6) % 4]);
+			int spriteOffset = ((actualAnimDir * 3) + walkModel[(mob.stepFrame / 6) % 4]);
 			if (mob.currentSprite != 8)
 			{
 				if (mob.currentSprite == 9)
 				{
-					bool = true;
-					i_136_ = 2;
+					mirrorX = true;
+					wantedAnimDir = 2;
 					i_130_ += (i_131_ * 5) / 100;
-					i_137_ = 5;
-					i_138_ = (i_137_ * 3) - -npcCombatModelArray2[(anInt930 / 6) % 8];
+					actualAnimDir = 5;
+					spriteOffset = (actualAnimDir * 3) - -npcCombatModelArray2[(anInt930 / 6) % 8];
 				}
 			}
 			else
 			{
 				i_130_ -= (i_131_ * 5) / 100;
-				bool = false;
-				i_137_ = 5;
-				i_136_ = 2;
-				i_138_ = npcCombatModelArray1[(anInt930 / 5) % 8] + (i_137_ * 3);
+				mirrorX = false;
+				actualAnimDir = 5;
+				wantedAnimDir = 2;
+				spriteOffset = npcCombatModelArray1[(anInt930 / 5) % 8] + (actualAnimDir * 3);
 			}
 			for (int i_139_ = 0; i_139_ < 12; i_139_++)
 			{
-				final int i_140_ = npcAnimationArray[i_136_][i_139_];
-				final int i_141_ = mob.animationCount[i_140_] - 1;
-				if (i_141_ >= 0)
+				final int animIndex = npcAnimationArray[wantedAnimDir][i_139_];
+				final int animId = mob.animationCount[animIndex] - 1;
+				if (animId >= 0)
 				{
-					int i_142_ = 0;
-					int i_143_ = 0;
-					int i_144_ = i_138_;
-					if (bool && (i_137_ >= 1) && (3 >= i_137_))
+					int spriteOffsetX = 0;
+					int spriteOffsetY = 0;
+					int mySpriteOffset = spriteOffset;
+					if (mirrorX && (actualAnimDir >= 1) && (3 >= actualAnimDir))
 					{
-						if (EntityHandler.anIntArray20[i_141_] != 1)
+						if (EntityHandler.animationdef_hasF[animId] != 1)
 						{
-							if ((i_140_ == 4) && (i_137_ == 1))
+							if ((animIndex == 4) && (actualAnimDir == 1))
 							{
-								i_143_ = -3;
-								i_142_ = -22;
-								i_144_ = (walkModel[((mob.stepFrame / 6) + 2) % 4]) + (i_137_ * 3);
+								spriteOffsetY = -3;
+								spriteOffsetX = -22;
+								mySpriteOffset = (walkModel[((mob.stepFrame / 6) + 2) % 4]) + (actualAnimDir * 3);
 							}
-							else if ((i_140_ != 4) || (i_137_ != 2))
+							else if ((animIndex != 4) || (actualAnimDir != 2))
 							{
-								if ((i_140_ != 4) || (i_137_ != 3))
+								if ((animIndex != 4) || (actualAnimDir != 3))
 								{
-									if ((i_140_ != 3) || (i_137_ != 1))
+									if ((animIndex != 3) || (actualAnimDir != 1))
 									{
-										if ((i_140_ != 3) || (i_137_ != 2))
+										if ((animIndex != 3) || (actualAnimDir != 2))
 										{
-											if ((i_140_ == 3) && (i_137_ == 3))
+											if ((animIndex == 3) && (actualAnimDir == 3))
 											{
-												i_144_ = ((walkModel[(((mob.stepFrame) / 6) + 2) % 4])
-												        + (i_137_ * 3));
-												i_143_ = 5;
-												i_142_ = -26;
+												mySpriteOffset = ((walkModel[(((mob.stepFrame) / 6) + 2) % 4])
+												        + (actualAnimDir * 3));
+												spriteOffsetY = 5;
+												spriteOffsetX = -26;
 											}
 										}
 										else
 										{
-											i_142_ = 0;
-											i_143_ = 8;
-											i_144_ = ((i_137_ * 3)
+											spriteOffsetX = 0;
+											spriteOffsetY = 8;
+											mySpriteOffset = ((actualAnimDir * 3)
 											        - -(walkModel[(((mob.stepFrame) / 6) + 2) % 4]));
 										}
 									}
 									else
 									{
-										i_144_ = (walkModel[((mob.stepFrame / 6) + 2) % 4]) + (i_137_ * 3);
-										i_142_ = 22;
-										i_143_ = 3;
+										mySpriteOffset = (walkModel[((mob.stepFrame / 6) + 2) % 4]) + (actualAnimDir * 3);
+										spriteOffsetX = 22;
+										spriteOffsetY = 3;
 									}
 								}
 								else
 								{
-									i_142_ = 26;
-									i_143_ = -5;
-									i_144_ = (walkModel[((mob.stepFrame / 6) + 2) % 4]) + (i_137_ * 3);
+									spriteOffsetX = 26;
+									spriteOffsetY = -5;
+									mySpriteOffset = (walkModel[((mob.stepFrame / 6) + 2) % 4]) + (actualAnimDir * 3);
 								}
 							}
 							else
 							{
-								i_143_ = -8;
-								i_142_ = 0;
-								i_144_ = (walkModel[((mob.stepFrame / 6) + 2) % 4]) + (i_137_ * 3);
+								spriteOffsetY = -8;
+								spriteOffsetX = 0;
+								mySpriteOffset = (walkModel[((mob.stepFrame / 6) + 2) % 4]) + (actualAnimDir * 3);
 							}
 						}
 						else
 						{
-							i_144_ += 15;
+							mySpriteOffset += 15;
 						}
 					}
-					if ((i_137_ != 5) || (EntityHandler.anIntArray7[i_141_] == 1))
+					if ((actualAnimDir != 5) || (EntityHandler.animationdef_hasA[animId] == 1))
 					{
-						final int i_145_ = i_144_ - -EntityHandler.anIntArray78[i_141_];
-						final int i_146_ = (gameGraphics.anIntArray125[i_145_]);
-						final int i_147_ = (gameGraphics.anIntArray122[i_145_]);
-						final int i_148_ = (gameGraphics.anIntArray125[EntityHandler.anIntArray78[i_141_]]);
+						final int sprite = mySpriteOffset + EntityHandler.animationdef_number[animId];
+						final int i_146_ = gameGraphics.anIntArray125[sprite];
+						final int i_147_ = gameGraphics.anIntArray122[sprite];
+						final int i_148_ = (gameGraphics.anIntArray125[EntityHandler.animationdef_number[animId]]);
 						if ((i_146_ != 0) && (i_147_ != 0) && (i_148_ != 0))
 						{
-							i_142_ = (i_132_ * i_142_) / i_146_;
-							i_143_ = (i_143_ * i_129_) / i_147_;
+							spriteOffsetX = (i_132_ * spriteOffsetX) / i_146_;
+							spriteOffsetY = (spriteOffsetY * i_129_) / i_147_;
 							final int i_149_ = (i_132_ * i_146_) / i_148_;
-							i_142_ -= (i_149_ + -i_132_) / 2;
-							int i_150_ = EntityHandler.anIntArray137[i_141_];
+							spriteOffsetX -= (i_149_ + -i_132_) / 2;
+							int colorMask1 = EntityHandler.animationdef_color[animId];
 							final int i_151_ = characterSkinColors[mob.colorSkinType];
-							if (i_150_ == 1)
+							if (colorMask1 == 1)
 							{
-								i_150_ = (characterHairColors[mob.colorHairType]);
+								colorMask1 = (characterHairColors[mob.colorHairType]);
 							}
-							else if (i_150_ == 2)
+							else if (colorMask1 == 2)
 							{
-								i_150_ = (characterTopBottomColors[mob.colorTopType]);
+								colorMask1 = (characterTopBottomColors[mob.colorTopType]);
 							}
-							else if (i_150_ == 3)
+							else if (colorMask1 == 3)
 							{
-								i_150_ = (characterTopBottomColors[mob.colorBottomType]);
+								colorMask1 = (characterTopBottomColors[mob.colorBottomType]);
 							}
-							gameGraphics.method348(bool, i_151_, -107, i_129_, i_135_ - -i_143_, i_149_, i_134_,  i_145_, i_150_, i_130_ - -i_142_);
+							gameGraphics.method348(mirrorX, i_151_, -107, i_129_, i_135_ - -spriteOffsetY, i_149_, i_134_,  sprite, colorMask1, i_130_ - -spriteOffsetX);
 						}
 					}
 				}
@@ -1805,7 +1804,7 @@ public final class mudclient extends GameWindowMiddleMan
 		for (int i_173_ = 99; i_173_ > 0; i_173_--)
 		{
 			ByteBuffer.anIntArray142[i_173_] = ByteBuffer.anIntArray142[i_173_ + -1];
-			Class29.anIntArray83[i_173_] = Class29.anIntArray83[i_173_ + -1];
+			mudclient.messagesTimeout[i_173_] = mudclient.messagesTimeout[i_173_ + -1];
 			GameImage.anIntArray126[i_173_] = GameImage.anIntArray126[i_173_ + -1];
 			Class13.aStringArray13[i_173_] = Class13.aStringArray13[i_173_ + -1];
 			Class27.aStringArray23[i_173_] = Class27.aStringArray23[i_173_ + -1];
@@ -1813,14 +1812,14 @@ public final class mudclient extends GameWindowMiddleMan
 			CameraModel.aStringArray21[i_173_] = CameraModel.aStringArray21[i_173_ + -1];
 		}
 		ByteBuffer.anIntArray142[0] = i_165_;
-		Class29.anIntArray83[0] = 300;
+		mudclient.messagesTimeout[0] = 300;
 		GameImage.anIntArray126[0] = i;
 		Class13.aStringArray13[0] = string_166_;
 		Class27.aStringArray23[0] = string_169_;
 		Class2.aStringArray3[0] = string;
 		CameraModel.aStringArray21[0] = string_172_;
 		final String string_174_ = new StringBuilder().append(string_172_)
-		        .append(Class13.method110(string, string_166_, i_165_, -6187)).toString();
+		        .append(Class13.method110(string, string_166_, i_165_)).toString();
 		if (i_165_ == 4)
 		{
 			if ((gameMenu.anIntArray24[anInt1052] + -4) != gameMenu.anIntArray23[anInt1052])
@@ -1883,17 +1882,17 @@ public final class mudclient extends GameWindowMiddleMan
 		{
 			for (int i_180_ = 0; 100 > i_180_; i_180_++)
 			{
-				if ((Class29.anIntArray83[i_180_] > 0) && ((ByteBuffer.anIntArray142[i_180_] == 4)
+				if ((mudclient.messagesTimeout[i_180_] > 0) && ((ByteBuffer.anIntArray142[i_180_] == 4)
 				        || (ByteBuffer.anIntArray142[i_180_] == 1) || (ByteBuffer.anIntArray142[i_180_] == 5)
 				        || (ByteBuffer.anIntArray142[i_180_] == 6)))
 				{
 					final String string = new StringBuilder().append(CameraModel.aStringArray21[i_180_])
 					        .append(Class13.method110(Class2.aStringArray3[i_180_], (Class13.aStringArray13[i_180_]),
-					                (ByteBuffer.anIntArray142[i_180_]), i ^ ~0x3f3a))
+					                (ByteBuffer.anIntArray142[i_180_])))
 					        .toString();
 					if ((this.mouseX > 7) && (this.mouseX < (gameGraphics.method328(string, -126, 1) + 7))
-					        && (this.mouseY > (-(i_180_ * 12) + maybe_windowHeight + -30))
-					        && (this.mouseY < (-(i_180_ * 12) + maybe_windowHeight + -18))
+					        && (this.mouseY > (-(i_180_ * 12) + windowHeight + -30))
+					        && (this.mouseY < (-(i_180_ * 12) + windowHeight + -18))
 					        && ((anInt887 == 2) || (configMouseButtons && (anInt887 == 1)))
 					        && method510(Class13.aStringArray13[i_180_], Class27.aStringArray23[i_180_], -126))
 					{
@@ -1939,10 +1938,10 @@ public final class mudclient extends GameWindowMiddleMan
 								String string = "";
 								int i_189_ = -1;
 								final int i_190_ = (npcArray[i_187_].type);
-								if (EntityHandler.anIntArray141[i_190_] > 0)
+								if (EntityHandler.npcdef_attackable[i_190_] > 0)
 								{
-									final int i_191_ = ((EntityHandler.anIntArray136[i_190_] + EntityHandler.anIntArray19[i_190_]
-									        + EntityHandler.anIntArray135[i_190_] + (EntityHandler.anIntArray143[i_190_]))
+									final int i_191_ = ((EntityHandler.npcdef_defense[i_190_] + EntityHandler.npcdef_strength[i_190_]
+									        + EntityHandler.npcdef_attack[i_190_] + (EntityHandler.npcdef_hits[i_190_]))
 									        / 4);
 									final int i_192_ = ((anIntArray200[1] + anIntArray200[2]
 									        + ((anIntArray200[3] + anIntArray200[0]) - -27)) / 4);
@@ -1985,10 +1984,10 @@ public final class mudclient extends GameWindowMiddleMan
 								}
 								if (anInt940 >= 0)
 								{
-									if (EntityHandler.anIntArray153[anInt940] == 2)
+									if (EntityHandler.spelldef_type[anInt940] == 2)
 									{
 										aClass29_1.method195(new StringBuilder().append("Cast ")
-										        .append(EntityHandler.aStringArray36[anInt940]).append(" on").toString(),
+										        .append(EntityHandler.spelldef_name[anInt940]).append(" on").toString(),
 										        npcArray[i_187_].serverIndex,
 										        new StringBuilder().append("@yel@").append(
 										                EntityHandler.npcdef_name[(npcArray[i_187_].type)])
@@ -1998,7 +1997,7 @@ public final class mudclient extends GameWindowMiddleMan
 								}
 								else if (0 > anInt989)
 								{
-									if (0 < EntityHandler.anIntArray141[i_190_])
+									if (0 < EntityHandler.npcdef_attackable[i_190_])
 									{
 										aClass29_1.method196("Attack", 0 > i_189_ ? 2715 : 715,
 										        new StringBuilder().append("@yel@").append(
@@ -2061,10 +2060,10 @@ public final class mudclient extends GameWindowMiddleMan
 								        groundItemX[i_187_]);
 							}
 						}
-						else if (EntityHandler.anIntArray153[anInt940] == 3)
+						else if (EntityHandler.spelldef_type[anInt940] == 3)
 						{
 							aClass29_1.method185(
-							        new StringBuilder().append("Cast ").append(EntityHandler.aStringArray36[anInt940])
+							        new StringBuilder().append("Cast ").append(EntityHandler.spelldef_name[anInt940])
 							                .append(" on").toString(),
 							        new StringBuilder().append("@lre@")
 							                .append(EntityHandler.itemdef_name[groundItemType[i_187_]]).toString(),
@@ -2081,22 +2080,22 @@ public final class mudclient extends GameWindowMiddleMan
 							{
 								if (anInt940 >= 0)
 								{
-									if (EntityHandler.anIntArray153[anInt940] == 5)
+									if (EntityHandler.spelldef_type[anInt940] == 5)
 									{
 										aClass29_1.method213(true, 400, objectRotation[i_193_],
 										        new StringBuilder().append("@cya@")
-										                .append(EntityHandler.objectdef_names[i_194_]).toString(),
+										                .append(EntityHandler.objectdef_name[i_194_]).toString(),
 										        objectY[i_193_], objectType[i_193_], objectX[i_193_],
 										        anInt940,
 										        new StringBuilder().append("Cast ")
-										                .append(EntityHandler.aStringArray36[anInt940]).append(" on")
+										                .append(EntityHandler.spelldef_name[anInt940]).append(" on")
 										                .toString());
 									}
 								}
 								else if (anInt989 >= 0)
 								{
 									aClass29_1.method213(true, 410, objectRotation[i_193_],
-									        new StringBuilder().append("@cya@").append(EntityHandler.objectdef_names[i_194_])
+									        new StringBuilder().append("@cya@").append(EntityHandler.objectdef_name[i_194_])
 									                .toString(),
 									        objectY[i_193_], objectType[i_193_], objectX[i_193_],
 									        anInt989, new StringBuilder().append("Use ").append(aString30)
@@ -2104,25 +2103,25 @@ public final class mudclient extends GameWindowMiddleMan
 								}
 								else
 								{
-									if (!EntityHandler.maybe_objectdef_command1s[i_194_].equalsIgnoreCase("WalkTo"))
+									if (!EntityHandler.objectdef_command1[i_194_].equalsIgnoreCase("WalkTo"))
 									{
-										aClass29_1.method185(EntityHandler.maybe_objectdef_command1s[i_194_],
+										aClass29_1.method185(EntityHandler.objectdef_command1[i_194_],
 										        new StringBuilder().append("@cya@")
-										                .append(EntityHandler.objectdef_names[i_194_]).toString(),
+										                .append(EntityHandler.objectdef_name[i_194_]).toString(),
 										        objectRotation[i_193_], objectY[i_193_], 420,
 										        objectType[i_193_], objectX[i_193_]);
 									}
-									if (!EntityHandler.maybe_objectdef_command2s[i_194_].equalsIgnoreCase("Examine"))
+									if (!EntityHandler.objectdef_command2[i_194_].equalsIgnoreCase("Examine"))
 									{
-										aClass29_1.method185(EntityHandler.maybe_objectdef_command2s[i_194_],
+										aClass29_1.method185(EntityHandler.objectdef_command2[i_194_],
 										        new StringBuilder().append("@cya@")
-										                .append(EntityHandler.objectdef_names[i_194_]).toString(),
+										                .append(EntityHandler.objectdef_name[i_194_]).toString(),
 										        objectRotation[i_193_], objectY[i_193_], 2400,
 										        objectType[i_193_], objectX[i_193_]);
 									}
 									aClass29_1.method196(
 									        "Examine", 3400, new StringBuilder().append("@cya@")
-									                .append(EntityHandler.objectdef_names[i_194_]).toString(),
+									                .append(EntityHandler.objectdef_name[i_194_]).toString(),
 									        i_194_);
 								}
 								aBoolArray13[i_193_] = true;
@@ -2148,11 +2147,11 @@ public final class mudclient extends GameWindowMiddleMan
 						{
 							if (anInt940 >= 0)
 							{
-								if (EntityHandler.anIntArray153[anInt940] == 4)
+								if (EntityHandler.spelldef_type[anInt940] == 4)
 								{
 									aClass29_1.method185(new StringBuilder().append("Cast ")
-									        .append(EntityHandler.aStringArray36[anInt940]).append(" on").toString(),
-									        new StringBuilder().append("@cya@").append(EntityHandler.aStringArray17[i_196_])
+									        .append(EntityHandler.spelldef_name[anInt940]).append(" on").toString(),
+									        new StringBuilder().append("@cya@").append(EntityHandler.wallobjectdef_name[i_196_])
 									                .toString(),
 									        wallObjectDirection[i_195_], wallObjectY[i_195_], 300, anInt940,
 									        wallObjectX[i_195_]);
@@ -2162,32 +2161,32 @@ public final class mudclient extends GameWindowMiddleMan
 							{
 								aClass29_1.method185(
 								        new StringBuilder().append("Use ").append(aString30).append(" with").toString(),
-								        new StringBuilder().append("@cya@").append(EntityHandler.aStringArray17[i_196_])
+								        new StringBuilder().append("@cya@").append(EntityHandler.wallobjectdef_name[i_196_])
 								                .toString(),
 								        wallObjectDirection[i_195_], wallObjectY[i_195_], 310, anInt989,
 								        wallObjectX[i_195_]);
 							}
 							else
 							{
-								if (!EntityHandler.aStringArray40[i_196_].equalsIgnoreCase("WalkTo"))
+								if (!EntityHandler.wallobjectdef_command1[i_196_].equalsIgnoreCase("WalkTo"))
 								{
 									aClass29_1.method193(wallObjectDirection[i_195_],
-									        new StringBuilder().append("@cya@").append(EntityHandler.aStringArray17[i_196_])
+									        new StringBuilder().append("@cya@").append(EntityHandler.wallobjectdef_name[i_196_])
 									                .toString(),
-									        (EntityHandler.aStringArray40[i_196_]), 320, wallObjectY[i_195_], 2743,
+									        (EntityHandler.wallobjectdef_command1[i_196_]), 320, wallObjectY[i_195_], 2743,
 									        wallObjectX[i_195_]);
 								}
-								if (!EntityHandler.aStringArray15[i_196_].equalsIgnoreCase("Examine"))
+								if (!EntityHandler.wallobjectdef_command2[i_196_].equalsIgnoreCase("Examine"))
 								{
 									aClass29_1.method193(wallObjectDirection[i_195_],
-									        new StringBuilder().append("@cya@").append(EntityHandler.aStringArray17[i_196_])
+									        new StringBuilder().append("@cya@").append(EntityHandler.wallobjectdef_name[i_196_])
 									                .toString(),
-									        EntityHandler.aStringArray15[i_196_], 2300, wallObjectY[i_195_], 2743,
+									        EntityHandler.wallobjectdef_command2[i_196_], 2300, wallObjectY[i_195_], 2743,
 									        wallObjectX[i_195_]);
 								}
 								aClass29_1.method196(
 								        "Examine", 3300, new StringBuilder().append("@cya@")
-								                .append(EntityHandler.aStringArray17[i_196_]).toString(),
+								                .append(EntityHandler.wallobjectdef_name[i_196_]).toString(),
 								        i_196_);
 							}
 							aBoolArray14[i_195_] = true;
@@ -2195,9 +2194,9 @@ public final class mudclient extends GameWindowMiddleMan
 					}
 				}
 			}
-			if ((0 <= anInt940) && (EntityHandler.anIntArray153[anInt940] <= 1))
+			if ((0 <= anInt940) && (EntityHandler.spelldef_type[anInt940] <= 1))
 			{
-				aClass29_1.method196(new StringBuilder().append("Cast ").append(EntityHandler.aStringArray36[anInt940])
+				aClass29_1.method196(new StringBuilder().append("Cast ").append(EntityHandler.spelldef_name[anInt940])
 				        .append(" on self").toString(), 1000, "", anInt940);
 			}
 			if (i_181_ != -1)
@@ -2214,10 +2213,10 @@ public final class mudclient extends GameWindowMiddleMan
 						        engineHandle.anIntArray11[i_197_], 920);
 					}
 				}
-				else if (EntityHandler.anIntArray153[anInt940] == 6)
+				else if (EntityHandler.spelldef_type[anInt940] == 6)
 				{
 					aClass29_1.method193(anInt940, "",
-					        new StringBuilder().append("Cast ").append(EntityHandler.aStringArray36[anInt940])
+					        new StringBuilder().append("Cast ").append(EntityHandler.spelldef_name[anInt940])
 					                .append(" on ground").toString(),
 					        900, engineHandle.anIntArray11[i_197_], i ^ 0x2da7, engineHandle.anIntArray14[i_197_]);
 				}
@@ -2256,7 +2255,7 @@ public final class mudclient extends GameWindowMiddleMan
 		{
 			final int i_213_ = i - -((i_212_ % 5) * 49);
 			final int i_214_ = ((i_212_ / 5) * 34) + 36;
-			if ((anInt1015 <= i_212_) || (anIntArray205[i_212_] != 1))
+			if ((inventoryCount <= i_212_) || (wearing[i_212_] != 1))
 			{
 				gameGraphics.method327(i_213_, i_214_, 49, 128, 108, Class34.method227(false, 181, 181, 181), 34);
 			}
@@ -2264,14 +2263,14 @@ public final class mudclient extends GameWindowMiddleMan
 			{
 				gameGraphics.method327(i_213_, i_214_, 49, 128, 118, 16711680, 34);
 			}
-			if (anInt1015 > i_212_)
+			if (inventoryCount > i_212_)
 			{
 				gameGraphics.method348(false, 0, -89, 32, i_214_, 48, 0,
-				        (EntityHandler.anIntArray144[anIntArray194[i_212_]]) + anInt863,
-				        (EntityHandler.anIntArray133[anIntArray194[i_212_]]), i_213_);
-				if (EntityHandler.anIntArray1[anIntArray194[i_212_]] == 0)
+				        (EntityHandler.itemdef_sprite[inventoryItems[i_212_]]) + anInt863,
+				        (EntityHandler.itemdef_color[inventoryItems[i_212_]]), i_213_);
+				if (EntityHandler.itemdef_isUnstackable[inventoryItems[i_212_]] == 0)
 				{
-					gameGraphics.method324(new StringBuilder().append("").append(anIntArray166[i_212_]).toString(),
+					gameGraphics.method324(new StringBuilder().append("").append(inventoryItemsCount[i_212_]).toString(),
 					        0, 1, 16776960, i_213_ + 1, i_214_ - -10);
 				}
 			}
@@ -2291,19 +2290,19 @@ public final class mudclient extends GameWindowMiddleMan
 			if ((i >= 0) && (i_217_ >= 0) && (i < 248) && (i_217_ < ((anInt973 / 5) * 34)))
 			{
 				final int i_218_ = (i / 49) - -((i_217_ / 34) * 5);
-				if (anInt1015 > i_218_)
+				if (inventoryCount > i_218_)
 				{
-					final int i_219_ = anIntArray194[i_218_];
+					final int i_219_ = inventoryItems[i_218_];
 					if (0 > anInt940)
 					{
 						if (0 > anInt989)
 						{
-							if (anIntArray205[i_218_] != 1)
+							if (wearing[i_218_] != 1)
 							{
-								if (EntityHandler.anIntArray8[i_219_] != 0)
+								if (EntityHandler.itemdef_wearableId[i_219_] != 0)
 								{
 									String string;
-									if ((0x18 & EntityHandler.anIntArray8[i_219_]) != 0)
+									if ((0x18 & EntityHandler.itemdef_wearableId[i_219_]) != 0)
 									{
 										string = "Wield";
 									}
@@ -2322,10 +2321,10 @@ public final class mudclient extends GameWindowMiddleMan
 								aClass29_1.method196("Remove", 620, new StringBuilder().append("@lre@")
 								        .append(EntityHandler.itemdef_name[i_219_]).toString(), i_218_);
 							}
-							if (!EntityHandler.aStringArray27[i_219_].equals(""))
+							if (!EntityHandler.itemdef_command[i_219_].equals(""))
 							{
 								aClass29_1
-								        .method196(EntityHandler.aStringArray27[i_219_], 640,
+								        .method196(EntityHandler.itemdef_command[i_219_], 640,
 								                new StringBuilder().append("@lre@")
 								                        .append(EntityHandler.itemdef_name[i_219_]).toString(),
 								                i_218_);
@@ -2346,10 +2345,10 @@ public final class mudclient extends GameWindowMiddleMan
 							        0, anInt989, 610);
 						}
 					}
-					else if (EntityHandler.anIntArray153[anInt940] == 3)
+					else if (EntityHandler.spelldef_type[anInt940] == 3)
 					{
 						aClass29_1.method195(
-						        new StringBuilder().append("Cast ").append(EntityHandler.aStringArray36[anInt940])
+						        new StringBuilder().append("Cast ").append(EntityHandler.spelldef_name[anInt940])
 						                .append(" on").toString(),
 						        i_218_,
 						        new StringBuilder().append("@lre@").append(EntityHandler.itemdef_name[i_219_]).toString(),
@@ -2600,19 +2599,19 @@ public final class mudclient extends GameWindowMiddleMan
 		{
 			do
 			{
-				anInt1047 = ((anInt1047 + -1) - -EntityHandler.anInt396) % EntityHandler.anInt396;
+				anInt1047 = ((anInt1047 + -1) - -EntityHandler.animationdef_count) % EntityHandler.animationdef_count;
 			}
-			while (((EntityHandler.anIntArray13[anInt1047] & 0x3) != 1)
-			        || ((EntityHandler.anIntArray13[anInt1047] & (anInt1028 * 4)) == 0));
+			while (((EntityHandler.animationdef_genderModel[anInt1047] & 0x3) != 1)
+			        || ((EntityHandler.animationdef_genderModel[anInt1047] & (anInt1028 * 4)) == 0));
 		}
 		if (characterDesignMenu.method81(anInt974))
 		{
 			do
 			{
-				anInt1047 = (anInt1047 + 1) % EntityHandler.anInt396;
+				anInt1047 = (anInt1047 + 1) % EntityHandler.animationdef_count;
 			}
-			while (((EntityHandler.anIntArray13[anInt1047] & 0x3) != 1)
-			        || (((anInt1028 * 4) & EntityHandler.anIntArray13[anInt1047]) == 0));
+			while (((EntityHandler.animationdef_genderModel[anInt1047] & 0x3) != 1)
+			        || (((anInt1028 * 4) & EntityHandler.animationdef_genderModel[anInt1047]) == 0));
 		}
 		if (characterDesignMenu.method81(anInt991))
 		{
@@ -2624,15 +2623,15 @@ public final class mudclient extends GameWindowMiddleMan
 		}
 		if (characterDesignMenu.method81(anInt996) || characterDesignMenu.method81(anInt956))
 		{
-			for (anInt1028 = -anInt1028 + 3; (((EntityHandler.anIntArray13[anInt1047] & 0x3) != 1)
-			        || ((EntityHandler.anIntArray13[anInt1047] & (anInt1028 * 4)) == 0)); anInt1047 = (anInt1047 + 1)
-			                % EntityHandler.anInt396)
+			for (anInt1028 = -anInt1028 + 3; (((EntityHandler.animationdef_genderModel[anInt1047] & 0x3) != 1)
+			        || ((EntityHandler.animationdef_genderModel[anInt1047] & (anInt1028 * 4)) == 0)); anInt1047 = (anInt1047 + 1)
+			                % EntityHandler.animationdef_count)
 			{
 				/* empty */
 			}
-			for (/**/; (((0x3 & EntityHandler.anIntArray13[anInt962]) != 2)
-			        || (((anInt1028 * 4) & EntityHandler.anIntArray13[anInt962]) == 0)); anInt962 = (anInt962 + 1)
-			                % EntityHandler.anInt396)
+			for (/**/; (((0x3 & EntityHandler.animationdef_genderModel[anInt962]) != 2)
+			        || (((anInt1028 * 4) & EntityHandler.animationdef_genderModel[anInt962]) == 0)); anInt962 = (anInt962 + 1)
+			                % EntityHandler.animationdef_count)
 			{
 				/* empty */
 			}
@@ -2663,7 +2662,7 @@ public final class mudclient extends GameWindowMiddleMan
 		}
 		if (characterDesignMenu.method81(anInt1029))
 		{
-			streamClass.createPacket(235);
+			streamClass.createPacket(Constants.CPacketID_RequestNewAppearance);
 			streamClass.aClass27_Sub1_Sub1_1.put(anInt1028);
 			streamClass.aClass27_Sub1_Sub1_1.put(anInt1047);
 			streamClass.aClass27_Sub1_Sub1_1.put(anInt962);
@@ -2819,7 +2818,7 @@ public final class mudclient extends GameWindowMiddleMan
 	{
 		final int i_245_ = anIntArray180[i_243_];
 		final int i_246_ = 0 <= i ? i : anInt1036;
-		if (EntityHandler.anIntArray1[i_245_] != 0)
+		if (EntityHandler.itemdef_isUnstackable[i_245_] != 0)
 		{
 			int i_247_ = 0;
 			for (int i_248_ = 0; (i_248_ < anInt1049) && (i_246_ > i_247_); i_248_++)
@@ -2871,19 +2870,19 @@ public final class mudclient extends GameWindowMiddleMan
 	{
 		boolean bool = false;
 		int i_254_ = 0;
-		final int i_255_ = anIntArray194[i_252_];
+		final int i_255_ = inventoryItems[i_252_];
 		for (int i_256_ = i; i_256_ < anInt1061; i_256_++)
 		{
 			if (i_255_ == anIntArray182[i_256_])
 			{
-				if (EntityHandler.anIntArray1[i_255_] == 0)
+				if (EntityHandler.itemdef_isUnstackable[i_255_] == 0)
 				{
 					if (i_253_ < 0)
 					{
 						for (int i_257_ = 0; i_257_ < anInt1036; i_257_++)
 						{
 							bool = true;
-							if (anIntArray166[i_252_] > anIntArray198[i_256_])
+							if (inventoryItemsCount[i_252_] > anIntArray198[i_256_])
 							{
 								anIntArray198[i_256_]++;
 							}
@@ -2892,9 +2891,9 @@ public final class mudclient extends GameWindowMiddleMan
 					else
 					{
 						anIntArray198[i_256_] += i_253_;
-						if (anIntArray198[i_256_] > anIntArray166[i_252_])
+						if (anIntArray198[i_256_] > inventoryItemsCount[i_252_])
 						{
-							anIntArray198[i_256_] = anIntArray166[i_252_];
+							anIntArray198[i_256_] = inventoryItemsCount[i_252_];
 						}
 						bool = true;
 					}
@@ -2905,12 +2904,12 @@ public final class mudclient extends GameWindowMiddleMan
 				}
 			}
 		}
-		final int i_258_ = method584(i_255_);
+		final int i_258_ = inventoryCount(i_255_);
 		if (i_258_ <= i_254_)
 		{
 			bool = true;
 		}
-		if (EntityHandler.anIntArray10[i_255_] == 1)
+		if (EntityHandler.itemdef_isQuest[i_255_] == 1)
 		{
 			displayMessage(0, "This object cannot be added to a duel offer", 0, null, -100, null, null, false);
 			bool = true;
@@ -2936,10 +2935,10 @@ public final class mudclient extends GameWindowMiddleMan
 					bool = true;
 					i_254_++;
 					anInt1061++;
-					if ((i_259_ == 0) && (EntityHandler.anIntArray1[i_255_] == 0))
+					if ((i_259_ == 0) && (EntityHandler.itemdef_isUnstackable[i_255_] == 0))
 					{
-						anIntArray198[anInt1061 + -1] = (anIntArray166[i_252_] >= i_253_ ? i_253_
-						        : anIntArray166[i_252_]);
+						anIntArray198[anInt1061 + -1] = (inventoryItemsCount[i_252_] >= i_253_ ? i_253_
+						        : inventoryItemsCount[i_252_]);
 						break;
 					}
 				}
@@ -3004,7 +3003,7 @@ public final class mudclient extends GameWindowMiddleMan
 				final int i_276_ = (i_271_ * 36) / 100;
 				final int i_277_ = (i_271_ * 24) / 100;
 				gameGraphics.method348(false, 0, i + -34, i_277_, (i_274_ / 2) + i_275_ + -(i_277_ / 2), i_276_, 0,
-				        (EntityHandler.anIntArray144[i_272_] + anInt863), EntityHandler.anIntArray133[i_272_],
+				        (EntityHandler.itemdef_sprite[i_272_] + anInt863), EntityHandler.itemdef_color[i_272_],
 				        i_269_ + -(i_276_ / 2));
 			}
 			for (int i_278_ = 0; i_278_ < anInt977; i_278_++)
@@ -3018,19 +3017,19 @@ public final class mudclient extends GameWindowMiddleMan
 		}
 	}
 
-	private boolean method526(final int i, final int i_283_)
+	private boolean hasRequiredRunes(final int i, final int i_283_)
 	{
 		if ((i_283_ != 31)
-		        || (!method565(197) && !method565(615) && !method565(682)))
+		        || (!isWearing(197) && !isWearing(615) && !isWearing(682)))
 		{
 			if ((i_283_ != 32)
-			        || (!method565(102) && !method565(616) && !method565(683)))
+			        || (!isWearing(102) && !isWearing(616) && !isWearing(683)))
 			{
 				if ((i_283_ != 33)
-				        || (!method565(101) && !method565(617) && !method565(684)))
+				        || (!isWearing(101) && !isWearing(617) && !isWearing(684)))
 				{
-					if ((i_283_ == 34) && (method565(103) || method565(618)
-					        || method565(685)))
+					if ((i_283_ == 34) && (isWearing(103) || isWearing(618)
+					        || isWearing(685)))
 					{
 						return true;
 					}
@@ -3049,7 +3048,7 @@ public final class mudclient extends GameWindowMiddleMan
 		{
 			return true;
 		}
-		if (method584(i_283_) >= i)
+		if (inventoryCount(i_283_) >= i)
 		{
 			return true;
 		}
@@ -3124,7 +3123,7 @@ public final class mudclient extends GameWindowMiddleMan
 				this.inputMessage = "";
 				inputBoxType = 0;
 				this.enteredMessage = "";
-				sendPrivateMessage(string, 218, privateMessageTarget);
+				sendPrivateMessage(string, privateMessageTarget);
 			}
 		}
 		if (inputBoxType == 3)
@@ -3181,7 +3180,7 @@ public final class mudclient extends GameWindowMiddleMan
 						if ((i_288_ > 216) && (30 < i_289_) && (i_288_ < 462) && (i_289_ < 235))
 						{
 							final int i_290_ = (((i_288_ - 217) / 49) + (((i_289_ + -31) / 34) * 5));
-							if ((0 <= i_290_) && (anInt1015 > i_290_))
+							if ((0 <= i_290_) && (inventoryCount > i_290_))
 							{
 								method503(-1, i_290_, 2);
 							}
@@ -3235,9 +3234,9 @@ public final class mudclient extends GameWindowMiddleMan
 								anInt984 = -i_293_ + 315;
 							}
 							final int i_294_ = (((i_288_ + -217) / 49) + (((i_289_ + -31) / 34) * 5));
-							if ((i_294_ >= 0) && (anInt1015 > i_294_))
+							if ((i_294_ >= 0) && (inventoryCount > i_294_))
 							{
-								final int i_295_ = anIntArray194[i_294_];
+								final int i_295_ = inventoryItems[i_294_];
 								aBool87 = true;
 								aClass29_2.method190();
 								aClass29_2.method195("Offer 1", i_295_, new StringBuilder().append("@lre@")
@@ -3344,17 +3343,17 @@ public final class mudclient extends GameWindowMiddleMan
 			int i_307_ = 0;
 			if (i_304_ == 1)
 			{
-				for (int i_308_ = 0; anInt1015 > i_308_; i_308_++)
+				for (int i_308_ = 0; inventoryCount > i_308_; i_308_++)
 				{
-					if (i_305_ == anIntArray194[i_308_])
+					if (i_305_ == inventoryItems[i_308_])
 					{
 						if (i_306_ < 0)
 						{
 							i_306_ = i_308_;
 						}
-						if (EntityHandler.anIntArray1[i_305_] == 0)
+						if (EntityHandler.itemdef_isUnstackable[i_305_] == 0)
 						{
-							i_307_ = anIntArray166[i_308_];
+							i_307_ = inventoryItemsCount[i_308_];
 							break;
 						}
 						i_307_++;
@@ -3371,7 +3370,7 @@ public final class mudclient extends GameWindowMiddleMan
 						{
 							i_306_ = i_309_;
 						}
-						if (EntityHandler.anIntArray1[i_305_] == 0)
+						if (EntityHandler.itemdef_isUnstackable[i_305_] == 0)
 						{
 							i_307_ = anIntArray164[i_309_];
 							break;
@@ -3473,16 +3472,16 @@ public final class mudclient extends GameWindowMiddleMan
 				gameGraphics.drawText(16777215, 255, 1, "Waiting for", i_312_ - -246, (i_311_ + 35) - -217);
 				gameGraphics.drawText(16777215, 255, 1, "other player", i_312_ + 256, i_311_ + 217 + 35);
 			}
-			for (int i_319_ = 0; i_319_ < anInt1015; i_319_++)
+			for (int i_319_ = 0; i_319_ < inventoryCount; i_319_++)
 			{
 				final int i_320_ = i_311_ + ((i_319_ % 5) * 49) + 217;
 				final int i_321_ = i_312_ + ((i_319_ / 5) * 34) + 31;
 				gameGraphics.method348(false, 0, -101, 32, i_321_, 48, 0,
-				        (anInt863 - -(EntityHandler.anIntArray144[anIntArray194[i_319_]])),
-				        (EntityHandler.anIntArray133[anIntArray194[i_319_]]), i_320_);
-				if (EntityHandler.anIntArray1[anIntArray194[i_319_]] == 0)
+				        (anInt863 - -(EntityHandler.itemdef_sprite[inventoryItems[i_319_]])),
+				        (EntityHandler.itemdef_color[inventoryItems[i_319_]]), i_320_);
+				if (EntityHandler.itemdef_isUnstackable[inventoryItems[i_319_]] == 0)
 				{
-					gameGraphics.method324(new StringBuilder().append("").append(anIntArray166[i_319_]).toString(),
+					gameGraphics.method324(new StringBuilder().append("").append(inventoryItemsCount[i_319_]).toString(),
 					        0, 1, 16776960, i_320_ + 1, i_321_ + 10);
 				}
 			}
@@ -3491,9 +3490,9 @@ public final class mudclient extends GameWindowMiddleMan
 				final int i_323_ = (i_311_ - -((i_322_ % 4) * 49)) + 9;
 				final int i_324_ = (i_312_ - -((i_322_ / 4) * 34)) + 31;
 				gameGraphics.method348(false, 0, i + -85, 32, i_324_, 48, 0,
-				        (EntityHandler.anIntArray144[anIntArray180[i_322_]]) + anInt863,
-				        (EntityHandler.anIntArray133[anIntArray180[i_322_]]), i_323_);
-				if (EntityHandler.anIntArray1[anIntArray180[i_322_]] == 0)
+				        (EntityHandler.itemdef_sprite[anIntArray180[i_322_]]) + anInt863,
+				        (EntityHandler.itemdef_color[anIntArray180[i_322_]]), i_323_);
+				if (EntityHandler.itemdef_isUnstackable[anIntArray180[i_322_]] == 0)
 				{
 					gameGraphics.method324(new StringBuilder().append("").append(anIntArray164[i_322_]).toString(),
 					        0, 1, 16776960, i_323_ + 1, i_324_ - -10);
@@ -3512,9 +3511,9 @@ public final class mudclient extends GameWindowMiddleMan
 				final int i_326_ = (9 - -i_311_) + ((i_325_ % 4) * 49);
 				final int i_327_ = i_312_ + ((i_325_ / 4) * 34) + 156;
 				gameGraphics.method348(false, 0, -65, 32, i_327_, 48, 0,
-				        (EntityHandler.anIntArray144[anIntArray181[i_325_]]) + anInt863,
-				        (EntityHandler.anIntArray133[anIntArray181[i_325_]]), i_326_);
-				if (EntityHandler.anIntArray1[anIntArray181[i_325_]] == 0)
+				        (EntityHandler.itemdef_sprite[anIntArray181[i_325_]]) + anInt863,
+				        (EntityHandler.itemdef_color[anIntArray181[i_325_]]), i_326_);
+				if (EntityHandler.itemdef_isUnstackable[anIntArray181[i_325_]] == 0)
 				{
 					gameGraphics.method324(new StringBuilder().append("").append(anIntArray209[i_325_]).toString(),
 					        i ^ 0x1, 1, 16776960, i_326_ + 1, i_327_ - -10);
@@ -3547,8 +3546,8 @@ public final class mudclient extends GameWindowMiddleMan
 	void drawGroundItem(final int i, final int i_328_, final int i_329_, final int i_330_, final int i_331_,
 	        final int i_332_)
 	{
-		final int i_333_ = EntityHandler.anIntArray144[i_328_] + anInt863;
-		final int i_334_ = EntityHandler.anIntArray133[i_328_];
+		final int i_333_ = EntityHandler.itemdef_sprite[i_328_] + anInt863;
+		final int i_334_ = EntityHandler.itemdef_color[i_328_];
 		gameGraphics.method348(false, 0, -90, i_329_, i_330_, i_332_, 0, i_333_, i_334_, i_331_);
 	}
 
@@ -3677,7 +3676,7 @@ public final class mudclient extends GameWindowMiddleMan
 		gameGraphics.method341(i_351_, i_352_ + (i_350_ - 16), i_349_, 0);
 		gameGraphics.drawText(0, 255, 4, "Friends", i_350_ + 16, i_349_ + (i_351_ / 4));
 		gameGraphics.drawText(0, 255, 4, "Ignore", i_350_ - -16, (i_349_ + (i_351_ / 4)) - -(i_351_ / 2));
-		aClass10_4.method75(0, anInt951);
+		aClass10_4.resetListTextCount(0, anInt951);
 		if (anInt1042 == 0)
 		{
 			for (int index = 0; index < GameWindowMiddleMan.friendsCount; index++)
@@ -4291,7 +4290,7 @@ public final class mudclient extends GameWindowMiddleMan
 	{
 		final int i_391_ = anIntArray182[i_390_];
 		final int i_392_ = 0 > i_389_ ? anInt1036 : i_389_;
-		if (EntityHandler.anIntArray1[i_391_] == 0)
+		if (EntityHandler.itemdef_isUnstackable[i_391_] == 0)
 		{
 			anIntArray198[i_390_] -= i_392_;
 			if (0 >= anIntArray198[i_390_])
@@ -4426,7 +4425,7 @@ public final class mudclient extends GameWindowMiddleMan
 		for (int i_414_ = 0; i_414_ < anInt1038; i_414_++)
 		{
 			String string = EntityHandler.itemdef_name[anIntArray172[i_414_]];
-			if (EntityHandler.anIntArray1[anIntArray172[i_414_]] == 0)
+			if (EntityHandler.itemdef_isUnstackable[anIntArray172[i_414_]] == 0)
 			{
 				string = new StringBuilder().append(string).append(" x ")
 				        .append(Menu.method79(1, anIntArray160[i_414_])).toString();
@@ -4441,7 +4440,7 @@ public final class mudclient extends GameWindowMiddleMan
 		for (int i_415_ = 0; anInt998 > i_415_; i_415_++)
 		{
 			String string = EntityHandler.itemdef_name[anIntArray159[i_415_]];
-			if (EntityHandler.anIntArray1[anIntArray159[i_415_]] == 0)
+			if (EntityHandler.itemdef_isUnstackable[anIntArray159[i_415_]] == 0)
 			{
 				string = new StringBuilder().append(string).append(" x ")
 				        .append(Menu.method79(1, anIntArray220[i_415_])).toString();
@@ -4574,7 +4573,7 @@ public final class mudclient extends GameWindowMiddleMan
 							streamClass.finishPacket();
 						}
 					}
-					final int i_430_ = method584(i_427_);
+					final int i_430_ = inventoryCount(i_427_);
 					if ((0 < i_430_) && (229 <= i_421_) && (i_421_ <= 240))
 					{
 						int i_431_ = 0;
@@ -4629,7 +4628,7 @@ public final class mudclient extends GameWindowMiddleMan
 		gameGraphics.method324("Shops stock in green", 0, 1, 65280, i_432_ + 2, i_433_ + 24);
 		gameGraphics.method324("Number you own in blue", 0, 1, 65535, i_432_ - -135, i_433_ + 24);
 		gameGraphics.method324(
-		        new StringBuilder().append("Your money: ").append(method584(10)).append("gp").toString(), 0, 1,
+		        new StringBuilder().append("Your money: ").append(inventoryCount(10)).append("gp").toString(), 0, 1,
 		        16776960, i_432_ + 280, i_433_ + 24);
 		final int i_436_ = 13684944;
 		int i_437_ = 0;
@@ -4651,12 +4650,12 @@ public final class mudclient extends GameWindowMiddleMan
 				if (shopItems[i_437_] != -1)
 				{
 					gameGraphics.method348(false, 0, -73, 32, i_441_, 48, 0,
-					        (anInt863 - -(EntityHandler.anIntArray144[shopItems[i_437_]])),
-					        (EntityHandler.anIntArray133[shopItems[i_437_]]), i_440_);
+					        (anInt863 - -(EntityHandler.itemdef_sprite[shopItems[i_437_]])),
+					        (EntityHandler.itemdef_color[shopItems[i_437_]]), i_440_);
 					gameGraphics.method324(new StringBuilder().append("").append(shopItemCount[i_437_]).toString(),
 					        0, 1, 65280, i_440_ + 1, i_441_ - -10);
 					gameGraphics.method313(65535, i_440_ - -47, 1, i_441_ - -10, new StringBuilder()
-					        .append("").append(method584((shopItems[i_437_]))).toString());
+					        .append("").append(inventoryCount((shopItems[i_437_]))).toString());
 				}
 				i_437_++;
 			}
@@ -4674,7 +4673,7 @@ public final class mudclient extends GameWindowMiddleMan
 				final int i_443_ = shopItemCount[selectedShopItemIndex];
 				if (i_443_ > 0)
 				{
-					final int cost = computeItemCost(shopUnknown2, EntityHandler.maybe_itemdef_basePrice[i_442_], 1, true, i_443_, shopUnknown3, anIntArray174[selectedShopItemIndex]);
+					final int cost = computeItemCost(shopUnknown2, EntityHandler.itemdef_basePrice[i_442_], 1, true, i_443_, shopUnknown3, anIntArray174[selectedShopItemIndex]);
 					gameGraphics.method324(
 					        new StringBuilder().append(EntityHandler.itemdef_name[i_442_]).append(": buy for ")
 					                .append(cost).append("gp each").toString(),
@@ -4726,7 +4725,7 @@ public final class mudclient extends GameWindowMiddleMan
 					gameGraphics.drawText(16776960, 255, 3, "This item is not currently available to buy",
 					        i_433_ + 214, i_432_ + 204);
 				}
-				final int i_445_ = method584(i_442_);
+				final int i_445_ = inventoryCount(i_442_);
 				if (i_445_ <= 0)
 				{
 					gameGraphics.drawText(16776960, 255, 3, "You do not have any of this item to sell",
@@ -4734,7 +4733,7 @@ public final class mudclient extends GameWindowMiddleMan
 				}
 				else
 				{
-					final int i_446_ = computeItemCost(shopUnknown1, EntityHandler.maybe_itemdef_basePrice[i_442_], 1, false, i_443_,
+					final int i_446_ = computeItemCost(shopUnknown1, EntityHandler.itemdef_basePrice[i_442_], 1, false, i_443_,
 					        shopUnknown3, anIntArray174[selectedShopItemIndex]);
 					gameGraphics.method324(
 					        new StringBuilder().append(EntityHandler.itemdef_name[i_442_]).append(": sell for ")
@@ -4901,7 +4900,7 @@ public final class mudclient extends GameWindowMiddleMan
 						{
 							if ((objX == objectX[index]) && (objY == objectY[index]))
 							{
-								groundItemObjectVar[groundItemCount] = EntityHandler.maybe_objectdef_grounditemvars[objectType[index]];
+								groundItemObjectVar[groundItemCount] = EntityHandler.objectdef_groundItemVar[objectType[index]];
 								break;
 							}
 						}
@@ -5028,17 +5027,17 @@ public final class mudclient extends GameWindowMiddleMan
 						int i_490_;
 						if ((objRotation == 0) || (objRotation == 4))
 						{
-							i_490_ = EntityHandler.maybe_objectdef_widths_or_heights[type];
-							i_489_ = EntityHandler.maybe_objectdef_heights_or_widths[type];
+							i_490_ = EntityHandler.objectdef_width[type];
+							i_489_ = EntityHandler.objectdef_height[type];
 						}
 						else
 						{
-							i_489_ = EntityHandler.maybe_objectdef_widths_or_heights[type];
-							i_490_ = EntityHandler.maybe_objectdef_heights_or_widths[type];
+							i_489_ = EntityHandler.objectdef_width[type];
+							i_490_ = EntityHandler.objectdef_height[type];
 						}
 						final int i_491_ = (((objX + objX) + i_490_) * tileSize) / 2;
 						final int i_492_ = ((i_489_ + objY + objY) * tileSize) / 2;
-						final int i_493_ = EntityHandler.objectdef_itemIds[type];
+						final int i_493_ = EntityHandler.objectdef_modelIndex[type];
 						final Model model = modelCache[i_493_].method166();
 						gameCamera.addModel(model);
 						model.anInt288 = objectCount;
@@ -5063,21 +5062,21 @@ public final class mudclient extends GameWindowMiddleMan
 		{
 			showSkipTutorial = packetsIncoming.readUnsignedByte() != 0;
 		}
-		else if (command == 53)
+		else if (command == Constants.SPacketID_InventorySet)
 		{
-			anInt1015 = packetsIncoming.readUnsignedByte();
-			for (int i_494_ = 0; i_494_ < anInt1015; i_494_++)
+			inventoryCount = packetsIncoming.readUnsignedByte();
+			for (int invIndex = 0; invIndex < inventoryCount; invIndex++)
 			{
 				final int i_495_ = packetsIncoming.readUnsignedShort();
-				anIntArray194[i_494_] = Class52.bitwiseAnd(i_495_, 32767);
-				anIntArray205[i_494_] = i_495_ / 32768;
-				if (EntityHandler.anIntArray1[i_495_ & 0x7fff] == 0)
+				inventoryItems[invIndex] = i_495_ & 0x7FFF;
+				wearing[invIndex] = i_495_ / 32768;
+				if (EntityHandler.itemdef_isUnstackable[i_495_ & 0x7fff] == 0)
 				{
-					anIntArray166[i_494_] = packetsIncoming.method387(18381);
+					inventoryItemsCount[invIndex] = packetsIncoming.method387();
 				}
 				else
 				{
-					anIntArray166[i_494_] = 1;
+					inventoryItemsCount[invIndex] = 1;
 				}
 			}
 		}
@@ -5549,7 +5548,7 @@ public final class mudclient extends GameWindowMiddleMan
 				wallObjectCount = newCount;
 			}
 		}
-		else if (command == 59)
+		else if (command == Constants.SPacketID_ShowChangeAppearance)
 		{
 			showCharacterLookScreen = true;
 		}
@@ -5615,24 +5614,24 @@ public final class mudclient extends GameWindowMiddleMan
 			if (i_576_ == 1)
 			{
 				int i_579_ = 39;
-				for (int i_580_ = 0; (anInt1015 > i_580_) && (i_575_ <= i_579_); i_580_++)
+				for (int i_580_ = 0; (inventoryCount > i_580_) && (i_575_ <= i_579_); i_580_++)
 				{
 					boolean bool = false;
 					for (int i_581_ = 0; i_581_ < 40; i_581_++)
 					{
-						if (shopItems[i_581_] == anIntArray194[i_580_])
+						if (shopItems[i_581_] == inventoryItems[i_580_])
 						{
 							bool = true;
 							break;
 						}
 					}
-					if (anIntArray194[i_580_] == 10)
+					if (inventoryItems[i_580_] == 10)
 					{
 						bool = true;
 					}
 					if (!bool)
 					{
-						shopItems[i_579_] = Class52.bitwiseAnd(anIntArray194[i_580_], 32767);
+						shopItems[i_579_] = Class52.bitwiseAnd(inventoryItems[i_580_], 32767);
 						shopItemCount[i_579_] = 0;
 						anIntArray174[i_579_] = 0;
 						i_579_--;
@@ -5698,7 +5697,7 @@ public final class mudclient extends GameWindowMiddleMan
 			for (int i_585_ = 0; anInt952 > i_585_; i_585_++)
 			{
 				anIntArray177[i_585_] = packetsIncoming.readUnsignedShort();
-				anIntArray207[i_585_] = packetsIncoming.method387(i + 18415);
+				anIntArray207[i_585_] = packetsIncoming.method387();
 			}
 			method589();
 		}
@@ -5810,7 +5809,7 @@ public final class mudclient extends GameWindowMiddleMan
 			{
 				final int i_591_ = packetsIncoming.readUnsignedByte();
 				final int i_592_ = packetsIncoming.readUnsignedShort();
-				final int i_593_ = packetsIncoming.method387(18381);
+				final int i_593_ = packetsIncoming.method387();
 				if (i_593_ == 0)
 				{
 					anInt952--;
@@ -5831,32 +5830,32 @@ public final class mudclient extends GameWindowMiddleMan
 				}
 				method589();
 			}
-			else if (command == 90)
+			else if (command == Constants.SPacketID_InventorySetSlot)
 			{
-				int i_595_ = 1;
-				final int i_596_ = packetsIncoming.readUnsignedByte();
+				int count = 1;
+				final int invIndex = packetsIncoming.readUnsignedByte();
 				final int i_597_ = packetsIncoming.readUnsignedShort();
-				if (EntityHandler.anIntArray1[i_597_ & 0x7fff] == 0)
+				if (EntityHandler.itemdef_isUnstackable[i_597_ & 0x7fff] == 0)
 				{
-					i_595_ = packetsIncoming.method387(18381);
+					count = packetsIncoming.method387();
 				}
-				anIntArray194[i_596_] = Class52.bitwiseAnd(32767, i_597_);
-				anIntArray205[i_596_] = i_597_ / 32768;
-				anIntArray166[i_596_] = i_595_;
-				if (anInt1015 <= i_596_)
+				inventoryItems[invIndex] = i_597_ & 0x7FFF;
+				wearing[invIndex] = i_597_ / 32768;
+				inventoryItemsCount[invIndex] = count;
+				if (invIndex >= inventoryCount)
 				{
-					anInt1015 = i_596_ + 1;
+					inventoryCount = invIndex + 1;
 				}
 			}
-			else if (command == 123)
+			else if (command == Constants.SPacketID_InventoryRemoveSlot)
 			{
-				final int i_598_ = packetsIncoming.readUnsignedByte();
-				anInt1015--;
-				for (int i_599_ = i_598_; i_599_ < anInt1015; i_599_++)
+				final int invOffset = packetsIncoming.readUnsignedByte();
+				inventoryCount--;
+				for (int invIndex = invOffset; invIndex < inventoryCount; invIndex++)
 				{
-					anIntArray194[i_599_] = anIntArray194[i_599_ + 1];
-					anIntArray166[i_599_] = anIntArray166[i_599_ - -1];
-					anIntArray205[i_599_] = anIntArray205[i_599_ - -1];
+					inventoryItems[invIndex] = inventoryItems[invIndex + 1];
+					inventoryItemsCount[invIndex] = inventoryItemsCount[invIndex + 1];
+					wearing[invIndex] = wearing[invIndex + 1];
 				}
 			}
 			else if (command == 159)
@@ -5913,7 +5912,7 @@ public final class mudclient extends GameWindowMiddleMan
 				anInt1025 = packetsIncoming.readUnsignedByte();
 				anInt1034 = packetsIncoming.readUnsignedByte();
 			}
-			else if (command == 204)
+			else if (command == Constants.SPacketID_PlaySound)
 			{
 				final String string = packetsIncoming.readString();
 				playSound(string);
@@ -5932,7 +5931,7 @@ public final class mudclient extends GameWindowMiddleMan
 					anInt1012++;
 				}
 			}
-			else if (command == 182)
+			else if (command == Constants.SPacketID_ShowWelcomeBox)
 			{
 				if (!aBool77)
 				{
@@ -5985,7 +5984,7 @@ public final class mudclient extends GameWindowMiddleMan
 			{
 				aString35 = "Incorrect - Please wait...";
 			}
-			else if (command == 52)
+			else if (command == Constants.SPacketID_SystemUpdate)
 			{
 				systemUpdate = packetsIncoming.readUnsignedShort() * 32;
 			}
@@ -6050,17 +6049,17 @@ public final class mudclient extends GameWindowMiddleMan
 		else
 		{
 			final byte[] is_614_ = Camera.loadData(is, 0, "index.dat");
-			gameCamera.method293(11, 13803, EntityHandler.anInt140, 7);
+			gameCamera.method293(11, 13803, EntityHandler.texturedef_count, 7);
 			int i_615_ = 0;
-			for (/**/; EntityHandler.anInt140 > i_615_; i_615_++)
+			for (/**/; EntityHandler.texturedef_count > i_615_; i_615_++)
 			{
-				final String string = EntityHandler.aStringArray37[i_615_];
+				final String string = EntityHandler.texturedef_name[i_615_];
 				byte[] is_617_ = Camera.loadData(is, 0, new StringBuilder().append(string).append(".dat").toString());
 				gameGraphics.method350(anInt925, is_614_, is_617_, 1);
 				gameGraphics.method321(0, 16711935, 128, 128, 0, 1);
 				gameGraphics.drawPicture(anInt925, 0, 0);
 				final int i_618_ = gameGraphics.anIntArray125[anInt925];
-				final String string_619_ = EntityHandler.aStringArray6[i_615_];
+				final String string_619_ = EntityHandler.texturedef_animationName[i_615_];
 				if ((string_619_ != null) && (0 < string_619_.length()))
 				{
 					is_617_ = Camera.loadData(is, 0,
@@ -6101,7 +6100,7 @@ public final class mudclient extends GameWindowMiddleMan
 			{
 				RuntimeException_Sub1.aClass24_4 = Class42.aClass24_1;
 			}
-			super.method479(32 - -(RuntimeException_Sub1.aClass24_4.anInt293), maybe_windowHeight + 12, GameWindowMiddleMan.clientVersion,
+			super.method479(32 - -(RuntimeException_Sub1.aClass24_4.anInt293), windowHeight + 12, GameWindowMiddleMan.clientVersion,
 			        maybe_windowWidth);
 		}
 		catch (final RuntimeException runtimeexception)
@@ -6135,14 +6134,14 @@ public final class mudclient extends GameWindowMiddleMan
 			anInt1050 = 0;
 			int i_627_ = 0;
 			anInt946 = anInt1050;
-			while_14_: for (int i_628_ = 0; EntityHandler.anInt396 > i_628_; i_628_++)
+			while_14_: for (int i_628_ = 0; EntityHandler.animationdef_count > i_628_; i_628_++)
 			{
-				final String string = EntityHandler.aStringArray11[i_628_];
+				final String string = EntityHandler.animationdef_name[i_628_];
 				for (int i_629_ = 0; i_629_ < i_628_; i_629_++)
 				{
-					if (EntityHandler.aStringArray11[i_629_].equalsIgnoreCase(string))
+					if (EntityHandler.animationdef_name[i_629_].equalsIgnoreCase(string))
 					{
-						EntityHandler.anIntArray78[i_628_] = EntityHandler.anIntArray78[i_629_];
+						EntityHandler.animationdef_number[i_628_] = EntityHandler.animationdef_number[i_629_];
 						continue while_14_;
 					}
 				}
@@ -6158,7 +6157,7 @@ public final class mudclient extends GameWindowMiddleMan
 				{
 					gameGraphics.method350(anInt946, is_631_, is_630_, 15);
 					i_627_ += 15;
-					if (EntityHandler.anIntArray7[i_628_] == 1)
+					if (EntityHandler.animationdef_hasA[i_628_] == 1)
 					{
 						byte[] is_632_ = Camera.loadData(is, 0,
 						        new StringBuilder().append(string).append("a.dat").toString());
@@ -6172,7 +6171,7 @@ public final class mudclient extends GameWindowMiddleMan
 						gameGraphics.method350(anInt946 - -15, is_631_, is_632_, 3);
 						i_627_ += 3;
 					}
-					if (EntityHandler.anIntArray20[i_628_] == 1)
+					if (EntityHandler.animationdef_hasF[i_628_] == 1)
 					{
 						is_631_ = is_624_;
 						byte[] is_633_ = Camera.loadData(is, 0,
@@ -6186,7 +6185,7 @@ public final class mudclient extends GameWindowMiddleMan
 						i_627_ += 9;
 						gameGraphics.method350(anInt946 - -18, is_631_, is_633_, 9);
 					}
-					if (EntityHandler.anIntArray13[i_628_] != 0)
+					if (EntityHandler.animationdef_genderModel[i_628_] != 0)
 					{
 						for (int i_634_ = anInt946; i_634_ < (anInt946 + 27); i_634_++)
 						{
@@ -6194,7 +6193,7 @@ public final class mudclient extends GameWindowMiddleMan
 						}
 					}
 				}
-				EntityHandler.anIntArray78[i_628_] = anInt946;
+				EntityHandler.animationdef_number[i_628_] = anInt946;
 				anInt946 += 27;
 			}
 			System.out.println(
@@ -6222,11 +6221,11 @@ public final class mudclient extends GameWindowMiddleMan
 		i_636_ = anIntArray155[i_642_];
 		if (bool)
 		{
-			streamClass.createPacket(16);
+			streamClass.createPacket(Constants.CPacketID_RequestInteractWalk);
 		}
 		else
 		{
-			streamClass.createPacket(187);
+			streamClass.createPacket(Constants.CPacketID_RequestWalk);
 		}
 		i_642_--;
 		streamClass.aClass27_Sub1_Sub1_1.putShort(i_639_ + areaX);
@@ -6251,7 +6250,7 @@ public final class mudclient extends GameWindowMiddleMan
 		return true;
 	}
 
-	private void method553()
+	private void loadConfig()
 	{
 		final byte[] data = unpackData("Configuration", 10, 0);
 		if (data == null)
@@ -6297,7 +6296,7 @@ public final class mudclient extends GameWindowMiddleMan
 						if ((i_646_ > 216) && (i_647_ > 30) && (i_646_ < 462) && (i_647_ < 235))
 						{
 							final int i_648_ = ((((i_647_ + -31) / 34) * 5) + ((i_646_ - 217) / 49));
-							if ((i_648_ >= 0) && (i_648_ < anInt1015))
+							if ((i_648_ >= 0) && (i_648_ < inventoryCount))
 							{
 								method524(0, i_648_, -1);
 							}
@@ -6383,9 +6382,9 @@ public final class mudclient extends GameWindowMiddleMan
 								anInt984 = -i_651_ + 315;
 							}
 							final int i_652_ = (((i_646_ + -217) / 49) + (((i_647_ + -31) / 34) * 5));
-							if ((i_652_ >= 0) && (anInt1015 > i_652_))
+							if ((i_652_ >= 0) && (inventoryCount > i_652_))
 							{
-								final int i_653_ = anIntArray194[i_652_];
+								final int i_653_ = inventoryItems[i_652_];
 								aBool90 = true;
 								aClass29_3.method190();
 								aClass29_3.method195("Stake 1", i_653_, new StringBuilder().append("@lre@")
@@ -6494,7 +6493,7 @@ public final class mudclient extends GameWindowMiddleMan
 						{
 							i_664_ = i_666_;
 						}
-						if (EntityHandler.anIntArray1[i_663_] != 0)
+						if (EntityHandler.itemdef_isUnstackable[i_663_] != 0)
 						{
 							i_665_++;
 						}
@@ -6508,17 +6507,17 @@ public final class mudclient extends GameWindowMiddleMan
 			}
 			else
 			{
-				for (int i_667_ = 0; i_667_ < anInt1015; i_667_++)
+				for (int i_667_ = 0; i_667_ < inventoryCount; i_667_++)
 				{
-					if (i_663_ == anIntArray194[i_667_])
+					if (i_663_ == inventoryItems[i_667_])
 					{
 						if (0 > i_664_)
 						{
 							i_664_ = i_667_;
 						}
-						if (EntityHandler.anIntArray1[i_663_] == 0)
+						if (EntityHandler.itemdef_isUnstackable[i_663_] == 0)
 						{
-							i_665_ = anIntArray166[i_667_];
+							i_665_ = inventoryItemsCount[i_667_];
 							break;
 						}
 						i_665_++;
@@ -6650,16 +6649,16 @@ public final class mudclient extends GameWindowMiddleMan
 				gameGraphics.drawText(16777215, 255, 1, "Waiting for", i_670_ - -246, i_669_ + 217 + 35);
 				gameGraphics.drawText(16777215, 255, 1, "other player", i_670_ + 256, i_669_ + 217 + 35);
 			}
-			for (int i_678_ = 0; i_678_ < anInt1015; i_678_++)
+			for (int i_678_ = 0; i_678_ < inventoryCount; i_678_++)
 			{
 				final int i_679_ = i_669_ + ((i_678_ % 5) * 49) + 217;
 				final int i_680_ = i_670_ + ((i_678_ / 5) * 34) + 31;
 				gameGraphics.method348(false, 0, -113, 32, i_680_, 48, 0,
-				        (EntityHandler.anIntArray144[anIntArray194[i_678_]]) + anInt863,
-				        (EntityHandler.anIntArray133[anIntArray194[i_678_]]), i_679_);
-				if (EntityHandler.anIntArray1[anIntArray194[i_678_]] == 0)
+				        (EntityHandler.itemdef_sprite[inventoryItems[i_678_]]) + anInt863,
+				        (EntityHandler.itemdef_color[inventoryItems[i_678_]]), i_679_);
+				if (EntityHandler.itemdef_isUnstackable[inventoryItems[i_678_]] == 0)
 				{
-					gameGraphics.method324(new StringBuilder().append("").append(anIntArray166[i_678_]).toString(),
+					gameGraphics.method324(new StringBuilder().append("").append(inventoryItemsCount[i_678_]).toString(),
 					        0, 1, 16776960, i_679_ - -1, i_680_ - -10);
 				}
 			}
@@ -6668,9 +6667,9 @@ public final class mudclient extends GameWindowMiddleMan
 				final int i_682_ = (((i_681_ % 4) * 49) + 9) - -i_669_;
 				final int i_683_ = i_670_ + ((i_681_ / 4) * 34) + 31;
 				gameGraphics.method348(false, 0, -124, 32, i_683_, 48, 0,
-				        (EntityHandler.anIntArray144[anIntArray182[i_681_]]) + anInt863,
-				        (EntityHandler.anIntArray133[anIntArray182[i_681_]]), i_682_);
-				if (EntityHandler.anIntArray1[anIntArray182[i_681_]] == 0)
+				        (EntityHandler.itemdef_sprite[anIntArray182[i_681_]]) + anInt863,
+				        (EntityHandler.itemdef_color[anIntArray182[i_681_]]), i_682_);
+				if (EntityHandler.itemdef_isUnstackable[anIntArray182[i_681_]] == 0)
 				{
 					gameGraphics.method324(new StringBuilder().append("").append(anIntArray198[i_681_]).toString(),
 					        0, 1, 16776960, i_682_ + 1, i_683_ + 10);
@@ -6689,9 +6688,9 @@ public final class mudclient extends GameWindowMiddleMan
 				final int i_685_ = i_669_ + ((i_684_ % 4) * 49) + 9;
 				final int i_686_ = (124 - -i_670_) + ((i_684_ / 4) * 34);
 				gameGraphics.method348(false, 0, -68, 32, i_686_, 48, 0,
-				        (EntityHandler.anIntArray144[anIntArray212[i_684_]]) + anInt863,
-				        (EntityHandler.anIntArray133[anIntArray212[i_684_]]), i_685_);
-				if (EntityHandler.anIntArray1[anIntArray212[i_684_]] == 0)
+				        (EntityHandler.itemdef_sprite[anIntArray212[i_684_]]) + anInt863,
+				        (EntityHandler.itemdef_color[anIntArray212[i_684_]]), i_685_);
+				if (EntityHandler.itemdef_isUnstackable[anIntArray212[i_684_]] == 0)
 				{
 					gameGraphics.method324(new StringBuilder().append("").append(anIntArray193[i_684_]).toString(),
 					        0, 1, 16776960, i_685_ - -1, i_686_ + 10);
@@ -6831,7 +6830,7 @@ public final class mudclient extends GameWindowMiddleMan
 		}
 		if (anInt938 == 1)
 		{
-			aClass10_6.method75(0, anInt1064);
+			aClass10_6.resetListTextCount(0, anInt1064);
 			aClass10_6.method68(null, anInt1064, null, 0, 0, 0, "@whi@Quest-list (green=completed)");
 			for (int i_702_ = 0; i_702_ < 50; i_702_++)
 			{
@@ -6999,11 +6998,11 @@ public final class mudclient extends GameWindowMiddleMan
 		}
 	}
 
-	private boolean method565(final int i_728_)
+	private boolean isWearing(final int itemId)
 	{
-		for (int i_729_ = 0; i_729_ < anInt1015; i_729_++)
+		for (int index = 0; index < inventoryCount; index++)
 		{
-			if ((i_728_ == anIntArray194[i_729_]) && (anIntArray205[i_729_] == 1))
+			if ((itemId == inventoryItems[index]) && (wearing[index] == 1))
 			{
 				return true;
 			}
@@ -7129,7 +7128,7 @@ public final class mudclient extends GameWindowMiddleMan
 						streamClass.aClass27_Sub1_Sub1_1.putInt(305419896);
 						streamClass.finishPacket();
 					}
-					if ((1 <= method584(i_740_)) && ((i_733_ - -220) <= this.mouseX)
+					if ((1 <= inventoryCount(i_740_)) && ((i_733_ - -220) <= this.mouseX)
 					        && ((i_734_ - -263) <= this.mouseY) && ((i_733_ + 250) > this.mouseX)
 					        && ((i_734_ + 274) >= this.mouseY))
 					{
@@ -7139,7 +7138,7 @@ public final class mudclient extends GameWindowMiddleMan
 						streamClass.aClass27_Sub1_Sub1_1.putInt(-2023406815);
 						streamClass.finishPacket();
 					}
-					if ((5 <= method584(i_740_)) && ((i_733_ + 250) <= this.mouseX)
+					if ((5 <= inventoryCount(i_740_)) && ((i_733_ + 250) <= this.mouseX)
 					        && (this.mouseY >= (i_734_ + 263)) && (this.mouseX < (i_733_ + 280))
 					        && ((i_734_ + 274) >= this.mouseY))
 					{
@@ -7149,7 +7148,7 @@ public final class mudclient extends GameWindowMiddleMan
 						streamClass.aClass27_Sub1_Sub1_1.putInt(-2023406815);
 						streamClass.finishPacket();
 					}
-					if ((10 <= method584(i_740_)) && (this.mouseX >= (i_733_ + 280))
+					if ((10 <= inventoryCount(i_740_)) && (this.mouseX >= (i_733_ + 280))
 					        && ((i_734_ + 263) <= this.mouseY) && ((i_733_ + 305) > this.mouseX)
 					        && ((i_734_ + 274) >= this.mouseY))
 					{
@@ -7159,7 +7158,7 @@ public final class mudclient extends GameWindowMiddleMan
 						streamClass.aClass27_Sub1_Sub1_1.putInt(-2023406815);
 						streamClass.finishPacket();
 					}
-					if ((50 <= method584(i_740_)) && ((i_733_ + 305) <= this.mouseX)
+					if ((50 <= inventoryCount(i_740_)) && ((i_733_ + 305) <= this.mouseX)
 					        && ((i_734_ + 263) <= this.mouseY) && ((i_733_ + 335) > this.mouseX)
 					        && (this.mouseY <= (i_734_ + 274)))
 					{
@@ -7179,7 +7178,7 @@ public final class mudclient extends GameWindowMiddleMan
 					{
 						streamClass.createPacket(23);
 						streamClass.aClass27_Sub1_Sub1_1.putShort(i_740_);
-						streamClass.aClass27_Sub1_Sub1_1.putInt(method584(i_740_));
+						streamClass.aClass27_Sub1_Sub1_1.putInt(inventoryCount(i_740_));
 						streamClass.aClass27_Sub1_Sub1_1.putInt(-2023406815);
 						streamClass.finishPacket();
 					}
@@ -7314,12 +7313,12 @@ public final class mudclient extends GameWindowMiddleMan
 				if ((i_750_ < anInt982) && (anIntArray210[i_750_] != -1))
 				{
 					gameGraphics.method348(false, 0, -75, 32, i_754_, 48, 0,
-					        ((EntityHandler.anIntArray144[anIntArray210[i_750_]]) + anInt863),
-					        (EntityHandler.anIntArray133[anIntArray210[i_750_]]), i_753_);
+					        ((EntityHandler.itemdef_sprite[anIntArray210[i_750_]]) + anInt863),
+					        (EntityHandler.itemdef_color[anIntArray210[i_750_]]), i_753_);
 					gameGraphics.method324(new StringBuilder().append("").append(anIntArray184[i_750_]).toString(),
 					        0, 1, 65280, i_753_ + 1, i_754_ + 10);
 					gameGraphics.method313(65535, i_753_ - -47, 1, i_754_ - -29, new StringBuilder()
-					        .append("").append(method584((anIntArray210[i_750_]))).toString());
+					        .append("").append(inventoryCount((anIntArray210[i_750_]))).toString());
 				}
 				i_750_++;
 			}
@@ -7344,7 +7343,7 @@ public final class mudclient extends GameWindowMiddleMan
 			if (i_755_ != -1)
 			{
 				i_750_ = anIntArray184[anInt983];
-				if ((EntityHandler.anIntArray1[i_755_] == 1) && (1 < i_750_))
+				if ((EntityHandler.itemdef_isUnstackable[i_755_] == 1) && (1 < i_750_))
 				{
 					i_750_ = 1;
 				}
@@ -7405,7 +7404,7 @@ public final class mudclient extends GameWindowMiddleMan
 					}
 					gameGraphics.method324("All", 0, 1, i_748_, i_741_ + 370, i_742_ + 248);
 				}
-				if (0 < method584(i_755_))
+				if (0 < inventoryCount(i_755_))
 				{
 					gameGraphics.method324(
 					        new StringBuilder().append("Deposit ").append(EntityHandler.itemdef_name[i_755_]).toString(),
@@ -7417,7 +7416,7 @@ public final class mudclient extends GameWindowMiddleMan
 						i_748_ = 16711680;
 					}
 					gameGraphics.method324("One", 0, 1, i_748_, i_741_ - -222, i_742_ + 273);
-					if (5 <= method584(i_755_))
+					if (5 <= inventoryCount(i_755_))
 					{
 						i_748_ = 16777215;
 						if ((this.mouseX >= (i_741_ + 250)) && (this.mouseY >= (i_742_ + 263))
@@ -7427,7 +7426,7 @@ public final class mudclient extends GameWindowMiddleMan
 						}
 						gameGraphics.method324("Five", 0, 1, i_748_, i_741_ - -252, i_742_ + 273);
 					}
-					if (method584(i_755_) >= 10)
+					if (inventoryCount(i_755_) >= 10)
 					{
 						i_748_ = 16777215;
 						if (((i_741_ + 280) <= this.mouseX) && (this.mouseY >= (i_742_ + 263))
@@ -7437,7 +7436,7 @@ public final class mudclient extends GameWindowMiddleMan
 						}
 						gameGraphics.method324("10", 0, 1, i_748_, i_741_ + 282, i_742_ - -273);
 					}
-					if (50 <= method584(i_755_))
+					if (50 <= inventoryCount(i_755_))
 					{
 						i_748_ = 16777215;
 						if (((i_741_ + 305) <= this.mouseX) && ((i_742_ + 263) <= this.mouseY)
@@ -7483,18 +7482,18 @@ public final class mudclient extends GameWindowMiddleMan
 	private void method569(final int i, final int i_756_)
 	{
 		final int i_757_ = aClass29_1.method203(i_756_ + -617, i);
-		final int i_758_ = aClass29_1.method214(i);
-		final int i_759_ = aClass29_1.method186(i);
+		final int x = aClass29_1.method214(i);
+		final int y = aClass29_1.method186(i);
 		final int i_760_ = aClass29_1.method211(i);
 		final int i_761_ = aClass29_1.method200(i);
 		final int i_762_ = aClass29_1.method192(i_756_ + 1274, i);
 		final String string = aClass29_1.method187(i);
 		if (i_757_ == 200)
 		{
-			method545(sectionY, sectionX, i_759_, i_758_, true, (byte) -110);
+			method545(sectionY, sectionX, y, x, true, (byte) -110);
 			streamClass.createPacket(249);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_ + areaX);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_759_ + areaY);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x + areaX);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(y + areaY);
 			streamClass.aClass27_Sub1_Sub1_1.putShort(i_760_);
 			streamClass.aClass27_Sub1_Sub1_1.putShort(i_761_);
 			streamClass.finishPacket();
@@ -7502,10 +7501,10 @@ public final class mudclient extends GameWindowMiddleMan
 		}
 		if (i_757_ == 210)
 		{
-			method545(sectionY, sectionX, i_759_, i_758_, true, (byte) -110);
+			method545(sectionY, sectionX, y, x, true, (byte) -110);
 			streamClass.createPacket(53);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_ + areaX);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_759_ + areaY);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x + areaX);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(y + areaY);
 			streamClass.aClass27_Sub1_Sub1_1.putShort(i_760_);
 			streamClass.aClass27_Sub1_Sub1_1.putShort(i_761_);
 			streamClass.finishPacket();
@@ -7513,23 +7512,23 @@ public final class mudclient extends GameWindowMiddleMan
 		}
 		if (i_757_ == 220)
 		{
-			method545(sectionY, sectionX, i_759_, i_758_, true, (byte) -110);
-			streamClass.createPacket(247);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_ + areaX);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_759_ + areaY);
+			method545(sectionY, sectionX, y, x, true, (byte) -110);
+			streamClass.createPacket(Constants.CPacketID_ActionPickupItem);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x + areaX);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(y + areaY);
 			streamClass.aClass27_Sub1_Sub1_1.putShort(i_760_);
 			streamClass.finishPacket();
 		}
 		if ((i_757_ == 3600) || (i_757_ == 3200))
 		{
-			displayMessage(0, EntityHandler.itemdef_description[i_758_], 0, null, i_756_ ^ ~0x204, null, null, false);
+			displayMessage(0, EntityHandler.itemdef_description[x], 0, null, i_756_ ^ ~0x204, null, null, false);
 		}
 		if (i_757_ == 300)
 		{
-			method558(i_760_, i_759_, 47, i_758_);
+			method558(i_760_, y, 47, x);
 			streamClass.createPacket(180);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_ + areaX);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_759_ + areaY);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x + areaX);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(y + areaY);
 			streamClass.aClass27_Sub1_Sub1_1.put(i_760_);
 			streamClass.aClass27_Sub1_Sub1_1.putShort(i_761_);
 			streamClass.finishPacket();
@@ -7537,10 +7536,10 @@ public final class mudclient extends GameWindowMiddleMan
 		}
 		if (i_757_ == 310)
 		{
-			method558(i_760_, i_759_, 49, i_758_);
+			method558(i_760_, y, 49, x);
 			streamClass.createPacket(161);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_ + areaX);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_759_ + areaY);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x + areaX);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(y + areaY);
 			streamClass.aClass27_Sub1_Sub1_1.put(i_760_);
 			streamClass.aClass27_Sub1_Sub1_1.putShort(i_761_);
 			streamClass.finishPacket();
@@ -7548,224 +7547,224 @@ public final class mudclient extends GameWindowMiddleMan
 		}
 		if (i_757_ == 320)
 		{
-			method558(i_760_, i_759_, 84, i_758_);
+			method558(i_760_, y, 84, x);
 			streamClass.createPacket(14);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_ + areaX);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_759_ + areaY);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x + areaX);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(y + areaY);
 			streamClass.aClass27_Sub1_Sub1_1.put(i_760_);
 			streamClass.finishPacket();
 		}
 		if (i_757_ == 2300)
 		{
-			method558(i_760_, i_759_, i_756_ + -500, i_758_);
+			method558(i_760_, y, i_756_ + -500, x);
 			streamClass.createPacket(127);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_ + areaX);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_759_ + areaY);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x + areaX);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(y + areaY);
 			streamClass.aClass27_Sub1_Sub1_1.put(i_760_);
 			streamClass.finishPacket();
 		}
 		if (i_757_ == 3300)
 		{
-			displayMessage(0, EntityHandler.aStringArray44[i_758_], 0, null, -127, null, null, false);
+			displayMessage(0, EntityHandler.wallobjectdef_description[x], 0, null, -127, null, null, false);
 		}
 		if (i_757_ == 400)
 		{
-			method576(i_760_, i_758_, i_759_, i_761_);
+			method576(i_760_, x, y, i_761_);
 			streamClass.createPacket(99);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_ + areaX);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_759_ + areaY);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x + areaX);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(y + areaY);
 			streamClass.aClass27_Sub1_Sub1_1.putShort(i_762_);
 			streamClass.finishPacket();
 			anInt940 = -1;
 		}
 		if (i_757_ == 410)
 		{
-			method576(i_760_, i_758_, i_759_, i_761_);
+			method576(i_760_, x, y, i_761_);
 			streamClass.createPacket(115);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_ + areaX);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_759_ + areaY);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x + areaX);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(y + areaY);
 			streamClass.aClass27_Sub1_Sub1_1.putShort(i_762_);
 			streamClass.finishPacket();
 			anInt989 = -1;
 		}
 		if (i_757_ == 420)
 		{
-			method576(i_760_, i_758_, i_759_, i_761_);
+			method576(i_760_, x, y, i_761_);
 			streamClass.createPacket(136);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_ + areaX);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_759_ + areaY);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x + areaX);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(y + areaY);
 			streamClass.finishPacket();
 		}
 		if (i_757_ == 2400)
 		{
-			method576(i_760_, i_758_, i_759_, i_761_);
+			method576(i_760_, x, y, i_761_);
 			streamClass.createPacket(79);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_ + areaX);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_759_ + areaY);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x + areaX);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(y + areaY);
 			streamClass.finishPacket();
 		}
 		if (i_757_ == 3400)
 		{
-			displayMessage(0, EntityHandler.objectdef_descriptions[i_758_], 0, null, -85, null, null, false);
+			displayMessage(0, EntityHandler.objectdef_description[x], 0, null, -85, null, null, false);
 		}
 		if (i_757_ == 600)
 		{
 			streamClass.createPacket(4);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_759_);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(y);
 			streamClass.finishPacket();
 			anInt940 = -1;
 		}
 		if (i_757_ == 610)
 		{
 			streamClass.createPacket(91);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_759_);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(y);
 			streamClass.finishPacket();
 			anInt989 = -1;
 		}
 		if (i_757_ == 620)
 		{
-			streamClass.createPacket(170);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_);
+			streamClass.createPacket(Constants.CPacketID_InventoryUnequip);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x);
 			streamClass.finishPacket();
 		}
 		if (i_757_ == 630)
 		{
-			streamClass.createPacket(169);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_);
+			streamClass.createPacket(Constants.CPacketID_InventoryEquip);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x);
 			streamClass.finishPacket();
 		}
 		if (i_757_ == 640)
 		{
 			streamClass.createPacket(90);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x);
 			streamClass.finishPacket();
 		}
 		if (i_757_ == 650)
 		{
 			anInt939 = 0;
-			anInt989 = i_758_;
-			aString30 = EntityHandler.itemdef_name[anIntArray194[anInt989]];
+			anInt989 = x;
+			aString30 = EntityHandler.itemdef_name[inventoryItems[anInt989]];
 		}
 		if (i_757_ == 660)
 		{
-			streamClass.createPacket(246);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_);
+			streamClass.createPacket(Constants.CPacketID_InventoryDrop);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x);
 			streamClass.finishPacket();
 			anInt939 = 0;
 			anInt989 = -1;
-			displayMessage(0, new StringBuilder().append("Dropping ").append(EntityHandler.itemdef_name[anIntArray194[i_758_]])
+			displayMessage(0, new StringBuilder().append("Dropping ").append(EntityHandler.itemdef_name[inventoryItems[x]])
 			        .toString(), 7, null, -88, null, null, false);
 		}
 		if (i_757_ == 700)
 		{
-			final Mob class15 = getNpcByServerIndex(i_758_);
+			final Mob class15 = getNpcByServerIndex(x);
 			final int i_763_ = (class15.currentX + -64) / tileSize;
 			final int i_764_ = (class15.currentY + -64) / tileSize;
 			method560(true, sectionY, true, i_764_, sectionX, i_763_);
 			streamClass.createPacket(50);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_759_);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(y);
 			streamClass.finishPacket();
 			anInt940 = -1;
 		}
 		if (i_757_ == 710)
 		{
-			final Mob class15 = getNpcByServerIndex(i_758_);
+			final Mob class15 = getNpcByServerIndex(x);
 			final int i_765_ = (class15.currentX + -64) / tileSize;
 			final int i_766_ = (class15.currentY + -64) / tileSize;
 			method560(true, sectionY, true, i_766_, sectionX, i_765_);
 			streamClass.createPacket(135);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_759_);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(y);
 			streamClass.finishPacket();
 			anInt989 = -1;
 		}
 		if (i_757_ == 720)
 		{
-			final Mob class15 = getNpcByServerIndex(i_758_);
+			final Mob class15 = getNpcByServerIndex(x);
 			final int i_767_ = (class15.currentX - 64) / tileSize;
 			final int i_768_ = (class15.currentY + -64) / tileSize;
 			method560(true, sectionY, true, i_768_, sectionX, i_767_);
 			streamClass.createPacket(153);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x);
 			streamClass.finishPacket();
 		}
 		if (i_757_ == 725)
 		{
-			final Mob class15 = getNpcByServerIndex(i_758_);
+			final Mob class15 = getNpcByServerIndex(x);
 			final int i_769_ = (class15.currentX + -64) / tileSize;
 			final int i_770_ = (class15.currentY - 64) / tileSize;
 			method560(true, sectionY, true, i_770_, sectionX, i_769_);
 			streamClass.createPacket(202);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x);
 			streamClass.finishPacket();
 		}
 		if ((i_757_ == 2715) || (i_757_ == 715))
 		{
-			final Mob class15 = getNpcByServerIndex(i_758_);
+			final Mob class15 = getNpcByServerIndex(x);
 			final int i_771_ = (class15.currentX - 64) / tileSize;
 			final int i_772_ = (class15.currentY - 64) / tileSize;
 			method560(true, sectionY, true, i_772_, sectionX, i_771_);
-			streamClass.createPacket(190);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_);
+			streamClass.createPacket(Constants.CPacketID_ActionAttackNpc);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x);
 			streamClass.finishPacket();
 		}
 		if (i_757_ == 3700)
 		{
-			displayMessage(0, EntityHandler.npcdef_description[i_758_], 0, null, -21, null, null, false);
+			displayMessage(0, EntityHandler.npcdef_description[x], 0, null, -21, null, null, false);
 		}
 		if (i_757_ == 800)
 		{
-			final Mob class15 = getPlayerByServerIndex(i_758_);
+			final Mob class15 = getPlayerByServerIndex(x);
 			final int i_773_ = (class15.currentX - 64) / tileSize;
 			final int i_774_ = (class15.currentY - 64) / tileSize;
 			method560(true, sectionY, true, i_774_, sectionX, i_773_);
 			streamClass.createPacket(229);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_759_);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(y);
 			streamClass.finishPacket();
 			anInt940 = -1;
 		}
 		if (i_757_ == 810)
 		{
-			final Mob class15 = getPlayerByServerIndex(i_758_);
+			final Mob class15 = getPlayerByServerIndex(x);
 			final int i_775_ = (class15.currentX + -64) / tileSize;
 			final int i_776_ = (class15.currentY + -64) / tileSize;
 			method560(true, sectionY, true, i_776_, sectionX, i_775_);
 			streamClass.createPacket(113);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_759_);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(y);
 			streamClass.finishPacket();
 			anInt989 = -1;
 		}
 		if ((i_757_ == 2805) || (i_757_ == 805))
 		{
-			final Mob class15 = getPlayerByServerIndex(i_758_);
+			final Mob class15 = getPlayerByServerIndex(x);
 			final int i_777_ = (class15.currentX + -64) / tileSize;
 			final int i_778_ = (class15.currentY + -64) / tileSize;
 			method560(true, sectionY, true, i_778_, sectionX, i_777_);
 			streamClass.createPacket(171);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x);
 			streamClass.finishPacket();
 		}
 		if (i_757_ == 2806)
 		{
 			streamClass.createPacket(103);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x);
 			streamClass.finishPacket();
 		}
 		if (i_757_ == 2810)
 		{
 			streamClass.createPacket(142);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x);
 			streamClass.finishPacket();
 		}
 		if (i_757_ == 2820)
 		{
 			streamClass.createPacket(165);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x);
 			streamClass.finishPacket();
 		}
 		if (i_757_ == 2833)
@@ -7791,17 +7790,17 @@ public final class mudclient extends GameWindowMiddleMan
 		}
 		if (i_757_ == 900)
 		{
-			method560(true, sectionY, true, i_759_, sectionX, i_758_);
+			method560(true, sectionY, true, y, sectionX, x);
 			streamClass.createPacket(158);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_ + areaX);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_759_ + areaY);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x + areaX);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(y + areaY);
 			streamClass.aClass27_Sub1_Sub1_1.putShort(i_760_);
 			streamClass.finishPacket();
 			anInt940 = -1;
 		}
 		if (i_757_ == 920)
 		{
-			method560(false, sectionY, true, i_759_, sectionX, i_758_);
+			method560(false, sectionY, true, y, sectionX, x);
 			if (actionPictureType == -24)
 			{
 				actionPictureType = 24;
@@ -7810,7 +7809,7 @@ public final class mudclient extends GameWindowMiddleMan
 		if (i_757_ == 1000)
 		{
 			streamClass.createPacket(137);
-			streamClass.aClass27_Sub1_Sub1_1.putShort(i_758_);
+			streamClass.aClass27_Sub1_Sub1_1.putShort(x);
 			streamClass.finishPacket();
 			anInt940 = -1;
 		}
@@ -7893,7 +7892,7 @@ public final class mudclient extends GameWindowMiddleMan
 		if (playerAliveTimeout != 0)
 		{
 			gameGraphics.method343(-1248297852);
-			gameGraphics.drawText(16711680, 255, 7, "Oh dear! You are dead...", maybe_windowHeight / 2, maybe_windowWidth / 2);
+			gameGraphics.drawText(16711680, 255, 7, "Oh dear! You are dead...", windowHeight / 2, maybe_windowWidth / 2);
 			drawChatMessageTabs();
 			gameGraphics.drawImage(aGraphics2, this.anInt720, this.anInt694);
 		}
@@ -8068,7 +8067,7 @@ public final class mudclient extends GameWindowMiddleMan
 						final int i_804_ = class15_800_.currentX;
 						final int i_805_ = class15_800_.currentY;
 						final int i_806_ = (-engineHandle.getAveragedElevation(i_805_, i_804_)
-						        - ((EntityHandler.anIntArray81[class15_800_.type]) / 2));
+						        - ((EntityHandler.npcdef_camera2[class15_800_.type]) / 2));
 						final int i_807_ = (((i_801_ * class15.anInt158) - -(i_804_ * (anInt855 - class15.anInt158)))
 						        / anInt855);
 						final int i_808_ = (((i_803_ * class15.anInt158) + (i_806_ * (anInt855 + -class15.anInt158)))
@@ -8086,8 +8085,8 @@ public final class mudclient extends GameWindowMiddleMan
 				final int i_811_ = class15.currentX;
 				final int i_812_ = class15.currentY;
 				final int i_813_ = -engineHandle.getAveragedElevation(i_812_, i_811_);
-				final int i_814_ = gameCamera.method265((EntityHandler.anIntArray89[class15.type]), i_811_, i_812_,
-				        i_813_, (EntityHandler.anIntArray81[class15.type]), i_810_ + 30000, i_810_ + 20000);
+				final int i_814_ = gameCamera.method265((EntityHandler.npcdef_camera1[class15.type]), i_811_, i_812_,
+				        i_813_, (EntityHandler.npcdef_camera2[class15.type]), i_810_ + 30000, i_810_ + 20000);
 				anInt916++;
 				if (class15.currentSprite == 8)
 				{
@@ -8202,12 +8201,12 @@ public final class mudclient extends GameWindowMiddleMan
 				if (10 <= i_829_)
 				{
 					gameGraphics.drawText(16776960, 255, 1, new StringBuilder().append("System update in: ")
-					        .append(i_830_).append(":").append(i_829_).toString(), maybe_windowHeight - 7, 256);
+					        .append(i_830_).append(":").append(i_829_).toString(), windowHeight - 7, 256);
 				}
 				else
 				{
 					gameGraphics.drawText(16776960, 255, 1, new StringBuilder().append("System update in: ")
-					        .append(i_830_).append(":0").append(i_829_).toString(), maybe_windowHeight + -7, 256);
+					        .append(i_830_).append(":0").append(i_829_).toString(), windowHeight + -7, 256);
 				}
 			}
 			if (!notInWilderness)
@@ -8220,10 +8219,10 @@ public final class mudclient extends GameWindowMiddleMan
 				if (i_831_ > 0)
 				{
 					final int i_832_ = (i_831_ / 6) + 1;
-					gameGraphics.drawPicture(anInt935 + 13, maybe_windowHeight - 56, 453);
-					gameGraphics.drawText(16776960, 255, 1, "Wilderness", maybe_windowHeight - 20, 465);
+					gameGraphics.drawPicture(anInt935 + 13, windowHeight - 56, 453);
+					gameGraphics.drawText(16776960, 255, 1, "Wilderness", windowHeight - 20, 465);
 					gameGraphics.drawText(16776960, 255, 1,
-					        new StringBuilder().append("Level: ").append(i_832_).toString(), maybe_windowHeight - 7, 465);
+					        new StringBuilder().append("Level: ").append(i_832_).toString(), windowHeight - 7, 465);
 					if (wildernessType == 0)
 					{
 						wildernessType = 2;
@@ -8236,16 +8235,13 @@ public final class mudclient extends GameWindowMiddleMan
 			}
 			if (messagesTab == 0)
 			{
-				for (int i_833_ = 0; i_833_ < 100; i_833_++)
+				for (int index = 0; index < messagesTimeout.length; index++)
 				{
-					if (Class29.anIntArray83[i_833_] > 0)
+					if (messagesTimeout[index] > 0)
 					{
-						final String string = new StringBuilder().append(CameraModel.aStringArray21[i_833_])
-						        .append(Class13.method110(Class2.aStringArray3[i_833_], Class13.aStringArray13[i_833_],
-						                ByteBuffer.anIntArray142[i_833_], -6187))
-						        .toString();
-						gameGraphics.method361(string, GameImage.anIntArray126[i_833_], 1, -(i_833_ * 12) + maybe_windowHeight + -18,
-						        7, 16776960);
+						final String string = CameraModel.aStringArray21[index] 
+								+ Class13.method110(Class2.aStringArray3[index], Class13.aStringArray13[index], ByteBuffer.anIntArray142[index]);
+						gameGraphics.drawString(string, GameImage.anIntArray126[index], 1, -(index * 12) + windowHeight - 18, 7, 16776960);
 					}
 				}
 			}
@@ -8364,15 +8360,15 @@ public final class mudclient extends GameWindowMiddleMan
 		int i_843_;
 		if ((i_838_ == 0) || (i_838_ == 4))
 		{
-			i_843_ = EntityHandler.maybe_objectdef_widths_or_heights[i_841_];
-			i_842_ = EntityHandler.maybe_objectdef_heights_or_widths[i_841_];
+			i_843_ = EntityHandler.objectdef_width[i_841_];
+			i_842_ = EntityHandler.objectdef_height[i_841_];
 		}
 		else
 		{
-			i_842_ = EntityHandler.maybe_objectdef_widths_or_heights[i_841_];
-			i_843_ = EntityHandler.maybe_objectdef_heights_or_widths[i_841_];
+			i_842_ = EntityHandler.objectdef_width[i_841_];
+			i_843_ = EntityHandler.objectdef_height[i_841_];
 		}
-		if ((EntityHandler.objectdef_types[i_841_] == 2) || (EntityHandler.objectdef_types[i_841_] == 3))
+		if ((EntityHandler.objectdef_type[i_841_] == 2) || (EntityHandler.objectdef_type[i_841_] == 3))
 		{
 			if (i_838_ == 0)
 			{
@@ -8439,7 +8435,7 @@ public final class mudclient extends GameWindowMiddleMan
 					mc.isVeterans = true;
 				}
 			}
-			mc.createWindow((byte) 113, false, GameWindowMiddleMan.clientVersion, mc.maybe_windowHeight + 12,
+			mc.createWindow((byte) 113, false, GameWindowMiddleMan.clientVersion, mc.windowHeight + 12,
 					7000 + Class27_Sub1_Sub1.portOffset, mc.maybe_windowWidth, "RuneScape Classic",
 			        (RuntimeException_Sub1.aClass24_4.anInt293) + 32, "classic");
 			mc.threadSleepTime = 10;
@@ -8536,7 +8532,7 @@ public final class mudclient extends GameWindowMiddleMan
 			}
 			gameGraphics.method329((i_846_ / 2) + i_845_, 2, 16777215, 36 - -(i_847_ / 2), 255, (byte) 33);
 			gameGraphics.method351(i_845_ + 19, 128, anInt935 + 24, 55, 0xff & (anInt843 + 128));
-			gameGraphics.method357(0, maybe_windowHeight + 12, 0, maybe_windowWidth);
+			gameGraphics.method357(0, windowHeight + 12, 0, maybe_windowWidth);
 			if (bool)
 			{
 				i_845_ = (this.mouseX + -gameGraphics.menuDefaultWidth + 199);
@@ -8607,7 +8603,7 @@ public final class mudclient extends GameWindowMiddleMan
 		for (int i_869_ = 0; anInt992 > i_869_; i_869_++)
 		{
 			String string = EntityHandler.itemdef_name[anIntArray215[i_869_]];
-			if (EntityHandler.anIntArray1[anIntArray215[i_869_]] == 0)
+			if (EntityHandler.itemdef_isUnstackable[anIntArray215[i_869_]] == 0)
 			{
 				string = new StringBuilder().append(string).append(" x ")
 				        .append(Menu.method79(1, anIntArray183[i_869_])).toString();
@@ -8622,7 +8618,7 @@ public final class mudclient extends GameWindowMiddleMan
 		for (int i_870_ = 0; i_870_ < anInt1053; i_870_++)
 		{
 			String string = EntityHandler.itemdef_name[anIntArray221[i_870_]];
-			if (EntityHandler.anIntArray1[anIntArray221[i_870_]] == 0)
+			if (EntityHandler.itemdef_isUnstackable[anIntArray221[i_870_]] == 0)
 			{
 				string = new StringBuilder().append(string).append(" x ")
 				        .append(Menu.method79(1, anIntArray206[i_870_])).toString();
@@ -8756,13 +8752,13 @@ public final class mudclient extends GameWindowMiddleMan
 			int i_885_;
 			if ((i_883_ != 0) && (i_883_ != 4))
 			{
-				i_884_ = EntityHandler.maybe_objectdef_widths_or_heights[i_882_];
-				i_885_ = EntityHandler.maybe_objectdef_heights_or_widths[i_882_];
+				i_884_ = EntityHandler.objectdef_width[i_882_];
+				i_885_ = EntityHandler.objectdef_height[i_882_];
 			}
 			else
 			{
-				i_884_ = EntityHandler.maybe_objectdef_heights_or_widths[i_882_];
-				i_885_ = EntityHandler.maybe_objectdef_widths_or_heights[i_882_];
+				i_884_ = EntityHandler.objectdef_height[i_882_];
+				i_885_ = EntityHandler.objectdef_width[i_882_];
 			}
 			final int i_886_ = ((i_880_ - (-i_880_ + -i_885_)) * tileSize) / 2;
 			final int i_887_ = ((i_884_ + i_881_ + i_881_) * tileSize) / 2;
@@ -8877,16 +8873,16 @@ public final class mudclient extends GameWindowMiddleMan
 		for (int i_905_ = 0; i_905_ < 100; i_905_++)
 		{
 			Class2.aStringArray3[i_905_] = null;
-			Class29.anIntArray83[i_905_] = 0;
+			mudclient.messagesTimeout[i_905_] = 0;
 			Class13.aStringArray13[i_905_] = null;
 			GameImage.anIntArray126[i_905_] = 0;
 			Class27.aStringArray23[i_905_] = null;
 			CameraModel.aStringArray21[i_905_] = null;
 			ByteBuffer.anIntArray142[i_905_] = 0;
 		}
-		gameMenu.method75(0, anInt1052);
-		gameMenu.method75(0, anInt987);
-		gameMenu.method75(0, anInt990);
+		gameMenu.resetListTextCount(0, anInt1052);
+		gameMenu.resetListTextCount(0, anInt987);
+		gameMenu.resetListTextCount(0, anInt990);
 	}
 
 	private Mob getNpcByServerIndex(final int serverIndex)
@@ -8965,24 +8961,24 @@ public final class mudclient extends GameWindowMiddleMan
 		}
 	}
 
-	private int method584(final int i)
+	private int inventoryCount(final int itemId)
 	{
-		int i_911_ = 0;
-		for (int i_912_ = 0; i_912_ < anInt1015; i_912_++)
+		int amount = 0;
+		for (int index = 0; index < inventoryCount; index++)
 		{
-			if (anIntArray194[i_912_] == i)
+			if (inventoryItems[index] == itemId)
 			{
-				if (EntityHandler.anIntArray1[i] != 1)
+				if (EntityHandler.itemdef_isUnstackable[itemId] != 1)
 				{
-					i_911_ += anIntArray166[i_912_];
+					amount += inventoryItemsCount[index];
 				}
 				else
 				{
-					i_911_++;
+					amount++;
 				}
 			}
 		}
-		return i_911_;
+		return amount;
 	}
 
 	private void drawWildernessWarningBox()
@@ -9570,9 +9566,9 @@ public final class mudclient extends GameWindowMiddleMan
 			anIntArray210[i_922_] = anIntArray177[i_922_];
 			anIntArray184[i_922_] = anIntArray207[i_922_];
 		}
-		for (int i_923_ = 0; (anInt1015 > i_923_) && (anInt982 < anInt1017); i_923_++)
+		for (int i_923_ = 0; (inventoryCount > i_923_) && (anInt982 < anInt1017); i_923_++)
 		{
-			final int i_924_ = anIntArray194[i_923_];
+			final int i_924_ = inventoryItems[i_923_];
 			boolean bool = false;
 			for (int i_925_ = 0; anInt982 > i_925_; i_925_++)
 			{
@@ -9687,7 +9683,7 @@ public final class mudclient extends GameWindowMiddleMan
 			int i_934_ = -1;
 			for (int i_935_ = 0; i_933_ > i_935_; i_935_++)
 			{
-				final String string = aClass29_1.method201(0, i_935_);
+				final String string = aClass29_1.method201(i_935_);
 				if ((string != null) && (string.length() > 0))
 				{
 					i_934_ = i_935_;
@@ -9700,11 +9696,11 @@ public final class mudclient extends GameWindowMiddleMan
 				if (((0 <= anInt989) || (0 <= anInt940)) && (1 < i_933_))
 				{
 					string = new StringBuilder().append("@whi@").append(aClass29_1.method205(0, (byte) 118)).append(" ")
-					        .append(aClass29_1.method201(i ^ 0x0, 0)).toString();
+					        .append(aClass29_1.method201(0)).toString();
 				}
 				else if (i_934_ != -1)
 				{
-					string = new StringBuilder().append(aClass29_1.method201(0, i_934_)).append(": @whi@")
+					string = new StringBuilder().append(aClass29_1.method201(i_934_)).append(": @whi@")
 					        .append(aClass29_1.method205(0, (byte) 126)).toString();
 				}
 			}
@@ -9774,7 +9770,7 @@ public final class mudclient extends GameWindowMiddleMan
 		{
 			systemUpdate--;
 		}
-		sendPingPacketReadPacketData(20);
+		sendPingPacketReadPacketData();
 		if (logoutTimeout > 0)
 		{
 			logoutTimeout--;
@@ -9782,7 +9778,11 @@ public final class mudclient extends GameWindowMiddleMan
 		if ((15000 < this.lastActionTimeout) && (combatTimeout == 0) && (logoutTimeout == 0))
 		{
 			this.lastActionTimeout -= 15000;
-			sendLogout();
+			
+			if(Custom.ALLOW_CLIENTSIDE_IDLE)
+			{
+				sendLogout();
+			}
 		}
 		else
 		{
@@ -10199,7 +10199,7 @@ public final class mudclient extends GameWindowMiddleMan
 				}
 				else
 				{
-					if (this.mouseY > (maybe_windowHeight + -4))
+					if (this.mouseY > (windowHeight + -4))
 					{
 						if ((15 < this.mouseX) && (96 > this.mouseX) && (this.lastMouseDownButton == 1))
 						{
@@ -10230,7 +10230,7 @@ public final class mudclient extends GameWindowMiddleMan
 						this.mouseDownButton = 0;
 					}
 					gameMenu.method85(this.mouseDownButton, this.mouseY, this.lastMouseDownButton, this.mouseX);
-					if ((messagesTab > 0) && (this.mouseX >= 494) && (this.mouseY >= (maybe_windowHeight + -66)))
+					if ((messagesTab > 0) && (this.mouseX >= 494) && (this.mouseY >= (windowHeight + -66)))
 					{
 						this.lastMouseDownButton = 0;
 					}
@@ -10256,7 +10256,7 @@ public final class mudclient extends GameWindowMiddleMan
 							}
 							else if (!string.equalsIgnoreCase("::lostcon") || maybe_isApplet)
 							{
-								sendChatString(string.substring(2));
+								sendChatCommand(string.substring(2));
 							}
 							else
 							{
@@ -10272,9 +10272,9 @@ public final class mudclient extends GameWindowMiddleMan
 					{
 						for (int i_954_ = 0; 100 > i_954_; i_954_++)
 						{
-							if (0 < Class29.anIntArray83[i_954_])
+							if (0 < mudclient.messagesTimeout[i_954_])
 							{
-								Class29.anIntArray83[i_954_]--;
+								mudclient.messagesTimeout[i_954_]--;
 							}
 						}
 						if (!aBool84 && !aBool72)
@@ -10510,7 +10510,7 @@ public final class mudclient extends GameWindowMiddleMan
 			}
 			menuLogin.drawMenu(-6);
 		}
-		gameGraphics.drawPicture(anInt935 + 22, maybe_windowHeight, 0);
+		gameGraphics.drawPicture(anInt935 + 22, windowHeight, 0);
 		gameGraphics.drawImage(aGraphics2, this.anInt720, this.anInt694);
 	}
 
@@ -10523,7 +10523,7 @@ public final class mudclient extends GameWindowMiddleMan
 		final int i_969_ = 182;
 		int i_971_;
 		int i_970_ = i_971_ = Class34.method227(false, 160, 160, 160);
-		if (anInt1003 == 0)
+		if (menuMagicPrayersSelected == 0)
 		{
 			i_970_ = Class34.method227(false, 220, 220, 220);
 		}
@@ -10541,33 +10541,33 @@ public final class mudclient extends GameWindowMiddleMan
 		gameGraphics.method341(i_968_, i_967_ + 113, i_966_, 0);
 		gameGraphics.drawText(0, 255, 4, "Magic", i_967_ + 16, i_966_ - -(i_968_ / 4));
 		gameGraphics.drawText(0, 255, 4, "Prayers", i_967_ - -16, (i_968_ / 2) + i_966_ + (i_968_ / 4));
-		if (anInt1003 == 0)
+		if (menuMagicPrayersSelected == 0)
 		{
-			aClass10_3.method75(0, anInt1043);
+			spellMenu.resetListTextCount(0, spellMenuHandle);
 			int i_972_ = 0;
-			for (int i_973_ = 0; i_973_ < EntityHandler.anInt486; i_973_++)
+			for (int i_973_ = 0; i_973_ < EntityHandler.spelldef_count; i_973_++)
 			{
 				String string = "@yel@";
-				for (int i_974_ = 0; i_974_ < EntityHandler.anIntArray138[i_973_]; i_974_++)
+				for (int i_974_ = 0; i_974_ < EntityHandler.spelldef_runeCount[i_973_]; i_974_++)
 				{
-					final int i_975_ = EntityHandler.anIntArrayArray18[i_973_][i_974_];
-					if (!method526(EntityHandler.anIntArrayArray1[i_973_][i_974_], i_975_))
+					final int i_975_ = EntityHandler.spelldef_runesRequiredIds[i_973_][i_974_];
+					if (!hasRequiredRunes(EntityHandler.spelldef_runesRequiredAmounts[i_973_][i_974_], i_975_))
 					{
 						string = "@whi@";
 						break;
 					}
 				}
 				final int i_976_ = anIntArray185[6];
-				if (i_976_ < EntityHandler.anIntArray139[i_973_])
+				if (i_976_ < EntityHandler.spelldef_level[i_973_])
 				{
 					string = "@bla@";
 				}
-				aClass10_3.method68(null, anInt1043, null, 0, i_972_++, 0,
-				        new StringBuilder().append(string).append("Level ").append(EntityHandler.anIntArray139[i_973_])
-				                .append(": ").append(EntityHandler.aStringArray36[i_973_]).toString());
+				spellMenu.method68(null, spellMenuHandle, null, 0, i_972_++, 0,
+				        new StringBuilder().append(string).append("Level ").append(EntityHandler.spelldef_level[i_973_])
+				                .append(": ").append(EntityHandler.spelldef_name[i_973_]).toString());
 			}
-			aClass10_3.drawMenu(-6);
-			final int i_977_ = aClass10_3.method92(anInt1043);
+			spellMenu.drawMenu(-6);
+			final int i_977_ = spellMenu.method92(spellMenuHandle);
 			if (i_977_ == -1)
 			{
 				gameGraphics.method324("Point at a spell for a description", 0, 1, 0, i_966_ - -2, i_967_ + 124);
@@ -10575,19 +10575,19 @@ public final class mudclient extends GameWindowMiddleMan
 			else
 			{
 				gameGraphics.method324(
-				        new StringBuilder().append("Level ").append(EntityHandler.anIntArray139[i_977_]).append(": ")
-				                .append(EntityHandler.aStringArray36[i_977_]).toString(),
+				        new StringBuilder().append("Level ").append(EntityHandler.spelldef_level[i_977_]).append(": ")
+				                .append(EntityHandler.spelldef_name[i_977_]).toString(),
 				        0, 1, 16776960, i_966_ + 2, i_967_ + 124);
-				gameGraphics.method324(EntityHandler.aStringArray12[i_977_], 0, 0, 16777215, i_966_ + 2, i_967_ + 136);
-				for (int i_978_ = 0; i_978_ < EntityHandler.anIntArray138[i_977_]; i_978_++)
+				gameGraphics.method324(EntityHandler.spelldef_description[i_977_], 0, 0, 16777215, i_966_ + 2, i_967_ + 136);
+				for (int i_978_ = 0; i_978_ < EntityHandler.spelldef_runeCount[i_977_]; i_978_++)
 				{
-					final int i_979_ = EntityHandler.anIntArrayArray18[i_977_][i_978_];
-					gameGraphics.drawPicture(anInt863 - -(EntityHandler.anIntArray144[i_979_]), i_967_ + 150,
+					final int i_979_ = EntityHandler.spelldef_runesRequiredIds[i_977_][i_978_];
+					gameGraphics.drawPicture(anInt863 - -(EntityHandler.itemdef_sprite[i_979_]), i_967_ + 150,
 					        (i_966_ - -2) + (i_978_ * 44));
-					final int i_980_ = method584(i_979_);
-					final int i_981_ = EntityHandler.anIntArrayArray1[i_977_][i_978_];
+					final int i_980_ = inventoryCount(i_979_);
+					final int i_981_ = EntityHandler.spelldef_runesRequiredAmounts[i_977_][i_978_];
 					String string = "@red@";
-					if (method526(i_981_, i_979_))
+					if (hasRequiredRunes(i_981_, i_979_))
 					{
 						string = "@gre@";
 					}
@@ -10597,14 +10597,14 @@ public final class mudclient extends GameWindowMiddleMan
 				}
 			}
 		}
-		if (anInt1003 == 1)
+		if (menuMagicPrayersSelected == 1)
 		{
-			aClass10_3.method75(0, anInt1043);
+			spellMenu.resetListTextCount(0, spellMenuHandle);
 			int i_982_ = 0;
-			for (int i_983_ = 0; i_983_ < EntityHandler.anInt639; i_983_++)
+			for (int i_983_ = 0; i_983_ < EntityHandler.prayerdef_count; i_983_++)
 			{
 				String string = "@whi@";
-				if (anIntArray200[5] < EntityHandler.anIntArray145[i_983_])
+				if (anIntArray200[5] < EntityHandler.prayerdef_level[i_983_])
 				{
 					string = "@bla@";
 				}
@@ -10612,22 +10612,22 @@ public final class mudclient extends GameWindowMiddleMan
 				{
 					string = "@gre@";
 				}
-				aClass10_3.method68(null, anInt1043, null, 0, i_982_++, i ^ 0x2,
-				        new StringBuilder().append(string).append("Level ").append(EntityHandler.anIntArray145[i_983_])
-				                .append(": ").append(EntityHandler.aStringArray35[i_983_]).toString());
+				spellMenu.method68(null, spellMenuHandle, null, 0, i_982_++, i ^ 0x2,
+				        new StringBuilder().append(string).append("Level ").append(EntityHandler.prayerdef_level[i_983_])
+				                .append(": ").append(EntityHandler.prayerdef_name[i_983_]).toString());
 			}
-			aClass10_3.drawMenu(i + -8);
-			final int i_984_ = aClass10_3.method92(anInt1043);
+			spellMenu.drawMenu(i + -8);
+			final int i_984_ = spellMenu.method92(spellMenuHandle);
 			if (i_984_ != -1)
 			{
 				gameGraphics.drawText(16776960, 255, 1,
-				        new StringBuilder().append("Level ").append(EntityHandler.anIntArray145[i_984_]).append(": ")
-				                .append(EntityHandler.aStringArray35[i_984_]).toString(),
+				        new StringBuilder().append("Level ").append(EntityHandler.prayerdef_level[i_984_]).append(": ")
+				                .append(EntityHandler.prayerdef_name[i_984_]).toString(),
 				        i_967_ + 130, (i_968_ / 2) + i_966_);
-				gameGraphics.drawText(16777215, 255, 0, (EntityHandler.aStringArray42[i_984_]),
+				gameGraphics.drawText(16777215, 255, 0, (EntityHandler.prayerdef_description[i_984_]),
 				        i_967_ + 145, (i_968_ / 2) + i_966_);
 				gameGraphics.drawText(0, 255, 1,
-				        new StringBuilder().append("Drain rate: ").append(EntityHandler.anIntArray82[i_984_]).toString(),
+				        new StringBuilder().append("Drain rate: ").append(EntityHandler.prayerdef_drainRate[i_984_]).toString(),
 				        i_967_ + 160, (i_968_ / 2) + i_966_);
 			}
 			else
@@ -10642,34 +10642,34 @@ public final class mudclient extends GameWindowMiddleMan
 			i_967_ = this.mouseY + -36;
 			if ((0 <= i_966_) && (0 <= i_967_) && (196 > i_966_) && (i_967_ < 182))
 			{
-				aClass10_3.method85(this.mouseDownButton, i_967_ + 36, this.lastMouseDownButton,
+				spellMenu.method85(this.mouseDownButton, i_967_ + 36, this.lastMouseDownButton,
 				        (i_966_ - 199 - -(gameGraphics.menuDefaultWidth)));
 				if ((i_967_ <= 24) && (anInt887 == 1))
 				{
-					if ((i_966_ < 98) && (anInt1003 == 1))
+					if ((i_966_ < 98) && (menuMagicPrayersSelected == 1))
 					{
-						anInt1003 = 0;
-						aClass10_3.method101(anInt1043);
+						menuMagicPrayersSelected = 0;
+						spellMenu.method101(spellMenuHandle);
 					}
-					else if ((98 < i_966_) && (anInt1003 == 0))
+					else if ((98 < i_966_) && (menuMagicPrayersSelected == 0))
 					{
-						anInt1003 = 1;
-						aClass10_3.method101(anInt1043);
+						menuMagicPrayersSelected = 1;
+						spellMenu.method101(spellMenuHandle);
 					}
 				}
-				if ((anInt887 == 1) && (anInt1003 == 0))
+				if ((anInt887 == 1) && (menuMagicPrayersSelected == 0))
 				{
-					final int i_985_ = aClass10_3.method92(anInt1043);
+					final int i_985_ = spellMenu.method92(spellMenuHandle);
 					if (i_985_ != -1)
 					{
 						final int i_986_ = anIntArray185[6];
-						if (EntityHandler.anIntArray139[i_985_] <= i_986_)
+						if (EntityHandler.spelldef_level[i_985_] <= i_986_)
 						{
 							int i_987_;
-							for (i_987_ = 0; i_987_ < EntityHandler.anIntArray138[i_985_]; i_987_++)
+							for (i_987_ = 0; i_987_ < EntityHandler.spelldef_runeCount[i_985_]; i_987_++)
 							{
-								final int i_988_ = (EntityHandler.anIntArrayArray18[i_985_][i_987_]);
-								if (!method526((EntityHandler.anIntArrayArray1[i_985_][i_987_]), i_988_))
+								final int i_988_ = (EntityHandler.spelldef_runesRequiredIds[i_985_][i_987_]);
+								if (!hasRequiredRunes((EntityHandler.spelldef_runesRequiredAmounts[i_985_][i_987_]), i_988_))
 								{
 									displayMessage(0, "You don't have all the reagents you need for this spell", 0, null, -9,
 									        null, null, false);
@@ -10677,7 +10677,7 @@ public final class mudclient extends GameWindowMiddleMan
 									break;
 								}
 							}
-							if (EntityHandler.anIntArray138[i_985_] == i_987_)
+							if (EntityHandler.spelldef_runeCount[i_985_] == i_987_)
 							{
 								anInt940 = i_985_;
 								anInt989 = -1;
@@ -10690,13 +10690,13 @@ public final class mudclient extends GameWindowMiddleMan
 						}
 					}
 				}
-				if ((anInt887 == 1) && (anInt1003 == 1))
+				if ((anInt887 == 1) && (menuMagicPrayersSelected == 1))
 				{
-					final int i_989_ = aClass10_3.method92(anInt1043);
+					final int i_989_ = spellMenu.method92(spellMenuHandle);
 					if (i_989_ != -1)
 					{
 						final int i_990_ = anIntArray200[5];
-						if (EntityHandler.anIntArray145[i_989_] <= i_990_)
+						if (EntityHandler.prayerdef_level[i_989_] <= i_990_)
 						{
 							if (anIntArray185[5] != 0)
 							{
@@ -10824,7 +10824,7 @@ public final class mudclient extends GameWindowMiddleMan
 				serverHost = "local.runescape.com";
 			}
 			GameWindowMiddleMan.maxPacketReadCount = 1000;
-			method553();
+			loadConfig();
 			if (!lastLoadedNull)
 			{
 				anInt935 = 2000;
@@ -10837,18 +10837,18 @@ public final class mudclient extends GameWindowMiddleMan
 				anInt910 = anInt931 + 5;
 				aGraphics2 = getGraphics();
 				changeThreadSleepModifier(50);
-				gameGraphics = new GameImageMiddleMan(maybe_windowWidth, maybe_windowHeight + 12, 4000, this);
+				gameGraphics = new GameImageMiddleMan(maybe_windowWidth, windowHeight + 12, 4000, this);
 				gameGraphics.aclient1 = this;
-				gameGraphics.method357(0, maybe_windowHeight + 12, 0, maybe_windowWidth);
+				gameGraphics.method357(0, windowHeight + 12, 0, maybe_windowWidth);
 				aClass29_1 = new Class29(gameGraphics, 1, "Choose option");
 				aClass29_2 = new Class29(gameGraphics, 1);
 				aClass29_3 = new Class29(gameGraphics, 1);
 				Class24.aBool16 = false;
 				Class33.anInt368 = anInt873;
-				aClass10_3 = new Menu(gameGraphics, 5);
+				spellMenu = new Menu(gameGraphics, 5);
 				final int i_996_ = gameGraphics.menuDefaultWidth - 199;
 				final int i_997_ = 36;
-				anInt1043 = aClass10_3.method80(i_997_ + 24, 500, i_996_, true, 90, 1, 196);
+				spellMenuHandle = spellMenu.method80(i_997_ + 24, 500, i_996_, true, 90, 1, 196);
 				aClass10_4 = new Menu(gameGraphics, 5);
 				anInt951 = aClass10_4.method80(i_997_ + 40, 500, i_996_, true, 126, 1, 196);
 				aClass10_6 = new Menu(gameGraphics, 5);
@@ -10860,7 +10860,7 @@ public final class mudclient extends GameWindowMiddleMan
 					if (!lastLoadedNull)
 					{
 						gameCamera = new Camera(gameGraphics, 15000, 15000, 1000);
-						gameCamera.setCameraSize(maybe_windowWidth / 2, 256, maybe_windowHeight / 2, maybe_windowHeight / 2, anInt860, maybe_windowWidth / 2,
+						gameCamera.setCameraSize(maybe_windowWidth / 2, 256, windowHeight / 2, windowHeight / 2, anInt860, maybe_windowWidth / 2,
 						        maybe_windowWidth);
 						gameCamera.anInt465 = 1;
 						gameCamera.anInt437 = 2400;
@@ -11060,25 +11060,25 @@ public final class mudclient extends GameWindowMiddleMan
 		}
 		int i_1006_ = 50;
 		i_1006_ -= 25;
-		gameGraphics.spriteClipUnknown(i_1006_, i_1005_ + -87, 102, 64, EntityHandler.anIntArray78[anInt948],
+		gameGraphics.spriteClipUnknown(i_1006_, i_1005_ + -87, 102, 64, EntityHandler.animationdef_number[anInt948],
 		        characterTopBottomColors[anInt965]);
 		gameGraphics.method348(false, characterSkinColors[anInt961], -128, 102, i_1006_, 64, 0,
-		        EntityHandler.anIntArray78[anInt962], characterTopBottomColors[anInt1057], i_1005_ + -32 + -55);
+		        EntityHandler.animationdef_number[anInt962], characterTopBottomColors[anInt1057], i_1005_ + -32 + -55);
 		gameGraphics.method348(false, characterSkinColors[anInt961], -68, 102, i_1006_, 64, 0,
-		        EntityHandler.anIntArray78[anInt1047], characterHairColors[anInt999], (i_1005_ - 32) + -55);
-		gameGraphics.spriteClipUnknown(i_1006_, i_1005_ - 32, 102, 64, EntityHandler.anIntArray78[anInt948] + 6,
+		        EntityHandler.animationdef_number[anInt1047], characterHairColors[anInt999], (i_1005_ - 32) + -55);
+		gameGraphics.spriteClipUnknown(i_1006_, i_1005_ - 32, 102, 64, EntityHandler.animationdef_number[anInt948] + 6,
 		        characterTopBottomColors[anInt965]);
 		gameGraphics.method348(false, characterSkinColors[anInt961], -119, 102, i_1006_, 64, 0,
-		        EntityHandler.anIntArray78[anInt962] + 6, characterTopBottomColors[anInt1057], i_1005_ + -32);
+		        EntityHandler.animationdef_number[anInt962] + 6, characterTopBottomColors[anInt1057], i_1005_ + -32);
 		gameGraphics.method348(false, characterSkinColors[anInt961], -72, 102, i_1006_, 64, 0,
-		        EntityHandler.anIntArray78[anInt1047] + 6, characterHairColors[anInt999], i_1005_ + -32);
-		gameGraphics.spriteClipUnknown(i_1006_, i_1005_ + 23, 102, 64, EntityHandler.anIntArray78[anInt948] + 12,
+		        EntityHandler.animationdef_number[anInt1047] + 6, characterHairColors[anInt999], i_1005_ + -32);
+		gameGraphics.spriteClipUnknown(i_1006_, i_1005_ + 23, 102, 64, EntityHandler.animationdef_number[anInt948] + 12,
 		        characterTopBottomColors[anInt965]);
 		gameGraphics.method348(false, characterSkinColors[anInt961], maybe_dummy ^ ~0x53, 102, i_1006_, 64, 0,
-		        EntityHandler.anIntArray78[anInt962] + 12, characterTopBottomColors[anInt1057], (i_1005_ - -55) + -32);
+		        EntityHandler.animationdef_number[anInt962] + 12, characterTopBottomColors[anInt1057], (i_1005_ - -55) + -32);
 		gameGraphics.method348(false, characterSkinColors[anInt961], -89, 102, i_1006_, 64, 0,
-		        EntityHandler.anIntArray78[anInt1047] - -12, characterHairColors[anInt999], i_1005_ + 23);
-		gameGraphics.drawPicture(anInt935 + 22, maybe_windowHeight, 0);
+		        EntityHandler.animationdef_number[anInt1047] - -12, characterHairColors[anInt999], i_1005_ + 23);
+		gameGraphics.drawPicture(anInt935 + 22, windowHeight, 0);
 		gameGraphics.drawImage(aGraphics2, this.anInt720, this.anInt694);
 	}
 
@@ -11180,7 +11180,7 @@ public final class mudclient extends GameWindowMiddleMan
 		anInt864 = 2;
 		anInt880 = 0;
 		anInt868 = 0;
-		maybe_windowHeight = 334;
+		windowHeight = 334;
 		anInt882 = 0;
 		anInt849 = -1;
 		wildYSubtract = -1;
@@ -11226,7 +11226,7 @@ public final class mudclient extends GameWindowMiddleMan
 		anIntArray158 = new int[50];
 		characterTopBottomColors = new int[] { 16711680, 16744448, 16769024, 10543104, 57344, 32768, 41088, 45311, 33023, 12528,
 		        14680288, 3158064, 6307840, 8409088, 16777215 };
-		anIntArray166 = new int[35];
+		inventoryItemsCount = new int[35];
 		anIntArray159 = new int[14];
 		npcCombatModelArray2 = new int[] { 0, 0, 0, 0, 0, 1, 2, 1 };
 		systemUpdate = 0;
@@ -11331,7 +11331,7 @@ public final class mudclient extends GameWindowMiddleMan
 		anInt1027 = 0;
 		anInt999 = 2;
 		anIntArray200 = new int[18];
-		anInt1003 = 0;
+		menuMagicPrayersSelected = 0;
 		anInt1028 = 1;
 		anInt950 = 0;
 		lastNpcCount = 0;
@@ -11394,7 +11394,7 @@ public final class mudclient extends GameWindowMiddleMan
 		anIntArray215 = new int[8];
 		anIntArray185 = new int[18];
 		modelCache = new Model[1000];
-		anIntArray194 = new int[35];
+		inventoryItems = new int[35];
 		anIntArray172 = new int[14];
 		anIntArray210 = new int[256];
 		showServerMessageBox = false;
@@ -11417,7 +11417,7 @@ public final class mudclient extends GameWindowMiddleMan
 		anInt1049 = 0;
 		anInt940 = -1;
 		combatTimeout = 0;
-		anIntArray205 = new int[35];
+		wearing = new int[35];
 		aString40 = "";
 		aBool76 = false;
 		anInt1048 = 0;

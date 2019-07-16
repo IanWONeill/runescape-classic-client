@@ -32,7 +32,7 @@ final class AClass1_Sub1 extends AClass1
 		}
 		if (bool)
 		{
-			EntityHandler.anIntArray144 = null;
+			EntityHandler.itemdef_sprite = null;
 		}
 		final boolean bool_1_ = this.port == 443;
 		List<Proxy> list;

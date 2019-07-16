@@ -338,7 +338,7 @@ final class Menu
 		return menuObjectCount++;
 	}
 
-	void method75(final int i, final int i_54_)
+	void resetListTextCount(final int i, final int i_54_)
 	{
 		this.anIntArray24[i_54_] = i;
 	}
@@ -528,7 +528,7 @@ final class Menu
 			{
 				i_91_ = 16711680;
 			}
-			aClass46_2.method361(strings[i_90_], is[i_90_], i_78_, i_89_, i_76_ + 2, i_91_);
+			aClass46_2.drawString(strings[i_90_], is[i_90_], i_78_, i_89_, i_76_ + 2, i_91_);
 			i_89_ += aClass46_2.method315(i_78_);
 			if (i_89_ >= (i_82_ + i_81_))
 			{
@@ -686,7 +686,7 @@ final class Menu
 					i_113_ = 12582912;
 				}
 			}
-			aClass46_2.method361(strings[i_112_], 0, i_106_, i_111_, i_109_ + -(i_114_ / 2), i_113_);
+			aClass46_2.drawString(strings[i_112_], 0, i_106_, i_111_, i_109_ + -(i_114_ / 2), i_113_);
 			i_111_ += aClass46_2.method315(i_106_);
 		}
 	}
@@ -872,7 +872,7 @@ final class Menu
 						i_157_ = 16711680;
 					}
 				}
-				aClass46_2.method361(strings[i_156_], 0, i, i_155_, i_154_, i_157_);
+				aClass46_2.drawString(strings[i_156_], 0, i, i_155_, i_154_, i_157_);
 				i_154_ += aClass46_2.method328(new StringBuilder().append(strings[i_156_]).append("  ").toString(),
 				        -104, i);
 			}
@@ -930,7 +930,7 @@ final class Menu
 			{
 				i_172_ = 16777215;
 			}
-			aClass46_2.method361(string, i_170_, i_171_, i_168_, i_169_, i_172_);
+			aClass46_2.drawString(string, i_170_, i_171_, i_168_, i_169_, i_172_);
 		}
 	}
 

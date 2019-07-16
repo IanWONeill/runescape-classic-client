@@ -48,7 +48,7 @@ class GameImage implements ImageProducer, ImageObserver
 	private void method305(final int i, final int i_0_, final int i_1_, final String string, final int i_2_,
 	        final int i_3_)
 	{
-		method361(string, i_2_, i_1_, i_0_, i - (method328(string, -117, i_1_) / 2), i_3_);
+		drawString(string, i_2_, i_1_, i_0_, i - (method328(string, -117, i_1_) / 2), i_3_);
 	}
 
 	void method306(final int i)
@@ -889,7 +889,7 @@ class GameImage implements ImageProducer, ImageObserver
 	void method324(final String string, final int i, final int i_200_, final int i_201_, final int i_202_,
 	        final int i_203_)
 	{
-		method361(string, i, i_200_, i_203_, i_202_, i_201_);
+		drawString(string, i, i_200_, i_203_, i_202_, i_201_);
 	}
 
 	void method325(final int i, final int i_204_, final int i_205_, final int i_206_, final int i_207_,
@@ -1363,7 +1363,7 @@ class GameImage implements ImageProducer, ImageObserver
 	private void method337(final String string, final int i, final int i_338_, final int i_340_, final int i_341_,
 	        final int i_342_)
 	{
-		method361(string, i_341_, i_338_, i_340_, -method328(string, -120, i_338_) + i, i_342_);
+		drawString(string, i_341_, i_338_, i_340_, -method328(string, -120, i_338_) + i, i_342_);
 	}
 
 	void drawPicture(final int i, int i_343_, int i_344_)
@@ -2745,7 +2745,7 @@ class GameImage implements ImageProducer, ImageObserver
 		}
 	}
 
-	void method361(final String string, final int i_721_, final int i_722_, final int i_723_, int i_724_, int i_725_)
+	void drawString(final String string, final int i_721_, final int i_722_, final int i_723_, int i_724_, int i_725_)
 	{
 		try
 		{

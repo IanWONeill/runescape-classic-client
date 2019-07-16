@@ -8,7 +8,6 @@ final class Class29
 	private int anInt352 = 0;
 	private int anInt354 = 0;
 	private int anInt355 = 0;
-	static int[] anIntArray83 = new int[100];
 	private final int anInt356;
 	private String aString12;
 
@@ -221,12 +220,8 @@ final class Class29
 		return aClass9Array1[i].anInt64;
 	}
 
-	String method201(final int i, final int i_51_)
+	String method201(final int i_51_)
 	{
-		if (i != 0)
-		{
-			anIntArray83 = null;
-		}
 		return aClass9Array1[i_51_].aString3;
 	}
 

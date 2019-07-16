@@ -5,9 +5,9 @@ import java.net.URL;
 
 import org.custom.Custom;
 
-final class Class2
+public final class Class2
 {
-	static String[] modelNames = new String[5000];
+	public static String[] modelNames = new String[5000];
 	static String[] aStringArray3 = new String[100];
 	static String aString1;
 

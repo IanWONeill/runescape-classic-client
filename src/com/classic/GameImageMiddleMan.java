@@ -56,7 +56,7 @@ final class GameImageMiddleMan extends GameImage
 		super(maybe_width, maybe_height, i_8_, component);
 	}
 
-	static byte[] method409(final CharSequence charsequence)
+	static byte[] maybe_stringToByteArray(final CharSequence charsequence)
 	{
 		final int i = charsequence.length();
 		final byte[] is = new byte[i];

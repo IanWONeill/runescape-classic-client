@@ -5,8 +5,10 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.io.IOException;
 
+import org.custom.Constants;
 import org.custom.Custom;
 
+@SuppressWarnings("serial")
 public abstract class GameWindowMiddleMan extends GameWindow {
 	protected final void login(final String pass, final String user, final boolean reconnecting)
 	{
@@ -79,7 +81,7 @@ public abstract class GameWindowMiddleMan extends GameWindow {
 							is[2] = (int) (Math.random() * 9.9999999E7);
 							is[3] = (int) (9.9999999E7 * Math.random());
 							is[1] = (int) (Math.random() * 9.9999999E7);
-							streamClass.createPacket(0);
+							streamClass.createPacket(Constants.CPacketID_Authenticate);
 							streamClass.aClass27_Sub1_Sub1_1.put(reconnecting ? 1 : 0);
 							streamClass.aClass27_Sub1_Sub1_1.putInt(GameWindowMiddleMan.clientVersion);
 							final ByteBuffer buffer = new ByteBuffer(500);
@@ -315,7 +317,7 @@ public abstract class GameWindowMiddleMan extends GameWindow {
 		{
 			try
 			{
-				streamClass.createPacket(31);
+				streamClass.createPacket(Constants.CPacketID_LoggedOut);
 				streamClass.finalizePacket();
 			}
 			catch (final IOException ioexception) {}
@@ -350,7 +352,7 @@ public abstract class GameWindowMiddleMan extends GameWindow {
 		}
 	}
 
-	protected final void sendPingPacketReadPacketData(final int i)
+	protected final void sendPingPacketReadPacketData()
 	{
 		final long l = Class52.method377();
 		if (streamClass.containsData(86))
@@ -360,13 +362,13 @@ public abstract class GameWindowMiddleMan extends GameWindow {
 		if ((l - lastPing) > 5000L)
 		{
 			lastPing = l;
-			streamClass.createPacket(67);
+			streamClass.createPacket(Constants.CPacketID_Ping);
 			streamClass.finishPacket();
 		}
 		
 		try
 		{
-			streamClass.writePacket(i);
+			streamClass.writePacket(20);
 		}
 		catch (final IOException ioexception)
 		{
@@ -374,7 +376,7 @@ public abstract class GameWindowMiddleMan extends GameWindow {
 			return;
 		}
 
-		final int packetLength = streamClass.method125(i - 20, packetsIncoming);
+		final int packetLength = streamClass.method125(0, packetsIncoming);
 		if (packetLength > 0)
 		{
 			checkIncomingPacket(packetsIncoming.readUnsignedByte(), packetLength);
@@ -667,24 +669,24 @@ public abstract class GameWindowMiddleMan extends GameWindow {
 		}
 	}
 
-	protected void sendPrivateMessage(final String string, final int i, final String string_411_)
+	protected void sendPrivateMessage(final String string, final String string_411_)
 	{
-		streamClass.createPacket(i);
+		streamClass.createPacket(Constants.CPacketID_PrivateChatMsg);
 		streamClass.aClass27_Sub1_Sub1_1.method389(0, string_411_);
-		Class39.method255((streamClass.aClass27_Sub1_Sub1_1), false, string);
+		Class39.method255(streamClass.aClass27_Sub1_Sub1_1, false, string);
 		streamClass.finishPacket();
 	}
 
 	protected void sendChatMessage(final String string)
 	{
-		streamClass.createPacket(216);
-		Class39.method255((streamClass.aClass27_Sub1_Sub1_1), false, string);
+		streamClass.createPacket(Constants.CPacketID_PublicChatMsg);
+		Class39.method255(streamClass.aClass27_Sub1_Sub1_1, false, string);
 		streamClass.finishPacket();
 	}
 
-	protected void sendChatString(final String string)
+	protected void sendChatCommand(final String string)
 	{
-		streamClass.createPacket(38);
+		streamClass.createPacket(Constants.CPacketID_ChatCommand);
 		streamClass.aClass27_Sub1_Sub1_1.method389(0, string);
 		streamClass.finishPacket();
 	}

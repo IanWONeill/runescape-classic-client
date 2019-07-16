@@ -187,7 +187,7 @@ final class Class25 implements Runnable
 						socket.setSoTimeout(10000);
 						final OutputStream outputstream = socket.getOutputStream();
 						outputstream.write(17);
-						outputstream.write(GameImageMiddleMan.method409("JAGGRAB " + url.getFile() + "\n\n"));
+						outputstream.write(GameImageMiddleMan.maybe_stringToByteArray("JAGGRAB " + url.getFile() + "\n\n"));
 						aDataInputStream1 = new DataInputStream(socket.getInputStream());
 					}
 					buffer.position = 0;

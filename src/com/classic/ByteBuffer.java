@@ -27,12 +27,8 @@ class ByteBuffer extends Class27
 		this.buffer[this.position++] = (byte) value;
 	}
 
-	int method387(final int i)
+	int method387()
 	{
-		if (i != 18381)
-		{
-			method408(73, -120, null, -59);
-		}
 		if (this.buffer[this.position] < 0)
 		{
 			return 0x7fffffff & readInt();
@@ -153,15 +149,15 @@ class ByteBuffer extends Class27
 		writeBytes(result.length, result, 0);
 	}
 
-	void method400(final int i_23_)
+	void putVarSizeLength(final int len)
 	{
-		if ((0 <= i_23_) && (128 > i_23_))
+		if (len >= 0 && len < 128)
 		{
-			put(i_23_);
+			put(len);
 		}
-		else if ((0 <= i_23_) && (32768 > i_23_))
+		else if (len >= 0 && len < 32768)
 		{
-			putShort(i_23_ + 32768);
+			putShort(len + 32768);
 		}
 		else
 		{

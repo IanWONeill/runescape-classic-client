@@ -351,10 +351,9 @@ final class Class39
 		{
 			return 46;
 		}
-		final byte[] is = GameImageMiddleMan.method409(string);
-		class27_sub1.method400(is.length);
-		class27_sub1.position += Camera.aClass44_2.method303((class27_sub1.buffer), is.length, is, (class27_sub1.position),
-		        0);
+		final byte[] is = GameImageMiddleMan.maybe_stringToByteArray(string);
+		class27_sub1.putVarSizeLength(is.length);
+		class27_sub1.position += Camera.aClass44_2.method303(class27_sub1.buffer, is.length, is, class27_sub1.position, 0);
 		return -i + class27_sub1.position;
 	}
 
