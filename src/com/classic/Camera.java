@@ -2,39 +2,31 @@ package com.classic;
 
 import java.awt.image.ColorModel;
 
-final class Class41
+import org.custom.Custom;
+
+final class Camera
 {
-	static int anInt414;
-	static int anInt415;
 	private final int[] anIntArray91;
 	private int[] anIntArray92;
-	static int anInt416;
 	private int anInt417;
 	private final int anInt418;
 	private int[] anIntArray93;
-	static int anInt419;
 	private final int[] anIntArray94;
 	private int[][] anIntArrayArray13;
 	static Class44 aClass44_2;
 	static ColorModel aColorModel1;
-	static int anInt420;
 	private int anInt421;
 	private final int[] anIntArray95;
 	private int anInt422;
-	static int anInt423;
-	static int anInt424;
 	private final int[] anIntArray96;
 	private final int[] anIntArray97;
-	static long aLong14;
 	private int anInt425;
 	private int[][] anIntArrayArray14;
 	private final boolean aBool24 = false;
 	int anInt426;
 	private int anInt427;
 	private int anInt428;
-	private final int anInt429;
-	static int anInt430;
-	static int anInt431;
+	private final int maxModelCount;
 	private int anInt432;
 	private long[] aLongArray2;
 	private final int[] anIntArray98;
@@ -44,81 +36,51 @@ final class Class41
 	private int anInt434;
 	private int[] anIntArray99;
 	private int anInt435;
-	private final Class23[] aClass23Array2;
+	private final Model[] aClass23Array2;
 	private int anInt436;
 	private final int[][] anIntArrayArray15;
 	int anInt437;
-	private int anInt438;
-	static int anInt439;
+	private int halfHeight;
 	private int anInt440;
 	private byte[][] aByteArrayArray12;
 	private int anInt441;
-	private int anInt442;
-	static int anInt443;
-	static int anInt444;
-	static int anInt445;
-	static int anInt446;
-	static int anInt447;
+	private int modelCount;
 	private int anInt448;
-	private final int[] anIntArray100;
-	static int anInt449;
-	static int anInt450;
+	private final int[] modelIntArray;
 	private final int anInt451;
 	private final int[] anIntArray101;
-	static int anInt452;
-	static int anInt453;
-	static int anInt454;
-	static int anInt455;
-	private final Class46 aClass46_3;
+	private final GameImage gameImage;
 	private boolean[] aBoolArray8;
 	private final int anInt456;
 	private boolean aBool25;
 	private final int[] anIntArray102;
-	static int anInt457;
-	static int anInt458;
 	private int[][] anIntArrayArray16;
-	static int anInt459;
 	private int anInt460;
-	static int anInt461;
 	private final int[] anIntArray103;
 	private final int anInt462;
-	private int anInt463;
+	private int halfWidth;
 	int anInt464;
 	int anInt465;
 	private int[][] anIntArrayArray17;
 	private boolean aBool26;
-	static int anInt466;
 	private final int[] anIntArray104;
-	private final Class23[] aClass23Array3;
+	private final Model[] modelArray;
 	private final int[] anIntArray105;
-	static int anInt467;
-	static int anInt468;
 	private int anInt469;
-	static int anInt470;
-	static int anInt471;
 	private int[] anIntArray106;
 	private final int[] anIntArray107;
 	private final int[] anIntArray108;
-	static int anInt472;
-	static int anInt473;
 	private int anInt474;
 	private final int[] anIntArray109;
-	static int anInt475;
-	Class23 aClass23_3;
-	static int anInt476;
-	static int anInt477;
+	Model aClass23_3;
 	private int anInt478;
-	static int anInt479;
 	private int anInt480;
-	private final Class26[] aClass26Array1;
-	static int anInt481;
+	private final CameraModel[] cameraModels;
 	private int anInt482;
-	static int anInt483;
 
-	private void method259(final int[] is, int i, int i_0_, final int i_1_, final Class23 class23, int i_2_,
-	        final int[] is_3_, int i_4_, final int[] is_5_)
+	private void method259(final int[] is, int i, int i_0_, final Model class23, int i_2_, final int[] is_3_,
+	        int i_4_, final int[] is_5_)
 	{
-		anInt419++;
 		if (i_2_ != -2)
 		{
 			if (0 <= i_2_)
@@ -194,20 +156,20 @@ final class Class41
 							{
 								int i_33_ = class51.anInt581;
 								final int i_34_ = ((-i_33_ + class51.anInt585) / i_32_);
-								if (-anInt463 > i)
+								if (-halfWidth > i)
 								{
-									i_33_ += i_34_ * (-i + -anInt463);
-									i = -anInt463;
+									i_33_ += i_34_ * (-i + -halfWidth);
+									i = -halfWidth;
 									i_32_ = -i + i_31_;
 								}
-								if (i_31_ > anInt463)
+								if (i_31_ > halfWidth)
 								{
-									i_31_ = anInt463;
+									i_31_ = halfWidth;
 									i_32_ = -i + i_31_;
 								}
-								Class46.method322(i_29_ + i, i_19_, anIntArrayArray16[i_2_], 0, i_34_,
-								        i_18_ + (i_25_ * i), i_22_, i_16_, (byte) 55, i_33_, 0, i_15_ + (i_24_ * i),
-								        (i_26_ * i) + i_21_, i_32_, anIntArray91);
+								GameImage.method322(i_29_ + i, i_19_, anIntArrayArray16[i_2_], 0, i_34_,
+								        i_18_ + (i_25_ * i), i_22_, i_16_, i_33_, 0, i_15_ + (i_24_ * i), (i_26_ * i) + i_21_,
+								        i_32_, anIntArray91);
 								i_15_ += i_17_;
 								i_18_ += i_20_;
 								i_21_ += i_23_;
@@ -234,20 +196,20 @@ final class Class41
 							{
 								int i_37_ = class51.anInt581;
 								final int i_38_ = ((-i_37_ + class51.anInt585) / i_36_);
-								if (i < -anInt463)
+								if (i < -halfWidth)
 								{
-									i_37_ = (i_38_ * (-i + -anInt463)) + i_37_;
-									i = -anInt463;
+									i_37_ = (i_38_ * (-i + -halfWidth)) + i_37_;
+									i = -halfWidth;
 									i_36_ = i_35_ - i;
 								}
-								if (anInt463 < i_35_)
+								if (halfWidth < i_35_)
 								{
-									i_35_ = anInt463;
+									i_35_ = halfWidth;
 									i_36_ = i_35_ - i;
 								}
-								IOException_Sub1.method459(anIntArrayArray16[i_2_], 96, i_36_, anIntArray91,
-								        i_21_ - -(i_26_ * i), i_19_, 0, i_22_, (i_25_ * i) + i_18_, i_37_, i_38_,
-								        i_29_ + i, 0, 0, i_16_, (i_24_ * i) + i_15_);
+								IOException_Sub1.method459(anIntArrayArray16[i_2_], i_36_, anIntArray91, i_21_ - -(i_26_ * i),
+								        i_19_, 0, i_22_, (i_25_ * i) + i_18_, i_37_, i_38_, i_29_ + i,
+								        0, 0, i_16_, (i_24_ * i) + i_15_);
 								i_21_ += i_23_;
 								i_18_ += i_20_;
 								i_15_ += i_17_;
@@ -274,20 +236,20 @@ final class Class41
 							{
 								int i_41_ = class51.anInt581;
 								final int i_42_ = ((-i_41_ + class51.anInt585) / i_40_);
-								if (i < -anInt463)
+								if (i < -halfWidth)
 								{
-									i_41_ = (i_42_ * (-i + -anInt463)) + i_41_;
-									i = -anInt463;
+									i_41_ = (i_42_ * (-i + -halfWidth)) + i_41_;
+									i = -halfWidth;
 									i_40_ = -i + i_39_;
 								}
-								if (anInt463 < i_39_)
+								if (halfWidth < i_39_)
 								{
-									i_39_ = anInt463;
+									i_39_ = halfWidth;
 									i_40_ = -i + i_39_;
 								}
-								Class16_Sub1.method382(i_41_, anIntArray91, i_18_ - -(i_25_ * i),
+								StreamClass.method382(i_41_, anIntArray91, i_18_ - -(i_25_ * i),
 								        anIntArrayArray16[i_2_], i_16_, i_21_ - -(i_26_ * i), 0, i_19_, 0,
-								        (i_24_ * i) + i_15_, i_40_, i_29_ + i, i_22_, i_42_, -3552);
+								        (i_24_ * i) + i_15_, i_40_, i_29_ + i, i_22_, i_42_);
 								i_21_ += i_23_;
 								i_29_ += i_28_;
 								i_18_ += i_20_;
@@ -352,15 +314,15 @@ final class Class41
 							{
 								int i_61_ = class51.anInt581;
 								final int i_62_ = ((-i_61_ + class51.anInt585) / i_60_);
-								if (-anInt463 > i)
+								if (-halfWidth > i)
 								{
-									i_61_ += (-anInt463 - i) * i_62_;
-									i = -anInt463;
+									i_61_ += (-halfWidth - i) * i_62_;
+									i = -halfWidth;
 									i_60_ = -i + i_59_;
 								}
-								if (i_59_ > anInt463)
+								if (i_59_ > halfWidth)
 								{
-									i_59_ = anInt463;
+									i_59_ = halfWidth;
 									i_60_ = -i + i_59_;
 								}
 								Class21.method132(0, (i_54_ * i) + i_49_, i_62_ << 2, i_50_, anIntArrayArray16[i_2_],
@@ -392,20 +354,20 @@ final class Class41
 							{
 								int i_65_ = class51.anInt581;
 								final int i_66_ = ((-i_65_ + class51.anInt585) / i_64_);
-								if (-anInt463 > i)
+								if (-halfWidth > i)
 								{
-									i_65_ += i_66_ * (-i + -anInt463);
-									i = -anInt463;
+									i_65_ += i_66_ * (-i + -halfWidth);
+									i = -halfWidth;
 									i_64_ = -i + i_63_;
 								}
-								if (i_63_ > anInt463)
+								if (i_63_ > halfWidth)
 								{
-									i_63_ = anInt463;
+									i_63_ = halfWidth;
 									i_64_ = -i + i_63_;
 								}
-								Class52.method380(anIntArray91, 739177943, i_43_ + (i_52_ * i), i_64_, i_44_, i_47_,
-								        i_57_ + i, i_66_ << 2, i_49_ + (i_54_ * i), i_50_, 0, anIntArrayArray16[i_2_],
-								        0, (i_53_ * i) + i_46_, i_65_);
+								Class52.method380(anIntArray91, i_43_ + (i_52_ * i), i_64_, i_44_, i_47_, i_57_ + i,
+								        i_66_ << 2, i_49_ + (i_54_ * i), i_50_, 0, anIntArrayArray16[i_2_], 0,
+								        (i_53_ * i) + i_46_, i_65_);
 								i_57_ += i_56_;
 								i_43_ += i_45_;
 								i_49_ += i_51_;
@@ -432,15 +394,15 @@ final class Class41
 							{
 								int i_69_ = class51.anInt581;
 								final int i_70_ = ((-i_69_ + class51.anInt585) / i_68_);
-								if (i < -anInt463)
+								if (i < -halfWidth)
 								{
-									i_69_ = (i_70_ * (-i + -anInt463)) + i_69_;
-									i = -anInt463;
+									i_69_ = (i_70_ * (-i + -halfWidth)) + i_69_;
+									i = -halfWidth;
 									i_68_ = -i + i_67_;
 								}
-								if (anInt463 < i_67_)
+								if (halfWidth < i_67_)
 								{
-									i_67_ = anInt463;
+									i_67_ = halfWidth;
 									i_68_ = -i + i_67_;
 								}
 								Class47.method367(anIntArray91, i_49_ + (i_54_ * i), i_70_, i_50_, 0,
@@ -496,7 +458,7 @@ final class Class41
 					i_81_ <<= 1;
 					i_83_ = 2;
 				}
-				if (class23.aBool10)
+				if (class23.isGiantCrystal)
 				{
 					for (i_0_ = anInt421; i_0_ < anInt425; i_0_ += i_83_)
 					{
@@ -512,18 +474,18 @@ final class Class41
 						{
 							int i_86_ = class51.anInt581;
 							final int i_87_ = ((-i_86_ + class51.anInt585) / i_85_);
-							if (i < -anInt463)
+							if (i < -halfWidth)
 							{
-								i_86_ = ((-anInt463 - i) * i_87_) + i_86_;
-								i = -anInt463;
+								i_86_ = ((-halfWidth - i) * i_87_) + i_86_;
+								i = -halfWidth;
 								i_85_ = -i + i_84_;
 							}
-							if (anInt463 < i_84_)
+							if (halfWidth < i_84_)
 							{
-								i_84_ = anInt463;
+								i_84_ = halfWidth;
 								i_85_ = -i + i_84_;
 							}
-							Class7.method49(i_87_, anIntArray93, (byte) -115, i_82_ + i, 0, -i_85_, anIntArray91,
+							Isaac.method49(i_87_, anIntArray93, (byte) -115, i_82_ + i, 0, -i_85_, anIntArray91,
 							        i_86_);
 							i_82_ += i_81_;
 						}
@@ -545,18 +507,18 @@ final class Class41
 						{
 							int i_90_ = class51.anInt581;
 							final int i_91_ = ((-i_90_ + class51.anInt585) / i_89_);
-							if (i < -anInt463)
+							if (i < -halfWidth)
 							{
-								i_90_ += i_91_ * (-i + -anInt463);
-								i = -anInt463;
+								i_90_ += i_91_ * (-i + -halfWidth);
+								i = -halfWidth;
 								i_89_ = i_88_ - i;
 							}
-							if (i_88_ > anInt463)
+							if (i_88_ > halfWidth)
 							{
-								i_88_ = anInt463;
+								i_88_ = halfWidth;
 								i_89_ = -i + i_88_;
 							}
-							Class46.method309(i_90_, -20704, anIntArray93, i_91_, -i_89_, anIntArray91, i_82_ + i, 0);
+							GameImage.method309(i_90_, -20704, anIntArray93, i_91_, -i_89_, anIntArray91, i_82_ + i, 0);
 							i_82_ += i_81_;
 						}
 					}
@@ -577,18 +539,18 @@ final class Class41
 						{
 							int i_94_ = class51.anInt581;
 							final int i_95_ = ((-i_94_ + class51.anInt585) / i_93_);
-							if (i < -anInt463)
+							if (i < -halfWidth)
 							{
-								i_94_ = (i_95_ * (-i + -anInt463)) + i_94_;
-								i = -anInt463;
+								i_94_ = (i_95_ * (-i + -halfWidth)) + i_94_;
+								i = -halfWidth;
 								i_93_ = -i + i_92_;
 							}
-							if (i_92_ > anInt463)
+							if (i_92_ > halfWidth)
 							{
-								i_92_ = anInt463;
+								i_92_ = halfWidth;
 								i_93_ = i_92_ - i;
 							}
-							Frame_Sub1.method489(i_82_ + i, -i_93_, i_94_, anIntArray93, -19, anIntArray91, i_95_, 0);
+							GameFrame.method489(i_82_ + i, -i_93_, i_94_, anIntArray93, anIntArray91, i_95_, 0);
 							i_82_ += i_81_;
 						}
 					}
@@ -597,10 +559,9 @@ final class Class41
 		}
 	}
 
-	private void method260(final int i, final int[] is, int i_96_, final int[] is_97_, int i_98_, final int i_99_,
-	        int i_100_, final int i_101_, final int[] is_102_, final Class23 class23, int i_103_)
+	private void method260(final int[] is, int i_96_, final int[] is_97_, int i_98_, final int i_99_,
+	        int i_100_, final int i_101_, final int[] is_102_, final Model class23, int i_103_)
 	{
-		anInt454++;
 		if (i_99_ == 3)
 		{
 			final int i_104_ = is[0] + anInt432;
@@ -612,7 +573,7 @@ final class Class41
 			final int i_110_ = is_97_[0];
 			final int i_111_ = is_97_[1];
 			final int i_112_ = is_97_[2];
-			final int i_113_ = anInt438 + anInt432 + -1;
+			final int i_113_ = halfHeight + anInt432 + -1;
 			int i_114_ = 0;
 			int i_115_ = 0;
 			int i_116_ = 0;
@@ -787,9 +748,9 @@ final class Class41
 				class51.anInt589 = i_100_;
 				class51.anInt581 = i_98_;
 			}
-			if ((anInt432 + -anInt438) > anInt421)
+			if ((anInt432 + -halfHeight) > anInt421)
 			{
-				anInt421 = anInt432 + -anInt438;
+				anInt421 = anInt432 + -halfHeight;
 			}
 		}
 		else if (i_99_ != 4)
@@ -810,13 +771,13 @@ final class Class41
 					anInt421 = i_133_;
 				}
 			}
-			if (anInt425 >= (anInt432 - -anInt438))
+			if (anInt425 >= (anInt432 - -halfHeight))
 			{
-				anInt425 = anInt432 + anInt438 + -1;
+				anInt425 = anInt432 + halfHeight + -1;
 			}
-			if (anInt421 < (anInt432 + -anInt438))
+			if (anInt421 < (anInt432 + -halfHeight))
 			{
-				anInt421 = anInt432 - anInt438;
+				anInt421 = anInt432 - halfHeight;
 			}
 			if (anInt425 <= anInt421)
 			{
@@ -959,9 +920,9 @@ final class Class41
 					}
 				}
 			}
-			if (anInt421 < (anInt432 + -anInt438))
+			if (anInt421 < (anInt432 + -halfHeight))
 			{
-				anInt421 = anInt432 + -anInt438;
+				anInt421 = anInt432 + -halfHeight;
 			}
 		}
 		else
@@ -978,7 +939,7 @@ final class Class41
 			final int i_165_ = is_97_[1];
 			final int i_166_ = is_97_[2];
 			final int i_167_ = is_97_[3];
-			final int i_168_ = anInt438 + anInt432 + -1;
+			final int i_168_ = halfHeight + anInt432 + -1;
 			int i_169_ = 0;
 			int i_170_ = 0;
 			int i_171_ = 0;
@@ -1211,9 +1172,9 @@ final class Class41
 				class51.anInt585 = i_193_;
 				class51.anInt581 = i_98_;
 			}
-			if (anInt421 < (anInt432 + -anInt438))
+			if (anInt421 < (anInt432 + -halfHeight))
 			{
-				anInt421 = anInt432 + -anInt438;
+				anInt421 = anInt432 + -halfHeight;
 			}
 		}
 		if (aBool25 && (anInt441 < anInt462) && (anInt421 <= anInt433) && (anInt433 < anInt425))
@@ -1230,27 +1191,26 @@ final class Class41
 		}
 	}
 
-	void method261(final int i, final int i_194_, final int i_195_, final int i_196_, final byte i_197_, int i_198_)
+	void method261(final int i, final int i_194_, final int i_195_, final int i_196_, int i_198_)
 	{
 		if ((i_198_ == 0) && (i == 0) && (i_194_ == 0))
 		{
 			i_198_ = 32;
 		}
-		anInt479++;
-		for (int i_199_ = 0; anInt442 > i_199_; i_199_++)
+		for (int i_199_ = 0; modelCount > i_199_; i_199_++)
 		{
-			aClass23Array3[i_199_].method138(i_194_, i, i_195_, i_198_, 12345678, i_196_);
+			modelArray[i_199_].method138(i_194_, i, i_195_, i_198_, 12345678, i_196_);
 		}
 	}
 
-	private void method262(final int i, final Class26[] class26s, final int i_200_, final int i_201_)
+	private void method262(final int i, final CameraModel[] class26s, final int i_200_, final int i_201_)
 	{
 		if (i_201_ < i_200_)
 		{
 			int i_202_ = i_201_ + -1;
 			int i_203_ = i_200_ + 1;
 			final int i_204_ = (i_200_ + i_201_) / 2;
-			final Class26 class26 = class26s[i_204_];
+			final CameraModel class26 = class26s[i_204_];
 			class26s[i_204_] = class26s[i_201_];
 			class26s[i_201_] = class26;
 			final int i_205_ = class26.anInt314;
@@ -1268,7 +1228,7 @@ final class Class41
 				while (i_205_ < class26s[i_202_].anInt314);
 				if (i_203_ > i_202_)
 				{
-					final Class26 class26_206_ = class26s[i_202_];
+					final CameraModel class26_206_ = class26s[i_202_];
 					class26s[i_202_] = class26s[i_203_];
 					class26s[i_203_] = class26_206_;
 				}
@@ -1276,7 +1236,6 @@ final class Class41
 			method262(2, class26s, i_203_, i_201_);
 			method262(i ^ 0x0, class26s, i_200_, i_203_ - -1);
 		}
-		anInt472++;
 		if (i != 2)
 		{
 			anIntArray99 = null;
@@ -1285,7 +1244,6 @@ final class Class41
 
 	int method263(final int i, int i_207_)
 	{
-		anInt439++;
 		if (i_207_ == 12345678)
 		{
 			return 0;
@@ -1306,10 +1264,9 @@ final class Class41
 		return 0;
 	}
 
-	private boolean method264(final int i, final byte i_211_, final int i_212_, final boolean bool, final int i_213_,
+	private boolean method264(final int i, final int i_212_, final boolean bool, final int i_213_,
 	        final int i_214_)
 	{
-		anInt470++;
 		if ((bool && (i <= i_214_)) || (i_214_ > i))
 		{
 			if (i > i_213_)
@@ -1342,9 +1299,8 @@ final class Class41
 	}
 
 	int method265(final int i, final int i_216_, final int i_217_, final int i_218_, final int i_219_, final int i_220_,
-	        final int i_221_, final int i_222_)
+	        final int i_222_)
 	{
-		anInt424++;
 		anIntArray101[anInt478] = i_222_;
 		anIntArray96[anInt478] = i_216_;
 		anIntArray98[anInt478] = i_218_;
@@ -1352,8 +1308,8 @@ final class Class41
 		anIntArray102[anInt478] = i;
 		anIntArray105[anInt478] = i_219_;
 		anIntArray107[anInt478] = 0;
-		final int i_223_ = this.aClass23_3.method158(i_216_, i_218_, -62, i_217_);
-		final int i_224_ = this.aClass23_3.method158(i_216_, i_218_ + -i_219_, -91, i_217_);
+		final int i_223_ = this.aClass23_3.method158(i_216_, i_218_, i_217_);
+		final int i_224_ = this.aClass23_3.method158(i_216_, i_218_ + -i_219_, i_217_);
 		final int[] is = { i_223_, i_224_ };
 		this.aClass23_3.method144(is, 0, 0, -1062, 2);
 		this.aClass23_3.anIntArray60[anInt478] = i_220_;
@@ -1361,44 +1317,40 @@ final class Class41
 		return anInt478 - 1;
 	}
 
-	int[] method266(final byte i)
+	int[] method266()
 	{
-		anInt430++;
 		return anIntArray99;
 	}
 
-	void method267(final Class23 class23, final byte i)
+	void addModel(final Model model)
 	{
-		anInt443++;
-		if (class23 == null)
+		if (model == null)
 		{
 			System.out.println("Warning tried to add null object!");
 		}
-		if (anInt442 < anInt429)
+		if (modelCount < maxModelCount)
 		{
-			anIntArray100[anInt442] = 0;
-			aClass23Array3[anInt442++] = class23;
+			modelIntArray[modelCount] = 0;
+			modelArray[modelCount++] = model;
 		}
 	}
 
-	void method268(final int i)
+	void cleanupModels()
 	{
 		method273(1);
-		anInt446++;
-		for (int i_226_ = 0; anInt442 > i_226_; i_226_++)
+		for (int index = 0; index < modelCount; index++)
 		{
-			aClass23Array3[i_226_] = null;
+			modelArray[index] = null;
 		}
-		anInt442 = 0;
+		modelCount = 0;
 	}
 
-	void method269(final int i, final int i_227_, int i_228_, int i_229_, final int i_230_, final int i_231_,
-	        final int i_232_, int i_233_)
+	void setCamera(final int i, final int i_227_, int i_228_, int i_229_, final int i_230_, final int i_231_,
+	        int i_233_)
 	{
 		i_229_ &= 0x3ff;
 		i_228_ &= 0x3ff;
 		i_233_ &= 0x3ff;
-		anInt452++;
 		anInt480 = 0x3ff & (-i_233_ + 1024);
 		anInt417 = 0x3ff & (-i_228_ + 1024);
 		anInt448 = 0x3ff & (-i_229_ + 1024);
@@ -1407,24 +1359,24 @@ final class Class41
 		int i_236_ = i_231_;
 		if (i_229_ != 0)
 		{
-			final int i_237_ = Applet_Sub1.anIntArray151[i_229_];
-			final int i_238_ = Applet_Sub1.anIntArray151[i_229_ + 1024];
+			final int i_237_ = GameWindow.anIntArray151[i_229_];
+			final int i_238_ = GameWindow.anIntArray151[i_229_ + 1024];
 			final int i_239_ = ((i_235_ * i_238_) - (i_236_ * i_237_)) >> 15;
 			i_236_ = ((i_238_ * i_236_) + (i_237_ * i_235_)) >> 15;
 			i_235_ = i_239_;
 		}
 		if (i_228_ != 0)
 		{
-			final int i_240_ = Applet_Sub1.anIntArray151[i_228_ - -1024];
-			final int i_241_ = Applet_Sub1.anIntArray151[i_228_];
+			final int i_240_ = GameWindow.anIntArray151[i_228_ - -1024];
+			final int i_241_ = GameWindow.anIntArray151[i_228_];
 			final int i_242_ = ((i_234_ * i_240_) + (i_241_ * i_236_)) >> 15;
 			i_236_ = ((i_240_ * i_236_) + -(i_234_ * i_241_)) >> 15;
 			i_234_ = i_242_;
 		}
 		if (i_233_ != 0)
 		{
-			final int i_243_ = Applet_Sub1.anIntArray151[i_233_];
-			final int i_244_ = Applet_Sub1.anIntArray151[i_233_ + 1024];
+			final int i_243_ = GameWindow.anIntArray151[i_233_];
+			final int i_244_ = GameWindow.anIntArray151[i_233_ + 1024];
 			final int i_245_ = ((i_235_ * i_243_) + (i_234_ * i_244_)) >> 15;
 			i_235_ = ((i_244_ * i_235_) + -(i_243_ * i_234_)) >> 15;
 			i_234_ = i_245_;
@@ -1436,7 +1388,6 @@ final class Class41
 
 	void method270(final int i, final int i_246_)
 	{
-		anInt449++;
 		if (anIntArrayArray16[i_246_] != null)
 		{
 			final int[] is = anIntArrayArray16[i_246_];
@@ -1453,22 +1404,21 @@ final class Class41
 			}
 			if (i != 1041214728)
 			{
-				method290(true);
+				finishCamera();
 			}
 			final int i_251_ = 4096;
 			for (int i_252_ = 0; i_251_ > i_252_; i_252_++)
 			{
 				final int i_253_ = is[i_252_];
-				is[i_252_ + i_251_] = Class52.method378(i_253_ - (i_253_ >>> 3), 16316671);
-				is[(i_251_ * 2) + i_252_] = Class52.method378(i_253_ + -(i_253_ >>> 2), 16316671);
-				is[(i_251_ * 3) - -i_252_] = Class52.method378(16316671, i_253_ + -(i_253_ >>> 3) + -(i_253_ >>> 2));
+				is[i_252_ + i_251_] = Class52.bitwiseAnd(i_253_ - (i_253_ >>> 3), 16316671);
+				is[(i_251_ * 2) + i_252_] = Class52.bitwiseAnd(i_253_ + -(i_253_ >>> 2), 16316671);
+				is[(i_251_ * 3) - -i_252_] = Class52.bitwiseAnd(16316671, i_253_ + -(i_253_ >>> 3) + -(i_253_ >>> 2));
 			}
 		}
 	}
 
 	void method271(final int i, final int i_254_, final boolean bool, final int[] is, final byte[] is_255_)
 	{
-		anInt477++;
 		aByteArrayArray12[i] = is_255_;
 		anIntArrayArray17[i] = is;
 		anIntArray92[i] = i_254_;
@@ -1480,9 +1430,8 @@ final class Class41
 
 	private void method272(final int i, final int i_256_)
 	{
-		anInt453++;
-		final Class26 class26 = aClass26Array1[i_256_];
-		final Class23 class23 = class26.aClass23_2;
+		final CameraModel class26 = cameraModels[i_256_];
+		final Model class23 = class26.aClass23_2;
 		final int i_257_ = class26.anInt308;
 		final int[] is = class23.anIntArrayArray10[i_257_];
 		final int i_258_ = 0;
@@ -1557,21 +1506,19 @@ final class Class41
 
 	private void method273(final int i)
 	{
-		anInt450++;
 		anInt478 = 0;
 		this.aClass23_3.method150(i);
 	}
 
-	void method274(final int i, int i_271_, final int i_272_, final byte i_273_)
+	void method274(final int i, int i_271_, final int i_272_)
 	{
 		if ((i_271_ == 0) && (i == 0) && (i_272_ == 0))
 		{
 			i_271_ = 32;
 		}
-		anInt459++;
-		for (int i_274_ = 0; i_274_ < anInt442; i_274_++)
+		for (int i_274_ = 0; i_274_ < modelCount; i_274_++)
 		{
-			aClass23Array3[i_274_].method139(i_272_, i, i_271_, 105);
+			modelArray[i_274_].method139(i_272_, i, i_271_);
 		}
 	}
 
@@ -1582,7 +1529,6 @@ final class Class41
 		{
 			return -33;
 		}
-		anInt444++;
 		if (i_278_ == i_279_)
 		{
 			return i_277_;
@@ -1590,9 +1536,8 @@ final class Class41
 		return (i_277_ + (((-i_277_ + i_276_) * (i_275_ - i_278_)) / (i_279_ - i_278_)));
 	}
 
-	private void method276(final byte i, final int i_280_)
+	private void method276(final int i_280_)
 	{
-		anInt473++;
 		int i_281_;
 		if (anIntArray92[i_280_] != 0)
 		{
@@ -1629,31 +1574,29 @@ final class Class41
 		for (int i_287_ = 0; i_287_ < i_282_; i_287_++)
 		{
 			final int i_288_ = is[i_287_];
-			is[i_287_ + i_282_] = Class52.method378(16316671, i_288_ - (i_288_ >>> 3));
-			is[i_287_ + (i_282_ * 2)] = Class52.method378(16316671, i_288_ + -(i_288_ >>> 2));
-			is[i_287_ + (i_282_ * 3)] = Class52.method378(i_288_ + -(i_288_ >>> 3) + -(i_288_ >>> 2), 16316671);
+			is[i_287_ + i_282_] = Class52.bitwiseAnd(16316671, i_288_ - (i_288_ >>> 3));
+			is[i_287_ + (i_282_ * 2)] = Class52.bitwiseAnd(16316671, i_288_ + -(i_288_ >>> 2));
+			is[i_287_ + (i_282_ * 3)] = Class52.bitwiseAnd(i_288_ + -(i_288_ >>> 3) + -(i_288_ >>> 2), 16316671);
 		}
 	}
 
-	void method277(final int i, final int i_289_)
+	void method277(final int i)
 	{
 		this.aClass23_3.aByteArray12[i] = (byte) 1;
-		anInt476++;
 	}
 
-	void method278(final int i, final int i_290_, final int i_291_, final int i_292_, final int i_293_,
+	void setCameraSize(final int i, final int i_290_, final int i_291_, final int i_292_, final int i_293_,
 	        final int i_294_, final int i_295_)
 	{
-		anInt438 = i_291_;
+		halfHeight = i_291_;
 		anInt432 = i_292_;
 		if (i_290_ != 256)
 		{
 			anInt435 = 116;
 		}
-		anInt463 = i;
+		halfWidth = i;
 		aClass51Array1 = new Class51[i_291_ - -i_292_];
 		anInt482 = i_293_;
-		anInt455++;
 		anInt428 = i_294_;
 		anInt434 = i_295_;
 		for (int i_296_ = 0; (i_291_ + i_292_) > i_296_; i_296_++)
@@ -1662,15 +1605,14 @@ final class Class41
 		}
 	}
 
-	private boolean method279(final int i, int i_297_, final Class26[] class26s, int i_298_)
+	private boolean method279(int i_297_, final CameraModel[] class26s, int i_298_)
 	{
-		anInt467++;
 		for (;;)
 		{
-			final Class26 class26 = class26s[i_297_];
+			final CameraModel class26 = class26s[i_297_];
 			for (int i_299_ = i_297_ + 1; i_298_ >= i_299_; i_299_++)
 			{
-				final Class26 class26_300_ = class26s[i_299_];
+				final CameraModel class26_300_ = class26s[i_299_];
 				if (!method296((byte) -63, class26_300_, class26))
 				{
 					break;
@@ -1685,10 +1627,10 @@ final class Class41
 					return true;
 				}
 			}
-			final Class26 class26_301_ = class26s[i_298_];
+			final CameraModel class26_301_ = class26s[i_298_];
 			for (int i_302_ = i_298_ + -1; i_297_ <= i_302_; i_302_--)
 			{
-				final Class26 class26_303_ = class26s[i_302_];
+				final CameraModel class26_303_ = class26s[i_302_];
 				if (!method296((byte) -63, class26_301_, class26_303_))
 				{
 					break;
@@ -1709,7 +1651,7 @@ final class Class41
 				anInt435 = i_298_;
 				return false;
 			}
-			if (!method279(20615, i_297_ + 1, class26s, i_298_))
+			if (!method279(i_297_ + 1, class26s, i_298_))
 			{
 				anInt469 = i_297_;
 				return false;
@@ -1718,11 +1660,10 @@ final class Class41
 		}
 	}
 
-	private boolean method280(final Class26 class26, final int i, final Class26 class26_304_)
+	private boolean method280(final CameraModel class26, final int i, final CameraModel class26_304_)
 	{
-		anInt466++;
-		final Class23 class23 = class26.aClass23_2;
-		final Class23 class23_305_ = class26_304_.aClass23_2;
+		final Model class23 = class26.aClass23_2;
+		final Model class23_305_ = class26_304_.aClass23_2;
 		final int i_306_ = class26.anInt308;
 		final int i_307_ = class26_304_.anInt308;
 		final int[] is = class23.anIntArrayArray10[i_306_];
@@ -1782,15 +1723,13 @@ final class Class41
 		return false;
 	}
 
-	void method281(final byte i, final int i_326_, final int i_327_)
+	void method281(final int index, final int value)
 	{
-		anInt415++;
-		anIntArray107[i_326_] = i_327_;
+		anIntArray107[index] = value;
 	}
 
 	int method282(final int i)
 	{
-		anInt457++;
 		if (i != -1)
 		{
 			this.anInt465 = -90;
@@ -1798,11 +1737,10 @@ final class Class41
 		return anInt441;
 	}
 
-	void method283(final int i, final byte i_328_)
+	void method283(final int i)
 	{
 		anInt478 -= i;
-		anInt483++;
-		this.aClass23_3.method149((byte) 96, i * 2, i);
+		this.aClass23_3.method149(i * 2, i);
 		if (0 > anInt478)
 		{
 			anInt478 = 0;
@@ -1811,7 +1749,6 @@ final class Class41
 
 	private boolean method284(final boolean bool, final int i, final int i_329_, final int i_330_, final int i_331_)
 	{
-		anInt447++;
 		if (i_331_ != 1024)
 		{
 			anInt482 = 103;
@@ -1834,7 +1771,6 @@ final class Class41
 	private boolean method285(final int[] is, final int[] is_332_, final int i, final int[] is_333_,
 	        final int[] is_334_)
 	{
-		anInt475++;
 		final int i_335_ = is.length;
 		final int i_336_ = is_334_.length;
 		int i_337_ = 0;
@@ -1959,7 +1895,7 @@ final class Class41
 						final int i_357_ = method275(i + 10074, is_332_[i_340_], is_334_[i_346_],
 						        is_334_[(((i_346_ + -1) - -i_336_) % i_336_)],
 						        is_333_[((i_346_ + i_336_ + -1) % i_336_)], is_333_[i_346_]);
-						if (method264(i_354_, (byte) -124, i_355_, bool, i_357_, i_356_))
+						if (method264(i_354_, i_355_, bool, i_357_, i_356_))
 						{
 							return true;
 						}
@@ -1979,7 +1915,7 @@ final class Class41
 						final int i_360_ = method275(-10643, is_333_[i_346_], is_334_[i_344_],
 						        is_334_[(i_344_ + 1) % i_336_], is_333_[(i_344_ - -1) % i_336_], is_333_[i_344_]);
 						final int i_361_ = is_334_[i_346_];
-						if (method264(i_358_, (byte) -124, i_359_, bool, i_361_, i_360_))
+						if (method264(i_358_, i_359_, bool, i_361_, i_360_))
 						{
 							return true;
 						}
@@ -2001,7 +1937,7 @@ final class Class41
 					final int i_365_ = method275(-10643, is_333_[i_344_], is_334_[i_346_],
 					        is_334_[(i_346_ - 1 - -i_336_) % i_336_], is_333_[(i_336_ + (i_346_ - 1)) % i_336_],
 					        is_333_[i_346_]);
-					if (method264(i_362_, (byte) -127, i_363_, bool, i_365_, i_364_))
+					if (method264(i_362_, i_363_, bool, i_365_, i_364_))
 					{
 						return true;
 					}
@@ -2021,7 +1957,7 @@ final class Class41
 					final int i_368_ = method275(i ^ 0x797e, is_333_[i_346_], is_334_[i_344_],
 					        is_334_[(i_344_ + 1) % i_336_], is_333_[(i_344_ + 1) % i_336_], is_333_[i_344_]);
 					final int i_369_ = is_334_[i_346_];
-					if (method264(i_366_, (byte) 28, i_367_, bool, i_369_, i_368_))
+					if (method264(i_366_, i_367_, bool, i_369_, i_368_))
 					{
 						return true;
 					}
@@ -2044,7 +1980,7 @@ final class Class41
 					final int i_372_ = method275(-10643, is_333_[i_346_], is_334_[i_344_],
 					        is_334_[(i_344_ + 1) % i_336_], is_333_[(i_344_ + 1) % i_336_], is_333_[i_344_]);
 					final int i_373_ = is_334_[i_346_];
-					if (method264(i_370_, (byte) 11, i_371_, bool, i_373_, i_372_))
+					if (method264(i_370_, i_371_, bool, i_373_, i_372_))
 					{
 						return true;
 					}
@@ -2065,7 +2001,7 @@ final class Class41
 					final int i_377_ = method275(-10643, is_333_[i_344_], is_334_[i_346_],
 					        is_334_[((i_346_ - -i_336_) + -1) % i_336_], is_333_[(i_336_ + i_346_ + -1) % i_336_],
 					        is_333_[i_346_]);
-					if (method264(i_374_, (byte) -112, i_375_, bool, i_377_, i_376_))
+					if (method264(i_374_, i_375_, bool, i_377_, i_376_))
 					{
 						return true;
 					}
@@ -2086,7 +2022,7 @@ final class Class41
 				final int i_380_ = method275(-10643, is_333_[i_346_], is_334_[i_344_], is_334_[(i_344_ + 1) % i_336_],
 				        is_333_[(i_344_ + 1) % i_336_], is_333_[i_344_]);
 				final int i_381_ = is_334_[i_346_];
-				if (method264(i_378_, (byte) 45, i_379_, bool, i_381_, i_380_))
+				if (method264(i_378_, i_379_, bool, i_381_, i_380_))
 				{
 					return true;
 				}
@@ -2106,7 +2042,7 @@ final class Class41
 				final int i_385_ = method275(i + 10074, is_332_[i_347_], is_334_[i_346_],
 				        is_334_[(i_346_ - (1 - i_336_)) % i_336_], is_333_[(i_346_ + i_336_ + -1) % i_336_],
 				        is_333_[i_346_]);
-				if (method264(i_382_, (byte) 54, i_383_, bool, i_385_, i_384_))
+				if (method264(i_382_, i_383_, bool, i_385_, i_384_))
 				{
 					return true;
 				}
@@ -2141,7 +2077,7 @@ final class Class41
 						final int i_388_ = method275(-10643, is_333_[i_346_], is_334_[i_344_],
 						        is_334_[(i_344_ + 1) % i_336_], is_333_[(i_344_ + 1) % i_336_], is_333_[i_344_]);
 						final int i_389_ = is_334_[i_346_];
-						if (method264(i_386_, (byte) -123, i_387_, bool, i_389_, i_388_))
+						if (method264(i_386_, i_387_, bool, i_389_, i_388_))
 						{
 							return true;
 						}
@@ -2162,7 +2098,7 @@ final class Class41
 						final int i_393_ = method275(-10643, is_333_[i_344_], is_334_[i_346_],
 						        is_334_[(((i_346_ - -i_336_) + -1) % i_336_)],
 						        is_333_[((i_336_ + (i_346_ - 1)) % i_336_)], is_333_[i_346_]);
-						if (method264(i_390_, (byte) -126, i_391_, bool, i_393_, i_392_))
+						if (method264(i_390_, i_391_, bool, i_393_, i_392_))
 						{
 							return true;
 						}
@@ -2187,7 +2123,7 @@ final class Class41
 					final int i_396_ = method275(-10643, is_333_[i_346_], is_334_[i_344_],
 					        is_334_[(i_344_ + 1) % i_336_], is_333_[(i_344_ + 1) % i_336_], is_333_[i_344_]);
 					final int i_397_ = is_334_[i_346_];
-					if (method264(i_394_, (byte) -3, i_395_, bool, i_397_, i_396_))
+					if (method264(i_394_, i_395_, bool, i_397_, i_396_))
 					{
 						return true;
 					}
@@ -2237,7 +2173,7 @@ final class Class41
 				final int i_407_ = method275(i + 10074, is_332_[i_347_], is_334_[i_346_],
 				        is_334_[(i_336_ + (i_346_ - 1)) % i_336_], is_333_[(i_346_ - (-i_336_ + 1)) % i_336_],
 				        is_333_[i_346_]);
-				if (method264(i_404_, (byte) -126, i_405_, bool, i_407_, i_406_))
+				if (method264(i_404_, i_405_, bool, i_407_, i_406_))
 				{
 					return true;
 				}
@@ -2257,7 +2193,7 @@ final class Class41
 				final int i_411_ = method275(-10643, is_332_[i_347_], is_334_[i_346_],
 				        is_334_[(i_336_ + (i_346_ - 1)) % i_336_], is_333_[((i_346_ - -i_336_) + -1) % i_336_],
 				        is_333_[i_346_]);
-				if (method264(i_408_, (byte) 9, i_409_, bool, i_411_, i_410_))
+				if (method264(i_408_, i_409_, bool, i_411_, i_410_))
 				{
 					return true;
 				}
@@ -2277,7 +2213,7 @@ final class Class41
 				final int i_415_ = method275(-10643, is_332_[i_340_], is_334_[i_346_],
 				        is_334_[(i_336_ + i_346_ + -1) % i_336_], is_333_[(i_346_ + i_336_ + -1) % i_336_],
 				        is_333_[i_346_]);
-				if (method264(i_412_, (byte) -119, i_413_, bool, i_415_, i_414_))
+				if (method264(i_412_, i_413_, bool, i_415_, i_414_))
 				{
 					return true;
 				}
@@ -2314,20 +2250,18 @@ final class Class41
 		return false;
 	}
 
-	void method286(final int i, final int i_422_, final byte i_423_)
+	void method286(final int i, final int i_422_)
 	{
 		aBool25 = true;
 		anInt474 = i_422_ - anInt428;
 		anInt433 = i;
-		anInt414++;
 		anInt441 = 0;
 	}
 
-	private void method287(final byte i, final int i_424_)
+	private void method287(final int i_424_)
 	{
-		anInt431++;
-		final Class26 class26 = aClass26Array1[i_424_];
-		final Class23 class23 = class26.aClass23_2;
+		final CameraModel class26 = cameraModels[i_424_];
+		final Model class23 = class26.aClass23_2;
 		final int i_425_ = class26.anInt308;
 		final int[] is = class23.anIntArrayArray10[i_425_];
 		final int i_426_ = class23.anIntArray64[i_425_];
@@ -2416,32 +2350,31 @@ final class Class41
 		class26.anInt306 = i_442_;
 	}
 
-	private void method288(int i, final byte i_448_, int i_449_, int i_450_)
+	private void method288(int i, int i_449_, int i_450_)
 	{
-		anInt461++;
 		final int i_451_ = (-anInt448 + 1024) & 0x3ff;
 		final int i_452_ = (-anInt417 + 1024) & 0x3ff;
 		final int i_453_ = (-anInt480 - -1024) & 0x3ff;
 		if (i_453_ != 0)
 		{
-			final int i_454_ = Applet_Sub1.anIntArray151[i_453_];
-			final int i_455_ = Applet_Sub1.anIntArray151[i_453_ + 1024];
+			final int i_454_ = GameWindow.anIntArray151[i_453_];
+			final int i_455_ = GameWindow.anIntArray151[i_453_ + 1024];
 			final int i_456_ = ((i_455_ * i_450_) + (i_454_ * i)) >> 15;
 			i = (-(i_454_ * i_450_) + (i_455_ * i)) >> 15;
 			i_450_ = i_456_;
 		}
 		if (i_451_ != 0)
 		{
-			final int i_457_ = Applet_Sub1.anIntArray151[i_451_];
-			final int i_458_ = Applet_Sub1.anIntArray151[i_451_ + 1024];
+			final int i_457_ = GameWindow.anIntArray151[i_451_];
+			final int i_458_ = GameWindow.anIntArray151[i_451_ + 1024];
 			final int i_459_ = ((i_458_ * i) - (i_449_ * i_457_)) >> 15;
 			i_449_ = ((i_457_ * i) + (i_449_ * i_458_)) >> 15;
 			i = i_459_;
 		}
 		if (i_452_ != 0)
 		{
-			final int i_461_ = Applet_Sub1.anIntArray151[i_452_];
-			final int i_462_ = Applet_Sub1.anIntArray151[i_452_ + 1024];
+			final int i_461_ = GameWindow.anIntArray151[i_452_];
+			final int i_462_ = GameWindow.anIntArray151[i_452_ + 1024];
 			final int i_463_ = ((i_462_ * i_450_) + (i_449_ * i_461_)) >> 15;
 			i_449_ = (-(i_461_ * i_450_) + (i_449_ * i_462_)) >> 15;
 			i_450_ = i_463_;
@@ -2458,23 +2391,22 @@ final class Class41
 		{
 			Class34.anInt371 = i;
 		}
-		if (Class17.anInt193 > i_450_)
+		if (EntityHandler.anInt193 > i_450_)
 		{
-			Class17.anInt193 = i_450_;
+			EntityHandler.anInt193 = i_450_;
 		}
-		if (Class26.anInt312 > i)
+		if (CameraModel.anInt312 > i)
 		{
-			Class26.anInt312 = i;
+			CameraModel.anInt312 = i;
 		}
-		if (Class19.anInt207 < i_450_)
+		if (DataFileVariables.anInt207 < i_450_)
 		{
-			Class19.anInt207 = i_450_;
+			DataFileVariables.anInt207 = i_450_;
 		}
 	}
 
 	private void method289(final int i, final int i_464_)
 	{
-		anInt471++;
 		if (i_464_ < 19)
 		{
 			anIntArray106 = null;
@@ -2492,7 +2424,7 @@ final class Class41
 						{
 							anIntArrayArray13[i_465_] = new int[65536];
 							anIntArrayArray16[i] = anIntArrayArray13[i_465_];
-							method276((byte) -99, i);
+							method276(i);
 							return;
 						}
 					}
@@ -2509,7 +2441,7 @@ final class Class41
 					}
 					anIntArrayArray16[i] = anIntArrayArray16[i_466_];
 					anIntArrayArray16[i_466_] = null;
-					method276((byte) 40, i);
+					method276(i);
 				}
 				else
 				{
@@ -2519,7 +2451,7 @@ final class Class41
 						{
 							anIntArrayArray14[i_468_] = new int[16384];
 							anIntArrayArray16[i] = anIntArrayArray14[i_468_];
-							method276((byte) -116, i);
+							method276(i);
 							return;
 						}
 					}
@@ -2536,51 +2468,50 @@ final class Class41
 					}
 					anIntArrayArray16[i] = anIntArrayArray16[i_469_];
 					anIntArrayArray16[i_469_] = null;
-					method276((byte) 126, i);
+					method276(i);
 				}
 			}
 		}
 	}
 
-	void method290(final boolean bool)
+	void finishCamera()
 	{
-		aBool26 = aClass46_3.aBool28;
-		anInt445++;
-		final int i = (this.anInt437 * anInt463) >> anInt482;
+		aBool26 = gameImage.f1Toggle;
+		final int i = (this.anInt437 * halfWidth) >> anInt482;
 		AClass1.anInt320 = 0;
-		final int i_471_ = (this.anInt437 * anInt438) >> anInt482;
-		Class17.anInt193 = 0;
-		Class26.anInt312 = 0;
+		final int i_471_ = (this.anInt437 * halfHeight) >> anInt482;
+		EntityHandler.anInt193 = 0;
+		CameraModel.anInt312 = 0;
 		Class34.anInt371 = 0;
 		AClass1_Sub1.anInt642 = 0;
-		Class19.anInt207 = 0;
-		method288(-i_471_, (byte) 101, this.anInt437, -i);
-		method288(i_471_, (byte) 72, this.anInt437, -i);
-		method288(-i_471_, (byte) -126, this.anInt437, i);
-		method288(i_471_, (byte) 81, this.anInt437, i);
-		method288(-anInt438, (byte) 33, 0, -anInt463);
-		method288(anInt438, (byte) -127, 0, -anInt463);
-		method288(-anInt438, (byte) 80, 0, anInt463);
-		method288(anInt438, (byte) 62, 0, anInt463);
+		DataFileVariables.anInt207 = 0;
+		method288(-i_471_, this.anInt437, -i);
+		method288(i_471_, this.anInt437, -i);
+		method288(-i_471_, this.anInt437, i);
+		method288(i_471_, this.anInt437, i);
+		method288(-halfHeight, 0, -halfWidth);
+		method288(halfHeight, 0, -halfWidth);
+		method288(-halfHeight, 0, halfWidth);
+		method288(halfHeight, 0, halfWidth);
 		AClass1.anInt320 = anInt427 + AClass1.anInt320;
-		Class26.anInt312 = anInt436 + Class26.anInt312;
+		CameraModel.anInt312 = anInt436 + CameraModel.anInt312;
 		AClass1_Sub1.anInt642 = anInt427 + AClass1_Sub1.anInt642;
 		Class34.anInt371 = anInt436 + Class34.anInt371;
-		Class17.anInt193 = anInt440 + Class17.anInt193;
-		Class19.anInt207 = anInt440 + Class19.anInt207;
-		aClass23Array3[anInt442] = this.aClass23_3;
+		EntityHandler.anInt193 = anInt440 + EntityHandler.anInt193;
+		DataFileVariables.anInt207 = anInt440 + DataFileVariables.anInt207;
+		modelArray[modelCount] = this.aClass23_3;
 		this.aClass23_3.anInt274 = 2;
-		for (int i_472_ = 0; i_472_ < anInt442; i_472_++)
+		for (int i_472_ = 0; i_472_ < modelCount; i_472_++)
 		{
-			aClass23Array3[i_472_].method145(anInt448, anInt417, anInt440, anInt451, anInt480, anInt427, anInt482,
+			modelArray[i_472_].method145(anInt448, anInt417, anInt440, anInt451, anInt480, anInt427, anInt482,
 			        anInt436, 0);
 		}
-		aClass23Array3[anInt442].method145(anInt448, anInt417, anInt440, anInt451, anInt480, anInt427, anInt482,
+		modelArray[modelCount].method145(anInt448, anInt417, anInt440, anInt451, anInt480, anInt427, anInt482,
 		        anInt436, 0);
 		anInt460 = 0;
-		for (int i_473_ = 0; i_473_ < anInt442; i_473_++)
+		for (int i_473_ = 0; i_473_ < modelCount; i_473_++)
 		{
-			final Class23 class23 = aClass23Array3[i_473_];
+			final Model class23 = modelArray[i_473_];
 			if (class23.aBool14)
 			{
 				for (int i_474_ = 0; i_474_ < class23.anInt248; i_474_++)
@@ -2603,11 +2534,11 @@ final class Class41
 						for (int i_480_ = 0; i_480_ < i_475_; i_480_++)
 						{
 							final int i_481_ = class23.anIntArray65[is[i_480_]];
-							if (-anInt463 < i_481_)
+							if (-halfWidth < i_481_)
 							{
 								i_479_ |= 0x1;
 							}
-							if (anInt463 > i_481_)
+							if (halfWidth > i_481_)
 							{
 								i_479_ |= 0x2;
 							}
@@ -2622,11 +2553,11 @@ final class Class41
 							for (int i_482_ = 0; i_475_ > i_482_; i_482_++)
 							{
 								final int i_483_ = (class23.anIntArray63[is[i_482_]]);
-								if (-anInt438 < i_483_)
+								if (-halfHeight < i_483_)
 								{
 									i_479_ |= 0x1;
 								}
-								if (i_483_ < anInt438)
+								if (i_483_ < halfHeight)
 								{
 									i_479_ |= 0x2;
 								}
@@ -2637,10 +2568,10 @@ final class Class41
 							}
 							if (i_479_ == 3)
 							{
-								final Class26 class26 = aClass26Array1[anInt460];
+								final CameraModel class26 = cameraModels[anInt460];
 								class26.aClass23_2 = class23;
 								class26.anInt308 = i_474_;
-								method287((byte) 122, anInt460);
+								method287(anInt460);
 								int i_484_;
 								if (0 > class26.anInt318)
 								{
@@ -2667,7 +2598,7 @@ final class Class41
 				}
 			}
 		}
-		Class23 class23 = this.aClass23_3;
+		Model class23 = this.aClass23_3;
 		if (class23.aBool14)
 		{
 			for (int i_487_ = 0; class23.anInt248 > i_487_; i_487_++)
@@ -2681,10 +2612,10 @@ final class Class41
 				{
 					final int i_492_ = (anIntArray102[i_487_] << anInt482) / i_491_;
 					final int i_493_ = (anIntArray105[i_487_] << anInt482) / i_491_;
-					if (((i_489_ + -(i_492_ / 2)) <= anInt463) && (-anInt463 <= (i_489_ - -(i_492_ / 2)))
-					        && ((-i_493_ + i_490_) <= anInt438) && (-anInt438 <= i_490_))
+					if (((i_489_ + -(i_492_ / 2)) <= halfWidth) && (-halfWidth <= (i_489_ - -(i_492_ / 2)))
+					        && ((-i_493_ + i_490_) <= halfHeight) && (-halfHeight <= i_490_))
 					{
-						final Class26 class26 = aClass26Array1[anInt460];
+						final CameraModel class26 = cameraModels[anInt460];
 						class26.aClass23_2 = class23;
 						class26.anInt308 = i_487_;
 						method272(0, anInt460);
@@ -2696,11 +2627,11 @@ final class Class41
 		}
 		if (anInt460 != 0)
 		{
-			method262(2, aClass26Array1, anInt460 + -1, 0);
-			method291(aClass26Array1, 0, anInt460, 100);
+			method262(2, cameraModels, anInt460 + -1, 0);
+			method291(cameraModels, 0, anInt460, 100);
 			for (int i_494_ = 0; i_494_ < anInt460; i_494_++)
 			{
-				final Class26 class26 = aClass26Array1[i_494_];
+				final CameraModel class26 = cameraModels[i_494_];
 				class23 = class26.aClass23_2;
 				final int i_495_ = class26.anInt308;
 				if (class23 == this.aClass23_3)
@@ -2717,7 +2648,7 @@ final class Class41
 					i_503_ = class23.anIntArray65[is[1]] - i_497_;
 					int i_504_ = i_497_ + -(i_500_ / 2);
 					final int i_505_ = anInt432 - -i_498_ - i_501_;
-					aClass46_3.method349(i_500_, i_501_, (256 << anInt482) / i_499_, i_504_ + anInt428,
+					gameImage.drawEntity(i_500_, i_501_, (256 << anInt482) / i_499_, i_504_ + anInt428,
 					        anIntArray101[i_495_], i_503_, i_505_, -1);
 					if (aBool25 && (anInt441 < anInt462))
 					{
@@ -2856,11 +2787,10 @@ final class Class41
 							}
 						}
 					}
-					method260(1, anIntArray109, 0, anIntArray94, 0, i_506_, 0, i_495_, anIntArray97, class23, 0);
+					method260(anIntArray109, 0, anIntArray94, 0, i_506_, 0, i_495_, anIntArray97, class23, 0);
 					if (anInt421 < anInt425)
 					{
-						method259(anIntArray103, 0, 0, -100, class23, class26.anInt310, anIntArray95, i_508_,
-						        anIntArray106);
+						method259(anIntArray103, 0, 0, class23, class26.anInt310, anIntArray95, i_508_, anIntArray106);
 					}
 				}
 			}
@@ -2868,9 +2798,8 @@ final class Class41
 		}
 	}
 
-	private void method291(final Class26[] class26s, final int i, final int i_519_, final int i_520_)
+	private void method291(final CameraModel[] class26s, final int i, final int i_519_, final int i_520_)
 	{
-		anInt481++;
 		for (int i_521_ = i; i_519_ >= i_521_; i_521_++)
 		{
 			class26s[i_521_].aBool17 = false;
@@ -2890,7 +2819,7 @@ final class Class41
 				{
 					break;
 				}
-				final Class26 class26 = class26s[i_522_];
+				final CameraModel class26 = class26s[i_522_];
 				class26.aBool17 = true;
 				int i_523_ = i_522_;
 				int i_524_ = i_522_ + i_520_;
@@ -2900,13 +2829,13 @@ final class Class41
 				}
 				for (int i_525_ = i_524_; i_525_ >= (i_523_ + 1); i_525_--)
 				{
-					final Class26 class26_526_ = class26s[i_525_];
+					final CameraModel class26_526_ = class26s[i_525_];
 					if ((class26_526_.anInt315 > class26.anInt306) && (class26.anInt315 > class26_526_.anInt306)
 					        && (class26.anInt309 < class26_526_.anInt304) && (class26.anInt304 > class26_526_.anInt309)
 					        && (class26.anInt313 != class26_526_.anInt311)
 					        && !method296((byte) -63, class26, class26_526_) && method280(class26_526_, -1, class26))
 					{
-						method279(20615, i_523_, class26s, i_525_);
+						method279(i_523_, class26s, i_525_);
 						i_523_ = anInt469;
 						if (class26_526_ != class26s[i_525_])
 						{
@@ -2918,15 +2847,43 @@ final class Class41
 			}
 		}
 	}
-
-	static byte[] method292(final byte[] is, final int i, final String string, final int i_527_)
+	
+	static byte[] loadData(final byte[] data, final int maybe_dummy, String fileName)
 	{
-		anInt423++;
-		if (i_527_ != 293484812)
+		final int i_23_ = ((0xff & data[0]) * 256) + (data[1] & 0xff);
+		int searchHash = 0;
+		fileName = fileName.toUpperCase();
+		for (int index = 0; index < fileName.length(); index++)
 		{
-			method292(null, -86, null, -66);
+			searchHash = (searchHash * 61) + (fileName.charAt(index) - 32);
 		}
-		return IOException_Sub1.method460(i, (byte) -68, is, null, string);
+		int offset = (i_23_ * 10) + 2;
+		for (int index = 0; i_23_ > index; index++)
+		{
+			final int hash = (((data[index*10 + 4] & 0xff) * 256) + (((data[index*10 + 2] & 0xff) * 16777216) + ((data[index*10 + 3] & 0xff) * 65536)) + (data[index*10 + 5] & 0xff));
+			final int decmp_len = ((((data[index*10 + 6] & 0xff) * 65536) + ((data[(index * 10) + 7] & 0xff) * 256)) + (data[(index * 10) + 8] & 0xff));
+			final int cmp_len = (((data[index*10 + 10] & 0xff) * 256) + ((data[index*10 + 9] & 0xff) * 65536) + (data[index*10 + 11] & 0xff));
+			
+			if (hash == searchHash)
+			{
+				byte[] dest = new byte[maybe_dummy + decmp_len];
+				
+				if (cmp_len != decmp_len)
+				{
+					DataFileDecrypter.unpackData(dest, decmp_len, data, offset);
+				}
+				else
+				{
+					for (int i = 0; i < decmp_len; i++)
+					{
+						dest[i] = data[offset + i];
+					}
+				}
+				return dest;
+			}
+			offset += cmp_len;
+		}
+		return null;
 	}
 
 	void method293(final int i, final int i_528_, final int i_529_, final int i_530_)
@@ -2936,52 +2893,44 @@ final class Class41
 		anIntArrayArray17 = new int[i_529_][];
 		if (i_528_ != 13803)
 		{
-			method278(71, 119, -51, 38, -95, 56, 8);
+			setCameraSize(71, 119, -51, 38, -95, 56, 8);
 		}
 		anInt422 = i_529_;
 		anIntArray92 = new int[i_529_];
 		anIntArrayArray14 = new int[i_530_][];
 		aByteArrayArray12 = new byte[i_529_][];
-		anInt416++;
 		anIntArrayArray13 = new int[i][];
 		anIntArrayArray16 = new int[i_529_][];
 		ByteBuffer.aLong15 = 0L;
 	}
 
-	void method294(final Class23 class23, final int i)
+	void removeModel(final Model model)
 	{
-		anInt420++;
-		if (i != 1)
+		for (int index = 0; index < modelCount; index++)
 		{
-			method284(true, 116, 86, -18, -124);
-		}
-		for (int i_531_ = 0; anInt442 > i_531_; i_531_++)
-		{
-			if (aClass23Array3[i_531_] == class23)
+			if (modelArray[index] == model)
 			{
-				anInt442--;
-				for (int i_532_ = i_531_; anInt442 > i_532_; i_532_++)
+				modelCount--;
+				for (int index2 = index; index2 < modelCount; index2++)
 				{
-					aClass23Array3[i_532_] = aClass23Array3[i_532_ + 1];
-					anIntArray100[i_532_] = anIntArray100[i_532_ + 1];
+					modelArray[index2] = modelArray[index2 + 1];
+					modelIntArray[index2] = modelIntArray[index2 + 1];
 				}
 			}
 		}
 	}
 
-	Class23[] method295(final int i)
+	Model[] method295(final int i)
 	{
 		if (i != -18238)
 		{
 			return null;
 		}
-		anInt458++;
 		return aClass23Array2;
 	}
 
-	private boolean method296(final byte i, final Class26 class26, final Class26 class26_533_)
+	private boolean method296(final byte i, final CameraModel class26, final CameraModel class26_533_)
 	{
-		anInt468++;
 		if (class26_533_.anInt315 <= class26.anInt306)
 		{
 			return true;
@@ -3006,8 +2955,8 @@ final class Class41
 		{
 			return false;
 		}
-		final Class23 class23 = class26.aClass23_2;
-		final Class23 class23_534_ = class26_533_.aClass23_2;
+		final Model class23 = class26.aClass23_2;
+		final Model class23_534_ = class26_533_.aClass23_2;
 		final int i_535_ = class26.anInt308;
 		final int i_536_ = class26_533_.anInt308;
 		final int[] is = class23.anIntArrayArray10[i_535_];
@@ -3018,10 +2967,6 @@ final class Class41
 		int i_541_ = class23_534_.anIntArray66[is_537_[0]];
 		int i_542_ = class23_534_.anIntArray74[is_537_[0]];
 		int i_543_ = class26_533_.anInt316;
-		if (i != -63)
-		{
-			method293(57, -117, 87, 100);
-		}
 		int i_544_ = class26_533_.anInt307;
 		int i_545_ = class26_533_.anInt319;
 		int i_546_ = class23_534_.anIntArray69[i_536_];
@@ -3123,7 +3068,7 @@ final class Class41
 		return !method285(is_554_, is_555_, i + -20654, is_560_, is_561_);
 	}
 
-	Class41(final Class46 class46, final int i, final int i_566_, final int i_567_)
+	Camera(final GameImage gameImage, final int maxModels, final int maxCameraModels, final int i_567_)
 	{
 		anIntArray95 = new int[40];
 		anIntArray94 = new int[40];
@@ -3137,15 +3082,15 @@ final class Class41
 		anInt432 = 256;
 		anInt462 = 100;
 		aBool25 = false;
-		anInt438 = 192;
+		halfHeight = 192;
 		anInt451 = 5;
-		aClass23Array2 = new Class23[anInt462];
+		aClass23Array2 = new Model[anInt462];
 		this.anInt464 = 1000;
 		anIntArray109 = new int[40];
 		anIntArray103 = new int[40];
 		anIntArray106 = new int[40];
 		anIntArray99 = new int[anInt462];
-		anInt463 = 256;
+		halfWidth = 256;
 		this.anInt465 = 20;
 		anInt478 = 0;
 		aBool26 = false;
@@ -3154,22 +3099,22 @@ final class Class41
 		this.anInt426 = 10;
 		anInt482 = 8;
 		anIntArrayArray15 = new int[anInt418][256];
-		anInt429 = i;
-		aClass46_3 = class46;
-		anInt438 = class46.anInt510 / 2;
-		anInt463 = class46.anInt502 / 2;
-		anInt442 = 0;
-		anIntArray91 = class46.anIntArray119;
-		aClass26Array1 = new Class26[i_566_];
+		maxModelCount = maxModels;
+		this.gameImage = gameImage;
+		halfHeight = gameImage.menuDefaultHeight / 2;
+		halfWidth = gameImage.menuDefaultWidth / 2;
+		modelCount = 0;
+		anIntArray91 = gameImage.imagePixelArray;
+		cameraModels = new CameraModel[maxCameraModels];
 		anInt460 = 0;
-		aClass23Array3 = new Class23[anInt429];
-		anIntArray100 = new int[anInt429];
-		for (int i_568_ = 0; i_566_ > i_568_; i_568_++)
+		modelArray = new Model[maxModelCount];
+		modelIntArray = new int[maxModelCount];
+		for (int index = 0; maxCameraModels > index; index++)
 		{
-			aClass26Array1[i_568_] = new Class26();
+			cameraModels[index] = new CameraModel();
 		}
 		anInt478 = 0;
-		this.aClass23_3 = new Class23(i_567_ * 2, i_567_);
+		this.aClass23_3 = new Model(i_567_ * 2, i_567_);
 		anIntArray101 = new int[i_567_];
 		anIntArray102 = new int[i_567_];
 		if (Class47.aByteArray18 == null)
@@ -3189,13 +3134,13 @@ final class Class41
 		anIntArray105 = new int[i_567_];
 		for (int i_569_ = 0; 256 > i_569_; i_569_++)
 		{
-			Applet_Sub1.anIntArray152[i_569_] = (int) (Math.sin(0.02454369 * i_569_) * 32768.0);
-			Applet_Sub1.anIntArray152[i_569_ + 256] = (int) (32768.0 * Math.cos(0.02454369 * i_569_));
+			GameWindow.anIntArray152[i_569_] = (int) (Math.sin(0.02454369 * i_569_) * 32768.0);
+			GameWindow.anIntArray152[i_569_ + 256] = (int) (32768.0 * Math.cos(0.02454369 * i_569_));
 		}
 		for (int i_570_ = 0; i_570_ < 1024; i_570_++)
 		{
-			Applet_Sub1.anIntArray151[i_570_] = (int) (32768.0 * Math.sin(i_570_ * 0.00613592315));
-			Applet_Sub1.anIntArray151[i_570_ + 1024] = (int) (32768.0 * Math.cos(i_570_ * 0.00613592315));
+			GameWindow.anIntArray151[i_570_] = (int) (32768.0 * Math.sin(i_570_ * 0.00613592315));
+			GameWindow.anIntArray151[i_570_ + 1024] = (int) (32768.0 * Math.cos(i_570_ * 0.00613592315));
 		}
 	}
 }

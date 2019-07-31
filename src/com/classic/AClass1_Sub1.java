@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.lang.reflect.Method;
+import java.lang.reflect.Method; // NOTE: Used to access sun.net.www.protocol.http.AuthenticationInfo.
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.ProxySelector;
@@ -19,20 +19,12 @@ final class AClass1_Sub1 extends AClass1
 {
 	private final ProxySelector aProxySelector1 = ProxySelector.getDefault();
 	static Class47 aClass47_1 = null;
-	static int anInt639;
-	static int[] anIntArray144;
-	static int[] anIntArray145;
-	static int anInt640;
-	static int anInt641;
 	static int anInt642;
 	static String[] aStringArray38 = { "Enter number of items to offer and press enter" };
-	static int anInt643;
-	static int anInt644;
 
 	@Override
 	Socket method174(final boolean bool) throws IOException
 	{
-		anInt641++;
 		final boolean bool_0_ = (Boolean.parseBoolean(System.getProperty("java.net.useSystemProxies")));
 		if (!bool_0_)
 		{
@@ -40,21 +32,21 @@ final class AClass1_Sub1 extends AClass1
 		}
 		if (bool)
 		{
-			anIntArray144 = null;
+			EntityHandler.itemdef_sprite = null;
 		}
-		final boolean bool_1_ = this.anInt321 == 443;
-		List list;
-		List list_2_;
+		final boolean bool_1_ = this.port == 443;
+		List<Proxy> list;
+		List<Proxy> list_2_;
 		try
 		{
 			list = aProxySelector1.select(new URI(new StringBuilder().append(bool_1_ ? "https" : "http").append("://")
-			        .append(this.aString11).toString()));
+			        .append(this.host).toString()));
 			list_2_ = aProxySelector1.select(new URI(new StringBuilder().append(bool_1_ ? "http" : "https")
-			        .append("://").append(this.aString11).toString()));
+			        .append("://").append(this.host).toString()));
 		}
 		catch (final URISyntaxException urisyntaxexception)
 		{
-			return method175(!bool);
+			return createSocket();
 		}
 		list.addAll(list_2_);
 		final Object[] objects = list.toArray();
@@ -67,7 +59,7 @@ final class AClass1_Sub1 extends AClass1
 			Socket socket;
 			try
 			{
-				final Socket socket_4_ = method421(0, proxy);
+				final Socket socket_4_ = method421(proxy);
 				if (socket_4_ == null)
 				{
 					continue;
@@ -89,26 +81,25 @@ final class AClass1_Sub1 extends AClass1
 		{
 			throw ioexception_sub1;
 		}
-		return method175(true);
+		return createSocket();
 	}
 
-	private Socket method420(final int i, final String string, final int i_6_, final String string_7_)
+	private Socket method420(final int i, final String string, final String string_7_)
 	        throws IOException
 	{
-		anInt643++;
 		final Socket socket = new Socket(string_7_, i);
 		socket.setSoTimeout(10000);
 		final OutputStream outputstream = socket.getOutputStream();
 		if (string != null)
 		{
-			outputstream.write(new StringBuilder().append("CONNECT ").append(this.aString11).append(":")
-			        .append(this.anInt321).append(" HTTP/1.0\n").append(string).append("\n\n").toString()
+			outputstream.write(new StringBuilder().append("CONNECT ").append(this.host).append(":")
+			        .append(this.port).append(" HTTP/1.0\n").append(string).append("\n\n").toString()
 			        .getBytes(Charset.forName("ISO-8859-1")));
 		}
 		else
 		{
-			outputstream.write(new StringBuilder().append("CONNECT ").append(this.aString11).append(":")
-			        .append(this.anInt321).append(" HTTP/1.0\n\n").toString().getBytes(Charset.forName("ISO-8859-1")));
+			outputstream.write(new StringBuilder().append("CONNECT ").append(this.host).append(":")
+			        .append(this.port).append(" HTTP/1.0\n\n").toString().getBytes(Charset.forName("ISO-8859-1")));
 		}
 		outputstream.flush();
 		final BufferedReader bufferedreader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -147,12 +138,11 @@ final class AClass1_Sub1 extends AClass1
 		return null;
 	}
 
-	private Socket method421(final int i, final Proxy proxy) throws IOException
+	private Socket method421(final Proxy proxy) throws IOException
 	{
-		anInt644++;
 		if (proxy.type() == Proxy.Type.DIRECT)
 		{
-			return method175(true);
+			return createSocket();
 		}
 		final java.net.SocketAddress socketaddress = proxy.address();
 		if (!(socketaddress instanceof InetSocketAddress))
@@ -165,7 +155,7 @@ final class AClass1_Sub1 extends AClass1
 			if (proxy.type() == Proxy.Type.SOCKS)
 			{
 				final Socket socket = new Socket(proxy);
-				socket.connect(new InetSocketAddress((this.aString11), (this.anInt321)));
+				socket.connect(new InetSocketAddress((this.host), (this.port)));
 				return socket;
 			}
 		}
@@ -174,27 +164,27 @@ final class AClass1_Sub1 extends AClass1
 			String string = null;
 			try
 			{
-				final Class var_class = (Class.forName("sun.net.www.protocol.http.AuthenticationInfo"));
-				final Method method = var_class.getDeclaredMethod("getProxyAuth",
-				        (new Class[] { java.lang.String.class, Integer.TYPE }));
-				method.setAccessible(true);
-				final Object object = method.invoke(null,
+				final Class<?> var_class = Class.forName("sun.net.www.protocol.http.AuthenticationInfo");
+				
+				final Method method_getProxyAuth = var_class.getDeclaredMethod("getProxyAuth", (new Class[] { java.lang.String.class, Integer.TYPE }));
+				method_getProxyAuth.setAccessible(true);
+				
+				final Object object = method_getProxyAuth.invoke(null,
 				        (new Object[] { inetsocketaddress.getHostName(), new Integer(inetsocketaddress.getPort()) }));
 				if (object != null)
 				{
-					final Method method_12_ = (var_class.getDeclaredMethod("supportsPreemptiveAuthorization",
-					        new Class[0]));
-					method_12_.setAccessible(true);
-					if (((Boolean) method_12_.invoke(object, new Object[0])).booleanValue())
+					final Method method_supportsPreemptiveAuthorization = (var_class.getDeclaredMethod("supportsPreemptiveAuthorization", new Class[0]));
+					method_supportsPreemptiveAuthorization.setAccessible(true);
+					if (((Boolean) method_supportsPreemptiveAuthorization.invoke(object, new Object[0])).booleanValue())
 					{
-						final Method method_13_ = var_class.getDeclaredMethod("getHeaderName", new Class[0]);
-						method_13_.setAccessible(true);
-						final Method method_14_ = (var_class.getDeclaredMethod("getHeaderValue",
+						final Method method_getHeaderName = var_class.getDeclaredMethod("getHeaderName", new Class[0]);
+						method_getHeaderName.setAccessible(true);
+						final Method method_getHeaderValue = (var_class.getDeclaredMethod("getHeaderValue",
 						        new Class[] { java.net.URL.class, java.lang.String.class }));
-						method_14_.setAccessible(true);
-						final String string_15_ = ((String) method_13_.invoke(object, new Object[0]));
-						final String string_16_ = ((String) (method_14_.invoke(object, (new Object[] { new URL(
-						        new StringBuilder().append("https://").append(this.aString11).append("/").toString()),
+						method_getHeaderValue.setAccessible(true);
+						final String string_15_ = ((String) method_getHeaderName.invoke(object, new Object[0]));
+						final String string_16_ = ((String) (method_getHeaderValue.invoke(object, (new Object[] { new URL(
+						        new StringBuilder().append("https://").append(this.host).append("/").toString()),
 						        "https" }))));
 						string = new StringBuilder().append(string_15_).append(": ").append(string_16_).toString();
 					}
@@ -204,31 +194,26 @@ final class AClass1_Sub1 extends AClass1
 			{
 				/* empty */
 			}
-			return method420(inetsocketaddress.getPort(), string, -1, inetsocketaddress.getHostName());
+			return method420(inetsocketaddress.getPort(), string, inetsocketaddress.getHostName());
 		}
 		return null;
 	}
 
-	static int method422(final String string, final int i)
+	static int storeModel(final String name)
 	{
-		anInt640++;
-		if (string.equalsIgnoreCase("na"))
+		if (name.equalsIgnoreCase("na"))
 		{
 			return 0;
 		}
-		int i_17_ = 0;
-		if (i >= -78)
+		
+		for (int index = 0; index < Class4.modelNamesCount; index++)
 		{
-			aStringArray38 = null;
-		}
-		for (/**/; i_17_ < Class4.anInt11; i_17_++)
-		{
-			if (Class2.aStringArray1[i_17_].equalsIgnoreCase(string))
+			if (Class2.modelNames[index].equalsIgnoreCase(name))
 			{
-				return i_17_;
+				return index;
 			}
 		}
-		Class2.aStringArray1[Class4.anInt11++] = string;
-		return Class4.anInt11 + -1;
+		Class2.modelNames[Class4.modelNamesCount++] = name;
+		return Class4.modelNamesCount - 1;
 	}
 }

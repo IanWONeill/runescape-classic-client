@@ -3,72 +3,61 @@ package com.classic;
 import java.applet.Applet;
 import java.awt.Component;
 
-final class Class46_Sub1 extends Class46
+final class GameImageMiddleMan extends GameImage
 {
-	static int[] anIntArray143;
 	static char[] aCharArray2 = { ' ', '\u00a0', '_', '-', '\u00e0', '\u00e1', '\u00e2', '\u00e4', '\u00e3', '\u00c0',
 	        '\u00c1', '\u00c2', '\u00c4', '\u00c3', '\u00e8', '\u00e9', '\u00ea', '\u00eb', '\u00c8', '\u00c9',
 	        '\u00ca', '\u00cb', '\u00ed', '\u00ee', '\u00ef', '\u00cd', '\u00ce', '\u00cf', '\u00f2', '\u00f3',
 	        '\u00f4', '\u00f6', '\u00f5', '\u00d2', '\u00d3', '\u00d4', '\u00d6', '\u00d5', '\u00f9', '\u00fa',
 	        '\u00fb', '\u00fc', '\u00d9', '\u00da', '\u00db', '\u00dc', '\u00e7', '\u00c7', '\u00ff', '\u0178',
 	        '\u00f1', '\u00d1', '\u00df' };
-	static String[] aStringArray36;
-	static int anInt632;
-	static int anInt633;
 	static Applet anApplet2;
-	static String[] aStringArray37;
-	static int anInt634;
-	Client aclient1;
+	mudclient aclient1;
 
 	@Override
-	void method349(final int i, final int i_0_, final int i_1_, final int i_2_, final int i_3_, final int i_4_,
-	        final int i_5_, final int i_6_)
+	void drawEntity(final int i, final int i_0_, final int i_1_, final int i_2_, final int id, final int i_4_, final int i_5_, final int i_6_)
 	{
 		if (i_6_ != -1)
 		{
 			aCharArray2 = null;
 		}
-		anInt632++;
-		if (i_3_ < 50000)
+		if (id < 50000)
 		{
-			if (i_3_ < 40000)
+			if (id < 40000)
 			{
-				if (20000 <= i_3_)
+				if (20000 <= id)
 				{
-					this.aclient1.method505(i_4_, i_3_ + -20000, i_1_, i_5_, i_0_, i_2_, (byte) -117, i);
+					this.aclient1.drawNpc(i_4_, id - 20000, i_1_, i_5_, i_0_, i_2_, i);
 				}
-				else if (5000 <= i_3_)
+				else if (5000 <= id)
 				{
-					this.aclient1.method511(i_3_ + -5000, i_0_, i_2_, i_1_, i, -5, i_4_, i_5_);
+					this.aclient1.drawPlayer(id - 5000, i_0_, i_2_, i_1_, i, i_4_, i_5_);
 				}
 				else
 				{
-					super.method316(i, i_5_, i_3_, i_2_, 47, i_0_);
+					// NOTE: Projectiles get rendered here (both ranged and magic).
+					super.spriteClip1(i, i_5_, id, i_2_, i_0_);
 				}
 			}
 			else
 			{
-				this.aclient1.method530(true, i_4_, i_3_ + -40000, i_0_, i_5_, i_2_, i);
+				this.aclient1.drawGroundItem(i_4_, id - 40000, i_0_, i_5_, i_2_, i);
 			}
 		}
 		else
 		{
-			this.aclient1.method515(i_2_, 126, i_3_ - 50000, i_0_, i_4_, i, i_5_);
+			// NOTE: Think this is the teleport bubble.
+			this.aclient1.method515(i_2_, id - 50000, i_0_, i, i_5_);
 		}
 	}
 
-	Class46_Sub1(final int i, final int i_7_, final int i_8_, final Component component)
+	GameImageMiddleMan(final int maybe_width, final int maybe_height, final int i_8_, final Component component)
 	{
-		super(i, i_7_, i_8_, component);
+		super(maybe_width, maybe_height, i_8_, component);
 	}
 
-	static byte[] method409(final CharSequence charsequence, final boolean bool)
+	static byte[] maybe_stringToByteArray(final CharSequence charsequence)
 	{
-		if (bool)
-		{
-			method409(null, false);
-		}
-		anInt634++;
 		final int i = charsequence.length();
 		final byte[] is = new byte[i];
 		for (int i_9_ = 0; i > i_9_; i_9_++)
@@ -239,9 +228,8 @@ final class Class46_Sub1 extends Class46
 		return is;
 	}
 
-	static void method410(final int[] is, final Object[] objects, final byte i)
+	static void method410(final int[] is, final Object[] objects)
 	{
 		Class51.method375(objects, 0, is.length + -1, is, 1);
-		anInt633++;
 	}
 }

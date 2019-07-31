@@ -2,18 +2,12 @@ package com.classic;
 
 final class Class43
 {
-	static int anInt485;
 	static String[] aStringArray29 = { "Please enter the number of items to withdraw", "and press enter" };
-	static int anInt486;
-	static int anInt487;
 	Class27 aClass27_3 = new Class27();
-	static int anInt488;
 	private Class27 aClass27_4;
-	static int anInt489;
 
-	Class27 method297(final int i)
+	Class27 method297()
 	{
-		anInt487++;
 		final Class27 class27 = aClass27_4;
 		if (class27 == this.aClass27_3)
 		{
@@ -24,9 +18,8 @@ final class Class43
 		return class27;
 	}
 
-	static String method298(final byte i, final CharSequence charsequence)
+	static String method298(final CharSequence charsequence)
 	{
-		anInt485++;
 		if (charsequence == null)
 		{
 			return null;
@@ -34,11 +27,11 @@ final class Class43
 		int i_0_ = 0;
 		int i_1_;
 		for (i_1_ = charsequence.length(); ((i_1_ > i_0_)
-		        && Class6.method17((byte) 66, charsequence.charAt(i_0_))); i_0_++)
+		        && EngineHandle.method17(charsequence.charAt(i_0_))); i_0_++)
 		{
 			/* empty */
 		}
-		for (/**/; ((i_0_ < i_1_) && Class6.method17((byte) 66, charsequence.charAt(i_1_ + -1))); i_1_--)
+		for (/**/; ((i_0_ < i_1_) && EngineHandle.method17(charsequence.charAt(i_1_ + -1))); i_1_--)
 		{
 			/* empty */
 		}
@@ -51,9 +44,9 @@ final class Class43
 		for (int i_4_ = i_0_; i_1_ > i_4_; i_4_++)
 		{
 			final char c = charsequence.charAt(i_4_);
-			if (Class51.method374(c, (byte) -96))
+			if (Class51.method374(c))
 			{
-				final char c_5_ = Class4.method9(16777215, c);
+				final char c_5_ = Class4.method9(c);
 				if (c_5_ != '\0')
 				{
 					stringbuilder.append(c_5_);
@@ -67,9 +60,8 @@ final class Class43
 		return stringbuilder.toString();
 	}
 
-	Class27 method299(final boolean bool)
+	Class27 method299()
 	{
-		anInt489++;
 		final Class27 class27 = this.aClass27_3.aClass27_2;
 		if (class27 == this.aClass27_3)
 		{
@@ -86,12 +78,11 @@ final class Class43
 		this.aClass27_3.aClass27_2 = this.aClass27_3;
 	}
 
-	void method300(final byte i, final Class27 class27)
+	void method300(final Class27 class27)
 	{
-		anInt488++;
 		if (class27.aClass27_1 != null)
 		{
-			class27.method178(126);
+			class27.method178();
 		}
 		class27.aClass27_1 = this.aClass27_3;
 		class27.aClass27_2 = this.aClass27_3.aClass27_2;

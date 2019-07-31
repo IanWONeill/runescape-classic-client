@@ -2,49 +2,33 @@ package com.classic;
 
 final class Class38
 {
-	static int[][] anIntArrayArray12;
-	static String[] aStringArray26;
-	static int[] anIntArray88;
-	static int anInt396;
-	static int anInt397;
 	static int anInt398 = 0;
 	int anInt399;
-	static Frame_Sub1 aFrame_Sub1_1 = null;
-	static int anInt400;
-	static String[] aStringArray27;
-	static int[] anIntArray89;
-	static int anInt401;
-
+	static GameFrame gameFrame = null;
+	@SuppressWarnings("unused")
 	Class38(final String string, final String string_0_, final String string_1_, final int i)
 	{
 		this.anInt399 = i;
 	}
 
-	static int method245(int i, final byte i_2_)
+	static int nearestPowerOfTwo(int n)
 	{
-		if (i_2_ <= 121)
-		{
-			method245(-126, (byte) 29);
-		}
-		i = (0x55555555 & i) + ((i >>> 1) & ~0x2aaaaaaa);
-		anInt400++;
-		i = ((~0x33333332 & i) >>> 2) + (0x33333333 & i);
-		i = (i + (i >>> 4)) & 0xf0f0f0f;
-		i += i >>> 8;
-		i += i >>> 16;
-		return i & 0xff;
+		n = (0x55555555 & n) + ((n >>> 1) & ~0x2aaaaaaa);
+		n = ((~0x33333332 & n) >>> 2) + (0x33333333 & n);
+		n = (n + (n >>> 4)) & 0xf0f0f0f;
+		n += n >>> 8;
+		n += n >>> 16;
+		return n & 0xff;
 	}
 
 	@Override
 	public String toString()
 	{
-		anInt401++;
 		throw new IllegalStateException();
 	}
 
-	static byte[] method246(final int i)
+	static byte[] method246()
 	{
-		anInt397++;
 		final byte[] is = new byte[256];
 		for (int i_3_ = -128; i_3_ < 127; i_3_++)
 		{
@@ -61,7 +45,7 @@ final class Class38
 			{
 				i_8_ = -i_8_;
 			}
-			is[Class52.method378(i_3_, 255)] = (byte) (i_8_ / 256);
+			is[Class52.bitwiseAnd(i_3_, 255)] = (byte) (i_8_ / 256);
 		}
 		return is;
 	}

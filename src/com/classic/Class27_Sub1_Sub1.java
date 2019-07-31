@@ -9,14 +9,9 @@ final class Class27_Sub1_Sub1 extends ByteBuffer
 {
 	static int[] anIntArray146;
 	static int[] anIntArray147;
-	static int anInt664;
+	static int portOffset;
 	private int anInt665;
-	static int anInt666;
-	static int anInt667;
 	static String[] aStringArray39 = { "Enter number of items to stake and press enter" };
-	static int anInt668;
-	static int anInt669;
-	static int anInt670;
 	static int[] anIntArray148;
 	private static byte[] aByteArray27;
 	static Class39 aClass39_5;
@@ -28,7 +23,6 @@ final class Class27_Sub1_Sub1 extends ByteBuffer
 			aByteArray27 = null;
 		}
 		anInt665 = this.position * 8;
-		anInt670++;
 	}
 
 	Class27_Sub1_Sub1(final int i)
@@ -36,25 +30,20 @@ final class Class27_Sub1_Sub1 extends ByteBuffer
 		super(i);
 	}
 
-	static void method455(final String string, final byte[] is, final byte i, final int i_0_) throws IOException
+	static void readFromPath(final String string, final byte[] is, final int length) throws IOException
 	{
-		anInt666++;
-		final InputStream inputstream = Class51.method376(string, (byte) 93);
+		final InputStream inputstream = Class51.method376(string);
 		final DataInputStream datainputstream = new DataInputStream(inputstream);
 		try
 		{
-			datainputstream.readFully(is, 0, i_0_);
+			datainputstream.readFully(is, 0, length);
 		}
-		catch (final EOFException eofexception)
-		{
-			/* empty */
-		}
+		catch (final EOFException eofexception) {}
 		datainputstream.close();
 	}
 
-	int method456(final int i, int i_1_)
+	int method456(int i_1_)
 	{
-		anInt667++;
 		int i_2_ = anInt665 >> 3;
 		int i_3_ = -(anInt665 & 0x7) + 8;
 		int i_4_ = 0;
@@ -75,19 +64,13 @@ final class Class27_Sub1_Sub1 extends ByteBuffer
 		return i_4_;
 	}
 
-	int method457(final int i)
+	int method457()
 	{
-		if (i != 32253)
-		{
-			method458((byte) -34);
-		}
-		anInt669++;
 		return anInt665;
 	}
 
-	void method458(final byte i)
+	void method458()
 	{
-		anInt668++;
 		this.position = (anInt665 + 7) / 8;
 	}
 

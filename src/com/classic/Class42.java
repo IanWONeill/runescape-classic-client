@@ -2,12 +2,10 @@ package com.classic;
 
 final class Class42
 {
-	static Class24 aClass24_1 = new Class24("LIVE", 0);
+	static Class24 aClass24_1 = new Class24(0);
 	private static char[] aCharArray1 = new char[256];
 	static int anInt484 = 114;
 	static int[] anIntArray110;
-	static int[][] anIntArrayArray18;
-
 	static
 	{
 		for (int i = 0; i < 256; i++)

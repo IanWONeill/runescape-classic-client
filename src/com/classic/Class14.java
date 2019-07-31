@@ -2,27 +2,6 @@ package com.classic;
 
 final class Class14
 {
-	static void method111(final int[] is, int i, int i_0_)
-	{
-		i_0_ = (i_0_ + i) - 7;
-		while (i < i_0_)
-		{
-			is[i++] = 0;
-			is[i++] = 0;
-			is[i++] = 0;
-			is[i++] = 0;
-			is[i++] = 0;
-			is[i++] = 0;
-			is[i++] = 0;
-			is[i++] = 0;
-		}
-		i_0_ += 7;
-		while (i < i_0_)
-		{
-			is[i++] = 0;
-		}
-	}
-
 	static void method112(final byte[] is, int i, final byte[] is_1_, int i_2_, int i_3_)
 	{
 		if (is_1_ == is)

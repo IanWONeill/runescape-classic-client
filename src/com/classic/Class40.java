@@ -15,13 +15,13 @@ public final class Class40 implements IEnumModesCallback
 	private static int[] anIntArray90;
 	private final DirectDraw aDirectDraw1 = new DirectDraw();
 
-	void method256(final int i, final Frame frame)
+	void method256(final Frame frame)
 	{
 		aDirectDraw1.restoreDisplayMode();
 		aDirectDraw1.setCooperativeLevel((java.awt.Component) frame, 8);
 	}
 
-	void method257(final int i, final int i_0_, final Frame frame, final byte i_1_, final int i_2_, final int i_3_)
+	void method257(final int i, final int i_0_, final Frame frame, final int i_2_, final int i_3_)
 	{
 		frame.setVisible(true);
 		final WComponentPeer wcomponentpeer = (WComponentPeer) frame.getPeer();

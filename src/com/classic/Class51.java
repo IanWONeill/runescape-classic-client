@@ -9,27 +9,22 @@ import java.net.URL;
 final class Class51
 {
 	int anInt581;
-	static int anInt582;
-	static int anInt583 = 235;
 	static int anInt584 = 176;
 	int anInt585;
-	static int anInt586;
-	static int anInt587;
 	int anInt588;
 	int anInt589;
 
-	static boolean method374(final char c, final byte i)
+	static boolean method374(final char c)
 	{
-		anInt587++;
 		if (Character.isISOControl(c))
 		{
 			return false;
 		}
-		if (Class25.method173((byte) -52, c))
+		if (Class25.isAlphaNumeric(c))
 		{
 			return true;
 		}
-		char[] cs = Class46_Sub1.aCharArray2;
+		char[] cs = GameImageMiddleMan.aCharArray2;
 		for (int i_0_ = 0; i_0_ < cs.length; i_0_++)
 		{
 			final char c_1_ = cs[i_0_];
@@ -38,7 +33,7 @@ final class Class51
 				return true;
 			}
 		}
-		cs = Client.aCharArray4;
+		cs = mudclient.aCharArray4;
 		for (int i_2_ = 0; cs.length > i_2_; i_2_++)
 		{
 			final char c_3_ = cs[i_2_];
@@ -52,7 +47,6 @@ final class Class51
 
 	static void method375(final Object[] objects, final int i, final int i_4_, final int[] is, final int i_5_)
 	{
-		anInt582++;
 		if (i_5_ != 1)
 		{
 			anInt584 = 20;
@@ -89,9 +83,8 @@ final class Class51
 		}
 	}
 
-	static InputStream method376(final String string, final byte i) throws IOException
+	static InputStream method376(final String string) throws IOException
 	{
-		anInt586++;
 		InputStream inputstream;
 		if (Class47.anURL3 == null)
 		{

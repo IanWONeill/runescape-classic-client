@@ -10,33 +10,30 @@ import java.awt.image.PixelGrabber;
 final class Class52
 {
 	static int anInt590 = 0;
-	static int anInt591;
 	static byte[][] aByteArrayArray14 = new byte[50][];
-	static int anInt592;
-	static int anInt593;
-	static byte[] aByteArray20;
-
-	static synchronized long method377(final int i)
+	static byte[] integerData;
+	static long aLong4;
+	static long aLong14;
+	
+	static synchronized long method377()
 	{
-		anInt592++;
-		final long l = System.currentTimeMillis();
-		if (Class41.aLong14 > l)
+		final long now = System.currentTimeMillis();
+		if (Class52.aLong14 > now)
 		{
-			Class35.aLong4 += Class41.aLong14 - l;
+			Class52.aLong4 += Class52.aLong14 - now;
 		}
-		Class41.aLong14 = l;
-		return Class35.aLong4 + l;
+		Class52.aLong14 = now;
+		return Class52.aLong4 + now;
 	}
 
-	static int method378(final int i, final int i_0_)
+	static int bitwiseAnd(final int a, final int b)
 	{
-		return i & i_0_;
+		return a & b;
 	}
 
-	static boolean method379(final int i, boolean bool, final int i_1_, final Font font, final int i_2_, final char c,
-	        final Applet_Sub1 applet_sub1, final FontMetrics fontmetrics)
+	static boolean method379(final int i, boolean bool, final int i_1_, final Font font, final char c, final GameWindow applet_sub1,
+	        final FontMetrics fontmetrics)
 	{
-		anInt593++;
 		int i_3_ = fontmetrics.charWidth(c);
 		final int i_4_ = i_3_;
 		if (bool)
@@ -139,9 +136,9 @@ final class Class52
 				}
 			}
 		}
-		Class22.aByteArray11[(i * 9) + 0] = (byte) (Class10.anInt90 / 16384);
-		Class22.aByteArray11[(i * 9) + 1] = (byte) method378(Class10.anInt90 / 128, 127);
-		Class22.aByteArray11[(i * 9) + 2] = (byte) method378(Class10.anInt90, 127);
+		Class22.aByteArray11[(i * 9) + 0] = (byte) (Menu.anInt90 / 16384);
+		Class22.aByteArray11[(i * 9) + 1] = (byte) bitwiseAnd(Menu.anInt90 / 128, 127);
+		Class22.aByteArray11[(i * 9) + 2] = (byte) bitwiseAnd(Menu.anInt90, 127);
 		Class22.aByteArray11[(i * 9) - -3] = (byte) (-i_8_ + i_10_);
 		Class22.aByteArray11[(i * 9) + 4] = (byte) (-i_9_ + i_14_);
 		Class22.aByteArray11[(i * 9) - -5] = (byte) i_8_;
@@ -157,17 +154,15 @@ final class Class52
 				{
 					ByteBuffer.aBoolArray10[i_1_] = true;
 				}
-				Class22.aByteArray11[Class10.anInt90++] = (byte) i_26_;
+				Class22.aByteArray11[Menu.anInt90++] = (byte) i_26_;
 			}
 		}
 		return true;
 	}
 
-	static void method380(final int[] is, final int i, int i_27_, final int i_28_, final int i_29_, final int i_30_,
-	        int i_31_, final int i_32_, int i_33_, final int i_34_, int i_35_, final int[] is_36_, int i_37_, int i_38_,
-	        int i_39_)
+	static void method380(final int[] is, int i_27_, final int i_28_, final int i_29_, final int i_30_, int i_31_,
+	        final int i_32_, int i_33_, final int i_34_, int i_35_, final int[] is_36_, int i_37_, int i_38_, int i_39_)
 	{
-		anInt591++;
 		if (i_28_ > 0)
 		{
 			int i_40_ = 0;
@@ -211,62 +206,62 @@ final class Class52
 			{
 				i_42_ = i_39_ >> 23;
 				i_37_ = (0x600000 & i_39_) + i_37_;
-				is[i_31_++] = is_36_[(i_37_ >> 7) + method378(i_35_, 16256)] >>> i_42_;
+				is[i_31_++] = is_36_[(i_37_ >> 7) + bitwiseAnd(i_35_, 16256)] >>> i_42_;
 				i_39_ = i_32_ + i_39_;
 				i_37_ = i_44_ + i_37_;
 				i_35_ += i_43_;
-				is[i_31_++] = is_36_[method378(i_35_, 16256) + (i_37_ >> 7)] >>> i_42_;
+				is[i_31_++] = is_36_[bitwiseAnd(i_35_, 16256) + (i_37_ >> 7)] >>> i_42_;
 				i_37_ = i_44_ + i_37_;
 				i_35_ += i_43_;
-				is[i_31_++] = is_36_[method378(16256, i_35_) + (i_37_ >> 7)] >>> i_42_;
+				is[i_31_++] = is_36_[bitwiseAnd(16256, i_35_) + (i_37_ >> 7)] >>> i_42_;
 				i_37_ = i_44_ + i_37_;
 				i_35_ += i_43_;
-				is[i_31_++] = is_36_[method378(i_35_, 16256) + (i_37_ >> 7)] >>> i_42_;
+				is[i_31_++] = is_36_[bitwiseAnd(i_35_, 16256) + (i_37_ >> 7)] >>> i_42_;
 				i_37_ = i_44_ + i_37_;
 				i_35_ += i_43_;
 				i_42_ = i_39_ >> 23;
 				i_37_ = (i_39_ & 0x600000) + (i_37_ & 0x3fff);
 				i_39_ = i_32_ + i_39_;
-				is[i_31_++] = is_36_[(i_37_ >> 7) + method378(i_35_, 16256)] >>> i_42_;
+				is[i_31_++] = is_36_[(i_37_ >> 7) + bitwiseAnd(i_35_, 16256)] >>> i_42_;
 				i_35_ += i_43_;
 				i_37_ = i_44_ + i_37_;
-				is[i_31_++] = is_36_[method378(16256, i_35_) + (i_37_ >> 7)] >>> i_42_;
+				is[i_31_++] = is_36_[bitwiseAnd(16256, i_35_) + (i_37_ >> 7)] >>> i_42_;
 				i_37_ = i_44_ + i_37_;
 				i_35_ += i_43_;
-				is[i_31_++] = (is_36_[method378(i_35_, 16256) - -(i_37_ >> 7)] >>> i_42_);
+				is[i_31_++] = (is_36_[bitwiseAnd(i_35_, 16256) - -(i_37_ >> 7)] >>> i_42_);
 				i_35_ += i_43_;
 				i_37_ = i_44_ + i_37_;
-				is[i_31_++] = is_36_[(i_37_ >> 7) + method378(16256, i_35_)] >>> i_42_;
+				is[i_31_++] = is_36_[(i_37_ >> 7) + bitwiseAnd(16256, i_35_)] >>> i_42_;
 				i_37_ = i_44_ + i_37_;
 				i_35_ += i_43_;
 				i_37_ = (0x3fff & i_37_) - -(i_39_ & 0x600000);
 				i_42_ = i_39_ >> 23;
 				i_39_ = i_32_ + i_39_;
-				is[i_31_++] = is_36_[(i_37_ >> 7) + method378(16256, i_35_)] >>> i_42_;
+				is[i_31_++] = is_36_[(i_37_ >> 7) + bitwiseAnd(16256, i_35_)] >>> i_42_;
 				i_35_ += i_43_;
 				i_37_ = i_44_ + i_37_;
-				is[i_31_++] = is_36_[method378(i_35_, 16256) + (i_37_ >> 7)] >>> i_42_;
+				is[i_31_++] = is_36_[bitwiseAnd(i_35_, 16256) + (i_37_ >> 7)] >>> i_42_;
 				i_35_ += i_43_;
 				i_37_ = i_44_ + i_37_;
-				is[i_31_++] = is_36_[(i_37_ >> 7) + method378(i_35_, 16256)] >>> i_42_;
+				is[i_31_++] = is_36_[(i_37_ >> 7) + bitwiseAnd(i_35_, 16256)] >>> i_42_;
 				i_37_ = i_44_ + i_37_;
 				i_35_ += i_43_;
-				is[i_31_++] = is_36_[(i_37_ >> 7) + method378(i_35_, 16256)] >>> i_42_;
+				is[i_31_++] = is_36_[(i_37_ >> 7) + bitwiseAnd(i_35_, 16256)] >>> i_42_;
 				i_35_ += i_43_;
 				i_37_ = i_44_ + i_37_;
 				i_42_ = i_39_ >> 23;
 				i_37_ = (i_37_ & 0x3fff) - -(i_39_ & 0x600000);
 				i_39_ = i_32_ + i_39_;
-				is[i_31_++] = is_36_[method378(i_35_, 16256) + (i_37_ >> 7)] >>> i_42_;
+				is[i_31_++] = is_36_[bitwiseAnd(i_35_, 16256) + (i_37_ >> 7)] >>> i_42_;
 				i_37_ = i_44_ + i_37_;
 				i_35_ += i_43_;
-				is[i_31_++] = is_36_[(i_37_ >> 7) + method378(16256, i_35_)] >>> i_42_;
+				is[i_31_++] = is_36_[(i_37_ >> 7) + bitwiseAnd(16256, i_35_)] >>> i_42_;
 				i_35_ += i_43_;
 				i_37_ = i_44_ + i_37_;
-				is[i_31_++] = is_36_[method378(16256, i_35_) + (i_37_ >> 7)] >>> i_42_;
+				is[i_31_++] = is_36_[bitwiseAnd(16256, i_35_) + (i_37_ >> 7)] >>> i_42_;
 				i_35_ += i_43_;
 				i_37_ = i_44_ + i_37_;
-				is[i_31_++] = is_36_[method378(16256, i_35_) + (i_37_ >> 7)] >>> i_42_;
+				is[i_31_++] = is_36_[bitwiseAnd(16256, i_35_) + (i_37_ >> 7)] >>> i_42_;
 				i_38_ += i_30_;
 				i_27_ += i_29_;
 				i_37_ = i_40_;
@@ -296,7 +291,7 @@ final class Class52
 					i_37_ = (0x3fff & i_37_) + (0x600000 & i_39_);
 					i_39_ = i_32_ + i_39_;
 				}
-				is[i_31_++] = is_36_[method378(16256, i_35_) + (i_37_ >> 7)] >>> i_42_;
+				is[i_31_++] = is_36_[bitwiseAnd(16256, i_35_) + (i_37_ >> 7)] >>> i_42_;
 				i_37_ = i_44_ + i_37_;
 				i_35_ += i_43_;
 			}

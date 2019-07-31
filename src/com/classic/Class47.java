@@ -8,10 +8,6 @@ final class Class47
 {
 	private Class39 aClass39_3;
 	private Class39 aClass39_4 = null;
-	static int anInt570;
-	static int anInt571;
-	static int anInt572;
-	static String[] aStringArray34;
 	static byte[] aByteArray18;
 	static int anInt573;
 	private int anInt574 = 65000;
@@ -19,13 +15,8 @@ final class Class47
 	static Class38 aClass38_6 = new Class38("WTRC", "office", "_rc", 1);
 	private final int anInt576;
 	static URL anURL3 = null;
-	static int anInt577;
-	static int[] anIntArray135;
-	static int[] anIntArray136;
-
-	private boolean method365(final byte[] is, boolean bool, final int i, final byte i_0_, final int i_1_)
+	private boolean method365(final byte[] is, boolean bool, final int i, final int i_1_)
 	{
-		anInt570++;
 		synchronized (aClass39_3)
 		{
 			boolean bool_3_;
@@ -34,7 +25,7 @@ final class Class47
 				int i_4_;
 				if (!bool)
 				{
-					i_4_ = (int) ((519L + aClass39_3.method249(false)) / 520L);
+					i_4_ = (int) ((519L + aClass39_3.method249()) / 520L);
 					if (i_4_ == 0)
 					{
 						i_4_ = 1;
@@ -42,16 +33,16 @@ final class Class47
 				}
 				else
 				{
-					if ((i * 6) + 6 > aClass39_4.method249(false))
+					if ((i * 6) + 6 > aClass39_4.method249())
 					{
 						final boolean bool_5_ = false;
 						return bool_5_;
 					}
-					aClass39_4.method247(i * 6, -112);
-					aClass39_4.method253((byte) 99, 0, 6, Class24.aByteArray14);
+					aClass39_4.method247(i * 6);
+					aClass39_4.method253(0, 6, Class24.aByteArray14);
 					i_4_ = ((0xff0000 & (Class24.aByteArray14[3] << 16))
 					        - (-(0xff & Class24.aByteArray14[5]) + -((Class24.aByteArray14[4] & 0xff) << 8)));
-					if ((i_4_ <= 0) || (i_4_ > (aClass39_3.method249(false) / 520L)))
+					if ((i_4_ <= 0) || (i_4_ > (aClass39_3.method249() / 520L)))
 					{
 						final boolean bool_6_ = false;
 						return bool_6_;
@@ -63,8 +54,8 @@ final class Class47
 				Class24.aByteArray14[4] = (byte) (i_4_ >> 8);
 				Class24.aByteArray14[2] = (byte) i_1_;
 				Class24.aByteArray14[1] = (byte) (i_1_ >> 8);
-				aClass39_4.method247(i * 6, -121);
-				aClass39_4.method248(Class24.aByteArray14, 6, -84, 0);
+				aClass39_4.method247(i * 6);
+				aClass39_4.method248(Class24.aByteArray14, 6, 0);
 				int i_7_ = 0;
 				int i_8_ = 0;
 				while (i_1_ > i_7_)
@@ -72,7 +63,7 @@ final class Class47
 					int i_9_ = 0;
 					if (bool)
 					{
-						aClass39_3.method247(i_4_ * 520, -101);
+						aClass39_3.method247(i_4_ * 520);
 						int i_10_;
 						int i_11_;
 						int i_12_;
@@ -80,7 +71,7 @@ final class Class47
 						{
 							try
 							{
-								aClass39_3.method253((byte) 115, 0, 8, Class24.aByteArray14);
+								aClass39_3.method253(0, 8, Class24.aByteArray14);
 							}
 							catch (final EOFException eofexception)
 							{
@@ -96,7 +87,7 @@ final class Class47
 						{
 							try
 							{
-								aClass39_3.method253((byte) 102, 0, 10, Class24.aByteArray14);
+								aClass39_3.method253(0, 10, Class24.aByteArray14);
 							}
 							catch (final EOFException eofexception)
 							{
@@ -115,7 +106,7 @@ final class Class47
 							final boolean bool_13_ = false;
 							return bool_13_;
 						}
-						if ((0 > i_9_) || (i_9_ > (aClass39_3.method249(false) / 520L)))
+						if ((0 > i_9_) || (i_9_ > (aClass39_3.method249() / 520L)))
 						{
 							final boolean bool_14_ = false;
 							return bool_14_;
@@ -123,7 +114,7 @@ final class Class47
 					}
 					if (i_9_ == 0)
 					{
-						i_9_ = (int) ((aClass39_3.method249(false) + 519L) / 520L);
+						i_9_ = (int) ((aClass39_3.method249() + 519L) / 520L);
 						bool = false;
 						if (i_9_ == 0)
 						{
@@ -150,14 +141,14 @@ final class Class47
 						Class24.aByteArray14[3] = (byte) i;
 						Class24.aByteArray14[2] = (byte) (i >> 8);
 						Class24.aByteArray14[4] = (byte) (i_8_ >> 8);
-						aClass39_3.method247(i_4_ * 520, -124);
-						aClass39_3.method248(Class24.aByteArray14, 10, 104, 0);
+						aClass39_3.method247(i_4_ * 520);
+						aClass39_3.method248(Class24.aByteArray14, 10, 0);
 						int i_15_ = i_1_ + -i_7_;
 						if (510 < i_15_)
 						{
 							i_15_ = 510;
 						}
-						aClass39_3.method248(is, i_15_, -112, i_7_);
+						aClass39_3.method248(is, i_15_, i_7_);
 						i_7_ += i_15_;
 					}
 					else
@@ -170,14 +161,14 @@ final class Class47
 						Class24.aByteArray14[3] = (byte) i_8_;
 						Class24.aByteArray14[2] = (byte) (i_8_ >> 8);
 						Class24.aByteArray14[1] = (byte) i;
-						aClass39_3.method247(i_4_ * 520, -112);
-						aClass39_3.method248(Class24.aByteArray14, 8, 113, 0);
+						aClass39_3.method247(i_4_ * 520);
+						aClass39_3.method248(Class24.aByteArray14, 8, 0);
 						int i_16_ = i_1_ + -i_7_;
 						if (512 < i_16_)
 						{
 							i_16_ = 512;
 						}
-						aClass39_3.method248(is, i_16_, 49, i_7_);
+						aClass39_3.method248(is, i_16_, i_7_);
 						i_7_ += i_16_;
 					}
 					i_4_ = i_9_;
@@ -194,19 +185,18 @@ final class Class47
 		}
 	}
 
-	boolean method366(final byte[] is, final int i, final byte i_18_, final int i_19_)
+	boolean method366(final byte[] is, final int i, final int i_19_)
 	{
-		anInt571++;
 		synchronized (aClass39_3)
 		{
 			if ((0 > i) || (i > anInt574))
 			{
 				throw new IllegalArgumentException();
 			}
-			boolean bool = method365(is, true, i_19_, (byte) -19, i);
+			boolean bool = method365(is, true, i_19_, i);
 			if (!bool)
 			{
-				bool = method365(is, false, i_19_, (byte) -112, i);
+				bool = method365(is, false, i_19_, i);
 			}
 			final boolean bool_20_ = bool;
 			return bool_20_;
@@ -416,7 +406,7 @@ final class Class47
 		}
 	}
 
-	byte[] method368(final byte i, final int i_42_)
+	byte[] method368(final int i_42_)
 	{
 		anInt573++;
 		synchronized (aClass39_3)
@@ -424,13 +414,13 @@ final class Class47
 			byte[] is;
 			try
 			{
-				if (aClass39_4.method249(false) < (i_42_ * 6) - -6)
+				if (aClass39_4.method249() < (i_42_ * 6) - -6)
 				{
 					final byte[] is_43_ = null;
 					return is_43_;
 				}
-				aClass39_4.method247(i_42_ * 6, -90);
-				aClass39_4.method253((byte) 109, 0, 6, Class24.aByteArray14);
+				aClass39_4.method247(i_42_ * 6);
+				aClass39_4.method253(0, 6, Class24.aByteArray14);
 				final int i_44_ = ((Class24.aByteArray14[2] & 0xff) + (0xff0000 & (Class24.aByteArray14[0] << 16))
 				        + ((Class24.aByteArray14[1] & 0xff) << 8));
 				int i_45_ = ((((Class24.aByteArray14[3] << 16) & 0xff0000) - -((Class24.aByteArray14[4] & 0xff) << 8))
@@ -440,7 +430,7 @@ final class Class47
 					final byte[] is_46_ = null;
 					return is_46_;
 				}
-				if ((0 >= i_45_) || ((aClass39_3.method249(false) / 520L) < i_45_))
+				if ((0 >= i_45_) || ((aClass39_3.method249() / 520L) < i_45_))
 				{
 					final byte[] is_47_ = null;
 					return is_47_;
@@ -455,7 +445,7 @@ final class Class47
 						final byte[] is_51_ = null;
 						return is_51_;
 					}
-					aClass39_3.method247(i_45_ * 520, -115);
+					aClass39_3.method247(i_45_ * 520);
 					int i_52_ = -i_49_ + i_44_;
 					int i_53_;
 					int i_54_;
@@ -469,7 +459,7 @@ final class Class47
 						{
 							i_52_ = 510;
 						}
-						aClass39_3.method253((byte) 108, 0, i_53_ + i_52_, Class24.aByteArray14);
+						aClass39_3.method253(0, i_53_ + i_52_, Class24.aByteArray14);
 						i_54_ = (((0xff & Class24.aByteArray14[7]) << 8)
 						        + (((0xff & Class24.aByteArray14[6]) << 16) - -(0xff & Class24.aByteArray14[8])));
 						i_57_ = 0xff & Class24.aByteArray14[9];
@@ -485,7 +475,7 @@ final class Class47
 						{
 							i_52_ = 512;
 						}
-						aClass39_3.method253((byte) -41, 0, i_52_ + i_53_, Class24.aByteArray14);
+						aClass39_3.method253(0, i_52_ + i_53_, Class24.aByteArray14);
 						i_54_ = (((Class24.aByteArray14[5] & 0xff) << 8) + (Class24.aByteArray14[6] & 0xff)
 						        + (0xff0000 & (Class24.aByteArray14[4] << 16)));
 						i_55_ = (((Class24.aByteArray14[2] << 8) & 0xff00) - -(0xff & Class24.aByteArray14[3]));
@@ -497,7 +487,7 @@ final class Class47
 						final byte[] is_58_ = null;
 						return is_58_;
 					}
-					if ((0 > i_54_) || ((aClass39_3.method249(false) / 520L) < i_54_))
+					if ((0 > i_54_) || ((aClass39_3.method249() / 520L) < i_54_))
 					{
 						final byte[] is_59_ = null;
 						return is_59_;
@@ -529,7 +519,6 @@ final class Class47
 	@Override
 	public String toString()
 	{
-		anInt572++;
 		return new StringBuilder().append("").append(anInt576).toString();
 	}
 

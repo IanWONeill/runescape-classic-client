@@ -5,38 +5,25 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
 
-final class Class16_Sub1 extends Class16 implements Runnable
+final class StreamClass extends PacketConstruction implements Runnable
 {
-	static int anInt594;
 	private final Socket aSocket1;
 	private int anInt595;
-	static int anInt596;
 	private byte[] aByteArray21;
 	private boolean aBool30;
-	static int[] anIntArray139;
-	static String[] aStringArray35;
 	private boolean aBool31 = true;
 	private final OutputStream anOutputStream1;
-	static int[] anIntArray140;
 	private int anInt597 = 0;
-	static int anInt598;
 	private final byte[] aByteArray22;
 	static byte[][] aByteArrayArray15 = new byte[1000][];
 	private final InputStream anInputStream1;
-	static int[] anIntArray141;
-	static int anInt599;
-	static int anInt600;
-	static byte[] aByteArray23;
+	static byte[] stringData;
 	static Class38 aClass38_7 = new Class38("LOCAL", "", "local", 4);
-	static int anInt601;
-	static int anInt602;
-	static int anInt603;
 
 	@Override
-	void method119(final byte i)
+	void closeStream()
 	{
-		super.method119(i);
-		anInt603++;
+		super.closeStream();
 		aBool30 = true;
 		try
 		{
@@ -68,7 +55,6 @@ final class Class16_Sub1 extends Class16 implements Runnable
 	@Override
 	public void run()
 	{
-		anInt596++;
 		while (!aBool31)
 		{
 			int i;
@@ -108,8 +94,8 @@ final class Class16_Sub1 extends Class16 implements Runnable
 				}
 				catch (final IOException ioexception)
 				{
-					this.aBool7 = true;
-					this.aString9 = new StringBuilder().append("Twriter:").append(ioexception).toString();
+					this.error = true;
+					this.errorText = new StringBuilder().append("Twriter:").append(ioexception).toString();
 				}
 				anInt595 = (i + anInt595) % 5000;
 				try
@@ -121,28 +107,22 @@ final class Class16_Sub1 extends Class16 implements Runnable
 				}
 				catch (final IOException ioexception)
 				{
-					this.aBool7 = true;
-					this.aString9 = new StringBuilder().append("Twriter:").append(ioexception).toString();
+					this.error = true;
+					this.errorText = new StringBuilder().append("Twriter:").append(ioexception).toString();
 				}
 			}
 		}
 	}
 
-	static int method381(final int i, final byte[] is, final byte i_1_)
+	static int method381(final int i, final byte[] is)
 	{
-		if (i_1_ <= 108)
-		{
-			method381(109, null, (byte) 99);
-		}
-		anInt602++;
 		return ((0xff & is[i - -3]) + ((is[i + 2] << 8) & 0xff00) + ((is[i + 1] & 0xff) << 16)
 		        + (~0xffffff & (is[i] << 24)));
 	}
 
 	@Override
-	int method123(final byte i) throws IOException
+	int inputStreamAvailable() throws IOException
 	{
-		anInt598++;
 		if (!aBool30 != true)
 		{
 			return 0;
@@ -151,16 +131,14 @@ final class Class16_Sub1 extends Class16 implements Runnable
 	}
 
 	@Override
-	void method127(final int i, final int i_2_, final byte[] is, final int i_3_) throws IOException
+	void readInputStream(final int length, final int offset, final byte[] data) throws IOException
 	{
-		anInt601++;
 		if (aBool30 == false)
 		{
-			int i_4_ = 0;
-			int i_5_;
-			for (/**/; i_4_ < i; i_4_ += i_5_)
+			int bytesRead;
+			for (int count = 0; count < length; count += bytesRead)
 			{
-				if ((i_5_ = anInputStream1.read(is, i_4_ + i_2_, -i_4_ + i)) <= 0)
+				if ((bytesRead = anInputStream1.read(data, count + offset, -count + length)) <= 0)
 				{
 					throw new IOException("EOF");
 				}
@@ -169,21 +147,19 @@ final class Class16_Sub1 extends Class16 implements Runnable
 	}
 
 	@Override
-	int method129(final int i) throws IOException
+	int readInputStream() throws IOException
 	{
-		anInt600++;
 		if (aBool30 != false)
 		{
 			return 0;
 		}
-		method127(1, 0, aByteArray22, 1230517990);
-		return 0xff & aByteArray22[0];
+		readInputStream(1, 0, aByteArray22);
+		return aByteArray22[0] & 0xff;
 	}
 
 	@Override
 	void method117(final int i, final int i_7_, final byte[] is, final int i_8_) throws IOException
 	{
-		anInt594++;
 		if (aBool30 != true)
 		{
 			if (aByteArray21 == null)
@@ -207,10 +183,8 @@ final class Class16_Sub1 extends Class16 implements Runnable
 	}
 
 	static void method382(int i, final int[] is, int i_11_, final int[] is_12_, final int i_13_, int i_14_, int i_15_,
-	        final int i_16_, int i_17_, int i_18_, final int i_19_, int i_20_, final int i_21_, int i_22_,
-	        final int i_23_)
+	        final int i_16_, int i_17_, int i_18_, final int i_19_, int i_20_, final int i_21_, int i_22_)
 	{
-		anInt599++;
 		if (i_19_ > 0)
 		{
 			int i_24_ = 0;
@@ -256,67 +230,67 @@ final class Class16_Sub1 extends Class16 implements Runnable
 				i = i_22_ + i;
 				if (16 <= i_26_)
 				{
-					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.method378(i_17_, 4032)] >>> i_29_);
+					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.bitwiseAnd(i_17_, 4032)] >>> i_29_);
 					i_15_ = i_28_ + i_15_;
 					i_17_ = i_27_ + i_17_;
-					is[i_20_++] = is_12_[(Class52.method378(4032, i_17_) + (i_15_ >> 6))] >>> i_29_;
+					is[i_20_++] = is_12_[(Class52.bitwiseAnd(4032, i_17_) + (i_15_ >> 6))] >>> i_29_;
 					i_17_ = i_27_ + i_17_;
 					i_15_ = i_28_ + i_15_;
-					is[i_20_++] = is_12_[(Class52.method378(4032, i_17_) + (i_15_ >> 6))] >>> i_29_;
+					is[i_20_++] = is_12_[(Class52.bitwiseAnd(4032, i_17_) + (i_15_ >> 6))] >>> i_29_;
 					i_17_ = i_27_ + i_17_;
 					i_15_ = i_28_ + i_15_;
-					is[i_20_++] = is_12_[(Class52.method378(i_17_, 4032) - -(i_15_ >> 6))] >>> i_29_;
+					is[i_20_++] = is_12_[(Class52.bitwiseAnd(i_17_, 4032) - -(i_15_ >> 6))] >>> i_29_;
 					i_17_ = i_27_ + i_17_;
 					i_15_ = i_28_ + i_15_;
 					i_15_ = (i_15_ & 0xfff) + (i & 0xc0000);
 					i_29_ = i >> 20;
-					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.method378(i_17_, 4032)] >>> i_29_);
+					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.bitwiseAnd(i_17_, 4032)] >>> i_29_);
 					i = i_22_ + i;
 					i_17_ = i_27_ + i_17_;
 					i_15_ = i_28_ + i_15_;
-					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.method378(4032, i_17_)] >>> i_29_);
+					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.bitwiseAnd(4032, i_17_)] >>> i_29_);
 					i_15_ = i_28_ + i_15_;
 					i_17_ = i_27_ + i_17_;
-					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.method378(4032, i_17_)] >>> i_29_);
+					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.bitwiseAnd(4032, i_17_)] >>> i_29_);
 					i_15_ = i_28_ + i_15_;
 					i_17_ = i_27_ + i_17_;
-					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.method378(4032, i_17_)] >>> i_29_);
+					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.bitwiseAnd(4032, i_17_)] >>> i_29_);
 					i_15_ = i_28_ + i_15_;
 					i_17_ = i_27_ + i_17_;
 					i_29_ = i >> 20;
 					i_15_ = (i_15_ & 0xfff) + (i & 0xc0000);
 					i = i_22_ + i;
-					is[i_20_++] = is_12_[(Class52.method378(i_17_, 4032) - -(i_15_ >> 6))] >>> i_29_;
+					is[i_20_++] = is_12_[(Class52.bitwiseAnd(i_17_, 4032) - -(i_15_ >> 6))] >>> i_29_;
 					i_15_ = i_28_ + i_15_;
 					i_17_ = i_27_ + i_17_;
-					is[i_20_++] = is_12_[(Class52.method378(4032, i_17_) - -(i_15_ >> 6))] >>> i_29_;
+					is[i_20_++] = is_12_[(Class52.bitwiseAnd(4032, i_17_) - -(i_15_ >> 6))] >>> i_29_;
 					i_17_ = i_27_ + i_17_;
 					i_15_ = i_28_ + i_15_;
-					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.method378(i_17_, 4032)] >>> i_29_);
+					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.bitwiseAnd(i_17_, 4032)] >>> i_29_);
 					i_15_ = i_28_ + i_15_;
 					i_17_ = i_27_ + i_17_;
-					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.method378(4032, i_17_)] >>> i_29_);
+					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.bitwiseAnd(4032, i_17_)] >>> i_29_);
 					i_15_ = i_28_ + i_15_;
 					i_17_ = i_27_ + i_17_;
 					i_15_ = (0xc0000 & i) + (i_15_ & 0xfff);
 					i_29_ = i >> 20;
-					is[i_20_++] = is_12_[(Class52.method378(4032, i_17_) + (i_15_ >> 6))] >>> i_29_;
+					is[i_20_++] = is_12_[(Class52.bitwiseAnd(4032, i_17_) + (i_15_ >> 6))] >>> i_29_;
 					i = i_22_ + i;
 					i_17_ = i_27_ + i_17_;
 					i_15_ = i_28_ + i_15_;
-					is[i_20_++] = is_12_[(Class52.method378(4032, i_17_) + (i_15_ >> 6))] >>> i_29_;
+					is[i_20_++] = is_12_[(Class52.bitwiseAnd(4032, i_17_) + (i_15_ >> 6))] >>> i_29_;
 					i_15_ = i_28_ + i_15_;
 					i_17_ = i_27_ + i_17_;
-					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.method378(4032, i_17_)] >>> i_29_);
+					is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.bitwiseAnd(4032, i_17_)] >>> i_29_);
 					i_17_ = i_27_ + i_17_;
 					i_15_ = i_28_ + i_15_;
-					is[i_20_++] = is_12_[(Class52.method378(4032, i_17_) - -(i_15_ >> 6))] >>> i_29_;
+					is[i_20_++] = is_12_[(Class52.bitwiseAnd(4032, i_17_) - -(i_15_ >> 6))] >>> i_29_;
 				}
 				else
 				{
 					for (int i_30_ = 0; i_30_ < i_26_; i_30_++)
 					{
-						is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.method378(4032, i_17_)] >>> i_29_);
+						is[i_20_++] = (is_12_[(i_15_ >> 6) + Class52.bitwiseAnd(4032, i_17_)] >>> i_29_);
 						i_17_ = i_27_ + i_17_;
 						i_15_ = i_28_ + i_15_;
 						if ((i_30_ & 0x3) == 3)
@@ -331,7 +305,7 @@ final class Class16_Sub1 extends Class16 implements Runnable
 		}
 	}
 
-	Class16_Sub1(final Socket socket, final Applet_Sub1 applet_sub1) throws IOException
+	StreamClass(final Socket socket, final GameWindow applet_sub1) throws IOException
 	{
 		aBool30 = false;
 		aByteArray22 = new byte[1];
@@ -340,6 +314,6 @@ final class Class16_Sub1 extends Class16 implements Runnable
 		anInputStream1 = socket.getInputStream();
 		anOutputStream1 = socket.getOutputStream();
 		aBool31 = false;
-		applet_sub1.method477((byte) -62, this);
+		applet_sub1.method477(this);
 	}
 }

@@ -7,15 +7,11 @@ import java.awt.image.IndexColorModel;
 final class Class33
 {
 	static int anInt368 = 0;
-	static int[] anIntArray84;
-	static int anInt369;
-	static int anInt370;
 
 	static Image method223(final Component component, final byte[] is, final byte i)
 	{
-		Class7.anInt60 = (is[15] * 256) + is[14];
+		Isaac.anInt60 = (is[15] * 256) + is[14];
 		IOException_Sub1.anInt672 = (is[13] * 256) - -is[12];
-		anInt369++;
 		final byte[] is_0_ = new byte[256];
 		final byte[] is_1_ = new byte[256];
 		final byte[] is_2_ = new byte[256];
@@ -25,14 +21,14 @@ final class Class33
 			is_1_[i_3_] = is[(i_3_ * 3) + 19];
 			is_2_[i_3_] = is[(i_3_ * 3) + 18];
 		}
-		Class41.aColorModel1 = new IndexColorModel(8, 256, is_0_, is_1_, is_2_);
+		Camera.aColorModel1 = new IndexColorModel(8, 256, is_0_, is_1_, is_2_);
 		if (i >= -110)
 		{
 			method223(null, null, (byte) 125);
 		}
-		final byte[] is_4_ = new byte[Class7.anInt60 * IOException_Sub1.anInt672];
+		final byte[] is_4_ = new byte[Isaac.anInt60 * IOException_Sub1.anInt672];
 		int i_5_ = 0;
-		for (int i_6_ = Class7.anInt60 - 1; 0 <= i_6_; i_6_--)
+		for (int i_6_ = Isaac.anInt60 - 1; 0 <= i_6_; i_6_--)
 		{
 			for (int i_7_ = 0; i_7_ < IOException_Sub1.anInt672; i_7_++)
 			{
@@ -40,19 +36,17 @@ final class Class33
 			}
 		}
 		final Image image = component.createImage(Class22.aClass36_1);
-		Class2.method4(117, is_4_);
+		Class2.method4(is_4_);
 		component.prepareImage(image, Class22.aClass36_1);
-		Class2.method4(119, is_4_);
+		Class2.method4(is_4_);
 		component.prepareImage(image, Class22.aClass36_1);
-		Class2.method4(123, is_4_);
+		Class2.method4(is_4_);
 		component.prepareImage(image, Class22.aClass36_1);
 		return image;
 	}
 
-	static int method224(final int i, final int i_8_, final byte i_9_, final CharSequence charsequence, final int i_10_,
-	        final byte[] is)
+	static int method224(final int i, final int i_8_, final CharSequence charsequence, final int i_10_, final byte[] is)
 	{
-		anInt370++;
 		final int i_11_ = -i + i_10_;
 		for (int i_12_ = 0; i_11_ > i_12_; i_12_++)
 		{

@@ -9,7 +9,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.Mixer;
 import javax.sound.sampled.SourceDataLine;
 
-final class Class37_Sub1 extends Class37
+final class Class37_Sub1 extends AudioUnknown
 {
 	private SourceDataLine aSourceDataLine1;
 	private byte[] aByteArray25;
@@ -19,14 +19,14 @@ final class Class37_Sub1 extends Class37
 	@Override
 	int method233()
 	{
-		return anInt630 - (aSourceDataLine1.available() >> (aBool21 ? 2 : 1));
+		return anInt630 - (aSourceDataLine1.available() >> (maybe_isStereo ? 2 : 1));
 	}
 
 	@Override
 	void method240()
 	{
 		int i = 256;
-		if (aBool21)
+		if (maybe_isStereo)
 		{
 			i <<= 1;
 		}
@@ -59,7 +59,7 @@ final class Class37_Sub1 extends Class37
 		try
 		{
 			final DataLine.Info info = new DataLine.Info(javax.sound.sampled.SourceDataLine.class, anAudioFormat1,
-			        i << (aBool21 ? 2 : 1));
+			        i << (maybe_isStereo ? 2 : 1));
 			aSourceDataLine1 = (SourceDataLine) AudioSystem.getLine(info);
 			aSourceDataLine1.open();
 			aSourceDataLine1.start();
@@ -67,9 +67,9 @@ final class Class37_Sub1 extends Class37
 		}
 		catch (final LineUnavailableException lineunavailableexception)
 		{
-			if (Class38.method245(i, (byte) 125) != 1)
+			if (Class38.nearestPowerOfTwo(i) != 1)
 			{
-				method244(Class27.method177(i, 21657));
+				method244(Class27.method177(i));
 			}
 			else
 			{
@@ -100,7 +100,7 @@ final class Class37_Sub1 extends Class37
 				}
 			}
 		}
-		anAudioFormat1 = new AudioFormat(anInt386, 16, aBool21 ? 2 : 1, true, false);
-		aByteArray25 = new byte[256 << (aBool21 ? 2 : 1)];
+		anAudioFormat1 = new AudioFormat(sampleRate, 16, maybe_isStereo ? 2 : 1, true, false);
+		aByteArray25 = new byte[256 << (maybe_isStereo ? 2 : 1)];
 	}
 }

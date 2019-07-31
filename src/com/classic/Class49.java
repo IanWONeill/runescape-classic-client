@@ -6,7 +6,7 @@ import java.util.Hashtable;
 
 public class Class49
 {
-	private static Hashtable aHashtable1;
+	private static Hashtable<String, File> aHashtable1;
 	private static String aString19;
 	private static boolean aBool29 = false;
 	private static int anInt580;
@@ -55,7 +55,7 @@ public class Class49
 		{
 			throw new RuntimeException("");
 		}
-		final File file = (File) aHashtable1.get(string);
+		final File file = aHashtable1.get(string);
 		if (file != null)
 		{
 			return file;
@@ -132,6 +132,6 @@ public class Class49
 
 	static
 	{
-		aHashtable1 = new Hashtable(16);
+		aHashtable1 = new Hashtable<String, File>(16);
 	}
 }

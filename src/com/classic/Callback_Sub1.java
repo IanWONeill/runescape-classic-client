@@ -49,7 +49,7 @@ final class Callback_Sub1 extends Callback
 		}
 	}
 
-	void method419(final int i, final byte i_1_, final int i_2_)
+	void method419(final int i, final int i_2_)
 	{
 		User32.SetCursorPos(i, i_2_);
 	}

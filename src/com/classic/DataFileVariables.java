@@ -1,6 +1,6 @@
 package com.classic;
 
-final class Class19
+final class DataFileVariables
 {
 	byte aByte1;
 	byte[] aByteArray5 = new byte[18002];
@@ -30,7 +30,7 @@ final class Class19
 	int[][] anIntArrayArray8;
 	int[][] anIntArrayArray9;
 	static int anInt207;
-	static byte[][] aByteArrayArray11 = new byte[12][];
+	static byte[][] contentPackData = new byte[12][];
 	static int anInt208;
 	int anInt209;
 	int anInt210;
@@ -38,7 +38,7 @@ final class Class19
 	int anInt211;
 	int anInt212;
 
-	Class19()
+	DataFileVariables()
 	{
 		this.aByteArray6 = new byte[4096];
 		this.anInt198 = 0;
