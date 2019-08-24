@@ -8,7 +8,7 @@ import com.classic.Class2;
 import com.classic.EntityHandler;
 
 public class Dumper {
-	public static void dump()
+	public static void Dump()
 	{
 		new File("dump\\defs\\mud235\\").mkdirs();
 		System.out.println("Dumping item definitions..");
