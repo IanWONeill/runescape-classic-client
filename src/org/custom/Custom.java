@@ -4,8 +4,8 @@ package org.custom;
 	NOTE: The idea with this class is to make it obvious
 	what is and what is not the original code.
 	
-	The original code is also gets compiled this way, keeping it up to date with identifier renaming,
-	and giving an error if code that is depended on is deleted. 
+	The original code is also compiled this way, keeping it up to date with identifier renaming,
+	and giving an error if code that is depended on is deleted.
 	
 	To get the original code you can just delete this class and fix the compile errors.
 */
