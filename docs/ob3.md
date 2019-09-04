@@ -31,9 +31,10 @@ Each element in the array corresponds to the number of indices (columns) for a g
 
 `FaceFrontTexture` `FaceBackTexture`
 
-When reading the values of these arrays, if the value is 32767 (2^15-1) then the value should be replaced with the constant *12345678* which indicates that it is transparent.
-
 If the value is positive then the face will be textured otherwise the value represents a color.
+
+The value 32767 (2^15-1) is a special value which should be interpreted as being transparent.
+The game stores these values as integers and replaces this value (332767) with the constant *12345678*.
 
 ``
 FaceIndices
