@@ -31,6 +31,18 @@ The Data contained within a content pack file is a [Jagex Archive](./JagexArchiv
 
 #### content0_229aa476 - "Configuration"
 
+The [Jagex Archive](./JagexArchive.md) contains two uncompressed files.
+
+Index | Hash | Offset | Length
+----- | ---- | ------ | -------
+0 | 825f205e (string.dat) | 22 | 174875
+1 | 87be8881 (integer.dat) | 174897 | 62392
+
+Both files are read from when loading (item, object, npc, etc) definitions and is done so in a very specific order. See EntityHandler#load.
+
+As the names suggest, strings are read from string.dat and integers are read from intetger.dat
+The string.dat file contains contiguous null-terminated strings.
+
 #### content1_1c9fa8c3 - "people and monsters"
 
 #### content2_2fdddb3c - "member graphics"
