@@ -27,6 +27,8 @@ File offset | Description
 
 The decompressed size and compressed size may be the same to indicate that no compression is used.
 
+The Data contained within a content pack file is a [Jagex Archive](./JagexArchive.md), and each file within the archive is optionally compressed.
+
 #### content0_229aa476 - "Configuration"
 
 #### content1_1c9fa8c3 - "people and monsters"
@@ -35,7 +37,7 @@ The decompressed size and compressed size may be the same to indicate that no co
 
 #### content3_5181c9f5 - "Jagex library"
 
-This file is a [Jagex Archive](./JagexArchive.md) containing a single uncompressed [.tga](https://en.wikipedia.org/wiki/Truevision_TGA) file.
+The [Jagex Archive](./JagexArchive.md) contains a single uncompressed [.tga](https://en.wikipedia.org/wiki/Truevision_TGA) file.
 
 Index | Hash | Offset | Length
 ----- | ---- | ------ | -------
@@ -47,17 +49,21 @@ Index | Hash | Offset | Length
 
 #### [content6_ffffffffe997514b](./content6_ffffffffe997514b.md) - "landscape"
 
-This file is a [Jagex Archive](./JagexArchive.md) containing landscape data in .hei files.
+The [Jagex Archive](./JagexArchive.md) contains landscape data in .hei files.
+
+For a complete listing of all files in this archive, see [content6_ffffffffe997514b](./content6_ffffffffe997514b.md).
 
 #### [content7_3fc5d9e3](./content7_3fc5d9e3.md) - "members landscape"
 
-This file is a [Jagex Archive](./JagexArchive.md) containing landscape data in .hei files.
+The [Jagex Archive](./JagexArchive.md) contains landscape data in .hei files.
+
+For a complete listing of all files in this archive, see [content7_3fc5d9e3](./content7_3fc5d9e3.md).
 
 #### content8_ffffffffb03e2a0c - "2d graphics"
 
 #### [content9_ffffffffe0e19e2c](./content9_ffffffffe0e19e2c.md) - "3d models"
 
-This file is a [Jagex Archive](./JagexArchive.md) containing model data in .ob3 files.
+The [Jagex Archive](./JagexArchive.md) contains model data in .ob3 files.
 
 There are a couple interesting things of note about this content pack.
 - There are 25 unnamed/unused files in this archive.
@@ -67,6 +73,8 @@ For a complete listing of all files in this archive, including those that are un
 
 #### [content10_ffffffffa95e7195](./content10_ffffffffa95e7195.md) - "Sound effects"
 
-This file is a [Jagex Archive](./JagexArchive.md) containing raw audio data in [.pcm](https://en.wikipedia.org/wiki/Pulse-code_modulation) files.
+The [Jagex Archive](./JagexArchive.md) contains raw audio data in [.pcm](https://en.wikipedia.org/wiki/Pulse-code_modulation) files.
+
+For a complete listing of all files in this archive, see [content10_ffffffffa95e7195](./content10_ffffffffa95e7195.md).
 
 #### content11_7d5437c5 - "Textures"
