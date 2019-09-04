@@ -1,5 +1,3 @@
-Note: Work in progress.
-
 The command ids are encoded using an [Isaac cipher](https://en.wikipedia.org/wiki/ISAAC_(cipher)). See: `com.classic.Isaac`.
 
 For larger packets, those with a length (minus first 2-bytes) of 160 or greater, the structure is as follows.
