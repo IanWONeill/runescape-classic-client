@@ -1,4 +1,4 @@
-This file is a [JagexArchive.md](./JagexArchive.md) containing landscape data in .hei files.
+This file is a [Jagex Archive](./JagexArchive.md) containing landscape data in .hei files.
 
 The following is a list of all the entries in the archive. There are no compressed entries.
 
