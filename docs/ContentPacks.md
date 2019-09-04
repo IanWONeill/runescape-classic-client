@@ -40,7 +40,7 @@ Index | Hash | Offset | Length
 
 Both files are read from when loading entity definitions and is done so in a very specific order. See EntityHandler#load.
 
-As the names suggest, strings are read from string.dat and integers are read from intetger.dat
+As the names suggest, strings are read from string.dat and integers are read from integer.dat
 The string.dat file contains contiguous null-terminated strings.
 
 #### content1_1c9fa8c3 - "people and monsters"
