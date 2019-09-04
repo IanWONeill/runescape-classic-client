@@ -75,7 +75,7 @@ For a complete listing of all files in this archive, see [content7_3fc5d9e3](./c
 
 #### [content9_ffffffffe0e19e2c](./content9_ffffffffe0e19e2c.md) - "3d models"
 
-The [Jagex Archive](./JagexArchive.md) contains model data in .ob3 files.
+The [Jagex Archive](./JagexArchive.md) contains model data in [.ob3](./ob3.md) files.
 
 There are a couple interesting things of note about this content pack.
 - There are 25 unnamed/unused files in this archive.
