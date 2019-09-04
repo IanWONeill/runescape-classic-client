@@ -1,8 +1,6 @@
 An archive file consists of an Archive structure which is
 immediately followed a concatenation of the (optionally compressed) contents of each file in the archive.
 
-The archive format is used for 3d models (content9_ffffffffe0e19e2c) and sound effects (content10_ffffffffa95e7195).
-
 ```
 Archive
 {
@@ -22,7 +20,7 @@ file_entry
 
 ```Hash```
 
-The string is first converted to uppercase and then iterated over to compute the hash.
+The string is first converted to uppercase and then iterated over like so to compute the hash.
 ```
 for(int i = 0; i < string.length(); i++)
   Hash = Hash*61 + (string.charAt(i) - 32)
