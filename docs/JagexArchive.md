@@ -1,5 +1,5 @@
 An archive file consists of an Archive structure which is
-immediately followed a concatenation of the (optionally compressed) contents of each file in the archive.
+immediately followed by a concatenation of the (optionally compressed) contents of each file in the archive.
 
 ```
 Archive
