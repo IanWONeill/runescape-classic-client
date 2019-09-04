@@ -1,15 +1,3 @@
-Note: Work in progress.
-
-Content pack files have the following structure.
-
-File offset | Description
------------ | --------------
-| 0 | Decompressed size of Data
-| 3 | Compressed size of Data
-| 6 | Data
-
-The decompressed size and compressed size may be the same to indicate that no compression is used.
-
 #### contentcrcs
 
 File offset | Description
@@ -28,6 +16,16 @@ File offset | Description
 | 44 | CRC32 of content pack #11
 | 48 | CRC32 of previous 48-bytes
 | 52 | Unknown 6-bytes (all zeroes)
+
+Content pack files have the following structure.
+
+File offset | Description
+----------- | --------------
+| 0 | Decompressed size of Data
+| 3 | Compressed size of Data
+| 6 | Data
+
+The decompressed size and compressed size may be the same to indicate that no compression is used.
 
 #### content0_229aa476 - "Configuration"
 
