@@ -1,5 +1,15 @@
 Note: Work in progress.
 
+Content pack files have the following structure.
+
+File offset | Description
+----------- | --------------
+| 0 | Decompressed size of Data
+| 3 | Compressed size of Data
+| 6 | Data
+
+The decompressed size and compressed size may be the same to indicate that no compression is used.
+
 #### contentcrcs
 
 File offset | Description
@@ -26,6 +36,12 @@ File offset | Description
 #### content2_2fdddb3c - "member graphics"
 
 #### content3_5181c9f5 - "Jagex library"
+
+This file is a [JagexArchive.md](./JagexArchive.md) containing a single uncompressed [.tga](https://en.wikipedia.org/wiki/Truevision_TGA) file.
+
+Index | Hash | Offset | Length
+----- | ---- | ------ | -------
+0 | 97899353 (logo.tga) | 12 | 25192
 
 #### content4_ffffffffaaca2b0d - "map"
 
