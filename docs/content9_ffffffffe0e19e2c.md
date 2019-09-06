@@ -1,4 +1,4 @@
-This file is a [Jagex Archive](./JagexArchive.md) containing model data in .ob3 files.
+This file is a [Jagex Archive](./JagexArchive.md) containing model data in [.ob3](./ob3.md) files.
 
 Interestingly, there are 25 unnamed/unused files in this archive.
 
